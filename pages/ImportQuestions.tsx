@@ -452,6 +452,26 @@ export const ImportQuestions: React.FC = () => {
                                     </div>
                                 </div>
 
+                                {/* Slider para número de questões - só aparece no modo "Criar Questões" */}
+                                {fileSourceType === 'study' && (
+                                    <div className="space-y-3">
+                                        <div className="flex items-center justify-between">
+                                            <label className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em]">Alvo de Itens</label>
+                                            <div className="bg-primary/10 text-primary px-3 py-1.5 rounded-xl font-black text-lg min-w-[50px] text-center">
+                                                {totalQuestionsTarget}
+                                            </div>
+                                        </div>
+                                        <input 
+                                            type="range" 
+                                            min="1" 
+                                            max="30" 
+                                            value={totalQuestionsTarget}
+                                            onChange={(e) => setTotalQuestionsTarget(Number(e.target.value))}
+                                            className="w-full h-2 bg-slate-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-primary"
+                                        />
+                                    </div>
+                                )}
+
                                 <div className="space-y-3">
                                     <label className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-1.5">
                                         <Sparkles className="h-3 w-3" /> Instruções adicionais para IA
