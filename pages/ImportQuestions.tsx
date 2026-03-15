@@ -7,9 +7,9 @@ import {
   Brain, MessageSquare, ListChecks, Database,
   Settings2, Activity, Terminal, Layers, ImagePlus, Trash2,
   CheckCircle2, AlertCircle, Zap, Play, AlertTriangle, Minimize2,
-  Maximize2
+  Maximize2, FileType
 } from 'lucide-react';
-import { generateQuestionsFromPrompt } from '../services/ai';
+import { generateQuestionsFromPrompt, processFileQuestions } from '../services/ai';
 import { questionProcessor } from '../services/questionProcessor'; 
 import { AIImportedQuestion, Difficulty, Question } from '../types';
 import { useAuthStore } from '../store/useAuthStore';
@@ -36,7 +36,7 @@ export const ImportQuestions: React.FC = () => {
       isMinimized, maximize, minimize, clearAll, addResults, updateResult, removeResult, finishProcess
   } = useImportStore();
 
-  const [activeTab, setActiveTab] = useState<'file' | 'chat' | 'manual'>('file');
+  const [activeTab, setActiveTab] = useState<'file' | 'neurochat' | 'rawtext' | 'manual'>('file');
   const [targetBankName, setTargetBankName] = useState('Novo Banco');
   const [existingBanks, setExistingBanks] = useState<string[]>([]);
   const [isCreatingNewBank, setIsCreatingNewBank] = useState(true);
@@ -55,6 +55,35 @@ export const ImportQuestions: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number | null>(null);
 
   const [forceReviewMode, setForceReviewMode] = useState(false);
+
+  // NeuroChat states
+  const [chatInput, setChatInput] = useState('');
+  const [isChatLoading, setIsChatLoading] = useState(false);
+
+  // Raw Text states
+  const [rawText, setRawText] = useState('');
+  const [rawTextQuestionsTarget, setRawTextQuestionsTarget] = useState<number>(10);
+  const [isRawTextLoading, setIsRawTextLoading] = useState(false);
+
+  // Manual form states
+  const [manualData, setManualData] = useState({ 
+    category: '', 
+    subcategory: '', 
+    difficulty: 'Médio' as Difficulty, 
+    statement: '', 
+    explanation: '',
+    wrongExplanations: ''
+  });
+  const [alternatives, setAlternatives] = useState([
+    { id: '1', text: '', is_correct: true },
+    { id: '2', text: '', is_correct: false },
+    { id: '3', text: '', is_correct: false },
+    { id: '4', text: '', is_correct: false },
+    { id: '5', text: '', is_correct: false },
+  ]);
+  const [manualInputImage, setManualInputImage] = useState<File | null>(null);
+  const [manualInputPreview, setManualInputPreview] = useState('');
+  const manualInputFileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
       const loadBanks = async () => {
@@ -76,7 +105,6 @@ export const ImportQuestions: React.FC = () => {
     setIsUploading(true); 
     setForceReviewMode(false);
     
-    // Pequeno delay para garantir que a UI de loader apareça antes do processamento intensivo
     setTimeout(async () => {
         try {
             await questionProcessor.processPDF(file, {
@@ -95,6 +123,117 @@ export const ImportQuestions: React.FC = () => {
       clearAll();
       setIsUploading(false);
       setForceReviewMode(false);
+  };
+
+  // NeuroChat - Generate questions from prompt
+  const handleNeuroChatGenerate = async () => {
+    if (!chatInput.trim() || isChatLoading) return;
+    setIsChatLoading(true);
+    try {
+      const questions = await generateQuestionsFromPrompt(chatInput);
+      if (questions && questions.length > 0) {
+        addResults(questions);
+        setChatInput('');
+        setForceReviewMode(true);
+      } else {
+        alert('Nenhuma questão foi gerada. Tente novamente com um tema diferente.');
+      }
+    } catch (e: any) {
+      alert('Erro ao gerar questões: ' + (e.message || 'Erro desconhecido'));
+    } finally {
+      setIsChatLoading(false);
+    }
+  };
+
+  // Raw Text - Generate questions from raw text
+  const handleRawTextGenerate = async () => {
+    if (!rawText.trim() || isRawTextLoading) return;
+    setIsRawTextLoading(true);
+    try {
+      const questions = await processFileQuestions(
+        rawText, 
+        '', 
+        undefined, 
+        [], 
+        rawTextQuestionsTarget, 
+        'create', 
+        'study'
+      );
+      if (questions && questions.length > 0) {
+        addResults(questions);
+        setRawText('');
+        setForceReviewMode(true);
+      } else {
+        alert('Nenhuma questão foi gerada. Tente com mais conteúdo.');
+      }
+    } catch (e: any) {
+      alert('Erro ao processar texto: ' + (e.message || 'Erro desconhecido'));
+    } finally {
+      setIsRawTextLoading(false);
+    }
+  };
+
+  // Manual form save
+  const handleManualSave = async () => {
+    if (!user || !manualData.statement.trim()) {
+      alert('Preencha pelo menos o enunciado da questão.');
+      return;
+    }
+    
+    const filledAlternatives = alternatives.filter(a => a.text.trim());
+    if (filledAlternatives.length < 2) {
+      alert('Preencha pelo menos 2 alternativas.');
+      return;
+    }
+
+    const correctAlt = alternatives.find(a => a.is_correct);
+    if (!correctAlt || !correctAlt.text.trim()) {
+      alert('Selecione uma alternativa correta e preencha seu texto.');
+      return;
+    }
+
+    setIsUploading(true);
+    try {
+      let imageUrl = '';
+      if (manualInputImage) {
+        imageUrl = await storageService.uploadImage(manualInputImage, 'questions');
+      }
+
+      const correctIndex = alternatives.findIndex(a => a.is_correct);
+      const gabarito = String.fromCharCode(65 + correctIndex);
+
+      const newQuestion: AIImportedQuestion = {
+        enunciado: manualData.statement,
+        alternativas: filledAlternatives.map(a => a.text),
+        gabarito: gabarito,
+        comentario: manualData.explanation,
+        categoria: manualData.category || 'Geral',
+        subcategoria: manualData.subcategory,
+        dificuldade: manualData.difficulty,
+        tags: [],
+        imagem: imageUrl || undefined
+      };
+
+      addResults([newQuestion]);
+      
+      // Reset form
+      setManualData({ category: '', subcategory: '', difficulty: 'Médio', statement: '', explanation: '', wrongExplanations: '' });
+      setAlternatives([
+        { id: '1', text: '', is_correct: true },
+        { id: '2', text: '', is_correct: false },
+        { id: '3', text: '', is_correct: false },
+        { id: '4', text: '', is_correct: false },
+        { id: '5', text: '', is_correct: false },
+      ]);
+      setManualInputImage(null);
+      setManualInputPreview('');
+      
+      setForceReviewMode(true);
+    } catch (e: any) {
+      alert('Erro ao adicionar questão: ' + (e.message || 'Erro desconhecido'));
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   const handleSaveToDatabase = async () => {
@@ -153,7 +292,7 @@ export const ImportQuestions: React.FC = () => {
   const isReviewing = results.length > 0 && (!isProcessing || forceReviewMode);
 
   return (
-    <Layout title="Importação Rápida">
+    <Layout title="Gerador de Questões">
       <div className="flex flex-col space-y-3 h-full overflow-hidden max-w-full">
         
         <input type="file" ref={manualImageInputRef} className="hidden" accept="image/*" onChange={(e) => {
@@ -169,9 +308,41 @@ export const ImportQuestions: React.FC = () => {
             }
         }} />
 
+        <input type="file" ref={manualInputFileRef} className="hidden" accept="image/*" onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) {
+                setManualInputImage(f);
+                setManualInputPreview(URL.createObjectURL(f));
+            }
+        }} />
+
+        {/* Tab Navigation - Only show when not reviewing */}
         {!isReviewing && !isProcessing && !isUploading && (
             <div className="flex bg-slate-100 dark:bg-zinc-950 p-1 rounded-xl border border-slate-200 dark:border-zinc-900 w-full md:w-fit shrink-0 overflow-x-auto no-scrollbar gap-1">
-                <button onClick={() => setActiveTab('file')} className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap flex items-center justify-center ${activeTab === 'file' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}><FileUp className="inline h-3.5 w-3.5 mr-1.5" /> Arquivo</button>
+                <button 
+                  onClick={() => setActiveTab('file')} 
+                  className={`flex-1 md:flex-none px-4 md:px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap flex items-center justify-center gap-1.5 ${activeTab === 'file' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}
+                >
+                  <FileUp className="h-3.5 w-3.5" /> Arquivo
+                </button>
+                <button 
+                  onClick={() => setActiveTab('neurochat')} 
+                  className={`flex-1 md:flex-none px-4 md:px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap flex items-center justify-center gap-1.5 ${activeTab === 'neurochat' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}
+                >
+                  <Sparkles className="h-3.5 w-3.5" /> NeuroChat
+                </button>
+                <button 
+                  onClick={() => setActiveTab('rawtext')} 
+                  className={`flex-1 md:flex-none px-4 md:px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap flex items-center justify-center gap-1.5 ${activeTab === 'rawtext' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}
+                >
+                  <FileType className="h-3.5 w-3.5" /> Texto Bruto
+                </button>
+                <button 
+                  onClick={() => setActiveTab('manual')} 
+                  className={`flex-1 md:flex-none px-4 md:px-6 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap flex items-center justify-center gap-1.5 ${activeTab === 'manual' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}
+                >
+                  <Plus className="h-3.5 w-3.5" /> Manual
+                </button>
             </div>
         )}
 
@@ -223,7 +394,7 @@ export const ImportQuestions: React.FC = () => {
                                 <div className="absolute -left-2 top-4 w-5 h-5 bg-emerald-500 text-white rounded-md flex items-center justify-center text-[9px] font-black shadow-lg">#{i+1}</div>
                                 <div className="flex justify-between items-start ml-2">
                                     <div className="flex items-center gap-1.5">
-                                        <span className="text-[8px] font-black uppercase text-primary bg-primary/5 px-2 py-0.5 rounded border border-primary/10">{q.category || 'Geral'}</span>
+                                        <span className="text-[8px] font-black uppercase text-primary bg-primary/5 px-2 py-0.5 rounded border border-primary/10">{q.category || q.categoria || 'Geral'}</span>
                                         {needsManualImage && (
                                             <span className="text-[8px] font-black uppercase bg-red-500 text-white px-2 py-0.5 rounded flex items-center gap-1 animate-pulse">
                                                 <ImageIcon className="h-2.5 w-2.5" /> Anexo Necessário
@@ -262,25 +433,213 @@ export const ImportQuestions: React.FC = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full space-y-8 py-2 animate-in fade-in overflow-y-auto custom-scrollbar">
-                            <div onClick={() => fileInputRef.current?.click()} className="border-4 border-dashed border-slate-200 dark:border-zinc-800 rounded-[3rem] flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-primary/[0.02] transition-all bg-slate-50 dark:bg-black/20 group shadow-2xl p-8">
-                                <input type="file" ref={fileInputRef} className="hidden" onChange={(e) => setFile(e.target.files?.[0] || null)} />
-                                <div className="p-6 bg-white dark:bg-zinc-900 rounded-[2rem] shadow-xl group-hover:scale-110 transition-transform mb-4">{file ? <FileText className="h-12 w-12 text-primary" /> : <FileUp className="h-12 w-12 text-slate-300" />}</div>
-                                <h4 className="text-sm font-black uppercase text-slate-900 dark:text-white">{file ? file.name : 'Carregar Documento'}</h4>
-                                <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">Processamento Sequencial: Mantém a ordem exata do documento</p>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <>
+                          {/* ARQUIVO TAB */}
+                          {activeTab === 'file' && (
+                            <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full space-y-8 py-2 animate-in fade-in overflow-y-auto custom-scrollbar">
+                                <div onClick={() => fileInputRef.current?.click()} className="border-4 border-dashed border-slate-200 dark:border-zinc-800 rounded-[3rem] flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-primary/[0.02] transition-all bg-slate-50 dark:bg-black/20 group shadow-2xl p-8">
+                                    <input type="file" ref={fileInputRef} className="hidden" accept=".pdf,.docx,.txt" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+                                    <div className="p-6 bg-white dark:bg-zinc-900 rounded-[2rem] shadow-xl group-hover:scale-110 transition-transform mb-4">{file ? <FileText className="h-12 w-12 text-primary" /> : <FileUp className="h-12 w-12 text-slate-300" />}</div>
+                                    <h4 className="text-sm font-black uppercase text-slate-900 dark:text-white">{file ? file.name : 'Carregar Documento'}</h4>
+                                    <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">IA mapeará todas as figuras e justificativas automaticamente</p>
+                                </div>
+                                
                                 <div className="space-y-4">
                                     <label className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em]">Modo de Extração</label>
                                     <div className="flex bg-slate-100 dark:bg-zinc-900 p-1.5 rounded-2xl shadow-inner border border-slate-200 dark:border-zinc-800">
                                         <button onClick={() => setFileSourceType('exam')} className={`flex-1 py-3 rounded-xl text-[10px] font-black uppercase transition-all ${fileSourceType === 'exam' ? 'bg-slate-900 dark:bg-zinc-800 text-white shadow-xl' : 'text-slate-400 hover:text-slate-600'}`}>Extrair Prova</button>
-                                        <button onClick={() => setFileSourceType('study')} className={`flex-1 py-3 rounded-xl text-[10px] font-black uppercase transition-all ${fileSourceType === 'study' ? 'bg-primary text-white shadow-xl' : 'text-slate-400 hover:text-slate-600'}`}>Gerar de Estudo</button>
+                                        <button onClick={() => setFileSourceType('study')} className={`flex-1 py-3 rounded-xl text-[10px] font-black uppercase transition-all ${fileSourceType === 'study' ? 'bg-primary text-white shadow-xl' : 'text-slate-400 hover:text-slate-600'}`}>Criar Questões</button>
                                     </div>
                                 </div>
-                                {fileSourceType === 'study' && <div className="space-y-4"><div className="flex justify-between items-center"><label className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Alvo de Itens</label><span className="text-xl font-black text-primary bg-primary/10 px-4 py-1 rounded-lg">{totalQuestionsTarget}</span></div><input type="range" min="5" max="50" step="5" value={totalQuestionsTarget} onChange={(e) => setTotalQuestionsTarget(parseInt(e.target.value))} className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary" /></div>}
+
+                                <div className="space-y-3">
+                                    <label className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-1.5">
+                                        <Sparkles className="h-3 w-3" /> Instruções adicionais para IA
+                                    </label>
+                                    <textarea 
+                                        value={analysisPrompt}
+                                        onChange={(e) => setAnalysisPrompt(e.target.value)}
+                                        placeholder="Ex: Foque apenas nas questões de neurologia..."
+                                        className="w-full bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner min-h-[80px] resize-none"
+                                    />
+                                </div>
+
+                                <button onClick={handleProcessFile} disabled={!file || isUploading} className="w-full bg-primary hover:bg-emerald-700 text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all">
+                                    INICIAR EXTRAÇÃO IA
+                                </button>
                             </div>
-                            <button onClick={handleProcessFile} disabled={!file || isUploading} className="w-full bg-primary hover:bg-emerald-700 text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all">INICIAR EXTRAÇÃO IA</button>
-                        </div>
+                          )}
+
+                          {/* NEUROCHAT TAB */}
+                          {activeTab === 'neurochat' && (
+                            <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full py-2 animate-in fade-in overflow-y-auto custom-scrollbar">
+                                <div className="flex-1 flex flex-col items-center justify-center">
+                                    <div className="border-4 border-dashed border-slate-200 dark:border-zinc-800 rounded-[3rem] p-8 mb-8 bg-slate-50 dark:bg-black/20 w-full">
+                                        <div className="flex flex-col items-center text-center">
+                                            <div className="p-4 bg-white dark:bg-zinc-900 rounded-2xl shadow-lg mb-4">
+                                                <Bot className="h-10 w-10 text-primary" />
+                                            </div>
+                                            <h3 className="text-lg font-black uppercase text-slate-900 dark:text-white">NeuroChat Gerador</h3>
+                                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-2 max-w-md">
+                                                Descreva o tema e a IA projetará itens inéditos com explicações completas.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="w-full space-y-4">
+                                        <textarea 
+                                            value={chatInput}
+                                            onChange={(e) => setChatInput(e.target.value)}
+                                            placeholder="Ex: Crie 5 questões sobre neurite óptica e seu diferencial com em..."
+                                            className="w-full bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner min-h-[120px] resize-none"
+                                        />
+                                        <button 
+                                            onClick={handleNeuroChatGenerate} 
+                                            disabled={!chatInput.trim() || isChatLoading} 
+                                            className="w-full bg-primary hover:bg-emerald-700 text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all"
+                                        >
+                                            {isChatLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
+                                            Gerar Questões Agora
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                          )}
+
+                          {/* TEXTO BRUTO TAB */}
+                          {activeTab === 'rawtext' && (
+                            <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full py-2 animate-in fade-in overflow-y-auto custom-scrollbar">
+                                <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-2xl p-4 mb-6">
+                                    <div className="flex items-start gap-3">
+                                        <FileType className="h-5 w-5 text-blue-500 shrink-0 mt-0.5" />
+                                        <div>
+                                            <h4 className="text-xs font-black uppercase text-blue-600">Extração de Texto Bruto</h4>
+                                            <p className="text-[10px] text-blue-500 mt-1">Cole o conteúdo de um artigo ou resumo para que a IA o converta em questões.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="flex-1 space-y-6">
+                                    <textarea 
+                                        value={rawText}
+                                        onChange={(e) => setRawText(e.target.value)}
+                                        placeholder="Cole o texto aqui..."
+                                        className="w-full bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner min-h-[200px] resize-none flex-1"
+                                    />
+
+                                    <div className="bg-white dark:bg-zinc-900 border border-slate-100 dark:border-zinc-800 rounded-2xl p-4 flex items-center justify-between">
+                                        <span className="text-[10px] font-black uppercase text-slate-400">Qtd estimada de questões</span>
+                                        <select 
+                                            value={rawTextQuestionsTarget}
+                                            onChange={(e) => setRawTextQuestionsTarget(Number(e.target.value))}
+                                            className="bg-white dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-lg px-3 py-2 text-xs font-black"
+                                        >
+                                            <option value={5}>5</option>
+                                            <option value={10}>10</option>
+                                            <option value={15}>15</option>
+                                            <option value={20}>20</option>
+                                            <option value={30}>30</option>
+                                        </select>
+                                    </div>
+
+                                    <button 
+                                        onClick={handleRawTextGenerate} 
+                                        disabled={!rawText.trim() || isRawTextLoading} 
+                                        className="w-full bg-primary hover:bg-emerald-700 text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all"
+                                    >
+                                        {isRawTextLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Zap className="h-4 w-4" />}
+                                        Iniciar Extração
+                                    </button>
+                                </div>
+                            </div>
+                          )}
+
+                          {/* MANUAL TAB */}
+                          {activeTab === 'manual' && (
+                            <div className="flex-1 flex flex-col animate-in fade-in overflow-y-auto custom-scrollbar">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 flex-1">
+                                    {/* Left Column - Statement and Comment */}
+                                    <div className="space-y-6">
+                                        <div>
+                                            <label className="text-[9px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Enunciado da Questão</label>
+                                            <textarea 
+                                                value={manualData.statement} 
+                                                onChange={e => setManualData({...manualData, statement: e.target.value})} 
+                                                rows={6} 
+                                                placeholder="Digite o caso clínico..."
+                                                className="w-full bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner" 
+                                                required 
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="text-[9px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Comentário Técnico</label>
+                                            <textarea 
+                                                value={manualData.explanation} 
+                                                onChange={e => setManualData({...manualData, explanation: e.target.value})} 
+                                                rows={3} 
+                                                placeholder="Explicação para o gabarito..."
+                                                className="w-full bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner" 
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Right Column - Alternatives */}
+                                    <div className="space-y-4">
+                                        <label className="text-[9px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Alternativas</label>
+                                        <div className="space-y-3">
+                                            {alternatives.map((alt, idx) => (
+                                                <div key={alt.id} className="relative flex items-center gap-2">
+                                                    <span className={`w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs shrink-0 ${alt.is_correct ? 'bg-primary text-white shadow-md' : 'bg-slate-200 dark:bg-zinc-800 text-slate-500'}`}>
+                                                        {String.fromCharCode(65+idx)}
+                                                    </span>
+                                                    <input 
+                                                        type="text" 
+                                                        value={alt.text} 
+                                                        onChange={e => { 
+                                                            const n = [...alternatives]; 
+                                                            n[idx].text = e.target.value; 
+                                                            setAlternatives(n); 
+                                                        }} 
+                                                        className={`flex-1 px-4 py-3 rounded-xl border-2 text-[10px] font-bold ${alt.is_correct ? 'border-primary bg-primary/5' : 'border-slate-100 dark:border-zinc-800'}`} 
+                                                        placeholder={`Opção ${String.fromCharCode(65+idx)}...`} 
+                                                    />
+                                                    <button 
+                                                        type="button" 
+                                                        onClick={() => setAlternatives(alternatives.map((a, i) => ({ ...a, is_correct: i === idx })))} 
+                                                        className={`p-2 rounded-full ${alt.is_correct ? 'text-primary bg-primary/10' : 'text-slate-300 hover:text-primary'}`}
+                                                    >
+                                                        <CheckCircle2 className="h-5 w-5" />
+                                                    </button>
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <div className="mt-4">
+                                            <label className="text-[9px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Justificativas das incorretas (opcional)</label>
+                                            <textarea 
+                                                value={manualData.wrongExplanations} 
+                                                onChange={e => setManualData({...manualData, wrongExplanations: e.target.value})} 
+                                                rows={3} 
+                                                placeholder="Explicação para as opções falsas..."
+                                                className="w-full bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner" 
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="pt-6 mt-4 border-t border-slate-100 dark:border-zinc-900">
+                                    <button 
+                                        onClick={handleManualSave} 
+                                        disabled={isUploading || !manualData.statement.trim()} 
+                                        className="w-full bg-slate-900 dark:bg-white dark:text-black text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all"
+                                    >
+                                        {isUploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+                                        Adicionar à Lista de Revisão
+                                    </button>
+                                </div>
+                            </div>
+                          )}
+                        </>
                     )}
                 </div>
             </div>

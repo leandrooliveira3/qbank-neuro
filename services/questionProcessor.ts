@@ -3,9 +3,10 @@ import * as pdfjsLib from 'pdfjs-dist';
 import { useImportStore } from '../store/useImportStore';
 import mammoth from 'mammoth';
 
-if (typeof window !== 'undefined' && !pdfjsLib.GlobalWorkerOptions.workerSrc) {
-    const version = '5.4.530';
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
+if (typeof window !== 'undefined') {
+    // Usar a mesma versão do pdfjs-dist instalado no package.json
+    const version = pdfjsLib.version || '5.4.530';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${version}/pdf.worker.min.mjs`;
 }
 
 const MAX_RETRIES = 3;

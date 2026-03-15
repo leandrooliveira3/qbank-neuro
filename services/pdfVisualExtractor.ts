@@ -1,6 +1,12 @@
 
 import * as pdfjsLib from 'pdfjs-dist';
 
+// Configurar worker com versão dinâmica
+if (typeof window !== 'undefined') {
+    const version = pdfjsLib.version || '5.4.530';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${version}/pdf.worker.min.mjs`;
+}
+
 export type VisualElementType = "IMAGEM_CLINICA" | "TABELA" | "GRAFICO" | "ESQUEMA" | "DESCONHECIDO";
 
 export interface VisualElement {
