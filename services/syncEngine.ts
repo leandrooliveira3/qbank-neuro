@@ -78,19 +78,39 @@ class SyncEngine {
       if (this.tableBlacklist.has(table)) continue;
       try {
         const userCol = USER_COLUMN_MAP[table] || 'user_id';
-        let query = supabase.from(table).select('*');
-        if (userCol !== 'global') query = query.eq(userCol, userId);
         
-        const { data, error } = await query;
-        if (error) {
+        // Use pagination to bypass Supabase 1000 row limit
+        const allData: any[] = [];
+        const PAGE_SIZE = 1000;
+        let page = 0;
+        let hasMore = true;
+        
+        while (hasMore) {
+          let query = supabase.from(table).select('*').range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
+          if (userCol !== 'global') query = query.eq(userCol, userId);
+          
+          const { data, error } = await query;
+          
+          if (error) {
             // Se a tabela retornar 404, entra na blacklist desta sessão
             if (error.status === 404 || error.code === '42P01' || error.code === 'PGRST116') {
                 console.warn(`[Sync] Tabela ${table} não disponível no servidor. Ignorando.`);
                 this.tableBlacklist.add(table);
             }
+            hasMore = false;
             continue;
+          }
+          
+          if (data && data.length > 0) {
+            allData.push(...data);
+            hasMore = data.length === PAGE_SIZE; // Continue if we got a full page
+            page++;
+          } else {
+            hasMore = false;
+          }
         }
-        if (data) await localDB.bulkPut(table, data);
+        
+        if (allData.length > 0) await localDB.bulkPut(table, allData);
       } catch (e) {}
     }
   }

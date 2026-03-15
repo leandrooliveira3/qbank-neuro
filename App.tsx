@@ -20,6 +20,7 @@ import { Favorites } from './pages/Favorites';
 import { Summaries } from './pages/Summaries';
 import { Flashcards } from './pages/Flashcards';
 import { StudyFlashcards } from './pages/StudyFlashcards';
+import { ImportFlashcards } from './pages/ImportFlashcards';
 import { Settings } from './pages/Settings';
 import { Chat } from './pages/Chat';
 import { Revision } from './pages/Revision';
@@ -106,6 +107,7 @@ export default function App() {
         <Route path="/summaries" element={<PrivateRoute><Summaries /></PrivateRoute>} />
         <Route path="/flashcards" element={<PrivateRoute><Flashcards /></PrivateRoute>} />
         <Route path="/flashcards/study" element={<PrivateRoute><StudyFlashcards /></PrivateRoute>} />
+        <Route path="/flashcards/import" element={<PrivateRoute><ImportFlashcards /></PrivateRoute>} />
         <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
         <Route path="/community" element={<PrivateRoute><Comunidade /></PrivateRoute>} />
         <Route path="/residencia" element={<AdminRoute><ResidenciaPage /></AdminRoute>} />

@@ -232,7 +232,7 @@ export const Dashboard: React.FC = () => {
           
           if (friendIds.length === 0) return;
 
-          const { data: profiles } = await supabase.from('profiles').select('id, full_name, avatar_url, xp, rank, level').in('id', friendIds);
+          const { data: profiles } = await supabase.from('profiles').select('id, full_name, avatar_url, xp, rank, level').in('id', friendIds).is('deleted_at', null);
           if (!profiles) return;
 
           const pulseData: FriendActivity[] = profiles.map(p => ({ id: p.id, full_name: p.full_name, avatar_url: p.avatar_url, xp: p.xp || 0, rank: p.rank || 'Estudante', level: p.level || 1 }));

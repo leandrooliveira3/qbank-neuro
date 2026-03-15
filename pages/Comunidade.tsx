@@ -66,7 +66,7 @@ export const Comunidade: React.FC = () => {
     setFriendIdsSet(new Set(ids));
 
     if (ids.length > 0) {
-        const { data: profiles } = await supabase.from('profiles').select('*').in('id', ids);
+        const { data: profiles } = await supabase.from('profiles').select('*').in('id', ids).is('deleted_at', null);
         setFriends(profiles || []);
     } else {
         setFriends([]);
@@ -203,11 +203,37 @@ export const Comunidade: React.FC = () => {
       try {
           const targetTable = type;
           const userCol = type === 'questions' ? 'created_by' : 'user_id';
-          const { data } = await supabase.from(targetTable).select('bank_name').eq(userCol, selectedFriend.id);
           
-          if (data && data.length > 0) {
+          // Use pagination to get ALL items (bypass 1000 limit)
+          const allData: any[] = [];
+          const PAGE_SIZE = 1000;
+          let page = 0;
+          let hasMore = true;
+          
+          while (hasMore) {
+              const { data, error } = await supabase
+                  .from(targetTable)
+                  .select('bank_name')
+                  .eq(userCol, selectedFriend.id)
+                  .range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
+              
+              if (error) {
+                  hasMore = false;
+                  continue;
+              }
+              
+              if (data && data.length > 0) {
+                  allData.push(...data);
+                  hasMore = data.length === PAGE_SIZE;
+                  page++;
+              } else {
+                  hasMore = false;
+              }
+          }
+          
+          if (allData.length > 0) {
               const bankCounts: Record<string, number> = {};
-              data.forEach((item: any) => {
+              allData.forEach((item: any) => {
                   const bName = item.bank_name || (type === 'questions' ? 'Geral' : type === 'flashcards' ? 'Principal' : 'Meus Resumos');
                   bankCounts[bName] = (bankCounts[bName] || 0) + 1;
               });
@@ -236,14 +262,40 @@ export const Comunidade: React.FC = () => {
           const userCol = type === 'questions' ? 'created_by' : 'user_id';
           const defaultBankName = type === 'questions' ? 'Geral' : type === 'flashcards' ? 'Principal' : 'Meus Resumos';
           const banks = Array.from(selectedBanksToImport);
-          let query = supabase.from(targetTable).select('*').eq(userCol, selectedFriend.id);
-          const { data, error } = await query;
-          if (error) throw error;
-          const filteredData = data?.filter((item: any) => {
+          
+          // Use pagination to get ALL items (bypass 1000 limit)
+          const allData: any[] = [];
+          const PAGE_SIZE = 1000;
+          let page = 0;
+          let hasMore = true;
+          
+          while (hasMore) {
+              const { data, error } = await supabase
+                  .from(targetTable)
+                  .select('*')
+                  .eq(userCol, selectedFriend.id)
+                  .range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
+              
+              if (error) {
+                  if (page === 0) throw error;
+                  hasMore = false;
+                  continue;
+              }
+              
+              if (data && data.length > 0) {
+                  allData.push(...data);
+                  hasMore = data.length === PAGE_SIZE;
+                  page++;
+              } else {
+                  hasMore = false;
+              }
+          }
+          
+          const filteredData = allData.filter((item: any) => {
               const itemBank = item.bank_name || defaultBankName;
               return banks.includes(itemBank);
           });
-          if (!filteredData || filteredData.length === 0) {
+          if (filteredData.length === 0) {
               alert("Erro: Itens não encontrados.");
               return;
           }

@@ -6,7 +6,7 @@ import {
   Layers, Image as ImageIcon, Calendar, ArrowLeft,
   Filter, ImagePlus, Play, Zap, FilterX, XCircle,
   Scan, Undo2, CheckCircle2, Settings, Brain, Clock, GraduationCap,
-  ZoomIn, ZoomOut, Move, Shuffle, Folder, ChevronDown, ChevronRight, SortAsc
+  ZoomIn, ZoomOut, Move, Shuffle, Folder, ChevronDown, ChevronRight, SortAsc, Download
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../store/useAuthStore';
@@ -346,6 +346,7 @@ export const Flashcards: React.FC = () => {
                 <button onClick={() => navigate('/flashcards/study')} className="flex-1 md:flex-none bg-primary text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Play className="h-4 w-4" /> REVISAR</button>
                 <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'free' } })} className="flex-1 md:flex-none bg-white dark:bg-zinc-800 text-slate-700 dark:text-white border-2 border-slate-200 dark:border-zinc-700 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2"><Shuffle className="h-4 w-4 text-emerald-500" /> ESTUDO LIVRE</button>
                 <button onClick={() => { resetForm(); setMode('form'); }} className="flex-1 md:flex-none bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg flex items-center justify-center gap-2"><Plus className="h-4 w-4" /> NOVO</button>
+                <button onClick={() => navigate('/flashcards/import')} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Download className="h-4 w-4" /> IMPORTAR</button>
                 <button onClick={() => setMode('settings')} className="bg-slate-50 dark:bg-zinc-900 text-slate-400 p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800"><Settings className="h-5 w-5" /></button>
               </div>
             </div>
