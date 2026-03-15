@@ -82,9 +82,20 @@ export const Chat: React.FC = () => {
       }
     } catch (error: any) {
       console.error("Erro no chat:", error);
-      const errorMsg = error.message?.includes('429') 
-        ? "Muitas requisições simultâneas. Aguarde um instante e tente novamente."
-        : "Desculpe, tive um problema ao processar sua pergunta. Pode tentar novamente?";
+      
+      let errorMsg = "Desculpe, tive um problema ao processar sua pergunta. Pode tentar novamente?";
+      
+      if (error.message?.includes('429')) {
+        errorMsg = "Muitas requisições simultâneas. Aguarde um instante e tente novamente.";
+      } else if (error.message?.includes('Tempo limite')) {
+        errorMsg = "O servidor demorou muito para responder. Tente uma pergunta mais curta ou tente novamente.";
+      } else if (error.message?.includes('401') || error.message?.includes('403')) {
+        errorMsg = "Sessão expirada. Por favor, faça login novamente.";
+      } else if (error.message?.includes('Failed to fetch') || error.message?.includes('NetworkError')) {
+        errorMsg = "Erro de conexão. Verifique sua internet e tente novamente.";
+      } else if (error.message?.includes('500')) {
+        errorMsg = "Erro no servidor. Tente novamente em alguns instantes.";
+      }
         
       setMessages(prev => [...prev, {
         id: Date.now().toString(),

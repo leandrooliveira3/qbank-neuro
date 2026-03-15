@@ -140,44 +140,94 @@ export const extractLmeData = async (medicalRecord: string, diseaseType: string)
 
 export const createNeuroChat = (): Chat => {
   let chatHistory: { role: 'user' | 'model', parts: { text: string }[] }[] = [];
+  
   const sendMessage = async (params: { message: string }): Promise<{ text?: string }> => {
     const headers = await getAuthHeaders();
-    const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/neuro-chat`, {
-      method: 'POST', headers, body: JSON.stringify({ history: chatHistory, newMessage: params.message, stream: false }),
-    });
-    const data = await response.json();
-    chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text: data.text || '' }] });
-    return data;
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 60000);
+    
+    try {
+      const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/neuro-chat`, {
+        method: 'POST', 
+        headers, 
+        body: JSON.stringify({ history: chatHistory, newMessage: params.message, stream: false }),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Erro ${response.status}: ${errorText}`);
+      }
+      
+      const data = await response.json();
+      chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text: data.text || '' }] });
+      return data;
+    } catch (err: any) {
+      clearTimeout(timeoutId);
+      if (err.name === 'AbortError') {
+        throw new Error('Tempo limite excedido. Tente novamente.');
+      }
+      throw err;
+    }
   };
+  
   async function* sendMessageStream(params: { message: string }): AsyncGenerator<{ text?: string }> {
     const headers = await getAuthHeaders();
-    const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/neuro-chat`, {
-      method: 'POST', headers, body: JSON.stringify({ history: chatHistory, newMessage: params.message, stream: true }),
-    });
-    if (!response.ok || !response.body) throw new Error("Falha na stream");
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-    let accumulatedText = '';
-    let buffer = '';
-    while (true) {
-      const { value, done } = await reader.read();
-      if (done) break;
-      buffer += decoder.decode(value, { stream: true });
-      const lines = buffer.split('\n');
-      buffer = lines.pop() || '';
-      for (const line of lines) {
-        if (line.startsWith('data: ')) {
-          const jsonStr = line.replace('data: ', '').trim();
-          if (jsonStr === '[DONE]') continue;
-          try {
-            const data = JSON.parse(jsonStr);
-            const textChunk = data.text;
-            if (textChunk) { accumulatedText += textChunk; yield { text: textChunk }; }
-          } catch (e) {}
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 120000);
+    
+    try {
+      const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/neuro-chat`, {
+        method: 'POST', 
+        headers, 
+        body: JSON.stringify({ history: chatHistory, newMessage: params.message, stream: true }),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Erro ${response.status}: ${errorText}`);
+      }
+      
+      if (!response.body) throw new Error("Resposta sem corpo de stream");
+      
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulatedText = '';
+      let buffer = '';
+      
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            const jsonStr = line.replace('data: ', '').trim();
+            if (jsonStr === '[DONE]') continue;
+            try {
+              const data = JSON.parse(jsonStr);
+              const textChunk = data.text;
+              if (textChunk) { accumulatedText += textChunk; yield { text: textChunk }; }
+            } catch (e) {
+              // Ignora erros de parse para chunks parciais
+            }
+          }
         }
       }
+      
+      chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text: accumulatedText }] });
+    } catch (err: any) {
+      clearTimeout(timeoutId);
+      if (err.name === 'AbortError') {
+        throw new Error('Tempo limite excedido. Tente novamente.');
+      }
+      throw err;
     }
-    chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text: accumulatedText }] });
   }
+  
   return { history: chatHistory, sendMessage, sendMessageStream };
 };
