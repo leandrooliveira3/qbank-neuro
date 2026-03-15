@@ -202,27 +202,35 @@ while (true) {
   const { value, done } = await reader.read();
   if (done) break;
 
-  const chunk = decoder.decode(value);
-  const events = chunk.split("\n\n");
+buffer += decoder.decode(value, { stream: true });
 
-  for (const event of events) {
-    if (!event.startsWith("data:")) continue;
+const events = buffer.split("\n\n");
+buffer = events.pop() || "";
 
-    const payload = event.replace("data:", "").trim();
+for (const event of events) {
 
-    if (payload === "[DONE]") continue;
+  if (!event.startsWith("data:")) continue;
 
-    try {
-      const parsed = JSON.parse(payload);
-      const textChunk = parsed.text;
+  const payload = event.replace("data:", "").trim();
 
-      if (textChunk) {
-        accumulatedText += textChunk;
-        yield { text: textChunk };
-      }
-    } catch {
-      // ignora chunks quebrados
-    }
+  if (payload === "[DONE]") continue;
+
+  try {
+    const parsed = JSON.parse(payload);
+
+    const textChunk =
+      parsed?.text ??
+      parsed?.candidates?.[0]?.content?.parts?.[0]?.text ??
+      "";
+
+    if (!textChunk) continue;
+
+    accumulatedText += textChunk;
+
+    yield { text: textChunk };
+
+  } catch {
+    // ignora JSON incompleto
   }
 }
       
