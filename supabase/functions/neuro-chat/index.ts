@@ -27,36 +27,52 @@ serve(async (req) => {
         contents,
         config: {
           systemInstruction: SYSTEM_INSTRUCTION,
-          temperature: 1.0,
-          thinkingConfig: { thinkingBudget: 0 }
+      temperature: 0.4,
+      topP: 0.9,
+      maxOutputTokens: 1024,
+      thinkingConfig: { thinkingBudget: 0 }
         }
       });
 
-      const encoder = new TextEncoder();
-      const readableStream = new ReadableStream({
-        async start(controller) {
-          try {
-            for await (const chunk of responseStream) {
-              const text = chunk.text;
-              if (text) {
-                controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text })}\n\n`));
-              }
-            }
-            controller.enqueue(encoder.encode('data: [DONE]\n\n'));
-            controller.close();
-          } catch (e) {
-            controller.error(e);
-          }
-        },
-      });
+const encoder = new TextEncoder();
 
-      return new Response(readableStream, {
-        headers: {
-          ...CORS_HEADERS,
-          "Content-Type": "text/event-stream",
-          "Cache-Control": "no-cache",
-        },
-      });
+const readableStream = new ReadableStream({
+  async start(controller) {
+    try {
+      for await (const chunk of responseStream) {
+        const text = chunk?.text;
+
+        if (!text) continue;
+
+        controller.enqueue(
+          encoder.encode(`data: ${JSON.stringify({ text })}\n\n`)
+        );
+
+        // força flush do stream
+        await new Promise((resolve) => setTimeout(resolve, 0));
+      }
+
+      controller.enqueue(encoder.encode(`data: [DONE]\n\n`));
+      controller.close();
+
+    } catch (error) {
+      controller.enqueue(
+        encoder.encode(`data: ${JSON.stringify({ error: String(error) })}\n\n`)
+      );
+      controller.close();
+    }
+  },
+});
+
+return new Response(readableStream, {
+  headers: {
+    ...CORS_HEADERS,
+    "Content-Type": "text/event-stream; charset=utf-8",
+    "Cache-Control": "no-cache, no-transform",
+    "Connection": "keep-alive",
+    "X-Accel-Buffering": "no",
+  },
+});
     } else {
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",

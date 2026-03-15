@@ -198,26 +198,33 @@ export const createNeuroChat = (): Chat => {
       let accumulatedText = '';
       let buffer = '';
       
-      while (true) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop() || '';
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const jsonStr = line.replace('data: ', '').trim();
-            if (jsonStr === '[DONE]') continue;
-            try {
-              const data = JSON.parse(jsonStr);
-              const textChunk = data.text;
-              if (textChunk) { accumulatedText += textChunk; yield { text: textChunk }; }
-            } catch (e) {
-              // Ignora erros de parse para chunks parciais
-            }
-          }
-        }
+while (true) {
+  const { value, done } = await reader.read();
+  if (done) break;
+
+  const chunk = decoder.decode(value);
+  const events = chunk.split("\n\n");
+
+  for (const event of events) {
+    if (!event.startsWith("data:")) continue;
+
+    const payload = event.replace("data:", "").trim();
+
+    if (payload === "[DONE]") continue;
+
+    try {
+      const parsed = JSON.parse(payload);
+      const textChunk = parsed.text;
+
+      if (textChunk) {
+        accumulatedText += textChunk;
+        yield { text: textChunk };
       }
+    } catch {
+      // ignora chunks quebrados
+    }
+  }
+}
       
       chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text: accumulatedText }] });
     } catch (err: any) {
