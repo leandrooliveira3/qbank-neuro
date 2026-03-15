@@ -202,39 +202,43 @@ while (true) {
   const { value, done } = await reader.read();
   if (done) break;
 
-buffer += decoder.decode(value, { stream: true });
+  buffer += decoder.decode(value, { stream: true });
 
-const events = buffer.split("\n\n");
-buffer = events.pop() || "";
+  const events = buffer.split("\n\n");
+  buffer = events.pop() || "";
 
-for (const event of events) {
+  for (const event of events) {
 
-  if (!event.startsWith("data:")) continue;
+    if (!event.startsWith("data:")) continue;
 
-  const payload = event.replace("data:", "").trim();
+    const payload = event.replace("data:", "").trim();
 
-  if (payload === "[DONE]") continue;
+    if (payload === "[DONE]") continue;
 
-  try {
-    const parsed = JSON.parse(payload);
+    try {
+      const parsed = JSON.parse(payload);
 
-    const textChunk =
-      parsed?.text ??
-      parsed?.candidates?.[0]?.content?.parts?.[0]?.text ??
-      "";
+      const textChunk =
+        parsed?.text ??
+        parsed?.candidates?.[0]?.content?.parts?.[0]?.text ??
+        "";
 
-    if (!textChunk) continue;
+      if (!textChunk) continue;
 
-    accumulatedText += textChunk;
+      accumulatedText += textChunk;
 
-    yield { text: textChunk };
+      yield { text: textChunk };
 
-  } catch {
-    // ignora JSON incompleto
+    } catch {
+      // ignora json incompleto
+    }
   }
 }
-      
-      chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text: accumulatedText }] });
+
+chatHistory.push(
+  { role: 'user', parts: [{ text: params.message }] },
+  { role: 'model', parts: [{ text: accumulatedText }] }
+);
     } catch (err: any) {
       clearTimeout(timeoutId);
       if (err.name === 'AbortError') {
