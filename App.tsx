@@ -9,11 +9,10 @@ import { Login } from './pages/Login';
 import { Questions } from './pages/Questions';
 import { AddQuestion } from './pages/AddQuestion';
 import { ImportQuestions } from './pages/ImportQuestions'; 
-import { PracticeConfig } from './pages/PracticeConfig';
+import { Practice } from './pages/Practice';
 import { PracticeSession } from './pages/PracticeSession';
 import { CreateSimulation } from './pages/CreateSimulation';
 import { SimulationSession } from './pages/SimulationSession';
-import { SimulationsList } from './pages/SimulationsList'; 
 import { Stats } from './pages/Stats';
 import { Analysis } from './pages/Analysis'; 
 import { Favorites } from './pages/Favorites';
@@ -84,9 +83,9 @@ export default function App() {
         <Route path="/revision" element={<PrivateRoute><Revision /></PrivateRoute>} />
         <Route path="/add" element={<PrivateRoute><AddQuestion /></PrivateRoute>} />
         <Route path="/import" element={<PrivateRoute><ImportQuestions /></PrivateRoute>} /> 
-        <Route path="/practice" element={<PrivateRoute><PracticeConfig /></PrivateRoute>} />
+        <Route path="/practice" element={<PrivateRoute><Practice /></PrivateRoute>} />
         <Route path="/practice/session" element={<PrivateRoute><PracticeSession /></PrivateRoute>} />
-        <Route path="/simulations" element={<PrivateRoute><SimulationsList /></PrivateRoute>} />
+        <Route path="/simulations" element={<Navigate to="/practice" replace />} />
         <Route path="/simulations/create" element={<PrivateRoute><CreateSimulation /></PrivateRoute>} />
         <Route path="/simulations/session" element={<PrivateRoute><SimulationSession /></PrivateRoute>} />
         <Route path="/videos" element={<PrivateRoute><Videos /></PrivateRoute>} /> 
