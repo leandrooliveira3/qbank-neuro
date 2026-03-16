@@ -324,7 +324,7 @@ export const ResidenciaPage: React.FC = () => {
   };
 
   return (
-    <Layout title="Qbank Residência">
+    <Layout title="Neuro Portal Residência">
       <div className="h-full flex flex-col space-y-4 overflow-hidden">
         <div className="flex flex-col md:flex-row justify-between items-center bg-white dark:bg-zinc-950 p-4 rounded-2xl border border-slate-200 dark:border-zinc-900 shrink-0 shadow-sm gap-4">
             <div className="flex items-center gap-4 w-full md:w-auto">

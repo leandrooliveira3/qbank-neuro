@@ -23,7 +23,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
           <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
             <Stethoscope className="h-4 w-4 text-white" />
           </div>
-          <span className="text-sm font-black text-slate-900 dark:text-white tracking-tight">QBank Neuro</span>
+          <span className="text-sm font-black text-slate-900 dark:text-white tracking-tight">Neuro Portal</span>
         </div>
         <button
           onClick={onClose}

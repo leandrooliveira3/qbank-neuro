@@ -19,7 +19,7 @@ class LocalDB {
           'xp_history',
           'processed_documents',
           'didactic_materials',
-          'residencia_questions' // Novo store para Qbank Residência
+          'residencia_questions' // Novo store para Neuro Portal Residência
         ];
         stores.forEach(s => {
           if (!db.objectStoreNames.contains(s)) db.createObjectStore(s, { keyPath: 'id' });

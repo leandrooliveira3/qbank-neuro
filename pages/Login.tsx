@@ -133,7 +133,7 @@ export const Login: React.FC = () => {
         {view === 'auth' && (
           <div className="h-full flex items-center justify-center p-4 bg-slate-50 dark:bg-black animate-in fade-in">
             <div className="w-full max-w-sm bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-[2rem] p-8 shadow-2xl">
-              <div className="text-center mb-6"><h2 className="text-2xl font-black">Neuro<span className="text-primary">QBank</span></h2></div>
+              <div className="text-center mb-6"><h2 className="text-2xl font-black">Neuro <span className="text-primary">Portal</span></h2></div>
               
               {successMsg && (
                   <div className="mb-4 p-3 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900 rounded-xl flex items-start gap-2">

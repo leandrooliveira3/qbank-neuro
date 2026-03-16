@@ -1,4 +1,4 @@
-# NeuroQBank | Portal Clínico
+# Neuro Portal | Portal Clínico
 
 A clinical question bank and study portal built with React + Vite, Tailwind CSS, and Supabase.
 
