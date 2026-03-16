@@ -65,13 +65,17 @@ export class QuestionOrchestrator {
 
     for (let i = 1; i <= totalPages; i++) {
         if (this.isCancelled) break;
-        if (totalTarget !== undefined && generatedCount >= totalTarget) break;
 
         const page = await pdf.getPage(i);
         const textContent = await page.getTextContent();
         const pageStr = textContent.items.map((item: any) => item.str).join(' ');
-        
-        let contentPayload = `[PÁGINA ATUAL: ${i}]\n${pageStr}`;
+
+        const remainingPages = totalPages - (i - 1);
+        const questionsForPage = totalTarget !== undefined
+            ? Math.max(1, Math.ceil((totalTarget - generatedCount) / remainingPages))
+            : undefined;
+
+        let contentPayload = `[INSTRUÇÃO: Se esta página contiver apenas referências bibliográficas, bibliografia, índice ou lista de autores, retorne um array vazio []. Caso contrário, gere exatamente ${questionsForPage ?? 'o máximo possível de'} questão(ões) de múltipla escolha sobre o conteúdo clínico desta página.]\n\n[PÁGINA ATUAL: ${i} de ${totalPages}]\n${pageStr}`;
         const imagesPayload: string[] = [];
 
         const viewport = page.getViewport({ scale: 1.5 });
@@ -102,8 +106,7 @@ export class QuestionOrchestrator {
         }
 
         if (!this.isCancelled) {
-            const remaining = totalTarget !== undefined ? totalTarget - generatedCount : undefined;
-            const added = await this.callAiInternal(contentPayload, imagesPayload, `Pág ${i}`, options, store, remaining);
+            const added = await this.callAiInternal(contentPayload, imagesPayload, `Pág ${i}`, options, store, questionsForPage);
             generatedCount += added;
             await sleep(1500); 
         }
@@ -114,19 +117,25 @@ export class QuestionOrchestrator {
     const CHUNK_SIZE = 6000; 
     const OVERLAP = 1500; 
     
-    const totalBatches = Math.ceil(text.length / CHUNK_SIZE);
-    store.startProcess(totalBatches);
+    const chunks: string[] = [];
+    for (let i = 0; i < text.length; i += CHUNK_SIZE) {
+        chunks.push(text.substring(i, i + CHUNK_SIZE + OVERLAP));
+    }
+    const totalChunks = chunks.length;
+    store.startProcess(totalChunks);
 
     let generatedCount = 0;
     const totalTarget = options.sourceType === 'study' ? (options.totalQuestionsTarget || 10) : undefined;
 
-    for (let i = 0; i < text.length; i += CHUNK_SIZE) {
+    for (let i = 0; i < totalChunks; i++) {
         if (this.isCancelled) break;
-        if (totalTarget !== undefined && generatedCount >= totalTarget) break;
 
-        const chunk = text.substring(i, i + CHUNK_SIZE + OVERLAP);
-        const remaining = totalTarget !== undefined ? totalTarget - generatedCount : undefined;
-        const added = await this.callAiInternal(chunk, [], `Parte ${(i/CHUNK_SIZE)+1}`, options, store, remaining);
+        const remainingChunks = totalChunks - i;
+        const questionsForChunk = totalTarget !== undefined
+            ? Math.max(1, Math.ceil((totalTarget - generatedCount) / remainingChunks))
+            : undefined;
+
+        const added = await this.callAiInternal(chunks[i], [], `Parte ${i + 1}`, options, store, questionsForChunk);
         generatedCount += added;
         await sleep(1000);
     }
