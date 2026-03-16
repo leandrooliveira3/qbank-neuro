@@ -1,7 +1,9 @@
+
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { GoogleGenAI, Type, HarmCategory, HarmBlockThreshold } from "npm:@google/genai";
 
 declare const Deno: any;
+declare const process: any;
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -14,7 +16,7 @@ const questionSchema = {
   items: {
     type: Type.OBJECT,
     properties: {
-      enunciado: { type: Type.STRING },
+      enunciado: { type: Type.STRING, description: "Texto completo da questão, incluindo obrigatoriamente o caso clínico de base." },
       alternativas: { type: Type.ARRAY, items: { type: Type.STRING } },
       gabarito: { type: Type.STRING, description: "Letra A, B, C, D ou E" },
       comentario: { type: Type.STRING, description: "Explicação técnica detalhada em nível de especialista." },
@@ -36,7 +38,7 @@ serve(async (req) => {
   try {
     const { content, customPrompt, images, questionCount, sourceType } = await req.json(); 
     
-    const ai = new GoogleGenAI({ apiKey: Deno.env.get("API_KEY") || Deno.env.get("GOOGLE_API_KEY") });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const parts: any[] = [];
     
@@ -53,13 +55,18 @@ serve(async (req) => {
     let finalInstruction = "";
 
     if (sourceType === 'exam') {
-        finalInstruction = `ATUE COMO: Um motor de OCR e Extração de Estrutura de Provas. Transcreva apenas as questões existentes.
+        finalInstruction = `ATUE COMO: Um motor de OCR e Extração de Estrutura de Provas de Alta Precisão. 
+        
+        REGRA CRÍTICA DE CONTEXTO: 
+        - Você deve detectar descrições de "Casos Clínicos" que precedem uma ou mais perguntas. 
+        - O texto do caso clínico DEVE ser incorporado ao enunciado de cada pergunta que se refere a ele.
+        - Não retorne apenas a pergunta final. Una o contexto à pergunta.
         
         DIRETRIZ DE FRAGMENTAÇÃO:
         - Se encontrar apenas o FINAL de uma questão, IGNORE-A.
         - Extraia apenas questões com ENUNCIADO COMPLETO neste bloco.`;
     } else {
-        finalInstruction = `ATUE COMO: Banca Examinadora Médica de Especialidade. Crie ${targetCount} questões inéditas de alto nível.`;
+        finalInstruction = `ATUE COMO: Banca Examinadora Médica de Especialidade. Crie ${targetCount} questões inéditas de alto nível baseadas no conteúdo fornecido.`;
     }
 
     const response = await ai.models.generateContent({
@@ -69,7 +76,7 @@ serve(async (req) => {
         systemInstruction: finalInstruction,
         responseMimeType: "application/json",
         responseSchema: questionSchema,
-        temperature: 1.0,
+        temperature: 0.1,
         thinkingConfig: { thinkingBudget: 0 },
         maxOutputTokens: 8192, 
       }

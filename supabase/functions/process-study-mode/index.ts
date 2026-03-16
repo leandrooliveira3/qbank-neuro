@@ -1,7 +1,9 @@
+
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
-import { GoogleGenAI, Type, HarmCategory, HarmBlockThreshold } from "npm:@google/genai";
+import { GoogleGenAI, Type } from "npm:@google/genai";
 
 declare const Deno: any;
+declare const process: any;
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -17,12 +19,13 @@ const questionSchema = {
       enunciado: { type: Type.STRING },
       alternativas: { type: Type.ARRAY, items: { type: Type.STRING } },
       gabarito: { type: Type.STRING },
-      comentario: { type: Type.STRING, description: "Justificativa + Interpretação da Imagem se houver." },
+      comentario: { type: Type.STRING, description: "Justificativa da alternativa correta." },
+      justificativa_incorretas: { type: Type.STRING, description: "Por que cada uma das outras opções é falsa." },
       dificuldade: { type: Type.STRING, enum: ["Fácil", "Médio", "Difícil"] },
       categoria: { type: Type.STRING },
       subcategoria: { type: Type.STRING }
     },
-    required: ["enunciado", "alternativas", "gabarito", "comentario", "dificuldade", "categoria", "subcategoria"],
+    required: ["enunciado", "alternativas", "gabarito", "comentario", "justificativa_incorretas", "dificuldade", "categoria", "subcategoria"],
   },
 };
 
@@ -31,9 +34,7 @@ serve(async (req) => {
 
   try {
     const { content, customPrompt, questionCount, images } = await req.json();
-    const ai = new GoogleGenAI({
-      apiKey: Deno.env.get("API_KEY") || Deno.env.get("GOOGLE_API_KEY"),
-    });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
     const parts: any[] = [];
     if (images && Array.isArray(images) && images.length > 0) {
@@ -49,11 +50,10 @@ serve(async (req) => {
     
     OBJETIVO: Criar ${target} questões baseadas no material.
     
-    REGRAS DE IMAGEM:
-    - Se o material contiver imagens/gráficos, crie questões baseadas neles.
-    - Inclua a análise detalhada da imagem no campo "comentario".
-    - Se a questão for dependente de uma imagem visual que o aluno precisa ver, insira "[ANEXAR_IMAGEM_MANUAL]" no início do comentário.
-
+    REQUISITOS TÉCNICOS:
+    - Inclua justificativas para as alternativas erradas no campo 'justificativa_incorretas'.
+    - Gere todo o conteúdo em Português do Brasil (pt-BR).
+    
     CONTEXTO: "${customPrompt || 'Gere questões de alto nível.'}"`;
 
     const response = await ai.models.generateContent({
@@ -63,7 +63,7 @@ serve(async (req) => {
         systemInstruction: finalInstruction,
         responseMimeType: "application/json",
         responseSchema: questionSchema,
-        temperature: 0.2,
+        temperature: 0.1,
       },
     });
 

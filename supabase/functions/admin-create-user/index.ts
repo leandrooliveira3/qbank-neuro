@@ -62,26 +62,16 @@ serve(async (req) => {
         return new Response(JSON.stringify({ success: true, count: syncedCount }), { headers: { ...CORS_HEADERS, "Content-Type": "application/json" } });
     }
 
-    // --- NOVA AÇÃO: RESET GLOBAL DE XP ---
     if (action === 'reset_xp_global') {
         if (!isMasterAdmin) throw new Error("Apenas Master Admin pode zerar o ranking.");
-        
-        // Update all profiles to 0 XP and level 1
         const { error: resetError, count } = await supabaseAdmin
             .from('profiles')
-            .update({ 
-                xp: 0, 
-                level: 1, 
-                rank: 'Calouro da Sinapse',
-                streak_count: 0 // Opcional: Zerar streak também para igualdade total
-            })
-            .neq('id', '00000000-0000-0000-0000-000000000000') // Safety check (all non-null ids)
+            .update({ xp: 0, level: 1, rank: 'Calouro da Sinapse', streak_count: 0 })
+            .neq('id', '00000000-0000-0000-0000-000000000000')
             .select('id', { count: 'exact' });
 
         if (resetError) throw resetError;
-
-        // Limpa histórico de XP para consistência
-        await supabaseAdmin.from('xp_history').delete().neq('id', '0000');
+        await supabaseAdmin.from('xp_history').delete().neq('id', '00000000-0000-0000-0000-000000000000');
 
         return new Response(JSON.stringify({ success: true, count }), { headers: { ...CORS_HEADERS, "Content-Type": "application/json" } });
     }
@@ -113,18 +103,38 @@ serve(async (req) => {
 
     if (action === 'delete') {
       if (!userId) throw new Error("ID do usuário é obrigatório.");
-      await supabaseAdmin.from("profiles").update({ deleted_at: new Date().toISOString(), status: 'deleted' }).eq("id", userId);
+
+      // --- HARD DELETE EM CASCATA ---
+      // 1. Tabelas de Estudo e Conteúdo
+      await supabaseAdmin.from("questions").delete().eq("created_by", userId);
+      await supabaseAdmin.from("flashcards").delete().eq("user_id", userId);
+      await supabaseAdmin.from("summaries").delete().eq("user_id", userId);
+      
+      // 2. Tabelas de Progresso e Estatísticas
+      await supabaseAdmin.from("user_answers").delete().eq("user_id", userId);
+      await supabaseAdmin.from("user_favorites").delete().eq("user_id", userId);
+      await supabaseAdmin.from("xp_history").delete().eq("user_id", userId);
+      await supabaseAdmin.from("video_progress").delete().eq("user_id", userId);
+      await supabaseAdmin.from("simulation_sessions").delete().eq("user_id", userId);
+      await supabaseAdmin.from("active_practice_sessions").delete().eq("user_id", userId);
+
+      // 3. Tabelas de Organização
+      await supabaseAdmin.from("tasks").delete().eq("user_id", userId);
+      await supabaseAdmin.from("goals").delete().eq("user_id", userId);
+      await supabaseAdmin.from("planning").delete().eq("user_id", userId);
+      await supabaseAdmin.from("clinical_reports").delete().eq("user_id", userId);
+
+      // 4. Social
+      await supabaseAdmin.from("friendships").delete().or(`requester_id.eq.${userId},addressee_id.eq.${userId}`);
+      await supabaseAdmin.from("video_comments").delete().eq("user_id", userId);
+      await supabaseAdmin.from("video_materials").delete().eq("user_id", userId);
+
+      // 5. Perfil e Auth
+      await supabaseAdmin.from("profiles").delete().eq("id", userId);
       const { error: deleteError } = await supabaseAdmin.auth.admin.deleteUser(userId);
+      
       if (deleteError) throw deleteError;
       return new Response(JSON.stringify({ success: true }), { headers: { ...CORS_HEADERS, "Content-Type": "application/json" } });
-    }
-
-    if (action === 'cleanup') {
-        const sevenDaysAgo = new Date();
-        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-        const { error: cleanupError } = await supabaseAdmin.from('profiles').delete().lt('deleted_at', sevenDaysAgo.toISOString());
-        if (cleanupError) throw cleanupError;
-        return new Response(JSON.stringify({ success: true }), { headers: { ...CORS_HEADERS, "Content-Type": "application/json" } });
     }
 
     if (action === 'update-password') {

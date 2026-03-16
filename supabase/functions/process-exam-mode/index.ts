@@ -1,7 +1,8 @@
+
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { GoogleGenAI, Type } from "npm:@google/genai";
 
-declare const Deno: any;
+declare const process: any;
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -14,19 +15,26 @@ const questionSchema = {
   items: {
     type: Type.OBJECT,
     properties: {
-      enunciado: { type: Type.STRING, description: "Texto completo e limpo da questão." },
+      enunciado: { 
+        type: Type.STRING, 
+        description: "Texto completo e limpo da questão. DEVE conter o texto integral do Caso Clínico de base se a questão fizer parte de um bloco." 
+      },
       alternativas: { 
           type: Type.ARRAY, 
           items: { type: Type.STRING },
-          description: "Lista de opções (A, B, C, D, E)." 
+          description: "Lista de 5 opções (A, B, C, D, E)." 
       },
-      gabarito: { type: Type.STRING, description: "Letra da alternativa correta." },
-      comentario: { type: Type.STRING, description: "Justificativa técnica + Descrição/Interpretação da imagem se houver." },
+      gabarito: { type: Type.STRING, description: "Apenas a letra (A, B, C, D ou E)." },
+      comentario: { type: Type.STRING, description: "Justificativa técnica da alternativa correta." },
+      justificativa_incorretas: { 
+          type: Type.STRING, 
+          description: "Justificativa curta para cada alternativa errada, no formato A) motivo B) motivo..." 
+      },
       dificuldade: { type: Type.STRING, enum: ["Fácil", "Médio", "Difícil"] },
       categoria: { type: Type.STRING },
       subcategoria: { type: Type.STRING },
     },
-    required: ["enunciado", "alternativas", "gabarito", "comentario"],
+    required: ["enunciado", "alternativas", "gabarito", "comentario", "justificativa_incorretas"],
   },
 };
 
@@ -35,33 +43,39 @@ serve(async (req) => {
 
   try {
     const { content, customPrompt, images } = await req.json();
-    const ai = new GoogleGenAI({
-      apiKey: Deno.env.get("API_KEY") || Deno.env.get("GOOGLE_API_KEY"),
-    });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
     const parts: any[] = [];
     if (images && Array.isArray(images)) {
         images.forEach((imgBase64: string, idx: number) => {
-            parts.push({ text: idx === 0 ? "VISUAL DA PÁGINA ATUAL:" : "VISUAL DA PRÓXIMA PÁGINA (CONTEXTO):" });
+            parts.push({ text: idx === 0 ? "CONTEÚDO VISUAL DA PÁGINA ATUAL:" : "CONTEÚDO VISUAL DA PÁGINA SEGUINTE (APENAS CONTEXTO):" });
             parts.push({ inlineData: { mimeType: "image/jpeg", data: imgBase64 } });
         });
     }
-    if (content) parts.push({ text: `CONTEÚDO TEXTUAL (ATUAL + SEGUINTE):\n${content}` });
+    if (content) parts.push({ text: `TEXTO INTEGRAL (ATUAL + SEGUINTE):\n${content}` });
 
-    let systemInstruction = `VOCÊ É UM EXTRATOR DE PROVAS MÉDICAS DE ALTA PERFORMANCE.
+    let systemInstruction = `VOCÊ É UM TRANSCRITOR MÉDICO CIRÚRGICO DE ALTA PRECISÃO ESPECIALIZADO EM PROVAS DE RESIDÊNCIA.
     
-    ESTRATÉGIA DE JANELA DESLIZANTE:
-    1. Você recebeu a PÁGINA ATUAL e a PÁGINA SEGUINTE.
-    2. EXTRAIA apenas questões que COMEÇAM na PÁGINA ATUAL.
-    3. RECONSTRUÇÃO: Se uma questão começar na PÁGINA ATUAL mas for cortada e continuar na PÁGINA SEGUINTE, use o texto da PÁGINA SEGUINTE para completá-la INTEGRALMENTE agora.
-    4. ITENS FRAGMENTADOS: Se a PÁGINA ATUAL contiver apenas o final de uma questão que começou anteriormente, IGNORE-A (ela já foi processada no lote anterior).
+    REGRA DE OURO DO CONTEXTO CLÍNICO (CRÍTICO):
+    - Frequentemente, um documento apresenta um "Caso Clínico" base (ex: Paciente de X anos...) seguido de várias perguntas relacionadas (ex: 1) Qual o diagnóstico?, 2) Como tratar?).
+    - Você DEVE identificar o texto do Caso Clínico base que precede as questões numeradas.
+    - É PROIBIDO retornar o enunciado de uma questão sem o seu Caso Clínico correspondente (caso ela o apresente)
+    - O campo 'enunciado' de CADA sub-questão DEVE ser composto por: [Texto Integral do Caso Clínico] + [Texto da Pergunta Específica].
+    - Exemplo: Se o caso é "Paciente com febre" e a pergunta 1 é "Qual o germe?", o enunciado final da questão 1 deve ser o "Paciente com febre. Qual o germe?".
+    - Em alguns arquivos, o caso clínico pode estar na página anterior e a pergunta com suas alternativas em outra página, NÃO IGNORE O CASO SE ISSO ACONTECER e mantenha a logica acima. 
+    - NÃO IGNORE NENHUMA QUESTÃO DO DOCUMENTO, MESMO SE NÃO HOUVER UM CASO CLINICO CORRESPONDENTE, existem questões que são conceituais. 
     
-    REGRAS DE IMAGEM:
-    - Descreva imagens clínicas detalhadamente no campo "comentario".
-    - Se a imagem for crucial e não estiver clara, adicione "[ANEXAR_IMAGEM_MANUAL]".
+    ESTRATÉGIA DE SEGURANÇA ANTIDUPLICAÇÃO:
+    1. Você recebeu o conteúdo de DUAS páginas (Atual e Seguinte).
+    2. Use o texto da PÁGINA SEGUINTE apenas para completar uma questão ou caso que foi cortado no fim da página atual.
+    3. Transcreva APENAS o caso clínico (SE INICIADO NA PAGINA ANTERIOR) + as questões que COMEÇAM fisicamente na PÁGINA ATUAL.
     
-    FORMATO: Responda estritamente com o JSON Array.
-    CONTEXTO ADICIONAL: ${customPrompt || 'Extração exaustiva.'}`;
+    REGRAS DE FORMATO:
+    - Traduza tudo para Português do Brasil (pt-BR).
+    - Remova apenas prefixos redundantes como "Question 1:", mas MANTENHA o conteúdo clínico integral.
+    - Retorne estritamente um JSON Array.
+    
+    INSTRUÇÃO ADICIONAL DO USUÁRIO: ${customPrompt || 'Extração fiel ao documento mantendo contexto.'}`;
 
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -75,12 +89,12 @@ serve(async (req) => {
     });
 
     return new Response(response.text, {
-      headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
+      headers: { ...CORS_HEADERS, "Content-Type": "application/json" }
     });
   } catch (error: any) {
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
-      headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
+      headers: { ...CORS_HEADERS, "Content-Type": "application/json" }
     });
   }
 });

@@ -4,7 +4,7 @@ import json
 import requests
 import io
 import base64
-from pdfrw import PdfReader, PdfWriter, PdfName, PdfString
+from pdfrw import PdfReader, PdfWriter, PdfName, PdfString, PdfDict
 
 # Mapeamento de chaves do Frontend -> Nomes dos Campos no PDF (AcroForm)
 # Ajuste os valores da direita conforme o nome real dos campos no seu PDF template

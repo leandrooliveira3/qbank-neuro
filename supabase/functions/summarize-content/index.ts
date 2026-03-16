@@ -1,7 +1,10 @@
+
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { GoogleGenAI } from "npm:@google/genai";
 
 declare const Deno: any;
+// Fix: Added process declaration for Deno environment compliance with project guidelines
+declare const process: any;
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -16,7 +19,8 @@ serve(async (req) => {
 
   try {
     const { text } = await req.json();
-    const ai = new GoogleGenAI({ apiKey: Deno.env.get("API_KEY") || Deno.env.get("GOOGLE_API_KEY") });
+    // Fix: Always use process.env.API_KEY string directly when initializing the client instance
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
