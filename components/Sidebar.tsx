@@ -117,9 +117,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
       {/* Footer */}
       <div className="shrink-0 p-4 border-t border-slate-200 dark:border-zinc-900">
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-full bg-gradient-to-br from-primary to-emerald-500 flex items-center justify-center text-white font-black text-xs shadow-lg">
-            {user?.full_name?.charAt(0)?.toUpperCase() || 'U'}
-          </div>
+          {user?.avatar_url ? (
+            <img src={user.avatar_url} alt={user.full_name || 'Avatar'} className="h-9 w-9 rounded-full object-cover shadow-lg border-2 border-primary/20" />
+          ) : (
+            <div className="h-9 w-9 rounded-full bg-gradient-to-br from-primary to-emerald-500 flex items-center justify-center text-white font-black text-xs shadow-lg">
+              {user?.full_name?.charAt(0)?.toUpperCase() || 'U'}
+            </div>
+          )}
           <div className="flex-1 min-w-0">
             <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
               {user?.full_name || 'Usuário'}

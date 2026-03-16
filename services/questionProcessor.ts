@@ -60,8 +60,12 @@ export class QuestionOrchestrator {
     const totalPages = pdf.numPages;
     store.startProcess(totalPages);
 
+    let generatedCount = 0;
+    const totalTarget = options.sourceType === 'study' ? (options.totalQuestionsTarget || 10) : undefined;
+
     for (let i = 1; i <= totalPages; i++) {
         if (this.isCancelled) break;
+        if (totalTarget !== undefined && generatedCount >= totalTarget) break;
 
         const page = await pdf.getPage(i);
         const textContent = await page.getTextContent();
@@ -98,7 +102,9 @@ export class QuestionOrchestrator {
         }
 
         if (!this.isCancelled) {
-            await this.callAiInternal(contentPayload, imagesPayload, `Pág ${i}`, options, store);
+            const remaining = totalTarget !== undefined ? totalTarget - generatedCount : undefined;
+            const added = await this.callAiInternal(contentPayload, imagesPayload, `Pág ${i}`, options, store, remaining);
+            generatedCount += added;
             await sleep(1500); 
         }
     }
@@ -111,16 +117,23 @@ export class QuestionOrchestrator {
     const totalBatches = Math.ceil(text.length / CHUNK_SIZE);
     store.startProcess(totalBatches);
 
+    let generatedCount = 0;
+    const totalTarget = options.sourceType === 'study' ? (options.totalQuestionsTarget || 10) : undefined;
+
     for (let i = 0; i < text.length; i += CHUNK_SIZE) {
         if (this.isCancelled) break;
+        if (totalTarget !== undefined && generatedCount >= totalTarget) break;
+
         const chunk = text.substring(i, i + CHUNK_SIZE + OVERLAP);
-        await this.callAiInternal(chunk, [], `Parte ${(i/CHUNK_SIZE)+1}`, options, store);
+        const remaining = totalTarget !== undefined ? totalTarget - generatedCount : undefined;
+        const added = await this.callAiInternal(chunk, [], `Parte ${(i/CHUNK_SIZE)+1}`, options, store, remaining);
+        generatedCount += added;
         await sleep(1000);
     }
   }
 
-  private async callAiInternal(content: string, images: string[], label: string, options: any, store: any) {
-    if (this.isCancelled) return;
+  private async callAiInternal(content: string, images: string[], label: string, options: any, store: any, remainingTarget?: number): Promise<number> {
+    if (this.isCancelled) return 0;
     
     let attempt = 0;
     while (attempt < MAX_RETRIES && !this.isCancelled) {
@@ -131,26 +144,28 @@ export class QuestionOrchestrator {
                 options.customPrompt, 
                 undefined, 
                 images, 
-                options.sourceType === 'study' ? (options.totalQuestionsTarget || 10) : undefined, 
+                remainingTarget, 
                 'extract', 
                 options.sourceType
             );
 
-            if (this.isCancelled) return;
+            if (this.isCancelled) return 0;
 
             if (aiQuestions?.length > 0) {
                 store.addResults(aiQuestions);
                 store.incrementProgress(`${label}: +${aiQuestions.length} itens.`);
+                return aiQuestions.length;
             } else {
                 store.incrementProgress(`${label}: Analisada.`);
+                return 0;
             }
-            return;
         } catch (e) {
-            if (this.isCancelled) return;
+            if (this.isCancelled) return 0;
             if (attempt === MAX_RETRIES) store.addError(`Falha no lote ${label}`);
             await sleep(2000 * attempt);
         }
     }
+    return 0;
   }
 }
 export const questionProcessor = new QuestionOrchestrator();
