@@ -23,8 +23,6 @@ const USER_COLUMN_MAP: Record<string, string> = {
   'video_materials': 'global',
   'video_comments': 'global',
   'xp_history': 'user_id',
-  'residencia_questions': 'global',
-  'qresidencia': 'global'
 };
 
 const generateId = () => crypto.randomUUID();

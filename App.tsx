@@ -29,7 +29,6 @@ import { Focus } from './pages/Focus';
 import { Planning } from './pages/Planning';
 import { Comunidade } from './pages/Comunidade';
 import { Videos } from './pages/Videos'; 
-import { ResidenciaPage } from './pages/ResidenciaPage';
 
 import { NeurovascularTool } from './pages/tools/Neurovascular';
 import { NeuroEmergencyTool } from './pages/tools/NeuroEmergency';
@@ -53,16 +52,6 @@ const PrivateRoute = ({ children }: { children?: React.ReactNode }) => {
   return <>{children}</>;
 };
 
-const AdminRoute = ({ children }: { children?: React.ReactNode }) => {
-  const { user, loading, initialized } = useAuthStore();
-  if (loading || !initialized) return null;
-  
-  // Specific check for master admin email or generic admin role
-  const isAllowed = user?.email === 'steamleandro@hotmail.com' || user?.role === 'admin';
-  
-  if (!isAllowed) return <Navigate to="/" replace />;
-  return <>{children}</>;
-};
 
 export default function App() {
   const { checkSession } = useAuthStore();
@@ -110,7 +99,6 @@ export default function App() {
         <Route path="/flashcards/import" element={<PrivateRoute><ImportFlashcards /></PrivateRoute>} />
         <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
         <Route path="/community" element={<PrivateRoute><Comunidade /></PrivateRoute>} />
-        <Route path="/residencia" element={<AdminRoute><ResidenciaPage /></AdminRoute>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

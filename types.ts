@@ -70,7 +70,6 @@ export interface Question {
   created_by: string;
 }
 
-export interface ResidenciaQuestion extends Question {}
 
 export interface Occlusion {
   id: string;

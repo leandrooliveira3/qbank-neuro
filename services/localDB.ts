@@ -18,8 +18,7 @@ class LocalDB {
           'videos', 'video_progress', 'video_materials', 'video_comments',
           'xp_history',
           'processed_documents',
-          'didactic_materials',
-          'residencia_questions' // Novo store para Neuro Portal Residência
+          'didactic_materials'
         ];
         stores.forEach(s => {
           if (!db.objectStoreNames.contains(s)) db.createObjectStore(s, { keyPath: 'id' });

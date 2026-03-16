@@ -3,7 +3,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { Layout } from '../components/Layout';
 import { 
   Filter, Check, Loader2, BookOpen, Search, Trash2, 
-  CheckSquare, Square, FilterX, XCircle, Folder, GraduationCap, Edit3
+  CheckSquare, Square, FilterX, XCircle, Folder, Edit3
 } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
 import { Question } from '../types';
@@ -28,7 +28,6 @@ export const Questions: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
-  const isMasterAdmin = user?.role === 'admin' || user?.email === 'steamleandro@hotmail.com';
 
   useEffect(() => { 
     if (user) loadData();
@@ -147,12 +146,6 @@ export const Questions: React.FC = () => {
               </p>
            </div>
            <div className="flex gap-2 w-full md:w-auto flex-wrap">
-                {isMasterAdmin && (
-                    <button onClick={() => navigate('/residencia')} className="flex-1 md:flex-none px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest bg-blue-600 text-white shadow-lg shadow-blue-500/30 flex items-center justify-center hover:bg-blue-700 transition-all active:scale-95">
-                        <GraduationCap className="h-4 w-4 mr-2" /> Neuro Portal Residência
-                    </button>
-                )}
-
                 <button onClick={() => setSelectedIds(selectedIds.size === filteredQuestions.length ? new Set() : new Set(filteredQuestions.map(q => q.id)))} className="flex-1 md:flex-none px-4 py-2 rounded-xl text-[9px] font-black border-2 bg-white dark:bg-zinc-950 flex items-center justify-center hover:bg-slate-50 dark:hover:bg-zinc-900 transition-colors">
                   {selectedIds.size > 0 ? <CheckSquare className="h-4 w-4 mr-2 text-emerald-600" /> : <Square className="h-4 w-4 mr-2" />} SELECIONAR
                 </button>
