@@ -456,7 +456,7 @@ export const ImportQuestions: React.FC = () => {
                                 {fileSourceType === 'study' && (
                                     <div className="space-y-3">
                                         <div className="flex items-center justify-between">
-                                            <label className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em]">Alvo de Itens</label>
+                                            <label className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em]">Número de Questões por Página</label>
                                             <div className="bg-primary/10 text-primary px-3 py-1.5 rounded-xl font-black text-lg min-w-[50px] text-center">
                                                 {totalQuestionsTarget}
                                             </div>

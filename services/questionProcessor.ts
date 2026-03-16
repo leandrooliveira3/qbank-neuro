@@ -57,31 +57,21 @@ export class QuestionOrchestrator {
     const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
     const totalPages = pdf.numPages;
 
-    const totalTarget = options.sourceType === 'study' ? (options.totalQuestionsTarget || 10) : undefined;
+    // questionsPerPage: fixed number requested per page (study mode), or undefined (exam mode = extract all)
+    const questionsPerPage: number | undefined = options.sourceType === 'study'
+        ? (options.totalQuestionsTarget || 3)
+        : undefined;
 
-    // When a target exists, track progress in terms of questions generated.
-    // When no target, track progress in terms of pages processed.
-    store.startProcess(totalTarget ?? totalPages);
-
-    let generatedCount = 0;
+    store.startProcess(totalPages);
 
     for (let i = 1; i <= totalPages; i++) {
         if (this.isCancelled) break;
-        if (totalTarget !== undefined && generatedCount >= totalTarget) break;
 
         const page = await pdf.getPage(i);
         const textContent = await page.getTextContent();
         const pageStr = textContent.items.map((item: any) => item.str).join(' ');
 
-        const remainingPages = totalPages - (i - 1);
-        const remaining = totalTarget !== undefined ? totalTarget - generatedCount : undefined;
-
-        // Questions to ask the AI for this page: spread the remaining quota evenly
-        const questionsForPage = remaining !== undefined
-            ? Math.max(1, Math.ceil(remaining / remainingPages))
-            : undefined;
-
-        let contentPayload = `[INSTRUÇÃO: Se esta página contiver apenas referências bibliográficas, bibliografia, índice ou lista de autores, retorne um array vazio []. Caso contrário, gere EXATAMENTE ${questionsForPage ?? 'o máximo possível de'} questão(ões) de múltipla escolha sobre o conteúdo clínico desta página. Não gere mais do que o número solicitado.]\n\n[PÁGINA ATUAL: ${i} de ${totalPages}]\n${pageStr}`;
+        let contentPayload = `[INSTRUÇÃO: Se esta página contiver apenas referências bibliográficas, bibliografia, índice ou lista de autores, retorne um array vazio []. Caso contrário, gere EXATAMENTE ${questionsPerPage ?? 'o máximo possível de'} questão(ões) de múltipla escolha sobre o conteúdo clínico desta página. Não gere mais nem menos do que o número solicitado.]\n\n[PÁGINA ATUAL: ${i} de ${totalPages}]\n${pageStr}`;
         const imagesPayload: string[] = [];
 
         const viewport = page.getViewport({ scale: 1.5 });
@@ -112,21 +102,8 @@ export class QuestionOrchestrator {
         }
 
         if (!this.isCancelled) {
-            // hardMax: never let this page exceed what's still needed
-            const hardMax = remaining !== undefined ? Math.min(questionsForPage!, remaining) : undefined;
-            const added = await this.callAiInternal(contentPayload, imagesPayload, `Pág ${i}`, options, store, questionsForPage, hardMax);
-            generatedCount += added;
-
-            // Update progress: when target exists → by questions; otherwise → by pages
-            if (totalTarget !== undefined) {
-                store.updateProgress(
-                    Math.min(generatedCount, totalTarget),
-                    `Pág ${i}: +${added} questão(ões). Total: ${generatedCount}/${totalTarget}`
-                );
-            } else {
-                store.incrementProgress(`Pág ${i}: +${added} itens.`);
-            }
-
+            const added = await this.callAiInternal(contentPayload, imagesPayload, `Pág ${i}`, options, store, questionsPerPage);
+            store.incrementProgress(`Pág ${i}: +${added} questão(ões).`);
             await sleep(1500);
         }
     }
@@ -141,49 +118,29 @@ export class QuestionOrchestrator {
         chunks.push(text.substring(i, i + CHUNK_SIZE + OVERLAP));
     }
     const totalChunks = chunks.length;
+    store.startProcess(totalChunks);
 
-    const totalTarget = options.sourceType === 'study' ? (options.totalQuestionsTarget || 10) : undefined;
-    store.startProcess(totalTarget ?? totalChunks);
-
-    let generatedCount = 0;
+    const questionsPerChunk: number | undefined = options.sourceType === 'study'
+        ? (options.totalQuestionsTarget || 3)
+        : undefined;
 
     for (let i = 0; i < totalChunks; i++) {
         if (this.isCancelled) break;
-        if (totalTarget !== undefined && generatedCount >= totalTarget) break;
 
-        const remainingChunks = totalChunks - i;
-        const remaining = totalTarget !== undefined ? totalTarget - generatedCount : undefined;
-
-        const questionsForChunk = remaining !== undefined
-            ? Math.max(1, Math.ceil(remaining / remainingChunks))
-            : undefined;
-
-        const hardMax = remaining !== undefined ? Math.min(questionsForChunk!, remaining) : undefined;
-        const added = await this.callAiInternal(chunks[i], [], `Parte ${i + 1}`, options, store, questionsForChunk, hardMax);
-        generatedCount += added;
-
-        if (totalTarget !== undefined) {
-            store.updateProgress(
-                Math.min(generatedCount, totalTarget),
-                `Parte ${i + 1}: +${added} questão(ões). Total: ${generatedCount}/${totalTarget}`
-            );
-        } else {
-            store.incrementProgress(`Parte ${i + 1}: +${added} itens.`);
-        }
-
+        const added = await this.callAiInternal(chunks[i], [], `Parte ${i + 1}`, options, store, questionsPerChunk);
+        store.incrementProgress(`Parte ${i + 1}: +${added} questão(ões).`);
         await sleep(1000);
     }
   }
 
-  // Returns the number of questions actually stored (after trimming)
+  // Returns the number of questions actually stored
   private async callAiInternal(
     content: string,
     images: string[],
     label: string,
     options: any,
     store: any,
-    requestCount?: number,
-    hardMax?: number
+    questionsPerPage?: number
   ): Promise<number> {
     if (this.isCancelled) return 0;
 
@@ -196,7 +153,7 @@ export class QuestionOrchestrator {
                 options.customPrompt,
                 undefined,
                 images,
-                requestCount,
+                questionsPerPage,
                 'extract',
                 options.sourceType
             );
@@ -204,8 +161,10 @@ export class QuestionOrchestrator {
             if (this.isCancelled) return 0;
 
             if (aiQuestions?.length > 0) {
-                // Hard-trim: never store more than what's remaining
-                const trimmed = hardMax !== undefined ? aiQuestions.slice(0, hardMax) : aiQuestions;
+                // Hard-trim to exactly what was requested so the AI can't over-generate
+                const trimmed = questionsPerPage !== undefined
+                    ? aiQuestions.slice(0, questionsPerPage)
+                    : aiQuestions;
                 store.addResults(trimmed);
                 return trimmed.length;
             }
