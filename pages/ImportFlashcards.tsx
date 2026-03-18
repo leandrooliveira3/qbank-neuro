@@ -3,56 +3,94 @@ import { Layout } from '../components/Layout';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../store/useAuthStore';
 import { syncEngine } from '../services/syncEngine';
+import { storageService } from '../services/storage';
 import { Flashcard } from '../types';
 import { 
     Upload, FileText, ArrowLeft, Loader2, CheckCircle2, 
     AlertCircle, Layers, FileJson, Table, FileCode, Download,
-    Info, X
+    Info, X, Image as ImageIcon
 } from 'lucide-react';
 import JSZip from 'jszip';
+import initSqlJs from 'sql.js';
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface ParsedCard {
     front: string;
     back: string;
     tags?: string[];
+    frontImageBlob?: Blob;
+    frontImageExt?: string;
+    frontImageUrl?: string;
 }
 
+// ─── Supported formats ────────────────────────────────────────────────────────
+
 const SUPPORTED_FORMATS = [
-    { ext: '.apkg', name: 'Anki Package', icon: Download, desc: 'Deck exportado do Anki' },
-    { ext: '.txt', name: 'Texto (Tab/Semicolon)', icon: FileText, desc: 'Frente;Verso ou Frente\\tVerso' },
+    { ext: '.apkg / .colpkg', name: 'Anki Package', icon: Download, desc: 'Deck ou coleção exportada do Anki' },
+    { ext: '.txt', name: 'Texto', icon: FileText, desc: 'Frente;Verso ou Frente[TAB]Verso' },
     { ext: '.csv', name: 'CSV', icon: Table, desc: 'Primeira coluna = frente, segunda = verso' },
     { ext: '.json', name: 'JSON', icon: FileJson, desc: 'Array de objetos com front/back' },
-    { ext: '.md', name: 'Markdown', icon: FileCode, desc: 'Blocos separados por ---' },
+    { ext: '.md', name: 'Markdown', icon: FileCode, desc: 'Blocos Q:/A: separados por ---' },
 ];
+
+// ─── HTML helpers ─────────────────────────────────────────────────────────────
+
+function stripHtml(html: string): string {
+    return html
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<[^>]+>/g, '')
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'")
+        .trim();
+}
+
+function extractImgSrc(html: string): string | undefined {
+    const m = html.match(/<img[^>]+src=["']?([^"'\s>]+)["']?/i);
+    return m?.[1];
+}
+
+function getExt(filename: string): string {
+    return filename.split('.').pop()?.toLowerCase() || 'jpg';
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export const ImportFlashcards: React.FC = () => {
     const navigate = useNavigate();
     const { user } = useAuthStore();
     const fileInputRef = useRef<HTMLInputElement>(null);
-    
+
     const [file, setFile] = useState<File | null>(null);
     const [loading, setLoading] = useState(false);
+    const [loadingMsg, setLoadingMsg] = useState('Processando arquivo...');
     const [error, setError] = useState<string | null>(null);
     const [parsedCards, setParsedCards] = useState<ParsedCard[]>([]);
     const [bankName, setBankName] = useState('Importado');
     const [category, setCategory] = useState('Geral');
     const [importSuccess, setImportSuccess] = useState(false);
     const [importedCount, setImportedCount] = useState(0);
-    
+    const [mediaCount, setMediaCount] = useState(0);
+
+    // ── File selection ──────────────────────────────────────────────────────
     const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = e.target.files?.[0];
         if (!selectedFile) return;
-        
+
         setFile(selectedFile);
         setError(null);
         setParsedCards([]);
         setLoading(true);
-        
+        setLoadingMsg('Processando arquivo...');
+
         try {
             const cards = await parseFile(selectedFile);
             setParsedCards(cards);
-            
-            // Auto-set bank name from file name
+            setMediaCount(cards.filter(c => c.frontImageBlob).length);
             const fileName = selectedFile.name.replace(/\.[^/.]+$/, '');
             setBankName(fileName || 'Importado');
         } catch (err: any) {
@@ -61,223 +99,227 @@ export const ImportFlashcards: React.FC = () => {
             setLoading(false);
         }
     };
-    
-    const parseFile = async (file: File): Promise<ParsedCard[]> => {
-        const ext = file.name.toLowerCase().split('.').pop();
-        const text = ext !== 'apkg' ? await file.text() : '';
-        
+
+    // ── Dispatch by extension ───────────────────────────────────────────────
+    const parseFile = async (f: File): Promise<ParsedCard[]> => {
+        const ext = f.name.toLowerCase().split('.').pop();
+        if (ext === 'apkg' || ext === 'colpkg') return parseAnkiPackage(f);
+        const text = await f.text();
         switch (ext) {
-            case 'apkg':
-                return parseAnkiPackage(file);
-            case 'txt':
-                return parseTxt(text);
-            case 'csv':
-                return parseCsv(text);
-            case 'json':
-                return parseJson(text);
-            case 'md':
-                return parseMarkdown(text);
-            default:
-                throw new Error(`Formato não suportado: .${ext}`);
+            case 'txt':  return parseTxt(text);
+            case 'csv':  return parseCsv(text);
+            case 'json': return parseJson(text);
+            case 'md':   return parseMarkdown(text);
+            default:     throw new Error(`Formato não suportado: .${ext}`);
         }
     };
-    
-    const parseAnkiPackage = async (file: File): Promise<ParsedCard[]> => {
-        try {
-            const zip = new JSZip();
-            const contents = await zip.loadAsync(file);
-            
-            // APKG contains a SQLite database, but we can try to extract from collection.anki2
-            // For simplicity, we'll look for media and notes in a simplified way
-            // Real APKG parsing would require sqlite.js
-            
-            // Check if there's a decks JSON or similar
-            const mediaFile = contents.file('media');
-            let mediaMapping: Record<string, string> = {};
-            
-            if (mediaFile) {
-                try {
-                    const mediaContent = await mediaFile.async('string');
-                    mediaMapping = JSON.parse(mediaContent);
-                } catch {}
-            }
-            
-            // Try to find any text/json files that might contain card data
-            const cards: ParsedCard[] = [];
-            
-            for (const [filename, zipEntry] of Object.entries(contents.files)) {
-                if (filename.endsWith('.txt') || filename.endsWith('.json')) {
-                    try {
-                        const content = await zipEntry.async('string');
-                        if (filename.endsWith('.json')) {
-                            const parsed = parseJson(content);
-                            cards.push(...parsed);
-                        } else {
-                            const parsed = parseTxt(content);
-                            cards.push(...parsed);
-                        }
-                    } catch {}
+
+    // ── Anki parser ─────────────────────────────────────────────────────────
+    const parseAnkiPackage = async (f: File): Promise<ParsedCard[]> => {
+        // 1. Unzip
+        setLoadingMsg('Descompactando arquivo...');
+        const zip = await new JSZip().loadAsync(f);
+
+        // 2. Locate the SQLite DB (may be anki21 or anki2)
+        const dbEntry = zip.file('collection.anki21') || zip.file('collection.anki2');
+        if (!dbEntry) {
+            throw new Error('Arquivo Anki inválido: banco de dados não encontrado dentro do pacote.');
+        }
+
+        setLoadingMsg('Lendo banco de dados SQLite...');
+        const dbBuf = await dbEntry.async('arraybuffer');
+
+        // 3. Init sql.js (WASM served from /public)
+        const SQL = await initSqlJs({ locateFile: () => '/sql-wasm.wasm' });
+        const db = new SQL.Database(new Uint8Array(dbBuf));
+
+        // 4. Query all notes (limit 5000 to avoid memory issues)
+        const result = db.exec('SELECT flds, tags FROM notes LIMIT 5000');
+        db.close();
+
+        // 5. Parse media mapping: {"0": "cat.jpg", "1": "dog.png"} → {"cat.jpg": "0", ...}
+        setLoadingMsg('Lendo arquivos de mídia...');
+        const mediaMap: Record<string, string> = {};
+        const mediaEntry = zip.file('media');
+        if (mediaEntry) {
+            try {
+                const raw = await mediaEntry.async('string');
+                const parsed = JSON.parse(raw);
+                for (const [numId, filename] of Object.entries(parsed as Record<string, string>)) {
+                    mediaMap[filename] = numId;
                 }
-            }
-            
-            if (cards.length === 0) {
-                // Fallback: try to parse the db file as text (won't work for real SQLite but might catch some exports)
-                throw new Error('Arquivo APKG não contém dados legíveis. Tente exportar do Anki como TXT ou CSV.');
-            }
-            
-            return cards;
-        } catch (err: any) {
-            throw new Error('Erro ao processar arquivo Anki: ' + (err.message || 'formato inválido'));
+            } catch {}
         }
-    };
-    
-    const parseTxt = (text: string): ParsedCard[] => {
-        const lines = text.split('\n').filter(line => line.trim());
+
+        // 6. Build cards
         const cards: ParsedCard[] = [];
-        
-        for (const line of lines) {
-            // Try tab first, then semicolon
-            let parts = line.split('\t');
-            if (parts.length < 2) {
-                parts = line.split(';');
-            }
-            
-            if (parts.length >= 2) {
-                const front = parts[0].trim();
-                const back = parts[1].trim();
-                const tags = parts[2]?.split(',').map(t => t.trim()).filter(Boolean);
-                
-                if (front && back) {
-                    cards.push({ front, back, tags });
-                }
-            }
-        }
-        
-        if (cards.length === 0) {
-            throw new Error('Nenhum card encontrado. Use formato: Frente;Verso ou Frente[TAB]Verso');
-        }
-        
-        return cards;
-    };
-    
-    const parseCsv = (text: string): ParsedCard[] => {
-        const lines = text.split('\n').filter(line => line.trim());
-        const cards: ParsedCard[] = [];
-        
-        // Skip header if it looks like one
-        let startIndex = 0;
-        const firstLine = lines[0]?.toLowerCase();
-        if (firstLine?.includes('front') || firstLine?.includes('frente') || firstLine?.includes('question')) {
-            startIndex = 1;
-        }
-        
-        for (let i = startIndex; i < lines.length; i++) {
-            const line = lines[i];
-            // Handle quoted CSV
-            const matches = line.match(/(?:^|,)("(?:[^"]*(?:""[^"]*)*)"|[^,]*)/g);
-            
-            if (matches && matches.length >= 2) {
-                const front = matches[0].replace(/^,?"?|"?$/g, '').replace(/""/g, '"').trim();
-                const back = matches[1].replace(/^,?"?|"?$/g, '').replace(/""/g, '"').trim();
-                
-                if (front && back) {
-                    cards.push({ front, back });
-                }
-            } else {
-                // Simple comma split
-                const parts = line.split(',');
-                if (parts.length >= 2) {
-                    const front = parts[0].trim();
-                    const back = parts.slice(1).join(',').trim();
-                    if (front && back) {
-                        cards.push({ front, back });
+        const rows = result?.[0]?.values ?? [];
+
+        for (const row of rows) {
+            const flds = String(row[0] ?? '');
+            const tagStr = String(row[1] ?? '');
+            const fields = flds.split('\x1f');
+
+            const frontRaw = fields[0] ?? '';
+            const backRaw  = fields[1] ?? '';
+
+            const frontText = stripHtml(frontRaw);
+            const backText  = stripHtml(backRaw);
+            const imgSrc    = extractImgSrc(frontRaw) || extractImgSrc(backRaw);
+
+            if (!frontText && !imgSrc) continue;
+
+            const card: ParsedCard = {
+                front: frontText || '(imagem)',
+                back:  backText  || '',
+                tags:  tagStr.split(' ').filter(Boolean),
+            };
+
+            // Attach image blob if present
+            if (imgSrc) {
+                const zipId = mediaMap[imgSrc];
+                if (zipId) {
+                    const imgEntry = zip.file(zipId);
+                    if (imgEntry) {
+                        card.frontImageBlob = await imgEntry.async('blob');
+                        card.frontImageExt  = getExt(imgSrc);
                     }
                 }
             }
+
+            cards.push(card);
         }
-        
+
         if (cards.length === 0) {
-            throw new Error('Nenhum card encontrado no CSV. Use formato: frente,verso');
+            throw new Error('Nenhuma nota encontrada. Verifique se o arquivo está correto.');
         }
-        
+
         return cards;
     };
-    
+
+    // ── Plain-text parsers (unchanged) ──────────────────────────────────────
+    const parseTxt = (text: string): ParsedCard[] => {
+        const lines = text.split('\n').filter(l => l.trim());
+        const cards: ParsedCard[] = [];
+        for (const line of lines) {
+            let parts = line.split('\t');
+            if (parts.length < 2) parts = line.split(';');
+            if (parts.length >= 2) {
+                const front = parts[0].trim();
+                const back  = parts[1].trim();
+                const tags  = parts[2]?.split(',').map(t => t.trim()).filter(Boolean);
+                if (front && back) cards.push({ front, back, tags });
+            }
+        }
+        if (cards.length === 0) throw new Error('Nenhum card encontrado. Use formato: Frente;Verso ou Frente[TAB]Verso');
+        return cards;
+    };
+
+    const parseCsv = (text: string): ParsedCard[] => {
+        const lines = text.split('\n').filter(l => l.trim());
+        const cards: ParsedCard[] = [];
+        let start = 0;
+        const first = lines[0]?.toLowerCase() || '';
+        if (first.includes('front') || first.includes('frente') || first.includes('question')) start = 1;
+        for (let i = start; i < lines.length; i++) {
+            const parts = lines[i].split(',');
+            if (parts.length >= 2) {
+                const front = parts[0].replace(/^"|"$/g, '').trim();
+                const back  = parts.slice(1).join(',').replace(/^"|"$/g, '').trim();
+                if (front && back) cards.push({ front, back });
+            }
+        }
+        if (cards.length === 0) throw new Error('Nenhum card encontrado no CSV.');
+        return cards;
+    };
+
     const parseJson = (text: string): ParsedCard[] => {
         try {
             const data = JSON.parse(text);
-            const items = Array.isArray(data) ? data : data.cards || data.notes || data.flashcards || [];
-            
-            return items.map((item: any) => ({
+            const items = Array.isArray(data) ? data : (data.cards || data.notes || data.flashcards || []);
+            const cards = items.map((item: any) => ({
                 front: item.front || item.question || item.frente || item.q || '',
-                back: item.back || item.answer || item.verso || item.a || '',
-                tags: item.tags || item.labels || []
+                back:  item.back  || item.answer   || item.verso  || item.a || '',
+                tags:  item.tags  || [],
             })).filter((c: ParsedCard) => c.front && c.back);
+            if (cards.length === 0) throw new Error('Nenhum card válido no JSON.');
+            return cards;
         } catch {
-            throw new Error('JSON inválido');
+            throw new Error('JSON inválido ou sem cards válidos.');
         }
     };
-    
+
     const parseMarkdown = (text: string): ParsedCard[] => {
-        // Split by --- or *** or ___
         const blocks = text.split(/\n(?:---+|\*\*\*+|___+)\n/);
         const cards: ParsedCard[] = [];
-        
         for (const block of blocks) {
             const trimmed = block.trim();
             if (!trimmed) continue;
-            
-            // Try to find Q/A pattern
-            const qaMatch = trimmed.match(/(?:Q:|Pergunta:|Frente:)\s*([\s\S]*?)(?:\n\s*(?:A:|Resposta:|Verso:)\s*([\s\S]*))/i);
-            
-            if (qaMatch) {
-                cards.push({
-                    front: qaMatch[1].trim(),
-                    back: qaMatch[2].trim()
-                });
+            const qa = trimmed.match(/(?:Q:|Pergunta:|Frente:)\s*([\s\S]*?)(?:\n\s*(?:A:|Resposta:|Verso:)\s*([\s\S]*))/i);
+            if (qa) {
+                cards.push({ front: qa[1].trim(), back: qa[2].trim() });
             } else {
-                // Split by double newline
                 const parts = trimmed.split(/\n\n+/);
-                if (parts.length >= 2) {
-                    cards.push({
-                        front: parts[0].trim(),
-                        back: parts.slice(1).join('\n\n').trim()
-                    });
-                }
+                if (parts.length >= 2) cards.push({ front: parts[0].trim(), back: parts.slice(1).join('\n\n').trim() });
             }
         }
-        
-        if (cards.length === 0) {
-            throw new Error('Nenhum card encontrado. Use formato: Frente\\n\\nVerso separado por ---');
-        }
-        
+        if (cards.length === 0) throw new Error('Nenhum card encontrado. Use Q:/A: separados por ---');
         return cards;
     };
-    
+
+    // ── Import: upload media then bulk-save flashcards ──────────────────────
     const handleImport = async () => {
         if (!user || parsedCards.length === 0) return;
-        
         setLoading(true);
         setError(null);
-        
+
         try {
-            const flashcards: Flashcard[] = parsedCards.map(card => ({
+            // Upload images card-by-card so we can track progress
+            const withUrls: ParsedCard[] = [];
+            let uploaded = 0;
+            const total = parsedCards.filter(c => c.frontImageBlob).length;
+
+            for (const card of parsedCards) {
+                if (card.frontImageBlob) {
+                    setLoadingMsg(`Enviando mídia ${++uploaded}/${total}...`);
+                    try {
+                        const file = new File(
+                            [card.frontImageBlob],
+                            `anki_${crypto.randomUUID()}.${card.frontImageExt || 'jpg'}`,
+                            { type: card.frontImageBlob.type || 'image/jpeg' }
+                        );
+                        const url = await storageService.uploadImage(file, 'flashcards');
+                        withUrls.push({ ...card, frontImageUrl: url });
+                    } catch {
+                        // If upload fails, keep the card without image
+                        withUrls.push({ ...card });
+                    }
+                } else {
+                    withUrls.push(card);
+                }
+            }
+
+            setLoadingMsg('Salvando flashcards...');
+
+            const flashcards: Flashcard[] = withUrls.map(card => ({
                 id: crypto.randomUUID(),
                 user_id: user.id,
                 bank_name: bankName,
                 front: card.front,
                 back: card.back,
                 category: category,
-                status: 'new',
+                front_image_url: card.frontImageUrl || '',
+                occlusions: [],
+                status: 'new' as const,
                 interval: 0,
                 ease_factor: 2.5,
                 repetitions: 0,
                 next_review: new Date().toISOString(),
-                created_at: new Date().toISOString()
+                created_at: new Date().toISOString(),
+                last_review: new Date().toISOString(),
             }));
-            
+
             await syncEngine.bulkEnqueue('flashcards', flashcards);
-            
             setImportedCount(flashcards.length);
             setImportSuccess(true);
         } catch (err: any) {
@@ -286,7 +328,8 @@ export const ImportFlashcards: React.FC = () => {
             setLoading(false);
         }
     };
-    
+
+    // ── Reset ───────────────────────────────────────────────────────────────
     const resetForm = () => {
         setFile(null);
         setParsedCards([]);
@@ -294,9 +337,11 @@ export const ImportFlashcards: React.FC = () => {
         setImportSuccess(false);
         setBankName('Importado');
         setCategory('Geral');
+        setMediaCount(0);
         if (fileInputRef.current) fileInputRef.current.value = '';
     };
-    
+
+    // ── Success screen ──────────────────────────────────────────────────────
     if (importSuccess) {
         return (
             <Layout title="Importar Flashcards">
@@ -306,10 +351,13 @@ export const ImportFlashcards: React.FC = () => {
                             <CheckCircle2 className="h-10 w-10 text-emerald-600" />
                         </div>
                         <h2 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Importado com Sucesso!</h2>
-                        <p className="text-slate-500 text-sm mb-6">
-                            <span className="text-emerald-600 font-bold">{importedCount}</span> flashcards foram adicionados ao banco <span className="font-bold">"{bankName}"</span>
+                        <p className="text-slate-500 text-sm mb-2">
+                            <span className="text-emerald-600 font-bold">{importedCount}</span> flashcards adicionados ao banco <span className="font-bold">"{bankName}"</span>
                         </p>
-                        <div className="flex gap-3">
+                        {mediaCount > 0 && (
+                            <p className="text-slate-400 text-[10px] uppercase font-bold tracking-widest mb-6">{mediaCount} imagens enviadas para o servidor</p>
+                        )}
+                        <div className="flex gap-3 mt-6">
                             <button onClick={resetForm} className="flex-1 bg-slate-100 dark:bg-zinc-900 text-slate-700 dark:text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest">
                                 Importar Mais
                             </button>
@@ -322,7 +370,8 @@ export const ImportFlashcards: React.FC = () => {
             </Layout>
         );
     }
-    
+
+    // ── Main render ─────────────────────────────────────────────────────────
     return (
         <Layout title="Importar Flashcards">
             <div className="h-full flex flex-col space-y-4 overflow-hidden">
@@ -335,9 +384,10 @@ export const ImportFlashcards: React.FC = () => {
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Anki, CSV, TXT, JSON, Markdown</p>
                     </div>
                 </div>
-                
+
                 <div className="flex-1 overflow-y-auto custom-scrollbar min-h-0 space-y-6 pb-6">
-                    {/* Formatos Suportados */}
+
+                    {/* Formatos */}
                     <div className="bg-slate-50 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 rounded-2xl p-5">
                         <div className="flex items-center gap-2 mb-4">
                             <Info className="h-4 w-4 text-primary" />
@@ -353,22 +403,22 @@ export const ImportFlashcards: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                    
-                    {/* Upload Area */}
+
+                    {/* Upload */}
                     <div className="bg-white dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 rounded-[2rem] p-10 text-center hover:border-primary transition-colors">
                         <input
                             ref={fileInputRef}
                             type="file"
-                            accept=".apkg,.txt,.csv,.json,.md"
+                            accept=".apkg,.colpkg,.txt,.csv,.json,.md"
                             onChange={handleFileSelect}
                             className="hidden"
                             id="flashcard-import"
                         />
                         <label htmlFor="flashcard-import" className="cursor-pointer block">
                             {loading ? (
-                                <div className="flex flex-col items-center">
-                                    <Loader2 className="h-12 w-12 text-primary animate-spin mb-4" />
-                                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">Processando arquivo...</p>
+                                <div className="flex flex-col items-center gap-3">
+                                    <Loader2 className="h-12 w-12 text-primary animate-spin" />
+                                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">{loadingMsg}</p>
                                 </div>
                             ) : file ? (
                                 <div className="flex flex-col items-center">
@@ -378,8 +428,9 @@ export const ImportFlashcards: React.FC = () => {
                                     <p className="font-black text-slate-900 dark:text-white mb-1">{file.name}</p>
                                     <p className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">
                                         {parsedCards.length} cards encontrados
+                                        {mediaCount > 0 && <span className="ml-2 text-blue-500">· {mediaCount} imagens</span>}
                                     </p>
-                                    <button 
+                                    <button
                                         onClick={(e) => { e.preventDefault(); resetForm(); }}
                                         className="mt-4 text-[9px] font-bold text-red-500 hover:text-red-600 uppercase flex items-center gap-1"
                                     >
@@ -393,25 +444,23 @@ export const ImportFlashcards: React.FC = () => {
                                     </div>
                                     <p className="font-black text-slate-900 dark:text-white mb-1">Arraste ou clique para selecionar</p>
                                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                        .apkg, .txt, .csv, .json, .md
+                                        .apkg, .colpkg, .txt, .csv, .json, .md
                                     </p>
                                 </div>
                             )}
                         </label>
                     </div>
-                    
+
                     {/* Error */}
                     {error && (
                         <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/50 rounded-2xl p-4 flex items-start gap-3">
                             <AlertCircle className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                            <div>
-                                <p className="text-sm font-bold text-red-700 dark:text-red-400">{error}</p>
-                            </div>
+                            <p className="text-sm font-bold text-red-700 dark:text-red-400">{error}</p>
                         </div>
                     )}
-                    
-                    {/* Config & Preview */}
-                    {parsedCards.length > 0 && (
+
+                    {/* Config + Preview + Import */}
+                    {parsedCards.length > 0 && !loading && (
                         <>
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
@@ -431,11 +480,11 @@ export const ImportFlashcards: React.FC = () => {
                                         value={category}
                                         onChange={e => setCategory(e.target.value)}
                                         className="w-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-xl px-4 py-3 text-sm font-bold focus:border-primary outline-none"
-                                        placeholder="Ex: Geral, Anatomia, Fisiologia..."
+                                        placeholder="Ex: Geral, Anatomia..."
                                     />
                                 </div>
                             </div>
-                            
+
                             {/* Preview */}
                             <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-2xl overflow-hidden">
                                 <div className="bg-slate-50 dark:bg-zinc-900 px-5 py-3 border-b border-slate-200 dark:border-zinc-800 flex items-center justify-between">
@@ -444,12 +493,21 @@ export const ImportFlashcards: React.FC = () => {
                                     </span>
                                     <Layers className="h-4 w-4 text-primary" />
                                 </div>
-                                <div className="divide-y divide-slate-100 dark:divide-zinc-900 max-h-[300px] overflow-y-auto custom-scrollbar">
+                                <div className="divide-y divide-slate-100 dark:divide-zinc-900 max-h-[320px] overflow-y-auto custom-scrollbar">
                                     {parsedCards.slice(0, 5).map((card, i) => (
                                         <div key={i} className="p-4 hover:bg-slate-50 dark:hover:bg-zinc-900/50">
                                             <div className="grid md:grid-cols-2 gap-4">
                                                 <div>
                                                     <span className="text-[8px] font-black uppercase text-primary tracking-widest">Frente</span>
+                                                    {card.frontImageBlob && (
+                                                        <div className="mt-1 h-16 w-24 bg-slate-100 dark:bg-zinc-800 rounded-lg overflow-hidden flex items-center justify-center">
+                                                            <img
+                                                                src={URL.createObjectURL(card.frontImageBlob)}
+                                                                alt="preview"
+                                                                className="h-full object-contain"
+                                                            />
+                                                        </div>
+                                                    )}
                                                     <p className="text-sm text-slate-900 dark:text-white mt-1 line-clamp-3">{card.front}</p>
                                                 </div>
                                                 <div>
@@ -461,20 +519,26 @@ export const ImportFlashcards: React.FC = () => {
                                     ))}
                                 </div>
                             </div>
-                            
-                            {/* Import Button */}
+
+                            {/* Media warning */}
+                            {mediaCount > 0 && (
+                                <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900/30 rounded-xl p-4 flex items-center gap-3">
+                                    <ImageIcon className="h-5 w-5 text-blue-500 shrink-0" />
+                                    <p className="text-[10px] font-bold text-blue-700 dark:text-blue-300">
+                                        {mediaCount} imagem{mediaCount !== 1 ? 's' : ''} encontrada{mediaCount !== 1 ? 's' : ''} — serão enviadas para o servidor durante a importação.
+                                    </p>
+                                </div>
+                            )}
+
                             <button
                                 onClick={handleImport}
                                 disabled={loading}
                                 className="w-full bg-primary text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-3"
                             >
                                 {loading ? (
-                                    <Loader2 className="h-5 w-5 animate-spin" />
+                                    <><Loader2 className="h-5 w-5 animate-spin" /> {loadingMsg}</>
                                 ) : (
-                                    <>
-                                        <Download className="h-5 w-5" />
-                                        Importar {parsedCards.length} Flashcards
-                                    </>
+                                    <><Download className="h-5 w-5" /> Importar {parsedCards.length} Flashcards</>
                                 )}
                             </button>
                         </>
