@@ -7,8 +7,9 @@ import {
   Brain, MessageSquare, ListChecks, Database,
   Settings2, Activity, Terminal, Layers, ImagePlus, Trash2,
   CheckCircle2, AlertCircle, Zap, Play, AlertTriangle, Minimize2,
-  Maximize2, FileType
+  Maximize2, FileType, Lock
 } from 'lucide-react';
+import * as pdfjsLib from 'pdfjs-dist';
 import { generateQuestionsFromPrompt, processFileQuestions } from '../services/ai';
 import { questionProcessor } from '../services/questionProcessor'; 
 import { AIImportedQuestion, Difficulty, Question } from '../types';
@@ -18,6 +19,10 @@ import { useNavigate } from 'react-router';
 import { syncEngine } from '../services/syncEngine';
 import { storageService } from '../services/storage';
 import { localDB } from '../services/localDB';
+
+const ADMIN_EMAIL = 'steamleandro@hotmail.com';
+const MAX_FILE_MB = 10;
+const MAX_PAGES = 20;
 
 const normalizeDifficulty = (d: string): Difficulty => {
   const val = (d || '').toLowerCase();
@@ -30,6 +35,7 @@ const normalizeDifficulty = (d: string): Difficulty => {
 export const ImportQuestions: React.FC = () => {
   const { user } = useAuthStore();
   const navigate = useNavigate();
+  const isAdmin = user?.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
   
   const { 
       isProcessing, progress, statusMessage, results, errors, 
@@ -45,9 +51,44 @@ export const ImportQuestions: React.FC = () => {
   const [totalQuestionsTarget, setTotalQuestionsTarget] = useState<number>(10);
   
   const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string | null>(null);
   const [analysisPrompt, setAnalysisPrompt] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const validateFile = async (f: File): Promise<string | null> => {
+    if (isAdmin) return null;
+    const sizeMB = f.size / (1024 * 1024);
+    if (sizeMB > MAX_FILE_MB) {
+      return `Arquivo muito grande (${sizeMB.toFixed(1)} MB). O limite é ${MAX_FILE_MB} MB.`;
+    }
+    const ext = f.name.split('.').pop()?.toLowerCase();
+    if (ext === 'pdf') {
+      try {
+        const buf = await f.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+        if (pdf.numPages > MAX_PAGES) {
+          return `PDF com ${pdf.numPages} páginas. O limite é ${MAX_PAGES} páginas por arquivo.`;
+        }
+      } catch {
+        return 'Não foi possível ler o PDF. Verifique se o arquivo não está corrompido.';
+      }
+    }
+    return null;
+  };
+
+  const handleFileChange = async (f: File | undefined) => {
+    if (!f) { setFile(null); setFileError(null); return; }
+    setFileError(null);
+    const err = await validateFile(f);
+    if (err) {
+      setFile(null);
+      setFileError(err);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    } else {
+      setFile(f);
+    }
+  };
 
   // States para upload manual de imagem na revisão
   const [manualImageMap, setManualImageMap] = useState<Record<number, File>>({});
@@ -101,7 +142,7 @@ export const ImportQuestions: React.FC = () => {
   }, [user]);
 
   const handleProcessFile = async () => {
-    if (!file) return;
+    if (!file || fileError) return;
     setIsUploading(true); 
     setForceReviewMode(false);
     
@@ -437,11 +478,39 @@ export const ImportQuestions: React.FC = () => {
                           {/* ARQUIVO TAB */}
                           {activeTab === 'file' && (
                             <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full space-y-8 py-2 animate-in fade-in overflow-y-auto custom-scrollbar">
-                                <div onClick={() => fileInputRef.current?.click()} className="border-4 border-dashed border-slate-200 dark:border-zinc-800 rounded-[3rem] flex flex-col items-center justify-center cursor-pointer hover:border-primary hover:bg-primary/[0.02] transition-all bg-slate-50 dark:bg-black/20 group shadow-2xl p-8">
-                                    <input type="file" ref={fileInputRef} className="hidden" accept=".pdf,.docx,.txt" onChange={(e) => setFile(e.target.files?.[0] || null)} />
-                                    <div className="p-6 bg-white dark:bg-zinc-900 rounded-[2rem] shadow-xl group-hover:scale-110 transition-transform mb-4">{file ? <FileText className="h-12 w-12 text-primary" /> : <FileUp className="h-12 w-12 text-slate-300" />}</div>
-                                    <h4 className="text-sm font-black uppercase text-slate-900 dark:text-white">{file ? file.name : 'Carregar Documento'}</h4>
-                                    <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">IA mapeará todas as figuras e justificativas automaticamente</p>
+                                <div
+                                    onClick={() => fileInputRef.current?.click()}
+                                    className={`border-4 border-dashed rounded-[3rem] flex flex-col items-center justify-center cursor-pointer transition-all bg-slate-50 dark:bg-black/20 group shadow-2xl p-8 ${fileError ? 'border-red-400 hover:border-red-500' : 'border-slate-200 dark:border-zinc-800 hover:border-primary hover:bg-primary/[0.02]'}`}
+                                >
+                                    <input
+                                        type="file"
+                                        ref={fileInputRef}
+                                        className="hidden"
+                                        accept=".pdf,.docx,.txt"
+                                        onChange={(e) => handleFileChange(e.target.files?.[0])}
+                                    />
+                                    <div className={`p-6 rounded-[2rem] shadow-xl group-hover:scale-110 transition-transform mb-4 ${fileError ? 'bg-red-50 dark:bg-red-900/20' : 'bg-white dark:bg-zinc-900'}`}>
+                                        {fileError
+                                            ? <AlertTriangle className="h-12 w-12 text-red-500" />
+                                            : file
+                                                ? <FileText className="h-12 w-12 text-primary" />
+                                                : <FileUp className="h-12 w-12 text-slate-300" />
+                                        }
+                                    </div>
+                                    <h4 className={`text-sm font-black uppercase ${fileError ? 'text-red-500' : 'text-slate-900 dark:text-white'}`}>
+                                        {fileError ? 'Arquivo rejeitado' : file ? file.name : 'Carregar Documento'}
+                                    </h4>
+                                    {fileError ? (
+                                        <p className="text-[9px] font-bold text-red-500 mt-2 text-center max-w-xs">{fileError}</p>
+                                    ) : (
+                                        <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-2 text-center">IA mapeará todas as figuras e justificativas automaticamente</p>
+                                    )}
+                                    {!isAdmin && !fileError && (
+                                        <div className="flex items-center gap-1.5 mt-3 bg-slate-100 dark:bg-zinc-900 px-3 py-1.5 rounded-full">
+                                            <Lock className="h-2.5 w-2.5 text-slate-400" />
+                                            <span className="text-[7px] font-black uppercase text-slate-400 tracking-widest">Limite: {MAX_PAGES} pág. · {MAX_FILE_MB} MB</span>
+                                        </div>
+                                    )}
                                 </div>
                                 
                                 <div className="space-y-4">
@@ -484,7 +553,7 @@ export const ImportQuestions: React.FC = () => {
                                     />
                                 </div>
 
-                                <button onClick={handleProcessFile} disabled={!file || isUploading} className="w-full bg-primary hover:bg-emerald-700 text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all">
+                                <button onClick={handleProcessFile} disabled={!file || isUploading || !!fileError} className="w-full bg-primary hover:bg-emerald-700 text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all">
                                     INICIAR EXTRAÇÃO IA
                                 </button>
                             </div>
