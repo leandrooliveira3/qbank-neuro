@@ -100,18 +100,55 @@ export const StudyFlashcards: React.FC = () => {
     setLoading(true);
     try {
       const allCards = await localDB.getAll('flashcards');
-      let filtered = allCards.filter(c => c.user_id === user.id);
-      
-      if (studyMode === 'due') {
-        const now = new Date();
-        filtered = filtered.filter(c => new Date(c.next_review) <= now)
-          .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
-      } else if (studyMode === 'free') {
-        filtered = filtered.sort(() => Math.random() - 0.5);
+      const userCards = allCards.filter(c => c.user_id === user.id);
+      let sessionCards: Flashcard[];
+
+      if (studyMode === 'free') {
+        sessionCards = [...userCards].sort(() => Math.random() - 0.5);
+      } else if (studyMode === 'intensive') {
+        sessionCards = [...userCards].sort((a, b) => (a.interval || 0) - (b.interval || 0));
       } else {
-        filtered = filtered.sort((a, b) => (a.interval || 0) - (b.interval || 0));
+        // ── Due mode: apply priority + daily limit ──
+        const now = new Date();
+        const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+
+        const priorityRaw = localStorage.getItem('neuro_priority_config');
+        const priorityCfg = priorityRaw ? JSON.parse(priorityRaw) : null;
+        const isPriorityActive = priorityCfg?.activatedAt
+            && (Date.now() - new Date(priorityCfg.activatedAt).getTime()) < sevenDaysMs;
+        const priorityTopics: string[] = isPriorityActive ? (priorityCfg.topics || []) : [];
+
+        // Priority cards: pull ALL cards from priority topics (even if not yet due), sorted by next_review
+        const priorityCards = priorityTopics.length > 0
+            ? userCards
+                .filter(c => priorityTopics.includes(c.category || 'Sem Categoria'))
+                .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime())
+            : [];
+
+        // Normal due cards: only due, not in priority topics, oldest first
+        const normalDue = userCards
+            .filter(c => new Date(c.next_review) <= now && !priorityTopics.includes(c.category || 'Sem Categoria'))
+            .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
+
+        sessionCards = [...priorityCards, ...normalDue];
+
+        // ── Apply daily limit ──
+        const dailyLimit = parseInt(localStorage.getItem('neuro_daily_limit') || '0');
+        if (dailyLimit > 0 && sessionCards.length > dailyLimit) {
+          const overflow = sessionCards.slice(dailyLimit);
+          // Redistribute overflow across next 1-3 days so they don't pile up
+          const updates = overflow.map((card, i) => {
+            const daysAhead = 1 + (i % 3);
+            const newDate = new Date();
+            newDate.setDate(newDate.getDate() + daysAhead);
+            return { ...card, next_review: newDate.toISOString() };
+          });
+          await Promise.all(updates.map(u => syncEngine.enqueue('flashcards', u)));
+          sessionCards = sessionCards.slice(0, dailyLimit);
+        }
       }
-      setCards(filtered);
+
+      setCards(sessionCards);
     } finally { setLoading(false); }
   };
 

@@ -6,7 +6,8 @@ import {
   Layers, Image as ImageIcon, Calendar, ArrowLeft,
   Filter, ImagePlus, Play, Zap, FilterX, XCircle,
   Scan, Undo2, CheckCircle2, Settings, Brain, Clock, GraduationCap,
-  ZoomIn, ZoomOut, Move, Shuffle, Folder, ChevronDown, ChevronRight, SortAsc, Download
+  ZoomIn, ZoomOut, Move, Shuffle, Folder, ChevronDown, ChevronRight, SortAsc, Download,
+  Star, AlertCircle, Infinity
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../store/useAuthStore';
@@ -53,6 +54,9 @@ export const Flashcards: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState<'list' | 'form' | 'editor' | 'settings'>('list');
   const [srsProfile, setSrsProfile] = useState('standard');
+  const [dailyLimit, setDailyLimit] = useState<number>(0);
+  const [priorityTopics, setPriorityTopics] = useState<string[]>([]);
+  const [priorityActivatedAt, setPriorityActivatedAt] = useState<string | null>(null);
   
   // Organization State
   const [searchTerm, setSearchTerm] = useState('');
@@ -80,6 +84,14 @@ export const Flashcards: React.FC = () => {
       loadCards(); 
       const savedProfile = localStorage.getItem('neuro_srs_profile') || 'standard';
       setSrsProfile(savedProfile);
+      const savedLimit = parseInt(localStorage.getItem('neuro_daily_limit') || '0');
+      setDailyLimit(savedLimit);
+      const priorityRaw = localStorage.getItem('neuro_priority_config');
+      if (priorityRaw) {
+          const cfg = JSON.parse(priorityRaw);
+          setPriorityTopics(cfg.topics || []);
+          setPriorityActivatedAt(cfg.activatedAt || null);
+      }
   }, [user]);
 
   const loadCards = async () => {
@@ -94,6 +106,35 @@ export const Flashcards: React.FC = () => {
   const handleSaveSettings = (profileId: string) => {
       setSrsProfile(profileId);
       localStorage.setItem('neuro_srs_profile', profileId);
+  };
+
+  const handleDailyLimitChange = (val: number) => {
+      setDailyLimit(val);
+      localStorage.setItem('neuro_daily_limit', String(val));
+  };
+
+  const handleTogglePriorityTopic = (topic: string) => {
+      setPriorityTopics(prev => {
+          const isChecked = prev.includes(topic);
+          const next = isChecked ? prev.filter(t => t !== topic) : [...prev, topic];
+
+          // Determine activatedAt
+          let newActivatedAt = priorityActivatedAt;
+          const now = new Date().toISOString();
+          const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+          const isStillActive = newActivatedAt && (Date.now() - new Date(newActivatedAt).getTime()) < sevenDaysMs;
+
+          if (next.length === 0) {
+              newActivatedAt = null;
+          } else if (!isStillActive) {
+              newActivatedAt = now;
+          }
+
+          setPriorityActivatedAt(newActivatedAt);
+          const cfg = { topics: next, activatedAt: newActivatedAt };
+          localStorage.setItem('neuro_priority_config', JSON.stringify(cfg));
+          return next;
+      });
   };
 
   const availableBanks = useMemo(() => {
@@ -454,18 +495,102 @@ export const Flashcards: React.FC = () => {
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-zinc-900 flex justify-end gap-3"><button onClick={() => setMode('list')} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">Cancelar</button><button onClick={handleSave} disabled={loading} className="bg-primary text-white px-10 py-3 rounded-xl font-black text-[10px] uppercase shadow-lg flex items-center gap-2">{loading ? <Loader2 className="animate-spin h-4 w-4" /> : <Save className="h-4 w-4" />} SALVAR CARD</button></div>
           </div>
         ) : (
-          <div className="flex-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2.5rem] p-10 shadow-xl overflow-y-auto custom-scrollbar">
+          <div className="flex-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2.5rem] p-6 md:p-10 shadow-xl overflow-y-auto custom-scrollbar min-h-0">
               {/* Settings View */}
               <button onClick={() => setMode('list')} className="flex items-center text-slate-500 hover:text-primary text-[10px] font-black uppercase mb-10"><ArrowLeft className="h-4 w-4 mr-2" /> Voltar</button>
-              <h2 className="text-2xl font-black text-slate-950 dark:text-white tracking-tighter mb-8">Algoritmo de Revisão</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+              {/* ─── Algoritmo ─── */}
+              <h2 className="text-xl font-black text-slate-950 dark:text-white tracking-tighter mb-4">Algoritmo de Revisão</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
                   {SRS_PRESETS.map((preset) => (
-                      <div key={preset.id} onClick={() => handleSaveSettings(preset.id)} className={`p-6 rounded-[2rem] border-2 cursor-pointer transition-all ${srsProfile === preset.id ? `bg-slate-50 dark:bg-zinc-900 ${preset.border}` : 'bg-white border-slate-100 dark:border-zinc-900'}`}>
+                      <div key={preset.id} onClick={() => handleSaveSettings(preset.id)} className={`p-6 rounded-[2rem] border-2 cursor-pointer transition-all ${srsProfile === preset.id ? `bg-slate-50 dark:bg-zinc-900 ${preset.border}` : 'bg-white dark:bg-zinc-950 border-slate-100 dark:border-zinc-900'}`}>
                           <preset.icon className={`h-8 w-8 ${preset.color} mb-4`} />
                           <h3 className="font-black text-sm mb-2">{preset.name}</h3>
                           <p className="text-[10px] text-slate-500 leading-relaxed">{preset.description}</p>
                       </div>
                   ))}
+              </div>
+
+              {/* ─── Limite Diário ─── */}
+              <div className="border-t border-slate-100 dark:border-zinc-900 pt-8 mb-10">
+                  <h2 className="text-xl font-black text-slate-950 dark:text-white tracking-tighter mb-1">Limite Diário de Revisões</h2>
+                  <p className="text-[10px] text-slate-400 mb-6">Cards que excederem o limite serão redistribuídos nos próximos dias sem desviar do algoritmo.</p>
+                  <div className="flex items-center gap-4">
+                      <input
+                          type="range"
+                          min="0"
+                          max="200"
+                          step="5"
+                          value={dailyLimit}
+                          onChange={e => handleDailyLimitChange(Number(e.target.value))}
+                          className="flex-1 h-2 bg-slate-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-primary"
+                      />
+                      <div className="w-20 shrink-0 bg-primary/10 text-primary px-3 py-2 rounded-xl font-black text-base text-center flex items-center justify-center gap-1">
+                          {dailyLimit === 0 ? <Infinity className="h-5 w-5" /> : dailyLimit}
+                      </div>
+                  </div>
+                  <p className="text-[9px] text-slate-400 mt-2">{dailyLimit === 0 ? 'Sem limite — todos os cards vencidos serão apresentados.' : `Máximo de ${dailyLimit} cards por sessão diária.`}</p>
+              </div>
+
+              {/* ─── Prioridade de Tema ─── */}
+              <div className="border-t border-slate-100 dark:border-zinc-900 pt-8">
+                  <div className="flex items-start justify-between mb-1 gap-4">
+                      <h2 className="text-xl font-black text-slate-950 dark:text-white tracking-tighter">Prioridade de Tema</h2>
+                      {priorityTopics.length > 0 && priorityActivatedAt && (() => {
+                          const daysLeft = Math.max(0, 7 - Math.floor((Date.now() - new Date(priorityActivatedAt).getTime()) / (1000 * 60 * 60 * 24)));
+                          return daysLeft > 0
+                              ? <span className="text-[9px] font-black bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-full shrink-0">{daysLeft}d restantes</span>
+                              : <span className="text-[9px] font-black bg-slate-100 dark:bg-zinc-800 text-slate-400 px-2.5 py-1 rounded-full shrink-0">Expirado</span>;
+                      })()}
+                  </div>
+                  <p className="text-[10px] text-slate-400 mb-6">Temas marcados terão prioridade absoluta por 7 dias — inclusive antecipando cards não vencidos. Após esgotados, a ordem normal do algoritmo é retomada.</p>
+
+                  {(() => {
+                      const allCategories = Array.from(new Set(cards.map(c => c.category || 'Sem Categoria'))).sort();
+                      if (allCategories.length === 0) return (
+                          <div className="p-6 border-2 border-dashed border-slate-100 dark:border-zinc-800 rounded-2xl text-center opacity-50">
+                              <p className="text-[10px] font-black uppercase text-slate-400">Nenhum tema encontrado. Crie flashcards com categoria primeiro.</p>
+                          </div>
+                      );
+                      return (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                              {allCategories.map(cat => {
+                                  const checked = priorityTopics.includes(cat);
+                                  const count = cards.filter(c => (c.category || 'Sem Categoria') === cat).length;
+                                  return (
+                                      <label key={cat} className={`flex items-center gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all select-none ${checked ? 'border-amber-400 bg-amber-50 dark:bg-amber-900/20' : 'border-slate-100 dark:border-zinc-800 hover:border-slate-200 dark:hover:border-zinc-700'}`}>
+                                          <input
+                                              type="checkbox"
+                                              checked={checked}
+                                              onChange={() => handleTogglePriorityTopic(cat)}
+                                              className="sr-only"
+                                          />
+                                          <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center shrink-0 transition-all ${checked ? 'bg-amber-400 border-amber-400' : 'border-slate-300 dark:border-zinc-600'}`}>
+                                              {checked && <Star className="h-3 w-3 text-white fill-white" />}
+                                          </div>
+                                          <div className="flex-1 min-w-0">
+                                              <p className="text-xs font-black text-slate-800 dark:text-white truncate">{cat}</p>
+                                              <p className="text-[8px] font-bold text-slate-400">{count} card{count !== 1 ? 's' : ''}</p>
+                                          </div>
+                                      </label>
+                                  );
+                              })}
+                          </div>
+                      );
+                  })()}
+
+                  {priorityTopics.length > 0 && (
+                      <button
+                          onClick={() => {
+                              setPriorityTopics([]);
+                              setPriorityActivatedAt(null);
+                              localStorage.removeItem('neuro_priority_config');
+                          }}
+                          className="mt-4 text-[9px] font-black uppercase text-slate-400 hover:text-red-500 transition-colors flex items-center gap-1"
+                      >
+                          <X className="h-3 w-3" /> Remover todas as prioridades
+                      </button>
+                  )}
               </div>
           </div>
         )}
