@@ -302,22 +302,22 @@ export const ImportFlashcards: React.FC = () => {
                 }
             }
 
-            setLoadingMsg('Movendo para inbox...');
+            setLoadingMsg('Salvando flashcards...');
 
             // Add all cards to inbox instead of importing directly
             for (let i = 0; i < withUrls.length; i++) {
                 const card = withUrls[i];
-                await moveToInbox(
-                    {
-                        front: card.front,
-                        back: card.back,
-                        front_image_url: card.frontImageUrl || '',
-                        category: category,
-                        bank_name: bankName,
-                    },
-                    'import',
-                    user.id
-                );
+                const flashcard: Omit<Flashcard, 'id' | 'user_id'> = {
+                    front: card.front,
+                    back: card.back,
+                    front_image_url: card.frontImageUrl || '',
+                    status: 'new',
+                    next_review: new Date().toISOString(),
+                    interval: 0,
+                    ease_factor: 2.5,
+                    repetitions: 0,
+                };
+                await moveToInbox(flashcard, 'import', user.id);
             }
 
             setImportedCount(withUrls.length);

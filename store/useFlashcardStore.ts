@@ -117,13 +117,14 @@ export const useFlashcardStore = create<FlashcardStore>((set, get) => ({
     set({ inbox: [...inbox, inboxCard] });
   },
 
-  moveToInbox: async (flashcard: Omit<Flashcard, 'id' | 'user_id'>, source: 'import' | 'manual', userId: string) => {
+  moveToInbox: async (flashcard: Partial<Flashcard> & { front: string; back: string; front_image_url?: string; category?: string; bank_name?: string }, source: 'import' | 'manual', userId: string) => {
     await get().addToInbox({
       user_id: userId,
       front: flashcard.front,
       back: flashcard.back,
-      hint: flashcard.hint,
+      hint: flashcard.hint || '',
       source,
+      status: 'pending',
     });
   },
 

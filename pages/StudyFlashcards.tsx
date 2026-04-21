@@ -489,9 +489,9 @@ export const StudyFlashcards: React.FC = () => {
                         <div className="grid grid-cols-4 gap-2 animate-in slide-in-from-bottom-2">
                             {[
                                 { id: 'again', label: 'Errei', sub: '10m', bg: 'bg-rose-500' },
-                                { id: 'hard', label: 'Duro', sub: `${Math.ceil((currentCard.interval || 1) * 1.2 * srsModifier)}d`, bg: 'bg-orange-500' },
-                                { id: 'good', label: 'Bom', sub: `${Math.ceil((currentCard.interval || 1) * (currentCard.ease_factor || 2.5) * srsModifier)}d`, bg: 'bg-blue-600' },
-                                { id: 'easy', label: 'Fácil', sub: `${Math.ceil((currentCard.interval || 1) * (currentCard.ease_factor || 2.5) * 1.5 * srsModifier)}d`, bg: 'bg-emerald-600' }
+                                { id: 'hard', label: 'Duro', sub: `${Math.ceil((currentCard.interval || 1) * 1.2)}d`, bg: 'bg-orange-500' },
+                                { id: 'good', label: 'Bom', sub: `${Math.ceil((currentCard.interval || 1) * (currentCard.ease_factor || 2.5))}d`, bg: 'bg-blue-600' },
+                                { id: 'easy', label: 'Fácil', sub: `${Math.ceil((currentCard.interval || 1) * (currentCard.ease_factor || 2.5) * 1.5)}d`, bg: 'bg-emerald-600' }
                             ].map((btn) => (
                                 <button 
                                     key={btn.id}
