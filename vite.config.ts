@@ -21,7 +21,12 @@ export default defineConfig(({ mode }) => {
         }
       },
       optimizeDeps: {
-        exclude: ['sql.js'],
+        include: ['sql.js'],
+      },
+      build: {
+        commonjsOptions: {
+          include: [/sql\.js/, /node_modules/],
+        },
       },
     };
 });
