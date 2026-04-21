@@ -11,7 +11,6 @@ import {
     Info, X, Image as ImageIcon
 } from 'lucide-react';
 import JSZip from 'jszip';
-import initSqlJs from 'sql.js';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -129,7 +128,8 @@ export const ImportFlashcards: React.FC = () => {
         setLoadingMsg('Lendo banco de dados SQLite...');
         const dbBuf = await dbEntry.async('arraybuffer');
 
-        // 3. Init sql.js (WASM served from /public)
+        // 3. Init sql.js (WASM served from /public) - dynamic import to avoid bundling issues
+        const initSqlJs = (await import('sql.js')).default;
         const SQL = await initSqlJs({ locateFile: () => '/sql-wasm.wasm' });
         const db = new SQL.Database(new Uint8Array(dbBuf));
 
