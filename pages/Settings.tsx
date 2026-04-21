@@ -15,6 +15,7 @@ import {
 import { syncEngine } from '../services/syncEngine';
 import { localDB } from '../services/localDB';
 import { mediaService } from '../services/mediaService';
+import { useFlashcardStore } from '../store/useFlashcardStore';
 import { useNavigate } from 'react-router';
 import { MEDALS } from '../services/xpService';
 
@@ -23,6 +24,7 @@ type Tab = 'profile' | 'system' | 'admin';
 export const Settings: React.FC = () => {
   const navigate = useNavigate();
   const { user, updateProfile, logout } = useAuthStore();
+  const { resetAllProgress, decks, loadDecks } = useFlashcardStore();
   const [activeTab, setActiveTab] = useState<Tab>('profile');
   
   const [fullName, setFullName] = useState(user?.full_name || '');
@@ -46,6 +48,7 @@ export const Settings: React.FC = () => {
   const [newUserName, setNewUserName] = useState('');
   const [newUserRole, setNewUserRole] = useState<'user' | 'admin'>('user');
   const [creatingUser, setCreatingUser] = useState(false);
+  const [resettingFlashcards, setResettingFlashcards] = useState(false);
 
   const isAdmin = user?.role === 'admin' || user?.email === 'steamleandro@hotmail.com';
 
@@ -155,6 +158,21 @@ export const Settings: React.FC = () => {
       setFeedback({ type: 'success', msg: 'Cache limpo.' });
       setTimeout(() => setFeedback(null), 3000);
       setLoading(false);
+  };
+
+  const handleResetFlashcards = async () => {
+      if (!user) return;
+      if (!confirm('Resetar TODOS os flashcards? Isto limpará todo o histórico e intervalos.')) return;
+      setResettingFlashcards(true);
+      try {
+          await resetAllProgress(user.id);
+          setFeedback({ type: 'success', msg: 'Todos os flashcards foram resetados.' });
+          setTimeout(() => setFeedback(null), 3000);
+      } catch (e: any) {
+          handleError(e);
+      } finally {
+          setResettingFlashcards(false);
+      }
   };
 
   const handleFullSync = async () => {

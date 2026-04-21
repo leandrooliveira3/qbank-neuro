@@ -1,6 +1,6 @@
 
 const DB_NAME = 'NeuroQBank_Local';
-const DB_VERSION = 18; // Increment version for new store
+const DB_VERSION = 20; // Increment version for new store
 
 class LocalDB {
   private db: IDBDatabase | null = null;
@@ -18,7 +18,11 @@ class LocalDB {
           'videos', 'video_progress', 'video_materials', 'video_comments',
           'xp_history',
           'processed_documents',
-          'didactic_materials'
+          'didactic_materials',
+          'flashcard_configs',
+          'flashcard_inbox',
+          'flashcard_decks',
+          'review_history'
         ];
         stores.forEach(s => {
           if (!db.objectStoreNames.contains(s)) db.createObjectStore(s, { keyPath: 'id' });

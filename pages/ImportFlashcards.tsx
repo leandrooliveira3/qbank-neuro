@@ -2,8 +2,10 @@ import React, { useState, useRef } from 'react';
 import { Layout } from '../components/Layout';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../store/useAuthStore';
+import { useFlashcardStore } from '../store/useFlashcardStore';
 import { syncEngine } from '../services/syncEngine';
 import { storageService } from '../services/storage';
+import { localDB } from '../services/localDB';
 import { Flashcard } from '../types';
 import { 
     Upload, FileText, ArrowLeft, Loader2, CheckCircle2, 
@@ -62,6 +64,7 @@ function getExt(filename: string): string {
 export const ImportFlashcards: React.FC = () => {
     const navigate = useNavigate();
     const { user } = useAuthStore();
+    const { moveToInbox } = useFlashcardStore();
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const [file, setFile] = useState<File | null>(null);
@@ -299,28 +302,25 @@ export const ImportFlashcards: React.FC = () => {
                 }
             }
 
-            setLoadingMsg('Salvando flashcards...');
+            setLoadingMsg('Movendo para inbox...');
 
-            const flashcards: Flashcard[] = withUrls.map(card => ({
-                id: crypto.randomUUID(),
-                user_id: user.id,
-                bank_name: bankName,
-                front: card.front,
-                back: card.back,
-                category: category,
-                front_image_url: card.frontImageUrl || '',
-                occlusions: [],
-                status: 'new' as const,
-                interval: 0,
-                ease_factor: 2.5,
-                repetitions: 0,
-                next_review: new Date().toISOString(),
-                created_at: new Date().toISOString(),
-                last_review: new Date().toISOString(),
-            }));
+            // Add all cards to inbox instead of importing directly
+            for (let i = 0; i < withUrls.length; i++) {
+                const card = withUrls[i];
+                await moveToInbox(
+                    {
+                        front: card.front,
+                        back: card.back,
+                        front_image_url: card.frontImageUrl || '',
+                        category: category,
+                        bank_name: bankName,
+                    },
+                    'import',
+                    user.id
+                );
+            }
 
-            await syncEngine.bulkEnqueue('flashcards', flashcards);
-            setImportedCount(flashcards.length);
+            setImportedCount(withUrls.length);
             setImportSuccess(true);
         } catch (err: any) {
             setError(err.message || 'Erro ao importar flashcards');

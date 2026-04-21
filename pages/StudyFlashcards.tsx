@@ -1,73 +1,128 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAuthStore } from '../store/useAuthStore';
+import { useFlashcardStore } from '../store/useFlashcardStore';
 import { localDB } from '../services/localDB';
 import { syncEngine } from '../services/syncEngine';
 import { mediaService } from '../services/mediaService';
-import { Flashcard } from '../types';
+import { Flashcard, FlashcardConfig } from '../types';
 import { XP_VALUES, xpService } from '../services/xpService';
 import { 
   X, Loader2, 
-  Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2
+  Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2, RotateCcw
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 
-// ... neuroSM18 function (unchanged) ...
-const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', modifier: number = 1.0) => {
+const neuroSM2Plus = (
+  card: Flashcard, 
+  rating: 'again' | 'hard' | 'good' | 'easy', 
+  config: { learning_steps: number[]; relearning_steps: number[]; initial_ease: number; min_ease: number; max_ease: number; interval_modifier: number; max_interval: number }
+) => {
     let { interval, ease_factor, repetitions, status } = card;
+    const history = card.review_history || [];
+    
+    let newStatus = status;
     let nextReview = new Date();
-    const MIN_EASE = 1.3;
-    const MAX_EASE = 3.5;
-
+    let newInterval = interval;
+    let newEase = ease_factor;
+    
+    // Simplified SM-2 Plus implementation
     switch (rating) {
         case 'again':
-            interval = 0; 
-            ease_factor = Math.max(MIN_EASE, ease_factor - 0.2);
+            newStatus = status === 'new' ? 'learning' : 'relearning';
+            newInterval = 0;
+            newEase = Math.max(config.min_ease, ease_factor - 0.2);
             repetitions = 0;
-            status = 'learning';
+            nextReview = new Date(Date.now() + (config.relearning_steps[0] || 10) * 60 * 1000);
             break;
+            
         case 'hard':
-            interval = Math.max(1, Math.ceil(interval * 1.2));
-            ease_factor = Math.max(MIN_EASE, ease_factor - 0.15);
-            repetitions += 1;
-            status = 'review';
+            if (status === 'new' || status === 'learning') {
+                newStatus = 'learning';
+                newInterval = 0;
+                nextReview = new Date(Date.now() + (config.learning_steps[0] || 1) * 60 * 1000);
+            } else {
+                newStatus = 'review';
+                newInterval = Math.max(1, Math.ceil(interval * 1.2));
+                nextReview.setDate(nextReview.getDate() + newInterval);
+            }
+            newEase = Math.max(config.min_ease, ease_factor - 0.15);
+            if (status !== 'new' && status !== 'learning') repetitions++;
             break;
+            
         case 'good':
-            if (repetitions === 0) interval = 1;
-            else if (repetitions === 1) interval = 4;
-            else interval = Math.ceil(interval * ease_factor);
-            repetitions += 1;
-            status = 'review';
+            if (status === 'new') {
+                newStatus = 'learning';
+                newInterval = config.learning_steps[0] || 1;
+                nextReview = new Date(Date.now() + newInterval * 60 * 1000);
+            } else if (status === 'learning') {
+                const stepIndex = history.filter(e => e.rating === 'good').length;
+                if (stepIndex < (config.learning_steps.length - 1)) {
+                    newInterval = config.learning_steps[stepIndex + 1] || 10;
+                    nextReview = new Date(Date.now() + newInterval * 60 * 1000);
+                } else {
+                    newStatus = 'review';
+                    newInterval = 1;
+                    nextReview.setDate(nextReview.getDate() + newInterval);
+                    repetitions++;
+                }
+            } else if (status === 'relearning') {
+                newStatus = 'review';
+                newInterval = 1;
+                nextReview.setDate(nextReview.getDate() + newInterval);
+                repetitions++;
+            } else {
+                newStatus = 'review';
+                newInterval = Math.ceil((interval || 1) * ease_factor);
+                nextReview.setDate(nextReview.getDate() + newInterval);
+                repetitions++;
+            }
             break;
+            
         case 'easy':
-            if (repetitions === 0) interval = 6;
-            else interval = Math.ceil(interval * ease_factor * 1.5);
-            ease_factor = Math.min(MAX_EASE, ease_factor + 0.15);
-            repetitions += 1;
-            status = 'mastered';
+            if (status === 'new' || status === 'learning') {
+                newStatus = 'review';
+                newInterval = Math.max(config.learning_steps[config.learning_steps.length - 1] || 10, 4);
+            } else if (status === 'relearning') {
+                newStatus = 'review';
+                newInterval = 4;
+            } else {
+                newInterval = Math.ceil((interval || 1) * ease_factor * 1.3);
+            }
+            newEase = Math.min(config.max_ease, ease_factor + 0.15);
+            newInterval = Math.min(newInterval, config.max_interval);
+            nextReview.setDate(nextReview.getDate() + newInterval);
+            repetitions++;
             break;
+    }
+    
+    newInterval = Math.max(newInterval, 0);
+    if (newInterval > 0) {
+        newInterval = Math.ceil(newInterval * config.interval_modifier);
     }
 
-    if (interval > 0) interval = Math.max(1, Math.ceil(interval * modifier));
-    if (rating === 'again') {
-        nextReview = new Date(Date.now() + 10 * 60 * 1000);
-    } else {
-        nextReview.setDate(nextReview.getDate() + interval);
-    }
+    const entry = {
+        date: new Date().toISOString(),
+        rating,
+        interval: newInterval,
+        ease_factor: newEase
+    };
 
     return {
         ...card,
-        interval,
-        ease_factor: parseFloat(ease_factor.toFixed(2)),
+        interval: newInterval,
+        ease_factor: parseFloat(newEase.toFixed(2)),
         repetitions,
-        status,
+        status: newStatus,
         next_review: nextReview.toISOString(),
-        last_review: new Date().toISOString()
+        last_review: new Date().toISOString(),
+        review_history: [...history, entry]
     };
 };
 
 export const StudyFlashcards: React.FC = () => {
   const { user } = useAuthStore();
+  const { config, loadConfig } = useFlashcardStore();
   const navigate = useNavigate();
   const { state } = useLocation();
   const studyMode = state?.studyMode || 'due';
@@ -79,7 +134,7 @@ export const StudyFlashcards: React.FC = () => {
   const [finished, setFinished] = useState(false);
   const [sessionStats, setSessionStats] = useState({ reviewed: 0, learned: 0, mastered: 0 });
   const [currentImageUrl, setCurrentImageUrl] = useState<string>('');
-  const [srsModifier, setSrsModifier] = useState(1.0);
+  const [autoFlipTimer, setAutoFlipTimer] = useState<NodeJS.Timeout | null>(null);
   
   // Accumulate XP locally
   const [accumulatedXP, setAccumulatedXP] = useState(0);
@@ -87,11 +142,8 @@ export const StudyFlashcards: React.FC = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   
   useEffect(() => { 
-      const profile = localStorage.getItem('neuro_srs_profile') || 'standard';
-      let mod = 1.0;
-      if (profile === 'cramming') mod = 0.5;
-      else if (profile === 'deep') mod = 1.5;
-      setSrsModifier(mod);
+      if (!user) return;
+      loadConfig(user.id);
       loadSessionCards(); 
   }, [user, studyMode]);
 
@@ -161,14 +213,57 @@ export const StudyFlashcards: React.FC = () => {
       }
   }, [currentIndex, cards]);
 
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (loading || finished || isTransitioning) return;
+
+      switch (e.key) {
+        case ' ': // Space to flip
+          e.preventDefault();
+          if (!isFlipped) setIsFlipped(true);
+          break;
+        case '1': // Again
+          if (isFlipped && studyMode !== 'free') {
+            e.preventDefault();
+            handleRate('again');
+          }
+          break;
+        case '2': // Hard
+          if (isFlipped && studyMode !== 'free') {
+            e.preventDefault();
+            handleRate('hard');
+          }
+          break;
+        case '3': // Good
+          if (isFlipped) {
+            e.preventDefault();
+            handleRate('good');
+          }
+          break;
+        case '4': // Easy
+          if (isFlipped && studyMode !== 'free') {
+            e.preventDefault();
+            handleRate('easy');
+          }
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFlipped, isTransitioning, loading, finished, studyMode, currentIndex, cards]);
+
   const handleRate = async (rating: 'again' | 'hard' | 'good' | 'easy') => {
-    if (!user || currentIndex >= cards.length) return;
+    if (!user || !config || currentIndex >= cards.length) return;
     
     setIsTransitioning(true);
+    if (autoFlipTimer) clearTimeout(autoFlipTimer);
 
     if (studyMode !== 'free') {
-        const updatedCard = neuroSM18(cards[currentIndex], rating, srsModifier);
+        const updatedCard = neuroSM2Plus(cards[currentIndex], rating, config);
         await syncEngine.enqueue('flashcards', updatedCard);
+        await localDB.put('flashcards', updatedCard);
     }
     
     // Just accumulate local stat
@@ -177,7 +272,7 @@ export const StudyFlashcards: React.FC = () => {
     
     setSessionStats(p => ({
         reviewed: p.reviewed + 1,
-        learned: rating === 'good' ? p.learned + 1 : p.learned,
+        learned: rating === 'good' || rating === 'easy' ? p.learned + 1 : p.learned,
         mastered: rating === 'easy' ? p.mastered + 1 : p.mastered
     }));
 
@@ -192,7 +287,6 @@ export const StudyFlashcards: React.FC = () => {
         } else {
             // FINISH SESSION: AWARD XP HERE
             if (accumulatedXP + xpPerCard > 0) {
-               // Add the last card's XP to the total before awarding
                xpService.addXP(accumulatedXP + xpPerCard, 'Revisão Concluída', 'Flashcards');
             }
             setFinished(true);
@@ -364,12 +458,22 @@ export const StudyFlashcards: React.FC = () => {
         <footer className="h-20 shrink-0 bg-white dark:bg-zinc-950 border-t border-slate-200 dark:border-zinc-900 px-6 flex items-center justify-center z-[110] shadow-lg">
             <div className="w-full max-w-lg">
                 {!isFlipped ? (
-                    <button 
-                        onClick={() => setIsFlipped(true)} 
-                        className="w-full h-12 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-black font-black text-[10px] uppercase tracking-widest shadow-xl active:scale-95 transition-all"
-                    >
-                        MOSTRAR RESPOSTA
-                    </button>
+                    <div className="flex gap-2">
+                        <button 
+                            onClick={() => setIsFlipped(true)} 
+                            className="flex-1 h-12 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-black font-black text-[10px] uppercase tracking-widest shadow-xl active:scale-95 transition-all"
+                        >
+                            MOSTRAR RESPOSTA
+                        </button>
+                        <button
+                            onClick={() => config?.auto_flip_enabled && setIsFlipped(true)}
+                            title={config?.auto_flip_enabled ? `Auto flip em ${config.auto_flip_delay_ms/1000}s` : 'Auto flip desativado'}
+                            disabled={!config?.auto_flip_enabled}
+                            className="h-12 px-4 rounded-xl bg-slate-100 dark:bg-zinc-900 text-slate-400 disabled:opacity-30 transition-all"
+                        >
+                            <RotateCcw className="h-4 w-4" />
+                        </button>
+                    </div>
                 ) : (
                     studyMode === 'free' ? (
                         <div className="flex justify-center">

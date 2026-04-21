@@ -89,13 +89,64 @@ export interface Flashcard {
   back_image_url?: string;
   occlusions?: Occlusion[];
   category?: string;
-  status: 'new' | 'learning' | 'review' | 'mastered';
+  status: 'new' | 'learning' | 'review' | 'relearning' | 'mastered';
   next_review: string;
   interval: number;
   ease_factor: number;
   repetitions: number;
   last_review?: string;
   created_at?: string;
+  hint?: string;
+  tags?: string[];
+  deck_id?: string;
+  review_history?: ReviewEntry[];
+}
+
+export interface ReviewEntry {
+  date: string;
+  rating: 'again' | 'hard' | 'good' | 'easy';
+  interval: number;
+  ease_factor: number;
+}
+
+export interface FlashcardConfig {
+  user_id: string;
+  learning_steps: number[]; // Minutes [1, 10, 1440]
+  relearning_steps: number[]; // Minutes [10, 1440]
+  initial_ease: number; // 2.5
+  min_ease: number; // 1.3
+  max_ease: number; // 3.5
+  interval_modifier: number; // 1.0
+  max_interval: number; // 36500
+  auto_flip_enabled: boolean;
+  auto_flip_delay_ms: number;
+  new_cards_per_day: number;
+  review_cards_per_day: number;
+  created_at?: string;
+}
+
+export interface FlashcardInbox {
+  id: string;
+  user_id: string;
+  front: string;
+  back: string;
+  hint?: string;
+  source: 'import' | 'manual';
+  hash: string; // SHA256(front + back) for deduplication
+  content_hash?: string;
+  status: 'pending' | 'added' | 'duplicate';
+  deck_id?: string;
+  created_at: string;
+}
+
+export interface FlashcardDeck {
+  id: string;
+  user_id: string;
+  name: string;
+  description?: string;
+  created_at: string;
+  cards_count?: number;
+  last_studied?: string;
 }
 
 export interface AIImportedQuestion {

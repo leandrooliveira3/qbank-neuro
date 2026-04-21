@@ -20,6 +20,8 @@ import { Summaries } from './pages/Summaries';
 import { Flashcards } from './pages/Flashcards';
 import { StudyFlashcards } from './pages/StudyFlashcards';
 import { ImportFlashcards } from './pages/ImportFlashcards';
+import { AdvancedFlashcardConfig } from './pages/AdvancedFlashcardConfig';
+import { FlashcardManagement } from './pages/FlashcardManagement';
 import { Settings } from './pages/Settings';
 import { Chat } from './pages/Chat';
 import { Revision } from './pages/Revision';
@@ -96,6 +98,8 @@ export default function App() {
         <Route path="/flashcards" element={<PrivateRoute><Flashcards /></PrivateRoute>} />
         <Route path="/flashcards/study" element={<PrivateRoute><StudyFlashcards /></PrivateRoute>} />
         <Route path="/flashcards/import" element={<PrivateRoute><ImportFlashcards /></PrivateRoute>} />
+        <Route path="/flashcards/manage" element={<PrivateRoute><FlashcardManagement /></PrivateRoute>} />
+        <Route path="/flashcards/config" element={<PrivateRoute><AdvancedFlashcardConfig /></PrivateRoute>} />
         <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
         <Route path="/community" element={<PrivateRoute><Comunidade /></PrivateRoute>} />
         <Route path="*" element={<Navigate to="/" replace />} />
