@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { Flashcard, FlashcardConfig, FlashcardInbox, FlashcardDeck, ReviewEntry } from '../types';
 import { localDB } from '../services/localDB';
-import crypto from 'crypto';
 
 interface FlashcardStore {
   config: FlashcardConfig | null;
@@ -23,9 +22,13 @@ interface FlashcardStore {
   updateCardReviewEntry: (cardId: string, entry: ReviewEntry) => Promise<void>;
 }
 
-const generateHash = (front: string, back: string): string => {
+const generateHash = async (front: string, back: string): Promise<string> => {
   const combined = `${front}|${back}`;
-  return crypto.createHash('sha256').update(combined).digest('hex');
+  const encoder = new TextEncoder();
+  const data = encoder.encode(combined);
+  const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 };
 
 export const useFlashcardStore = create<FlashcardStore>((set, get) => ({
@@ -97,11 +100,18 @@ export const useFlashcardStore = create<FlashcardStore>((set, get) => ({
   },
 
   addToInbox: async (card: Omit<FlashcardInbox, 'id' | 'hash' | 'created_at'>) => {
-    const hash = generateHash(card.front, card.back);
+    const hash = await generateHash(card.front, card.back);
     const allFlashcards = await localDB.getAll('flashcards');
-    const isDuplicate = allFlashcards.some(
-      f => f.user_id === card.user_id && generateHash(f.front, f.back) === hash
-    );
+    let isDuplicate = false;
+    for (const f of allFlashcards) {
+      if (f.user_id === card.user_id) {
+        const existingHash = await generateHash(f.front, f.back);
+        if (existingHash === hash) {
+          isDuplicate = true;
+          break;
+        }
+      }
+    }
 
     const id = `inbox_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     const inboxCard: FlashcardInbox = {

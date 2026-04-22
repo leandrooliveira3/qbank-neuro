@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 
 export const FlashcardManagement: React.FC = () => {
+  console.log('[v0] FlashcardManagement component mounted');
   const { user } = useAuthStore();
   const { decks, inbox, loadDecks, loadInbox, createDeck, deleteDeck, processInboxCard, deleteFromInbox } = useFlashcardStore();
   const [activeTab, setActiveTab] = useState<'decks' | 'inbox'>('decks');

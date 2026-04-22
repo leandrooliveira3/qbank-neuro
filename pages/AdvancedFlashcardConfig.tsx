@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 
 export const AdvancedFlashcardConfig: React.FC = () => {
+  console.log('[v0] AdvancedFlashcardConfig component mounted');
   const { user } = useAuthStore();
   const { config, loadConfig, saveConfig } = useFlashcardStore();
   const [local, setLocal] = useState<FlashcardConfig | null>(null);

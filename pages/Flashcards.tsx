@@ -48,6 +48,7 @@ const SRS_PRESETS = [
 ];
 
 export const Flashcards: React.FC = () => {
+  console.log('[v0] Flashcards page loaded - with new INBOX and CONFIG buttons');
   const { user } = useAuthStore();
   const navigate = useNavigate();
   const [cards, setCards] = useState<Flashcard[]>([]);
@@ -388,7 +389,8 @@ export const Flashcards: React.FC = () => {
                 <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'free' } })} className="flex-1 md:flex-none bg-white dark:bg-zinc-800 text-slate-700 dark:text-white border-2 border-slate-200 dark:border-zinc-700 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2"><Shuffle className="h-4 w-4 text-emerald-500" /> ESTUDO LIVRE</button>
                 <button onClick={() => { resetForm(); setMode('form'); }} className="flex-1 md:flex-none bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg flex items-center justify-center gap-2"><Plus className="h-4 w-4" /> NOVO</button>
                 <button onClick={() => navigate('/flashcards/import')} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Download className="h-4 w-4" /> IMPORTAR</button>
-                <button onClick={() => setMode('settings')} className="bg-slate-50 dark:bg-zinc-900 text-slate-400 p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800"><Settings className="h-5 w-5" /></button>
+                <button onClick={() => navigate('/flashcards/manage')} className="flex-1 md:flex-none bg-amber-500 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Folder className="h-4 w-4" /> INBOX</button>
+                <button onClick={() => navigate('/flashcards/config')} className="bg-slate-50 dark:bg-zinc-900 text-slate-400 p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800" title="Configuracao Avancada SRS"><Settings className="h-5 w-5" /></button>
               </div>
             </div>
 
