@@ -312,7 +312,7 @@ export const Flashcards: React.FC = () => {
   };
 
   // Grouping Logic
-  const groupedCards = useMemo(() => {
+  const filteredCards = useMemo(() => {
       let filtered = cards.filter(c => {
           const matchesSearch = c.front.toLowerCase().includes(searchTerm.toLowerCase()) || c.back.toLowerCase().includes(searchTerm.toLowerCase()) || (c.category || '').toLowerCase().includes(searchTerm.toLowerCase());
           const matchesBank = filterBank === 'Todos' || (c.bank_name || 'Principal') === filterBank;
@@ -324,15 +324,47 @@ export const Flashcards: React.FC = () => {
       } else {
           filtered.sort((a, b) => new Date(b.created_at || '').getTime() - new Date(a.created_at || '').getTime());
       }
+      return filtered;
+  }, [cards, searchTerm, filterBank, sortBy]);
 
+  const groupedCards = useMemo(() => {
       const groups: Record<string, Flashcard[]> = {};
-      filtered.forEach(c => {
+      filteredCards.forEach(c => {
           const cat = c.category || 'Sem Categoria';
           if (!groups[cat]) groups[cat] = [];
           groups[cat].push(c);
       });
       return groups;
-  }, [cards, searchTerm, filterBank, sortBy]);
+  }, [filteredCards]);
+
+  const handleDeleteFilteredFlashcards = async () => {
+    if (!filteredCards.length || !confirm(`Excluir permanentemente todos os ${filteredCards.length} flashcards filtrados?`)) return;
+    
+    setLoading(true);
+    try {
+      await syncEngine.bulkDelete('flashcards', filteredCards);
+      loadCards();
+    } catch (err: any) {
+        alert("Erro ao excluir: " + err.message);
+    } finally {
+        setLoading(false);
+    }
+  };
+
+  const handleDeleteCategory = async (category: string, items: Flashcard[], e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (!confirm(`Excluir permanentemente todos os ${items.length} flashcards da categoria "${category}"?`)) return;
+      
+      setLoading(true);
+      try {
+          await syncEngine.bulkDelete('flashcards', items);
+          loadCards();
+      } catch (err: any) {
+          alert("Erro ao excluir: " + err.message);
+      } finally {
+          setLoading(false);
+      }
+  };
 
   const dueCount = cards.filter(c => new Date(c.next_review).getTime() <= Date.now()).length;
 
@@ -398,6 +430,14 @@ export const Flashcards: React.FC = () => {
                     <input type="text" placeholder="Pesquisar conteúdo..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="w-full bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-xl pl-10 pr-4 py-2.5 text-xs font-black focus:border-primary" />
                 </div>
                 <div className="flex gap-2 w-full md:w-auto">
+                    {(searchTerm || filterBank !== 'Todos') && (
+                        <button 
+                            onClick={handleDeleteFilteredFlashcards}
+                            className="bg-rose-50 dark:bg-rose-900/10 text-rose-600 border border-rose-200 dark:border-rose-900 px-4 py-2.5 rounded-xl font-black text-[9px] uppercase flex items-center gap-2 hover:bg-rose-100 transition-colors"
+                        >
+                            <Trash2 className="h-3.5 w-3.5" /> Limpar Filtrados ({filteredCards.length})
+                        </button>
+                    )}
                     <select value={filterBank} onChange={e => setFilterBank(e.target.value)} className="flex-1 md:w-40 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 p-2.5 rounded-xl text-xs font-black appearance-none">
                         <option value="Todos">Banco (Todos)</option>
                         {availableBanks.map(b => <option key={b} value={b}>{b}</option>)}
@@ -424,7 +464,16 @@ export const Flashcards: React.FC = () => {
                                   <span className="text-[10px] font-black uppercase text-slate-700 dark:text-slate-300 tracking-widest">{category}</span>
                                   <span className="text-[8px] font-bold bg-slate-200 dark:bg-zinc-800 px-2 py-0.5 rounded-full text-slate-500">{items.length}</span>
                               </div>
-                              {openThemes.has(category) ? <ChevronDown className="h-4 w-4 text-slate-400" /> : <ChevronRight className="h-4 w-4 text-slate-400" />}
+                              <div className="flex items-center gap-1">
+                                  <button 
+                                      onClick={(e) => handleDeleteCategory(category, items, e)}
+                                      className="p-2 text-slate-300 hover:text-red-500 transition-colors"
+                                      title="Excluir Categoria"
+                                  >
+                                      <Trash2 className="h-4 w-4" />
+                                  </button>
+                                  {openThemes.has(category) ? <ChevronDown className="h-4 w-4 text-slate-400" /> : <ChevronRight className="h-4 w-4 text-slate-400" />}
+                              </div>
                           </div>
                           
                           {openThemes.has(category) && (
@@ -601,7 +650,7 @@ export const Flashcards: React.FC = () => {
                   <p className="text-[10px] text-slate-400 mb-6">Temas marcados terão prioridade absoluta por 7 dias — inclusive antecipando cards não vencidos. Após esgotados, a ordem normal do algoritmo é retomada.</p>
 
                   {(() => {
-                      const allCategories = Array.from(new Set(cards.map(c => c.category || 'Sem Categoria'))).sort();
+                      const allCategories = Array.from(new Set(cards.map(c => c.category || 'Sem Categoria'))).sort() as string[];
                       if (allCategories.length === 0) return (
                           <div className="p-6 border-2 border-dashed border-slate-100 dark:border-zinc-800 rounded-2xl text-center opacity-50">
                               <p className="text-[10px] font-black uppercase text-slate-400">Nenhum tema encontrado. Crie flashcards com categoria primeiro.</p>

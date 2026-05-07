@@ -123,6 +123,20 @@ export const Questions: React.FC = () => {
     }
   };
 
+  const handleDeleteFiltered = async () => {
+    if (!filteredQuestions.length || !confirm(`Excluir permanentemente todas as ${filteredQuestions.length} questões filtradas?`)) return;
+    
+    setLoading(true);
+    try {
+      await syncEngine.bulkDelete('questions', filteredQuestions);
+      loadData();
+    } catch (err: any) {
+        alert("Erro ao excluir: " + err.message);
+    } finally {
+        setLoading(false);
+    }
+  };
+
   const toggleSelect = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     const next = new Set(selectedIds);
@@ -159,11 +173,18 @@ export const Questions: React.FC = () => {
             <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-3xl p-4 shadow-xl animate-in slide-in-from-top-4 shrink-0 w-full">
                 <div className="flex justify-between items-center mb-3">
                     <span className="text-[9px] font-black uppercase text-slate-400 tracking-widest">Busca Avançada</span>
-                    {hasActiveFilters && (
-                        <button onClick={clearFilters} className="text-[9px] font-black uppercase text-red-500 hover:text-red-600 flex items-center">
-                            <XCircle className="h-3.5 w-3.5 mr-1" /> Limpar
-                        </button>
-                    )}
+                    <div className="flex gap-4">
+                        {hasActiveFilters && (
+                            <button onClick={handleDeleteFiltered} className="text-[9px] font-black uppercase text-rose-500 hover:text-rose-600 flex items-center transition-colors">
+                                <Trash2 className="h-3.5 w-3.5 mr-1" /> Excluir Filtrados ({filteredQuestions.length})
+                            </button>
+                        )}
+                        {hasActiveFilters && (
+                            <button onClick={clearFilters} className="text-[9px] font-black uppercase text-slate-500 hover:text-slate-600 flex items-center">
+                                <XCircle className="h-3.5 w-3.5 mr-1" /> Limpar
+                            </button>
+                        )}
+                    </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
                     <div className="relative">
