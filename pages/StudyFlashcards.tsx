@@ -8,7 +8,8 @@ import { Flashcard } from '../types';
 import { XP_VALUES, xpService } from '../services/xpService';
 import { 
   X, Loader2, 
-  Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2
+  Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2,
+  Undo2
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 
@@ -269,7 +270,7 @@ export const StudyFlashcards: React.FC = () => {
                     {/* FRENTE */}
                     <div 
                         className="absolute inset-0 backface-hidden bg-white dark:bg-zinc-900 rounded-[2rem] border border-slate-200 dark:border-zinc-800 shadow-xl flex flex-col overflow-hidden cursor-pointer"
-                        onClick={() => !isFlipped && setIsFlipped(true)}
+                        onClick={() => setIsFlipped(true)}
                     >
                         {currentCard.front_image_url ? (
                             <div className="flex-[1.5] min-h-0 bg-slate-50 dark:bg-black/40 flex items-center justify-center p-3 border-b border-slate-100 dark:border-zinc-800 relative">
@@ -316,7 +317,8 @@ export const StudyFlashcards: React.FC = () => {
 
                     {/* VERSO */}
                     <div 
-                        className="absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-zinc-900 rounded-[2rem] border-2 border-emerald-500 shadow-xl flex flex-col overflow-hidden"
+                        className="absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-zinc-900 rounded-[2rem] border-2 border-emerald-500 shadow-xl flex flex-col overflow-hidden cursor-pointer"
+                        onClick={() => setIsFlipped(false)}
                     >
                         {currentCard.front_image_url ? (
                             <div className="flex-[1.5] min-h-0 bg-emerald-500/5 dark:bg-emerald-500/10 flex items-center justify-center p-3 border-b border-emerald-100 dark:border-emerald-900/40 relative">
@@ -371,7 +373,17 @@ export const StudyFlashcards: React.FC = () => {
                         MOSTRAR RESPOSTA
                     </button>
                 ) : (
-                    studyMode === 'free' ? (
+                    <div className="flex flex-col gap-3">
+                        <div className="flex justify-between items-center px-2">
+                             <button 
+                                onClick={() => setIsFlipped(false)}
+                                className="flex items-center gap-1.5 text-[8px] font-black uppercase text-slate-400 hover:text-primary transition-colors"
+                             >
+                                <Undo2 className="h-3 w-3" /> Desvirar Card
+                             </button>
+                             <span className="text-[8px] font-black uppercase text-slate-300 tracking-widest">Qual foi sua dificuldade?</span>
+                        </div>
+                        {studyMode === 'free' ? (
                         <div className="flex justify-center">
                             <button 
                                 onClick={() => handleRate('good')}
@@ -402,7 +414,8 @@ export const StudyFlashcards: React.FC = () => {
                                 </button>
                             ))}
                         </div>
-                    )
+                    )}
+                    </div>
                 )}
             </div>
         </footer>

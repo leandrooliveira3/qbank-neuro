@@ -532,6 +532,61 @@ export const Flashcards: React.FC = () => {
                   <p className="text-[9px] text-slate-400 mt-2">{dailyLimit === 0 ? 'Sem limite — todos os cards vencidos serão apresentados.' : `Máximo de ${dailyLimit} cards por sessão diária.`}</p>
               </div>
 
+              {/* ─── Gerenciamento de Dados ─── */}
+              <div className="border-t border-slate-100 dark:border-zinc-900 pt-8 mb-10">
+                  <h2 className="text-xl font-black text-slate-950 dark:text-white tracking-tighter mb-1">Gerenciamento de Dados</h2>
+                  <p className="text-[10px] text-slate-400 mb-6">Controle seu progresso e sincronização com o banco de dados principal.</p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Zero Progress */}
+                      <div className="p-6 bg-rose-50 dark:bg-rose-900/10 border-2 border-rose-100 dark:border-rose-900/30 rounded-[2rem]">
+                          <div className="flex items-center gap-3 mb-3">
+                              <Undo2 className="h-5 w-5 text-rose-500" />
+                              <h3 className="font-black text-[11px] uppercase tracking-widest text-rose-700 dark:text-rose-400">Zerar Revisões</h3>
+                          </div>
+                          <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4">Reinicia o algoritmo de todos os seus cards. Eles voltarão ao status "Novo".</p>
+                          <button 
+                            onClick={async () => {
+                                if (!confirm("Isso apagará TODO o seu progresso de estudo (SRS) de todos os cards. Continuar?")) return;
+                                setLoading(true);
+                                try {
+                                    const resetCards = cards.map(c => ({
+                                        ...c,
+                                        status: 'new' as const,
+                                        interval: 0,
+                                        ease_factor: 2.5,
+                                        repetitions: 0,
+                                        next_review: new Date().toISOString(),
+                                        last_review: new Date().toISOString()
+                                    }));
+                                    await syncEngine.bulkEnqueue('flashcards', resetCards);
+                                    await loadCards();
+                                    alert("Progresso zerado com sucesso!");
+                                } finally { setLoading(false); }
+                            }}
+                            className="w-full bg-rose-500 text-white py-2.5 rounded-xl font-black text-[9px] uppercase tracking-widest shadow-sm active:scale-95 transition-all"
+                          >
+                              ZERAR TUDO
+                          </button>
+                      </div>
+
+                      {/* Restore from DB */}
+                      <div className="p-6 bg-indigo-50 dark:bg-indigo-900/10 border-2 border-indigo-100 dark:border-indigo-900/30 rounded-[2rem]">
+                          <div className="flex items-center gap-3 mb-3">
+                              <Download className="h-5 w-5 text-indigo-500" />
+                              <h3 className="font-black text-[11px] uppercase tracking-widest text-indigo-700 dark:text-indigo-400">Restaurar Decks</h3>
+                          </div>
+                          <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4">Adiciona ou restaura decks baseados nos temas oficiais disponíveis no database.</p>
+                          <button 
+                            onClick={() => navigate('/flashcards/import')}
+                            className="w-full bg-indigo-600 text-white py-2.5 rounded-xl font-black text-[9px] uppercase tracking-widest shadow-sm active:scale-95 transition-all"
+                          >
+                              ACESSAR DATABASE
+                          </button>
+                      </div>
+                  </div>
+              </div>
+
               {/* ─── Prioridade de Tema ─── */}
               <div className="border-t border-slate-100 dark:border-zinc-900 pt-8">
                   <div className="flex items-start justify-between mb-1 gap-4">
