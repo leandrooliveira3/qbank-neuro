@@ -42,6 +42,7 @@ import { NeuroTraumaTool } from './pages/tools/NeuroTrauma';
 import { NeuroInfectologiaTool } from './pages/tools/NeuroInfectologia';
 import { NeuroSonologiaTool } from './pages/tools/NeuroSonologia';
 import { BureaucracyTool } from './pages/tools/BureaucracyTool';
+import { NeuroRadiologyTool } from './pages/tools/NeuroRadiology';
 
 const PrivateRoute = ({ children }: { children?: React.ReactNode }) => {
   const { user, loading, initialized } = useAuthStore();
@@ -74,6 +75,7 @@ export default function App() {
         <Route path="/tools/neuroinfecto" element={<NeuroInfectologiaTool />} />
         <Route path="/tools/neurosono" element={<NeuroSonologiaTool />} />
         <Route path="/tools/bureaucracy" element={<BureaucracyTool />} />
+        <Route path="/tools/neuroradiology" element={<NeuroRadiologyTool />} />
         <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route path="/chat" element={<PrivateRoute><Chat /></PrivateRoute>} />
         <Route path="/questions" element={<PrivateRoute><Questions /></PrivateRoute>} />

@@ -24,7 +24,8 @@ import {
   Shield, 
   Dumbbell, 
   Activity,
-  Printer
+  Printer,
+  Image as ImageIcon
 } from 'lucide-react';
 
 export const MENU_ITEMS = [
@@ -81,5 +82,6 @@ export const TOOLS_CATEGORIES = [
   { id: 'neuromuscular', name: 'Neuromuscular', desc: 'MG-ADL e MG-Composite.', icon: Dumbbell, path: '/tools/neuromuscular', text: 'text-lime-500', bgLight: 'bg-lime-500/10' },
   { id: 'neurosono', name: 'Neurossonologia', desc: 'DTC Velocidades e Lindegaard.', icon: Waves, path: '/tools/neurosono', text: 'text-blue-500', bgLight: 'bg-blue-500/10' },
   { id: 'neurotrauma', name: 'Neurotrauma', desc: 'Canadian CT, Marshall e PECARN.', icon: Skull, path: '/tools/neurotrauma', text: 'text-orange-500', bgLight: 'bg-orange-500/10' },
-  { id: 'neurovascular', name: 'Neurovascular', desc: 'NIHSS, ASPECTS e rt-PA.', icon: Syringe, path: '/tools/neurovascular', text: 'text-rose-500', bgLight: 'bg-rose-500/10' }
+  { id: 'neurovascular', name: 'Neurovascular', desc: 'NIHSS, ASPECTS e rt-PA.', icon: Syringe, path: '/tools/neurovascular', text: 'text-rose-500', bgLight: 'bg-rose-500/10' },
+  { id: 'neuroradiology', name: 'Neurorradiologia', desc: 'Sinais Típicos e Epidemiologia.', icon: ImageIcon, path: '/tools/neuroradiology', text: 'text-indigo-600', bgLight: 'bg-indigo-600/10' }
 ];

@@ -29,29 +29,29 @@ const ICHD3_DATA = [
         name: 'Migrânea (1.1 & 1.2)',
         icon: Zap,
         criteria: [
-            'Sem Aura: ≥5 crises, 4-72h, Unilateral, Pulsátil, Mod/Grave, Agrava c/ esforço (2/4) + Náusea/Vômito ou Foto/Fonofobia (1/2).',
-            'Com Aura: ≥2 crises, sintomas reversíveis (Visual, Sensitivo, Fala) que se difundem gradualmente (>5 min) e duram 5-60 min.',
-            'Diferencial: Cefaleia Tensional, Hemiplegia Alternante, AIT.'
+            'Sem Aura (1.1): ≥5 crises; duração 4-72h. Características (≥2): Unilateral, Pulsátil, Moderada/Grave, Piora com rotina física. Sintomas associados (≥1): Náusea/Vômitos, Fotofobia + Fonofobia.',
+            'Com Aura (1.2): ≥2 crises. Aura reversível (Visual, Sensitiva, Fala/Linguagem, Motora). Propagação gradual >5 min, duração 5-60 min por sintoma. Cefaleia inicia em até 60 min após.',
+            'Crônica (1.3): Cefaleia em ≥15 dias/mês por >3 meses, com características de migrânea em ≥8 dias/mês.'
         ],
         treatment: {
-            acute: 'Triptanos (Sumatriptano, Rizatriptano) - Tomar no início da dor (não na aura). AINES (Naproxeno). Gepantos (Rimegepanto).',
-            preventive: 'Propranolol (20-160mg), Topiramato (25-100mg), Amitriptilina (10-75mg), CGRP mAbs (Erenumabe, Galcanezumabe - alta eficácia e poucos efeitos colaterais).',
-            pearls: 'Evitar uso de analgésicos >10-15 dias/mês (Cefaleia por abuso). Topiramato causa parestesias e redução de peso.'
+            acute: 'Triptanos (Sumatriptano, Naratriptano) precocemente (AINEs como adjuvante). Gepantos (Rimegepanto 75mg, Ubrogepanto) e Ditana (Lasmiditana 50-200mg - age em 5HT1F, sem vasoconstrição, útil em cardiopatas).',
+            preventive: 'Alta eficácia: Anticorpos monoclonais Anti-CGRP (Galcanezumabe, Fremanezumabe, Erenumabe). Orais Clássicos: Topiramato (50-100mg/d), Propranolol (40-120mg/d), Amitriptilina, Candesartana.',
+            pearls: 'Efeitos adversos: Topiramato (parestesias, lentificação cognitiva, nefrolitíase, perda de peso). Propranolol (astenia, bradicardia, broncoespasmo). Lasmiditana (sintomas limitantes de SNC: tontura, sonolência - PROIBIDO dirigir por 8h). Erenumabe (constipação grave). Evite triptanos na aura hemiplégica ou com doença coronariana.'
         }
     },
     {
         id: 'tth',
-        name: 'Cefaleia Tensional (2.x)',
+        name: 'Cefaleia do Tipo Tensional (2.1 & 2.2)',
         icon: Brain,
         criteria: [
-            '≥10 crises, 30 min a 7 dias, Bilateral, Aperto/Pressão (não pulsátil), Intensidade Leve/Moderada, Não agrava c/ esforço.',
-            'Sem náuseas. No máximo UM de fotofobia ou fonofobia.',
-            'Diferencial: Cefaleia Cervicogênica, Disfunção de ATM.'
+            'Episódica: ≥10 crises durando 30 min a 7 dias.',
+            'Características (≥2): Bilateral, Qualidade não pulsátil (pressão/aperto), Intensidade Leve a Moderada, Não piora c/ rotina física.',
+            'Sintomas associados: Sem náusea/vômito. Fotofobia ou Fonofobia ausentes, ou apenas um dos dois. Diferencial: Cefaleia Cervicogênica (dor referida do pescoço).'
         ],
         treatment: {
-            acute: 'Aspirina, Paracetamol, AINES. Evitar cafeína em excesso.',
-            preventive: 'Amitriptilina (escolha), Venlafaxina. Manejo de estresse e ergonomia.',
-            pearls: 'Amitriptilina é melhor tolerada se iniciada em doses baixas (substituir se boca seca/sedação intolerável).'
+            acute: 'Aspirina 500-1000mg, Ibuprofeno 400-800mg, Naproxeno. Evitar combinação precoce com cafeína em excesso pelo risco de rebote.',
+            preventive: 'Tricíclicos: Amitriptilina (10-75mg/noite) é Nível A. Nortriptilina (se intolerância a efeitos anticolinérgicos). IRSN: Venlafaxina (150mg) ou Mirtazapina.',
+            pearls: 'Efeitos Anticolinérgicos (Amitriptilina): Boca seca, constipação, retenção urinária, ganho de peso, sonolência diurna. Cefaleia por uso excessivo de analgésicos é uma complicação comum na Tensional crônica (>15 dias/mês sentindo dor).'
         }
     },
     {
@@ -59,29 +59,44 @@ const ICHD3_DATA = [
         name: 'Cefaleia em Salvas (3.1)',
         icon: Clock,
         criteria: [
-            '≥5 crises, unilateral GRAVE (orbitária/temporal), 15-180 min.',
-            'Sinais autonômicos ipsilaterais: Injeção conjuntival, lacrimejamento, miose, ptose, sudorese, agitação.',
-            'Frequência: 1 a 8 vezes ao dia.'
+            'Ataques Severos: Unilaterais, orbitários, supraorbitários ou temporais intensos ou muito intensos, durando 15-180 minutos (sem tratamento). Frequência: 1 a 8 vezes/dia.',
+            'Sintomas Autonômicos (≥1 ipsilateral): Injeção conjuntival/lacrimejamento, congestão nasal/rinorreia, edema palpebral, sudorese na testa, agitação e inquietação motora (paciente andando repetitivamente, diferindo do repouso na migrânea).',
+            'Surtos (Salvas): Períodos ativos durando semanas/meses, seguidos de remissão (>3 meses).'
         ],
         treatment: {
-            acute: 'Oxigênio 100% (12-15L/min) por máscara reservatório por 15 min. Sumatriptano 6mg SC.',
-            preventive: 'Verapamil (240-960mg/dia) - monitorar ECG (PR). Prednisona (60mg) para transição. Galcanezumabe.',
-            pearls: 'O diagnóstico é clínico. Lítio é opção para formas crônicas.'
+            acute: 'Oxigênio 100% sob máscara sem reinalação (10-15 L/min) por 15 min. Sumatriptano subcutâneo (3-6mg) ou spray nasal.',
+            preventive: 'Verapamil (240-960mg/dia; realizar ECG basal e a cada aumento de dose visando Bloqueio AV e PR prolongado). Bloqueio de Nervo Occipital (com corticoide). Galcanezumabe (300mg SC via mensal) em episódicos.',
+            pearls: 'Oxigênio é abortivo Nível A e sem contraindicações sistêmicas (excelente em cardiopatas que não podem usar triptano subcutâneo). Verapamil pode causar constipação e edema maleolar.'
+        }
+    },
+    {
+        id: 'pseudotumor',
+        name: 'HIC Idiopática (Pseudotumor)',
+        icon: Search,
+        criteria: [
+            'Cefaleia diária, opressiva ou pulsátil, piora com manobras de Valsalva, decúbito. Tinnus pulsátil (som de "vento no ouvido").',
+            'Exame Físico: Papiledema (perda visual é a principal complicação). Pode haver paresia do VI nervo abducente (estrabismo convergente).',
+            'Diagnóstico (Critérios Dandy): Pressão de Abertura do LCR >250 mmH2O (>280 em obesos), LCR normal, imagem normal (exceto sinais de HIC: sela turca vazia, distensão bainha do nervo óptico, estenose de seio transverso).'
+        ],
+        treatment: {
+            acute: 'Punção lombar de alívio (medida temporária). Perda de peso é mandatório.',
+            preventive: 'Acetazolamida (até 2-4g/dia). Diuréticos como Furosemida. Topiramato auxilia a perda de peso. Casos iminentes de cegueira: Fenestração da bainha do n. óptico ou DVP/DVL.',
+            pearls: 'Acetazolamida causa parestesias distais formigantes, fadiga severa, alteração de paladar (bebidas gasosas com gosto metálico), risco de cálculo renal e acidose metabólica.'
         }
     },
     {
         id: 'secondary',
-        name: 'Cefaleias Secundárias',
+        name: 'Urgent Systemic & Vasculares',
         icon: AlertTriangle,
         criteria: [
-            'Arterite de Células Gigantes: Idosos, dor temporal, claudicação de mandíbula, VHS/PCR elevados.',
-            'Hipertensão Intracraniana: Papiledema, piora ao decúbito, zumbido pulsátil.',
-            'Diferencial: Trombose Venosa Cerebral, Dissecação Arterial, RCVS.'
+            'Arterite de Células Gigantes (ACG): Novos déficits em idosos (>50a), dor temporal referida, sensibilidade do couro cabeludo, amaurose fugaz/claudicação mandibular. VHS e PCR explodidos. Risco extremo de cegueira irreversível.',
+            'RCVS (Síndrome de Vasoconstrição Cerebral Reversível): Thunderclap headache recorrente em poucos dias, desencadeada por vasoativos, sexo (cefaleia do orgasmo), banho. Angio com padrão em "colar de contas" ("sausage on a string").',
+            'Dissecação Arterial Cervical (Carótida/Vertebral): Dor cervical lateral + Cefaleia unilateral. Sd. de Horner ipsilateral (Ptose e Miose) = Carótida. AIT/AVC na circulação posterior = Vertebral.'
         ],
         treatment: {
-            acute: 'ACG: Corticosteroides imediato para evitar cegueira. HIC: Acetazolamida, perda de peso.',
-            preventive: 'RCVS: Verapamil e evitar gatilhos (serotoninérgicos).',
-            pearls: 'A dor sibilante/trovão (Thunderclap) exige RM/AngioRM para afastar HSA e RCVS.'
+            acute: 'ACG: Metilprednisolona IV 1g 3-5d se amaurose, se não, Prednisona 1mg/kg IMEDIATA (antes mesmo da biópsia). Biópsia da artéria temporal (+/USG Doppler em sinal do halo).',
+            preventive: 'RCVS: Nimodipino ou Verapamil, cessar triptanos e agentes simpatomiméticos.',
+            pearls: 'A dor em trovoada (Thunderclap) atinge pico máximo (<1 min). O primeiro passo é a TC de crânio s/ contraste em janela adequada + Punção Lombar se TC normal para descartar Hemorragia Subaracnoide (HSA). RCVS deve ser diagnosticada pela Angio-TC ou RM para visualização da constrição segmentar e dilatação.'
         }
     }
 ];

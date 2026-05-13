@@ -29,11 +29,26 @@ const DEMYELINATING_DIFFERENTIALS = {
         { disease: 'MOGAD', age: 'Crianças e Adultos', sex: 'Feminino = Masculino (1:1)', ethnicity: 'Todas', onset: 'ADEM, Neurite Óptica Bilateral', mri: 'Lesões medulares curtas ou extensas (conus), Nervo Óptico Anterior.' },
         { disease: 'ADEM', age: 'Crianças (>90%)', sex: 'F = M', ethnicity: 'Todas', onset: 'Monofásico, pós-vacinal ou infeccioso', mri: 'Lesões grandes e mal definidas, bilaterais, sem realce persistente.' }
     ],
-    encephalitis: [
-        { antibody: 'Anti-NMDAR', clinical: 'Psicose, discinesias orofaciais, instabilidade autonômica.', associations: 'Teratoma de Ovário (Mulheres jovens).', treatment: 'Pulsoterapia + IGIV/PLEX + Rituximabe/Ciclofosfamida.' },
-        { antibody: 'Anti-LGI1', clinical: 'Crises distônicas facio-braquiais (FBDS), hiponatremia, amnésia.', associations: 'Geralmente idiopática (raro Timoma).', treatment: 'Excelente resposta a Corticoide.' },
-        { antibody: 'Anti-CASPR2', clinical: ' neuromiotonia, insônia, Síndrome de Morvan.', associations: 'Timoma.', treatment: 'Imunossupressão agressiva.' },
-        { antibody: 'Anti-GAD65', clinical: 'Síndrome da Pessoa Rígida, Ataxia Cerebelar, Epilepsia Límbica.', associations: 'DM1, Tireoidite.', treatment: 'IGIV, Benzodiazepínicos.' }
+    encephalitis: {
+        surface: [
+            { antibody: 'Anti-NMDAR', clinical: 'Psicose, alterações de memória, discinesias orofaciais, instabilidade autonômica, hipoventilação.', associations: 'Teratoma de Ovário (comum em mulheres jovens).', response: 'Boa', pearls: 'Mais comum. Fases: viral-like -> psiquiátrica -> discinética/coma.' },
+            { antibody: 'Anti-LGI1', clinical: 'Amnésia, crises distônicas faciobraquiais (FBDS), hiponatremia severa.', associations: 'Raro (Timoma). Idosos (homens).', response: 'Excelente', pearls: 'FBDS patognomônica, muito responsivo a corticoides.' },
+            { antibody: 'Anti-CASPR2', clinical: 'Encefalopatia, neuromiotonia, insônia severa, Síndrome de Morvan.', associations: 'Timoma (até 20%). Homens idosos.', response: 'Boa', pearls: 'Associado a disautonomia e dor neuropática.' },
+            { antibody: 'Anti-GABA-B-R', clinical: 'Crises focais refratárias precoces, encefalite límbica.', associations: 'Câncer de Pulmão Pequenas Células (CPPC) (até 50%).', response: 'Boa, mas o câncer dita prognóstico', pearls: 'Manifestação primária é geralmente estado de mal epiléptico.' },
+            { antibody: 'Anti-DPPX', clinical: 'Diarreia prodrômica e perda de peso, seguida de hiperexcitabilidade de SNC (tremores, mioclonia).', associations: 'Linfoma B associado (raro).', response: 'Boa', pearls: 'Quadro gastrointestinal precede os sintomas neurológicos em meses.' }
+        ],
+        intracellular: [
+            { antibody: 'Anti-Hu (ANNA-1)', clinical: 'Polirradiculoneuropatia, encefalomielite, pseudo-obstrução intestinal.', associations: 'CPPC (Small Cell Lung Cancer).', response: 'Pobre (Mediadas por Células T)', pearls: 'Apresentação mais comum: neuropatia sensitiva pura.' },
+            { antibody: 'Anti-Ma2', clinical: 'Encefalite límbica, diencefálica e tronco. Parkinsonismo atípico, oftalmoplegia.', associations: 'Câncer de Testículo (homens jovens).', response: 'Moderada, se o tumor for tratado', pearls: 'Pode cursar com narcolepsia-like e cataplexia.' },
+            { antibody: 'Anti-Yo (PCA-1)', clinical: 'Degeneração Cerebelar Paraneoplásica (ataxia grave aguda/subaguda).', associations: 'Câncer de Mama, Câncer de Ovário.', response: 'Pobre', pearls: 'Destruição irreversível das células de Purkinje.' },
+            { antibody: 'Anti-Ri (ANNA-2)', clinical: 'Síndrome de Opsoclonus-Mioclonus, encefalite de tronco.', associations: 'Câncer de Mama e Câncer de Pulmão.', response: 'Pobre', pearls: 'Clássico achado de movimentos oculares sacádicos multidirecionais.' },
+            { antibody: 'Anti-Amfifisina', clinical: 'Síndrome da Pessoa Rígida (Stiff-person syndrome), espasmos severos.', associations: 'Câncer de Mama, CPPC.', response: 'Pobre/Parcial', pearls: 'Diferencia do anti-GAD por ser de início paraneoplásico agudo.' }
+        ]
+    },
+    treatments: [
+        { tier: 'Primeira Linha (Agudo)', steps: 'Pulsoterapia (Metilprednisolona 1g/dia por 3-5d) + IGIV (2g/kg sobre 2-5d) OU Plasmaférese (5-7 sessões).', note: 'Não esperar resultado de painel autoimune para iniciar. Tratamento empírico é mandatório se alta suspeita.' },
+        { tier: 'Segunda Linha (Se refratário em 10-14 dias)', steps: 'Rituximabe (Anti-CD20) OU Ciclofosfamida.', note: 'Inibidores de células B e T. Pode-se combinar Ritux + Ciclofosfamida em casos gravíssimos.' },
+        { tier: 'Manejo Oncológico', steps: 'Rastreio tumoral completo (TC tórax/abdome/pelve, USG transvaginal/testículos).', note: 'Ressecção do tumor associado (ex: teratoma ovariano no NMDAR) é imperativa para a cura.' }
     ]
 };
 
@@ -304,23 +319,60 @@ export const NeuroImmunologyTool: React.FC = () => {
                             <div><h3 className="font-black uppercase tracking-tight text-lg">Critérios de Graus et al. (2016)</h3><p className="text-[10px] font-bold opacity-70 uppercase tracking-widest">Diagnóstico de Encefalite Autoimune</p></div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {DEMYELINATING_DIFFERENTIALS.encephalitis.map(e => (
-                                <div key={e.antibody} className="p-6 bg-white dark:bg-zinc-900 border-2 border-slate-100 dark:border-zinc-800 rounded-[2rem] space-y-4">
-                                    <div className="flex justify-between items-start">
-                                        <h4 className="font-black text-sm text-purple-600 uppercase">{e.antibody}</h4>
-                                        <div className="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-xl text-[8px] font-black text-purple-700 uppercase">Ab no Líquor</div>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <p className="text-[10px] font-bold text-slate-800 dark:text-slate-200 uppercase leading-snug">{e.clinical}</p>
-                                        <p className="text-[9px] font-medium text-slate-500 uppercase tracking-wide">Associação: {e.associations}</p>
-                                    </div>
-                                    <div className="p-4 bg-slate-50 dark:bg-zinc-950 rounded-2xl border-l-4 border-purple-500">
-                                        <p className="text-[9px] font-black uppercase text-purple-600 mb-1">Tratamento</p>
-                                        <p className="text-[11px] font-medium text-slate-600 dark:text-slate-400 lowercase normal-case">{e.treatment}</p>
-                                    </div>
+                        <div className="space-y-6">
+                            <section>
+                                <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] ml-4 mb-4">Anticorpos de Superfície (Boa Resposta)</h4>
+                                <div className="grid grid-cols-1 gap-4">
+                                    {DEMYELINATING_DIFFERENTIALS.encephalitis.surface.map(e => (
+                                        <div key={e.antibody} className="p-5 bg-indigo-50/50 dark:bg-indigo-950/10 border-2 border-indigo-100 dark:border-indigo-900/30 rounded-[2rem] space-y-3 relative overflow-hidden group">
+                                            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform"><Activity className="h-10 w-10 text-indigo-500" /></div>
+                                            <h4 className="font-black text-sm text-indigo-700 uppercase relative z-10">{e.antibody}</h4>
+                                            <div className="space-y-1 relative z-10">
+                                                <p className="text-[10px] font-bold text-slate-800 dark:text-slate-200 uppercase leading-snug">{e.clinical}</p>
+                                                <p className="text-[9px] font-medium text-slate-500 uppercase tracking-wide">Tumor Assoc: {e.associations}</p>
+                                            </div>
+                                            <div className="p-3 bg-white dark:bg-zinc-900 rounded-xl relative z-10">
+                                                <p className="text-[10px] text-slate-600 dark:text-slate-400 font-bold italic leading-tight">{e.pearls}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </section>
+
+                            <section>
+                                <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] ml-4 mb-4">Anticorpos Intracelulares / Onconeuronais (Paraneoplásicos)</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {DEMYELINATING_DIFFERENTIALS.encephalitis.intracellular.map(e => (
+                                        <div key={e.antibody} className="p-5 bg-rose-50/50 dark:bg-rose-950/10 border-2 border-rose-100 dark:border-rose-900/30 rounded-[2rem] space-y-3 relative overflow-hidden group">
+                                            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform"><AlertTriangle className="h-8 w-8 text-rose-500" /></div>
+                                            <h4 className="font-black text-xs text-rose-700 uppercase relative z-10">{e.antibody}</h4>
+                                            <div className="space-y-1 relative z-10">
+                                                <p className="text-[9px] font-bold text-slate-800 dark:text-slate-200 uppercase leading-snug">{e.clinical}</p>
+                                                <p className="text-[9px] font-medium text-slate-500 uppercase tracking-wide">Câncer Assoc: <span className="font-black text-rose-600">{e.associations}</span></p>
+                                            </div>
+                                            <div className="p-3 bg-white dark:bg-zinc-900 rounded-xl relative z-10">
+                                                <p className="text-[9px] text-slate-600 dark:text-slate-400 font-bold italic leading-tight">{e.pearls}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+
+                            <section>
+                                <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] ml-4 mb-4">Conduta e Tratamento</h4>
+                                <div className="space-y-3">
+                                    {DEMYELINATING_DIFFERENTIALS.treatments.map((t, idx) => (
+                                        <div key={idx} className="p-6 bg-slate-900 text-white rounded-[2.5rem] flex flex-col md:flex-row md:items-center gap-4">
+                                            <div className="h-10 w-10 shrink-0 bg-white/10 rounded-2xl flex items-center justify-center text-white"><Zap className="h-5 w-5" /></div>
+                                            <div className="flex-1">
+                                                <h5 className="font-black text-xs uppercase tracking-widest text-primary mb-1">{t.tier}</h5>
+                                                <p className="text-[11px] font-bold mb-1 leading-snug">{t.steps}</p>
+                                                <p className="text-[9px] font-medium opacity-70 italic">{t.note}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
                         </div>
                     </div>
                 )}

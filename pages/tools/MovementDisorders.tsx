@@ -141,10 +141,28 @@ const PD_MANAGEMENT = {
     ]
 };
 
+const TREMOR_DATA = {
+    types: [
+        { name: 'Tremor de Repouso', freq: '4-6 Hz', feature: 'Aparece com o músculo relaxado, sob gravidade. Ex: "Pill-rolling". Reduz com ação.', causes: 'Doença de Parkinson, Parkinsonismo medicamentoso, Doença de Wilson.' },
+        { name: 'Tremor Postural', freq: 'Frequência variável', feature: 'Ao manter postura contra a gravidade (ex: estender os braços).', causes: 'Tremor Essencial (TE), Tremor Fisiológico Exacerbado (ansiedade, hipertireoidismo, beta-agonistas).' },
+        { name: 'Tremor Cinético/Intenção', freq: 'Baixa < 5 Hz', feature: 'Piora ao se aproximar do alvo (ex: dedo ao nariz). Pode ter componente ortostático (OT).', causes: 'Doença cerebelar (Esclerose Múltipla, Ataxias espinocerebelares, tóxicos).' },
+        { name: 'Tremor Distônico', freq: 'Irregular', feature: 'Tremor em região afetada por distonia. Posição dependente ("null point" - posição em que o tremor cessa).', causes: 'Distonia cervical, Distonia tarefa-específica.' }
+    ],
+    essentialTremor: {
+        criteria: 'Tremor de ação (postural e cinético) bilateral e simétrico de membros superiores. Isolado. Duração > 3 anos.',
+        redFlags: 'Início agudo, unilateral estrito, tremor de perna, parkinsonismo associado, marcha anormal.',
+        treatment: [
+            { tier: '1ª Linha', meds: 'Propranolol (10-40mg 2-3x/dia) e/ou Primidona (12.5-25mg/noite, escalar lento até 250mg 3x/dia).', notes: 'Sinergismo se associados. Cuidado c/ asma (propanolol) e sedação/ataxia (primidona).' },
+            { tier: '2ª Linha', meds: 'Topiramato, Gabapentina, Alprazolam, Atenolol.', notes: 'Se falha ou contraindicação à 1ª linha.' },
+            { tier: '3ª Linha / Refratário', meds: 'Toxina Botulínica (para tremor focal/cabeça) ou Cirurgia (DBS do núcleo VIM do tálamo).', notes: 'DBS é altamente efetivo para tremor apendicular.' }
+        ]
+    }
+};
+
 export const MovementDisordersTool: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useAuthStore();
-  const [activeTab, setActiveTab] = useState<'parkinson' | 'updrs' | 'management' | 'atypical' | 'ataxia'>('parkinson');
+  const [activeTab, setActiveTab] = useState<'parkinson' | 'updrs' | 'management' | 'atypical' | 'ataxia' | 'tremor'>('parkinson');
   const [scores, setScores] = useState<Record<string, number>>({});
   const [updrsScores, setUpdrsScores] = useState<Record<string, number>>({});
   const [ataxiaView, setAtaxiaView] = useState<'sara' | 'diff'>('sara');
@@ -191,6 +209,7 @@ export const MovementDisordersTool: React.FC = () => {
             <button onClick={() => setActiveTab('management')} className={`flex-1 min-w-[100px] px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${activeTab === 'management' ? 'bg-white dark:bg-zinc-800 text-emerald-600 shadow-md' : 'text-slate-500'}`}>Conduta</button>
             <button onClick={() => setActiveTab('atypical')} className={`flex-1 min-w-[100px] px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${activeTab === 'atypical' ? 'bg-white dark:bg-zinc-800 text-orange-600 shadow-md' : 'text-slate-500'}`}>Atípicos</button>
             <button onClick={() => setActiveTab('ataxia')} className={`flex-1 min-w-[100px] px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${activeTab === 'ataxia' ? 'bg-white dark:bg-zinc-800 text-indigo-600 shadow-md' : 'text-slate-500'}`}>Ataxia</button>
+            <button onClick={() => setActiveTab('tremor')} className={`flex-1 min-w-[100px] px-3 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${activeTab === 'tremor' ? 'bg-white dark:bg-zinc-800 text-teal-600 shadow-md' : 'text-slate-500'}`}>Tremor</button>
         </div>
 
         {activeTab === 'parkinson' && (
@@ -478,6 +497,60 @@ export const MovementDisordersTool: React.FC = () => {
                         </section>
                     </div>
                 )}
+            </div>
+        )}
+
+        {activeTab === 'tremor' && (
+            <div className="space-y-6 animate-in slide-in-from-bottom-4 pb-20">
+                <div className="bg-teal-600 text-white p-6 rounded-[2.5rem] shadow-xl flex items-center gap-4">
+                    <Activity className="h-10 w-10 opacity-40" />
+                    <div><h3 className="font-black uppercase tracking-tight text-lg">Classificação de Tremores</h3><p className="text-[10px] font-bold opacity-70 uppercase tracking-widest">Diferencial e Tremor Essencial</p></div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {TREMOR_DATA.types.map(t => (
+                        <div key={t.name} className="bg-white dark:bg-zinc-950 border-2 border-slate-100 dark:border-zinc-900 p-6 rounded-[2rem] space-y-3 shadow-sm hover:border-teal-500/30 transition-all">
+                            <h4 className="font-black text-sm text-teal-700 uppercase">{t.name}</h4>
+                            <p className="text-[10px] font-black text-slate-500 uppercase">Freq: <span className="text-slate-800 dark:text-slate-200">{t.freq}</span></p>
+                            <p className="text-[10px] font-medium text-slate-600 dark:text-slate-400 leading-snug">{t.feature}</p>
+                            <div className="p-3 bg-teal-50 dark:bg-teal-900/10 rounded-xl mt-2">
+                                <p className="text-[9px] font-black uppercase text-teal-600">Causas comuns:</p>
+                                <p className="text-[10px] font-medium text-slate-700 dark:text-slate-300 leading-tight">{t.causes}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm mt-6">
+                    <h4 className="text-[11px] font-black uppercase text-teal-600 tracking-widest mb-4 flex items-center gap-2"><Target className="h-4 w-4" /> Tremor Essencial (TE)</h4>
+                    <div className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="p-4 bg-slate-50 dark:bg-zinc-900 rounded-2xl">
+                                <p className="text-[10px] font-black uppercase text-slate-500 mb-1">Critérios Diagnósticos</p>
+                                <p className="text-[10px] font-bold text-slate-800 dark:text-slate-200">{TREMOR_DATA.essentialTremor.criteria}</p>
+                            </div>
+                            <div className="p-4 bg-rose-50 dark:bg-rose-950/20 rounded-2xl border-l-4 border-rose-500">
+                                <p className="text-[10px] font-black uppercase text-rose-500 mb-1">Red Flags</p>
+                                <p className="text-[10px] font-bold text-rose-800 dark:text-rose-300">{TREMOR_DATA.essentialTremor.redFlags}</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p className="text-[10px] font-black uppercase text-slate-500 mb-3 ml-2">Manejo Terapêutico</p>
+                            <div className="space-y-3">
+                                {TREMOR_DATA.essentialTremor.treatment.map(tx => (
+                                    <div key={tx.tier} className="p-4 bg-slate-50 dark:bg-zinc-900/50 rounded-2xl border border-slate-100 dark:border-zinc-800 flex items-start gap-3">
+                                        <div className="px-2 py-1 bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 text-[8px] font-black uppercase rounded">{tx.tier}</div>
+                                        <div>
+                                            <p className="text-[11px] font-bold text-slate-800 dark:text-slate-200">{tx.meds}</p>
+                                            <p className="text-[10px] font-medium text-slate-500 italic mt-0.5">{tx.notes}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )}
       </main>

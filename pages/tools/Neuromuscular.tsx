@@ -23,25 +23,28 @@ const MG_ADL_DATA = [
 
 const NEUROMUSCULAR_DIFFERENTIALS = {
     polyneuropathy: [
-        { disease: 'GBS (AIDP)', onset: 'Agudo (dias)', symmetry: 'Simétrico Ascendente', exam: 'Arreflexia, Dissociação Proteíno-Citológica', pearls: 'Pico em 4 semanas. Fraqueza respiratória é o risco principal.' },
-        { disease: 'CIDP', onset: 'Crônico (>8 semanas)', symmetry: 'Simétrico Proximal e Distal', exam: 'Desmielinização no ENMG', pearls: 'Responde a Corticoide (ao contrário do GBS).' },
-        { disease: 'Vasculite', onset: 'Subagudo', symmetry: 'Assimétrico (Mononeurite Múltipla)', exam: 'VHS elevado, dor em queimação', pearls: 'Pé caído/Mão caída multifocal.' }
+        { disease: 'GBS (AIDP)', onset: 'Agudo (<4 semanas)', symmetry: 'Simétrico Ascendente', exam: 'Arreflexia, Dissociação Proteíno-Citológica', pearls: 'Fraqueza flácida. Fique atento com Capacidade Vital e bulbar.' },
+        { disease: 'CIDP', onset: 'Crônico (>8 semanas)', symmetry: 'Simétrico Proximal e Distal', exam: 'Desmielinização difusa no ENMG', pearls: 'Responde a Corticoide, IGIV e PLEX. Déficit motor > sensitivo.' },
+        { disease: 'Vasculite (Mononeurite Múltipla)', onset: 'Agudo a Subagudo', symmetry: 'Assimétrico', exam: 'Acometimento de >1 nervo isolado (ex: drop foot + drop hand)', pearls: 'Extrema dor. Urgência reumatológica (biópsia de nervo sural).' }
     ],
-    myasthenia: [
-        { subtype: 'MG Ocular', clinical: 'Ptose/Diplopia isoladas por >2 anos.', treatment: 'Mestinon 60mg 3-4x/dia + Baixa dose Prednisona.' },
-        { subtype: 'MG Generalizada', clinical: 'Descendente, fatigabilidade, bulbar.', treatment: 'Imunossupressão + Moduladores (FcRn/C5).' },
-        { subtype: 'LEMS', clinical: 'Melhora com esforço, arreflexia (recupera pós-contração).', pearls: 'Associação com Câncer de Pulmão (CPPC).' }
-    ],
-    myopathy: [
-        { disease: 'Dermatomiosite', features: 'Pápulas de Gottron, Heliotropo, risco neoplásico.', antibody: 'Anti-Mi2, Anti-TIF1gamma.' },
-        { disease: 'IBM', features: 'Homens >50 anos, fraqueza de flexores de dedos e quadríceps.', pearls: 'Resistente a corticoides.' }
+    junction_muscle_motor: [
+        { subtype: 'Miastenia Gravis (Ocular/Generalizada)', clinical: 'Fraqueza flutuante, piora no final do dia. Reflexos normais.', treatment: 'Ac anti-AChR (85%) / MuSK / LRP4.' },
+        { subtype: 'ELA (Doença do Neurônio Motor)', clinical: 'Mistura de MNS (hiperreflexia, Babinski) e MNI (fasciculações, atrofia).', treatment: 'Sem alteração sensitiva. Prognóstico bulbar/respiratório.' },
+        { subtype: 'Miopatias Inflamatórias', clinical: 'Fraqueza PROXIMAL, simétrica. Sem disfunção bulbar inicial.', treatment: 'Aumento de CPK severo. Biópsia muscular / RNM músculo.' }
     ]
 };
 
 const MG_TREATMENT_LATEST = [
-    { tier: 'Primeira Linha', drugs: ['Piridostigmina (Mestinon)', 'Corticoides'], note: 'Sintomático e controle inflamatório inicial.' },
-    { tier: 'Poupadores de Corticoide', drugs: ['Azatioprina', 'Micofenolato', 'Ciclosporina'], note: 'Início de ação lento (6-12 meses).' },
-    { tier: 'Terapias Biológicas (Refratários)', drugs: ['Rituximabe (Anti-MuSK)', 'Eculizumabe/Ravulizumabe (C5)', 'Efgartigimode (FcRn)'], note: 'Alta eficácia para casos generalizados graves.' }
+    { tier: '1. Sintomático', drugs: ['Piridostigmina (Mestinon)'], dose: 'Início: 30-60mg a cada 4-6h. Max: 120mg/dose (piora colinérgica se >).', note: 'Efeitos colinérgicos (diarreia, sudorese, fasciculações). Pode causar crise colinérgica.' },
+    { tier: '2. Corticoides', drugs: ['Prednisona'], dose: 'Início: 0.5-1 mg/kg. Dose inicial agressiva pode causar piora transitória (Exacerbação por corticoide - iniciar baixo e subir).', note: 'Ponte até imunossupressores poupadores.' },
+    { tier: '3. Poupadores de Corticoide', drugs: ['Azatioprina (2.5 mg/kg)', 'Micofenolato (2g/d)'], dose: 'Início lento. Azatioprina checar TPMT. Micofenolato resposta em 6-12 meses.', note: 'Ação lenta. Risco de hepatotoxicidade, leucopenia.' },
+    { tier: '4. Terapia Direcionada (Biológicos)', drugs: ['Anti-C5 (Eculizumabe/Ravulizumabe)', 'Anti-FcRn (Efgartigimode)', 'Anti-CD20 (Rituximabe)'], dose: 'Eculizumabe exige vacina p/ Meningococo.', note: 'FcRn é rápido (age como IGIV). Rituximabe é de escolha precoce em Anti-MuSK+.' }
+];
+
+const EGRIS_SCORE = [
+    { label: 'Dias de doença até admissão', options: [{ l: '> 7 dias', v: 0 }, { l: '4 - 7 dias', v: 1 }, { l: '≤ 3 dias', v: 2 }] },
+    { label: 'Fraqueza Facial / Bulbar', options: [{ l: 'Ausente', v: 0 }, { l: 'Presente', v: 1 }] },
+    { label: 'Score MRC (Medical Research Council) total de 6 músculos bilaterais', options: [{ l: '51-60 (Leve/Normal)', v: 0 }, { l: '41-50', v: 1 }, { l: '31-40', v: 2 }, { l: '21-30', v: 3 }, { l: '< 20 (Grave)', v: 4 }] }
 ];
 
 export const NeuromuscularTool: React.FC = () => {
@@ -50,10 +53,21 @@ export const NeuromuscularTool: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'diff' | 'mg' | 'gbs' | 'emergency'>('diff');
   const [activeMgTool, setActiveMgTool] = useState<'mgadl' | 'mgcomposite' | 'mgtreatment' | null>(null);
   const [scores, setScores] = useState<Record<string, number>>({});
+  const [egrisScores, setEgrisScores] = useState<Record<number, number>>({});
 
   const totalScore = useMemo(() => {
     return Object.values(scores).reduce((a: number, b: number) => a + b, 0);
   }, [scores]);
+
+  const totalEgris = useMemo(() => {
+    return Object.values(egrisScores).reduce((a: number, b: number) => a + b, 0);
+  }, [egrisScores]);
+
+  const egrisRisk = useMemo(() => {
+      if (totalEgris <= 2) return { t: 'Baixo Risco', l: 'Probabilidade de Ventilação Mecânica < 5% (1ª semana)', c: 'bg-emerald-500 border-emerald-500 text-white' };
+      if (totalEgris <= 4) return { t: 'Risco Intermediário', l: 'Probabilidade de 20-30%', c: 'bg-amber-500 border-amber-500 text-white' };
+      return { t: 'Alto Risco', l: 'Probabilidade de > 50%', c: 'bg-rose-600 border-rose-600 text-white' };
+  }, [totalEgris]);
 
   const renderDiff = () => (
       <div className="space-y-6 animate-in fade-in">
@@ -77,26 +91,17 @@ export const NeuromuscularTool: React.FC = () => {
               </section>
               
               <section>
-                  <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] mb-4 ml-4">Junção & Músculo</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="p-6 bg-emerald-50 dark:bg-emerald-950/20 border-2 border-emerald-100 dark:border-emerald-900/40 rounded-[2.5rem] space-y-4">
-                          <h5 className="font-black text-xs text-emerald-700 uppercase">Fraqueza Flutuante</h5>
-                          {NEUROMUSCULAR_DIFFERENTIALS.myasthenia.map(m => (
-                              <div key={m.subtype} className="bg-white dark:bg-zinc-900 p-3 rounded-xl shadow-sm border border-emerald-100 dark:border-zinc-800">
-                                  <p className="text-[10px] font-black text-emerald-600 uppercase">{m.subtype}</p>
-                                  <p className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">{m.clinical}</p>
+                  <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] mb-4 ml-4">Junção, Músculo & Neurônio Motor</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {NEUROMUSCULAR_DIFFERENTIALS.junction_muscle_motor.map(m => (
+                          <div key={m.subtype} className="p-6 bg-emerald-50/50 dark:bg-emerald-950/10 border-2 border-emerald-100 dark:border-emerald-900/30 rounded-[2.5rem] space-y-3">
+                              <h5 className="font-black text-xs text-emerald-700 uppercase">{m.subtype}</h5>
+                              <p className="text-[10px] text-slate-600 dark:text-slate-400 font-bold leading-snug">{m.clinical}</p>
+                              <div className="p-3 bg-white dark:bg-zinc-900 rounded-xl mt-2">
+                                  <p className="text-[9px] font-medium text-slate-500 italic">{m.treatment}</p>
                               </div>
-                          ))}
-                      </div>
-                      <div className="p-6 bg-purple-50 dark:bg-purple-950/20 border-2 border-purple-100 dark:border-purple-900/40 rounded-[2.5rem] space-y-4">
-                          <h5 className="font-black text-xs text-purple-700 uppercase">Miopatias</h5>
-                          {NEUROMUSCULAR_DIFFERENTIALS.myopathy.map(m => (
-                              <div key={m.disease} className="bg-white dark:bg-zinc-900 p-3 rounded-xl shadow-sm border border-purple-100 dark:border-zinc-800">
-                                  <p className="text-[10px] font-black text-purple-600 uppercase">{m.disease}</p>
-                                  <p className="text-[10px] text-slate-600 dark:text-slate-400 font-medium">{m.features}</p>
-                              </div>
-                          ))}
-                      </div>
+                          </div>
+                      ))}
                   </div>
               </section>
           </div>
@@ -128,14 +133,17 @@ export const NeuromuscularTool: React.FC = () => {
                   <button onClick={() => setActiveMgTool(null)} className="flex items-center text-[10px] font-black uppercase text-slate-400 hover:text-primary transition-all"><ArrowLeft className="h-4 w-4 mr-1" /> Voltar</button>
                   <div className="space-y-6">
                       {MG_TREATMENT_LATEST.map((t, i) => (
-                          <div key={i} className={`p-6 border-2 rounded-[2rem] space-y-4 ${i === 2 ? 'bg-indigo-50/10 border-indigo-500/40 shadow-lg' : 'bg-white dark:bg-zinc-950 border-slate-100 dark:border-zinc-800'}`}>
-                              <h5 className={`font-black text-sm uppercase ${i === 2 ? 'text-indigo-600' : 'text-slate-500'}`}>{t.tier}</h5>
+                          <div key={i} className={`p-6 border-2 rounded-[2rem] space-y-4 ${i === 3 ? 'bg-indigo-50/10 border-indigo-500/40 shadow-lg' : 'bg-white dark:bg-zinc-950 border-slate-100 dark:border-zinc-800'}`}>
+                              <h5 className={`font-black text-sm uppercase ${i === 3 ? 'text-indigo-600' : 'text-slate-500'}`}>{t.tier}</h5>
                               <div className="flex flex-wrap gap-2">
                                   {t.drugs.map(d => (
                                       <span key={d} className="px-4 py-2 bg-slate-100 dark:bg-zinc-800 rounded-xl text-[10px] font-black uppercase border border-slate-200 dark:border-zinc-700">{d}</span>
                                   ))}
                               </div>
-                              <p className="text-[10px] font-medium text-slate-500 leading-relaxed italic">{t.note}</p>
+                              <div className="space-y-2 p-4 bg-slate-50 dark:bg-zinc-900 rounded-2xl">
+                                  <p className="text-[10px] font-bold text-slate-700 dark:text-slate-300">Dose/Uso: <span className="font-medium text-slate-500">{t.dose}</span></p>
+                                  <p className="text-[10px] font-bold text-rose-600">Nota: <span className="font-medium text-slate-500">{t.note}</span></p>
+                              </div>
                           </div>
                       ))}
                       <div className="p-5 bg-amber-50 dark:bg-amber-950/20 border-l-4 border-amber-500 rounded-r-3xl">
@@ -198,15 +206,43 @@ export const NeuromuscularTool: React.FC = () => {
                       </div>
                   </div>
               </div>
-              <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm">
-                  <h4 className="text-[10px] font-black uppercase text-orange-600 tracking-widest mb-4">Variante Miller-Fisher</h4>
-                  <div className="p-4 bg-orange-50 dark:bg-orange-950/20 rounded-2xl border-2 border-orange-100 space-y-2">
-                      <p className="text-[9px] font-black text-orange-700 uppercase">Tríade Clássica:</p>
-                      <ul className="space-y-1">
-                          {['1. Ataxia de marcha', '2. Oftalmoplegia', '3. Arreflexia'].map(t => <li key={t} className="text-[10px] font-bold text-slate-600 dark:text-slate-300 uppercase flex items-center gap-2"><Zap className="h-3 w-3 text-orange-500" /> {t}</li>)}
-                      </ul>
-                      <p className="text-[8px] font-bold text-orange-600/60 uppercase mt-2 italic">Associação forte com anticorpo Anti-GQ1b.</p>
+              <div className="space-y-4 text-white">
+                  <div className="bg-slate-900 p-6 rounded-[2rem] shadow-xl space-y-4 border-2 border-emerald-500/20">
+                      <div className="flex justify-between items-start">
+                          <div>
+                              <h4 className="text-xs font-black uppercase tracking-widest text-emerald-400">Score EGRIS</h4>
+                              <p className="text-[9px] font-bold opacity-70 uppercase tracking-widest mt-1">Risco de Ventilação Mecânica na 1ª Sem.</p>
+                          </div>
+                          <div className={`px-3 py-1 rounded-xl text-xs font-black uppercase border-2 shadow-lg ${egrisRisk.c}`}>{totalEgris} pts</div>
+                      </div>
+                      <div className="p-3 bg-white/5 rounded-xl text-[10px] font-black uppercase tracking-wide text-emerald-300">{egrisRisk.t} - <span className="opacity-80 italic normal-case font-medium">{egrisRisk.l}</span></div>
                   </div>
+                  <div className="space-y-3">
+                      {EGRIS_SCORE.map((q, idx) => (
+                          <div key={idx} className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-2xl p-4 shadow-sm text-slate-900 dark:text-slate-100">
+                              <h4 className="text-[10px] font-black uppercase text-slate-500 mb-3">{q.label}</h4>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                  {q.options.map(opt => (
+                                      <button key={opt.l} onClick={() => setEgrisScores(p => ({...p, [idx]: opt.v}))} className={`p-2 rounded-xl border-2 text-[9px] font-black uppercase transition-all flex items-center justify-between ${egrisScores[idx] === opt.v ? 'bg-emerald-50 border-emerald-500 text-emerald-700 shadow-md' : 'bg-slate-50 dark:bg-zinc-900 border-slate-100 dark:border-zinc-800 text-slate-400 hover:border-emerald-300'}`}>
+                                          <span>{opt.l}</span>
+                                          <span className="opacity-50 text-[8px] bg-black/5 px-2 py-0.5 rounded-full">+{opt.v}</span>
+                                      </button>
+                                  ))}
+                              </div>
+                          </div>
+                      ))}
+                  </div>
+              </div>
+          </div>
+          
+          <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm mt-4">
+              <h4 className="text-[10px] font-black uppercase text-orange-600 tracking-widest mb-4">Variante Miller-Fisher</h4>
+              <div className="p-4 bg-orange-50 dark:bg-orange-950/20 rounded-2xl border-2 border-orange-100 space-y-2">
+                  <p className="text-[9px] font-black text-orange-700 uppercase">Tríade Clássica:</p>
+                  <ul className="space-y-1">
+                      {['1. Ataxia de marcha', '2. Oftalmoplegia', '3. Arreflexia'].map(t => <li key={t} className="text-[10px] font-bold text-slate-600 dark:text-slate-300 uppercase flex items-center gap-2"><Zap className="h-3 w-3 text-orange-500" /> {t}</li>)}
+                  </ul>
+                  <p className="text-[8px] font-bold text-orange-600/60 uppercase mt-2 italic">Associação forte com anticorpo Anti-GQ1b.</p>
               </div>
           </div>
       </div>
