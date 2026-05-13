@@ -1,21 +1,15 @@
 import { AIImportedQuestion, AIExtractedLME } from "../types";
-import { supabase } from './supabase';
 import JSON5 from 'json5';
+import { GoogleGenAI } from "@google/genai";
 
-const SUPABASE_FUNCTIONS_BASE_URL = 'https://azigaziisnjguakkajza.supabase.co/functions/v1';
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+const DEFAULT_MODEL = "gemini-3-flash-preview";
 
 interface Chat {
   history: { role: 'user' | 'model', parts: { text: string }[] }[];
   sendMessage(params: { message: string }): Promise<{ text?: string }>;
   sendMessageStream(params: { message: string }): AsyncGenerator<{ text?: string }>;
 }
-
-const getAuthHeaders = async () => {
-  const { data: { session } } = await supabase.auth.getSession();
-  const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-  if (session?.access_token) headers['Authorization'] = `Bearer ${session.access_token}`;
-  return headers;
-};
 
 function repairTruncatedJson(json: string): string {
     let stack: string[] = [];
@@ -69,183 +63,118 @@ export const processFileQuestions = async (
     mode: 'extract' | 'generate' = 'extract', 
     sourceType: 'exam' | 'study' = 'exam'
 ): Promise<AIImportedQuestion[]> => {
-  const headers = await getAuthHeaders();
-  const functionEndpoint = sourceType === 'exam' ? 'process-exam-mode' : 'process-study-mode';
-  const payload = JSON.stringify({ content: fullContent, customPrompt, images, questionCount });
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 110000);
-  try {
-    const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/${functionEndpoint}`, {
-      method: 'POST', headers, body: payload, signal: controller.signal
-    });
-    clearTimeout(timeoutId);
-    if (!response.ok) throw new Error(`Erro na função ${functionEndpoint}`);
-    return robustJsonParse<AIImportedQuestion[]>(await response.text());
-  } catch (err: any) {
-    clearTimeout(timeoutId);
-    throw err;
-  }
+  const prompt = `
+    Analise o conteúdo abaixo e extraia/gere ${questionCount || 5} questões médicas.
+    Modo: ${mode} (extract = extração fiel, generate = criação baseada no contexto).
+    Tipo: ${sourceType} (exam = estilo prova de residência, study = estilo estudo dirigido).
+    
+    ${customPrompt ? `Instrução adicional: ${customPrompt}` : ''}
+    
+    Conteúdo:
+    ${fullContent}
+    
+    Retorne APENAS um array JSON válido no formato:
+    [{ "statement": "texto", "alternatives": ["A", "B", "C", "D"], "correct_index": 0, "explanation": "porque", "categoria": "neuro", "bank_name": "Principal" }]
+  `;
+
+  const response = await ai.models.generateContent({
+    model: DEFAULT_MODEL,
+    contents: prompt,
+  });
+  
+  return robustJsonParse<AIImportedQuestion[]>(response.text || '');
 };
 
 export const explainWrongAlternatives = async (question: any): Promise<string> => {
-    const headers = await getAuthHeaders();
-    const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/explain-wrong-alts`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({ question }),
+    const prompt = `
+        Explique detalhadamente por que as alternativas incorretas desta questão estão erradas e por que a correta é a certa.
+        Questão: ${JSON.stringify(question)}
+    `;
+    const response = await ai.models.generateContent({
+        model: DEFAULT_MODEL,
+        contents: prompt,
     });
-    if (!response.ok) throw new Error("Falha na IA ao explicar alternativas.");
-    const data = await response.json();
-    return data.explanation;
+    return response.text || '';
 };
 
 export const generateQuestionsFromPrompt = async (prompt: string): Promise<AIImportedQuestion[]> => {
-  const headers = await getAuthHeaders();
-  const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/generate-questions`, {
-    method: 'POST', headers, body: JSON.stringify({ prompt }),
+  const fullPrompt = `${prompt}\n\nRetorne um array JSON de questões com: statement, alternatives, correct_index, explanation, categoria.`;
+  const response = await ai.models.generateContent({
+    model: DEFAULT_MODEL,
+    contents: fullPrompt,
   });
-  if (!response.ok) throw new Error(await response.text());
-  return robustJsonParse<AIImportedQuestion[]>(await response.text());
+  return robustJsonParse<AIImportedQuestion[]>(response.text || '');
 };
 
 export const generateFlashcardFromQuestion = async (statement: string, explanation: string): Promise<{ front: string; back: string }> => {
-  const headers = await getAuthHeaders();
-  const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/generate-flashcard`, {
-    method: 'POST', headers, body: JSON.stringify({ statement, explanation }),
+  const prompt = `
+    Crie um flashcard (frente e verso) a partir desta questão e explicação.
+    Questão: ${statement}
+    Explicação: ${explanation}
+    
+    Retorne APENAS um JSON: { "front": "pergunta curta", "back": "resposta concisa" }
+  `;
+  const response = await ai.models.generateContent({
+    model: DEFAULT_MODEL,
+    contents: prompt,
   });
-  if (!response.ok) throw new Error(await response.text());
-  return robustJsonParse<{ front: string; back: string }>(await response.text());
+  return robustJsonParse<{ front: string; back: string }>(response.text || '');
 };
 
 export const summarizeContent = async (text: string): Promise<string> => {
-  const headers = await getAuthHeaders();
-  const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/summarize-content`, {
-    method: 'POST', headers, body: JSON.stringify({ text }),
+  const prompt = `Resuma o conteúdo médico abaixo de forma estruturada e didática:\n\n${text}`;
+  const response = await ai.models.generateContent({
+    model: DEFAULT_MODEL,
+    contents: prompt,
   });
-  if (!response.ok) throw new Error(await response.text());
-  const data = await response.json();
-  return data.summary;
+  return response.text || '';
 };
 
 export const extractLmeData = async (medicalRecord: string, diseaseType: string): Promise<AIExtractedLME> => {
-  const prompt = `Extraia dados para LME de ${diseaseType} do prontuário: ${medicalRecord}`;
-  const headers = await getAuthHeaders();
-  const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/neuro-chat`, {
-    method: 'POST', headers, body: JSON.stringify({ history: [], newMessage: prompt, stream: false }),
+  const prompt = `
+    Extraia dados para Laudo de Solicitação de Medicamento (LME) de ${diseaseType} do prontuário: ${medicalRecord}.
+    
+    Retorne um JSON com os campos necessários para LME.
+  `;
+  const response = await ai.models.generateContent({
+    model: DEFAULT_MODEL,
+    contents: prompt,
   });
-  if (!response.ok) throw new Error("Falha ao analisar prontuário");
-  const data = await response.json();
-  return robustJsonParse<AIExtractedLME>(data.text);
+  return robustJsonParse<AIExtractedLME>(response.text || '');
 };
 
 export const createNeuroChat = (): Chat => {
   let chatHistory: { role: 'user' | 'model', parts: { text: string }[] }[] = [];
   
   const sendMessage = async (params: { message: string }): Promise<{ text?: string }> => {
-    const headers = await getAuthHeaders();
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60000);
-    
-    try {
-      const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/neuro-chat`, {
-        method: 'POST', 
-        headers, 
-        body: JSON.stringify({ history: chatHistory, newMessage: params.message, stream: false }),
-        signal: controller.signal
-      });
-      clearTimeout(timeoutId);
-      
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Erro ${response.status}: ${errorText}`);
-      }
-      
-      const data = await response.json();
-      chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text: data.text || '' }] });
-      return data;
-    } catch (err: any) {
-      clearTimeout(timeoutId);
-      if (err.name === 'AbortError') {
-        throw new Error('Tempo limite excedido. Tente novamente.');
-      }
-      throw err;
-    }
+    const chat = ai.chats.create({
+        model: DEFAULT_MODEL,
+        history: chatHistory,
+    });
+    const response = await chat.sendMessage({ message: params.message });
+    const text = response.text || '';
+    chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text }] });
+    return { text };
   };
   
   async function* sendMessageStream(params: { message: string }): AsyncGenerator<{ text?: string }> {
-    const headers = await getAuthHeaders();
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 120000);
+    const chat = ai.chats.create({
+        model: DEFAULT_MODEL,
+        history: chatHistory,
+    });
+    const stream = await chat.sendMessageStream({ message: params.message });
+    let accumulatedText = '';
     
-    try {
-      const response = await fetch(`${SUPABASE_FUNCTIONS_BASE_URL}/neuro-chat`, {
-        method: 'POST', 
-        headers, 
-        body: JSON.stringify({ history: chatHistory, newMessage: params.message, stream: true }),
-        signal: controller.signal
-      });
-      clearTimeout(timeoutId);
-      
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Erro ${response.status}: ${errorText}`);
-      }
-      
-      if (!response.body) throw new Error("Resposta sem corpo de stream");
-      
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let accumulatedText = '';
-      let buffer = '';
-      
-while (true) {
-  const { value, done } = await reader.read();
-  if (done) break;
-
-  buffer += decoder.decode(value, { stream: true });
-
-  const events = buffer.split("\n\n");
-  buffer = events.pop() || "";
-
-  for (const event of events) {
-
-    if (!event.startsWith("data:")) continue;
-
-    const payload = event.replace("data:", "").trim();
-
-    if (payload === "[DONE]") continue;
-
-    try {
-      const parsed = JSON.parse(payload);
-
-      const textChunk =
-        parsed?.text ??
-        parsed?.candidates?.[0]?.content?.parts?.[0]?.text ??
-        "";
-
-      if (!textChunk) continue;
-
-      accumulatedText += textChunk;
-
-      yield { text: textChunk };
-
-    } catch {
-      // ignora json incompleto
+    for await (const chunk of stream) {
+        const chunkText = chunk.text || '';
+        accumulatedText += chunkText;
+        yield { text: chunkText };
     }
-  }
-}
-
-chatHistory.push(
-  { role: 'user', parts: [{ text: params.message }] },
-  { role: 'model', parts: [{ text: accumulatedText }] }
-);
-    } catch (err: any) {
-      clearTimeout(timeoutId);
-      if (err.name === 'AbortError') {
-        throw new Error('Tempo limite excedido. Tente novamente.');
-      }
-      throw err;
-    }
+    
+    chatHistory.push(
+      { role: 'user', parts: [{ text: params.message }] },
+      { role: 'model', parts: [{ text: accumulatedText }] }
+    );
   }
   
   return { history: chatHistory, sendMessage, sendMessageStream };

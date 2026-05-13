@@ -197,7 +197,7 @@ export const ImportQuestions: React.FC = () => {
         undefined, 
         [], 
         rawTextQuestionsTarget, 
-        'create', 
+        'generate', 
         'study'
       );
       if (questions && questions.length > 0) {
@@ -304,7 +304,7 @@ export const ImportQuestions: React.FC = () => {
         items.push({
           id: crypto.randomUUID(), 
           bank_name: bankName,
-          category: q.category || q.categoria || 'Geral', 
+          category: q.categoria || 'Geral', 
           subcategory: q.subcategoria || '',
           difficulty: normalizeDifficulty(q.dificuldade), 
           statement: q.enunciado,
@@ -435,7 +435,7 @@ export const ImportQuestions: React.FC = () => {
                                 <div className="absolute -left-2 top-4 w-5 h-5 bg-emerald-500 text-white rounded-md flex items-center justify-center text-[9px] font-black shadow-lg">#{i+1}</div>
                                 <div className="flex justify-between items-start ml-2">
                                     <div className="flex items-center gap-1.5">
-                                        <span className="text-[8px] font-black uppercase text-primary bg-primary/5 px-2 py-0.5 rounded border border-primary/10">{q.category || q.categoria || 'Geral'}</span>
+                                        <span className="text-[8px] font-black uppercase text-primary bg-primary/5 px-2 py-0.5 rounded border border-primary/10">{q.categoria || 'Geral'}</span>
                                         {needsManualImage && (
                                             <span className="text-[8px] font-black uppercase bg-red-500 text-white px-2 py-0.5 rounded flex items-center gap-1 animate-pulse">
                                                 <ImageIcon className="h-2.5 w-2.5" /> Anexo Necessário

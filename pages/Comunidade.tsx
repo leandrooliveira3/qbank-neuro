@@ -87,7 +87,7 @@ export const Comunidade: React.FC = () => {
       
       const sent = data || [];
       setSentRequests(sent);
-      setSentRequestIdsSet(new Set(sent.map(r => r.addressee.id)));
+      setSentRequestIdsSet(new Set(sent.map((r: any) => Array.isArray(r.addressee) ? r.addressee[0]?.id : r.addressee?.id).filter(Boolean)));
   };
 
   const fetchExploreUsers = async () => {

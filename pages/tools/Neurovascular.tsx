@@ -172,6 +172,33 @@ const THROMBOLYSIS_CRITERIA = {
   ]
 };
 
+const POST_THROMBOLYSIS_CARE = {
+    monitoring: [
+        { time: 'Primeiras 2h', frequency: 'A cada 15 minutos', activities: ['Sinais Vitais', 'NIHSS Simplificado', 'Acesso Venoso', 'Local da punção'] },
+        { time: 'Próximas 6h', frequency: 'A cada 30 minutos', activities: ['Sinais Vitais', 'Status Neurológico'] },
+        { time: 'Até as 24h', frequency: 'A cada 1 hora', activities: ['Sinais Vitais', 'Status Neurológico'] }
+    ],
+    bp_goals: {
+        target: 'PAS < 180 mmHg e PAD < 105 mmHg',
+        measures: [
+            'Se PAS 180–230 ou PAD 105–120: Labetalol 10mg IV (1-2 min). Pode repetir.',
+            'Ou Nicardipina 5mg/h IV, aumentar 2.5mg/h a cada 5-15 min (máx 15mg/h).',
+            'Se PA não controlada ou PAD > 140: Nitroprussiato de Sódio.'
+        ]
+    },
+    general_care: [
+        { title: 'Janela de 24h', content: 'Sem AAS, Heparina ou Clopidogrel nas primeiras 24h pós-trombólise.' },
+        { title: 'Deglutição', content: 'NADA por via oral (NPO) até rastreio formal de deglutição.' },
+        { title: 'Sondagem', content: 'Evitar sondagem vesical, gástrica ou punções arteriais por 24h.' },
+        { title: 'Neuroimagem', content: 'TC de Crânio de controle em 24h ou IMEDIATAMENTE se piora neurológica.' },
+        { title: 'Glicemia', content: 'Meta: 140 - 180 mg/dL. Evitar hipoglicemia (< 60 mg/dL).' }
+    ],
+    complications: [
+        { title: 'Hemorragia Intracraniana (sICH)', content: 'Parar infusão, TC urgente, Crioprecipitado (10U), Ácido Tranexâmico (1g IV).' },
+        { title: 'Angioedema Orofacial', content: 'Monitorar via aérea, Parar infusão, Metilprednisolona (125mg), Ranitidina (50mg), Adrenalina se necessário.' }
+    ]
+};
+
 const EVT_CRITERIA = [
     {
         title: "Janela Precoce (0-6h)",
@@ -536,7 +563,7 @@ export const NeurovascularTool: React.FC = () => {
   const renderThrombolysis = () => (
     <div className="space-y-6 animate-in fade-in pb-40 w-full">
         <div className="flex bg-slate-100 dark:bg-zinc-900 p-1 rounded-2xl mb-4 overflow-x-auto no-scrollbar shadow-inner shrink-0 w-full">
-            {['NIHSS', 'Neuroimagem', 'Critérios', 'Trombólise', 'Trombectomia'].map((stepName, i) => (
+            {['NIHSS', 'Neuroimagem', 'Critérios', 'Trombólise', 'Trombectomia', 'Cuidados Pós'].map((stepName, i) => (
                 <button key={i} onClick={() => setProtocolStep(i)} className={`flex-1 min-w-[90px] px-4 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${protocolStep === i ? 'bg-white dark:bg-zinc-800 text-primary shadow-md' : 'text-slate-500'}`}>{stepName}</button>
             ))}
         </div>
@@ -693,8 +720,78 @@ export const NeurovascularTool: React.FC = () => {
                         </div>
                         <div className="p-3 bg-white dark:bg-black rounded-xl border border-slate-100 dark:border-zinc-800">
                             <p className="text-[9px] font-bold text-slate-500 uppercase">Pós-Reperfusão (TICI 2b/3)</p>
-                            <p className="text-lg font-black text-slate-900 dark:text-white">Evitar PAS &lt; 140 mmHg (72h)</p>
+                            <p className="text-lg font-black text-slate-900 dark:text-white">Evitar PAS {"<"} 140 mmHg (72h)</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        )}
+        {protocolStep === 5 && (
+            <div className="space-y-6 animate-in fade-in w-full pb-20">
+                <div className="bg-emerald-600 text-white p-6 rounded-[2.5rem] shadow-xl flex items-center gap-4">
+                    <Shield className="h-10 w-10 opacity-40" />
+                    <div>
+                        <h3 className="font-black uppercase tracking-tight text-lg">Cuidados Pós-Trombólise</h3>
+                        <p className="text-[10px] font-bold opacity-70 uppercase tracking-widest">Protocolo de Monitorização 24h</p>
+                    </div>
+                </div>
+
+                <div className="bg-rose-50 dark:bg-rose-950/20 border-2 border-rose-100 dark:border-rose-900/40 rounded-[2rem] p-6 shadow-sm">
+                    <h4 className="text-rose-700 dark:text-rose-400 font-black uppercase text-[10px] tracking-widest mb-4 flex items-center gap-2"><AlertOctagon className="h-4 w-4" /> Alvo de Pressão Arterial</h4>
+                    <div className="p-4 bg-white dark:bg-zinc-950 rounded-2xl border border-rose-200 dark:border-rose-800 mb-4 text-center">
+                        <p className="text-2xl font-black text-rose-600 tracking-tighter">{POST_THROMBOLYSIS_CARE.bp_goals.target}</p>
+                    </div>
+                    <ul className="space-y-2">
+                        {POST_THROMBOLYSIS_CARE.bp_goals.measures.map((m, i) => (
+                            <li key={i} className="text-[10px] font-bold text-slate-700 dark:text-slate-300 flex items-start gap-2">
+                                <span className="w-1.5 h-1.5 bg-rose-500 rounded-full mt-1.5 shrink-0"></span>
+                                {m}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm">
+                        <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-4 flex items-center gap-2"><Clock className="h-4 w-4 text-primary" /> Monitorização Clínica</h4>
+                        <div className="space-y-4">
+                            {POST_THROMBOLYSIS_CARE.monitoring.map((m, i) => (
+                                <div key={i} className="p-3 bg-slate-50 dark:bg-zinc-900 rounded-xl">
+                                    <p className="text-[9px] font-black text-primary uppercase">{m.time}</p>
+                                    <p className="text-xs font-black text-slate-900 dark:text-white mt-1">{m.frequency}</p>
+                                    <p className="text-[9px] text-slate-500 font-bold mt-1 uppercase tracking-tight">{m.activities.join(' • ')}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm">
+                        <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-4 flex items-center gap-2"><Shield className="h-4 w-4 text-emerald-500" /> Cuidados Gerais</h4>
+                        <div className="space-y-3">
+                            {POST_THROMBOLYSIS_CARE.general_care.map((c, i) => (
+                                <div key={i} className="flex gap-3">
+                                    <div className="h-6 w-6 bg-slate-100 dark:bg-zinc-800 rounded-lg flex items-center justify-center shrink-0">
+                                        <Check className="h-3 w-3 text-emerald-500 stroke-[4]" />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-tight">{c.title}</p>
+                                        <p className="text-[10px] text-slate-500 font-medium leading-tight">{c.content}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-amber-50 dark:bg-amber-950/20 border-2 border-amber-100 dark:border-amber-900/40 rounded-[2rem] p-6 shadow-sm">
+                    <h4 className="text-amber-700 dark:text-amber-400 font-black uppercase text-[10px] tracking-widest mb-4 flex items-center gap-2"><AlertTriangle className="h-4 w-4" /> Manejo de Complicações</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {POST_THROMBOLYSIS_CARE.complications.map((c, i) => (
+                            <div key={i} className="p-4 bg-white dark:bg-zinc-950 rounded-2xl border border-amber-200 dark:border-zinc-800">
+                                <p className="text-[10px] font-black text-amber-600 uppercase mb-1">{c.title}</p>
+                                <p className="text-[10px] text-slate-600 dark:text-slate-400 font-medium leading-relaxed">{c.content}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -702,7 +799,7 @@ export const NeurovascularTool: React.FC = () => {
 
         <div className="fixed bottom-0 left-0 w-full p-4 md:p-6 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border-t border-slate-200 dark:border-zinc-900 flex items-center justify-between z-[170] shadow-2xl">
             <div className="flex items-center gap-4"><div className="hidden sm:block"><p className="text-[8px] font-black uppercase text-slate-500 tracking-widest">Status do Protocolo</p><p className="text-3xl font-black text-primary tracking-tighter">{protocolStep === 1 ? (activeSubModule === 'aspects' ? aspectsScore : pcAspectsScore) : nihssScore}</p></div></div>
-            <div className="flex gap-2"><button onClick={() => navigator.clipboard.writeText(generateReport())} className="px-4 py-2.5 rounded-xl font-black text-[9px] uppercase tracking-widest bg-slate-100 dark:bg-zinc-900 text-slate-500 flex items-center transition-colors hover:text-primary"><Copy className="h-4 w-4 mr-2" /> Relatório</button>{protocolStep < 4 ? (<button onClick={() => setProtocolStep(p => p + 1)} className="bg-primary text-white px-8 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl shadow-emerald-500/20 flex items-center transition-all active:scale-95">Avançar <ChevronRight className="h-4 w-4 ml-2" /></button>) : (<button onClick={handleFinishThrombolysis} className="bg-slate-950 text-white px-8 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl shadow-black/30 flex items-center active:scale-95 transition-all">Encerrar Caso</button>)}</div>
+            <div className="flex gap-2"><button onClick={() => navigator.clipboard.writeText(generateReport())} className="px-4 py-2.5 rounded-xl font-black text-[9px] uppercase tracking-widest bg-slate-100 dark:bg-zinc-900 text-slate-500 flex items-center transition-colors hover:text-primary"><Copy className="h-4 w-4 mr-2" /> Relatório</button>{protocolStep < 5 ? (<button onClick={() => setProtocolStep(p => p + 1)} className="bg-primary text-white px-8 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl shadow-emerald-500/20 flex items-center transition-all active:scale-95">Avançar <ChevronRight className="h-4 w-4 ml-2" /></button>) : (<button onClick={handleFinishThrombolysis} className="bg-slate-950 text-white px-8 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl shadow-black/30 flex items-center active:scale-95 transition-all">Encerrar Caso</button>)}</div>
         </div>
     </div>
   );
