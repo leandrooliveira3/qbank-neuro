@@ -22,12 +22,25 @@ const EDSS_DATA = {
     ambulation: { name: 'Deambulação', options: [{v:0,l:'Irrestrita'},{v:1,l:'Totalmente ambulante (>500m)'},{v:2,l:'>300m e <500m'},{v:3,l:'>200m e <300m'},{v:4,l:'>100m e <200m'},{v:5,l:'<100m sem ajuda (apoio unilateral)'},{v:6,l:'Apoio unilateral constante >50m'},{v:7,l:'Apoio bilateral constante >120m'}] }
 };
 
-const MS_REGIONS = [
-    { id: 'pv', name: 'Periventricular', desc: '≥ 1 lesão adjacente ao ventrículo (S: 100% E: 43%).' },
-    { id: 'cj', name: 'Cortical ou Justacortical', desc: '≥ 1 lesão tocando o córtex.' },
-    { id: 'it', name: 'Infratentorial', desc: 'Tronco cerebral ou Cerebelo.' },
-    { id: 'sc', name: 'Medula Espinhal', desc: 'Qualquer lesão intramedular.' },
-    { id: 'on', name: 'Nervo Óptico (McDonald 2024)', desc: 'Confirmado por RM, OCT ou VEP.' }
+const DEMYELINATING_DIFFERENTIALS = {
+    epidemiology: [
+        { disease: 'Esclerose Múltipla', age: '20-40 anos', sex: 'Mulheres (3:1)', ethnicity: 'Caucasiano (Hemisfério Norte)', onset: 'Surtos/Remissões (Relapsing)', mri: 'Lesões ovoides (Dawson fingers), Periventriculares, Justacorticais.' },
+        { disease: 'NMOSD', age: 'Todas as idades', sex: 'Mulheres (9:1)', ethnicity: 'Não-Caucasianos (Asiáticos/Afros)', onset: 'Surto Grave (unilateral ou bilateral)', mri: 'Mielite Extensa (LETM ≥3 corpos vert.), Nervo Óptico Posterior/Quiasma.' },
+        { disease: 'MOGAD', age: 'Crianças e Adultos', sex: 'Feminino = Masculino (1:1)', ethnicity: 'Todas', onset: 'ADEM, Neurite Óptica Bilateral', mri: 'Lesões medulares curtas ou extensas (conus), Nervo Óptico Anterior.' },
+        { disease: 'ADEM', age: 'Crianças (>90%)', sex: 'F = M', ethnicity: 'Todas', onset: 'Monofásico, pós-vacinal ou infeccioso', mri: 'Lesões grandes e mal definidas, bilaterais, sem realce persistente.' }
+    ],
+    encephalitis: [
+        { antibody: 'Anti-NMDAR', clinical: 'Psicose, discinesias orofaciais, instabilidade autonômica.', associations: 'Teratoma de Ovário (Mulheres jovens).', treatment: 'Pulsoterapia + IGIV/PLEX + Rituximabe/Ciclofosfamida.' },
+        { antibody: 'Anti-LGI1', clinical: 'Crises distônicas facio-braquiais (FBDS), hiponatremia, amnésia.', associations: 'Geralmente idiopática (raro Timoma).', treatment: 'Excelente resposta a Corticoide.' },
+        { antibody: 'Anti-CASPR2', clinical: ' neuromiotonia, insônia, Síndrome de Morvan.', associations: 'Timoma.', treatment: 'Imunossupressão agressiva.' },
+        { antibody: 'Anti-GAD65', clinical: 'Síndrome da Pessoa Rígida, Ataxia Cerebelar, Epilepsia Límbica.', associations: 'DM1, Tireoidite.', treatment: 'IGIV, Benzodiazepínicos.' }
+    ]
+};
+
+const MS_TREATMENT_FLOW = [
+    { tier: 'Alta Eficácia (Primeira Escolha no Prognóstico Ruim)', drugs: ['Natalizumabe (Anti-VLA4)', 'Ocrelizumabe (Anti-CD20)', 'Ofatumumabe (Anti-CD20)', 'Cladribina'], mechanism: 'Sequestro linfocitário ou depleção profunda.', sideEffects: 'Risco de PML (JCV+), Infecções respiratórias, Hipogamaglobulinemia.' },
+    { tier: 'Moderada Eficácia', drugs: ['Fingolimode', 'Dimetilfumarato', 'Teriflunomida'], mechanism: 'Modulação de receptores S1P ou vias metabólicas.', sideEffects: 'Bradiarritmias (Fingolimode), Flushing (DMF), Alopecia/Teratogenia (Teriflunomida).' },
+    { tier: 'Injetáveis (Segurança a longo prazo)', drugs: ['Glatirâmer', 'Interferon-Beta'], mechanism: 'Imunomodulação Th2.', sideEffects: 'Reações no local de aplicação, sintomas gripais, lipoatrofia.' }
 ];
 
 export const NeuroImmunologyTool: React.FC = () => {
@@ -35,12 +48,13 @@ export const NeuroImmunologyTool: React.FC = () => {
   const { user } = useAuthStore();
   
   const [activeTool, setActiveTool] = useState<string | null>(null);
-  const [msTab, setMsTab] = useState<'diag' | 'tx'>('diag');
+  const [msTab, setMsTab] = useState<'diag' | 'tx' | 'diff'>('diag');
   const [edssScores, setEdssScores] = useState<Record<string, number>>({});
   const [msSites, setMsSites] = useState<Set<string>>(new Set());
   const [msMarkers, setMsMarkers] = useState<Set<string>>(new Set());
 
   const [nmoAqp4, setNmoAqp4] = useState<'pos' | 'neg' | 'unk'>('unk');
+  const [mogIgG, setMogIgG] = useState<'pos' | 'neg' | 'unk'>('unk');
   const [nmoCore, setNmoCore] = useState<Set<string>>(new Set());
 
   const toggleSet = (set: Set<string>, setter: any, id: string) => {
@@ -99,34 +113,57 @@ export const NeuroImmunologyTool: React.FC = () => {
                 <button onClick={() => setActiveTool('edss')} className="p-6 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-900 rounded-3xl shadow-sm hover:border-primary transition-all text-left group">
                     <div className="p-3 bg-cyan-500/10 rounded-2xl w-fit mb-4 text-cyan-600 group-hover:scale-110 transition-transform"><Ruler className="h-6 w-6" /></div>
                     <h3 className="font-black text-lg mb-1">Calculadora EDSS</h3>
-                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Incapacidade Funcional (Kurtzke)</p>
+                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest text-[9px]">Nova Interface - Kurtzke</p>
                 </button>
                 <button onClick={() => { setActiveTool('mcdonald'); setMsTab('diag'); }} className="p-6 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-900 rounded-3xl shadow-sm hover:border-primary transition-all text-left group">
                     <div className="p-3 bg-blue-500/10 rounded-2xl w-fit mb-4 text-blue-600 group-hover:scale-110 transition-transform"><ShieldCheck className="h-6 w-6" /></div>
                     <h3 className="font-black text-lg mb-1">Esclerose Múltipla</h3>
-                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">McDonald 2024 & Tratamento DMT</p>
+                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">McDonald 2024 & Tratamentos</p>
                 </button>
                 <button onClick={() => setActiveTool('nmosd')} className="p-6 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-900 rounded-3xl shadow-sm hover:border-primary transition-all text-left group">
                     <div className="p-3 bg-indigo-500/10 rounded-2xl w-fit mb-4 text-indigo-600 group-hover:scale-110 transition-transform"><AlertOctagon className="h-6 w-6" /></div>
-                    <h3 className="font-black text-lg mb-1">NMOSD (IPND 2015)</h3>
-                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Critérios Internacionais AQP4 +/-</p>
+                    <h3 className="font-black text-lg mb-1">NMOSD & MOGAD</h3>
+                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Critérios Internacionais</p>
+                </button>
+                <button onClick={() => setActiveTool('encephalitis')} className="p-6 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-900 rounded-3xl shadow-sm hover:border-primary transition-all text-left group">
+                    <div className="p-3 bg-purple-500/10 rounded-2xl w-fit mb-4 text-purple-600 group-hover:scale-110 transition-transform"><Brain className="h-6 w-6" /></div>
+                    <h3 className="font-black text-lg mb-1">Encefalites Autoimunes</h3>
+                    <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Anticorpos e Conduta</p>
                 </button>
             </div>
         ) : (
-            <div className="bg-white dark:bg-zinc-900 rounded-[2.5rem] p-6 md:p-10 shadow-sm border border-slate-200 dark:border-zinc-800 space-y-8 animate-in zoom-in-95 duration-300">
+            <div className="bg-white dark:bg-zinc-900 rounded-[2.5rem] p-6 md:p-8 shadow-sm border border-slate-200 dark:border-zinc-800 space-y-6 animate-in zoom-in-95 duration-300">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-black uppercase tracking-tight">
-                        {activeTool === 'edss' ? 'Calculadora EDSS' : activeTool === 'mcdonald' ? 'Esclerose Múltipla' : 'NMOSD IPND 2015'}
+                    <h2 className="text-lg font-black uppercase tracking-tight">
+                        {activeTool === 'edss' ? 'Calculadora EDSS' : activeTool === 'mcdonald' ? 'Esclerose Múltipla' : activeTool === 'nmosd' ? 'NMOSD & MOGAD' : 'Encefalites Autoimunes'}
                     </h2>
                     <button onClick={() => setActiveTool(null)} className="p-2 text-slate-400 hover:text-primary"><X className="h-5 w-5" /></button>
                 </div>
 
-                {activeTool === 'mcdonald' && (
+                        {activeTool === 'mcdonald' && (
                     <div className="space-y-6">
                         <div className="flex bg-slate-100 dark:bg-zinc-950 p-1 rounded-xl w-fit mb-4">
+                            <button onClick={() => setMsTab('diff')} className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${msTab === 'diff' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}>Diferenciais</button>
                             <button onClick={() => setMsTab('diag')} className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${msTab === 'diag' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}>Diagnóstico</button>
                             <button onClick={() => setMsTab('tx')} className={`px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${msTab === 'tx' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}>Tratamento (DMT)</button>
                         </div>
+
+                        {msTab === 'diff' && (
+                            <div className="space-y-6 animate-in fade-in">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {DEMYELINATING_DIFFERENTIALS.epidemiology.map(d => (
+                                        <div key={d.disease} className="p-5 border-2 border-slate-100 dark:border-zinc-800 rounded-[2rem] space-y-3">
+                                            <h4 className="text-sm font-black uppercase text-blue-600">{d.disease}</h4>
+                                            <div className="space-y-1">
+                                                <p className="text-[10px] font-bold text-slate-500 uppercase">Epidemio: <span className="text-slate-800 dark:text-slate-200">{d.age} | {d.sex} | {d.ethnicity}</span></p>
+                                                <p className="text-[10px] font-bold text-slate-500 uppercase">Apresentação: <span className="text-slate-800 dark:text-slate-200">{d.onset}</span></p>
+                                                <p className="text-[9px] font-medium text-slate-500 leading-tight border-t border-slate-100 dark:border-zinc-800 pt-2 selection:bg-blue-100">{d.mri}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
                         {msTab === 'diag' ? (
                             <div className="space-y-6 animate-in fade-in">
@@ -136,9 +173,15 @@ export const NeuroImmunologyTool: React.FC = () => {
                                 </div>
 
                                 <div className="space-y-4">
-                                    <h3 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-2"><Target className="h-3.5 w-3.5" /> Disseminação em Espaço (DIS)</h3>
+                                    <h3 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-2"><Target className="h-3.5 w-3.5" /> Disseminação em Espaço (McDonald 2024)</h3>
                                     <div className="grid grid-cols-1 gap-2">
-                                        {MS_REGIONS.map(r => (
+                                        {[
+                                            { id: 'pv', name: 'Periventricular', desc: '≥ 1 lesão adjacente ao ventrículo.' },
+                                            { id: 'cj', name: 'Cortical / Justacortical', desc: '≥ 1 lesão tocando o córtex.' },
+                                            { id: 'it', name: 'Infratentorial', desc: 'Tronco cerebral ou Cerebelo.' },
+                                            { id: 'sc', name: 'Medula Espinhal', desc: 'Qualquer lesão intramedular.' },
+                                            { id: 'on', name: 'Nervo Óptico (McDonald 2024)', desc: 'Confirmado por RM, OCT ou VEP.' }
+                                        ].map(r => (
                                             <button key={r.id} onClick={() => toggleSet(msSites, setMsSites, r.id)} className={`w-full text-left p-4 rounded-2xl border-2 transition-all flex items-center justify-between ${msSites.has(r.id) ? 'bg-blue-50 border-blue-500 text-blue-700 font-bold' : 'bg-white dark:bg-zinc-950 border-slate-100'}`}>
                                                 <div><span className="text-[11px] uppercase font-black block">{r.name}</span><span className="text-[8px] font-medium opacity-60 uppercase">{r.desc}</span></div>
                                                 {msSites.has(r.id) && <CheckCircle2 className="h-5 w-5 shrink-0" />}
@@ -148,78 +191,69 @@ export const NeuroImmunologyTool: React.FC = () => {
                                 </div>
 
                                 <div className="space-y-4">
-                                    <h3 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-2"><FlaskConical className="h-3.5 w-3.5" /> Marcadores Complementares</h3>
+                                    <h3 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-2"><FlaskConical className="h-3.5 w-3.5" /> Marcadores (DIT e LCR)</h3>
                                     <div className="grid grid-cols-2 gap-2">
                                         {[
                                             {id:'dit', label:'DIT (Novas Lesões)'}, {id:'ocb', label:'Bandas OCB (LCR)'},
-                                            {id:'kflc', label:'Kappa FLC Index'}, {id:'cvs', label:'CVS (Sinal Veia Central)'},
-                                            {id:'prl', label:'PRL (Rim Lesion)'}
+                                            {id:'kflc', label:'Kappa FLC Index'}, {id:'cvs', label:'CVS (Veia Central)'}
                                         ].map(m => (
                                             <button key={m.id} onClick={() => toggleSet(msMarkers, setMsMarkers, m.id)} className={`p-4 rounded-xl border-2 text-[10px] font-black uppercase transition-all ${msMarkers.has(m.id) ? 'bg-indigo-600 border-indigo-600 text-white shadow-md' : 'bg-slate-50 dark:bg-zinc-950 border-slate-100 text-slate-400'}`}>{m.label}</button>
                                         ))}
                                     </div>
                                 </div>
                             </div>
-                        ) : (
+                        ) : msTab === 'tx' ? (
                             <div className="space-y-8 animate-in fade-in">
                                 <section className="p-6 bg-red-50 dark:bg-red-950/20 border-2 border-red-100 dark:border-red-900 rounded-[2rem]">
-                                    <h4 className="text-red-600 font-black text-xs uppercase mb-4 flex items-center gap-2"><Zap className="h-4 w-4" /> Fase Aguda (UpToDate)</h4>
+                                    <h4 className="text-red-600 font-black text-xs uppercase mb-4 flex items-center gap-2"><Zap className="h-4 w-4" /> Manejo do Surto Agudo</h4>
                                     <div className="bg-white dark:bg-zinc-900 p-4 rounded-xl shadow-sm space-y-2">
                                         <p className="text-[11px] font-black uppercase text-slate-900 dark:text-white">Pulsoterapia: Metilprednisolona 1g/dia IV (3-5 dias).</p>
-                                        <p className="text-[10px] font-medium text-slate-500 italic leading-tight">Considere PLEX precoce se déficit motor grave (EDSS &gt; 4.5) e resposta parcial inicial.</p>
+                                        <p className="text-[10px] font-medium text-slate-500 italic leading-tight">Grave ou Refratário: Plasmaférese (PLEX) precoce é o próximo passo.</p>
                                     </div>
                                 </section>
 
-                                <div className="space-y-4">
-                                    <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] ml-2">Manutenção (Terapia Modificadora - DMT)</h4>
-                                    <div className="grid grid-cols-1 gap-3">
-                                        <div className="p-5 border-2 border-slate-100 dark:border-zinc-800 rounded-3xl space-y-4">
-                                            <h5 className="text-[11px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-2"><Shield className="h-4 w-4" /> Baixa/Moderada Eficácia</h5>
-                                            <p className="text-[10px] text-slate-400 uppercase">Indicado para formas leves, sem fatores de prognóstico ruim.</p>
-                                            <div className="grid grid-cols-2 gap-2">
-                                                {['Teriflunomida', 'Glatirâmer', 'Interferon-Beta', 'Dimetilfumarato'].map(d => (
-                                                    <div key={d} className="bg-slate-50 dark:bg-zinc-800 p-3 rounded-xl text-[9px] font-black text-center uppercase border border-slate-100 dark:border-zinc-700">{d}</div>
+                                <div className="space-y-6">
+                                    <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] ml-2">Manutenção e Progressão (DMT)</h4>
+                                    {MS_TREATMENT_FLOW.map((t, idx) => (
+                                        <div key={idx} className={`p-6 border-2 rounded-[2rem] space-y-4 ${idx === 0 ? 'bg-indigo-50/10 border-indigo-500/30' : 'border-slate-100 dark:border-zinc-800'}`}>
+                                            <h5 className={`text-[11px] font-black uppercase tracking-widest ${idx === 0 ? 'text-indigo-600' : 'text-slate-500'}`}>{t.tier}</h5>
+                                            <div className="flex flex-wrap gap-2">
+                                                {t.drugs.map(d => (
+                                                    <div key={d} className="bg-white dark:bg-zinc-800 px-3 py-2 rounded-xl text-[10px] font-bold uppercase border border-slate-200 dark:border-zinc-700">{d}</div>
                                                 ))}
                                             </div>
-                                        </div>
-                                        <div className="p-5 border-2 border-indigo-500/30 rounded-3xl space-y-4 bg-indigo-50/10">
-                                            <h5 className="text-[11px] font-black text-indigo-600 uppercase tracking-widest flex items-center gap-2"><Zap className="h-4 w-4" /> Alta Eficácia</h5>
-                                            <p className="text-[10px] text-indigo-400 uppercase">Formas ativas (NEDA 3 não atingido) ou prognóstico reservado.</p>
-                                            <div className="grid grid-cols-2 gap-2">
-                                                {['Fingolimode', 'Natalizumabe', 'Cladribina', 'Ocrelizumabe', 'Ofatumumabe'].map(d => (
-                                                    <div key={d} className="bg-white dark:bg-zinc-800 p-3 rounded-xl text-[9px] font-black text-center uppercase border-2 border-indigo-500/20">{d}</div>
-                                                ))}
-                                            </div>
-                                            <div className="p-3 bg-red-50 dark:bg-red-950/40 rounded-xl border border-red-100 dark:border-red-900/40 flex items-start gap-2">
-                                                <AlertCircle className="h-3 w-3 text-red-500 shrink-0 mt-0.5" />
-                                                <p className="text-[8px] font-bold text-red-600 leading-tight uppercase">Atenção: Natalizumabe (Risco PML - anti-JCV). Ocrelizumabe (TB/Hepatite Screening).</p>
+                                            <div className="space-y-2">
+                                                <p className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase">Mecanismo: <span className="font-medium lowercase normal-case">{t.mechanism}</span></p>
+                                                <p className="text-[10px] font-bold text-red-500 uppercase">Atenção: <span className="font-medium lowercase normal-case">{t.sideEffects}</span></p>
                                             </div>
                                         </div>
-                                    </div>
+                                    ))}
                                 </div>
                             </div>
-                        )}
-                        <div className="h-20" />
+                        ) : null}
                     </div>
                 )}
 
                 {activeTool === 'edss' && (
-                    <div className="space-y-6 animate-in fade-in pb-20">
-                        <div className="p-6 bg-slate-900 text-white rounded-[2rem] text-center shadow-xl mb-4 border-2 border-primary/20">
-                            <p className="text-[9px] font-black uppercase opacity-60 tracking-widest">Kurtzke Expanded Disability Status Scale</p>
-                            <div className="text-6xl font-black tracking-tighter">{calculateEDSS()}</div>
+                    <div className="space-y-6 animate-in fade-in pb-20 px-2">
+                        <div className="p-6 bg-slate-900 text-white rounded-[2rem] text-center shadow-xl border-2 border-primary/20 sticky top-0 z-40">
+                            <p className="text-[9px] font-black uppercase opacity-60 tracking-widest leading-none mb-1">MDS - Expanded Disability Status Scale</p>
+                            <div className="text-6xl font-black tracking-tighter leading-none">{calculateEDSS()}</div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 gap-6 pt-4">
                             {Object.entries(EDSS_DATA).map(([key, data]) => (
-                                <div key={key} className="bg-slate-50 dark:bg-black p-4 rounded-2xl border border-slate-100 dark:border-zinc-800">
-                                    <h4 className="text-[9px] font-black uppercase text-slate-500 mb-2 tracking-widest">{data.name}</h4>
-                                    <select className="w-full p-3 rounded-xl border bg-white dark:bg-zinc-900 text-[10px] font-bold outline-none focus:border-primary" value={edssScores[key] || 0} onChange={e => setEdssScores(p => ({...p, [key]: Number(e.target.value)}))}>
-                                        {data.options.map(o => <option key={o.v} value={o.v}>{o.l}</option>)}
-                                    </select>
+                                <div key={key} className="space-y-3">
+                                    <h4 className="text-[10px] font-black uppercase text-indigo-600 tracking-widest ml-2">{data.name}</h4>
+                                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                                        {data.options.map(o => (
+                                            <button key={o.v} onClick={() => setEdssScores(p => ({...p, [key]: o.v}))} className={`p-3 rounded-2xl text-[10px] font-black uppercase transition-all border-2 ${edssScores[key] === o.v ? 'bg-primary border-primary text-white shadow-lg scale-105' : 'bg-slate-50 dark:bg-zinc-950 border-slate-100 text-slate-400'}`}>
+                                                {o.l}
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
                             ))}
                         </div>
-                        <div className="h-20" />
                     </div>
                 )}
 
@@ -230,42 +264,64 @@ export const NeuroImmunologyTool: React.FC = () => {
                             <p className="text-[9px] font-black opacity-70 mt-1 uppercase tracking-widest">{nmoDiagnosis.m}</p>
                         </div>
                         
-                        <div className="space-y-4">
-                            <h3 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-2">1. Sorologia AQP4</h3>
-                            <div className="grid grid-cols-3 gap-2">
-                                {['pos', 'neg', 'unk'].map(s => (
-                                    <button key={s} onClick={() => setNmoAqp4(s as any)} className={`py-4 rounded-2xl border-2 font-black text-[10px] uppercase transition-all ${nmoAqp4 === s ? 'bg-indigo-600 border-indigo-600 text-white shadow-lg' : 'bg-white dark:bg-zinc-950 border-slate-100 text-slate-400'}`}>{s === 'pos' ? 'Positivo' : s === 'neg' ? 'Negativo' : 'Desconhecido'}</button>
-                                ))}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="space-y-4 p-5 bg-slate-50 dark:bg-zinc-950 rounded-3xl border border-slate-100 dark:border-zinc-800">
+                                <h3 className="text-[10px] font-black uppercase text-indigo-600 tracking-[0.2em] ml-2">Sorologia AQP4-IgG</h3>
+                                <div className="grid grid-cols-3 gap-2">
+                                    {['pos', 'neg', 'unk'].map(s => (
+                                        <button key={s} onClick={() => setNmoAqp4(s as any)} className={`py-4 rounded-xl border-2 font-black text-[10px] uppercase transition-all ${nmoAqp4 === s ? 'bg-indigo-600 border-indigo-600 text-white shadow-lg' : 'bg-white dark:bg-zinc-900 border-slate-100 text-slate-400'}`}>{s === 'pos' ? 'Pos' : s === 'neg' ? 'Neg' : '?'}</button>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="space-y-4 p-5 bg-slate-50 dark:bg-zinc-950 rounded-3xl border border-slate-100 dark:border-zinc-800">
+                                <h3 className="text-[10px] font-black uppercase text-emerald-600 tracking-[0.2em] ml-2">Sorologia MOG-IgG</h3>
+                                <div className="grid grid-cols-3 gap-2">
+                                    {['pos', 'neg', 'unk'].map(s => (
+                                        <button key={s} onClick={() => setMogIgG(s as any)} className={`py-4 rounded-xl border-2 font-black text-[10px] uppercase transition-all ${mogIgG === s ? 'bg-emerald-600 border-emerald-600 text-white shadow-lg' : 'bg-white dark:bg-zinc-900 border-slate-100 text-slate-400'}`}>{s === 'pos' ? 'Pos' : s === 'neg' ? 'Neg' : '?'}</button>
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
                         <div className="space-y-4">
-                            <h3 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-2"><Activity className="h-4 w-4" /> 2. Sintomas Core (IPND 2015)</h3>
+                            <h3 className="text-[10px] font-black uppercase text-slate-400 tracking-[0.2em] flex items-center gap-2"><Activity className="h-4 w-4" /> Manifestações Clínicas Core</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                {['Neurite Óptica', 'Mielite Aguda (LETM)', 'Síndrome Área Postrema', 'Tronco Cerebral Aguda', 'Diencefálica Aguda', 'Cerebral Aguda'].map(item => (
+                                {['Neurite Óptica (LETM nervo)', 'Mielite Aguda (Transversa)', 'Síndrome Área Postrema (Soluço/Vômito)', 'Síndrome Tronco Cerebral', 'Diencefálica Aguda', 'ADEM (MOGAD)'].map(item => (
                                     <button key={item} onClick={() => toggleSet(nmoCore, setNmoCore, item)} className={`w-full text-left p-4 rounded-xl border-2 transition-all flex items-center justify-between ${nmoCore.has(item) ? 'bg-indigo-50 border-indigo-200 text-indigo-700 font-bold' : 'bg-white dark:bg-zinc-950 border-slate-100'}`}>
-                                        <span className="text-[10px] font-black uppercase">{item}</span>
+                                        <span className="text-[11px] font-black uppercase">{item}</span>
                                         {nmoCore.has(item) && <CheckCircle2 className="h-4 w-4 text-indigo-600" />}
                                     </button>
                                 ))}
                             </div>
                         </div>
+                    </div>
+                )}
 
-                        <div className="p-6 bg-zinc-900 text-white rounded-[2rem] space-y-4 border border-indigo-500/20 shadow-xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-4 opacity-10"><Microscope className="h-10 w-10 text-indigo-400" /></div>
-                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2 text-indigo-400">Pérolas Terapêuticas NMOSD</h4>
-                            <div className="grid grid-cols-1 gap-3">
-                                <div className="bg-white/5 p-4 rounded-xl border border-white/10">
-                                    <p className="text-[9px] font-black uppercase text-indigo-300">Prevenção de Recidivas</p>
-                                    <p className="text-[11px] font-medium mt-1 leading-relaxed">Drogas de escolha (UpToDate): Rituximabe, Azatioprina, Micofenolato. Novos anticorpos: Eculizumabe (C5), Satralizumabe (IL-6R), Inebilizumabe (CD19).</p>
-                                </div>
-                                <div className="p-3 bg-red-950/20 border border-red-500/30 rounded-xl">
-                                    <p className="text-[8px] font-black text-red-400 uppercase flex items-center gap-1"><ShieldAlert className="h-3 w-3" /> Contraindicação Absoluta</p>
-                                    <p className="text-[10px] font-bold text-red-300 mt-1 uppercase">EVITAR BLOQUEADORES DE CANAL DE SÓDIO (CBZ/PHT) E INTERFERON-BETA. PODEM EXACERBAR A DOENÇA.</p>
-                                </div>
-                            </div>
+                {activeTool === 'encephalitis' && (
+                    <div className="space-y-8 animate-in fade-in pb-20">
+                        <div className="bg-purple-600 text-white p-6 rounded-[2.5rem] shadow-xl flex items-center gap-4">
+                            <Brain className="h-10 w-10 opacity-40" />
+                            <div><h3 className="font-black uppercase tracking-tight text-lg">Critérios de Graus et al. (2016)</h3><p className="text-[10px] font-bold opacity-70 uppercase tracking-widest">Diagnóstico de Encefalite Autoimune</p></div>
                         </div>
-                        <div className="h-20" />
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {DEMYELINATING_DIFFERENTIALS.encephalitis.map(e => (
+                                <div key={e.antibody} className="p-6 bg-white dark:bg-zinc-900 border-2 border-slate-100 dark:border-zinc-800 rounded-[2rem] space-y-4">
+                                    <div className="flex justify-between items-start">
+                                        <h4 className="font-black text-sm text-purple-600 uppercase">{e.antibody}</h4>
+                                        <div className="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-xl text-[8px] font-black text-purple-700 uppercase">Ab no Líquor</div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <p className="text-[10px] font-bold text-slate-800 dark:text-slate-200 uppercase leading-snug">{e.clinical}</p>
+                                        <p className="text-[9px] font-medium text-slate-500 uppercase tracking-wide">Associação: {e.associations}</p>
+                                    </div>
+                                    <div className="p-4 bg-slate-50 dark:bg-zinc-950 rounded-2xl border-l-4 border-purple-500">
+                                        <p className="text-[9px] font-black uppercase text-purple-600 mb-1">Tratamento</p>
+                                        <p className="text-[11px] font-medium text-slate-600 dark:text-slate-400 lowercase normal-case">{e.treatment}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 )}
             </div>
