@@ -80,6 +80,7 @@ export const StudyFlashcards: React.FC = () => {
   const [finished, setFinished] = useState(false);
   const [sessionStats, setSessionStats] = useState({ reviewed: 0, learned: 0, mastered: 0 });
   const [currentImageUrl, setCurrentImageUrl] = useState<string>('');
+  const [currentBackImageUrl, setCurrentBackImageUrl] = useState<string>('');
   const [srsModifier, setSrsModifier] = useState(1.0);
   
   // Accumulate XP locally
@@ -159,6 +160,11 @@ export const StudyFlashcards: React.FC = () => {
           mediaService.getImageUrl(card.front_image_url).then(setCurrentImageUrl);
       } else {
           setCurrentImageUrl('');
+      }
+      if (card?.back_image_url) {
+          mediaService.getImageUrl(card.back_image_url).then(setCurrentBackImageUrl);
+      } else {
+          setCurrentBackImageUrl('');
       }
   }, [currentIndex, cards]);
 
@@ -320,13 +326,13 @@ export const StudyFlashcards: React.FC = () => {
                         className="absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-zinc-900 rounded-[2rem] border-2 border-emerald-500 shadow-xl flex flex-col overflow-hidden cursor-pointer"
                         onClick={() => setIsFlipped(false)}
                     >
-                        {currentCard.front_image_url ? (
+                        {(currentCard.back_image_url || currentCard.front_image_url) ? (
                             <div className="flex-[1.5] min-h-0 bg-emerald-500/5 dark:bg-emerald-500/10 flex items-center justify-center p-3 border-b border-emerald-100 dark:border-emerald-900/40 relative">
                                 <div className="relative h-full w-full flex items-center justify-center">
                                     <div className="relative inline-block h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black border border-emerald-400/20">
                                         <img 
                                             key={`back-${currentCard.id}`}
-                                            src={currentImageUrl || currentCard.front_image_url} 
+                                            src={currentBackImageUrl || currentImageUrl || currentCard.back_image_url || currentCard.front_image_url} 
                                             alt="Gabarito" 
                                             className="h-full w-auto max-w-full object-contain block opacity-90"
                                         />

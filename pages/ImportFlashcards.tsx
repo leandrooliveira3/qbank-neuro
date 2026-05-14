@@ -235,10 +235,11 @@ export const ImportFlashcards: React.FC = () => {
             let backText = '';
 
             const clozeRegex = /\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs;
-            if (clozeRegex.test(frontRaw)) {
+            if (frontRaw.includes('{{c')) {
                 let fText = frontRaw.replace(/\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs, (...args) => {
                     return `[${args[2] || '...'}]`;
                 });
+                // Para o verso do flashcard, revela a oclusão (grupo $1 - o texto oculto)
                 let bText = frontRaw.replace(/\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs, '$1');
                 
                 frontText = stripHtml(fText);

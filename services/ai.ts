@@ -96,9 +96,21 @@ export const processFileQuestions = async (
     [{ "enunciado": "texto", "alternativas": ["A", "B", "C", "D", "E"], "gabarito": "A", "comentario": "porque", "categoria": "neuro", "subcategoria": "subtema", "dificuldade": "Médio", "tags": ["tag1"] }]
   `;
 
+  const contents: any[] = [prompt];
+  if (images && images.length > 0) {
+    images.forEach(imgBase64 => {
+      contents.push({
+        inlineData: {
+          data: imgBase64,
+          mimeType: "image/jpeg"
+        }
+      });
+    });
+  }
+
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
-    contents: prompt,
+    contents: contents,
     config: {
       responseMimeType: "application/json",
       responseSchema: questionSchema,
