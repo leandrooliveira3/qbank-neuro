@@ -23,6 +23,9 @@ interface ParsedCard {
     frontImageBlob?: Blob;
     frontImageExt?: string;
     frontImageUrl?: string;
+    backImageBlob?: Blob;
+    backImageExt?: string;
+    backImageUrl?: string;
 }
 
 // ─── Supported formats ────────────────────────────────────────────────────────
@@ -40,6 +43,8 @@ const SUPPORTED_FORMATS = [
 function stripHtml(html: string): string {
     return html
         .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/div>/gi, '\n')
+        .replace(/<\/p>/gi, '\n')
         .replace(/<[^>]+>/g, '')
         .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
@@ -47,6 +52,7 @@ function stripHtml(html: string): string {
         .replace(/&nbsp;/g, ' ')
         .replace(/&quot;/g, '"')
         .replace(/&#39;/g, "'")
+        .replace(/\n\s*\n/g, '\n')
         .trim();
 }
 
@@ -223,26 +229,57 @@ export const ImportFlashcards: React.FC = () => {
             const tagStr = String(row[1] ?? '');
             const fields = flds.split('\x1f');
             const frontRaw = fields[0] ?? '';
-            const backRaw  = fields[1] ?? '';
-            const frontText = stripHtml(frontRaw);
-            const backText  = stripHtml(backRaw);
-            const imgSrc    = extractImgSrc(frontRaw) || extractImgSrc(backRaw);
+            const backRaw  = fields.slice(1).join('\n') ?? '';
+            
+            let frontText = '';
+            let backText = '';
 
-            if (!frontText && !imgSrc) continue;
+            const clozeRegex = /\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs;
+            if (clozeRegex.test(frontRaw)) {
+                let fText = frontRaw.replace(/\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs, (...args) => {
+                    return `[${args[2] || '...'}]`;
+                });
+                let bText = frontRaw.replace(/\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs, '$1');
+                
+                frontText = stripHtml(fText);
+                backText = stripHtml(bText);
+                if (backRaw.trim()) {
+                    backText += '\n\n' + stripHtml(backRaw);
+                }
+            } else {
+                frontText = stripHtml(frontRaw);
+                backText  = stripHtml(backRaw);
+            }
+
+            const frontImgSrc = extractImgSrc(frontRaw);
+            const backImgSrc  = extractImgSrc(backRaw);
+
+            if (!frontText && !frontImgSrc && !backText && !backImgSrc) continue;
 
             const card: ParsedCard = {
-                front: frontText || '(imagem)',
-                back:  backText  || '',
+                front: frontText || (frontImgSrc ? '(imagem)' : ''),
+                back:  backText  || (backImgSrc ? '(imagem)' : ''),
                 tags:  tagStr.split(' ').filter(Boolean),
             };
 
-            if (imgSrc) {
-                const zipId = mediaMap[imgSrc];
+            if (frontImgSrc) {
+                const zipId = mediaMap[frontImgSrc];
                 if (zipId) {
                     const imgEntry = zip.file(zipId);
                     if (imgEntry) {
                         card.frontImageBlob = await imgEntry.async('blob');
-                        card.frontImageExt  = getExt(imgSrc);
+                        card.frontImageExt  = getExt(frontImgSrc);
+                    }
+                }
+            }
+            
+            if (backImgSrc && backImgSrc !== frontImgSrc) {
+                const zipId = mediaMap[backImgSrc];
+                if (zipId) {
+                    const imgEntry = zip.file(zipId);
+                    if (imgEntry) {
+                        card.backImageBlob = await imgEntry.async('blob');
+                        card.backImageExt  = getExt(backImgSrc);
                     }
                 }
             }
@@ -318,17 +355,22 @@ export const ImportFlashcards: React.FC = () => {
         try {
             const withUrls: ParsedCard[] = [];
             let uploaded = 0;
-            const total = parsedCards.filter(c => c.frontImageBlob).length;
+            const total = parsedCards.filter(c => c.frontImageBlob).length + parsedCards.filter(c => c.backImageBlob).length;
 
             for (const card of parsedCards) {
+                let fUrl = undefined;
+                let bUrl = undefined;
                 if (card.frontImageBlob) {
                     setLoadingMsg(`Enviando mídia ${++uploaded}/${total}...`);
                     const f = new File([card.frontImageBlob], `anki_${crypto.randomUUID()}.${card.frontImageExt || 'jpg'}`, { type: card.frontImageBlob.type });
-                    const url = await storageService.uploadImage(f, 'flashcards');
-                    withUrls.push({ ...card, frontImageUrl: url });
-                } else {
-                    withUrls.push(card);
+                    fUrl = await storageService.uploadImage(f, 'flashcards');
                 }
+                if (card.backImageBlob) {
+                    setLoadingMsg(`Enviando mídia ${++uploaded}/${total}...`);
+                    const f = new File([card.backImageBlob], `anki_${crypto.randomUUID()}.${card.backImageExt || 'jpg'}`, { type: card.backImageBlob.type });
+                    bUrl = await storageService.uploadImage(f, 'flashcards');
+                }
+                withUrls.push({ ...card, frontImageUrl: fUrl, backImageUrl: bUrl });
             }
 
             setLoadingMsg('Salvando flashcards...');
@@ -340,6 +382,7 @@ export const ImportFlashcards: React.FC = () => {
                 back: card.back,
                 category: category,
                 front_image_url: card.frontImageUrl || '',
+                back_image_url: card.backImageUrl || '',
                 occlusions: [],
                 status: autoAddToRevision ? 'new' : 'inactive',
                 interval: 0,

@@ -141,6 +141,49 @@ export const ImportQuestions: React.FC = () => {
       loadBanks();
   }, [user]);
 
+  // Efeito para dedublicar automaticamente as questões geradas da base de dados local existente
+  useEffect(() => {
+      let isMounted = true;
+      const deduplicate = async () => {
+          if (!user || isProcessing || results.length === 0) return;
+          try {
+              const existing = await localDB.getAll('questions');
+              const myExisting = existing.filter(q => q.created_by === user.id);
+              const existingTexts = new Set(myExisting.map(q => 
+                  q.statement.toLowerCase().replace(/[\s\t\n\r\W_]/g, '').substring(0, 150)
+              ));
+              
+              const currentResults = useImportStore.getState().results;
+              if (currentResults.length === 0) return; // Aborta se já foi limpo
+
+              let removed = 0;
+              const unique = currentResults.filter(q => {
+                  const fp = q.enunciado.toLowerCase().replace(/[\s\t\n\r\W_]/g, '').substring(0, 150);
+                  if (existingTexts.has(fp)) {
+                      removed++;
+                      return false;
+                  }
+                  return true;
+              });
+
+              if (isMounted && removed > 0) {
+                  // Confirma novamente se não foi limpo durante o asíncrono
+                  const latest = useImportStore.getState().results;
+                  if (latest.length > 0) {
+                      useImportStore.getState().setResults(unique);
+                  }
+              }
+          } catch(e) {}
+      };
+      
+      // We set a small timeout so it runs cleanly after UI updates 
+      const timer = setTimeout(deduplicate, 500);
+      return () => { 
+          isMounted = false; 
+          clearTimeout(timer);
+      };
+  }, [isProcessing, results.length, user]);
+
   const handleProcessFile = async () => {
     if (!file || fileError) return;
     setIsUploading(true); 
@@ -280,6 +323,7 @@ export const ImportQuestions: React.FC = () => {
   const handleSaveToDatabase = async () => {
     if (!user || results.length === 0) return;
     setIsUploading(true);
+    questionProcessor.cancel(); // Parar o processo se ainda estiver rodando no fundo
     try {
       const items: Question[] = [];
       const bankName = isCreatingNewBank ? targetBankName : targetBankName;
