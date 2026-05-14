@@ -366,7 +366,34 @@ export const Flashcards: React.FC = () => {
       }
   };
 
-  const dueCount = cards.filter(c => new Date(c.next_review).getTime() <= Date.now()).length;
+  const handleActivateCategory = async (category: string, items: Flashcard[], e: React.MouseEvent) => {
+      e.stopPropagation();
+      const inactiveItems = items.filter(c => c.status === 'inactive');
+      if (!inactiveItems.length) return;
+      
+      setLoading(true);
+      try {
+          const activated = inactiveItems.map(c => ({ ...c, status: 'new' as const }));
+          await syncEngine.bulkEnqueue('flashcards', activated);
+          loadCards();
+      } catch (err: any) {
+          alert("Erro ao ativar: " + err.message);
+      } finally {
+          setLoading(false);
+      }
+  };
+
+  const handleActivateCard = async (card: Flashcard, e: React.MouseEvent) => {
+      e.stopPropagation();
+      try {
+          await syncEngine.enqueue('flashcards', { ...card, status: 'new' });
+          loadCards();
+      } catch (err: any) {
+          alert("Erro ao ativar: " + err.message);
+      }
+  };
+
+  const dueCount = cards.filter(c => c.status !== 'inactive' && new Date(c.next_review).getTime() <= Date.now()).length;
 
   // EDITOR RENDER (Unchanged mostly)
   if (mode === 'editor') {
@@ -465,6 +492,15 @@ export const Flashcards: React.FC = () => {
                                   <span className="text-[8px] font-bold bg-slate-200 dark:bg-zinc-800 px-2 py-0.5 rounded-full text-slate-500">{items.length}</span>
                               </div>
                               <div className="flex items-center gap-1">
+                                  {items.some(c => c.status === 'inactive') && (
+                                      <button 
+                                          onClick={(e) => handleActivateCategory(category, items, e)}
+                                          className="p-1 px-3 text-[9px] font-black uppercase tracking-widest bg-emerald-100/50 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 rounded-md hover:opacity-80 mx-2 flex items-center gap-1"
+                                          title="Ativar Cards Inativos para Revisão"
+                                      >
+                                          <Play className="h-3 w-3" /> ATIVAR {items.filter(c => c.status === 'inactive').length} INATIVOS
+                                      </button>
+                                  )}
                                   <button 
                                       onClick={(e) => handleDeleteCategory(category, items, e)}
                                       className="p-2 text-slate-300 hover:text-red-500 transition-colors"
@@ -479,7 +515,7 @@ export const Flashcards: React.FC = () => {
                           {openThemes.has(category) && (
                               <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-slate-50 dark:bg-black/20">
                                   {items.map(card => (
-                                      <div key={card.id} onClick={() => { setEditingCard(card); setFormData({front:card.front, back:card.back, category:card.category || '', bank_name: card.bank_name || 'Principal'}); setFrontPreview(card.front_image_url || ''); setOcclusions(card.occlusions || []); setMode('form'); }} className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl p-4 shadow-sm hover:border-primary transition-all cursor-pointer group flex flex-col h-full">
+                                      <div key={card.id} onClick={() => { setEditingCard(card); setFormData({front:card.front, back:card.back, category:card.category || '', bank_name: card.bank_name || 'Principal'}); setFrontPreview(card.front_image_url || ''); setOcclusions(card.occlusions || []); setMode('form'); }} className={`bg-white dark:bg-zinc-900 border ${card.status === 'inactive' ? 'border-dashed border-slate-300 dark:border-zinc-700 opacity-75' : 'border-slate-200 dark:border-zinc-800'} rounded-xl p-4 shadow-sm hover:border-primary transition-all cursor-pointer group flex flex-col h-full`}>
                                           {card.front_image_url && (
                                               <div className="mb-3 h-24 bg-slate-100 dark:bg-black rounded-lg flex items-center justify-center overflow-hidden relative">
                                                   <SmartImage url={card.front_image_url} alt="F" className="h-full object-contain" />
@@ -487,7 +523,13 @@ export const Flashcards: React.FC = () => {
                                           )}
                                           <p className="text-xs font-bold text-slate-800 dark:text-slate-200 line-clamp-2 mb-2 flex-1">{card.front || 'Image Occlusion'}</p>
                                           <div className="flex justify-between items-center pt-2 border-t border-slate-50 dark:border-zinc-800">
-                                              <span className="text-[7px] font-black uppercase text-slate-400">{new Date(card.next_review).toLocaleDateString()}</span>
+                                              {card.status === 'inactive' ? (
+                                                  <button onClick={(e) => handleActivateCard(card, e)} className="text-[7px] font-black bg-emerald-100 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400 px-2 py-1 rounded-sm flex items-center gap-1 uppercase tracking-widest hover:opacity-80">
+                                                      <Play className="h-2 w-2" /> Ativar
+                                                  </button>
+                                              ) : (
+                                                  <span className="text-[7px] font-black uppercase text-slate-400">{new Date(card.next_review).toLocaleDateString()}</span>
+                                              )}
                                               <button onClick={(e) => handleDelete(card.id, e)} className="p-1 text-slate-300 hover:text-red-500"><Trash2 className="h-3 w-3" /></button>
                                           </div>
                                       </div>

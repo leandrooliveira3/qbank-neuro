@@ -134,7 +134,7 @@ export const Dashboard: React.FC = () => {
             if (mySession) await localDB.delete('active_practice_sessions', user.id);
         }
 
-        const dueCount = flashcards.filter(c => c.user_id === user.id && new Date(c.next_review) <= new Date()).length;
+        const dueCount = flashcards.filter(c => c.user_id === user.id && c.status !== 'inactive' && new Date(c.next_review) <= new Date()).length;
         setDueFlashcardsCount(dueCount);
 
         // --- SISTEMA DE OFENSIVA (STREAK) ---

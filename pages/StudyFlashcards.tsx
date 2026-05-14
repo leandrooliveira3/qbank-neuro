@@ -101,7 +101,7 @@ export const StudyFlashcards: React.FC = () => {
     setLoading(true);
     try {
       const allCards = await localDB.getAll('flashcards');
-      const userCards = allCards.filter(c => c.user_id === user.id);
+      const userCards = allCards.filter(c => c.user_id === user.id && c.status !== 'inactive');
       let sessionCards: Flashcard[];
 
       if (studyMode === 'free') {

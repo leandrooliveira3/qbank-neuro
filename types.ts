@@ -89,7 +89,7 @@ export interface Flashcard {
   back_image_url?: string;
   occlusions?: Occlusion[];
   category?: string;
-  status: 'new' | 'learning' | 'review' | 'mastered';
+  status: 'new' | 'learning' | 'review' | 'mastered' | 'inactive';
   next_review: string;
   interval: number;
   ease_factor: number;

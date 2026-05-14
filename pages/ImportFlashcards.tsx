@@ -10,6 +10,7 @@ import {
     AlertCircle, Layers, FileJson, Table, FileCode, Download,
     Info, X, Image as ImageIcon
 } from 'lucide-react';
+import { decompress } from 'fzstd';
 import JSZip from 'jszip';
 import initSqlJs from 'sql.js';
 
@@ -75,6 +76,7 @@ export const ImportFlashcards: React.FC = () => {
     const [importSuccess, setImportSuccess] = useState(false);
     const [mode, setMode] = useState<'file' | 'themes'>('file');
     const [selectedThemes, setSelectedThemes] = useState<string[]>([]);
+    const [autoAddToRevision, setAutoAddToRevision] = useState(false);
     
     const SPECIALTIES = [
         "Neurologia", "Clínica Médica", "Cardiologia", "Neurocirurgia", 
@@ -127,14 +129,78 @@ export const ImportFlashcards: React.FC = () => {
     const parseAnkiPackage = async (f: File): Promise<ParsedCard[]> => {
         setLoadingMsg('Descompactando arquivo...');
         const zip = await new JSZip().loadAsync(f);
-        const dbEntry = zip.file('collection.anki21') || zip.file('collection.anki2');
-        if (!dbEntry) throw new Error('Arquivo Anki inválido: banco de dados não encontrado.');
+        
+        setLoadingMsg('Iniciando SQL.js...');
+        const SQL = await initSqlJs({ locateFile: () => '/sql-wasm.wasm' });
+
+        const files = Object.keys(zip.files);
+        const candidateNames = files.filter(n => n.includes('collection.anki2')).sort((a,b) => b.length - a.length); // anki21b before anki21 before anki2
+        
+        if (candidateNames.length === 0) {
+            throw new Error(`Arquivo Anki inválido: banco de dados não encontrado. Arquivos: ${files.join(', ')}`);
+        }
+
+        let dbBuf: ArrayBuffer | null = null;
+        let db: any = null;
 
         setLoadingMsg('Lendo banco de dados SQLite...');
-        const dbBuf = await dbEntry.async('arraybuffer');
-        const SQL = await initSqlJs({ locateFile: () => '/sql-wasm.wasm' });
-        const db = new SQL.Database(new Uint8Array(dbBuf));
-        const result = db.exec('SELECT flds, tags FROM notes LIMIT 5000');
+        for (const name of candidateNames) {
+            const entry = zip.file(name);
+            if (!entry) continue;
+            try {
+                let buf = await entry.async('uint8array');
+                
+                const isSqlite = buf.length > 16 && String.fromCharCode(...buf.subarray(0, 15)) === "SQLite format 3";
+                if (!isSqlite) {
+                    try {
+                        buf = decompress(buf);
+                    } catch (err) {
+                        console.warn(`Failed to decompress ${name}:`, err);
+                    }
+                }
+
+                const tempDb = new SQL.Database(buf);
+                
+                try {
+                    const res = tempDb.exec('SELECT count(*) FROM notes');
+                    const count = res[0]?.values[0]?.[0] as number;
+                    let isDummy = false;
+                    
+                    if (count === 1) {
+                        const rr = tempDb.exec('SELECT flds FROM notes LIMIT 1');
+                        const text = (rr[0]?.values[0]?.[0] as string) || '';
+                        if (text.includes('Atualize') || text.includes('update to the latest')) {
+                            isDummy = true;
+                        }
+                    }
+                    
+                    if (!isDummy) {
+                        console.log(`[Anki] Loaded db from ${name}, count=${count}, isSqlite=${isSqlite}`);
+                        dbBuf = buf;
+                        db = tempDb;
+                        break; // Encontrado o DB válido
+                    } else {
+                        // Mantém como fallback se for o único, mas continua procurando
+                        if (!db) {
+                            dbBuf = buf;
+                            db = tempDb;
+                        } else {
+                            tempDb.close();
+                        }
+                    }
+                } catch(e) {
+                    tempDb.close(); // Ignora databases inválidos
+                }
+            } catch(e) {
+                console.warn(`Erro ao ler o candidato ${name}:`, e);
+            }
+        }
+
+        if (!db) {
+            throw new Error('Falha ao abrir banco de dados SQLite do Anki.');
+        }
+
+        const result = db.exec('SELECT flds, tags FROM notes');
         db.close();
 
         setLoadingMsg('Lendo arquivos de mídia...');
@@ -275,7 +341,7 @@ export const ImportFlashcards: React.FC = () => {
                 category: category,
                 front_image_url: card.frontImageUrl || '',
                 occlusions: [],
-                status: 'new',
+                status: autoAddToRevision ? 'new' : 'inactive',
                 interval: 0,
                 ease_factor: 2.5,
                 repetitions: 0,
@@ -439,6 +505,17 @@ export const ImportFlashcards: React.FC = () => {
                                                     </div>
                                                 </div>
                                             ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 rounded-2xl">
+                                        <label className="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" checked={autoAddToRevision} onChange={e => setAutoAddToRevision(e.target.checked)} className="sr-only peer" />
+                                            <div className="w-9 h-5 bg-slate-200 peer-focus:outline-none dark:bg-zinc-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+                                        </label>
+                                        <div className="flex-1">
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-900 dark:text-white block">Adicionar à Fila de Revisão</span>
+                                            <span className="text-[9px] text-slate-500 font-bold block mt-0.5">Se desativado, os cards ficarão inativos para você adicioná-los manualmente depois.</span>
                                         </div>
                                     </div>
 

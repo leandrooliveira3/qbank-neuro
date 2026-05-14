@@ -67,7 +67,7 @@ export const Revision: React.FC = () => {
             // Store the user cards in state to use in the UI
             setCards(userCards);
             
-            const due = userCards.filter(c => new Date(c.next_review) <= new Date());
+            const due = userCards.filter(c => c.status !== 'inactive' && new Date(c.next_review) <= new Date());
             setDueCardsCount(due.length);
 
         } finally { setLoading(false); }
