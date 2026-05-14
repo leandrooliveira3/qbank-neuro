@@ -74,7 +74,7 @@ export const processFileQuestions = async (
     ${fullContent}
     
     Retorne APENAS um array JSON válido no formato:
-    [{ "statement": "texto", "alternatives": ["A", "B", "C", "D"], "correct_index": 0, "explanation": "porque", "categoria": "neuro", "bank_name": "Principal" }]
+    [{ "enunciado": "texto", "alternativas": ["A", "B", "C", "D", "E"], "gabarito": "A", "comentario": "porque", "categoria": "neuro", "subcategoria": "subtema", "dificuldade": "Médio", "tags": ["tag1"] }]
   `;
 
   const response = await ai.models.generateContent({
@@ -98,7 +98,7 @@ export const explainWrongAlternatives = async (question: any): Promise<string> =
 };
 
 export const generateQuestionsFromPrompt = async (prompt: string): Promise<AIImportedQuestion[]> => {
-  const fullPrompt = `${prompt}\n\nRetorne um array JSON de questões com: statement, alternatives, correct_index, explanation, categoria.`;
+  const fullPrompt = `${prompt}\n\nRetorne APENAS um array JSON de questões com o seguinte formato: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: fullPrompt,
@@ -134,7 +134,14 @@ export const extractLmeData = async (medicalRecord: string, diseaseType: string)
   const prompt = `
     Extraia dados para Laudo de Solicitação de Medicamento (LME) de ${diseaseType} do prontuário: ${medicalRecord}.
     
-    Retorne um JSON com os campos necessários para LME.
+    Retorne um JSON com o seguinte formato:
+    {
+      "cid10": "código CID",
+      "anamnese_lme": "anamnese",
+      "historia_clinica": "história clínica",
+      "tratamentos_previos": "tratamentos",
+      "tratamento_atual": "atual"
+    }
   `;
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
