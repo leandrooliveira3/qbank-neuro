@@ -1,9 +1,28 @@
 import { AIImportedQuestion, AIExtractedLME } from "../types";
 import JSON5 from 'json5';
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, Type } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 const DEFAULT_MODEL = "gemini-3-flash-preview";
+
+const questionSchema = {
+  type: Type.ARRAY,
+  items: {
+    type: Type.OBJECT,
+    properties: {
+      enunciado: { type: Type.STRING, description: "Texto da questão" },
+      alternativas: { type: Type.ARRAY, items: { type: Type.STRING } },
+      gabarito: { type: Type.STRING, description: "Letra A, B, C, D ou E" },
+      comentario: { type: Type.STRING, description: "Explicação detalhada" },
+      categoria: { type: Type.STRING },
+      subcategoria: { type: Type.STRING },
+      dificuldade: { type: Type.STRING },
+      tags: { type: Type.ARRAY, items: { type: Type.STRING } }
+    },
+    required: ["enunciado", "alternativas", "gabarito", "comentario"]
+  }
+};
+
 
 interface Chat {
   history: { role: 'user' | 'model', parts: { text: string }[] }[];
@@ -80,6 +99,11 @@ export const processFileQuestions = async (
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: questionSchema,
+      temperature: 0.1
+    }
   });
   
   return robustJsonParse<AIImportedQuestion[]>(response.text || '');
@@ -102,6 +126,11 @@ export const generateQuestionsFromPrompt = async (prompt: string): Promise<AIImp
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: fullPrompt,
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: questionSchema,
+      temperature: 0.1
+    }
   });
   return robustJsonParse<AIImportedQuestion[]>(response.text || '');
 };
@@ -117,6 +146,17 @@ export const generateFlashcardFromQuestion = async (statement: string, explanati
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          front: { type: Type.STRING },
+          back: { type: Type.STRING }
+        },
+        required: ["front", "back"]
+      }
+    }
   });
   return robustJsonParse<{ front: string; back: string }>(response.text || '');
 };
@@ -146,6 +186,20 @@ export const extractLmeData = async (medicalRecord: string, diseaseType: string)
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          cid10: { type: Type.STRING },
+          anamnese_lme: { type: Type.STRING },
+          historia_clinica: { type: Type.STRING },
+          tratamentos_previos: { type: Type.STRING },
+          tratamento_atual: { type: Type.STRING }
+        },
+        required: ["cid10", "anamnese_lme", "historia_clinica", "tratamentos_previos", "tratamento_atual"]
+      }
+    }
   });
   return robustJsonParse<AIExtractedLME>(response.text || '');
 };
