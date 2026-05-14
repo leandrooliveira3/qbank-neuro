@@ -5,6 +5,8 @@ import { createNeuroChat } from '../services/ai';
 import { useAuthStore } from '../store/useAuthStore';
 import { Send, Bot, User, Loader2, Sparkles, Trash2, MessageSquare } from 'lucide-react';
 import { useLocation } from 'react-router';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Message {
   id: string;
@@ -169,12 +171,18 @@ export const Chat: React.FC = () => {
                   {msg.role === 'user' ? <User className="h-4 w-4 text-slate-300" /> : <Sparkles className="h-4 w-4 text-primary" />}
                 </div>
                 
-                <div className={`p-4 rounded-2xl text-sm leading-relaxed font-medium whitespace-pre-wrap ${
+                <div className={`p-4 rounded-2xl text-sm leading-relaxed font-medium ${
                   msg.role === 'user' 
-                  ? 'bg-primary text-white rounded-tr-none border border-primary/20 shadow-lg' 
+                  ? 'bg-primary text-white rounded-tr-none border border-primary/20 shadow-lg whitespace-pre-wrap' 
                   : 'bg-white dark:bg-zinc-900 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-zinc-800 rounded-tl-none shadow-sm'
                 }`}>
-                  {msg.content}
+                  {msg.role === 'user' ? (
+                    msg.content
+                  ) : (
+                    <div className="prose prose-sm max-w-none dark:prose-invert prose-emerald">
+                      <Markdown remarkPlugins={[remarkGfm]}>{msg.content}</Markdown>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
