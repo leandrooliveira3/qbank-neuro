@@ -1,6 +1,6 @@
 
 const DB_NAME = 'NeuroQBank_Local';
-const DB_VERSION = 18; // Increment version for new store
+const DB_VERSION = 19; // Increment version for new store
 
 class LocalDB {
   private db: IDBDatabase | null = null;
@@ -15,6 +15,7 @@ class LocalDB {
           'profiles', 'questions', 'flashcards', 'user_answers', 'user_favorites',
           'summaries', 'sync_queue', 'simulation_sessions', 'media_cache',
           'tasks', 'goals', 'focus_sessions', 'planning', 'clinical_reports', 'active_practice_sessions',
+          'active_video_session',
           'videos', 'video_progress', 'video_materials', 'video_comments',
           'xp_history',
           'processed_documents',

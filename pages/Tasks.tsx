@@ -21,6 +21,8 @@ export const Tasks: React.FC = () => {
 
   useEffect(() => {
     loadData();
+    window.addEventListener('neuro_sync_completed', loadData);
+    return () => window.removeEventListener('neuro_sync_completed', loadData);
   }, [user]);
 
   const loadData = async () => {

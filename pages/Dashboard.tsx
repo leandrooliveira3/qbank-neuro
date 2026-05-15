@@ -47,6 +47,7 @@ export const Dashboard: React.FC = () => {
     hardCount: 0
   });
   const [activeSession, setActiveSession] = useState<any>(null);
+  const [activeVideoSession, setActiveVideoSession] = useState<any>(null);
   const [dueFlashcardsCount, setDueFlashcardsCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [quickQuestion, setQuickQuestion] = useState('');
@@ -111,10 +112,11 @@ export const Dashboard: React.FC = () => {
       if (!user) return;
       setLoading(true);
       try {
-        const [qData, sessions, flashcards] = await Promise.all([
+        const [qData, sessions, flashcards, videoSessions] = await Promise.all([
             localDB.getAll('questions'),
             localDB.getAll('active_practice_sessions'),
-            localDB.getAll('flashcards')
+            localDB.getAll('flashcards'),
+            localDB.getAll('active_video_session')
         ]);
 
         const userQ = qData.filter(q => q.created_by === user.id);
@@ -132,6 +134,13 @@ export const Dashboard: React.FC = () => {
         } else {
             setActiveSession(null);
             if (mySession) await localDB.delete('active_practice_sessions', user.id);
+        }
+
+        const myVideoSession = videoSessions.find(s => s.user_id === user.id);
+        if (myVideoSession && myVideoSession.video) {
+            setActiveVideoSession(myVideoSession);
+        } else {
+            setActiveVideoSession(null);
         }
 
         const dueCount = flashcards.filter(c => c.user_id === user.id && c.status !== 'inactive' && new Date(c.next_review) <= new Date()).length;
@@ -215,6 +224,13 @@ export const Dashboard: React.FC = () => {
       }
     };
     fetchLocalData();
+
+    const handleSyncComplete = () => {
+        fetchLocalData();
+    };
+
+    window.addEventListener('neuro_sync_completed', handleSyncComplete);
+    return () => window.removeEventListener('neuro_sync_completed', handleSyncComplete);
   }, [user]);
 
   const fetchCommunityData = async (userId: string) => {
@@ -254,27 +270,58 @@ export const Dashboard: React.FC = () => {
       }
   };
 
+  const handleDeleteVideoSession = async () => {
+      if (confirm('Deseja descartar o progresso deste vídeo?')) {
+          if (user) await localDB.delete('active_video_session', user.id);
+          setActiveVideoSession(null);
+      }
+  };
+
   const handleQuickAsk = () => { if (!quickQuestion.trim()) return; navigate('/chat', { state: { initialMessage: quickQuestion } }); };
 
   return (
     <Layout title="Portal Clínico">
       <div className="flex flex-col space-y-6 pb-10 w-full h-full">
-        {activeSession && (
-            <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-[1.5rem] p-5 flex items-center justify-between shadow-xl shadow-orange-500/20 border border-white/10 shrink-0 animate-in slide-in-from-top-4 relative overflow-hidden group">
-                <div className="absolute -right-10 -top-10 opacity-20"><Zap className="w-32 h-32 text-white" /></div>
-                <div className="flex items-center gap-4 relative z-10">
-                    <div className="h-12 w-12 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md shadow-inner">
-                        <RotateCw className="h-6 w-6 text-white animate-spin-slow" />
+        {(activeSession || activeVideoSession) && (
+            <div className="flex flex-col gap-4 shrink-0 animate-in slide-in-from-top-4">
+                {activeSession && (
+                    <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-[1.5rem] p-5 flex items-center justify-between shadow-xl shadow-orange-500/20 border border-white/10 relative overflow-hidden group">
+                        <div className="absolute -right-10 -top-10 opacity-20"><Zap className="w-32 h-32 text-white" /></div>
+                        <div className="flex items-center gap-4 relative z-10">
+                            <div className="h-12 w-12 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md shadow-inner">
+                                <RotateCw className="h-6 w-6 text-white animate-spin-slow" />
+                            </div>
+                            <div>
+                                <h3 className="text-white text-base font-black tracking-tight leading-none uppercase">Sessão em Andamento</h3>
+                                <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest mt-1">Questão {(activeSession.current_index || 0) + 1} aguardando.</p>
+                            </div>
+                        </div>
+                        <div className="flex gap-2 relative z-10">
+                            <button onClick={handleDeleteSession} className="bg-white/20 text-white p-3 rounded-xl hover:bg-red-500/50 transition-all"><Trash2 className="h-4 w-4" /></button>
+                            <button onClick={() => navigate('/practice/session', { state: { resume: true } })} className="bg-white text-orange-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-orange-50 transition-all shadow-lg active:scale-95">RETOMAR</button>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="text-white text-base font-black tracking-tight leading-none uppercase">Sessão em Andamento</h3>
-                        <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest mt-1">Item {(activeSession.current_index || 0) + 1} aguardando.</p>
+                )}
+                {activeVideoSession && (
+                    <div className="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-[1.5rem] p-5 flex items-center justify-between shadow-xl shadow-indigo-500/20 border border-white/10 relative overflow-hidden group">
+                        <div className="absolute -right-10 -top-10 opacity-20"><MonitorPlay className="w-32 h-32 text-white" /></div>
+                        <div className="flex items-center gap-4 relative z-10">
+                            <div className="h-12 w-12 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md shadow-inner">
+                                <Play className="h-6 w-6 text-white ml-1" />
+                            </div>
+                            <div>
+                                <h3 className="text-white text-base font-black tracking-tight leading-none uppercase truncate max-w-xs">{activeVideoSession.video.title}</h3>
+                                <p className="text-white/80 text-[10px] font-bold uppercase tracking-widest mt-1">
+                                    Pausado em {Math.floor(activeVideoSession.current_time / 60)}:{String(Math.floor(activeVideoSession.current_time % 60)).padStart(2, '0')}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex gap-2 relative z-10 shrink-0">
+                            <button onClick={handleDeleteVideoSession} className="bg-white/20 text-white p-3 rounded-xl hover:bg-indigo-500/50 transition-all"><Trash2 className="h-4 w-4" /></button>
+                            <button onClick={() => navigate('/videos', { state: { resumeVideoInfo: activeVideoSession } })} className="bg-white text-indigo-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-indigo-50 transition-all shadow-lg active:scale-95">CONTINUAR AULA</button>
+                        </div>
                     </div>
-                </div>
-                <div className="flex gap-2 relative z-10">
-                    <button onClick={handleDeleteSession} className="bg-white/20 text-white p-3 rounded-xl hover:bg-red-500/50 transition-all"><Trash2 className="h-4 w-4" /></button>
-                    <button onClick={() => navigate('/practice/session', { state: { resume: true } })} className="bg-white text-orange-600 px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-orange-50 transition-all shadow-lg active:scale-95">RETOMAR</button>
-                </div>
+                )}
             </div>
         )}
         

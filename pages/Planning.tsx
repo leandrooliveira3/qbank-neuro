@@ -23,7 +23,11 @@ export const Planning: React.FC = () => {
   const [events, setEvents] = useState<PlanEvent[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => { loadPlanning(); }, [user]);
+  useEffect(() => { 
+      loadPlanning(); 
+      window.addEventListener('neuro_sync_completed', loadPlanning);
+      return () => window.removeEventListener('neuro_sync_completed', loadPlanning);
+  }, [user]);
 
   const loadPlanning = async () => {
     if (!user) return;

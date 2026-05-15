@@ -32,13 +32,33 @@ class SyncEngine {
   private onStatusChange: (status: SyncStatus) => void = () => {};
   private syncInterval: number | null = null;
   private tableBlacklist = new Set<string>();
+  private channel: any = null;
 
   constructor() {
     if (typeof window !== 'undefined') {
         this.syncInterval = window.setInterval(() => {
             if (document.hasFocus()) this.startSync();
-        }, 300000); 
+        }, 120000); 
+
+        // Setup Realtime Broadcast for Cross-Device Sync
+        this.channel = supabase.channel('neuro_global_sync');
+        this.channel.on('broadcast', { event: 'sync_now' }, (payload: any) => {
+            if (payload.payload?.device !== this.getDeviceId()) {
+                console.log('[Sync] Resync triggered by another device.');
+                this.startSync();
+            }
+        }).subscribe();
     }
+  }
+
+  private getDeviceId() {
+      if (typeof window === 'undefined') return 'server';
+      let did = localStorage.getItem('neuro_device_id');
+      if (!did) {
+          did = crypto.randomUUID();
+          localStorage.setItem('neuro_device_id', did);
+      }
+      return did;
   }
 
   setListener(callback: (status: SyncStatus) => void) {
@@ -61,6 +81,7 @@ class SyncEngine {
       if (userId) {
         await this.pushLocalChanges(userId);
         await this.pullUserData(userId, force);
+        if (typeof window !== 'undefined') window.dispatchEvent(new Event('neuro_sync_completed'));
       }
       this.onStatusChange('synced');
     } catch (error) {
@@ -108,7 +129,20 @@ class SyncEngine {
           }
         }
         
-        if (allData.length > 0) await localDB.bulkPut(table, allData);
+        if (allData.length > 0 || page > 0) {
+           const localItems = await localDB.getAll(table);
+           const serverIds = new Set(allData.map(d => d.id));
+           // If userCol is global, we manage all items. Otherwise, only for this userId.
+           const expectedUserId = userCol !== 'global' ? userId : undefined;
+           
+           const toDelete = localItems.filter(l => {
+               if (expectedUserId && l[userCol] !== expectedUserId) return false;
+               return !serverIds.has(l.id);
+           }).map(l => l.id);
+           
+           if (toDelete.length > 0) await localDB.bulkDelete(table, toDelete);
+           if (allData.length > 0) await localDB.bulkPut(table, allData);
+        }
       } catch (e) {}
     }
   }
@@ -116,6 +150,8 @@ class SyncEngine {
   async pushLocalChanges(userId: string) {
     const queue = await localDB.getAll('sync_queue');
     if (queue.length === 0) return;
+
+    let hasMadeChanges = false;
 
     for (const item of queue) {
       if (this.tableBlacklist.has(item.table)) {
@@ -128,6 +164,7 @@ class SyncEngine {
         if (item.action === 'upsert') {
           const payload = { ...item.data };
           if (userCol && userCol !== 'global' && item.table !== 'profiles') payload[userCol] = userId;
+          
           const { error } = await supabase.from(item.table).upsert(payload);
           err = error;
         } else if (item.action === 'delete') {
@@ -137,6 +174,7 @@ class SyncEngine {
 
         if (!err) {
             await localDB.delete('sync_queue', item.id);
+            hasMadeChanges = true;
         } else if (err.status === 404 || err.code === '42P01') {
             this.tableBlacklist.add(item.table);
             await localDB.delete('sync_queue', item.id);
@@ -144,6 +182,14 @@ class SyncEngine {
       } catch (e) {
           await localDB.delete('sync_queue', item.id);
       }
+    }
+
+    if (hasMadeChanges && this.channel) {
+        this.channel.send({
+            type: 'broadcast',
+            event: 'sync_now',
+            payload: { device: this.getDeviceId() }
+        });
     }
   }
 

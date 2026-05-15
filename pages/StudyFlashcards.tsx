@@ -9,7 +9,7 @@ import { XP_VALUES, xpService } from '../services/xpService';
 import { 
   X, Loader2, 
   Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2,
-  Undo2
+  Undo2, MoreVertical, Ban, Edit2, CalendarClock
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 
@@ -245,13 +245,101 @@ export const StudyFlashcards: React.FC = () => {
     );
   }
 
+  const handleBury = async () => {
+    if (!user || currentIndex >= cards.length) return;
+    setIsTransitioning(true);
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const updatedCard = { ...cards[currentIndex], next_review: tomorrow.toISOString() };
+    await syncEngine.enqueue('flashcards', updatedCard as any);
+    
+    setTimeout(() => {
+        if (currentIndex < cards.length - 1) {
+            setIsFlipped(false);
+            setCurrentImageUrl('');
+            setCurrentBackImageUrl('');
+            setCurrentIndex(p => p + 1);
+            setTimeout(() => {
+                setIsTransitioning(false);
+            }, 50);
+        } else {
+            if (accumulatedXP > 0) {
+                xpService.addXP(accumulatedXP, 'Revisão Concluída', 'Flashcards');
+            }
+            setFinished(true);
+            setIsTransitioning(false);
+        }
+    }, 250);
+  };
+
+  const handleSuspend = async () => {
+    if (!user || currentIndex >= cards.length) return;
+    setIsTransitioning(true);
+    const updatedCard = { ...cards[currentIndex], status: 'inactive' };
+    await syncEngine.enqueue('flashcards', updatedCard as any);
+    
+    setTimeout(() => {
+        if (currentIndex < cards.length - 1) {
+            setIsFlipped(false);
+            setCurrentImageUrl('');
+            setCurrentBackImageUrl('');
+            setCurrentIndex(p => p + 1);
+            setTimeout(() => {
+                setIsTransitioning(false);
+            }, 50);
+        } else {
+            if (accumulatedXP > 0) {
+                xpService.addXP(accumulatedXP, 'Revisão Concluída', 'Flashcards');
+            }
+            setFinished(true);
+            setIsTransitioning(false);
+        }
+    }, 250);
+  };
+
   const currentCard = cards[currentIndex];
-  const hasOcclusions = currentCard.occlusions && currentCard.occlusions.length > 0;
+  const hasOcclusions = currentCard?.occlusions && currentCard.occlusions.length > 0;
+  const [showMenu, setShowMenu] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editForm, setEditForm] = useState({ front: '', back: '' });
+
+  const handleEditClick = () => {
+    setEditForm({ front: currentCard.front, back: currentCard.back });
+    setIsEditing(true);
+    setShowMenu(false);
+  };
+
+  const saveEdit = async () => {
+    setIsTransitioning(true);
+    const updatedCard = { ...currentCard, front: editForm.front, back: editForm.back };
+    await syncEngine.enqueue('flashcards', updatedCard as any);
+    
+    // Update local state without refreshing everything
+    const newCards = [...cards];
+    newCards[currentIndex] = updatedCard;
+    setCards(newCards);
+    
+    setIsEditing(false);
+    setTimeout(() => { setIsTransitioning(false); }, 50);
+  };
 
   return (
     <div className="fixed inset-0 bg-slate-50 dark:bg-black z-[100] flex flex-col overflow-hidden">
+        {isEditing && (
+            <div className="fixed inset-0 bg-black/60 z-[200] flex items-center justify-center p-4">
+                <div className="bg-white dark:bg-zinc-900 rounded-2xl w-full max-w-lg p-6 shadow-xl flex flex-col">
+                    <h3 className="font-black mb-4">Editar Flashcard</h3>
+                    <textarea value={editForm.front} onChange={e => setEditForm({...editForm, front: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-xl p-3 mb-3 min-h-[100px] text-sm" placeholder="Frente do Flashcard" />
+                    <textarea value={editForm.back} onChange={e => setEditForm({...editForm, back: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-xl p-3 mb-4 min-h-[100px] text-sm" placeholder="Verso do Flashcard (Gabarito)" />
+                    <div className="flex gap-2 justify-end">
+                        <button onClick={() => setIsEditing(false)} className="px-4 py-2 rounded-xl text-slate-500 font-bold text-xs uppercase">Cancelar</button>
+                        <button onClick={saveEdit} className="px-4 py-2 bg-primary text-white rounded-xl font-bold text-xs uppercase">Salvar Alterações</button>
+                    </div>
+                </div>
+            </div>
+        )}
         {/* HEADER */}
-        <header className="h-14 shrink-0 bg-white dark:bg-zinc-950 border-b border-slate-200 dark:border-zinc-900 px-6 flex items-center justify-between z-[110] shadow-sm">
+        <header className="h-14 shrink-0 bg-white dark:bg-zinc-950 border-b border-slate-200 dark:border-zinc-900 px-6 flex items-center justify-between z-[110] shadow-sm relative">
             <button onClick={() => confirm("Sair agora cancelará o XP desta sessão.") && handleExit()} className="p-2 text-slate-400 hover:text-red-500 transition-colors bg-slate-50 dark:bg-zinc-900 rounded-lg">
                 <X className="h-4 w-4" />
             </button>
@@ -263,8 +351,34 @@ export const StudyFlashcards: React.FC = () => {
                     <div className="h-full bg-primary transition-all duration-500" style={{ width: `${((currentIndex + 1) / cards.length) * 100}%` }} />
                 </div>
             </div>
-            <div className="bg-slate-50 dark:bg-zinc-900 px-2 py-1 rounded-lg border border-slate-200 dark:border-zinc-800 shrink-0">
+            <div className="flex bg-slate-50 dark:bg-zinc-900 px-2 py-1 rounded-lg border border-slate-200 dark:border-zinc-800 shrink-0 gap-2 items-center relative">
                 <span className="text-[9px] font-black text-slate-500">{currentIndex + 1} / {cards.length}</span>
+                <div className="h-4 w-px bg-slate-300 dark:bg-zinc-700"></div>
+                <button onClick={() => setShowMenu(!showMenu)} className="text-slate-400 hover:text-primary transition-colors">
+                    <MoreVertical className="h-3 w-3" />
+                </button>
+                {showMenu && (
+                    <div className="absolute top-full right-0 mt-2 w-32 bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-xl shadow-lg overflow-hidden py-1 z-50 animate-in fade-in zoom-in duration-200">
+                        <button 
+                            onClick={handleEditClick} 
+                            className="w-full text-left px-4 py-2 text-[10px] font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-black transition-colors"
+                        >
+                            <Edit2 className="h-3 w-3" /> Editar
+                        </button>
+                        <button 
+                            onClick={() => { setShowMenu(false); handleBury(); }} 
+                            className="w-full text-left px-4 py-2 text-[10px] font-bold text-blue-500 flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-black transition-colors"
+                        >
+                            <CalendarClock className="h-3 w-3" /> Adiar (Bury)
+                        </button>
+                        <button 
+                            onClick={() => { setShowMenu(false); handleSuspend(); }} 
+                            className="w-full text-left px-4 py-2 text-[10px] font-bold text-red-500 flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-black transition-colors"
+                        >
+                            <Ban className="h-3 w-3" /> Suspender
+                        </button>
+                    </div>
+                )}
             </div>
         </header>
 
@@ -311,9 +425,10 @@ export const StudyFlashcards: React.FC = () => {
                                 <span className="text-[7px] font-black uppercase text-slate-400 tracking-widest">Enunciado Médico</span>
                             </div>
                             <div className="flex-1 overflow-y-auto custom-scrollbar flex items-center justify-center py-2">
-                                <h2 className="text-base md:text-xl font-bold text-slate-900 dark:text-white leading-relaxed px-2">
-                                    {currentCard.front || "Identifique a estrutura ou diagnóstico."}
-                                </h2>
+                                <h2 
+                                    className="text-base md:text-xl font-bold text-slate-900 dark:text-white leading-relaxed px-2"
+                                    dangerouslySetInnerHTML={{ __html: currentCard.front || "Identifique a estrutura ou diagnóstico." }}
+                                />
                             </div>
                             <div className="mt-2 pt-2 border-t border-slate-50 dark:border-zinc-800 shrink-0">
                                 <span className="text-[7px] font-black text-primary/50 uppercase tracking-[0.3em] animate-pulse">Toque para revelar</span>
@@ -354,9 +469,10 @@ export const StudyFlashcards: React.FC = () => {
                                 <span className="text-[7px] font-black uppercase text-emerald-500 tracking-widest">Conclusão Acadêmica</span>
                             </div>
                             <div className="flex-1 overflow-y-auto custom-scrollbar py-2 px-1">
-                                <p className="text-sm md:text-xl font-medium text-slate-800 dark:text-slate-100 leading-relaxed whitespace-pre-wrap">
-                                    {currentCard.back}
-                                </p>
+                                <p 
+                                    className="text-sm md:text-xl font-medium text-slate-800 dark:text-slate-100 leading-relaxed break-words"
+                                    dangerouslySetInnerHTML={{ __html: currentCard.back }}
+                                />
                             </div>
                             <div className="mt-2 pt-2 border-t border-emerald-50 dark:border-emerald-900/50 shrink-0">
                                 <span className="text-[7px] font-black text-slate-400 uppercase tracking-widest">{currentCard.category || 'Geral'}</span>
@@ -402,11 +518,22 @@ export const StudyFlashcards: React.FC = () => {
                     ) : (
                         <div className="grid grid-cols-4 gap-2 animate-in slide-in-from-bottom-2">
                             {[
-                                { id: 'again', label: 'Errei', sub: '10m', bg: 'bg-rose-500' },
-                                { id: 'hard', label: 'Duro', sub: `${Math.ceil((currentCard.interval || 1) * 1.2 * srsModifier)}d`, bg: 'bg-orange-500' },
-                                { id: 'good', label: 'Bom', sub: `${Math.ceil((currentCard.interval || 1) * (currentCard.ease_factor || 2.5) * srsModifier)}d`, bg: 'bg-blue-600' },
-                                { id: 'easy', label: 'Fácil', sub: `${Math.ceil((currentCard.interval || 1) * (currentCard.ease_factor || 2.5) * 1.5 * srsModifier)}d`, bg: 'bg-emerald-600' }
-                            ].map((btn) => (
+                                { id: 'again', label: 'Errei', bg: 'bg-rose-500' },
+                                { id: 'hard', label: 'Duro', bg: 'bg-orange-500' },
+                                { id: 'good', label: 'Bom', bg: 'bg-blue-600' },
+                                { id: 'easy', label: 'Fácil', bg: 'bg-emerald-600' }
+                            ].map((btn) => {
+                                const sim = neuroSM18(currentCard, btn.id as any, srsModifier);
+                                let timeStr = '';
+                                if (btn.id === 'again') timeStr = '< 10m';
+                                else {
+                                    if (sim.interval >= 30) {
+                                        timeStr = `${Math.floor(sim.interval / 30)}mo`;
+                                    } else {
+                                        timeStr = `${sim.interval}d`;
+                                    }
+                                }
+                                return (
                                 <button 
                                     key={btn.id}
                                     onClick={() => handleRate(btn.id as any)}
@@ -415,10 +542,11 @@ export const StudyFlashcards: React.FC = () => {
                                 >
                                     <span className="text-[9px] font-black uppercase tracking-tighter leading-none">{btn.label}</span>
                                     <span className="text-[6px] font-bold opacity-70 uppercase flex items-center mt-1">
-                                        <Clock className="h-1.5 w-1.5 mr-0.5" /> {btn.sub}
+                                        <Clock className="h-1.5 w-1.5 mr-0.5" /> {timeStr}
                                     </span>
                                 </button>
-                            ))}
+                                );
+                            })}
                         </div>
                     )}
                     </div>

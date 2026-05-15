@@ -92,6 +92,9 @@ export const Flashcards: React.FC = () => {
           setPriorityTopics(cfg.topics || []);
           setPriorityActivatedAt(cfg.activatedAt || null);
       }
+
+      window.addEventListener('neuro_sync_completed', loadCards);
+      return () => window.removeEventListener('neuro_sync_completed', loadCards);
   }, [user]);
 
   const loadCards = async () => {

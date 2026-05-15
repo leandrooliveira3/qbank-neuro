@@ -43,6 +43,7 @@ interface FolderNode {
 
 export const Videos: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuthStore();
   const { theme, toggleTheme } = useThemeStore();
   const [videos, setVideos] = useState<Video[]>([]);
@@ -55,8 +56,38 @@ export const Videos: React.FC = () => {
   // UI State
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
 
+  useEffect(() => {
+    const resumeState = location.state as { resumeVideoInfo?: any } | null;
+    if (resumeState?.resumeVideoInfo) {
+      const v = resumeState.resumeVideoInfo.video;
+      setActiveVideo(v);
+      
+      // Patch the local state with exact time right away before data loads completely
+      setProgressMap(prev => ({
+          ...prev,
+          [v.id]: {
+              ...prev[v.id],
+              progress_seconds: resumeState.resumeVideoInfo.current_time,
+          } as VideoProgress
+      }));
+      setWatchTime(resumeState.resumeVideoInfo.current_time);
+      
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
+
   // Alteração: Sidebar inicia aberta para ser a "primeira coisa a aparecer"
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); 
+
+  useEffect(() => {
+    if (activeVideo) {
+      setWatchTime(progressMap[activeVideo.id]?.progress_seconds || 0);
+      setIsVideoPlaying(true);
+    } else {
+      setWatchTime(0);
+      setIsVideoPlaying(false);
+    }
+  }, [activeVideo]);
   
   // Sincronização do Modo Cinema com o Tema Global
   const cinemaMode = theme === 'dark';
@@ -101,22 +132,25 @@ export const Videos: React.FC = () => {
   // para atender ao requisito de exibir o menu primeiro.
 
   useEffect(() => {
-    loadContent();
+    const fn = () => loadContent();
+    fn();
+    window.addEventListener('neuro_sync_completed', fn);
+    return () => window.removeEventListener('neuro_sync_completed', fn);
   }, [user]);
 
   // RESET TIMER & PLAY STATE ON VIDEO CHANGE
   useEffect(() => {
-      setWatchTime(0);
-      
       if (activeVideo) {
-          // Assume playing state initially for iframes to catch early interactions
-          // For iframes (Drive/YouTube), we can't reliably detect pause, so we count time while the component is mounted.
+          const startT = progressMap[activeVideo.id]?.progress_seconds || 0;
+          setWatchTime(startT);
+          
           if (isDriveVideo(activeVideo.url) || getYouTubeID(activeVideo.url)) {
               setIsVideoPlaying(true);
           } else {
               setIsVideoPlaying(false);
           }
       } else {
+          setWatchTime(0);
           setIsVideoPlaying(false);
       }
   }, [activeVideo?.id]);
@@ -125,9 +159,12 @@ export const Videos: React.FC = () => {
   useEffect(() => {
       let interval: any;
       if (activeVideo && isVideoPlaying) {
-          interval = setInterval(() => {
-              setWatchTime(prev => prev + 1);
-          }, 1000);
+          const isIframe = isDriveVideo(activeVideo.url) || getYouTubeID(activeVideo.url);
+          if (isIframe) {
+              interval = setInterval(() => {
+                  setWatchTime(prev => prev + 1);
+              }, 1000);
+          }
       } else {
           clearInterval(interval);
       }
@@ -309,18 +346,60 @@ export const Videos: React.FC = () => {
   const updateProgress = async (videoId: string, completed: boolean) => {
       if (!user) return;
       
+      const currentTimeToSave = videoRef.current?.currentTime || watchTime;
+
       const progress: VideoProgress = {
           id: progressMap[videoId]?.id || crypto.randomUUID(),
           user_id: user.id,
           video_id: videoId,
-          progress_seconds: watchTime,
+          progress_seconds: currentTimeToSave,
           completed,
           last_watched: new Date().toISOString()
       };
       await syncEngine.enqueue('video_progress', progress);
       setProgressMap(prev => ({ ...prev, [videoId]: progress }));
       if (completed) xpService.addXP(XP_VALUES.VIDEO_COMPLETE, 'Aula Concluída');
+      
+      // Save active session for resume overlay if not completed
+      if (!completed && activeVideo) {
+          await localDB.put('active_video_session', {
+              id: user.id,
+              user_id: user.id,
+              video_id: videoId,
+              video: activeVideo,
+              current_time: currentTimeToSave,
+              last_updated: new Date().toISOString()
+          });
+      } else if (completed) {
+          await localDB.delete('active_video_session', user.id).catch(() => {});
+      }
   };
+
+  // Active session tracking state
+  const lastStateRef = useRef({ activeVideo, watchTime, user });
+  useEffect(() => {
+      lastStateRef.current = { activeVideo, watchTime, user };
+  }, [activeVideo, watchTime, user]);
+
+  // Save when video changes or unmounts
+  useEffect(() => {
+      return () => {
+          const state = lastStateRef.current;
+          if (state.activeVideo && state.user) {
+              const currentT = videoRef.current?.currentTime || state.watchTime;
+              if (currentT > 5 && !progressMap[state.activeVideo.id]?.completed) {
+                  localDB.put('active_video_session', {
+                      id: state.user.id,
+                      user_id: state.user.id,
+                      video_id: state.activeVideo.id,
+                      video: state.activeVideo,
+                      current_time: currentT,
+                      last_updated: new Date().toISOString()
+                  }).catch(() => {});
+              }
+          }
+      };
+  }, [activeVideo]);
 
   const getYouTubeID = (url: string) => {
       if (!url) return null;
@@ -521,7 +600,7 @@ export const Videos: React.FC = () => {
                                 <iframe 
                                     key={activeVideo.id}
                                     ref={playerRef} 
-                                    src={`https://www.youtube.com/embed/${getYouTubeID(activeVideo.url)}?autoplay=1&modestbranding=1&rel=0&showinfo=0`} 
+                                    src={`https://www.youtube.com/embed/${getYouTubeID(activeVideo.url)}?autoplay=1&modestbranding=1&rel=0&showinfo=0${progressMap[activeVideo.id]?.progress_seconds ? `&start=${Math.floor(progressMap[activeVideo.id].progress_seconds)}` : ''}`} 
                                     className="w-full h-full absolute inset-0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     allowFullScreen 
@@ -549,6 +628,14 @@ export const Videos: React.FC = () => {
                                     onPlay={() => setIsVideoPlaying(true)}
                                     onPause={() => setIsVideoPlaying(false)}
                                     onPlaying={() => setIsVideoPlaying(true)}
+                                    onTimeUpdate={(e) => setWatchTime(e.currentTarget.currentTime)}
+                                    onLoadedMetadata={(e) => {
+                                        const t = progressMap[activeVideo.id]?.progress_seconds;
+                                        if (t && t > 0) {
+                                            e.currentTarget.currentTime = t;
+                                            setWatchTime(t);
+                                        }
+                                    }}
                                 />
                             )}
                         </div>
