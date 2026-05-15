@@ -165,8 +165,20 @@ class SyncEngine {
           const payload = { ...item.data };
           if (userCol && userCol !== 'global' && item.table !== 'profiles') payload[userCol] = userId;
           
-          const { error } = await supabase.from(item.table).upsert(payload);
-          err = error;
+          // Conflict resolution: Check if the server has a newer version before blindly overwriting
+          const { data: serverExisting, error: checkErr } = await supabase.from(item.table).select('updated_at, created_at').eq('id', payload.id).maybeSingle();
+          const serverUpdateStr = serverExisting?.updated_at || serverExisting?.created_at;
+          const serverUpdate = serverUpdateStr ? new Date(serverUpdateStr).getTime() : 0;
+          const localUpdateStr = payload.updated_at || payload.created_at;
+          const localUpdate = localUpdateStr ? new Date(localUpdateStr).getTime() : 0;
+
+          if (!checkErr && serverUpdate && localUpdate && serverUpdate > localUpdate) {
+              console.log(`[Sync] Conflito resolvido: Servidor tem versão mais recente para ${item.table} ${payload.id}`);
+              // Do nothing, server wins. Will get pulled afterwards.
+          } else {
+              const { error } = await supabase.from(item.table).upsert(payload);
+              err = error;
+          }
         } else if (item.action === 'delete') {
           const { error } = await supabase.from(item.table).delete().eq('id', item.data.id);
           err = error;

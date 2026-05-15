@@ -71,7 +71,15 @@ export class QuestionOrchestrator {
         const textContent = await page.getTextContent();
         const pageStr = textContent.items.map((item: any) => item.str).join(' ');
 
-        let contentPayload = `[INSTRUÇÃO: Se esta página contiver apenas referências bibliográficas, bibliografia, índice ou lista de autores, retorne um array vazio []. Caso contrário, gere EXATAMENTE ${questionsPerPage ?? 'o máximo possível de'} questão(ões) de múltipla escolha sobre o conteúdo clínico desta página. Não gere mais nem menos do que o número solicitado.]\n\n[PÁGINA ATUAL: ${i} de ${totalPages}]\n${pageStr}`;
+        let instruction = options.sourceType === 'study' ?
+            `[INSTRUÇÃO: Se esta página contiver apenas referências bibliográficas, bibliografia, índice ou lista de autores, retorne um array vazio []. Caso contrário, gere EXATAMENTE ${questionsPerPage ?? 3} questão(ões) de múltipla escolha sobre o conteúdo clínico desta página. Não gere mais nem menos do que o número solicitado.]` :
+            `[INSTRUÇÃO: ATUE COMO UM EXTRATOR CIRÚRGICO DE PDF. Sua única função é localizar e extrair TODAS as questões originais da prova que INICIAM na [PÁGINA ATUAL: ${i}].
+            - NÃO PULE NENHUMA QUESTÃO (como Questão 1, 2, 3...) que comece nesta página. Extraia TODAS. A ordem das questões deve ser idêntica à do arquivo.
+            - Caso o enunciado ou as alternativas não caibam inteiros na PÁGINA ATUAL, utilize o texto da [PÁGINA SEGUINTE] para completá-los.
+            - NUNCA extraia uma questão cujo enunciado COMEÇA apenas no bloco da [PÁGINA SEGUINTE]. Ela deve ser ignorada por agora (será lida na próxima fase).
+            - Retorne TODAS as questões que iniciam na PÁGINA ATUAL juntas num único Array JSON. Se nenhuma começar na PÁGINA ATUAL (ex: folha de rosto, ou apenas o fim de uma questão anterior), retorne um array vazio [].]`;
+
+        let contentPayload = `${instruction}\n\n[PÁGINA ATUAL: ${i} de ${totalPages}]\n${pageStr}`;
         const imagesPayload: string[] = [];
 
         const viewport = page.getViewport({ scale: 1.5 });

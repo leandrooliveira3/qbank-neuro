@@ -345,6 +345,9 @@ export const ImportQuestions: React.FC = () => {
 
         const cleanComment = (q.comentario || '').replace('[ANEXAR_IMAGEM_MANUAL]', '').trim();
 
+        const createdAt = new Date();
+        createdAt.setMilliseconds(createdAt.getMilliseconds() - (generatedQuestions.length - index)); // Maintain sequence
+
         items.push({
           id: crypto.randomUUID(), 
           bank_name: bankName,
@@ -355,7 +358,8 @@ export const ImportQuestions: React.FC = () => {
           explanation: cleanComment,
           statement_image_url: imageUrl, 
           created_by: user.id, 
-          created_at: new Date().toISOString(), 
+          created_at: createdAt.toISOString(), 
+          updated_at: createdAt.toISOString(),
           tags: q.tags || [],
           alternatives: (q.alternativas || []).map((t, idx) => ({ 
               id: crypto.randomUUID(), 

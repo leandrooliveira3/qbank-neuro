@@ -83,17 +83,22 @@ export const processFileQuestions = async (
     sourceType: 'exam' | 'study' = 'exam'
 ): Promise<AIImportedQuestion[]> => {
   const prompt = `
-    Analise o conteúdo abaixo e extraia/gere ${questionCount || 5} questões médicas.
-    Modo: ${mode} (extract = extração fiel, generate = criação baseada no contexto).
-    Tipo: ${sourceType} (exam = estilo prova de residência, study = estilo estudo dirigido).
+    Analise o conteúdo abaixo e processe as questões conforme solicitado.
+    Modo: ${mode} (extract = cópia fiel absoluta do que está no documento, sem resumos; generate = criação baseada no contexto).
+    Tipo: ${sourceType} (exam = EXTRAÇÃO EXATA, você deve extrair as questões palavra por palavra. study = criar questões).
     
-    ${customPrompt ? `Instrução adicional: ${customPrompt}` : ''}
+    ${customPrompt ? `Instrução adicional do usuário: ${customPrompt}` : ''}
     
     Conteúdo:
     ${fullContent}
     
-    Retorne APENAS um array JSON válido no formato:
-    [{ "enunciado": "texto", "alternativas": ["A", "B", "C", "D", "E"], "gabarito": "A", "comentario": "porque", "categoria": "neuro", "subcategoria": "subtema", "dificuldade": "Médio", "tags": ["tag1"] }]
+    REGRAS CRÍTICAS PARA TIPO EXAM (EXTRAÇÃO DE PROVA):
+    1. Nunca omita o número da questão no enunciado original, caso ele exista.
+    2. Nunca mude ou resuma as alternativas. Elas devem ser copiadas EXATAMENTE como estão (apenas remova o prefixo 'A)', 'B)' se quiser, mas mantenha o texto fiel).
+    3. Retorne todas as questões conforme instruído pelo bloco [INSTRUÇÃO] dentro do Conteúdo.
+    
+    Retorne APENAS um array JSON válido e estrito no formato abaixo (sem markdown adicional):
+    [{ "enunciado": "texto com a formatação original", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação breve ou tire do gabarito oficial se houver. Se não houver palpite a reposta correta ou deixe vazio", "categoria": "neuro", "subcategoria": "subtema", "dificuldade": "Médio", "tags": ["tag1"] }]
   `;
 
   const contents: any[] = [prompt];
