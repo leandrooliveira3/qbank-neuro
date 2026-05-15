@@ -87,6 +87,9 @@ export const StudyFlashcards: React.FC = () => {
   const [accumulatedXP, setAccumulatedXP] = useState(0);
   
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editForm, setEditForm] = useState({ front: '', back: '' });
   
   useEffect(() => { 
       const profile = localStorage.getItem('neuro_srs_profile') || 'standard';
@@ -304,9 +307,6 @@ export const StudyFlashcards: React.FC = () => {
 
   const currentCard = cards[currentIndex];
   const hasOcclusions = currentCard?.occlusions && currentCard.occlusions.length > 0;
-  const [showMenu, setShowMenu] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editForm, setEditForm] = useState({ front: '', back: '' });
 
   const handleEditClick = () => {
     setEditForm({ front: currentCard.front, back: currentCard.back });
