@@ -111,8 +111,9 @@ class SyncEngine {
           const { data, error } = await query;
           
           if (error) {
-            // Se a tabela retornar 404, entra na blacklist desta sessão
-            if (error.status === 404 || error.code === '42P01' || error.code === 'PGRST116') {
+            // Se a tabela retornar 404 ou Relation Not Found, entra na blacklist desta sessão
+            const status = (error as any).status;
+            if (status === 404 || error.code === '42P01' || error.code === 'PGRST116') {
                 console.warn(`[Sync] Tabela ${table} não disponível no servidor. Ignorando.`);
                 this.tableBlacklist.add(table);
             }
@@ -166,11 +167,20 @@ class SyncEngine {
           if (userCol && userCol !== 'global' && item.table !== 'profiles') payload[userCol] = userId;
           
           // Conflict resolution: Check if the server has a newer version before blindly overwriting
-          const { data: serverExisting, error: checkErr } = await supabase.from(item.table).select('updated_at, created_at').eq('id', payload.id).maybeSingle();
-          const serverUpdateStr = serverExisting?.updated_at || serverExisting?.created_at;
-          const serverUpdate = serverUpdateStr ? new Date(serverUpdateStr).getTime() : 0;
-          const localUpdateStr = payload.updated_at || payload.created_at;
-          const localUpdate = localUpdateStr ? new Date(localUpdateStr).getTime() : 0;
+          const { data: serverExisting, error: checkErr } = await supabase.from(item.table).select('updated_at, created_at, answered_at, last_review').eq('id', payload.id).maybeSingle();
+          
+          const getServerTime = (d: any) => {
+              if (!d) return 0;
+              const t = d.updated_at || d.answered_at || d.last_review || d.created_at;
+              return t ? new Date(t).getTime() : 0;
+          };
+          const getLocalTime = (d: any) => {
+              const t = d.updated_at || d.answered_at || d.last_review || d.created_at;
+              return t ? new Date(t).getTime() : 0;
+          };
+
+          const serverUpdate = getServerTime(serverExisting);
+          const localUpdate = getLocalTime(payload);
 
           if (!checkErr && serverUpdate && localUpdate && serverUpdate > localUpdate) {
               console.log(`[Sync] Conflito resolvido: Servidor tem versão mais recente para ${item.table} ${payload.id}`);

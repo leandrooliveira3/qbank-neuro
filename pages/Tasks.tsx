@@ -42,6 +42,7 @@ export const Tasks: React.FC = () => {
 
   const addTask = async () => {
     if (!user) return;
+    const now = new Date().toISOString();
     const newTask: Task = {
       id: crypto.randomUUID(),
       user_id: user.id,
@@ -50,7 +51,8 @@ export const Tasks: React.FC = () => {
       deadline: new Date(Date.now() + 86400000).toISOString().split('T')[0],
       priority: 'Média',
       status: 'Pendente',
-      created_at: new Date().toISOString()
+      created_at: now,
+      updated_at: now
     };
     await syncEngine.enqueue('tasks', newTask);
     setTasks([newTask, ...tasks]);
@@ -62,7 +64,8 @@ export const Tasks: React.FC = () => {
       'Em Progresso': 'Concluída',
       'Concluída': 'Pendente'
     };
-    const updated = { ...task, status: statusMap[task.status] };
+    const now = new Date().toISOString();
+    const updated = { ...task, status: statusMap[task.status], updated_at: now };
     await syncEngine.enqueue('tasks', updated);
     setTasks(tasks.map(t => t.id === task.id ? updated : t));
   };

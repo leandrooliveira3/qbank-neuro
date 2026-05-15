@@ -29,6 +29,7 @@ export interface Task {
   status: TaskStatus;
   description?: string;
   created_at: string;
+  updated_at?: string;
 }
 
 export interface Goal {
@@ -38,6 +39,8 @@ export interface Goal {
   category: string;
   deadline: string;
   progress: number;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface FocusSession {
@@ -47,6 +50,7 @@ export interface FocusSession {
   duration_minutes: number;
   type: 'Pomodoro' | 'Free';
   date: string;
+  created_at?: string;
 }
 
 export interface Question {
@@ -97,6 +101,18 @@ export interface Flashcard {
   repetitions: number;
   last_review?: string;
   created_at?: string;
+  updated_at?: string;
+}
+
+export interface PlanEvent {
+    id: string;
+    user_id: string;
+    title: string;
+    date: string;
+    type: 'study' | 'exam' | 'review';
+    completed: boolean;
+    created_at?: string;
+    updated_at?: string;
 }
 
 export interface AIImportedQuestion {
@@ -140,6 +156,7 @@ export interface Summary {
   attachment_url?: string;
   attachment_type?: 'image' | 'pdf' | 'doc'; 
   last_edited: string;
+  updated_at?: string;
 }
 
 export interface Video {

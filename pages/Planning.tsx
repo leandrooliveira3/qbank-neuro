@@ -4,19 +4,12 @@ import { Layout } from '../components/Layout';
 import { useAuthStore } from '../store/useAuthStore';
 import { localDB } from '../services/localDB';
 import { syncEngine } from '../services/syncEngine';
+import { PlanEvent } from '../types';
 import { 
   Calendar, Clock, Target, Plus, ChevronRight, 
   CheckCircle2, Flame, Trophy, BookOpen, GraduationCap,
   Loader2, Map
 } from 'lucide-react';
-
-interface PlanEvent {
-    id: string;
-    title: string;
-    date: string;
-    type: 'study' | 'exam' | 'review';
-    completed: boolean;
-}
 
 export const Planning: React.FC = () => {
   const { user } = useAuthStore();
@@ -26,33 +19,38 @@ export const Planning: React.FC = () => {
   useEffect(() => { 
       loadPlanning(); 
       window.addEventListener('neuro_sync_completed', loadPlanning);
-      return () => window.removeEventListener('neuro_sync_completed', loadPlanning);
+      return () => {
+          window.removeEventListener('neuro_sync_completed', loadPlanning);
+      };
   }, [user]);
 
   const loadPlanning = async () => {
     if (!user) return;
-    setLoading(true);
     const data = await localDB.getAll('planning');
-    setEvents(data.filter(e => e.user_id === user.id).sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime()));
+    const filtered = data.filter(e => e.user_id === user.id).sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    setEvents(filtered);
     setLoading(false);
   };
 
   const addQuickStudy = async () => {
       if (!user) return;
-      const newEvent: any = {
+      const now = new Date().toISOString();
+      const newEvent: PlanEvent = {
           id: crypto.randomUUID(),
           user_id: user.id,
           title: 'Sessão de Estudo Focada',
-          date: new Date().toISOString().split('T')[0],
+          date: now.split('T')[0],
           type: 'study',
-          completed: false
+          completed: false,
+          created_at: now,
+          updated_at: now
       };
       await syncEngine.enqueue('planning', newEvent);
       setEvents([...events, newEvent]);
   };
 
   const toggleEvent = async (event: PlanEvent) => {
-      const updated = { ...event, completed: !event.completed };
+      const updated = { ...event, completed: !event.completed, updated_at: new Date().toISOString() };
       await syncEngine.enqueue('planning', updated);
       setEvents(events.map(e => e.id === event.id ? updated : e));
   };

@@ -108,16 +108,21 @@ export const Dashboard: React.FC = () => {
   };
 
   useEffect(() => {
-    const fetchLocalData = async () => {
-      if (!user) return;
-      setLoading(true);
-      try {
-        const [qData, sessions, flashcards, videoSessions] = await Promise.all([
-            localDB.getAll('questions'),
-            localDB.getAll('active_practice_sessions'),
-            localDB.getAll('flashcards'),
-            localDB.getAll('active_video_session')
-        ]);
+    fetchLocalData();
+    window.addEventListener('neuro_sync_completed', fetchLocalData);
+    return () => window.removeEventListener('neuro_sync_completed', fetchLocalData);
+  }, [user]);
+
+  const fetchLocalData = async () => {
+    if (!user) return;
+    setLoading(true);
+    try {
+      const [qData, sessions, flashcards, videoSessions] = await Promise.all([
+          localDB.getAll('questions'),
+          localDB.getAll('active_practice_sessions'),
+          localDB.getAll('flashcards'),
+          localDB.getAll('active_video_session')
+      ]);
 
         const userQ = qData.filter(q => q.created_by === user.id);
         setStats({
@@ -222,16 +227,7 @@ export const Dashboard: React.FC = () => {
         console.error('Dashboard error:', error);
         setLoading(false);
       }
-    };
-    fetchLocalData();
-
-    const handleSyncComplete = () => {
-        fetchLocalData();
-    };
-
-    window.addEventListener('neuro_sync_completed', handleSyncComplete);
-    return () => window.removeEventListener('neuro_sync_completed', handleSyncComplete);
-  }, [user]);
+  };
 
   const fetchCommunityData = async (userId: string) => {
       if (!navigator.onLine) return;

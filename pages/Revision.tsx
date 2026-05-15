@@ -39,41 +39,52 @@ export const Revision: React.FC = () => {
   // Add cards state to fix "Cannot find name 'cards'" error
   const [cards, setCards] = useState<Flashcard[]>([]);
 
-  useEffect(() => {
-    const fetchAnalysis = async () => {
-        if(!user) return;
-        setLoading(true);
-        try {
-            // Analisar Questões
-            const { data: answers } = await supabase.from('user_answers').select('is_correct, answered_at, question:questions(category)').eq('user_id', user.id);
-            if(answers) {
-                const map: Record<string, { t: number, c: number, date: string }> = {};
-                answers.forEach((a: any) => {
-                    const cat = a?.question?.category || 'Geral';
-                    if(!map[cat]) map[cat] = { t: 0, c: 0, date: a.answered_at };
-                    map[cat].t++;
-                    if(a.is_correct) map[cat].c++;
-                    if(new Date(a.answered_at) > new Date(map[cat].date)) map[cat].date = a.answered_at;
-                });
-                const processed = Object.entries(map).map(([name, s]) => ({
-                    name, total: s.t, accuracy: (s.c / s.t) * 100, lastDate: s.date
-                })).sort((a,b) => a.accuracy - b.accuracy);
-                setStats(processed);
-            }
-
-            // Analisar Flashcards Vencidos
-            const allCards = await localDB.getAll('flashcards');
-            const userCards = allCards.filter(c => c.user_id === user.id);
-            // Store the user cards in state to use in the UI
-            setCards(userCards);
-            
-            const due = userCards.filter(c => c.status !== 'inactive' && new Date(c.next_review) <= new Date());
-            setDueCardsCount(due.length);
-
-        } finally { setLoading(false); }
-    };
-    fetchAnalysis();
+  useEffect(() => { 
+      loadData(); 
+      window.addEventListener('neuro_sync_completed', loadData);
+      return () => window.removeEventListener('neuro_sync_completed', loadData);
   }, [user]);
+
+  const loadData = async () => {
+    if(!user) return;
+    setLoading(true);
+    try {
+        // Analisar Questões via LocalDB (mais imediato e consistente com sync)
+        const questions = await localDB.getAll('questions');
+        const userAnswers = await localDB.getAll('user_answers');
+        const allCards = await localDB.getAll('flashcards');
+
+        const filteredAnswers = userAnswers.filter(a => a.user_id === user.id);
+        const userCards = allCards.filter(c => c.user_id === user.id);
+
+        const map: Record<string, { t: number, c: number, date: string }> = {};
+        filteredAnswers.forEach((a: any) => {
+            const questionId = a.question_id;
+            const question = questions.find(q => q.id === questionId);
+            const cat = question?.category || 'Geral';
+            if(!map[cat]) map[cat] = { t: 0, c: 0, date: a.answered_at };
+            map[cat].t++;
+            if(a.is_correct) map[cat].c++;
+            if(new Date(a.answered_at) > new Date(map[cat].date)) map[cat].date = a.answered_at;
+        });
+
+        const processed = Object.entries(map).map(([name, s]) => ({
+            name, total: s.t, accuracy: (s.c / s.t) * 100, lastDate: s.date
+        })).sort((a,b) => a.accuracy - b.accuracy);
+        
+        setStats(processed);
+        setCards(userCards);
+
+        const now = new Date();
+        const due = userCards.filter(c => c.status !== 'inactive' && new Date(c.next_review) <= now).length;
+        setDueCardsCount(due);
+
+    } catch (e) {
+        console.error(e);
+    } finally {
+        setLoading(false);
+    }
+  };
 
   const weakPoints = useMemo(() => stats.filter(s => s.accuracy < 70).slice(0, 3), [stats]);
 

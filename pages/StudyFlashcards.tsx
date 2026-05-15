@@ -95,6 +95,8 @@ export const StudyFlashcards: React.FC = () => {
       else if (profile === 'deep') mod = 1.5;
       setSrsModifier(mod);
       loadSessionCards(); 
+      window.addEventListener('neuro_sync_completed', loadSessionCards);
+      return () => window.removeEventListener('neuro_sync_completed', loadSessionCards);
   }, [user, studyMode]);
 
   const loadSessionCards = async () => {
@@ -174,7 +176,10 @@ export const StudyFlashcards: React.FC = () => {
     setIsTransitioning(true);
 
     if (studyMode !== 'free') {
-        const updatedCard = neuroSM18(cards[currentIndex], rating, srsModifier);
+        const updatedCard = {
+            ...neuroSM18(cards[currentIndex], rating, srsModifier),
+            updated_at: new Date().toISOString()
+        };
         await syncEngine.enqueue('flashcards', updatedCard);
     }
     

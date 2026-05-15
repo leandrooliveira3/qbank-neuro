@@ -99,6 +99,7 @@ export const SimulationSession: React.FC = () => {
       if (answeredCount < questions.length && !confirm(`Você respondeu apenas ${answeredCount} questões. Entregar a prova?`)) return;
       
       setLoading(true);
+      const now = new Date().toISOString();
       const results = questions.map(q => {
           const selected = selectedAnswers[q.id];
           const correctAlt = q.alternatives.find(a => a.is_correct);
@@ -109,7 +110,9 @@ export const SimulationSession: React.FC = () => {
               is_correct: correctAlt?.id === selected,
               selected_alternative_id: selected,
               time_spent_seconds: Math.floor(elapsedSeconds / questions.length),
-              answered_at: new Date().toISOString()
+              answered_at: now,
+              created_at: now,
+              updated_at: now
           };
       });
 
@@ -132,7 +135,8 @@ export const SimulationSession: React.FC = () => {
               score_percentage: scorePerc,
               time_taken_seconds: elapsedSeconds,
               bank_name: initialConfig.selectedBank === 'Todos' ? 'Misto' : initialConfig.selectedBank || 'Simulados',
-              created_at: new Date().toISOString()
+              created_at: now,
+              updated_at: now
           };
 
           await syncEngine.enqueue('simulation_sessions', simulationRecord);

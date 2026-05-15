@@ -227,13 +227,15 @@ export const Summaries: React.FC = () => {
 
   const handleSaveSummary = async () => {
       if (!user || !formData.title || !formData.content) return;
-      const s: Summary = editingSummary ? { ...editingSummary, ...formData, last_edited: new Date().toISOString() } : {
+      const now = new Date().toISOString();
+      const s: Summary = editingSummary ? { ...editingSummary, ...formData, last_edited: now, updated_at: now } : {
           id: crypto.randomUUID(),
           user_id: user.id,
           title: formData.title,
           category: formData.category || 'Geral',
           content: formData.content,
-          last_edited: new Date().toISOString()
+          last_edited: now,
+          updated_at: now
       };
       await syncEngine.enqueue('summaries', s);
       setSummaries(prev => editingSummary ? prev.map(item => item.id === s.id ? s : item) : [s, ...prev]);

@@ -73,11 +73,18 @@ export class QuestionOrchestrator {
 
         let instruction = options.sourceType === 'study' ?
             `[INSTRUÇÃO: Se esta página contiver apenas referências bibliográficas, bibliografia, índice ou lista de autores, retorne um array vazio []. Caso contrário, gere EXATAMENTE ${questionsPerPage ?? 3} questão(ões) de múltipla escolha sobre o conteúdo clínico desta página. Não gere mais nem menos do que o número solicitado.]` :
-            `[INSTRUÇÃO: ATUE COMO UM EXTRATOR CIRÚRGICO DE PDF. Sua única função é localizar e extrair TODAS as questões originais da prova que INICIAM na [PÁGINA ATUAL: ${i}].
-            - NÃO PULE NENHUMA QUESTÃO (como Questão 1, 2, 3...) que comece nesta página. Extraia TODAS. A ordem das questões deve ser idêntica à do arquivo.
-            - Caso o enunciado ou as alternativas não caibam inteiros na PÁGINA ATUAL, utilize o texto da [PÁGINA SEGUINTE] para completá-los.
-            - NUNCA extraia uma questão cujo enunciado COMEÇA apenas no bloco da [PÁGINA SEGUINTE]. Ela deve ser ignorada por agora (será lida na próxima fase).
-            - Retorne TODAS as questões que iniciam na PÁGINA ATUAL juntas num único Array JSON. Se nenhuma começar na PÁGINA ATUAL (ex: folha de rosto, ou apenas o fim de uma questão anterior), retorne um array vazio [].]`;
+            `[INSTRUÇÃO: ATUE COMO UM EXTRATOR CIRÚRGICO DE PDF EM ALTA PRECISÃO.
+            Sua missão é extrair TODAS as questões que COMECEM na [PÁGINA ATUAL: ${i}].
+            
+            DIRETRIZES DE OURO:
+            1. NÃO PULE NENHUMA QUESTÃO. Se a questão "X" começa nesta página, ela DEVE ser extraída agora.
+            2. MANTENHA A ORDEM: Extraia na exata sequência em que aparecem.
+            3. TRATAMENTO DE QUEBRAS: Se uma questão começar na PÁGINA ATUAL mas for interrompida, use o conteúdo da [PÁGINA SEGUINTE] para completá-la INTEGRALMENTE aqui mesmo.
+            4. EVITE DUPLICIDADE: Uma questão deve ser extraída APENAS na fase referente à página onde seu enunciado começa. Não a repita na próxima fase se ela for apenas a continuação.
+            5. FIDELIDADE ABSOLUTA: Não resuma enunciados ou alternativas. Mantenha os números das questões (ex: "Questão 1: ...").
+            6. IDENTIFICAÇÃO DE FIM DE PROVA: Se a página contiver gabaritos ou lista de bibliografia, ignore-os a menos que contenham questões.
+            
+            Retorne o resultado em um Array JSON. Se nenhuma questão INICIAR nesta página, retorne [].]`;
 
         let contentPayload = `${instruction}\n\n[PÁGINA ATUAL: ${i} de ${totalPages}]\n${pageStr}`;
         const imagesPayload: string[] = [];
@@ -88,7 +95,7 @@ export class QuestionOrchestrator {
         canvas.height = viewport.height;
         canvas.width = viewport.width;
         if (ctx) {
-            await page.render({ canvasContext: ctx, viewport }).promise;
+            await page.render({ canvasContext: ctx, viewport, canvas }).promise;
             imagesPayload.push(canvas.toDataURL('image/jpeg', 0.6).split(',')[1]);
         }
 
@@ -104,7 +111,7 @@ export class QuestionOrchestrator {
             nextCanvas.height = nextViewport.height;
             nextCanvas.width = nextViewport.width;
             if (nextCtx) {
-                await nextPage.render({ canvasContext: nextCtx, viewport: nextViewport }).promise;
+                await nextPage.render({ canvasContext: nextCtx, viewport: nextViewport, canvas: nextCanvas }).promise;
                 imagesPayload.push(nextCanvas.toDataURL('image/jpeg', 0.4).split(',')[1]);
             }
         }
