@@ -7,7 +7,7 @@ import { localDB } from '../services/localDB';
 import { syncEngine } from '../services/syncEngine';
 import { supabase } from '../services/supabase'; 
 import { Video, VideoProgress, VideoMaterial, VideoComment, Question } from '../types';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import { xpService, XP_VALUES } from '../services/xpService';
 import { generateQuestionsFromPrompt } from '../services/ai';
 import { SmartImage } from '../components/SmartImage';

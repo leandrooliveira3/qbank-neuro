@@ -346,7 +346,7 @@ export const ImportQuestions: React.FC = () => {
         const cleanComment = (q.comentario || '').replace('[ANEXAR_IMAGEM_MANUAL]', '').trim();
 
         const createdAt = new Date();
-        createdAt.setMilliseconds(createdAt.getMilliseconds() - (generatedQuestions.length - index)); // Maintain sequence
+        createdAt.setMilliseconds(createdAt.getMilliseconds() - (results.length - i)); // Maintain sequence
 
         items.push({
           id: crypto.randomUUID(), 

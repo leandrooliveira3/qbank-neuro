@@ -67,6 +67,7 @@ export interface Question {
   tags: string[];
   reference?: string;
   created_at: string;
+  updated_at?: string;
   created_by: string;
 }
 
