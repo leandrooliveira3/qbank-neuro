@@ -303,12 +303,25 @@ export const Summaries: React.FC = () => {
       const prompt = `Crie 10 questões de múltipla escolha sobre o seguinte texto. Nível Residência Médica. Retorne JSON.\n\nTEXTO: ${text.substring(0, 15000)}`;
       const aiQuestions = await generateQuestionsFromPrompt(prompt);
       
-      const dbItems: Question[] = aiQuestions.map((q, idx) => ({
-          id: crypto.randomUUID(), bank_name: 'Quiz Automático', category: q.categoria || 'Geral',
-          subcategory: title, difficulty: 'Médio', statement: q.enunciado, explanation: q.comentario || '',
-          alternatives: (q.alternativas || []).map((t, aidx) => ({ id: crypto.randomUUID(), text: t, is_correct: String.fromCharCode(65 + aidx) === (q.gabarito || 'A').toUpperCase() })),
-          created_by: user.id, created_at: new Date().toISOString(), tags: []
-      }));
+      const dbItems: Question[] = aiQuestions.map((q, idx) => {
+          const gabaritoText = String(q.gabarito || 'A').trim();
+          let finalChar = 'A';
+          const exactMatch = gabaritoText.match(/^([A-E])$/i);
+          if (exactMatch) {
+              finalChar = exactMatch[1].toUpperCase();
+          } else {
+              const fallbackMatch = gabaritoText.match(/\b([A-E])\b/i) || gabaritoText.match(/([A-E])/i);
+              finalChar = fallbackMatch ? fallbackMatch[1].toUpperCase() : 'A';
+          }
+          const correctChar = finalChar;
+          
+          return {
+              id: crypto.randomUUID(), bank_name: 'Quiz Automático', category: q.categoria || 'Geral',
+              subcategory: title, difficulty: 'Médio', statement: q.enunciado, explanation: q.comentario || '',
+              alternatives: (q.alternativas || []).map((t, aidx) => ({ id: crypto.randomUUID(), text: t, is_correct: String.fromCharCode(65 + aidx) === correctChar })),
+              created_by: user.id, created_at: new Date().toISOString(), tags: []
+          };
+      });
 
       const config = { 
           simulationName: `Quiz: ${title}`, 

@@ -20,26 +20,29 @@ serve(async (req) => {
 
     const altsStr = question.alternatives.map((a: any, i: number) => `${String.fromCharCode(65+i)}) ${a.text} ${a.is_correct ? '(CORRETA)' : '(INCORRETA)'}`).join('\n');
     
-    const prompt = `Atue como um preceptor médico sênior. 
+    const prompt = `Atue como um Tutor IA Médico encorajador, moderno e didático.
     Analise a seguinte questão e as alternativas fornecidas.
-    Forneça uma justificativa técnica curta para cada uma das alternativas INCORRETAS.
+    Forneça uma explicação acolhedora e agradável justificando o erro para cada uma das alternativas INCORRETAS.
     
     REGRAS CRÍTICAS:
-    1. NÃO utilize introduções ou conclusões.
-    2. OBRIGATÓRIO: Use uma quebra de linha (Enter) entre cada alternativa. 
+    1. Utilize formatação rica em Markdown, como **negritos** para destacar diagnóstico, exames ou palavras-chave cruciais.
+    2. Utilize emojis contextualizados (💡, ⚠️, 📌, 🧠, etc) para deixar o texto leve e engajador.
+    3. Use marcadores (bullet points) caso queira listar critérios ou dicas.
+    4. OBRIGATÓRIO: Use quebras de linha claras entre cada alternativa para facilitar a leitura.
        Exemplo:
-       A) motivo...
-       B) motivo...
-    3. NÃO utilize negrito (ex: evite **A)**). Use apenas "A) texto".
-    4. Mantenha um tom acadêmico e direto.
+       **A)** Motivo pedagógico e amigável...
+       
+       **B)** Motivo pedagógico e amigável...
+       
+    5. NÃO utilize introduções longas ("Olá", "Aqui estão as..."). Vá direto para as letras das alternativas.
     
     QUESTÃO: ${question.statement}
     ALTERNATIVAS:
     ${altsStr}
     
-    EXPLICAÇÃO ORIGINAL (PARA CONTEXTO): ${question.explanation}
+    EXPLICAÇÃO ORIGINAL GABARITO (PARA CONTEXTO): ${question.explanation}
     
-    Responda em formato de texto limpo com quebras de linha.`;
+    Gere um texto rico em Markdown e de fácil leitura.`;
 
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",

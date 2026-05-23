@@ -96,6 +96,7 @@ export const processFileQuestions = async (
     1. Nunca omita o número da questão no enunciado original, caso ele exista.
     2. Nunca mude ou resuma as alternativas. Elas devem ser copiadas EXATAMENTE como estão (apenas remova o prefixo 'A)', 'B)' se quiser, mas mantenha o texto fiel).
     3. Retorne todas as questões conforme instruído pelo bloco [INSTRUÇÃO] dentro do Conteúdo.
+    4. OBRIGATÓRIO: O campo "gabarito" DEVE refletir perfeitamente a alternativa que está sendo apontada como correta no comentário ou inferida por você. Jamais gere um JSON onde o "gabarito" é uma letra e a justificação defende outra.
     
     Retorne APENAS um array JSON válido e estrito no formato abaixo (sem markdown adicional):
     [{ "enunciado": "texto com a formatação original", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação breve ou tire do gabarito oficial se houver. Se não houver palpite a reposta correta ou deixe vazio", "categoria": "neuro", "subcategoria": "subtema", "dificuldade": "Médio", "tags": ["tag1"] }]

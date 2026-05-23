@@ -36,7 +36,8 @@ Sua missão é projetar questões de alto nível técnico.
 REGRAS:
 - Para cada questão, gere justificativas para as alternativas erradas.
 - Sempre em Português do Brasil (pt-BR).
-- 'alternativas' deve conter APENAS o texto das opções, sem prefixos (A, B...).`;
+- 'alternativas' deve conter APENAS o texto das opções, sem prefixos (A, B...).
+- CONSISTÊNCIA OBRIGATÓRIA: O campo 'gabarito' DEVE ESPELHAR a letra da alternativa que você defende como correta no campo 'comentario'. Não gere um JSON onde o gabarito é 'A' mas o comentário diz que a certa é 'C'.`;
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS_HEADERS });

@@ -53,6 +53,7 @@ serve(async (req) => {
     REQUISITOS TÉCNICOS:
     - Inclua justificativas para as alternativas erradas no campo 'justificativa_incorretas'.
     - Gere todo o conteúdo em Português do Brasil (pt-BR).
+    - CONSISTÊNCIA OBRIGATÓRIA: O campo "gabarito" DEVE ter OBRIGATORIAMENTE a mesma letra da alternativa defendida como correta no campo "comentario". Nunca crie um gabarito conflitante com a explicação.
     
     CONTEXTO: "${customPrompt || 'Gere questões de alto nível.'}"`;
 

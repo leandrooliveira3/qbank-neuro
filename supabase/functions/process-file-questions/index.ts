@@ -57,16 +57,19 @@ serve(async (req) => {
     if (sourceType === 'exam') {
         finalInstruction = `ATUE COMO: Um motor de OCR e Extração de Estrutura de Provas de Alta Precisão. 
         
-        REGRA CRÍTICA DE CONTEXTO: 
+        REGRA CRÍTICA DE CONTEXTO E CONSISTÊNCIA: 
         - Você deve detectar descrições de "Casos Clínicos" que precedem uma ou mais perguntas. 
         - O texto do caso clínico DEVE ser incorporado ao enunciado de cada pergunta que se refere a ele.
         - Não retorne apenas a pergunta final. Una o contexto à pergunta.
+        - GABARITO: O valor do campo "gabarito" (Ex: "A", "B", "C", "D" ou "E") deve ser OBRIGATORIAMENTE a mesma letra que o campo "comentario" indica como correta. NUNCA gere "gabarito": "E" se o comentário diz que a correta é "B". Revise a prova textual se necessário.
         
         DIRETRIZ DE FRAGMENTAÇÃO:
         - Se encontrar apenas o FINAL de uma questão, IGNORE-A.
         - Extraia apenas questões com ENUNCIADO COMPLETO neste bloco.`;
     } else {
-        finalInstruction = `ATUE COMO: Banca Examinadora Médica de Especialidade. Crie ${targetCount} questões inéditas de alto nível baseadas no conteúdo fornecido.`;
+        finalInstruction = `ATUE COMO: Banca Examinadora Médica de Especialidade. Crie ${targetCount} questões inéditas de alto nível baseadas no conteúdo fornecido.
+        
+        REGRA DE CONSISTÊNCIA ABSOLUTA: O campo "gabarito" DEVE refletir perfeitamente a alternativa indicada como correta no campo "comentario". Nunca crie um gabarito contraditório.`;
     }
 
     const response = await ai.models.generateContent({

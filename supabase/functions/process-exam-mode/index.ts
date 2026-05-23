@@ -70,6 +70,10 @@ serve(async (req) => {
     2. Use o texto da PÁGINA SEGUINTE apenas para completar uma questão ou caso que foi cortado no fim da página atual.
     3. Transcreva APENAS o caso clínico (SE INICIADO NA PAGINA ANTERIOR) + as questões que COMEÇAM fisicamente na PÁGINA ATUAL.
     
+    CONSISTÊNCIA DO GABARITO (CRÍTICO):
+    - O campo 'gabarito' DEVE OBRIGATORIAMENTE corresponder à letra que você explica como a resposta certa no campo 'comentario'. 
+    - Nunca gere json onde o "gabarito" tem uma letra (Ex: "A") e a justificativa defende outra letra como correta. Tenha precisão absoluta nesse metadado.
+    
     REGRAS DE FORMATO:
     - Traduza tudo para Português do Brasil (pt-BR).
     - Remova apenas prefixos redundantes como "Question 1:", mas MANTENHA o conteúdo clínico integral.

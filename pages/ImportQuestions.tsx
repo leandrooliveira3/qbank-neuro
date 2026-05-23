@@ -340,8 +340,17 @@ export const ImportQuestions: React.FC = () => {
             imageUrl = await storageService.uploadBase64(imageUrl.split(',')[1], 'questions');
         }
 
-        const match = (q.gabarito || 'A').match(/([A-E])/i);
-        const correctChar = match ? match[0].toUpperCase() : 'A';
+        const gabaritoText = String(q.gabarito || 'A').trim();
+        // Tenta achar a letra solta ou no começo/fim "A", "A)", "Alternativa A"
+        let finalChar = 'A';
+        const exactMatch = gabaritoText.match(/^([A-E])$/i);
+        if (exactMatch) {
+            finalChar = exactMatch[1].toUpperCase();
+        } else {
+            const fallbackMatch = gabaritoText.match(/\b([A-E])\b/i) || gabaritoText.match(/([A-E])/i);
+            finalChar = fallbackMatch ? fallbackMatch[1].toUpperCase() : 'A';
+        }
+        const correctChar = finalChar;
 
         const cleanComment = (q.comentario || '').replace('[ANEXAR_IMAGEM_MANUAL]', '').trim();
 
@@ -474,8 +483,16 @@ export const ImportQuestions: React.FC = () => {
                 
                 <div className="flex-1 overflow-y-auto custom-scrollbar p-3 md:p-5 space-y-3 bg-slate-50/30 dark:bg-black/10">
                     {results.map((q, i) => {
-                        const match = (q.gabarito || 'A').match(/([A-E])/i);
-                        const correctChar = match ? match[0].toUpperCase() : 'A';
+                        const gabaritoText = String(q.gabarito || 'A').trim();
+                        let finalChar = 'A';
+                        const exactMatch = gabaritoText.match(/^([A-E])$/i);
+                        if (exactMatch) {
+                            finalChar = exactMatch[1].toUpperCase();
+                        } else {
+                            const fallbackMatch = gabaritoText.match(/\b([A-E])\b/i) || gabaritoText.match(/([A-E])/i);
+                            finalChar = fallbackMatch ? fallbackMatch[1].toUpperCase() : 'A';
+                        }
+                        const correctChar = finalChar;
                         const needsManualImage = q.comentario?.includes('[ANEXAR_IMAGEM_MANUAL]');
                         
                         return (

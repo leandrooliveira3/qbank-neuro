@@ -11,6 +11,7 @@ import {
 import { syncEngine } from '../services/syncEngine';
 import { localDB } from '../services/localDB';
 import { SmartImage } from '../components/SmartImage';
+import Markdown from 'react-markdown';
 import { generateFlashcardFromQuestion, explainWrongAlternatives } from '../services/ai';
 import { xpService, XP_VALUES } from '../services/xpService';
 
@@ -302,9 +303,9 @@ export const PracticeSession: React.FC = () => {
                             ) : (
                                 <div className="p-5 bg-blue-50 dark:bg-blue-900/10 rounded-2xl border-l-4 border-blue-500 animate-in fade-in">
                                     <h4 className="text-[0.6em] font-black uppercase text-blue-600 mb-2 flex items-center gap-2"><ZapOff className="h-4 w-4" /> Por que as outras são falsas?</h4>
-                                    <p className="text-[0.7em] font-medium leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-wrap text-justify">
-                                        {wrongExplanations[currentQ.id]}
-                                    </p>
+                                    <div className="text-[0.7em] font-medium leading-relaxed text-slate-700 dark:text-slate-300 text-justify markdown-body">
+                                        <Markdown>{wrongExplanations[currentQ.id]}</Markdown>
+                                    </div>
                                 </div>
                             )}
                         </div>
