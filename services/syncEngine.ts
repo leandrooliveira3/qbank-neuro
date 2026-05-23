@@ -105,7 +105,7 @@ class SyncEngine {
         let hasMore = true;
         
         while (hasMore) {
-          let query = supabase.from(table).select('*').range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
+          let query = supabase.from(table).select('*').order('id').range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
           if (userCol !== 'global') query = query.eq(userCol, userId);
           
           const { data, error } = await query;
