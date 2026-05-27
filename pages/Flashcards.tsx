@@ -125,27 +125,25 @@ export const Flashcards: React.FC = () => {
   };
 
   const handleTogglePriorityTopic = (topic: string) => {
-      setPriorityTopics(prev => {
-          const isChecked = prev.includes(topic);
-          const next = isChecked ? prev.filter(t => t !== topic) : [...prev, topic];
+      const isChecked = priorityTopics.includes(topic);
+      const next = isChecked ? priorityTopics.filter(t => t !== topic) : [...priorityTopics, topic];
 
-          // Determine activatedAt
-          let newActivatedAt = priorityActivatedAt;
-          const now = new Date().toISOString();
-          const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
-          const isStillActive = newActivatedAt && (Date.now() - new Date(newActivatedAt).getTime()) < sevenDaysMs;
+      // Determine activatedAt
+      let newActivatedAt = priorityActivatedAt;
+      const now = new Date().toISOString();
+      const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+      const isStillActive = newActivatedAt && (Date.now() - new Date(newActivatedAt).getTime()) < sevenDaysMs;
 
-          if (next.length === 0) {
-              newActivatedAt = null;
-          } else if (!isStillActive) {
-              newActivatedAt = now;
-          }
+      if (next.length === 0) {
+          newActivatedAt = null;
+      } else if (!isStillActive) {
+          newActivatedAt = now;
+      }
 
-          setPriorityActivatedAt(newActivatedAt);
-          const cfg = { topics: next, activatedAt: newActivatedAt };
-          localStorage.setItem('neuro_priority_config', JSON.stringify(cfg));
-          return next;
-      });
+      setPriorityTopics(next);
+      setPriorityActivatedAt(newActivatedAt);
+      const cfg = { topics: next, activatedAt: newActivatedAt };
+      localStorage.setItem('neuro_priority_config', JSON.stringify(cfg));
   };
 
   const availableBanks = useMemo(() => {
@@ -439,7 +437,7 @@ export const Flashcards: React.FC = () => {
       }
   };
 
-  const dueCount = cards.filter(c => c.status !== 'inactive' && new Date(c.next_review).getTime() <= Date.now()).length;
+  const dueCount = cards.filter(c => c.status !== 'inactive' && c.status !== 'new' && new Date(c.next_review).getTime() <= Date.now()).length;
 
   // EDITOR RENDER (Unchanged mostly)
   if (mode === 'editor') {
