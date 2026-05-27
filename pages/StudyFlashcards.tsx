@@ -114,7 +114,11 @@ export const StudyFlashcards: React.FC = () => {
       const userCards = allCards.filter(c => c.user_id === user.id && c.status !== 'inactive');
       let sessionCards: Flashcard[];
 
-      if (studyMode === 'free') {
+      if (studyMode === 'preview') {
+        const previewId = state?.previewCardId;
+        const target = allCards.find(c => c.id === previewId);
+        sessionCards = target ? [target] : [];
+      } else if (studyMode === 'free') {
         sessionCards = [...userCards].sort(() => Math.random() - 0.5);
       } else if (studyMode === 'config') {
         const { type, limit, category, bank } = state?.reviewConfig || {};
@@ -141,30 +145,15 @@ export const StudyFlashcards: React.FC = () => {
       } else if (studyMode === 'intensive') {
         sessionCards = [...userCards].sort((a, b) => (a.interval || 0) - (b.interval || 0));
       } else {
-        // ── Due mode: apply priority + daily limit ──
+        // ── Due mode: apply daily limit ──
         const now = new Date();
-        const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
 
-        const priorityRaw = localStorage.getItem('neuro_priority_config');
-        const priorityCfg = priorityRaw ? JSON.parse(priorityRaw) : null;
-        const isPriorityActive = priorityCfg?.activatedAt
-            && (Date.now() - new Date(priorityCfg.activatedAt).getTime()) < sevenDaysMs;
-        const priorityTopics: string[] = isPriorityActive ? (priorityCfg.topics || []) : [];
-        const priorityBanks: string[] = isPriorityActive ? (priorityCfg.banks || []) : [];
-
-        // Priority cards: pull ALL cards from priority topics/banks (even if not yet due), sorted by next_review
-        const priorityCards = (priorityTopics.length > 0 || priorityBanks.length > 0)
-            ? userCards
-                .filter(c => priorityTopics.includes(c.category || 'Sem Categoria') || priorityBanks.includes(c.bank_name || 'Principal'))
-                .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime())
-            : [];
-
-        // Normal due cards: only due, not in priority topics/banks, oldest first
+        // Normal due cards: only due, oldest first
         const normalDue = userCards
-            .filter(c => new Date(c.next_review) <= now && !(priorityTopics.includes(c.category || 'Sem Categoria') || priorityBanks.includes(c.bank_name || 'Principal')))
+            .filter(c => c.status !== 'inactive' && c.status !== 'new' && new Date(c.next_review) <= now)
             .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
 
-        sessionCards = [...priorityCards, ...normalDue];
+        sessionCards = [...normalDue];
 
         // ── Apply daily limit ──
         const dailyLimit = parseInt(localStorage.getItem('neuro_daily_limit') || '0');

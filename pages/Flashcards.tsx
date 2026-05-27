@@ -619,7 +619,10 @@ export const Flashcards: React.FC = () => {
                                               ) : (
                                                   <span className="text-[7px] font-black uppercase text-slate-400">{new Date(card.next_review).toLocaleDateString()}</span>
                                               )}
-                                              <button onClick={(e) => handleDelete(card.id, e)} className="p-1 text-slate-300 hover:text-red-500"><Trash2 className="h-3 w-3" /></button>
+                                              <div className="flex gap-1 justify-end items-center">
+                                                  <button onClick={(e) => { e.stopPropagation(); navigate('/flashcards/study', { state: { studyMode: 'preview', previewCardId: card.id } }); }} className="p-1 text-slate-300 hover:text-emerald-500" title="Ver / Testar"><Play className="h-3 w-3" /></button>
+                                                  <button onClick={(e) => handleDelete(card.id, e)} className="p-1 text-slate-300 hover:text-red-500" title="Excluir"><Trash2 className="h-3 w-3" /></button>
+                                              </div>
                                           </div>
                                       </div>
                                   ))}
