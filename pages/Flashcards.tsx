@@ -111,8 +111,8 @@ export const Flashcards: React.FC = () => {
           setPriorityActivatedAt(cfg.activatedAt || null);
       }
 
-      // window.addEventListener('neuro_sync_completed', loadCards);
-      // return () => window.removeEventListener('neuro_sync_completed', loadCards);
+      // // ;
+      // return () => // ;
   }, [user]);
 
   const loadCards = async () => {

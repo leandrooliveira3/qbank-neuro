@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       plugins: [
         react(),
         nodePolyfills({
-          include: ['path', 'crypto', 'fs']
+          include: ['path', 'crypto', 'fs', 'stream', 'vm', 'buffer', 'util']
         }),
         VitePWA({
           registerType: 'autoUpdate',

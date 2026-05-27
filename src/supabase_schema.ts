@@ -1,0 +1,1 @@
+// Arquivo descontinuado. Utilize o db_schema.txt para configurar o banco de dados.

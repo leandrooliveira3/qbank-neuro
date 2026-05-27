@@ -70,8 +70,8 @@ export const Summaries: React.FC = () => {
 
   useEffect(() => {
     loadData();
-    // window.addEventListener('neuro_sync_completed', loadData);
-    // return () => window.removeEventListener('neuro_sync_completed', loadData);
+    // // ;
+    // return () => // ;
   }, [user, activeTab]);
 
   const loadData = async () => {

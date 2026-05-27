@@ -1,0 +1,49 @@
+
+-- ========================================================
+-- ATUALIZAÇÃO CRÍTICA: SISTEMA DE XP E RANKING
+-- ========================================================
+
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS xp INTEGER DEFAULT 0;
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS level INTEGER DEFAULT 1;
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS rank TEXT DEFAULT 'Estudante de Medicina';
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS last_daily_bonus DATE;
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS streak_count INTEGER DEFAULT 0;
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS achievements TEXT[] DEFAULT '{}';
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS last_seen TIMESTAMP WITH TIME ZONE; -- Novo campo para Rastreio de Login
+
+UPDATE public.profiles SET xp = 0 WHERE xp IS NULL;
+UPDATE public.profiles SET level = 1 WHERE level IS NULL;
+UPDATE public.profiles SET rank = 'Estudante de Medicina' WHERE rank IS NULL;
+UPDATE public.profiles SET streak_count = 0 WHERE streak_count IS NULL;
+
+-- ========================================================
+-- NOVA TABELA: MATERIAIS DIDÁTICOS (SYNC DRIVE)
+-- ========================================================
+
+CREATE TABLE IF NOT EXISTS public.didactic_materials (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  description TEXT,
+  download_url TEXT,
+  mime_type TEXT,
+  size_bytes BIGINT,
+  drive_path TEXT,
+  drive_file_id TEXT UNIQUE, -- Garante unicidade para o Sync não duplicar
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
+);
+
+-- Habilitar segurança (RLS)
+ALTER TABLE public.didactic_materials ENABLE ROW LEVEL SECURITY;
+
+-- Política de Leitura: Todos os usuários autenticados podem ver e baixar os materiais
+CREATE POLICY "Leitura pública para usuários autenticados" 
+ON public.didactic_materials
+FOR SELECT 
+TO authenticated 
+USING (true);
+
+-- Política de Escrita: Apenas via Service Role (Edge Function) ou Admin (opcional)
+-- A Edge Function usa a chave de serviço, que ignora o RLS, então não é estritamente necessário criar policy de insert se apenas a automação for escrever.
+-- Mas se quiser permitir deletar via dashboard (Admin):
+-- CREATE POLICY "Admin Full Access" ON public.didactic_materials FOR ALL TO authenticated USING (auth.jwt() ->> 'email' = 'seu_email_admin');

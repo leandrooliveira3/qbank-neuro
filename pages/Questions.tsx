@@ -32,8 +32,8 @@ export const Questions: React.FC = () => {
   useEffect(() => { 
     if (user) {
         loadData();
-        // window.addEventListener('neuro_sync_completed', loadData);
-        // return () => window.removeEventListener('neuro_sync_completed', loadData);
+        // // ;
+        // return () => // ;
     }
   }, [user?.id]);
 
