@@ -36,9 +36,9 @@ class SyncEngine {
 
   constructor() {
     if (typeof window !== 'undefined') {
-        // this.syncInterval = window.setInterval(() => {
-        //     if (document.hasFocus()) this.startSync();
-        // }, 120000); 
+        this.syncInterval = window.setInterval(() => {
+            if (document.hasFocus()) this.startSync();
+        }, 120000);
 
         // Setup Realtime Broadcast for Cross-Device Sync
         this.channel = supabase.channel('neuro_global_sync');
@@ -142,7 +142,13 @@ class SyncEngine {
            }).map(l => l.id);
            
            if (toDelete.length > 0) await localDB.bulkDelete(table, toDelete);
-           if (allData.length > 0) await localDB.bulkPut(table, allData);
+
+           const pendingQueue = await localDB.getAll('sync_queue');
+           const pendingIds = new Set(pendingQueue.filter(q => q.table === table && q.action === 'upsert').map(q => q.data.id));
+           
+           const safeToPut = allData.filter(d => !pendingIds.has(d.id));
+           
+           if (safeToPut.length > 0) await localDB.bulkPut(table, safeToPut);
         }
       } catch (e) {}
     }
@@ -167,7 +173,7 @@ class SyncEngine {
           if (userCol && userCol !== 'global' && item.table !== 'profiles') payload[userCol] = userId;
           
           // Conflict resolution: Check if the server has a newer version before blindly overwriting
-          const { data: serverExisting, error: checkErr } = await supabase.from(item.table).select('updated_at, created_at, answered_at, last_review').eq('id', payload.id).maybeSingle();
+          const { data: serverExisting, error: checkErr } = await supabase.from(item.table).select('*').eq('id', payload.id).maybeSingle();
           
           const getServerTime = (d: any) => {
               if (!d) return 0;
@@ -200,9 +206,11 @@ class SyncEngine {
         } else if (err.status === 404 || err.code === '42P01') {
             this.tableBlacklist.add(item.table);
             await localDB.delete('sync_queue', item.id);
+        } else {
+            console.error('[Sync] Error pushing item:', item.table, err);
         }
       } catch (e) {
-          await localDB.delete('sync_queue', item.id);
+          console.error('[Sync] Exception pushing item:', item.table, e);
       }
     }
 

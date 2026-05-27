@@ -152,6 +152,15 @@ export const Flashcards: React.FC = () => {
       localStorage.setItem('neuro_priority_config', JSON.stringify(cfg));
   };
 
+  const allCategoriesWithCounts = useMemo(() => {
+      const counts: Record<string, number> = {};
+      for (const c of cards) {
+          const cat = c.category || 'Sem Categoria';
+          counts[cat] = (counts[cat] || 0) + 1;
+      }
+      return Object.keys(counts).sort().map(cat => ({ cat, count: counts[cat] }));
+  }, [cards]);
+
   const availableBanks = useMemo(() => {
       const banks = new Set(cards.map(c => c.bank_name || 'Principal').filter(Boolean));
       return Array.from(banks).sort();
@@ -816,17 +825,15 @@ export const Flashcards: React.FC = () => {
                   <p className="text-[10px] text-slate-400 mb-6">Temas marcados terão prioridade absoluta por 7 dias — inclusive antecipando cards não vencidos. Após esgotados, a ordem normal do algoritmo é retomada.</p>
 
                   {(() => {
-                      const allCategories = Array.from(new Set(cards.map(c => c.category || 'Sem Categoria'))).sort() as string[];
-                      if (allCategories.length === 0) return (
+                      if (allCategoriesWithCounts.length === 0) return (
                           <div className="p-6 border-2 border-dashed border-slate-100 dark:border-zinc-800 rounded-2xl text-center opacity-50">
                               <p className="text-[10px] font-black uppercase text-slate-400">Nenhum tema encontrado. Crie flashcards com categoria primeiro.</p>
                           </div>
                       );
                       return (
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                              {allCategories.map(cat => {
+                              {allCategoriesWithCounts.map(({ cat, count }) => {
                                   const checked = priorityTopics.includes(cat);
-                                  const count = cards.filter(c => (c.category || 'Sem Categoria') === cat).length;
                                   return (
                                       <label key={cat} className={`flex items-center gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all select-none ${checked ? 'border-amber-400 bg-amber-50 dark:bg-amber-900/20' : 'border-slate-100 dark:border-zinc-800 hover:border-slate-200 dark:hover:border-zinc-700'}`}>
                                           <input

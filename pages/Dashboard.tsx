@@ -111,8 +111,8 @@ export const Dashboard: React.FC = () => {
   useEffect(() => {
     fetchLocalData();
     syncEngine.startSync(); // Trigger initial sync when dashboard is mounted
-    window.addEventListener('neuro_sync_completed', fetchLocalData);
-    return () => window.removeEventListener('neuro_sync_completed', fetchLocalData);
+    // window.addEventListener('neuro_sync_completed', fetchLocalData);
+    // return () => window.removeEventListener('neuro_sync_completed', fetchLocalData);
   }, [user]);
 
   const fetchLocalData = async () => {
