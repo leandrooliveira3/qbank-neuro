@@ -7,7 +7,7 @@ import {
   Filter, ImagePlus, Play, Zap, FilterX, XCircle,
   Scan, Undo2, CheckCircle2, Settings, Brain, Clock, GraduationCap,
   ZoomIn, ZoomOut, Move, Shuffle, Folder, ChevronDown, ChevronRight, SortAsc, Download,
-  Star, AlertCircle, Infinity, Sparkles
+  Star, AlertCircle, Infinity, Sparkles, Tag
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../store/useAuthStore';
@@ -57,6 +57,7 @@ export const Flashcards: React.FC = () => {
   const [srsProfile, setSrsProfile] = useState('standard');
   const [dailyLimit, setDailyLimit] = useState<number>(0);
   const [priorityTopics, setPriorityTopics] = useState<string[]>([]);
+  const [priorityBanks, setPriorityBanks] = useState<string[]>([]);
   const [priorityActivatedAt, setPriorityActivatedAt] = useState<string | null>(null);
 
   // Review Config State
@@ -104,6 +105,7 @@ export const Flashcards: React.FC = () => {
       if (priorityRaw) {
           const cfg = JSON.parse(priorityRaw);
           setPriorityTopics(cfg.topics || []);
+          setPriorityBanks(cfg.banks || []);
           setPriorityActivatedAt(cfg.activatedAt || null);
       }
 
@@ -132,24 +134,42 @@ export const Flashcards: React.FC = () => {
 
   const handleTogglePriorityTopic = (topic: string) => {
       const isChecked = priorityTopics.includes(topic);
-      const next = isChecked ? priorityTopics.filter(t => t !== topic) : [...priorityTopics, topic];
+      const nextTopics = isChecked ? priorityTopics.filter(t => t !== topic) : [...priorityTopics, topic];
 
-      // Determine activatedAt
       let newActivatedAt = priorityActivatedAt;
       const now = new Date().toISOString();
       const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
       const isStillActive = newActivatedAt && (Date.now() - new Date(newActivatedAt).getTime()) < sevenDaysMs;
 
-      if (next.length === 0) {
+      if (nextTopics.length === 0 && priorityBanks.length === 0) {
           newActivatedAt = null;
       } else if (!isStillActive) {
           newActivatedAt = now;
       }
 
-      setPriorityTopics(next);
+      setPriorityTopics(nextTopics);
       setPriorityActivatedAt(newActivatedAt);
-      const cfg = { topics: next, activatedAt: newActivatedAt };
-      localStorage.setItem('neuro_priority_config', JSON.stringify(cfg));
+      localStorage.setItem('neuro_priority_config', JSON.stringify({ topics: nextTopics, banks: priorityBanks, activatedAt: newActivatedAt }));
+  };
+
+  const handleTogglePriorityBank = (bank: string) => {
+      const isChecked = priorityBanks.includes(bank);
+      const nextBanks = isChecked ? priorityBanks.filter(b => b !== bank) : [...priorityBanks, bank];
+
+      let newActivatedAt = priorityActivatedAt;
+      const now = new Date().toISOString();
+      const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+      const isStillActive = newActivatedAt && (Date.now() - new Date(newActivatedAt).getTime()) < sevenDaysMs;
+
+      if (priorityTopics.length === 0 && nextBanks.length === 0) {
+          newActivatedAt = null;
+      } else if (!isStillActive) {
+          newActivatedAt = now;
+      }
+
+      setPriorityBanks(nextBanks);
+      setPriorityActivatedAt(newActivatedAt);
+      localStorage.setItem('neuro_priority_config', JSON.stringify({ topics: priorityTopics, banks: nextBanks, activatedAt: newActivatedAt }));
   };
 
   const allCategoriesWithCounts = useMemo(() => {
@@ -159,6 +179,15 @@ export const Flashcards: React.FC = () => {
           counts[cat] = (counts[cat] || 0) + 1;
       }
       return Object.keys(counts).sort().map(cat => ({ cat, count: counts[cat] }));
+  }, [cards]);
+
+  const allBanksWithCounts = useMemo(() => {
+      const counts: Record<string, number> = {};
+      for (const c of cards) {
+          const bank = c.bank_name || 'Principal';
+          counts[bank] = (counts[bank] || 0) + 1;
+      }
+      return Object.keys(counts).sort().map(bank => ({ bank, count: counts[bank] }));
   }, [cards]);
 
   const availableBanks = useMemo(() => {
@@ -811,59 +840,77 @@ export const Flashcards: React.FC = () => {
                   </div>
               </div>
 
-              {/* ─── Prioridade de Tema ─── */}
+              {/* ─── Prioridade ─── */}
               <div className="border-t border-slate-100 dark:border-zinc-900 pt-8">
                   <div className="flex items-start justify-between mb-1 gap-4">
-                      <h2 className="text-xl font-black text-slate-950 dark:text-white tracking-tighter">Prioridade de Tema</h2>
-                      {priorityTopics.length > 0 && priorityActivatedAt && (() => {
+                      <h2 className="text-xl font-black text-slate-950 dark:text-white tracking-tighter">Prioridade de Banco / Tema</h2>
+                      {(priorityTopics.length > 0 || priorityBanks.length > 0) && priorityActivatedAt && (() => {
                           const daysLeft = Math.max(0, 7 - Math.floor((Date.now() - new Date(priorityActivatedAt).getTime()) / (1000 * 60 * 60 * 24)));
                           return daysLeft > 0
                               ? <span className="text-[9px] font-black bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 px-2.5 py-1 rounded-full shrink-0">{daysLeft}d restantes</span>
                               : <span className="text-[9px] font-black bg-slate-100 dark:bg-zinc-800 text-slate-400 px-2.5 py-1 rounded-full shrink-0">Expirado</span>;
                       })()}
                   </div>
-                  <p className="text-[10px] text-slate-400 mb-6">Temas marcados terão prioridade absoluta por 7 dias — inclusive antecipando cards não vencidos. Após esgotados, a ordem normal do algoritmo é retomada.</p>
+                  <p className="text-[10px] text-slate-400 mb-6">Bancos ou Temas marcados terão prioridade absoluta por 7 dias — inclusive antecipando cards não vencidos. Após esgotados, a ordem normal do algoritmo é retomada.</p>
 
-                  {(() => {
-                      if (allCategoriesWithCounts.length === 0) return (
-                          <div className="p-6 border-2 border-dashed border-slate-100 dark:border-zinc-800 rounded-2xl text-center opacity-50">
-                              <p className="text-[10px] font-black uppercase text-slate-400">Nenhum tema encontrado. Crie flashcards com categoria primeiro.</p>
-                          </div>
-                      );
-                      return (
+                  {/* BANCOS */}
+                  {allBanksWithCounts.length > 0 && (
+                      <div className="mb-6">
+                          <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-2"><Layers className="h-3 w-3" /> Bancos de Questões</h3>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                              {allCategoriesWithCounts.map(({ cat, count }) => {
-                                  const checked = priorityTopics.includes(cat);
+                              {allBanksWithCounts.map(({ bank, count }) => {
+                                  const checked = priorityBanks.includes(bank);
                                   return (
-                                      <label key={cat} className={`flex items-center gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all select-none ${checked ? 'border-amber-400 bg-amber-50 dark:bg-amber-900/20' : 'border-slate-100 dark:border-zinc-800 hover:border-slate-200 dark:hover:border-zinc-700'}`}>
-                                          <input
-                                              type="checkbox"
-                                              checked={checked}
-                                              onChange={() => handleTogglePriorityTopic(cat)}
-                                              className="sr-only"
-                                          />
+                                      <div key={bank} onClick={() => handleTogglePriorityBank(bank)} className={`flex items-center gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all select-none ${checked ? 'border-amber-400 bg-amber-50 dark:bg-amber-900/20' : 'border-slate-100 dark:border-zinc-800 hover:border-slate-200 dark:hover:border-zinc-700'}`}>
                                           <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center shrink-0 transition-all ${checked ? 'bg-amber-400 border-amber-400' : 'border-slate-300 dark:border-zinc-600'}`}>
                                               {checked && <Star className="h-3 w-3 text-white fill-white" />}
                                           </div>
                                           <div className="flex-1 min-w-0">
-                                              <p className="text-xs font-black text-slate-800 dark:text-white truncate">{cat}</p>
+                                              <p className="text-xs font-black text-slate-800 dark:text-white truncate">{bank}</p>
                                               <p className="text-[8px] font-bold text-slate-400">{count} card{count !== 1 ? 's' : ''}</p>
                                           </div>
-                                      </label>
+                                      </div>
                                   );
                               })}
+                          </div>
+                      </div>
+                  )}
+
+                  {/* TEMAS / CATEGORIAS */}
+                  {(() => {
+                      if (allCategoriesWithCounts.length === 0) return null;
+                      return (
+                          <div>
+                              <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-2"><Tag className="h-3 w-3" /> Temas</h3>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                  {allCategoriesWithCounts.map(({ cat, count }) => {
+                                      const checked = priorityTopics.includes(cat);
+                                      return (
+                                          <div key={cat} onClick={() => handleTogglePriorityTopic(cat)} className={`flex items-center gap-3 p-4 rounded-2xl border-2 cursor-pointer transition-all select-none ${checked ? 'border-amber-400 bg-amber-50 dark:bg-amber-900/20' : 'border-slate-100 dark:border-zinc-800 hover:border-slate-200 dark:hover:border-zinc-700'}`}>
+                                              <div className={`w-5 h-5 rounded-md border-2 flex items-center justify-center shrink-0 transition-all ${checked ? 'bg-amber-400 border-amber-400' : 'border-slate-300 dark:border-zinc-600'}`}>
+                                                  {checked && <Star className="h-3 w-3 text-white fill-white" />}
+                                              </div>
+                                              <div className="flex-1 min-w-0">
+                                                  <p className="text-xs font-black text-slate-800 dark:text-white truncate">{cat}</p>
+                                                  <p className="text-[8px] font-bold text-slate-400">{count} card{count !== 1 ? 's' : ''}</p>
+                                              </div>
+                                          </div>
+                                      );
+                                  })}
+                              </div>
                           </div>
                       );
                   })()}
 
-                  {priorityTopics.length > 0 && (
+                  {(priorityTopics.length > 0 || priorityBanks.length > 0) && (
                       <button
                           onClick={() => {
                               setPriorityTopics([]);
+                              setPriorityBanks([]);
                               setPriorityActivatedAt(null);
                               localStorage.removeItem('neuro_priority_config');
                           }}
-                          className="mt-4 text-[9px] font-black uppercase text-slate-400 hover:text-red-500 transition-colors flex items-center gap-1"
+                          className="mt-6 text-[9px] font-black uppercase text-slate-400 hover:text-red-500 transition-colors flex items-center gap-1"
                       >
                           <X className="h-3 w-3" /> Remover todas as prioridades
                       </button>

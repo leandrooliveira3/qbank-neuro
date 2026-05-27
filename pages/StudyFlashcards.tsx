@@ -127,7 +127,7 @@ export const StudyFlashcards: React.FC = () => {
             filtered = filtered.filter(c => c.status === 'learning');
             filtered = filtered.sort((a,b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
         } else if (type === 'due') {
-            filtered = filtered.filter(c => c.status === 'review' && new Date(c.next_review) <= now);
+            filtered = filtered.filter(c => c.status !== 'inactive' && new Date(c.next_review) <= now);
             filtered = filtered.sort((a,b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
         } else if (type === 'free') {
             filtered = filtered.sort(() => Math.random() - 0.5);
@@ -146,17 +146,18 @@ export const StudyFlashcards: React.FC = () => {
         const isPriorityActive = priorityCfg?.activatedAt
             && (Date.now() - new Date(priorityCfg.activatedAt).getTime()) < sevenDaysMs;
         const priorityTopics: string[] = isPriorityActive ? (priorityCfg.topics || []) : [];
+        const priorityBanks: string[] = isPriorityActive ? (priorityCfg.banks || []) : [];
 
-        // Priority cards: pull ALL cards from priority topics (even if not yet due), sorted by next_review
-        const priorityCards = priorityTopics.length > 0
+        // Priority cards: pull ALL cards from priority topics/banks (even if not yet due), sorted by next_review
+        const priorityCards = (priorityTopics.length > 0 || priorityBanks.length > 0)
             ? userCards
-                .filter(c => priorityTopics.includes(c.category || 'Sem Categoria'))
+                .filter(c => priorityTopics.includes(c.category || 'Sem Categoria') || priorityBanks.includes(c.bank_name || 'Principal'))
                 .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime())
             : [];
 
-        // Normal due cards: only due, not in priority topics, oldest first
+        // Normal due cards: only due, not in priority topics/banks, oldest first
         const normalDue = userCards
-            .filter(c => new Date(c.next_review) <= now && !priorityTopics.includes(c.category || 'Sem Categoria'))
+            .filter(c => new Date(c.next_review) <= now && !(priorityTopics.includes(c.category || 'Sem Categoria') || priorityBanks.includes(c.bank_name || 'Principal')))
             .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
 
         sessionCards = [...priorityCards, ...normalDue];
