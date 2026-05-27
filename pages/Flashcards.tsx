@@ -6,7 +6,7 @@ import {
   Layers, Image as ImageIcon, Calendar, ArrowLeft,
   Filter, ImagePlus, Play, Zap, FilterX, XCircle,
   Scan, Undo2, CheckCircle2, Settings, Brain, Clock, GraduationCap,
-  ZoomIn, ZoomOut, Move, Shuffle, Folder, ChevronDown, ChevronRight, SortAsc, Download,
+  ZoomIn, ZoomOut, Move, Shuffle, Folder, ChevronDown, ChevronRight, SortAsc, Download, Upload,
   Star, AlertCircle, Infinity, Sparkles, Tag
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
@@ -17,6 +17,8 @@ import { storageService } from '../services/storage';
 import { Flashcard, Occlusion } from '../types';
 import { SmartImage } from '../components/SmartImage';
 import { generateFlashcardsFromPrompt } from '../services/ai';
+import Apkg from 'anki-apkg-export';
+import download from 'downloadjs';
 
 const SRS_PRESETS = [
   {
@@ -120,6 +122,28 @@ export const Flashcards: React.FC = () => {
       const allCards = await localDB.getAll('flashcards');
       setCards(allCards.filter(c => c.user_id === user.id));
     } finally { setLoading(false); }
+  };
+
+  const handleExportAnki = async () => {
+      try {
+          setLoading(true);
+          const apkg = new Apkg();
+          for (const card of cards) {
+              const tags = [];
+              if (card.category) tags.push(card.category);
+              if (card.bank_name) tags.push(card.bank_name);
+              apkg.addCard(card.front, card.back, { tags: tags.map(t => t.replace(/\s+/g, '_')) });
+          }
+          const zip = await apkg.save();
+          const blob = new Blob([zip], { type: 'application/octet-stream' });
+          download(blob, `neuro_flashcards_${new Date().toISOString().split('T')[0]}.apkg`);
+          alert('Exportação concluída com sucesso!');
+      } catch (err: any) {
+          console.error('Erro ao exportar:', err);
+          alert('Houve um erro ao exportar para o formato Anki.');
+      } finally {
+          setLoading(false);
+      }
   };
 
   const handleSaveSettings = (profileId: string) => {
@@ -535,7 +559,10 @@ export const Flashcards: React.FC = () => {
                 <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'config', reviewConfig: { type: 'free', limit: 9999 } } })} className="flex-1 md:flex-none bg-white dark:bg-zinc-800 text-slate-700 dark:text-white border-2 border-slate-200 dark:border-zinc-700 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2"><Shuffle className="h-4 w-4 text-emerald-500" /> ESTUDO LIVRE</button>
                 <button onClick={() => { resetForm(); setMode('form'); }} className="flex-1 md:flex-none bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg flex items-center justify-center gap-2"><Plus className="h-4 w-4" /> NOVO</button>
                 <button onClick={() => setMode('generator')} className="flex-1 md:flex-none bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Sparkles className="h-4 w-4" /> GERAR</button>
-                <button onClick={() => navigate('/flashcards/import')} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Download className="h-4 w-4" /> IMPORTAR</button>
+                <div className="flex gap-2 isolate">
+                    <button onClick={() => navigate('/flashcards/import')} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-l-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2 border-r border-indigo-700/50"><Download className="h-4 w-4" /> IMPORTAR</button>
+                    <button onClick={handleExportAnki} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-r-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Upload className="h-4 w-4" /> EXPORTAR .APKG</button>
+                </div>
                 <button onClick={() => setMode('settings')} className="bg-slate-50 dark:bg-zinc-900 text-slate-400 p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800"><Settings className="h-5 w-5" /></button>
               </div>
             </div>

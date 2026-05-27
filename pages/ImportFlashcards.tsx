@@ -146,7 +146,7 @@ export const ImportFlashcards: React.FC = () => {
             throw new Error(`Arquivo Anki inválido: banco de dados não encontrado. Arquivos: ${files.join(', ')}`);
         }
 
-        let dbBuf: ArrayBuffer | null = null;
+        let dbBuf: Uint8Array | null = null;
         let db: any = null;
 
         setLoadingMsg('Lendo banco de dados SQLite...');

@@ -1,5 +1,5 @@
 import { AIImportedQuestion, AIExtractedLME } from "../types";
-import JSON5 from 'json5';
+import * as JSON5 from 'json5';
 import { GoogleGenAI, Type } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
