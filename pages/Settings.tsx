@@ -10,7 +10,7 @@ import {
   AlertCircle, Database, HardDrive,
   ShieldCheck, Activity, Cpu, Search,
   Plus, X, LogOut, Trophy, Medal, Award,
-  Clock, Brain, Cloud, Skull, RefreshCw, Eraser
+  Clock, Brain, Cloud, Skull, RefreshCw, Eraser, GraduationCap
 } from 'lucide-react';
 import { syncEngine } from '../services/syncEngine';
 import { localDB } from '../services/localDB';
@@ -342,7 +342,7 @@ export const Settings: React.FC = () => {
             )}
         </div>
 
-        <div className="flex-1 min-h-0 overflow-hidden w-full max-w-full">
+          <div className="flex-1 min-h-0 overflow-hidden w-full max-w-full">
             {activeTab === 'profile' && (
                 <div className="h-full flex flex-col bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] shadow-sm overflow-hidden animate-in fade-in duration-300 w-full">
                     <div className="flex-1 overflow-y-auto custom-scrollbar p-4 md:p-8 space-y-6 w-full max-w-full">
@@ -358,7 +358,27 @@ export const Settings: React.FC = () => {
                             </div>
                         </section>
                         
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+                        <section className="w-full mt-6">
+                            <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-4 flex items-center gap-2"><Brain className="h-3.5 w-3.5 text-indigo-500" /> Algoritmo de Revisão (Flashcards)</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {[
+                                  { id: 'standard', name: 'Neuro Padrão (SM-2)', icon: Brain, description: 'Equilíbrio ideal. Baseado no SuperMemo 2.', border: 'border-emerald-500', color: 'text-emerald-500' },
+                                  { id: 'cramming', name: 'Modo Exame', icon: Clock, description: 'Aumenta drasticamente a frequência.', border: 'border-orange-500', color: 'text-orange-500' },
+                                  { id: 'deep', name: 'Retenção Profunda', icon: GraduationCap, description: 'Intervalos mais longos.', border: 'border-blue-500', color: 'text-blue-500' }
+                                ].map((preset) => {
+                                   const isSelected = (localStorage.getItem('neuro_srs_profile') || 'standard') === preset.id;
+                                   return (
+                                     <div key={preset.id} onClick={() => localStorage.setItem('neuro_srs_profile', preset.id)} className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${isSelected ? `bg-slate-50 dark:bg-zinc-900 ${preset.border}` : 'bg-white dark:bg-zinc-950 border-slate-100 dark:border-zinc-900'}`}>
+                                         <preset.icon className={`h-6 w-6 ${preset.color} mb-3`} />
+                                         <h4 className="font-black text-xs mb-1">{preset.name}</h4>
+                                         <p className="text-[9px] text-slate-500 leading-relaxed">{preset.description}</p>
+                                     </div>
+                                   );
+                                })}
+                            </div>
+                        </section>
+
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mt-6">
                             <div className="space-y-4">
                                 <div className="p-5 bg-slate-50 dark:bg-zinc-900/40 rounded-[2rem] border border-slate-100 dark:border-zinc-800 flex items-center gap-5">
                                     <div className="h-20 w-20 rounded-2xl border-4 border-white dark:border-zinc-800 overflow-hidden bg-white shadow-xl shrink-0"><img src={avatarUrl} className="w-full h-full object-cover" /></div>

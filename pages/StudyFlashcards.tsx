@@ -201,15 +201,11 @@ export const StudyFlashcards: React.FC = () => {
     
     setIsTransitioning(true);
 
-    const isFreeStudy = studyMode === 'free' || (studyMode === 'config' && state?.reviewConfig?.type === 'free');
-    
-    if (!isFreeStudy) {
-        const updatedCard = {
-            ...neuroSM18(cards[currentIndex], rating, srsModifier),
-            updated_at: new Date().toISOString()
-        };
-        await syncEngine.enqueue('flashcards', updatedCard);
-    }
+    const updatedCard = {
+        ...neuroSM18(cards[currentIndex], rating, srsModifier),
+        updated_at: new Date().toISOString()
+    };
+    await syncEngine.enqueue('flashcards', updatedCard);
     
     // Just accumulate local stat
     const xpPerCard = XP_VALUES.FLASHCARD_REVIEW;
