@@ -179,10 +179,8 @@ export const generateFlashcardFromQuestion = async (statement: string, explanati
   return robustJsonParse<{ front: string; back: string }>(response.text || '');
 };
 
-export const generateFlashcardsFromText = async (text: string, count: number): Promise<{ front: string; back: string }[]> => {
-  const prompt = `Crie exatamente ${count} flashcards (frente e verso) a partir deste texto. Foque nos conceitos mais importantes para estudo. Use perguntas curtas e diretas na frente, e respostas concisas e certeiras no verso.
-
-Texto: ${text}`;
+export const generateFlashcardsFromPrompt = async (topicPrompt: string, count: number): Promise<{ front: string; back: string }[]> => {
+  const prompt = `Crie exatamente ${count} flashcards (frente e verso) sobre o seguinte tema / instruções: "${topicPrompt}". Foque nos conceitos mais importantes para estudo. Use perguntas curtas e diretas na frente, e respostas concisas e certeiras no verso.`;
   
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,

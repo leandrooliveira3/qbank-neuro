@@ -16,7 +16,7 @@ import { localDB } from '../services/localDB';
 import { storageService } from '../services/storage';
 import { Flashcard, Occlusion } from '../types';
 import { SmartImage } from '../components/SmartImage';
-import { generateFlashcardsFromText } from '../services/ai';
+import { generateFlashcardsFromPrompt } from '../services/ai';
 
 const SRS_PRESETS = [
   {
@@ -226,7 +226,7 @@ export const Flashcards: React.FC = () => {
       if (!user || !genText.trim()) return;
       setGenerating(true);
       try {
-          const generatedCards = await generateFlashcardsFromText(genText, genCount);
+          const generatedCards = await generateFlashcardsFromPrompt(genText, genCount);
           if (generatedCards && generatedCards.length > 0) {
               const newCards: Flashcard[] = generatedCards.map(c => ({
                   id: crypto.randomUUID(),
@@ -492,7 +492,7 @@ export const Flashcards: React.FC = () => {
                 <button onClick={() => navigate('/flashcards/study')} className="flex-1 md:flex-none bg-primary text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Play className="h-4 w-4" /> REVISAR</button>
                 <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'free' } })} className="flex-1 md:flex-none bg-white dark:bg-zinc-800 text-slate-700 dark:text-white border-2 border-slate-200 dark:border-zinc-700 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2"><Shuffle className="h-4 w-4 text-emerald-500" /> ESTUDO LIVRE</button>
                 <button onClick={() => { resetForm(); setMode('form'); }} className="flex-1 md:flex-none bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg flex items-center justify-center gap-2"><Plus className="h-4 w-4" /> NOVO</button>
-                <button onClick={() => setMode('generator')} className="flex-1 md:flex-none bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Sparkles className="h-4 w-4" /> GERAR (TXT)</button>
+                <button onClick={() => setMode('generator')} className="flex-1 md:flex-none bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Sparkles className="h-4 w-4" /> GERAR</button>
                 <button onClick={() => navigate('/flashcards/import')} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Download className="h-4 w-4" /> IMPORTAR</button>
                 <button onClick={() => setMode('settings')} className="bg-slate-50 dark:bg-zinc-900 text-slate-400 p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800"><Settings className="h-5 w-5" /></button>
               </div>
@@ -594,17 +594,17 @@ export const Flashcards: React.FC = () => {
             <div className="max-w-3xl mx-auto space-y-8">
               <div>
                   <h2 className="text-2xl font-black text-slate-950 dark:text-white tracking-tighter mb-2 flex items-center gap-2"><Sparkles className="h-6 w-6 text-emerald-500" /> Gerar Flashcards com IA</h2>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">Cole seu texto ou resumo abaixo e a Inteligência Artificial extrairá os conceitos chaves em formato de flashcards.</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Descreva o tema, assunto ou instruções específicas para a Inteligência Artificial criar seus flashcards do zero.</p>
               </div>
 
               <div>
-                  <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Texto Base</label>
+                  <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Tema / Instruções</label>
                   <textarea 
                       value={genText} 
                       onChange={e => setGenText(e.target.value)} 
-                      rows={10} 
+                      rows={6} 
                       className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 text-xs tracking-wide" 
-                      placeholder="Cole aqui o conteúdo a ser processado (resumos, anotações de aulas, diretrizes...)" 
+                      placeholder="Ex: Crie flashcards sobre a anatomia do sistema nervoso central cruzando com as principais síndromes neurovasculares..." 
                   />
               </div>
 
