@@ -134,8 +134,8 @@ export const Videos: React.FC = () => {
   useEffect(() => {
     const fn = () => loadContent();
     fn();
-    window.addEventListener('neuro_sync_completed', fn);
-    return () => window.removeEventListener('neuro_sync_completed', fn);
+    // window.addEventListener('neuro_sync_completed', fn);
+    // return () => window.removeEventListener('neuro_sync_completed', fn);
   }, [user]);
 
   // RESET TIMER & PLAY STATE ON VIDEO CHANGE

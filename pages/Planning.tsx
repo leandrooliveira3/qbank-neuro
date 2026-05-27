@@ -18,10 +18,10 @@ export const Planning: React.FC = () => {
 
   useEffect(() => { 
       loadPlanning(); 
-      window.addEventListener('neuro_sync_completed', loadPlanning);
-      return () => {
-          window.removeEventListener('neuro_sync_completed', loadPlanning);
-      };
+      // window.addEventListener('neuro_sync_completed', loadPlanning);
+      // return () => {
+      //     window.removeEventListener('neuro_sync_completed', loadPlanning);
+      // };
   }, [user]);
 
   const loadPlanning = async () => {

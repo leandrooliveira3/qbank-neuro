@@ -7,7 +7,7 @@ import {
   Filter, ImagePlus, Play, Zap, FilterX, XCircle,
   Scan, Undo2, CheckCircle2, Settings, Brain, Clock, GraduationCap,
   ZoomIn, ZoomOut, Move, Shuffle, Folder, ChevronDown, ChevronRight, SortAsc, Download,
-  Star, AlertCircle, Infinity
+  Star, AlertCircle, Infinity, Sparkles
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../store/useAuthStore';
@@ -16,6 +16,7 @@ import { localDB } from '../services/localDB';
 import { storageService } from '../services/storage';
 import { Flashcard, Occlusion } from '../types';
 import { SmartImage } from '../components/SmartImage';
+import { generateFlashcardsFromText } from '../services/ai';
 
 const SRS_PRESETS = [
   {
@@ -52,11 +53,18 @@ export const Flashcards: React.FC = () => {
   const navigate = useNavigate();
   const [cards, setCards] = useState<Flashcard[]>([]);
   const [loading, setLoading] = useState(true);
-  const [mode, setMode] = useState<'list' | 'form' | 'editor' | 'settings'>('list');
+  const [mode, setMode] = useState<'list' | 'form' | 'editor' | 'settings' | 'generator'>('list');
   const [srsProfile, setSrsProfile] = useState('standard');
   const [dailyLimit, setDailyLimit] = useState<number>(0);
   const [priorityTopics, setPriorityTopics] = useState<string[]>([]);
   const [priorityActivatedAt, setPriorityActivatedAt] = useState<string | null>(null);
+
+  // Generator State
+  const [genText, setGenText] = useState('');
+  const [genCount, setGenCount] = useState<number>(5);
+  const [genCategory, setGenCategory] = useState('');
+  const [genBankName, setGenBankName] = useState('Principal');
+  const [generating, setGenerating] = useState(false);
   
   // Organization State
   const [searchTerm, setSearchTerm] = useState('');
@@ -93,8 +101,8 @@ export const Flashcards: React.FC = () => {
           setPriorityActivatedAt(cfg.activatedAt || null);
       }
 
-      window.addEventListener('neuro_sync_completed', loadCards);
-      return () => window.removeEventListener('neuro_sync_completed', loadCards);
+      // window.addEventListener('neuro_sync_completed', loadCards);
+      // return () => window.removeEventListener('neuro_sync_completed', loadCards);
   }, [user]);
 
   const loadCards = async () => {
@@ -212,6 +220,41 @@ export const Flashcards: React.FC = () => {
       setAutoEnableOcclusion(false);
       setZoomLevel(1);
       setKeepImageAfterSave(false);
+  };
+
+  const handleGenerateFlashcards = async () => {
+      if (!user || !genText.trim()) return;
+      setGenerating(true);
+      try {
+          const generatedCards = await generateFlashcardsFromText(genText, genCount);
+          if (generatedCards && generatedCards.length > 0) {
+              const newCards: Flashcard[] = generatedCards.map(c => ({
+                  id: crypto.randomUUID(),
+                  user_id: user.id,
+                  front: c.front,
+                  back: c.back,
+                  category: genCategory || 'Sem Categoria',
+                  bank_name: genBankName || 'Principal',
+                  status: 'new',
+                  interval: 0,
+                  ease_factor: 2.5,
+                  repetitions: 0,
+                  next_review: new Date().toISOString(),
+                  created_at: new Date().toISOString()
+              }));
+              
+              await syncEngine.bulkEnqueue('flashcards', newCards);
+              await loadCards();
+              
+              alert(`${newCards.length} flashcards gerados com sucesso!`);
+              setMode('list');
+              setGenText('');
+          }
+      } catch (e: any) {
+          alert("Erro ao gerar flashcards: " + e.message);
+      } finally {
+          setGenerating(false);
+      }
   };
 
   const handleDelete = async (id: string, e: React.MouseEvent) => {
@@ -449,6 +492,7 @@ export const Flashcards: React.FC = () => {
                 <button onClick={() => navigate('/flashcards/study')} className="flex-1 md:flex-none bg-primary text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Play className="h-4 w-4" /> REVISAR</button>
                 <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'free' } })} className="flex-1 md:flex-none bg-white dark:bg-zinc-800 text-slate-700 dark:text-white border-2 border-slate-200 dark:border-zinc-700 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2"><Shuffle className="h-4 w-4 text-emerald-500" /> ESTUDO LIVRE</button>
                 <button onClick={() => { resetForm(); setMode('form'); }} className="flex-1 md:flex-none bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg flex items-center justify-center gap-2"><Plus className="h-4 w-4" /> NOVO</button>
+                <button onClick={() => setMode('generator')} className="flex-1 md:flex-none bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Sparkles className="h-4 w-4" /> GERAR (TXT)</button>
                 <button onClick={() => navigate('/flashcards/import')} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Download className="h-4 w-4" /> IMPORTAR</button>
                 <button onClick={() => setMode('settings')} className="bg-slate-50 dark:bg-zinc-900 text-slate-400 p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800"><Settings className="h-5 w-5" /></button>
               </div>
@@ -544,6 +588,79 @@ export const Flashcards: React.FC = () => {
                 )}
             </div>
           </>
+        ) : mode === 'generator' ? (
+          <div className="flex-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2.5rem] p-6 md:p-10 shadow-xl overflow-y-auto custom-scrollbar min-h-0">
+            <button onClick={() => setMode('list')} className="flex items-center text-slate-500 hover:text-primary text-[10px] font-black uppercase mb-8"><ArrowLeft className="h-4 w-4 mr-1" /> Voltar</button>
+            <div className="max-w-3xl mx-auto space-y-8">
+              <div>
+                  <h2 className="text-2xl font-black text-slate-950 dark:text-white tracking-tighter mb-2 flex items-center gap-2"><Sparkles className="h-6 w-6 text-emerald-500" /> Gerar Flashcards com IA</h2>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Cole seu texto ou resumo abaixo e a Inteligência Artificial extrairá os conceitos chaves em formato de flashcards.</p>
+              </div>
+
+              <div>
+                  <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Texto Base</label>
+                  <textarea 
+                      value={genText} 
+                      onChange={e => setGenText(e.target.value)} 
+                      rows={10} 
+                      className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 text-xs tracking-wide" 
+                      placeholder="Cole aqui o conteúdo a ser processado (resumos, anotações de aulas, diretrizes...)" 
+                  />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                      <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Especialidade (Opcional)</label>
+                      <input 
+                          value={genCategory} 
+                          onChange={e => setGenCategory(e.target.value)} 
+                          className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-xs font-black" 
+                          placeholder="Ex: Neurologia"
+                      />
+                  </div>
+                  <div>
+                      <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Nome do Deck</label>
+                      <input 
+                          value={genBankName} 
+                          onChange={e => setGenBankName(e.target.value)} 
+                          className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-xs font-black" 
+                          placeholder="Principal" 
+                      />
+                  </div>
+              </div>
+
+              <div>
+                  <label className="text-[9px] text-slate-500 uppercase font-black flex items-center justify-between mb-4">
+                      <span>Quantidade de Flashcards</span>
+                      <span className="text-primary text-sm bg-primary/10 px-3 py-1 rounded-lg">{genCount} cards</span>
+                  </label>
+                  <input
+                      type="range"
+                      min="1"
+                      max="30"
+                      step="1"
+                      value={genCount}
+                      onChange={e => setGenCount(Number(e.target.value))}
+                      className="w-full h-2 bg-slate-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+                  />
+                  <div className="flex justify-between text-[10px] font-bold text-slate-400 mt-2">
+                      <span>1</span>
+                      <span>30</span>
+                  </div>
+              </div>
+
+              <div className="pt-6 border-t border-slate-100 dark:border-zinc-900 flex justify-end gap-3">
+                  <button onClick={() => setMode('list')} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">Cancelar</button>
+                  <button 
+                      onClick={handleGenerateFlashcards} 
+                      disabled={generating || !genText.trim()} 
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white px-10 py-3 rounded-xl font-black text-[10px] uppercase shadow-lg flex items-center gap-2 transition-all disabled:opacity-50"
+                  >
+                      {generating ? <Loader2 className="animate-spin h-4 w-4" /> : <Sparkles className="h-4 w-4" />} {generating ? "GERANDO..." : "GERAR FLASHCARDS"}
+                  </button>
+              </div>
+            </div>
+          </div>
         ) : mode === 'form' ? (
           <div className="flex-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2.5rem] p-6 md:p-10 shadow-xl overflow-y-auto custom-scrollbar min-h-0">
             <button onClick={() => setMode('list')} className="flex items-center text-slate-500 hover:text-primary text-[10px] font-black uppercase mb-8"><ArrowLeft className="h-4 w-4 mr-1" /> Voltar</button>

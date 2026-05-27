@@ -98,8 +98,8 @@ export const StudyFlashcards: React.FC = () => {
       else if (profile === 'deep') mod = 1.5;
       setSrsModifier(mod);
       loadSessionCards(); 
-      window.addEventListener('neuro_sync_completed', loadSessionCards);
-      return () => window.removeEventListener('neuro_sync_completed', loadSessionCards);
+      // window.addEventListener('neuro_sync_completed', loadSessionCards);
+      // return () => window.removeEventListener('neuro_sync_completed', loadSessionCards);
   }, [user, studyMode]);
 
   const loadSessionCards = async () => {

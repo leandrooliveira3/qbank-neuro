@@ -32,8 +32,8 @@ export const Questions: React.FC = () => {
   useEffect(() => { 
     if (user) {
         loadData();
-        window.addEventListener('neuro_sync_completed', loadData);
-        return () => window.removeEventListener('neuro_sync_completed', loadData);
+        // window.addEventListener('neuro_sync_completed', loadData);
+        // return () => window.removeEventListener('neuro_sync_completed', loadData);
     }
   }, [user?.id]);
 
@@ -43,12 +43,6 @@ export const Questions: React.FC = () => {
     const filtered = local.filter(q => q.created_by === user?.id);
     setQuestions(filtered.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()));
     setLoading(false);
-    
-    if (navigator.onLine) {
-      await syncEngine.startSync(true);
-      const updated = await localDB.getAll('questions');
-      setQuestions(updated.filter(q => q.created_by === user?.id).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()));
-    }
   };
 
   const availableBanks = useMemo(() => {

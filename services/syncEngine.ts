@@ -36,9 +36,9 @@ class SyncEngine {
 
   constructor() {
     if (typeof window !== 'undefined') {
-        this.syncInterval = window.setInterval(() => {
-            if (document.hasFocus()) this.startSync();
-        }, 120000); 
+        // this.syncInterval = window.setInterval(() => {
+        //     if (document.hasFocus()) this.startSync();
+        // }, 120000); 
 
         // Setup Realtime Broadcast for Cross-Device Sync
         this.channel = supabase.channel('neuro_global_sync');
