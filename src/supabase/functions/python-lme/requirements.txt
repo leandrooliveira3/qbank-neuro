@@ -1,4 +1,0 @@
-
-functions-framework==3.0.0
-pdfrw==0.4
-requests==2.31.0
