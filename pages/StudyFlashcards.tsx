@@ -9,9 +9,10 @@ import { XP_VALUES, xpService } from '../services/xpService';
 import { 
   X, Loader2, 
   Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2,
-  Undo2, MoreVertical, Ban, Edit2, CalendarClock
+  Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
+import { explainFlashcardContext } from '../services/ai';
 
 // ... neuroSM18 function (unchanged) ...
 const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', modifier: number = 1.0) => {
@@ -90,6 +91,9 @@ export const StudyFlashcards: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({ front: '', back: '' });
+  
+  const [aiExplanation, setAiExplanation] = useState<string | null>(null);
+  const [isExplaining, setIsExplaining] = useState(false);
   
   useEffect(() => { 
       const profile = localStorage.getItem('neuro_srs_profile') || 'standard';
@@ -220,6 +224,8 @@ export const StudyFlashcards: React.FC = () => {
     setTimeout(() => {
         if (currentIndex < cards.length - 1) {
             setIsFlipped(false);
+            setAiExplanation(null);
+            setIsExplaining(false);
             setCurrentImageUrl('');
             setCurrentIndex(p => p + 1);
             setTimeout(() => {
@@ -240,6 +246,21 @@ export const StudyFlashcards: React.FC = () => {
   const handleExit = () => {
       // Exit early = NO XP awarded for unfinished session
       navigate('/');
+  };
+
+  const handleExplainAI = async () => {
+      if (isExplaining || aiExplanation || !cards[currentIndex]) return;
+      setIsExplaining(true);
+      try {
+          const card = cards[currentIndex];
+          const explanation = await explainFlashcardContext(card.front, card.back);
+          setAiExplanation(explanation);
+      } catch (err) {
+          console.error('Failed to explain flashcard context', err);
+          setAiExplanation('Não foi possível gerar a explicação no momento.');
+      } finally {
+          setIsExplaining(false);
+      }
   };
 
   if (loading) return <div className="fixed inset-0 flex items-center justify-center bg-slate-50 dark:bg-black z-[200]"><Loader2 className="animate-spin text-primary h-12 w-12" /></div>;
@@ -499,6 +520,36 @@ export const StudyFlashcards: React.FC = () => {
                                     className="text-sm md:text-xl font-medium text-slate-800 dark:text-slate-100 leading-relaxed break-words"
                                     dangerouslySetInnerHTML={{ __html: currentCard.back }}
                                 />
+                                
+                                {/* AI Explanation Context */}
+                                <div className="mt-8 pt-6 border-t border-emerald-100 dark:border-emerald-900/30">
+                                    {!aiExplanation && !isExplaining ? (
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); handleExplainAI(); }}
+                                            className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/30 dark:hover:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-xl transition-all shadow-sm group"
+                                        >
+                                            <Sparkles className="h-4 w-4" />
+                                            <span className="font-black text-[10px] tracking-widest uppercase">Aprofundar Contexto via IA</span>
+                                        </button>
+                                    ) : isExplaining ? (
+                                        <div className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-slate-50 dark:bg-zinc-900 text-slate-500 rounded-xl animate-pulse">
+                                            <Loader2 className="h-4 w-4 animate-spin" />
+                                            <span className="font-bold text-[10px] tracking-widest uppercase">Gerando explicação didática...</span>
+                                        </div>
+                                    ) : (
+                                        <div className="text-left bg-emerald-50/50 dark:bg-emerald-950/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-900/30">
+                                            <div className="flex items-center gap-2 mb-3">
+                                                <Brain className="h-4 w-4 text-emerald-500" />
+                                                <span className="font-black text-[10px] tracking-widest uppercase text-emerald-600 dark:text-emerald-400">Contexto Aprofundado</span>
+                                            </div>
+                                            <div 
+                                                className="text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed ai-prose"
+                                                dangerouslySetInnerHTML={{ __html: aiExplanation! }}
+                                            />
+                                        </div>
+                                    )}
+                                </div>
+
                             </div>
                             <div className="mt-2 pt-2 border-t border-emerald-50 dark:border-emerald-900/50 shrink-0">
                                 <span className="text-[7px] font-black text-slate-400 uppercase tracking-widest">{currentCard.category || 'Geral'}</span>

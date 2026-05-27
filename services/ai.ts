@@ -212,6 +212,15 @@ export const summarizeContent = async (text: string): Promise<string> => {
   return response.text || '';
 };
 
+export const explainFlashcardContext = async (front: string, back: string): Promise<string> => {
+  const prompt = `Como um mentor médico especialista, explique de forma aprofundada o contexto clínico, fisiopatologia ou mecanismos relevantes que conectam a seguinte pergunta do flashcard à sua resposta. Mantenha um tom didático. Crie o texto em HTML rico (usando tags <strong>, <ul>, <li>, <p>).\n\nPergunta (Frente):\n${front}\n\nResposta (Verso):\n${back}`;
+  const response = await ai.models.generateContent({
+    model: DEFAULT_MODEL,
+    contents: prompt,
+  });
+  return response.text || '';
+};
+
 export const extractLmeData = async (medicalRecord: string, diseaseType: string): Promise<AIExtractedLME> => {
   const prompt = `
     Extraia dados para Laudo de Solicitação de Medicamento (LME) de ${diseaseType} do prontuário: ${medicalRecord}.
