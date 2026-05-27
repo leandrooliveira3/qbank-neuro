@@ -253,7 +253,13 @@ export const StudyFlashcards: React.FC = () => {
       setIsExplaining(true);
       try {
           const card = cards[currentIndex];
-          const explanation = await explainFlashcardContext(card.front, card.back);
+          let explanation = await explainFlashcardContext(card.front, card.back);
+          // Sanitize possible markdown fallbacks from the LLM just in case
+          explanation = explanation.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+          explanation = explanation.replace(/\*(.*?)\*/g, '<em>$1</em>');
+          explanation = explanation.replace(/### (.*?)\n/g, '<strong>$1</strong><br/>');
+          explanation = explanation.replace(/## (.*?)\n/g, '<strong>$1</strong><br/>');
+          explanation = explanation.replace(/# (.*?)\n/g, '<strong>$1</strong><br/>');
           setAiExplanation(explanation);
       } catch (err) {
           console.error('Failed to explain flashcard context', err);

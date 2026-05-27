@@ -213,7 +213,7 @@ export const summarizeContent = async (text: string): Promise<string> => {
 };
 
 export const explainFlashcardContext = async (front: string, back: string): Promise<string> => {
-  const prompt = `Como um mentor médico especialista, explique de forma aprofundada o contexto clínico, fisiopatologia ou mecanismos relevantes que conectam a seguinte pergunta do flashcard à sua resposta. Mantenha um tom didático. Crie o texto em HTML rico (usando tags <strong>, <ul>, <li>, <p>).\n\nPergunta (Frente):\n${front}\n\nResposta (Verso):\n${back}`;
+  const prompt = `Como um mentor médico especialista, explique de forma aprofundada o contexto clínico, fisiopatologia ou mecanismos relevantes que conectam a seguinte pergunta do flashcard à sua resposta. Mantenha um tom didático, mas vá DIRETO AO PONTO. NÃO faça nenhuma introdução ou saudação. NÃO use Markdown (como **, ##, etc). Formate toda a resposta APENAS utilizando tags em HTML puro (como <p>, <strong>, <ul>, <li>).\n\nPergunta (Frente):\n${front}\n\nResposta (Verso):\n${back}`;
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
