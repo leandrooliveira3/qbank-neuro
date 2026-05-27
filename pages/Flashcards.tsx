@@ -53,11 +53,17 @@ export const Flashcards: React.FC = () => {
   const navigate = useNavigate();
   const [cards, setCards] = useState<Flashcard[]>([]);
   const [loading, setLoading] = useState(true);
-  const [mode, setMode] = useState<'list' | 'form' | 'editor' | 'settings' | 'generator'>('list');
+  const [mode, setMode] = useState<'list' | 'form' | 'editor' | 'settings' | 'generator' | 'review-config'>('list');
   const [srsProfile, setSrsProfile] = useState('standard');
   const [dailyLimit, setDailyLimit] = useState<number>(0);
   const [priorityTopics, setPriorityTopics] = useState<string[]>([]);
   const [priorityActivatedAt, setPriorityActivatedAt] = useState<string | null>(null);
+
+  // Review Config State
+  const [reviewConfigBank, setReviewConfigBank] = useState<string>('Todos');
+  const [reviewConfigCategory, setReviewConfigCategory] = useState<string>('Todas');
+  const [reviewConfigLimit, setReviewConfigLimit] = useState<number>(20);
+  const [reviewConfigType, setReviewConfigType] = useState<'due' | 'new' | 'learning' | 'free'>('due');
 
   // Generator State
   const [genText, setGenText] = useState('');
@@ -487,8 +493,8 @@ export const Flashcards: React.FC = () => {
                 </div>
               </div>
               <div className="flex gap-2 w-full md:w-auto flex-wrap">
-                <button onClick={() => navigate('/flashcards/study')} className="flex-1 md:flex-none bg-primary text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Play className="h-4 w-4" /> REVISAR</button>
-                <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'free' } })} className="flex-1 md:flex-none bg-white dark:bg-zinc-800 text-slate-700 dark:text-white border-2 border-slate-200 dark:border-zinc-700 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2"><Shuffle className="h-4 w-4 text-emerald-500" /> ESTUDO LIVRE</button>
+                <button onClick={() => setMode('review-config')} className="flex-1 md:flex-none bg-primary text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Play className="h-4 w-4" /> REVISAR</button>
+                <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'config', reviewConfig: { type: 'free', limit: 9999 } } })} className="flex-1 md:flex-none bg-white dark:bg-zinc-800 text-slate-700 dark:text-white border-2 border-slate-200 dark:border-zinc-700 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2"><Shuffle className="h-4 w-4 text-emerald-500" /> ESTUDO LIVRE</button>
                 <button onClick={() => { resetForm(); setMode('form'); }} className="flex-1 md:flex-none bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg flex items-center justify-center gap-2"><Plus className="h-4 w-4" /> NOVO</button>
                 <button onClick={() => setMode('generator')} className="flex-1 md:flex-none bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Sparkles className="h-4 w-4" /> GERAR</button>
                 <button onClick={() => navigate('/flashcards/import')} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Download className="h-4 w-4" /> IMPORTAR</button>
@@ -703,7 +709,7 @@ export const Flashcards: React.FC = () => {
             </div>
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-zinc-900 flex justify-end gap-3"><button onClick={() => setMode('list')} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">Cancelar</button><button onClick={handleSave} disabled={loading} className="bg-primary text-white px-10 py-3 rounded-xl font-black text-[10px] uppercase shadow-lg flex items-center gap-2">{loading ? <Loader2 className="animate-spin h-4 w-4" /> : <Save className="h-4 w-4" />} SALVAR CARD</button></div>
           </div>
-        ) : (
+        ) : mode === 'settings' ? (
           <div className="flex-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2.5rem] p-6 md:p-10 shadow-xl overflow-y-auto custom-scrollbar min-h-0">
               {/* Settings View */}
               <button onClick={() => setMode('list')} className="flex items-center text-slate-500 hover:text-primary text-[10px] font-black uppercase mb-10"><ArrowLeft className="h-4 w-4 mr-2" /> Voltar</button>
@@ -857,7 +863,72 @@ export const Flashcards: React.FC = () => {
                   )}
               </div>
           </div>
-        )}
+        ) : mode === 'review-config' ? (
+          <div className="flex-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2.5rem] p-6 md:p-10 shadow-xl overflow-y-auto custom-scrollbar min-h-0">
+              <button onClick={() => setMode('list')} className="flex items-center text-slate-500 hover:text-primary text-[10px] font-black uppercase mb-10"><ArrowLeft className="h-4 w-4 mr-2" /> Voltar</button>
+
+              <h2 className="text-2xl font-black text-slate-950 dark:text-white tracking-tighter mb-8 flex items-center gap-2"><Play className="h-6 w-6 text-primary" /> Configurar Revisão</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                      <label className="text-[10px] text-slate-500 uppercase font-black block mb-2">Bloco / Banco</label>
+                      <select value={reviewConfigBank} onChange={e => { setReviewConfigBank(e.target.value); setReviewConfigCategory('Todas'); }} className="w-full bg-slate-50 dark:bg-zinc-900 border-2 border-slate-100 dark:border-zinc-800 p-4 rounded-2xl text-xs font-black appearance-none focus:border-primary transition-colors">
+                          <option value="Todos">Todos os Bancos</option>
+                          {availableBanks.map(b => <option key={b} value={b}>{b}</option>)}
+                      </select>
+                  </div>
+                  <div>
+                      <label className="text-[10px] text-slate-500 uppercase font-black block mb-2">Tema / Categoria</label>
+                      <select value={reviewConfigCategory} onChange={e => setReviewConfigCategory(e.target.value)} className="w-full bg-slate-50 dark:bg-zinc-900 border-2 border-slate-100 dark:border-zinc-800 p-4 rounded-2xl text-xs font-black appearance-none focus:border-primary transition-colors">
+                          <option value="Todas">Todas as Categorias</option>
+                          {Array.from(new Set(cards.filter(c => reviewConfigBank === 'Todos' || c.bank_name === reviewConfigBank).map(c => c.category || 'Sem Categoria'))).sort().map(c => <option key={c} value={c}>{c}</option>)}
+                      </select>
+                  </div>
+              </div>
+
+              <div className="mb-8">
+                 <label className="text-[10px] text-slate-500 uppercase font-black block mb-4">Módulo de Estudo</label>
+                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                     <button onClick={() => setReviewConfigType('due')} className={`p-4 rounded-2xl border-2 text-left transition-all ${reviewConfigType === 'due' ? 'border-primary bg-primary/10' : 'border-slate-100 dark:border-zinc-800 bg-white dark:bg-zinc-950'}`}>
+                         <Calendar className={`h-5 w-5 mb-2 ${reviewConfigType === 'due' ? 'text-primary' : 'text-slate-400'}`} />
+                         <p className="font-black text-xs text-slate-900 dark:text-white">A Revisar</p>
+                         <p className="text-[9px] text-slate-500 mt-1">Algoritmo Spaced Repetition</p>
+                     </button>
+                     <button onClick={() => setReviewConfigType('new')} className={`p-4 rounded-2xl border-2 text-left transition-all ${reviewConfigType === 'new' ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20' : 'border-slate-100 dark:border-zinc-800 bg-white dark:bg-zinc-950'}`}>
+                         <Sparkles className={`h-5 w-5 mb-2 ${reviewConfigType === 'new' ? 'text-indigo-500' : 'text-slate-400'}`} />
+                         <p className="font-black text-xs text-slate-900 dark:text-white">Cards Novos</p>
+                         <p className="text-[9px] text-slate-500 mt-1">Apenas cards não vistos</p>
+                     </button>
+                     <button onClick={() => setReviewConfigType('learning')} className={`p-4 rounded-2xl border-2 text-left transition-all ${reviewConfigType === 'learning' ? 'border-rose-500 bg-rose-50 dark:bg-rose-900/20' : 'border-slate-100 dark:border-zinc-800 bg-white dark:bg-zinc-950'}`}>
+                         <Undo2 className={`h-5 w-5 mb-2 ${reviewConfigType === 'learning' ? 'text-rose-500' : 'text-slate-400'}`} />
+                         <p className="font-black text-xs text-slate-900 dark:text-white">Erros (Lapsed)</p>
+                         <p className="text-[9px] text-slate-500 mt-1">Cards recém errados</p>
+                     </button>
+                     <button onClick={() => setReviewConfigType('free')} className={`p-4 rounded-2xl border-2 text-left transition-all ${reviewConfigType === 'free' ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20' : 'border-slate-100 dark:border-zinc-800 bg-white dark:bg-zinc-950'}`}>
+                         <Shuffle className={`h-5 w-5 mb-2 ${reviewConfigType === 'free' ? 'text-emerald-500' : 'text-slate-400'}`} />
+                         <p className="font-black text-xs text-slate-900 dark:text-white">Estudo Livre</p>
+                         <p className="text-[9px] text-slate-500 mt-1">Ordem aleatória geral</p>
+                     </button>
+                 </div>
+              </div>
+
+              <div className="mb-10">
+                  <label className="text-[10px] text-slate-500 uppercase font-black flex items-center justify-between mb-4">
+                      <span>Quantidade Máxima</span>
+                      <span className="text-primary text-sm bg-primary/10 px-3 py-1 rounded-lg">{reviewConfigLimit === 101 ? 'Ilimitado' : reviewConfigLimit}</span>
+                  </label>
+                  <input
+                      type="range" min="10" max="101" step="10"
+                      value={reviewConfigLimit} onChange={e => setReviewConfigLimit(Number(e.target.value))}
+                      className="w-full h-2 bg-slate-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-primary"
+                  />
+              </div>
+
+              <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'config', reviewConfig: { bank: reviewConfigBank, category: reviewConfigCategory, limit: reviewConfigLimit === 101 ? 9999 : reviewConfigLimit, type: reviewConfigType } } })} className="w-full bg-primary text-white py-4 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl active:scale-95 transition-all text-center flex items-center justify-center gap-2">
+                 <Play className="h-5 w-5 fill-current" /> INICIAR SESSÃO
+              </button>
+          </div>
+        ) : null}
       </div>
     </Layout>
   );

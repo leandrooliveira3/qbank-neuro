@@ -112,6 +112,28 @@ export const StudyFlashcards: React.FC = () => {
 
       if (studyMode === 'free') {
         sessionCards = [...userCards].sort(() => Math.random() - 0.5);
+      } else if (studyMode === 'config') {
+        const { type, limit, category, bank } = state?.reviewConfig || {};
+        let filtered = [...userCards];
+        
+        if (bank && bank !== 'Todos') filtered = filtered.filter(c => c.bank_name === bank);
+        if (category && category !== 'Todas') filtered = filtered.filter(c => c.category === category);
+        
+        const now = new Date();
+        if (type === 'new') {
+            filtered = filtered.filter(c => c.status === 'new');
+            filtered = filtered.sort((a,b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+        } else if (type === 'learning') {
+            filtered = filtered.filter(c => c.status === 'learning');
+            filtered = filtered.sort((a,b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
+        } else if (type === 'due') {
+            filtered = filtered.filter(c => c.status === 'review' && new Date(c.next_review) <= now);
+            filtered = filtered.sort((a,b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
+        } else if (type === 'free') {
+            filtered = filtered.sort(() => Math.random() - 0.5);
+        }
+        
+        sessionCards = filtered.slice(0, limit || 20);
       } else if (studyMode === 'intensive') {
         sessionCards = [...userCards].sort((a, b) => (a.interval || 0) - (b.interval || 0));
       } else {
@@ -178,7 +200,9 @@ export const StudyFlashcards: React.FC = () => {
     
     setIsTransitioning(true);
 
-    if (studyMode !== 'free') {
+    const isFreeStudy = studyMode === 'free' || (studyMode === 'config' && state?.reviewConfig?.type === 'free');
+    
+    if (!isFreeStudy) {
         const updatedCard = {
             ...neuroSM18(cards[currentIndex], rating, srsModifier),
             updated_at: new Date().toISOString()
@@ -350,7 +374,7 @@ export const StudyFlashcards: React.FC = () => {
             </button>
             <div className="flex flex-col items-center">
                 <span className="text-[8px] font-black uppercase tracking-widest text-slate-400 flex items-center gap-1">
-                    {studyMode === 'free' ? <><Shuffle className="h-3 w-3" /> Estudo Livre</> : (studyMode === 'intensive' ? 'Modo Intensivo' : 'Algoritmo de Revisão')}
+                    {(studyMode === 'free' || (studyMode === 'config' && state?.reviewConfig?.type === 'free')) ? <><Shuffle className="h-3 w-3" /> Estudo Livre</> : (studyMode === 'config' ? `Revisão (${state?.reviewConfig?.limit === 9999 ? 'Ilimitado' : state?.reviewConfig?.limit} Cards)` : (studyMode === 'intensive' ? 'Modo Intensivo' : 'Algoritmo de Revisão'))}
                 </span>
                 <div className="w-20 h-1 bg-slate-100 dark:bg-zinc-800 rounded-full mt-1.5 overflow-hidden">
                     <div className="h-full bg-primary transition-all duration-500" style={{ width: `${((currentIndex + 1) / cards.length) * 100}%` }} />
@@ -510,7 +534,7 @@ export const StudyFlashcards: React.FC = () => {
                              </button>
                              <span className="text-[8px] font-black uppercase text-slate-300 tracking-widest">Qual foi sua dificuldade?</span>
                         </div>
-                        {studyMode === 'free' ? (
+                        {(studyMode === 'free' || (studyMode === 'config' && state?.reviewConfig?.type === 'free')) ? (
                         <div className="flex justify-center">
                             <button 
                                 onClick={() => handleRate('good')}
