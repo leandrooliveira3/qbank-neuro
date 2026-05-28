@@ -43,7 +43,7 @@ export const Revision: React.FC = () => {
       loadData(); 
       // window.addEventListener('neuro_sync_completed', loadData);
       // return () => window.removeEventListener('neuro_sync_completed', loadData);
-  }, [user]);
+  }, [user?.id]);
 
   const loadData = async () => {
     if(!user) return;

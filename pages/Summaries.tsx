@@ -72,7 +72,7 @@ export const Summaries: React.FC = () => {
     loadData();
     // window.addEventListener('neuro_sync_completed', loadData);
     // return () => window.removeEventListener('neuro_sync_completed', loadData);
-  }, [user, activeTab]);
+  }, [user?.id, activeTab]);
 
   const loadData = async () => {
     if (!user) return;

@@ -61,7 +61,7 @@ export const SimulationSession: React.FC = () => {
         } finally { setLoading(false); }
     };
     init();
-  }, [user]);
+  }, [user?.id]);
 
   useEffect(() => {
       const timer = setInterval(() => {

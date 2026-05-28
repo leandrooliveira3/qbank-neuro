@@ -42,7 +42,7 @@ export const Comunidade: React.FC = () => {
       fetchIncomingRequests();
       fetchSentRequests();
     }
-  }, [user]);
+  }, [user?.id]);
 
   useEffect(() => {
       if (activeTab === 'explore') fetchExploreUsers();

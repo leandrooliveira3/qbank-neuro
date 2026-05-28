@@ -47,7 +47,7 @@ export const Analysis: React.FC = () => {
           } finally { setLoading(false); }
       };
       analyze();
-  }, [user]);
+  }, [user?.id]);
 
   return (
     <Layout title="Análise Cognitiva">

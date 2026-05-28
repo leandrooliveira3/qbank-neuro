@@ -62,7 +62,7 @@ export const Practice: React.FC = () => {
       }
     };
     fetchData();
-  }, [user]);
+  }, [user?.id]);
 
   const updateGroups = (questions: any[], currentGroups: CategoryGroup[]) => {
     const groupMap: Record<string, Record<string, number>> = {};
@@ -117,7 +117,7 @@ export const Practice: React.FC = () => {
       setCalculating(false);
     };
     calc();
-  }, [selectedBanks, selectedTopics, selectedDifficulty, practiceMode, user]);
+  }, [selectedBanks, selectedTopics, selectedDifficulty, practiceMode, user?.id]);
 
   const toggleTopic = (name: string) =>
     setSelectedTopics(prev => prev.includes(name) ? prev.filter(c => c !== name) : [...prev, name]);
@@ -144,7 +144,7 @@ export const Practice: React.FC = () => {
       setSimLoading(false);
     };
     fetchSim();
-  }, [user]);
+  }, [user?.id]);
 
   const handleDeleteSim = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();

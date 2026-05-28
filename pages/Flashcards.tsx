@@ -111,7 +111,7 @@ export const Flashcards: React.FC = () => {
 
       // window.addEventListener('neuro_sync_completed', loadCards);
       // return () => window.removeEventListener('neuro_sync_completed', loadCards);
-  }, [user]);
+  }, [user?.id]);
 
   const loadCards = async () => {
     if (!user) return;

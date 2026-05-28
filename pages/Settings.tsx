@@ -55,7 +55,7 @@ export const Settings: React.FC = () => {
         setAvatarUrl(user.avatar_url || ''); 
         setSpecialty(user.specialty || 'Neurologia');
     }
-  }, [user]);
+  }, [user?.id]);
 
   useEffect(() => { 
     if (activeTab === 'system') {
@@ -315,7 +315,7 @@ export const Settings: React.FC = () => {
   const userMedals = useMemo(() => {
       if (!user?.achievements) return [];
       return user.achievements.map(id => MEDALS[id as keyof typeof MEDALS]).filter(Boolean);
-  }, [user]);
+  }, [user?.id]);
 
   return (
     <Layout title="Configurações">

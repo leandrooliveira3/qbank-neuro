@@ -34,7 +34,7 @@ export const Favorites: React.FC = () => {
     };
 
     fetchFavorites();
-  }, [user]);
+  }, [user?.id]);
 
   const removeFavorite = async (questionId: string, e: React.MouseEvent) => {
     e.stopPropagation();

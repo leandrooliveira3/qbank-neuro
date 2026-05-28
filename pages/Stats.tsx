@@ -103,7 +103,7 @@ export const Stats: React.FC = () => {
         } finally { setLoading(false); }
     };
     calculateStats();
-  }, [user]);
+  }, [user?.id]);
 
   // Level Calculations
   const currentLevelData = useMemo(() => {
@@ -117,7 +117,7 @@ export const Stats: React.FC = () => {
       const progress = next ? Math.min(100, (xpInLevel / xpNeeded) * 100) : 100;
       
       return { current, next, progress, xpInLevel, xpNeeded };
-  }, [user]);
+  }, [user?.id]);
 
   // Helper para renderizar a medalha visualmente
   const RenderMedal = ({ level }: { level: number }) => {

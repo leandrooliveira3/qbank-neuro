@@ -22,7 +22,7 @@ export const Planning: React.FC = () => {
       // return () => {
       //     window.removeEventListener('neuro_sync_completed', loadPlanning);
       // };
-  }, [user]);
+  }, [user?.id]);
 
   const loadPlanning = async () => {
     if (!user) return;

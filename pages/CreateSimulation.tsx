@@ -83,7 +83,7 @@ export const CreateSimulation: React.FC = () => {
       } finally { setLoading(false); }
     };
     loadMetadata();
-  }, [user, selectedBank]);
+  }, [user?.id, selectedBank]);
 
   const availableCount = useMemo(() => {
     return groups

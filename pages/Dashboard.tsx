@@ -87,7 +87,7 @@ export const Dashboard: React.FC = () => {
       
       const progress = (xpInLevel / xpNeeded) * 100;
       return Math.min(100, Math.max(0, progress));
-  }, [user]);
+  }, [user?.id]);
 
   useEffect(() => {
       const state = location.state as { xpEarned?: number; source?: string } | null;
@@ -113,7 +113,7 @@ export const Dashboard: React.FC = () => {
     syncEngine.startSync(); // Trigger initial sync when dashboard is mounted
     // window.addEventListener('neuro_sync_completed', fetchLocalData);
     // return () => window.removeEventListener('neuro_sync_completed', fetchLocalData);
-  }, [user]);
+  }, [user?.id]);
 
   const fetchLocalData = async () => {
     if (!user) return;

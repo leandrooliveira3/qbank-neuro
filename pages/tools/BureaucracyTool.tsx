@@ -59,7 +59,7 @@ export const BureaucracyTool: React.FC = () => {
               // Tentar recuperar CNS do perfil se existir (ou adicionar campo no perfil depois)
           }));
       }
-  }, [user]);
+  }, [user?.id]);
 
   const handleAIAnalysis = async () => {
       if (!medicalRecord.trim()) return;

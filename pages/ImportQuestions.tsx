@@ -139,7 +139,7 @@ export const ImportQuestions: React.FC = () => {
           }
       };
       loadBanks();
-  }, [user]);
+  }, [user?.id]);
 
   // Efeito para dedublicar automaticamente as questões geradas da base de dados local existente
   useEffect(() => {
@@ -182,7 +182,7 @@ export const ImportQuestions: React.FC = () => {
           isMounted = false; 
           clearTimeout(timer);
       };
-  }, [isProcessing, results.length, user]);
+  }, [isProcessing, results.length, user?.id]);
 
   const handleProcessFile = async () => {
     if (!file || fileError) return;

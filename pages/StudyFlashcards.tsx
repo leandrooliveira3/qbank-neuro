@@ -104,7 +104,7 @@ export const StudyFlashcards: React.FC = () => {
       loadSessionCards(); 
       // window.addEventListener('neuro_sync_completed', loadSessionCards);
       // return () => window.removeEventListener('neuro_sync_completed', loadSessionCards);
-  }, [user, studyMode]);
+  }, [user?.id, studyMode]);
 
   const loadSessionCards = async () => {
     if (!user) return;

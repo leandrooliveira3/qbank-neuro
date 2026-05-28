@@ -136,7 +136,7 @@ export const Videos: React.FC = () => {
     fn();
     // window.addEventListener('neuro_sync_completed', fn);
     // return () => window.removeEventListener('neuro_sync_completed', fn);
-  }, [user]);
+  }, [user?.id]);
 
   // RESET TIMER & PLAY STATE ON VIDEO CHANGE
   useEffect(() => {
@@ -379,7 +379,7 @@ export const Videos: React.FC = () => {
   const lastStateRef = useRef({ activeVideo, watchTime, user });
   useEffect(() => {
       lastStateRef.current = { activeVideo, watchTime, user };
-  }, [activeVideo, watchTime, user]);
+  }, [activeVideo, watchTime, user?.id]);
 
   // Save when video changes or unmounts
   useEffect(() => {

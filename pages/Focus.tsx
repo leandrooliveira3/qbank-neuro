@@ -19,7 +19,7 @@ export const Focus: React.FC = () => {
   } = useFocusStore();
   const [sessions, setSessions] = useState<FocusSession[]>([]);
 
-  useEffect(() => { loadSessions(); }, [user]);
+  useEffect(() => { loadSessions(); }, [user?.id]);
 
   const loadSessions = async () => {
     if (!user) return;
