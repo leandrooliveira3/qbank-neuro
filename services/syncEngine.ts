@@ -138,6 +138,7 @@ class SyncEngine {
            
            const toDelete = localItems.filter(l => {
                if (expectedUserId && l[userCol] !== expectedUserId) return false;
+               if (pendingIds.has(l.id)) return false;
                return !serverIds.has(l.id);
            }).map(l => l.id);
            

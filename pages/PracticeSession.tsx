@@ -76,7 +76,13 @@ export const PracticeSession: React.FC = () => {
                 });
                 if (config.practiceMode === 'mistakes') {
                     const history = await localDB.getAll('user_answers');
-                    const mistakes = new Set(history.filter(h => h.user_id === user.id && !h.is_correct).map(h => h.question_id));
+                    const latestAnswers: Record<string, any> = {};
+                    history.filter(h => h.user_id === user.id).forEach(h => {
+                       if (!latestAnswers[h.question_id] || new Date(h.answered_at || h.created_at || 0) > new Date(latestAnswers[h.question_id].answered_at || latestAnswers[h.question_id].created_at || 0)) {
+                           latestAnswers[h.question_id] = h;
+                       }
+                    });
+                    const mistakes = new Set(Object.values(latestAnswers).filter(h => !h.is_correct).map(h => h.question_id));
                     filtered = filtered.filter(q => mistakes.has(q.id));
                 } else if (config.practiceMode === 'unseen') {
                     const history = await localDB.getAll('user_answers');
@@ -109,7 +115,7 @@ export const PracticeSession: React.FC = () => {
 
   const handleSelect = async (altId: string) => {
       if (isAnswered) return;
-      const isCorrect = currentQ.alternatives.find(a => a.id === altId)?.is_correct;
+      const isCorrect = !!currentQ.alternatives.find(a => a.id === altId)?.is_correct;
       setSelectedAnswers(prev => ({ ...prev, [currentQ.id]: altId }));
       if (isCorrect) setCorrectHits(prev => prev + 1);
 

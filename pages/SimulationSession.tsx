@@ -107,7 +107,7 @@ export const SimulationSession: React.FC = () => {
               id: crypto.randomUUID(),
               user_id: user.id,
               question_id: q.id,
-              is_correct: correctAlt?.id === selected,
+              is_correct: !!correctAlt?.id && correctAlt.id === selected,
               selected_alternative_id: selected,
               time_spent_seconds: Math.floor(elapsedSeconds / questions.length),
               answered_at: now,

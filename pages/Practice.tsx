@@ -92,7 +92,14 @@ export const Practice: React.FC = () => {
       updateGroups(filtered, groups);
       if (practiceMode === 'mistakes') {
         const history = await localDB.getAll('user_answers');
-        const mistakes = new Set(history.filter((h: any) => h.user_id === user.id && !h.is_correct).map((h: any) => h.question_id));
+        // Group by question_id to get the latest answer
+        const latestAnswers: Record<string, any> = {};
+        history.filter((h: any) => h.user_id === user.id).forEach((h: any) => {
+           if (!latestAnswers[h.question_id] || new Date(h.answered_at || h.created_at || 0) > new Date(latestAnswers[h.question_id].answered_at || latestAnswers[h.question_id].created_at || 0)) {
+               latestAnswers[h.question_id] = h;
+           }
+        });
+        const mistakes = new Set(Object.values(latestAnswers).filter(h => !h.is_correct).map(h => h.question_id));
         filtered = filtered.filter((q: any) => mistakes.has(q.id));
       } else if (practiceMode === 'unseen') {
         const history = await localDB.getAll('user_answers');
@@ -156,7 +163,7 @@ export const Practice: React.FC = () => {
   const renderParams = () => (
     <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-2xl p-4 shadow-sm space-y-4">
       <h3 className="text-slate-900 dark:text-white font-black text-[9px] uppercase tracking-widest border-b border-slate-100 dark:border-zinc-900 pb-2 flex items-center gap-2">
-        <Filter className="h-3 w-3 text-emerald-600" /> Parâmetros
+        <Filter className="h-3 w-3 text-emerald-600" /> Praticar
       </h3>
 
       <div>
@@ -276,7 +283,7 @@ export const Practice: React.FC = () => {
                 onClick={() => setShowParams(true)}
                 className="flex items-center gap-1.5 px-3 py-2 bg-emerald-600 text-white rounded-xl text-[9px] font-black uppercase shadow-md"
               >
-                <SlidersHorizontal className="h-3 w-3" /> Parâmetros
+                <SlidersHorizontal className="h-3 w-3" /> Praticar
                 {availableCount > 0 && <span className="bg-white/20 px-1.5 rounded-full">{availableCount}</span>}
               </button>
             </div>
