@@ -53,7 +53,7 @@ export const Practice: React.FC = () => {
         const mySession = activeSessions.find((s: any) => s.user_id === user.id);
         if (mySession) setActiveSession(mySession);
         const allQ = await localDB.getAll('questions');
-        const userQ = allQ.filter((q: any) => q.created_by === user.id);
+        const userQ = allQ;
         const banks = Array.from(new Set(userQ.map((q: any) => q.bank_name || 'Geral').filter(Boolean))) as string[];
         setAvailableBanks(banks);
         updateGroups(userQ, []);
@@ -87,7 +87,7 @@ export const Practice: React.FC = () => {
       if (!user) return;
       setCalculating(true);
       const allQ = await localDB.getAll('questions');
-      let filtered = allQ.filter((q: any) => q.created_by === user.id);
+      let filtered = allQ; // Use all available questions (including globals)
       if (selectedBanks.length > 0) filtered = filtered.filter((q: any) => selectedBanks.includes(q.bank_name || 'Geral'));
       updateGroups(filtered, groups);
       if (practiceMode === 'mistakes') {

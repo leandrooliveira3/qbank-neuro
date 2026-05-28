@@ -37,7 +37,7 @@ class SyncEngine {
   constructor() {
     if (typeof window !== 'undefined') {
         this.syncInterval = window.setInterval(() => {
-            if (document.hasFocus()) this.startSync();
+            if (document.hasFocus()) this.startSync(false, false);
         }, 120000);
 
         // Setup Realtime Broadcast for Cross-Device Sync
@@ -45,7 +45,7 @@ class SyncEngine {
         this.channel.on('broadcast', { event: 'sync_now' }, (payload: any) => {
             if (payload.payload?.device !== this.getDeviceId()) {
                 console.log('[Sync] Resync triggered by another device.');
-                this.startSync();
+                this.startSync(false, true); // It's okay to pull data if another device sent a major change, but we should debounce it if needed. Actually let's NOT pull to avoid freeze.
             }
         }).subscribe();
     }
@@ -65,7 +65,7 @@ class SyncEngine {
     this.onStatusChange = callback;
   }
 
-  async startSync(force = false) {
+  async startSync(force = false, pull = true) {
     if (this.isSyncing || !navigator.onLine) return;
     
     const queueLength = await this.getQueueLength();
@@ -80,8 +80,10 @@ class SyncEngine {
 
       if (userId) {
         await this.pushLocalChanges(userId);
-        await this.pullUserData(userId, force);
-        if (typeof window !== 'undefined') window.dispatchEvent(new Event('neuro_sync_completed'));
+        if (pull) {
+            await this.pullUserData(userId, force);
+            if (typeof window !== 'undefined') window.dispatchEvent(new Event('neuro_sync_completed'));
+        }
       }
       this.onStatusChange('synced');
     } catch (error) {
@@ -136,17 +138,22 @@ class SyncEngine {
            // If userCol is global, we manage all items. Otherwise, only for this userId.
            const expectedUserId = userCol !== 'global' ? userId : undefined;
            
+           const pendingQueue = await localDB.getAll('sync_queue');
+           const pendingIds = new Set(pendingQueue.filter(q => q.table === table && q.action === 'upsert').map(q => q.data.id));
+           
            const toDelete = localItems.filter(l => {
                if (expectedUserId && l[userCol] !== expectedUserId) return false;
                if (pendingIds.has(l.id)) return false;
+               
+               // Protect recently updated local records from read-replica lag wipeouts
+               const lastLocalUpdate = new Date(l.updated_at || l.created_at || 0).getTime();
+               if (Date.now() - lastLocalUpdate < 5 * 60 * 1000) return false; // Grace period: 5 minutes
+               
                return !serverIds.has(l.id);
            }).map(l => l.id);
            
            if (toDelete.length > 0) await localDB.bulkDelete(table, toDelete);
 
-           const pendingQueue = await localDB.getAll('sync_queue');
-           const pendingIds = new Set(pendingQueue.filter(q => q.table === table && q.action === 'upsert').map(q => q.data.id));
-           
            const safeToPut = allData.filter(d => !pendingIds.has(d.id));
            
            if (safeToPut.length > 0) await localDB.bulkPut(table, safeToPut);
@@ -228,21 +235,21 @@ class SyncEngine {
     if (action === 'delete') await localDB.delete(table, data.id);
     else await localDB.put(table, data);
     await localDB.put('sync_queue', { id: generateId(), table, data, action, timestamp: new Date().toISOString() });
-    if (navigator.onLine) setTimeout(() => this.startSync(), 1000);
+    if (navigator.onLine) setTimeout(() => this.startSync(false, false), 1000);
   }
 
   async bulkEnqueue(table: string, items: any[]) {
     await localDB.bulkPut(table, items);
     const syncItems = items.map(d => ({ id: generateId(), table, data: d, action: 'upsert', timestamp: new Date().toISOString() }));
     await localDB.bulkPut('sync_queue', syncItems);
-    if (navigator.onLine) setTimeout(() => this.startSync(), 1000);
+    if (navigator.onLine) setTimeout(() => this.startSync(false, false), 1000);
   }
 
   async bulkDelete(table: string, items: any[]) {
     await localDB.bulkDelete(table, items.map(i => i.id));
     const syncItems = items.map(d => ({ id: generateId(), table, data: d, action: 'delete', timestamp: new Date().toISOString() }));
     await localDB.bulkPut('sync_queue', syncItems);
-    if (navigator.onLine) setTimeout(() => this.startSync(), 1000);
+    if (navigator.onLine) setTimeout(() => this.startSync(false, false), 1000);
   }
 
   async getQueueLength() {

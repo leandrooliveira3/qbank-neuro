@@ -44,7 +44,7 @@ export const SimulationSession: React.FC = () => {
                 setQuestions(stateQuestions);
             } else {
                 let all = await localDB.getAll('questions');
-                let filtered = all.filter((q: any) => q.created_by === user.id);
+                let filtered = all;
                 if (initialConfig.selectedBank && initialConfig.selectedBank !== 'Todos') {
                     filtered = filtered.filter((q: any) => (q.bank_name || 'Geral') === initialConfig.selectedBank);
                 }

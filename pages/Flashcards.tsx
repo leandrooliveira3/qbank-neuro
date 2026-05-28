@@ -504,7 +504,7 @@ export const Flashcards: React.FC = () => {
               </div>
               <div ref={scrollContainerRef} className="flex-1 overflow-auto p-8 flex items-start justify-center bg-slate-100 dark:bg-zinc-950 cursor-crosshair">
                   <div className="relative inline-block select-none touch-none shadow-2xl bg-black" style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'top center', transition: 'transform 0.1s ease-out' }} onMouseDown={handleStartDraw} onMouseMove={handleMoveDraw} onMouseUp={handleEndDraw} onMouseLeave={handleEndDraw} onTouchStart={handleStartDraw} onTouchMove={handleMoveDraw} onTouchEnd={handleEndDraw}>
-                      <img ref={imageElementRef} src={frontPreview} alt="Base" draggable={false} className="max-w-full max-h-[85vh] object-contain block pointer-events-none select-none" />
+                      <img ref={imageElementRef} src={frontPreview} alt="Base" draggable={false} className="max-w-full max-h-[85vh] block pointer-events-none select-none" />
                       <div className="absolute inset-0 pointer-events-none">
                           {occlusions.map(occ => (
                               <div key={occ.id} style={{ left: `${occ.x}%`, top: `${occ.y}%`, width: `${occ.width}%`, height: `${occ.height}%`, pointerEvents: 'auto' }} onMouseDown={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setSelectedOcclusionId(occ.id); }} className={`absolute border-2 cursor-pointer transition-all ${selectedOcclusionId === occ.id ? 'bg-yellow-400/80 border-white z-20' : 'bg-yellow-500/50 border-yellow-300 z-10'}`} />

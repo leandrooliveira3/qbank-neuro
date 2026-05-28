@@ -65,7 +65,7 @@ export const PracticeSession: React.FC = () => {
                 }
             } else {
                 let all = await localDB.getAll('questions');
-                let filtered = all.filter(q => q.created_by === user.id);
+                let filtered = all;
                 if (config.selectedBanks?.length > 0) filtered = filtered.filter(q => config.selectedBanks.includes(q.bank_name || 'Geral'));
                 filtered = filtered.filter((q: any) => {
                     if (!q) return false;
