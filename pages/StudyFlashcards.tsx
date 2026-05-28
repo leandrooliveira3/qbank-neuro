@@ -437,12 +437,12 @@ export const StudyFlashcards: React.FC = () => {
                         {currentCard.front_image_url ? (
                             <div className="flex-[1.5] min-h-0 bg-slate-50 dark:bg-black/40 flex items-center justify-center p-3 border-b border-slate-100 dark:border-zinc-800 relative">
                                 <div className="relative h-full w-full flex items-center justify-center">
-                                    <div className="relative inline-block h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black">
+                                    <div className="relative inline-block max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black">
                                         <img 
                                             key={currentCard.id}
                                             src={currentImageUrl || currentCard.front_image_url} 
                                             alt="Referência" 
-                                            className="h-full w-auto max-w-full object-contain block"
+                                            className="max-h-full max-w-full block"
                                         />
                                         {hasOcclusions && currentCard.occlusions?.map(occ => (
                                             <div 
@@ -486,12 +486,12 @@ export const StudyFlashcards: React.FC = () => {
                         {(currentCard.back_image_url || currentCard.front_image_url) ? (
                             <div className="flex-[1.5] min-h-0 bg-emerald-500/5 dark:bg-emerald-500/10 flex items-center justify-center p-3 border-b border-emerald-100 dark:border-emerald-900/40 relative">
                                 <div className="relative h-full w-full flex items-center justify-center">
-                                    <div className="relative inline-block h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black border border-emerald-400/20">
+                                    <div className="relative inline-block max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black border border-emerald-400/20">
                                         <img 
                                             key={`back-${currentCard.id}`}
                                             src={currentBackImageUrl || currentImageUrl || currentCard.back_image_url || currentCard.front_image_url} 
                                             alt="Gabarito" 
-                                            className="h-full w-auto max-w-full object-contain block opacity-90"
+                                            className="max-h-full max-w-full block opacity-90"
                                         />
                                         {hasOcclusions && currentCard.occlusions?.map(occ => (
                                             <div 
