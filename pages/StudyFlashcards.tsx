@@ -10,7 +10,7 @@ import { XP_VALUES, xpService } from '../services/xpService';
 import { 
   X, Loader2, 
   Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2,
-  Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles, ImagePlus
+  Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles, ImagePlus, Save
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import { explainFlashcardContext } from '../services/ai';
@@ -22,6 +22,7 @@ const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', 
     const MIN_EASE = 1.3;
     const MAX_EASE = 3.5;
 
+    const currentInterval = interval;
     let appliedModifier = isNaN(modifier) ? 1.0 : modifier;
 
     switch (rating) {
@@ -33,22 +34,29 @@ const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', 
             break;
         case 'hard':
             if (repetitions === 0) interval = 1;
-            else interval = Math.max(1, Math.ceil(interval * 1.2 * appliedModifier));
+            else {
+                interval = Math.max(1, Math.ceil(currentInterval * 1.2 * appliedModifier));
+            }
             ease_factor = Math.max(MIN_EASE, ease_factor - 0.15);
             repetitions += 1;
             status = 'review';
             break;
         case 'good':
-            if (repetitions === 0) interval = 1;
-            else if (repetitions === 1 && interval < 3) interval = 3;
-            else interval = Math.max(interval + 1, Math.ceil(interval * ease_factor * appliedModifier));
+            if (repetitions === 0) interval = 3;
+            else {
+                const hardInterval = Math.max(1, Math.ceil(currentInterval * 1.2 * appliedModifier));
+                interval = Math.max(hardInterval + 1, Math.ceil(currentInterval * ease_factor * appliedModifier));
+            }
             repetitions += 1;
             status = 'review';
             break;
         case 'easy':
-            if (repetitions === 0) interval = 4;
-            else if (repetitions === 1 && interval < 6) interval = 6;
-            else interval = Math.max(interval + 2, Math.ceil(interval * ease_factor * 1.3 * appliedModifier));
+            if (repetitions === 0) interval = 5;
+            else {
+                const hardInterval = Math.max(1, Math.ceil(currentInterval * 1.2 * appliedModifier));
+                const goodInterval = Math.max(hardInterval + 1, Math.ceil(currentInterval * ease_factor * appliedModifier));
+                interval = Math.max(goodInterval + 1, Math.ceil(currentInterval * ease_factor * 1.3 * appliedModifier));
+            }
             ease_factor = Math.min(MAX_EASE, ease_factor + 0.15);
             repetitions += 1;
             status = 'mastered';
@@ -101,6 +109,7 @@ export const StudyFlashcards: React.FC = () => {
   
   const [aiExplanation, setAiExplanation] = useState<string | null>(null);
   const [isExplaining, setIsExplaining] = useState(false);
+  const [savingExplanation, setSavingExplanation] = useState(false);
   
   useEffect(() => { 
       const profile = localStorage.getItem('neuro_srs_profile') || 'standard';
@@ -262,6 +271,25 @@ export const StudyFlashcards: React.FC = () => {
           setAiExplanation('Não foi possível gerar a explicação no momento.');
       } finally {
           setIsExplaining(false);
+      }
+  };
+
+  const handleSaveAIExplanation = async () => {
+      if (!aiExplanation || !cards[currentIndex] || savingExplanation) return;
+      setSavingExplanation(true);
+      try {
+          const card = cards[currentIndex];
+          const newBack = `${card.back}<br/><br/><strong>Contexto Aprofundado (IA):</strong><br/>${aiExplanation}`;
+          const updatedCard = { ...card, back: newBack };
+          await syncEngine.enqueue('flashcards', updatedCard as any);
+          
+          const newCards = [...cards];
+          newCards[currentIndex] = updatedCard as any;
+          setCards(newCards);
+      } catch (e) {
+          console.error(e);
+      } finally {
+          setSavingExplanation(false);
       }
   };
 
@@ -581,9 +609,19 @@ export const StudyFlashcards: React.FC = () => {
                                         </div>
                                     ) : (
                                         <div className="text-left bg-emerald-50/50 dark:bg-emerald-950/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-900/30">
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <Brain className="h-4 w-4 text-emerald-500" />
-                                                <span className="font-black text-[10px] tracking-widest uppercase text-emerald-600 dark:text-emerald-400">Contexto Aprofundado</span>
+                                            <div className="flex items-center justify-between mb-3">
+                                                <div className="flex items-center gap-2">
+                                                    <Brain className="h-4 w-4 text-emerald-500" />
+                                                    <span className="font-black text-[10px] tracking-widest uppercase text-emerald-600 dark:text-emerald-400">Contexto Aprofundado</span>
+                                                </div>
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); handleSaveAIExplanation(); }}
+                                                    disabled={savingExplanation}
+                                                    className={`fade-in flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${savingExplanation ? 'bg-slate-100 dark:bg-zinc-800 text-slate-400' : 'bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-emerald-900/50 text-emerald-600 dark:text-emerald-400 shadow-sm hover:shadow active:scale-95'}`}
+                                                >
+                                                    {savingExplanation ? <Loader2 className="h-3 w-3 animate-spin" /> : <Save className="h-3.5 w-3.5" />}
+                                                    <span className="font-black text-[8px] tracking-widest uppercase">Salvar no Card</span>
+                                                </button>
                                             </div>
                                             <div 
                                                 className="text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed ai-prose"
