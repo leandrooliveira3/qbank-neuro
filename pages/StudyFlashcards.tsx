@@ -279,13 +279,20 @@ export const StudyFlashcards: React.FC = () => {
       setSavingExplanation(true);
       try {
           const card = cards[currentIndex];
-          const newBack = `${card.back}<br/><br/><strong>Contexto Aprofundado (IA):</strong><br/>${aiExplanation}`;
+          let newBack = card.back || '';
+          const aiBlock = `[AI_EXPLANATION]${aiExplanation}[/AI_EXPLANATION]`;
+          if (newBack.includes('[AI_EXPLANATION]')) {
+              newBack = newBack.replace(/\[AI_EXPLANATION\][\s\S]*?\[\/AI_EXPLANATION\]/, aiBlock);
+          } else {
+              newBack += `\n\n${aiBlock}`;
+          }
           const updatedCard = { ...card, back: newBack };
           await syncEngine.enqueue('flashcards', updatedCard as any);
           
           const newCards = [...cards];
           newCards[currentIndex] = updatedCard as any;
           setCards(newCards);
+          setAiExplanation(null);
       } catch (e) {
           console.error(e);
       } finally {
@@ -379,6 +386,17 @@ export const StudyFlashcards: React.FC = () => {
 
   const currentCard = cards[currentIndex];
   const hasOcclusions = currentCard?.occlusions && currentCard.occlusions.length > 0;
+  
+  const backText = currentCard?.back || '';
+  let savedAiText: string | null = null;
+  let regularBack = backText;
+  const aiMatch = backText.match(/\[AI_EXPLANATION\]([\s\S]*?)\[\/AI_EXPLANATION\]/);
+  if (aiMatch) {
+      savedAiText = aiMatch[1].trim();
+      regularBack = backText.replace(/\[AI_EXPLANATION\][\s\S]*?\[\/AI_EXPLANATION\]/, '').trim();
+  }
+  // Remove the old legacy format if present just visually
+  regularBack = regularBack.replace(/<br\/><br\/><strong>Contexto Aprofundado \(IA\):<\/strong><br\/>[\s\S]*/, '').trim();
 
   const handleEditClick = async () => {
     setEditForm({ front: currentCard.front, back: currentCard.back });
@@ -589,12 +607,46 @@ export const StudyFlashcards: React.FC = () => {
                             <div className="flex-1 overflow-y-auto custom-scrollbar py-2 px-1">
                                 <p 
                                     className="text-sm md:text-xl font-medium text-slate-800 dark:text-slate-100 leading-relaxed break-words"
-                                    dangerouslySetInnerHTML={{ __html: currentCard.back }}
+                                    dangerouslySetInnerHTML={{ __html: regularBack }}
                                 />
                                 
                                 {/* AI Explanation Context */}
-                                <div className="mt-8 pt-6 border-t border-emerald-100 dark:border-emerald-900/30">
-                                    {!aiExplanation && !isExplaining ? (
+                                {(savedAiText || aiExplanation || isExplaining) && (
+                                    <div className="mt-8 pt-6 border-t border-emerald-100 dark:border-emerald-900/30">
+                                        {isExplaining ? (
+                                            <div className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-slate-50 dark:bg-zinc-900 text-slate-500 rounded-xl animate-pulse">
+                                                <Loader2 className="h-4 w-4 animate-spin" />
+                                                <span className="font-bold text-[10px] tracking-widest uppercase">Gerando explicação didática...</span>
+                                            </div>
+                                        ) : (
+                                            <div className="text-left bg-emerald-50/50 dark:bg-emerald-950/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-900/30">
+                                                <div className="flex items-center justify-between mb-3">
+                                                    <div className="flex items-center gap-2">
+                                                        <Brain className="h-4 w-4 text-emerald-500" />
+                                                        <span className="font-black text-[10px] tracking-widest uppercase text-emerald-600 dark:text-emerald-400">Contexto Aprofundado</span>
+                                                    </div>
+                                                    {(!savedAiText && aiExplanation) && (
+                                                        <button
+                                                            onClick={(e) => { e.stopPropagation(); handleSaveAIExplanation(); }}
+                                                            disabled={savingExplanation}
+                                                            className={`fade-in flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${savingExplanation ? 'bg-slate-100 dark:bg-zinc-800 text-slate-400' : 'bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-emerald-900/50 text-emerald-600 dark:text-emerald-400 shadow-sm hover:shadow active:scale-95'}`}
+                                                        >
+                                                            {savingExplanation ? <Loader2 className="h-3 w-3 animate-spin" /> : <Save className="h-3.5 w-3.5" />}
+                                                            <span className="font-black text-[8px] tracking-widest uppercase">Salvar no Card</span>
+                                                        </button>
+                                                    )}
+                                                </div>
+                                                <div 
+                                                    className="text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed ai-prose"
+                                                    dangerouslySetInnerHTML={{ __html: aiExplanation || savedAiText || '' }}
+                                                />
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {(!savedAiText && !aiExplanation && !isExplaining) && (
+                                    <div className="mt-8 pt-6 border-t border-emerald-100 dark:border-emerald-900/30">
                                         <button
                                             onClick={(e) => { e.stopPropagation(); handleExplainAI(); }}
                                             className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/30 dark:hover:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-xl transition-all shadow-sm group"
@@ -602,34 +654,8 @@ export const StudyFlashcards: React.FC = () => {
                                             <Sparkles className="h-4 w-4" />
                                             <span className="font-black text-[10px] tracking-widest uppercase">Aprofundar Contexto via IA</span>
                                         </button>
-                                    ) : isExplaining ? (
-                                        <div className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-slate-50 dark:bg-zinc-900 text-slate-500 rounded-xl animate-pulse">
-                                            <Loader2 className="h-4 w-4 animate-spin" />
-                                            <span className="font-bold text-[10px] tracking-widest uppercase">Gerando explicação didática...</span>
-                                        </div>
-                                    ) : (
-                                        <div className="text-left bg-emerald-50/50 dark:bg-emerald-950/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-900/30">
-                                            <div className="flex items-center justify-between mb-3">
-                                                <div className="flex items-center gap-2">
-                                                    <Brain className="h-4 w-4 text-emerald-500" />
-                                                    <span className="font-black text-[10px] tracking-widest uppercase text-emerald-600 dark:text-emerald-400">Contexto Aprofundado</span>
-                                                </div>
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); handleSaveAIExplanation(); }}
-                                                    disabled={savingExplanation}
-                                                    className={`fade-in flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${savingExplanation ? 'bg-slate-100 dark:bg-zinc-800 text-slate-400' : 'bg-white dark:bg-zinc-900 border border-emerald-100 dark:border-emerald-900/50 text-emerald-600 dark:text-emerald-400 shadow-sm hover:shadow active:scale-95'}`}
-                                                >
-                                                    {savingExplanation ? <Loader2 className="h-3 w-3 animate-spin" /> : <Save className="h-3.5 w-3.5" />}
-                                                    <span className="font-black text-[8px] tracking-widest uppercase">Salvar no Card</span>
-                                                </button>
-                                            </div>
-                                            <div 
-                                                className="text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed ai-prose"
-                                                dangerouslySetInnerHTML={{ __html: aiExplanation! }}
-                                            />
-                                        </div>
-                                    )}
-                                </div>
+                                    </div>
+                                )}
 
                             </div>
                             <div className="mt-2 pt-2 border-t border-emerald-50 dark:border-emerald-900/50 shrink-0">
