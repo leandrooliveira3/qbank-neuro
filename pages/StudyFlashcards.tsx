@@ -4,12 +4,13 @@ import { useAuthStore } from '../store/useAuthStore';
 import { localDB } from '../services/localDB';
 import { syncEngine } from '../services/syncEngine';
 import { mediaService } from '../services/mediaService';
+import { storageService } from '../services/storage';
 import { Flashcard } from '../types';
 import { XP_VALUES, xpService } from '../services/xpService';
 import { 
   X, Loader2, 
   Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2,
-  Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles
+  Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles, ImagePlus
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import { explainFlashcardContext } from '../services/ai';
@@ -21,6 +22,8 @@ const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', 
     const MIN_EASE = 1.3;
     const MAX_EASE = 3.5;
 
+    let appliedModifier = isNaN(modifier) ? 1.0 : modifier;
+
     switch (rating) {
         case 'again':
             interval = 0; 
@@ -29,28 +32,29 @@ const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', 
             status = 'learning';
             break;
         case 'hard':
-            interval = Math.max(1, Math.ceil(interval * 1.2));
+            if (repetitions === 0) interval = 1;
+            else interval = Math.max(1, Math.ceil(interval * 1.2 * appliedModifier));
             ease_factor = Math.max(MIN_EASE, ease_factor - 0.15);
             repetitions += 1;
             status = 'review';
             break;
         case 'good':
             if (repetitions === 0) interval = 1;
-            else if (repetitions === 1) interval = 4;
-            else interval = Math.ceil(interval * ease_factor);
+            else if (repetitions === 1 && interval < 3) interval = 3;
+            else interval = Math.max(interval + 1, Math.ceil(interval * ease_factor * appliedModifier));
             repetitions += 1;
             status = 'review';
             break;
         case 'easy':
-            if (repetitions === 0) interval = 6;
-            else interval = Math.ceil(interval * ease_factor * 1.5);
+            if (repetitions === 0) interval = 4;
+            else if (repetitions === 1 && interval < 6) interval = 6;
+            else interval = Math.max(interval + 2, Math.ceil(interval * ease_factor * 1.3 * appliedModifier));
             ease_factor = Math.min(MAX_EASE, ease_factor + 0.15);
             repetitions += 1;
             status = 'mastered';
             break;
     }
 
-    if (interval > 0) interval = Math.max(1, Math.ceil(interval * modifier));
     if (rating === 'again') {
         nextReview = new Date(Date.now() + 10 * 60 * 1000);
     } else {
@@ -91,6 +95,9 @@ export const StudyFlashcards: React.FC = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({ front: '', back: '' });
+  const [editBackPreview, setEditBackPreview] = useState('');
+  const [editBackFile, setEditBackFile] = useState<File | null>(null);
+  const editBackImgRef = React.useRef<HTMLInputElement>(null);
   
   const [aiExplanation, setAiExplanation] = useState<string | null>(null);
   const [isExplaining, setIsExplaining] = useState(false);
@@ -345,20 +352,44 @@ export const StudyFlashcards: React.FC = () => {
   const currentCard = cards[currentIndex];
   const hasOcclusions = currentCard?.occlusions && currentCard.occlusions.length > 0;
 
-  const handleEditClick = () => {
+  const handleEditClick = async () => {
     setEditForm({ front: currentCard.front, back: currentCard.back });
+    setEditBackFile(null);
+    if (currentCard.back_image_url) {
+        const url = await mediaService.getImageUrl(currentCard.back_image_url);
+        setEditBackPreview(url);
+    } else {
+        setEditBackPreview('');
+    }
     setIsEditing(true);
     setShowMenu(false);
   };
 
+  const handleEditBackImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+        const file = e.target.files[0];
+        if (file.size > 5 * 1024 * 1024) return alert('Imagem muito grande. Máximo 5MB.');
+        setEditBackFile(file);
+        setEditBackPreview(URL.createObjectURL(file));
+    }
+  };
+
   const saveEdit = async () => {
     setIsTransitioning(true);
-    const updatedCard = { ...currentCard, front: editForm.front, back: editForm.back };
+    let finalBackUrl = currentCard.back_image_url || '';
+    if (editBackFile) {
+        finalBackUrl = await storageService.uploadImage(editBackFile, 'flashcards');
+        setCurrentBackImageUrl(editBackPreview);
+    } else if (!editBackPreview) {
+        finalBackUrl = '';
+        setCurrentBackImageUrl('');
+    }
+    const updatedCard = { ...currentCard, front: editForm.front, back: editForm.back, back_image_url: finalBackUrl };
     await syncEngine.enqueue('flashcards', updatedCard as any);
     
     // Update local state without refreshing everything
     const newCards = [...cards];
-    newCards[currentIndex] = updatedCard;
+    newCards[currentIndex] = updatedCard as any;
     setCards(newCards);
     
     setIsEditing(false);
@@ -369,11 +400,28 @@ export const StudyFlashcards: React.FC = () => {
     <div className="fixed inset-0 bg-slate-50 dark:bg-black z-[100] flex flex-col overflow-hidden">
         {isEditing && (
             <div className="fixed inset-0 bg-black/60 z-[200] flex items-center justify-center p-4">
-                <div className="bg-white dark:bg-zinc-900 rounded-2xl w-full max-w-lg p-6 shadow-xl flex flex-col">
+                <div className="bg-white dark:bg-zinc-900 rounded-2xl w-full max-w-lg p-6 shadow-xl flex flex-col max-h-[90vh] overflow-y-auto">
                     <h3 className="font-black mb-4">Editar Flashcard</h3>
-                    <textarea value={editForm.front} onChange={e => setEditForm({...editForm, front: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-xl p-3 mb-3 min-h-[100px] text-sm" placeholder="Frente do Flashcard" />
-                    <textarea value={editForm.back} onChange={e => setEditForm({...editForm, back: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-xl p-3 mb-4 min-h-[100px] text-sm" placeholder="Verso do Flashcard (Gabarito)" />
-                    <div className="flex gap-2 justify-end">
+                    <textarea value={editForm.front} onChange={e => setEditForm({...editForm, front: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-xl p-3 mb-3 min-h-[80px] text-sm" placeholder="Frente do Flashcard" />
+                    <textarea value={editForm.back} onChange={e => setEditForm({...editForm, back: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-xl p-3 mb-4 min-h-[80px] text-sm" placeholder="Verso do Flashcard (Gabarito)" />
+                    
+                    <div className="mb-4">
+                        <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Imagem de Resposta</label>
+                        {editBackPreview ? (
+                            <div className="relative rounded-xl border border-slate-200 dark:border-zinc-800 flex items-center justify-center p-2">
+                                <img src={editBackPreview} className="max-h-[120px] object-contain rounded-lg" />
+                                <button onClick={() => { setEditBackFile(null); setEditBackPreview(''); }} className="absolute top-1 right-1 bg-red-600 text-white p-1 rounded shadow-lg"><X className="h-3 w-3" /></button>
+                            </div>
+                        ) : (
+                            <div onClick={() => editBackImgRef.current?.click()} className="bg-slate-50 dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 p-4 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-primary transition-all">
+                                <input type="file" ref={editBackImgRef} className="hidden" accept="image/*" onChange={handleEditBackImageChange} />
+                                <ImagePlus className="h-6 w-6 text-slate-300 mb-1" />
+                                <p className="text-[9px] font-black uppercase text-slate-400">Anexar Mídia</p>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="flex gap-2 justify-end mt-2">
                         <button onClick={() => setIsEditing(false)} className="px-4 py-2 rounded-xl text-slate-500 font-bold text-xs uppercase">Cancelar</button>
                         <button onClick={saveEdit} className="px-4 py-2 bg-primary text-white rounded-xl font-bold text-xs uppercase">Salvar Alterações</button>
                     </div>

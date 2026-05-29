@@ -277,7 +277,7 @@ export const Flashcards: React.FC = () => {
                   back: c.back,
                   category: genCategory || 'Sem Categoria',
                   bank_name: genBankName || 'Principal',
-                  status: 'new',
+                  status: 'learning',
                   interval: 0,
                   ease_factor: 2.5,
                   repetitions: 0,

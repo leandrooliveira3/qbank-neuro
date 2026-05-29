@@ -158,7 +158,7 @@ export const PracticeSession: React.FC = () => {
     try {
       const data = await generateFlashcardFromQuestion(currentQ.statement, currentQ.explanation);
       await syncEngine.enqueue('flashcards', {
-        id: crypto.randomUUID(), user_id: user.id, front: data.front, back: data.back, front_image_url: currentQ.statement_image_url, category: currentQ.category, bank_name: 'IA Reforço', status: 'new', interval: 0, ease_factor: 2.5, repetitions: 0, next_review: new Date().toISOString(), created_at: new Date().toISOString()
+        id: crypto.randomUUID(), user_id: user.id, front: data.front, back: data.back, front_image_url: currentQ.statement_image_url, category: currentQ.category, bank_name: 'IA Reforço', status: 'learning', interval: 0, ease_factor: 2.5, repetitions: 0, next_review: new Date().toISOString(), created_at: new Date().toISOString()
       });
       setFlashcardGenerated(true);
     } catch (e) { console.error(e); } finally { setGeneratingFlashcard(false); }
