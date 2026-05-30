@@ -55,21 +55,23 @@ serve(async (req) => {
     let finalInstruction = "";
 
     if (sourceType === 'exam') {
-        finalInstruction = `ATUE COMO: Um motor de OCR e Extração de Estrutura de Provas de Alta Precisão. 
+        finalInstruction = `Você é um motor de digitalização ultra-preciso (OCR) focado em estruturação de provas. MANTENHA A ORDEM EXATA DAS QUESTÕES.
         
-        REGRA CRÍTICA DE CONTEXTO E CONSISTÊNCIA: 
-        - Você deve detectar descrições de "Casos Clínicos" que precedem uma ou mais perguntas. 
-        - O texto do caso clínico DEVE ser incorporado ao enunciado de cada pergunta que se refere a ele.
-        - Não retorne apenas a pergunta final. Una o contexto à pergunta.
-        - GABARITO: O valor do campo "gabarito" (Ex: "A", "B", "C", "D" ou "E") deve ser OBRIGATORIAMENTE a mesma letra que o campo "comentario" indica como correta. NUNCA gere "gabarito": "E" se o comentário diz que a correta é "B". Revise a prova textual se necessário.
-        
-        DIRETRIZ DE FRAGMENTAÇÃO:
-        - Se encontrar apenas o FINAL de uma questão, IGNORE-A.
-        - Extraia apenas questões com ENUNCIADO COMPLETO neste bloco.`;
+        REGRAS CRÍTICAS DE EXTRAÇÃO:
+        1. EXTRAÇÃO EXAUSTIVA E FIDELIDADE: Percorra o texto fornecido e extraia TODAS AS QUESTÕES PRESENTES, sem resumir, pular ou inventar. Nunca crie opções onde não existam. Apenas transcreva de forma estruturada.
+        2. CASOS CLÍNICOS E TEXTOS-BASE: Textos de apoio que precedem perguntas DEVEM ser incluídos no início do \`enunciado\` de TODAS as questões relacionadas a ele. Não deixe a questão sem contexto.
+        3. EXATIDÃO DO GABARITO: O valor do campo "gabarito" (Ex: "A") deve bater perfeitamente com a lógica e com o "comentario" gerado. Se o texto não fornecer gabarito, crie o comentário com a resolução correta e defina o gabarito.
+        4. IMAGENS OBRIGATÓRIAS (TAG): Sempre que o enunciado de uma questão mencionar palavras como "figura", "imagem", "tabela", "gráfico", "achados", "ressonância", "eco", ou for impossível resolvê-la sem um anexo visual, você DEVE OBRIGATORIAMENTE INCLUIR A STRING "[ANEXAR_IMAGEM_MANUAL]" no FINAL DO TEXTO DO CAMPO \`comentario\`.
+        5. RECORTES (OPCIONAL): Se você identificar o 'indice_imagem_referencia' correspondente, preencha as variáveis de recorte ('coordenadas_recorte'). No entanto, A TAG "[ANEXAR_IMAGEM_MANUAL]" deve ir pro comentário independentemente.`;
     } else {
-        finalInstruction = `ATUE COMO: Banca Examinadora Médica de Especialidade. Crie ${targetCount} questões inéditas de alto nível baseadas no conteúdo fornecido.
-        
-        REGRA DE CONSISTÊNCIA ABSOLUTA: O campo "gabarito" DEVE refletir perfeitamente a alternativa indicada como correta no campo "comentario". Nunca crie um gabarito contraditório.`;
+        finalInstruction = `Você é uma Banca Examinadora Médica de Especialidade de Alto Nível (padrão Residência Médica).
+        SEU OBJETIVO: Criar EXATAMENTE ${targetCount} questões inéditas, baseadas EXCLUSIVAMENTE no conteúdo teórico anexado.
+
+        REGRAS ABSOLUTAS:
+        1. CUMPRA A COTA: O array de saída do JSON deve ter RIGOROSAMENTE tamanho igual a ${targetCount}.
+        2. QUALIDADE E PRECISÃO: Use casos clínicos formulados a partir do texto quando possível. As alternativas devem ser plausíveis.
+        3. GABARITO PERFEITO: O 'gabarito' deve ser a mesma letra afirmada como correta no 'comentario'.
+        4. USO DE IMAGENS: Se no texto-base houver descrições de imagens e você criar um caso baseado nisso que exigiria a visualização dessa figura pelo aluno, ADICIONE A TAG "[ANEXAR_IMAGEM_MANUAL]" NO FINAL DO SEU \`comentario\`.`;
     }
 
     const response = await ai.models.generateContent({

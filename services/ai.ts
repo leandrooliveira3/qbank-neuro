@@ -83,23 +83,24 @@ export const processFileQuestions = async (
     sourceType: 'exam' | 'study' = 'exam'
 ): Promise<AIImportedQuestion[]> => {
   const prompt = `
-    Analise o conteúdo abaixo e processe as questões conforme solicitado.
-    Modo: ${mode} (extract = cópia fiel absoluta do que está no documento, sem resumos; generate = criação baseada no contexto).
-    Tipo: ${sourceType} (exam = EXTRAÇÃO EXATA, você deve extrair as questões palavra por palavra. study = criar questões).
+    Analise o conteúdo abaixo e processe as questões rigorosamente conforme solicitado.
+    Modo: ${mode} (extract = CÓPIA CIRÚRGICA ABSOLUTA E TOTAL, sem pular ou resumir DE FORMA ALGUMA; generate = criação didática e inteligente baseada ESPECIFICAMENTE no conteúdo fornecido).
+    Tipo: ${sourceType} (exam = EXTRAÇÃO ESTRUTURAL COMPLETÍSSIMA DA PROVA. study = criação rigorosa da EXATA quantidade de questões requisitadas).
     
-    ${customPrompt ? `Instrução adicional do usuário: ${customPrompt}` : ''}
+    ${customPrompt ? `Instrução adicional do usuário: "${customPrompt}"` : ''}
     
-    Conteúdo:
+    Conteúdo Original:
     ${fullContent}
     
-    REGRAS CRÍTICAS PARA TIPO EXAM (EXTRAÇÃO DE PROVA):
-    1. Nunca omita o número da questão no enunciado original, caso ele exista.
-    2. Nunca mude ou resuma as alternativas. Elas devem ser copiadas EXATAMENTE como estão (apenas remova o prefixo 'A)', 'B)' se quiser, mas mantenha o texto fiel).
-    3. Retorne todas as questões conforme instruído pelo bloco [INSTRUÇÃO] dentro do Conteúdo.
-    4. OBRIGATÓRIO: O campo "gabarito" DEVE refletir perfeitamente a alternativa que está sendo apontada como correta no comentário ou inferida por você. Jamais gere um JSON onde o "gabarito" é uma letra e a justificação defende outra.
+    REGRAS CRÍTICAS INEGOCIÁVEIS:
+    1. EXAUSTÃO NUMÉRICA: NUNCA pule ou omita nenhuma questão. Extraia ABSOLUTAMENTE TODAS as questões indicadas no conteúdo. Retenha o prefixo original da numeração no corpo da questão.
+    2. FIDELIDADE CONTEXTUAL: Textos de apoio que servem de base para respostas DEVEM ser unidos ao topo do \`enunciado\` de todas as questões dependentes.
+    3. EXATIDÃO DO GABARITO: O valor final do campo "gabarito" DEVE referenciar a exata alternativa correta apontada no "comentario". Não crie gabaritos incoerentes que contrariam sua própria análise.
+    4. NÃO INVENTE: Em modo 'extract', não extraia "falsas questões", apenas identifique as perguntas genuínas. As alternativas devem constar EXATAMENTE do jeito original, mas você pode abstrair as letras avulsas \`A), B)\` e guardar a alternativa no array.
+    5. IDENTIFICAÇÃO VISUAL ABSOLUTA (TAG): Sempre que o corpo da questão, do texto-base (enunciado completo) exigir que o usuário analise criticamente alguma "imagem", "tabela", "gráfico", "ressonância" e for imprescindível pra responder, VOCÊ É OBRIGADO a gravar a string literal "[ANEXAR_IMAGEM_MANUAL]" NO FINAL EXATO da resposta text do seu campo de \`comentario\`. Isso avisará o sistema.
     
     Retorne APENAS um array JSON válido e estrito no formato abaixo (sem markdown adicional):
-    [{ "enunciado": "texto com a formatação original", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação breve ou tire do gabarito oficial se houver. Se não houver palpite a reposta correta ou deixe vazio", "categoria": "neuro", "subcategoria": "subtema", "dificuldade": "Médio", "tags": ["tag1"] }]
+    [{ "enunciado": "texto completo e denso incluindo o caso de introdução", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "Justificativa lógica forte. Se a imagem é cobrada: ... [ANEXAR_IMAGEM_MANUAL]", "categoria": "C1", "subcategoria": "S1", "dificuldade": "Médio", "tags": ["t1"] }]
   `;
 
   const contents: any[] = [prompt];

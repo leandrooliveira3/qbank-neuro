@@ -72,19 +72,20 @@ export class QuestionOrchestrator {
         const pageStr = textContent.items.map((item: any) => item.str).join(' ');
 
         let instruction = options.sourceType === 'study' ?
-            `[INSTRUÇÃO: Se esta página contiver apenas referências bibliográficas, bibliografia, índice ou lista de autores, retorne um array vazio []. Caso contrário, gere EXATAMENTE ${questionsPerPage ?? 3} questão(ões) de múltipla escolha sobre o conteúdo clínico desta página. Não gere mais nem menos do que o número solicitado.]` :
-            `[INSTRUÇÃO: ATUE COMO UM EXTRATOR CIRÚRGICO DE PDF EM ALTA PRECISÃO.
-            Sua missão é extrair TODAS as questões que COMECEM na [PÁGINA ATUAL: ${i}].
+            `[INSTRUÇÃO ABSOLUTA: Se a página contiver apenas bibliografia, capa ou sumário, retorne []. Caso contrário, gere rigorosamente EXATAMENTE ${questionsPerPage ?? 3} questão(ões) de múltipla escolha BASEADAS NESTA PÁGINA.
+            REGRAS OBRIGATÓRIAS:
+            1. NÃO INVENTE. Só faça perguntas cuja resposta está no texto/imagem fornecidos.
+            2. TAG DE IMAGEM: Se a questão exige que o aluno veja a figura para poder responder, VOCÊ DEVE digitar "[ANEXAR_IMAGEM_MANUAL]" no final da string \`comentario\`.]` :
+            `[INSTRUÇÃO ABSOLUTA: EXTRATOR CIRÚRGICO - EXTRAÇÃO COMPLETA
+            Sua missão é extrair TODAS e SOMENTE as questões que INICIAM na [PÁGINA ATUAL: ${i}].
             
             DIRETRIZES DE OURO:
-            1. NÃO PULE NENHUMA QUESTÃO. Se a questão "X" começa nesta página, ela DEVE ser extraída agora.
-            2. MANTENHA A ORDEM: Extraia na exata sequência em que aparecem.
-            3. TRATAMENTO DE QUEBRAS: Se uma questão começar na PÁGINA ATUAL mas for interrompida, use o conteúdo da [PÁGINA SEGUINTE] para completá-la INTEGRALMENTE aqui mesmo.
-            4. EVITE DUPLICIDADE: Uma questão deve ser extraída APENAS na fase referente à página onde seu enunciado começa. Não a repita na próxima fase se ela for apenas a continuação.
-            5. FIDELIDADE ABSOLUTA: Não resuma enunciados ou alternativas. Mantenha os números das questões (ex: "Questão 1: ...").
-            6. IDENTIFICAÇÃO DE FIM DE PROVA: Se a página contiver gabaritos ou lista de bibliografia, ignore-os a menos que contenham questões.
-            
-            Retorne o resultado em um Array JSON. Se nenhuma questão INICIAR nesta página, retorne [].]`;
+            1. RECONHECIMENTO DE PADRÕES: Extraia a questão COM TODAS AS ALTERNATIVAS, não importa o número, não pule questões.
+            2. INTEGRIDADE DA QUESTÃO: Se a questão INICIA na PÁGINA ATUAL e terminar na SEGUINTE, junte os textos e retorne COMPLETO.
+            3. SEM DUPLICAÇÃO E SEM INVENÇÃO: Não complete com questões que não estão aí, transcreva-as puras e completas.
+            4. IMAGEM: OBRIGATORIAMENTE digite "[ANEXAR_IMAGEM_MANUAL]" no FINAL DO TEXTO em \`comentario\` para CADA questão que tiver figura referenciada no enunciado ("veja figura 1").
+            5. GABARITO E CONTEXTO: Enunciados com casos clínicos genéricos devem receber o caso em seu corpo. Retorne [] se não houver questão iniciando aqui.
+            6. MANTENHA O NÚMERO ORIGINAL DA QUESTÃO NO ENUNCIADO.]`;
 
         let contentPayload = `${instruction}\n\n[PÁGINA ATUAL: ${i} de ${totalPages}]\n${pageStr}`;
         const imagesPayload: string[] = [];
