@@ -149,20 +149,37 @@ export const ImportQuestions: React.FC = () => {
           try {
               const existing = await localDB.getAll('questions');
               const myExisting = existing.filter(q => q.created_by === user.id);
-              const existingTexts = new Set(myExisting.map(q => 
-                  q.statement.toLowerCase().replace(/[\s\t\n\r\W_]/g, '').substring(0, 150)
-              ));
+              
+              const normalizeStr = (s: string) => (s || '').toLowerCase().replace(/[\s\t\n\r\W_]/g, '');
+              
+              const existingHashes = new Set(myExisting.map(q => {
+                  const s = normalizeStr(q.statement);
+                  const alts = normalizeStr((q.options || []).join(''));
+                  return s.slice(-70) + '-' + alts.slice(0, 50);
+              }));
               
               const currentResults = useImportStore.getState().results;
               if (currentResults.length === 0) return; // Aborta se já foi limpo
 
               let removed = 0;
+              const seenInCurrent = new Set<string>();
+
               const unique = currentResults.filter(q => {
-                  const fp = q.enunciado.toLowerCase().replace(/[\s\t\n\r\W_]/g, '').substring(0, 150);
-                  if (existingTexts.has(fp)) {
+                  const s = normalizeStr(q.enunciado);
+                  const alts = normalizeStr((q.alternativas || []).join(''));
+                  const hash = s.slice(-70) + '-' + alts.slice(0, 50);
+                  
+                  if (existingHashes.has(hash)) {
                       removed++;
                       return false;
                   }
+                  
+                  if (seenInCurrent.has(hash)) {
+                      removed++;
+                      return false;
+                  }
+                  
+                  seenInCurrent.add(hash);
                   return true;
               });
 

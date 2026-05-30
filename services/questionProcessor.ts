@@ -100,11 +100,11 @@ export class QuestionOrchestrator {
             imagesPayload.push(canvas.toDataURL('image/jpeg', 0.6).split(',')[1]);
         }
 
-        if (i < totalPages && !this.isCancelled) {
+        if (i < totalPages && !this.isCancelled && options.sourceType === 'exam') {
             const nextPage = await pdf.getPage(i + 1);
             const nextTextContent = await nextPage.getTextContent();
             const nextStr = nextTextContent.items.map((item: any) => item.str).join(' ');
-            contentPayload += `\n\n[PÁGINA SEGUINTE (APENAS PARA CONTEXTO/RECONSTRUÇÃO): ${i + 1}]\n${nextStr}`;
+            contentPayload += `\n\n[PÁGINA SEGUINTE (SOMENTE PARA CONTINUAÇÃO DE TEXTO CORTADO): ${i + 1}]\n${nextStr}`;
 
             const nextViewport = nextPage.getViewport({ scale: 1.0 });
             const nextCanvas = document.createElement('canvas');
