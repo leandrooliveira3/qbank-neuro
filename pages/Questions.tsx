@@ -249,9 +249,13 @@ export const Questions: React.FC = () => {
                           
                           {expandedId === q.id && (
                               <div className="mt-8 pt-8 border-t border-slate-50 dark:border-zinc-900 space-y-6 animate-in fade-in">
-                                  {q.statement_image_url && (
-                                      <div className="rounded-2xl overflow-hidden border-2 bg-black w-full flex items-center justify-center max-h-[600px] shadow-sm">
-                                          <SmartImage url={q.statement_image_url} alt="Exame" className="max-w-full max-h-full object-contain" />
+                                  {(q.statement_image_urls || (q.statement_image_url ? [q.statement_image_url] : [])).length > 0 && (
+                                      <div className="flex flex-col gap-2 w-full">
+                                          {(q.statement_image_urls || (q.statement_image_url ? [q.statement_image_url] : [])).map((url, imgIdx) => (
+                                              <div key={imgIdx} className="rounded-2xl overflow-hidden border-2 bg-black w-full flex items-center justify-center max-h-[600px] shadow-sm">
+                                                  <SmartImage url={url} alt="Exame" className="max-w-full max-h-full object-contain" />
+                                              </div>
+                                          ))}
                                       </div>
                                   )}
                                   <div className="space-y-2">

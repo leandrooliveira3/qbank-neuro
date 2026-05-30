@@ -256,9 +256,13 @@ export const PracticeSession: React.FC = () => {
                         <span className="text-[0.5em] font-bold text-slate-400 uppercase tracking-widest">{currentQ.difficulty}</span>
                     </div>
 
-                    {currentQ.statement_image_url && (
-                        <div className="mb-6 rounded-2xl overflow-hidden border border-slate-100 dark:border-zinc-800 bg-black flex justify-center max-h-[400px]">
-                             <SmartImage url={currentQ.statement_image_url} alt="Caso" className="max-w-full max-h-[400px] object-contain" />
+                    {(currentQ.statement_image_urls || (currentQ.statement_image_url ? [currentQ.statement_image_url] : []))?.length > 0 && (
+                        <div className="mb-6 flex flex-col gap-2">
+                             {(currentQ.statement_image_urls || (currentQ.statement_image_url ? [currentQ.statement_image_url] : [])).map((url, i) => (
+                                 <div key={i} className="rounded-2xl overflow-hidden border border-slate-100 dark:border-zinc-800 bg-black flex justify-center max-h-[400px]">
+                                      <SmartImage url={url} alt={`Caso ${i+1}`} className="max-w-full max-h-[400px] object-contain" />
+                                 </div>
+                             ))}
                         </div>
                     )}
 

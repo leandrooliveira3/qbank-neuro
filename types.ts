@@ -67,6 +67,7 @@ export interface Question {
   }[];
   explanation: string;
   statement_image_url?: string;
+  statement_image_urls?: string[];
   explanation_image_url?: string;
   tags: string[];
   reference?: string;
@@ -135,7 +136,9 @@ export interface AIImportedQuestion {
   visual_element_id?: string;
   legenda_imagem?: string; // Novo Campo
   _tempFile?: File;
+  _tempFiles?: File[];
   _tempUrl?: string;
+  _tempUrls?: string[];
 }
 
 export interface DashboardStats {

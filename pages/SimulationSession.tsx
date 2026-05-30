@@ -233,9 +233,13 @@ export const SimulationSession: React.FC = () => {
                         </div>
                     )}
                     
-                    {currentQ?.statement_image_url && (
-                        <div className="mb-6 rounded-2xl overflow-hidden border-2 border-slate-100 dark:border-zinc-800 bg-slate-50 dark:bg-black shadow-sm mx-auto max-w-full">
-                            <SmartImage url={currentQ.statement_image_url} alt="Referência" className="w-full max-h-[380px] object-contain bg-white dark:bg-black" />
+                    {(currentQ?.statement_image_urls || (currentQ?.statement_image_url ? [currentQ.statement_image_url] : []))?.length > 0 && (
+                        <div className="mb-6 flex flex-col gap-2">
+                            {(currentQ?.statement_image_urls || (currentQ?.statement_image_url ? [currentQ.statement_image_url] : [])).map((url, i) => (
+                                <div key={i} className="rounded-2xl overflow-hidden border-2 border-slate-100 dark:border-zinc-800 bg-slate-50 dark:bg-black shadow-sm mx-auto max-w-full">
+                                    <SmartImage url={url} alt={`Referência ${i+1}`} className="w-full max-h-[380px] object-contain bg-white dark:bg-black" />
+                                </div>
+                            ))}
                         </div>
                     )}
                     

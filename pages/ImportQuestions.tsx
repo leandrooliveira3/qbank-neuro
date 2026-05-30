@@ -91,7 +91,7 @@ export const ImportQuestions: React.FC = () => {
   };
 
   // States para upload manual de imagem na revisão
-  const [manualImageMap, setManualImageMap] = useState<Record<number, File>>({});
+  const [manualImageMap, setManualImageMap] = useState<Record<number, File[]>>({});
   const manualImageInputRef = useRef<HTMLInputElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number | null>(null);
 
@@ -348,13 +348,29 @@ export const ImportQuestions: React.FC = () => {
       for (let i = 0; i < results.length; i++) {
         const q = results[i];
         
-        let imageUrl = q.imagem || '';
-        const manualFile = manualImageMap[i];
+        const manualFiles = manualImageMap[i] || [];
+        const uploadedUrls: string[] = [];
         
-        if (manualFile) {
-            imageUrl = await storageService.uploadImage(manualFile, 'questions');
-        } else if (imageUrl && imageUrl.startsWith('data:')) {
-            imageUrl = await storageService.uploadBase64(imageUrl.split(',')[1], 'questions');
+        for (const f of manualFiles) {
+             uploadedUrls.push(await storageService.uploadImage(f, 'questions'));
+        }
+        
+        const tempUrls = q._tempUrls || (q.imagem ? [q.imagem] : []);
+        for (const url of tempUrls) {
+           if (url && url.startsWith('data:')) {
+               // Base64 urls that might not be in manualFiles. If we used manualFiles, let's just rely on uploadedUrls. 
+               // Actually, it's safer to just upload whatever is in `_tempUrls` if manualFiles doesn't match?
+               // Wait, `manualFiles` and `_tempUrls` are aligned in our current setup. 
+               // We can just rely on `manualFiles`. But what if there are no manual files (e.g. from an AI generation)?
+               // Our AI doesn't return base64 images anyway. Let's just use uploadedUrls.
+           }
+        }
+        // Let's just store all URLs in statement_image_urls. We'll extract the first for statement_image_url for backwards compatibility.
+        // Wait, if q.imagem is present and we don't upload it? Let's handle q.imagem as well just in case.
+        if (!manualFiles.length && q.imagem && q.imagem.startsWith('data:')) {
+            uploadedUrls.push(await storageService.uploadBase64(q.imagem.split(',')[1], 'questions'));
+        } else if (q.imagem && !q.imagem.startsWith('data:')) {
+            uploadedUrls.push(q.imagem);
         }
 
         const gabaritoText = String(q.gabarito || 'A').trim();
@@ -382,7 +398,8 @@ export const ImportQuestions: React.FC = () => {
           difficulty: normalizeDifficulty(q.dificuldade), 
           statement: q.enunciado,
           explanation: cleanComment,
-          statement_image_url: imageUrl, 
+          statement_image_url: uploadedUrls.length > 0 ? uploadedUrls[0] : undefined, 
+          statement_image_urls: uploadedUrls.length > 0 ? uploadedUrls : undefined,
           created_by: user.id, 
           created_at: createdAt.toISOString(), 
           updated_at: createdAt.toISOString(),
@@ -413,14 +430,25 @@ export const ImportQuestions: React.FC = () => {
         <input type="file" ref={manualImageInputRef} className="hidden" accept="image/*" onChange={(e) => {
             const file = e.target.files?.[0];
             if (file && currentImageIndex !== null) {
-                setManualImageMap(prev => ({ ...prev, [currentImageIndex]: file }));
+                setManualImageMap(prev => {
+                    const arr = prev[currentImageIndex] || [];
+                    if (arr.length < 4) return { ...prev, [currentImageIndex]: [...arr, file] };
+                    return prev;
+                });
                 const reader = new FileReader();
                 reader.onload = (ev) => {
                     const result = ev.target?.result as string;
-                    if (result) updateResult(currentImageIndex, { ...results[currentImageIndex], imagem: result });
+                    if (result) {
+                        const current = results[currentImageIndex];
+                        const urls = current._tempUrls || (current.imagem ? [current.imagem] : []);
+                        if (urls.length < 4) {
+                            updateResult(currentImageIndex, { ...current, _tempUrls: [...urls, result] });
+                        }
+                    }
                 };
                 reader.readAsDataURL(file);
             }
+            e.target.value = '';
         }} />
 
         <input type="file" ref={manualInputFileRef} className="hidden" accept="image/*" onChange={(e) => {
@@ -529,7 +557,27 @@ export const ImportQuestions: React.FC = () => {
                                         <button onClick={() => removeResult(i)} className="p-1 text-slate-300 hover:text-red-500"><Trash2 className="h-3.5 w-3.5"/></button>
                                     </div>
                                 </div>
-                                {q.imagem && <div className="ml-2 mb-2 w-32 h-32 rounded-lg overflow-hidden border border-slate-200 relative group/img"><img src={q.imagem} alt="" className="w-full h-full object-cover" /><button onClick={() => updateResult(i, {...q, imagem: undefined})} className="absolute top-1 right-1 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover/img:opacity-100 transition-opacity"><X className="h-3 w-3" /></button></div>}
+                                {(q._tempUrls || (q.imagem ? [q.imagem] : []))?.length > 0 && (
+                                    <div className="ml-2 mb-2 flex flex-wrap gap-2">
+                                        { (q._tempUrls || (q.imagem ? [q.imagem] : [])).map((imgBase64, imgIdx) => (
+                                            <div key={imgIdx} className="w-32 h-32 rounded-lg overflow-hidden border border-slate-200 relative group/img">
+                                                <img src={imgBase64} alt="" className="w-full h-full object-cover" />
+                                                <button onClick={() => {
+                                                    const urls = [...(q._tempUrls || (q.imagem ? [q.imagem] : []))];
+                                                    urls.splice(imgIdx, 1);
+                                                    setManualImageMap(prev => {
+                                                        const arr = [...(prev[i] || [])];
+                                                        if (imgIdx < arr.length) arr.splice(imgIdx, 1);
+                                                        return {...prev, [i]: arr};
+                                                    });
+                                                    updateResult(i, {...q, _tempUrls: urls, imagem: urls.length > 0 ? urls[0] : undefined});
+                                                }} className="absolute top-1 right-1 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover/img:opacity-100 transition-opacity">
+                                                    <X className="h-3 w-3" />
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                                 <p className="text-xs font-bold text-slate-800 dark:text-white leading-relaxed whitespace-pre-wrap ml-2 text-justify">{q.enunciado}</p>
                                 <div className="space-y-1 pl-4 border-l border-slate-100 dark:border-zinc-800 ml-2">
                                     {(q.alternativas || []).map((alt, idx) => (
