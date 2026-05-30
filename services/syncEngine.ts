@@ -37,7 +37,7 @@ class SyncEngine {
   constructor() {
     if (typeof window !== 'undefined') {
         this.syncInterval = window.setInterval(() => {
-            if (document.hasFocus()) this.startSync(false, false);
+            if (document.hasFocus()) this.startSync(false, true);
         }, 120000);
 
         // Setup Realtime Broadcast for Cross-Device Sync
@@ -61,12 +61,38 @@ class SyncEngine {
       return did;
   }
 
+  isUserInActiveActivity(): boolean {
+    if (typeof window === 'undefined') return false;
+    const hash = window.location.hash || '';
+    
+    // Answering questions (realizando questões)
+    if (hash.includes('/practice/session')) return true;
+    
+    // Studying flashcards (flashcards)
+    if (hash.includes('/flashcards/study')) return true;
+    
+    // Simulated exams (simulados)
+    if (hash.includes('/simulations/session')) return true;
+    
+    // Watching videos (vendo videos)
+    if (hash.includes('/videos') && ((window as any).neuro_active_video === true || (window as any).neuro_video_playing === true)) {
+      return true;
+    }
+    
+    return false;
+  }
+
   setListener(callback: (status: SyncStatus) => void) {
     this.onStatusChange = callback;
   }
 
   async startSync(force = false, pull = true) {
     if (this.isSyncing || !navigator.onLine) return;
+
+    if (this.isUserInActiveActivity()) {
+      console.log('[Sync] Synchronization suspended to prevent freezing/lag during active activity.');
+      return;
+    }
     
     const queueLength = await this.getQueueLength();
     if (queueLength === 0 && !force && Math.random() > 0.3) return; 
@@ -235,21 +261,21 @@ class SyncEngine {
     if (action === 'delete') await localDB.delete(table, data.id);
     else await localDB.put(table, data);
     await localDB.put('sync_queue', { id: generateId(), table, data, action, timestamp: new Date().toISOString() });
-    if (navigator.onLine) setTimeout(() => this.startSync(false, false), 1000);
+    if (navigator.onLine) setTimeout(() => this.startSync(false, true), 1000);
   }
 
   async bulkEnqueue(table: string, items: any[]) {
     await localDB.bulkPut(table, items);
     const syncItems = items.map(d => ({ id: generateId(), table, data: d, action: 'upsert', timestamp: new Date().toISOString() }));
     await localDB.bulkPut('sync_queue', syncItems);
-    if (navigator.onLine) setTimeout(() => this.startSync(false, false), 1000);
+    if (navigator.onLine) setTimeout(() => this.startSync(false, true), 1000);
   }
 
   async bulkDelete(table: string, items: any[]) {
     await localDB.bulkDelete(table, items.map(i => i.id));
     const syncItems = items.map(d => ({ id: generateId(), table, data: d, action: 'delete', timestamp: new Date().toISOString() }));
     await localDB.bulkPut('sync_queue', syncItems);
-    if (navigator.onLine) setTimeout(() => this.startSync(false, false), 1000);
+    if (navigator.onLine) setTimeout(() => this.startSync(false, true), 1000);
   }
 
   async getQueueLength() {

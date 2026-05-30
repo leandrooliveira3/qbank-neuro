@@ -138,6 +138,19 @@ export const Videos: React.FC = () => {
     // return () => window.removeEventListener('neuro_sync_completed', fn);
   }, [user?.id]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      (window as any).neuro_active_video = !!activeVideo;
+      (window as any).neuro_video_playing = isVideoPlaying;
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        (window as any).neuro_active_video = false;
+        (window as any).neuro_video_playing = false;
+      }
+    };
+  }, [activeVideo, isVideoPlaying]);
+
   // RESET TIMER & PLAY STATE ON VIDEO CHANGE
   useEffect(() => {
       if (activeVideo) {
