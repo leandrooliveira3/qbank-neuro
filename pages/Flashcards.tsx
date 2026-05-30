@@ -304,12 +304,21 @@ export const Flashcards: React.FC = () => {
     const cardToDelete = cards.find(c => c.id === id);
     if (!cardToDelete || !confirm("Excluir este flashcard?")) return;
     
+    // Optimistic remove
     setCards(prev => prev.filter(c => c.id !== id));
-    try {
-      await syncEngine.enqueue('flashcards', cardToDelete, 'delete');
-    } catch (err) {
-      loadCards();
-    }
+    
+    if (undoToast?.timer) clearTimeout(undoToast.timer);
+    
+    const newTimer = setTimeout(async () => {
+        setUndoToast(null);
+        try {
+            await syncEngine.enqueue('flashcards', cardToDelete, 'delete');
+        } catch (err) {
+            loadCards(); // fallback
+        }
+    }, 7000);
+    
+    setUndoToast({ timer: newTimer, items: [cardToDelete], message: `Flashcard removido.` });
   };
 
   const onFrontImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -425,33 +434,58 @@ export const Flashcards: React.FC = () => {
       return groups;
   }, [filteredCards]);
 
+  const [undoToast, setUndoToast] = useState<{ timer: any, items: Flashcard[], message: string } | null>(null);
+
   const handleDeleteFilteredFlashcards = async () => {
     if (!filteredCards.length || !confirm(`Excluir permanentemente todos os ${filteredCards.length} flashcards filtrados?`)) return;
     
-    setLoading(true);
-    try {
-      await syncEngine.bulkDelete('flashcards', filteredCards);
-      loadCards();
-    } catch (err: any) {
-        alert("Erro ao excluir: " + err.message);
-    } finally {
-        setLoading(false);
-    }
+    // Optimistic remove
+    setCards(prev => prev.filter(c => !filteredCards.find(fc => fc.id === c.id)));
+    
+    if (undoToast?.timer) clearTimeout(undoToast.timer);
+    
+    const itemsToDelete = [...filteredCards];
+    const newTimer = setTimeout(async () => {
+        setUndoToast(null);
+        try {
+            await syncEngine.bulkDelete('flashcards', itemsToDelete);
+        } catch (err: any) {
+            alert("Erro ao sincronizar exclusão: " + err.message);
+            loadCards(); // fallback
+        }
+    }, 7000);
+
+    setUndoToast({ timer: newTimer, items: itemsToDelete, message: `${itemsToDelete.length} flashcards removidos.` });
   };
 
   const handleDeleteCategory = async (category: string, items: Flashcard[], e: React.MouseEvent) => {
       e.stopPropagation();
-      if (!confirm(`Excluir permanentemente todos os ${items.length} flashcards da categoria "${category}"?`)) return;
+      if (!confirm(`Excluir ${items.length} flashcards da categoria "${category}"? (Você terá alguns segundos para desfazer)`)) return;
       
-      setLoading(true);
-      try {
-          await syncEngine.bulkDelete('flashcards', items);
-          loadCards();
-      } catch (err: any) {
-          alert("Erro ao excluir: " + err.message);
-      } finally {
-          setLoading(false);
-      }
+      // Optimistic remove
+      setCards(prev => prev.filter(c => !items.find(i => i.id === c.id)));
+      
+      if (undoToast?.timer) clearTimeout(undoToast.timer);
+      
+      const itemsToDelete = [...items];
+      const newTimer = setTimeout(async () => {
+          setUndoToast(null);
+          try {
+              await syncEngine.bulkDelete('flashcards', itemsToDelete);
+          } catch (err: any) {
+              alert("Erro ao sincronizar exclusão: " + err.message);
+              loadCards(); // fallback
+          }
+      }, 8000);
+
+      setUndoToast({ timer: newTimer, items: itemsToDelete, message: `Tema "${category}" removido.` });
+  };
+
+  const handleUndoDelete = () => {
+      if (!undoToast) return;
+      clearTimeout(undoToast.timer);
+      setCards(prev => [...prev, ...undoToast.items]);
+      setUndoToast(null);
   };
 
   const handleActivateCategory = async (category: string, items: Flashcard[], e: React.MouseEvent) => {
@@ -519,6 +553,14 @@ export const Flashcards: React.FC = () => {
 
   return (
     <Layout title="Estudo Ativo">
+      {undoToast && (
+          <div className="fixed bottom-6 right-6 lg:left-1/2 lg:-translate-x-1/2 lg:right-auto bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 p-4 pl-6 rounded-2xl shadow-2xl z-[300] flex items-center gap-6 animate-in slide-in-from-bottom-5 fade-in duration-300">
+              <div className="flex-1 text-xs font-bold">{undoToast.message}</div>
+              <button onClick={handleUndoDelete} className="bg-white/20 dark:bg-black/10 hover:bg-white/30 dark:hover:bg-black/20 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-widest flex items-center gap-2 transition-all active:scale-95">
+                  <Undo2 className="h-4 w-4" /> Desfazer
+              </button>
+          </div>
+      )}
       <div className="h-full flex flex-col space-y-4 overflow-hidden">
         {mode === 'list' ? (
           <>
