@@ -71,7 +71,7 @@ serve(async (req) => {
     const prompt = `Classifique estas questões na taxonomia de Neurologia:\n\n${JSON.stringify(promptData)}`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.5-flash-lite",
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,

@@ -23,7 +23,7 @@ serve(async (req) => {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.5-flash-lite",
       contents: [{ role: "user", parts: [{ text: `Resuma o seguinte conteúdo médico:\n\n${text.substring(0, 100000)}` }] }],
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,

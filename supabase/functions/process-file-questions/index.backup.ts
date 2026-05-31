@@ -61,7 +61,7 @@ serve(async (req) => {
     parts.push({ text: `INICIE O PROCESSAMENTO. Identifique cada item e mapeie as imagens radiológicas com coordenadas exatas. Instruções: ${customPrompt || 'Digitalização exaustiva'}` });
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.5-flash-lite",
       contents: [{ role: "user", parts }],
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,

@@ -47,7 +47,7 @@ serve(async (req) => {
     - REMOVA prefixos de letras (A, B, C...) do campo 'alternativas'. Deixe apenas o texto.`;
 
     const response = await ai.models.generateContent({
-      model: modelChoice || "gemini-3-flash-preview", 
+      model: modelChoice || "gemini-2.5-flash-lite", 
       contents: [{ 
         role: "user", 
         parts: [{ text: `Extraia questões deste texto:\n\n${content}` }] 
