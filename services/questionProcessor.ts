@@ -63,86 +63,69 @@ export class QuestionOrchestrator {
 
     store.startProcess(totalPages);
 
-    const BATCH_SIZE = 3;
-    for (let i = 1; i <= totalPages; i += BATCH_SIZE) {
+    const PAGES_PER_BATCH = 2; // Process 2 pages at a time to reduce calls and tokens
+    for (let i = 1; i <= totalPages; i += PAGES_PER_BATCH) {
         if (this.isCancelled) break;
 
-        const batchPromises: Promise<void>[] = [];
-        const batchResults: any[][] = [];
+        const endPage = Math.min(i + PAGES_PER_BATCH - 1, totalPages);
 
-        for (let j = 0; j < BATCH_SIZE && i + j <= totalPages; j++) {
-            const pageNum = i + j;
-            batchResults[j] = [];
-
-            batchPromises.push((async (index) => {
-                const page = await pdf.getPage(pageNum);
-                const textContent = await page.getTextContent();
-                const pageStr = textContent.items.map((item: any) => item.str).join(' ');
-
-                let instruction = options.sourceType === 'study' ?
-                    `[INSTRUÇÃO ABSOLUTA: Se a página contiver apenas bibliografia, capa ou sumário, retorne []. Caso contrário, gere rigorosamente EXATAMENTE ${questionsPerPage ?? 3} questão(ões) de múltipla escolha BASEADAS NESTA PÁGINA.
+        let instruction = options.sourceType === 'study' ?
+            `[INSTRUÇÃO ABSOLUTA: Se aplicável nas páginas ${i} a ${endPage}, gere rigorosamente EXATAMENTE ${questionsPerPage ?? 3} questão(ões) de múltipla escolha.
             REGRAS OBRIGATÓRIAS:
             1. NÃO INVENTE. Só faça perguntas cuja resposta está no texto/imagem fornecidos.
             2. TAG DE IMAGEM: Se a questão exige que o aluno veja a figura para poder responder, VOCÊ DEVE digitar "[ANEXAR_IMAGEM_MANUAL]" no final da string \`comentario\`.]` :
-                    `[INSTRUÇÃO ABSOLUTA: EXTRATOR CIRÚRGICO - EXTRAÇÃO COMPLETA
-            Sua missão é extrair TODAS e SOMENTE as questões que INICIAM na [PÁGINA ATUAL: ${pageNum}].
+            `[INSTRUÇÃO ABSOLUTA: EXTRATOR CIRÚRGICO - EXTRAÇÃO COMPLETA
+            Sua missão é extrair TODAS e SOMENTE as questões presentes nas PÁGINAS ${i} a ${endPage}.
             
             DIRETRIZES DE OURO:
-            1. RECONHECIMENTO DE PADRÕES: Extraia a questão COM TODAS AS ALTERNATIVAS, não importa o número, não pule questões.
-            2. INTEGRIDADE DA QUESTÃO: Se a questão INICIA na PÁGINA ATUAL e terminar na SEGUINTE, junte os textos e retorne COMPLETO.
-            3. SEM DUPLICAÇÃO E SEM INVENÇÃO: Não complete com questões que não estão aí, transcreva-as puras e completas.
-            4. IMAGEM: OBRIGATORIAMENTE digite "[ANEXAR_IMAGEM_MANUAL]" no FINAL DO TEXTO em \`comentario\` para CADA questão que tiver figura referenciada no enunciado ("veja figura 1").
-            5. GABARITO E CONTEXTO: Enunciados com casos clínicos genéricos devem receber o caso em seu corpo. Retorne [] se não houver questão iniciando aqui.
+            1. RECONHECIMENTO DE PADRÕES: Extraia a questão COM TODAS AS ALTERNATIVAS, não pule questões.
+            2. INTEGRIDADE DA QUESTÃO: Se a questão for cortada entre páginas, junte o texto.
+            3. SEM DUPLICAÇÃO E SEM INVENÇÃO.
+            4. IMAGEM: OBRIGATORIAMENTE digite "[ANEXAR_IMAGEM_MANUAL]" no FINAL DO TEXTO em \`comentario\` para CADA questão que tiver figura referenciada.
+            5. GABARITO E CONTEXTO: Enunciados com casos clínicos genéricos devem receber o caso em seu corpo. Retorne [] se não houver questão.
             6. MANTENHA O NÚMERO ORIGINAL DA QUESTÃO NO ENUNCIADO.]`;
 
-                let contentPayload = `${instruction}\n\n[PÁGINA ATUAL: ${pageNum} de ${totalPages}]\n${pageStr}`;
-                const imagesPayload: string[] = [];
+        let contentPayload = `${instruction}\n`;
+        const imagesPayload: string[] = [];
 
-                const viewport = page.getViewport({ scale: 1.5 });
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-                if (ctx) {
-                    await page.render({ canvasContext: ctx, viewport, canvas }).promise;
-                    imagesPayload.push(canvas.toDataURL('image/jpeg', 0.6).split(',')[1]);
-                }
+        for (let j = i; j <= endPage; j++) {
+            const page = await pdf.getPage(j);
+            const textContent = await page.getTextContent();
+            const pageStr = textContent.items.map((item: any) => item.str).join(' ');
+            
+            contentPayload += `\n[PÁGINA: ${j} de ${totalPages}]\n${pageStr}`;
 
-                if (pageNum < totalPages && !this.isCancelled && options.sourceType === 'exam') {
-                    const nextPage = await pdf.getPage(pageNum + 1);
-                    const nextTextContent = await nextPage.getTextContent();
-                    const nextStr = nextTextContent.items.map((item: any) => item.str).join(' ');
-                    contentPayload += `\n\n[PÁGINA SEGUINTE (SOMENTE PARA CONTINUAÇÃO DE TEXTO CORTADO): ${pageNum + 1}]\n${nextStr}`;
-
-                    const nextViewport = nextPage.getViewport({ scale: 1.0 });
-                    const nextCanvas = document.createElement('canvas');
-                    const nextCtx = nextCanvas.getContext('2d');
-                    nextCanvas.height = nextViewport.height;
-                    nextCanvas.width = nextViewport.width;
-                    if (nextCtx) {
-                        await nextPage.render({ canvasContext: nextCtx, viewport: nextViewport, canvas: nextCanvas }).promise;
-                        imagesPayload.push(nextCanvas.toDataURL('image/jpeg', 0.4).split(',')[1]);
-                    }
-                }
-
-                if (!this.isCancelled) {
-                    const questions = await this.callAiInternal(contentPayload, imagesPayload, `Pág ${pageNum}`, options, store, questionsPerPage);
-                    batchResults[index] = questions;
-                }
-            })(j));
+            const viewport = page.getViewport({ scale: 1.1 });
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            if (ctx) {
+                await page.render({ canvasContext: ctx, viewport, canvas }).promise;
+                // Reduces quality to drastically save tokens per image
+                imagesPayload.push(canvas.toDataURL('image/jpeg', 0.3).split(',')[1]);
+            }
         }
 
-        await Promise.all(batchPromises);
+        // Just append the next page's TEXT (no image) as context for cut-off questions
+        if (endPage < totalPages && !this.isCancelled && options.sourceType === 'exam') {
+            const nextPage = await pdf.getPage(endPage + 1);
+            const nextTextContent = await nextPage.getTextContent();
+            const nextStr = nextTextContent.items.map((item: any) => item.str).join(' ');
+            contentPayload += `\n\n[PÁGINA SEGUINTE (SOMENTE PARA CONTINUAÇÃO DE TEXTO CORTADO): ${endPage + 1}]\n${nextStr}`;
+        }
 
-        if (this.isCancelled) break;
+        if (!this.isCancelled) {
+            store.updateProgress(endPage, `Lendo páginas ${i}-${endPage}...`);
+            const qs = await this.callAiInternal(contentPayload, imagesPayload, `Págs ${i}-${endPage}`, options, store, questionsPerPage);
+            
+            if (this.isCancelled) break;
 
-        for (let j = 0; j < batchResults.length; j++) {
-            const qs = batchResults[j];
             if (qs && qs.length > 0) {
                 store.addResults(qs);
-                store.incrementProgress(`Pág ${i + j}: +${qs.length} questão(ões).`);
-            } else if (qs) {
-                store.incrementProgress(`Pág ${i + j}: Processada.`);
+                store.updateProgress(endPage, `Págs ${i}-${endPage}: +${qs.length} questão(ões).`);
+            } else {
+                store.updateProgress(endPage, `Págs ${i}-${endPage}: Processadas sem questões.`);
             }
         }
         
@@ -165,34 +148,19 @@ export class QuestionOrchestrator {
         ? (options.totalQuestionsTarget || 3)
         : undefined;
 
-    const BATCH_SIZE = 3;
-    for (let i = 0; i < totalChunks; i += BATCH_SIZE) {
+    for (let i = 0; i < totalChunks; i++) {
         if (this.isCancelled) break;
 
-        const batchPromises: Promise<void>[] = [];
-        const batchResults: any[][] = [];
-
-        for (let j = 0; j < BATCH_SIZE && i + j < totalChunks; j++) {
-            const chunkIndex = i + j;
-            batchResults[j] = [];
-            batchPromises.push((async (index) => {
-                const questions = await this.callAiInternal(chunks[chunkIndex], [], `Parte ${chunkIndex + 1}`, options, store, questionsPerChunk);
-                batchResults[index] = questions;
-            })(j));
-        }
-
-        await Promise.all(batchPromises);
-
+        store.updateProgress(i + 1, `Lendo Parte ${i + 1} de ${totalChunks}...`);
+        const qs = await this.callAiInternal(chunks[i], [], `Parte ${i + 1}`, options, store, questionsPerChunk);
+            
         if (this.isCancelled) break;
 
-        for (let j = 0; j < batchResults.length; j++) {
-            const qs = batchResults[j];
-            if (qs && qs.length > 0) {
-                store.addResults(qs);
-                store.incrementProgress(`Parte ${i + j + 1}: +${qs.length} questão(ões).`);
-            } else if (qs) {
-                store.incrementProgress(`Parte ${i + j + 1}: Processada.`);
-            }
+        if (qs && qs.length > 0) {
+            store.addResults(qs);
+            store.updateProgress(i + 1, `Parte ${i + 1}: +${qs.length} questão(ões).`);
+        } else {
+            store.updateProgress(i + 1, `Parte ${i + 1}: Processada sem questões.`);
         }
         
         await sleep(1000);
