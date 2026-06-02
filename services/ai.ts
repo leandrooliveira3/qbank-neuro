@@ -12,9 +12,9 @@ const questionSchema = {
     properties: {
       enunciado: { type: Type.STRING, description: "Texto da questão" },
       alternativas: { type: Type.ARRAY, items: { type: Type.STRING } },
-      dupla_checagem_factual: { type: Type.STRING, description: "Double-check: valide a veracidade da questão para evitar alucinações." },
+      dupla_checagem_factual: { type: Type.STRING, description: "Breve validação factual (max 2 frases) para garantir ausência de alucinações e gabarito correto." },
       gabarito: { type: Type.STRING, description: "Letra A, B, C, D ou E" },
-      comentario: { type: Type.STRING, description: "Explicação detalhada" },
+      comentario: { type: Type.STRING, description: "Explicação concisa (max 2 frases)" },
       categoria: { type: Type.STRING },
       subcategoria: { type: Type.STRING },
       dificuldade: { type: Type.STRING },
@@ -149,10 +149,12 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
   
   let loopCount = 0;
   const MAX_LOOPS = 20; // Safety stop to prevent infinite loops
+  let loopsWithoutProgress = 0;
 
   while (finalQuestions.length < expectedCount && loopCount < MAX_LOOPS) {
       const remainingTotal = expectedCount - finalQuestions.length;
       const batches: number[] = [];
+      const initialLength = finalQuestions.length;
       
       let tempRemaining = remainingTotal;
       while (tempRemaining > 0 && batches.length < CONCURRENCY) {
@@ -167,7 +169,7 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
 
       const batchPromises = batches.map(async (count, idx) => {
           const globalIdx = loopCount * CONCURRENCY + idx;
-          const fullPrompt = `${prompt}\n\nDIFERENCIAÇÃO DE LOTE: Este é o lote ${globalIdx + 1}. Diversifique as questões e não repita o que já foi focado. TUDO DEVE SER NOVO E INÉDITO.\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${count} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número.\n\nMECANISMO DE DOUBLE-CHECK: Antes de afirmar o gabarito ou gerar a questão, utilize o campo 'dupla_checagem_factual' para pensar passo a passo garantindo que o conhecimento é real, não sofrendo alucinação, certificando-se de que a resposta escolhida é inequivocadamente a correta.\n\nRetorne APENAS um array JSON válido com o seguinte formato exato para cada item: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "dupla_checagem_factual": "Passo-a-passo evitando alucinações", "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
+          const fullPrompt = `${prompt}\n\nDIFERENCIAÇÃO DE LOTE: Este é o lote ${globalIdx + 1}. Diversifique as questões e NÃO repita o que já foi focado. TUDO DEVE SER NOVO E INÉDITO.\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${count} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número.\n\nMECANISMO DE DOUBLE-CHECK: Antes de afirmar o gabarito ou gerar a questão, utilize o campo 'dupla_checagem_factual' de forma BREVE (máximo 2 linhas) para pensar passo a passo garantindo que o conhecimento é real e que a resposta escolhida está correta sem alucinar.\n\nCOMPRIMENTO: As questões, alternativas e os comentários devem ser concisos e diretos para economizar processamento.\n\nRetorne APENAS um array JSON válido, ex: [{ "enunciado": "...", "alternativas": ["...", ...], "dupla_checagem_factual": "...", "gabarito": "A", "comentario": "...", "categoria": "...", "subcategoria": "...", "dificuldade": "Médio", "tags": ["..."] }].`;
           
           try {
               const response = await ai.models.generateContent({
@@ -198,6 +200,16 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
           }
       }
       
+      if (finalQuestions.length === initialLength) {
+          loopsWithoutProgress++;
+          if (loopsWithoutProgress >= 3) {
+              console.warn("Generation loop stuck without progress, aborting early.");
+              break; // Abort if we fail to get new valid questions 3 times in a row
+          }
+      } else {
+          loopsWithoutProgress = 0;
+      }
+
       loopCount++;
       if (finalQuestions.length < expectedCount) {
           // Sleep for 1.5 seconds to avoid rate limits
