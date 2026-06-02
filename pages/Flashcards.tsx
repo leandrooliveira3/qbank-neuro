@@ -109,8 +109,8 @@ export const Flashcards: React.FC = () => {
           setPriorityActivatedAt(cfg.activatedAt || null);
       }
 
-      // window.addEventListener('neuro_sync_completed', loadCards);
-      // return () => window.removeEventListener('neuro_sync_completed', loadCards);
+      window.addEventListener('neuro_sync_completed', loadCards);
+      return () => window.removeEventListener('neuro_sync_completed', loadCards);
   }, [user?.id]);
 
   const loadCards = async () => {
@@ -417,9 +417,9 @@ export const Flashcards: React.FC = () => {
       });
 
       if (sortBy === 'alpha') {
-          filtered.sort((a, b) => a.front.localeCompare(b.front));
+          filtered.sort((a, b) => a.front.localeCompare(b.front) || a.id.localeCompare(b.id));
       } else {
-          filtered.sort((a, b) => new Date(b.created_at || '').getTime() - new Date(a.created_at || '').getTime());
+          filtered.sort((a, b) => new Date(b.created_at || '').getTime() - new Date(a.created_at || '').getTime() || a.id.localeCompare(b.id));
       }
       return filtered;
   }, [cards, searchTerm, filterBank, sortBy]);

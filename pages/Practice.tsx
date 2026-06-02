@@ -43,25 +43,49 @@ export const Practice: React.FC = () => {
   const [sessions, setSessions] = useState<SimSession[]>([]);
   const [simLoading, setSimLoading] = useState(true);
 
-  // ─── Load Treino data ───────────────────────────────────────
+  // ─── Unified Data Fetching and Syncing ───────────────────────
+  const fetchData = async () => {
+    if (!user) return;
+    setLoading(true);
+    try {
+      const activeSessions = await localDB.getAll('active_practice_sessions');
+      const mySession = activeSessions.find((s: any) => s.user_id === user.id);
+      if (mySession) setActiveSession(mySession);
+      const allQ = await localDB.getAll('questions');
+      const userQ = allQ;
+      const banks = Array.from(new Set(userQ.map((q: any) => q.bank_name || 'Geral').filter(Boolean))) as string[];
+      setAvailableBanks(banks);
+      updateGroups(userQ, []);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchSim = async () => {
+    if (!user) return;
+    setSimLoading(true);
+    try {
+      const all = await localDB.getAll('simulation_sessions');
+      setSessions(all.filter((s: any) => s.user_id === user.id).sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()));
+    } finally {
+      setSimLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      if (!user) return;
-      setLoading(true);
-      try {
-        const activeSessions = await localDB.getAll('active_practice_sessions');
-        const mySession = activeSessions.find((s: any) => s.user_id === user.id);
-        if (mySession) setActiveSession(mySession);
-        const allQ = await localDB.getAll('questions');
-        const userQ = allQ;
-        const banks = Array.from(new Set(userQ.map((q: any) => q.bank_name || 'Geral').filter(Boolean))) as string[];
-        setAvailableBanks(banks);
-        updateGroups(userQ, []);
-      } finally {
-        setLoading(false);
-      }
-    };
+    if (!user) return;
     fetchData();
+    fetchSim();
+
+    const handleSync = () => {
+      fetchData();
+      fetchSim();
+    };
+
+    window.addEventListener('neuro_sync_completed', handleSync);
+    return () => {
+      window.removeEventListener('neuro_sync_completed', handleSync);
+    };
   }, [user?.id]);
 
   const updateGroups = (questions: any[], currentGroups: CategoryGroup[]) => {
@@ -133,18 +157,6 @@ export const Practice: React.FC = () => {
 
   const toggleBank = (bank: string) =>
     setSelectedBanks(prev => prev.includes(bank) ? prev.filter(b => b !== bank) : [...prev, bank]);
-
-  // ─── Load Simulados data ────────────────────────────────────
-  useEffect(() => {
-    const fetchSim = async () => {
-      if (!user) return;
-      setSimLoading(true);
-      const all = await localDB.getAll('simulation_sessions');
-      setSessions(all.filter((s: any) => s.user_id === user.id).sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()));
-      setSimLoading(false);
-    };
-    fetchSim();
-  }, [user?.id]);
 
   const handleDeleteSim = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();

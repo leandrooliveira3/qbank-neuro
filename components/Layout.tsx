@@ -26,11 +26,17 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, fullWidth = fal
 
   useEffect(() => {
     applyTheme(theme);
-    const handleOnline = () => { setIsOnline(true); syncEngine.startSync(); };
+    const handleOnline = () => { setIsOnline(true); syncEngine.startSync(true); };
     const handleOffline = () => setIsOnline(false);
     window.addEventListener('online', handleOnline);
     window.addEventListener('offline', handleOffline);
     syncEngine.setListener((status) => setSyncStatus(status));
+    
+    // Trigger sync on layout mount to synchronize across devices
+    if (navigator.onLine) {
+      syncEngine.startSync(true);
+    }
+
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);

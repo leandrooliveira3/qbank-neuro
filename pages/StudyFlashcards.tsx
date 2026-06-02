@@ -118,8 +118,8 @@ export const StudyFlashcards: React.FC = () => {
       else if (profile === 'deep') mod = 1.5;
       setSrsModifier(mod);
       loadSessionCards(); 
-      // window.addEventListener('neuro_sync_completed', loadSessionCards);
-      // return () => window.removeEventListener('neuro_sync_completed', loadSessionCards);
+      window.addEventListener('neuro_sync_completed', loadSessionCards);
+      return () => window.removeEventListener('neuro_sync_completed', loadSessionCards);
   }, [user?.id, studyMode]);
 
   const loadSessionCards = async () => {
@@ -146,15 +146,16 @@ export const StudyFlashcards: React.FC = () => {
         const now = new Date();
         if (type === 'new') {
             filtered = filtered.filter(c => c.status === 'new');
-            filtered = filtered.sort((a,b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+            filtered = filtered.sort((a,b) => (new Date(a.created_at).getTime() - new Date(b.created_at).getTime()) || a.id.localeCompare(b.id));
         } else if (type === 'learning') {
             filtered = filtered.filter(c => c.status === 'learning');
-            filtered = filtered.sort((a,b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
+            filtered = filtered.sort((a,b) => (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id));
         } else if (type === 'due') {
             filtered = filtered.filter(c => c.status !== 'inactive' && new Date(c.next_review) <= now);
-            filtered = filtered.sort((a,b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
+            filtered = filtered.sort((a,b) => (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id));
         } else if (type === 'free') {
-            filtered = filtered.sort(() => Math.random() - 0.5);
+            // For determinism across devices under free configuration, sort alphabetically or by id instead of random, or seed by ID
+            filtered = filtered.sort((a, b) => a.id.localeCompare(b.id));
         }
         
         sessionCards = filtered.slice(0, limit || 20);
@@ -164,10 +165,10 @@ export const StudyFlashcards: React.FC = () => {
         // ── Due mode: apply daily limit ──
         const now = new Date();
 
-        // Normal due cards: only due, oldest first
+        // Normal due cards: only due, oldest first with deterministic tie breaker
         const normalDue = userCards
             .filter(c => c.status !== 'inactive' && c.status !== 'new' && new Date(c.next_review) <= now)
-            .sort((a, b) => new Date(a.next_review).getTime() - new Date(b.next_review).getTime());
+            .sort((a, b) => (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id));
 
         sessionCards = [...normalDue];
 
