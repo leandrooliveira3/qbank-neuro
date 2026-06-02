@@ -142,29 +142,31 @@ export const explainWrongAlternatives = async (question: any): Promise<string> =
 
 export const generateQuestionsFromPrompt = async (prompt: string, expectedCount: number = 5): Promise<AIImportedQuestion[]> => {
   const MAX_PER_BATCH = 15;
-  const batches: number[] = [];
+  const uniqueNames = new Set<string>();
+  const finalQuestions: AIImportedQuestion[] = [];
+  const CONCURRENCY = 2; // Keep concurrency low to prevent rate limits
   
-  let remaining = expectedCount;
-  while (remaining > 0) {
-    if (remaining > MAX_PER_BATCH) {
-        batches.push(MAX_PER_BATCH);
-        remaining -= MAX_PER_BATCH;
-    } else {
-        batches.push(remaining);
-        remaining = 0;
-    }
-  }
+  let loopCount = 0;
+  const MAX_LOOPS = 10; // Safety stop to prevent infinite loops
 
-  let allQuestions: AIImportedQuestion[] = [];
-  
-  // We process in small chunks concurrently to avoid 429 but speed up generation
-  const CONCURRENCY = 2;
-  for (let i = 0; i < batches.length; i += CONCURRENCY) {
-      const currentBatches = batches.slice(i, i + CONCURRENCY);
+  while (finalQuestions.length < expectedCount && loopCount < MAX_LOOPS) {
+      const remainingTotal = expectedCount - finalQuestions.length;
+      const batches: number[] = [];
       
-      const batchPromises = currentBatches.map(async (count, idx) => {
-          const globalIdx = i + idx;
-          const fullPrompt = `${prompt}\n\nDIFERENCIAÇÃO DE LOTE: Este é o lote ${globalIdx + 1} de ${batches.length}. Diversifique as questões e não repita o que já foi focado.\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${count} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número.\n\nRetorne APENAS um array JSON válido com o seguinte formato exato para cada item: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
+      let tempRemaining = remainingTotal;
+      while (tempRemaining > 0 && batches.length < CONCURRENCY) {
+          if (tempRemaining > MAX_PER_BATCH) {
+              batches.push(MAX_PER_BATCH);
+              tempRemaining -= MAX_PER_BATCH;
+          } else {
+              batches.push(tempRemaining);
+              tempRemaining = 0;
+          }
+      }
+
+      const batchPromises = batches.map(async (count, idx) => {
+          const globalIdx = loopCount * CONCURRENCY + idx;
+          const fullPrompt = `${prompt}\n\nDIFERENCIAÇÃO DE LOTE: Este é o lote ${globalIdx + 1}. Diversifique as questões e não repita o que já foi focado. TUDO DEVE SER NOVO E INÉDITO.\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${count} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número.\n\nRetorne APENAS um array JSON válido com o seguinte formato exato para cada item: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
           
           try {
               const response = await ai.models.generateContent({
@@ -173,7 +175,7 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
                 config: {
                   responseMimeType: "application/json",
                   responseSchema: questionSchema,
-                  temperature: 0.3,
+                  temperature: Math.min(0.3 + (loopCount * 0.1), 0.9), // Increase temp over loops to force variety
                   maxOutputTokens: 8192
                 }
               });
@@ -185,17 +187,17 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
       });
       
       const results = await Promise.all(batchPromises);
-      allQuestions = allQuestions.concat(...results);
-  }
+      const allQuestions = results.flat();
 
-  // Deduplicate and trim
-  const uniqueNames = new Set();
-  const finalQuestions = [];
-  for (const q of allQuestions) {
-      if (q && q.enunciado && !uniqueNames.has(q.enunciado)) {
-          uniqueNames.add(q.enunciado);
-          finalQuestions.push(q);
+      for (const q of allQuestions) {
+          if (q && q.enunciado && !uniqueNames.has(q.enunciado)) {
+              uniqueNames.add(q.enunciado);
+              finalQuestions.push(q);
+              if (finalQuestions.length >= expectedCount) break;
+          }
       }
+      
+      loopCount++;
   }
 
   return finalQuestions.slice(0, expectedCount);
