@@ -57,7 +57,7 @@ serve(async (req) => {
     const prompt = `Gere justificativas para as alternativas INCORRETAS. Use obrigatoriamente quebras de linha entre elas:\n\n${JSON.stringify(batchData)}`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-3.5-flash",
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,

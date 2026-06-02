@@ -82,7 +82,7 @@ serve(async (req) => {
     INSTRUÇÃO ADICIONAL DO USUÁRIO: ${customPrompt || 'Extração fiel ao documento mantendo contexto.'}`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-3.5-flash",
       contents: [{ role: "user", parts }],
       config: {
         systemInstruction,

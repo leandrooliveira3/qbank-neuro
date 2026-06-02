@@ -3,7 +3,7 @@ import JSON5 from 'json5';
 import { GoogleGenAI, Type } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-const DEFAULT_MODEL = "gemini-2.5-flash";
+const DEFAULT_MODEL = "gemini-3.5-flash";
 
 const questionSchema = {
   type: Type.ARRAY,
@@ -142,13 +142,13 @@ export const explainWrongAlternatives = async (question: any): Promise<string> =
 };
 
 export const generateQuestionsFromPrompt = async (prompt: string, expectedCount: number = 5): Promise<AIImportedQuestion[]> => {
-  const MAX_PER_BATCH = 20;
+  const MAX_PER_BATCH = 10;
   const uniqueNames = new Set<string>();
   const finalQuestions: AIImportedQuestion[] = [];
-  const CONCURRENCY = 3; // Keep concurrency low to prevent rate limits
+  const CONCURRENCY = 2; // Keep concurrency low to prevent rate limits
   
   let loopCount = 0;
-  const MAX_LOOPS = 12; // Safety stop to prevent infinite loops
+  const MAX_LOOPS = 20; // Safety stop to prevent infinite loops
 
   while (finalQuestions.length < expectedCount && loopCount < MAX_LOOPS) {
       const remainingTotal = expectedCount - finalQuestions.length;
@@ -176,7 +176,7 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
                 config: {
                   responseMimeType: "application/json",
                   responseSchema: questionSchema,
-                  temperature: Math.min(0.3 + (loopCount * 0.1), 0.9), // Increase temp over loops to force variety
+                  temperature: Math.min(0.2 + (loopCount * 0.05), 0.8), // Increase temp over loops to force variety
                   maxOutputTokens: 8192
                 }
               });
@@ -199,6 +199,10 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
       }
       
       loopCount++;
+      if (finalQuestions.length < expectedCount) {
+          // Sleep for 1.5 seconds to avoid rate limits
+          await new Promise(r => setTimeout(r, 1500));
+      }
   }
 
   return finalQuestions.slice(0, expectedCount);
