@@ -58,7 +58,7 @@ serve(async (req) => {
     CONTEXTO: "${customPrompt || 'Gere questões de alto nível.'}"`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.5-flash-lite",
       contents: [{ role: "user", parts }],
       config: {
         systemInstruction: finalInstruction,

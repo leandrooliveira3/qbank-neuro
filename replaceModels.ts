@@ -9,8 +9,8 @@ function replaceInDir(dir: string) {
             replaceInDir(fullPath);
         } else if (fullPath.endsWith('.ts')) {
             let content = fs.readFileSync(fullPath, 'utf8');
-            if (content.includes('gemini-2.5-flash-lite')) {
-                content = content.replace(/gemini-2.5-flash-lite/g, 'gemini-3.5-flash');
+            if (content.includes('gemini-3-flash-preview')) {
+                content = content.replace(/gemini-3-flash-preview/g, 'gemini-2.5-flash-lite');
                 fs.writeFileSync(fullPath, content);
             }
         }

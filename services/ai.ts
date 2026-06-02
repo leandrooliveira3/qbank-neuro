@@ -3,7 +3,7 @@ import JSON5 from 'json5';
 import { GoogleGenAI, Type } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-const DEFAULT_MODEL = "gemini-3.5-flash";
+const DEFAULT_MODEL = "gemini-2.5-flash-lite";
 
 const questionSchema = {
   type: Type.ARRAY,
@@ -12,15 +12,14 @@ const questionSchema = {
     properties: {
       enunciado: { type: Type.STRING, description: "Texto da questão" },
       alternativas: { type: Type.ARRAY, items: { type: Type.STRING } },
-      dupla_checagem_factual: { type: Type.STRING, description: "Breve validação factual (max 2 frases) para garantir ausência de alucinações e gabarito correto." },
       gabarito: { type: Type.STRING, description: "Letra A, B, C, D ou E" },
-      comentario: { type: Type.STRING, description: "Explicação concisa (max 2 frases)" },
+      comentario: { type: Type.STRING, description: "Explicação detalhada" },
       categoria: { type: Type.STRING },
       subcategoria: { type: Type.STRING },
       dificuldade: { type: Type.STRING },
       tags: { type: Type.ARRAY, items: { type: Type.STRING } }
     },
-    required: ["enunciado", "alternativas", "dupla_checagem_factual", "gabarito", "comentario"]
+    required: ["enunciado", "alternativas", "gabarito", "comentario"]
   }
 };
 
@@ -142,19 +141,17 @@ export const explainWrongAlternatives = async (question: any): Promise<string> =
 };
 
 export const generateQuestionsFromPrompt = async (prompt: string, expectedCount: number = 5): Promise<AIImportedQuestion[]> => {
-  const MAX_PER_BATCH = 10;
+  const MAX_PER_BATCH = 15;
   const uniqueNames = new Set<string>();
   const finalQuestions: AIImportedQuestion[] = [];
   const CONCURRENCY = 2; // Keep concurrency low to prevent rate limits
   
   let loopCount = 0;
-  const MAX_LOOPS = 20; // Safety stop to prevent infinite loops
-  let loopsWithoutProgress = 0;
+  const MAX_LOOPS = 10; // Safety stop to prevent infinite loops
 
   while (finalQuestions.length < expectedCount && loopCount < MAX_LOOPS) {
       const remainingTotal = expectedCount - finalQuestions.length;
       const batches: number[] = [];
-      const initialLength = finalQuestions.length;
       
       let tempRemaining = remainingTotal;
       while (tempRemaining > 0 && batches.length < CONCURRENCY) {
@@ -169,7 +166,7 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
 
       const batchPromises = batches.map(async (count, idx) => {
           const globalIdx = loopCount * CONCURRENCY + idx;
-          const fullPrompt = `${prompt}\n\nDIFERENCIAÇÃO DE LOTE: Este é o lote ${globalIdx + 1}. Diversifique as questões e NÃO repita o que já foi focado. TUDO DEVE SER NOVO E INÉDITO.\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${count} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número.\n\nMECANISMO DE DOUBLE-CHECK: Antes de afirmar o gabarito ou gerar a questão, utilize o campo 'dupla_checagem_factual' de forma BREVE (máximo 2 linhas) para pensar passo a passo garantindo que o conhecimento é real e que a resposta escolhida está correta sem alucinar.\n\nCOMPRIMENTO: As questões, alternativas e os comentários devem ser concisos e diretos para economizar processamento.\n\nRetorne APENAS um array JSON válido, ex: [{ "enunciado": "...", "alternativas": ["...", ...], "dupla_checagem_factual": "...", "gabarito": "A", "comentario": "...", "categoria": "...", "subcategoria": "...", "dificuldade": "Médio", "tags": ["..."] }].`;
+          const fullPrompt = `${prompt}\n\nDIFERENCIAÇÃO DE LOTE: Este é o lote ${globalIdx + 1}. Diversifique as questões e não repita o que já foi focado. TUDO DEVE SER NOVO E INÉDITO.\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${count} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número.\n\nRetorne APENAS um array JSON válido com o seguinte formato exato para cada item: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
           
           try {
               const response = await ai.models.generateContent({
@@ -178,7 +175,7 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
                 config: {
                   responseMimeType: "application/json",
                   responseSchema: questionSchema,
-                  temperature: Math.min(0.2 + (loopCount * 0.05), 0.8), // Increase temp over loops to force variety
+                  temperature: Math.min(0.3 + (loopCount * 0.1), 0.9), // Increase temp over loops to force variety
                   maxOutputTokens: 8192
                 }
               });
@@ -200,21 +197,7 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
           }
       }
       
-      if (finalQuestions.length === initialLength) {
-          loopsWithoutProgress++;
-          if (loopsWithoutProgress >= 3) {
-              console.warn("Generation loop stuck without progress, aborting early.");
-              break; // Abort if we fail to get new valid questions 3 times in a row
-          }
-      } else {
-          loopsWithoutProgress = 0;
-      }
-
       loopCount++;
-      if (finalQuestions.length < expectedCount) {
-          // Sleep for 1.5 seconds to avoid rate limits
-          await new Promise(r => setTimeout(r, 1500));
-      }
   }
 
   return finalQuestions.slice(0, expectedCount);
