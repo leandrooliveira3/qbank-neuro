@@ -130,7 +130,7 @@ export const Chat: React.FC = () => {
               <h3 className="text-slate-900 dark:text-white font-black text-sm tracking-tight">IA Tutor de Neurologia</h3>
               <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest flex items-center">
                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-1.5 animate-pulse"></span>
-                Gemini-3-Flash
+                Gemini 2.5 Flash
               </p>
             </div>
           </div>

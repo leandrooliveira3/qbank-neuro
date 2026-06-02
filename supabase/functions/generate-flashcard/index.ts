@@ -21,7 +21,7 @@ serve(async (req) => {
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
+      model: "gemini-2.5-flash",
       contents: [{ 
         role: "user", 
         parts: [{ text: `Transforme em flashcard estilo Anki. Frente: Pergunta Curta. Verso: Explicação Didática.\nENUNCIADO: ${statement}\nEXPLICAÇÃO: ${explanation}` }] 
