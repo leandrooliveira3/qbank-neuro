@@ -140,7 +140,7 @@ export const explainWrongAlternatives = async (question: any): Promise<string> =
     return response.text || '';
 };
 
-export const generateQuestionsFromPrompt = async (prompt: string, expectedCount: number = 5): Promise<AIImportedQuestion[]> => {
+export const generateQuestionsFromPrompt = async (prompt: string, expectedCount: number = 30): Promise<AIImportedQuestion[]> => {
   const MAX_PER_BATCH = 15;
   const uniqueNames = new Set<string>();
   const finalQuestions: AIImportedQuestion[] = [];

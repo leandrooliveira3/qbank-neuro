@@ -141,6 +141,7 @@ export const ImportQuestions: React.FC = () => {
   // Manual File JSON states
   const [manualJsonFile, setManualJsonFile] = useState<File | null>(null);
   const [manualJsonFileError, setManualJsonFileError] = useState<string | null>(null);
+  const [manualJsonText, setManualJsonText] = useState('');
   const manualJsonFileInputRef = useRef<HTMLInputElement>(null);
 
   const handleManualJsonFileChange = async (f: File | undefined) => {
@@ -187,15 +188,69 @@ export const ImportQuestions: React.FC = () => {
         }
 
         if (!Array.isArray(parsed) || parsed.length === 0) {
-            throw new Error("O arquivo não contém um array JSON válido ou está vazio.");
+            throw new Error("O conteúdo não contém um array JSON válido ou está vazio.");
         }
 
         addResults(parsed);
         setManualJsonFile(null);
+        setManualJsonText('');
         if (manualJsonFileInputRef.current) manualJsonFileInputRef.current.value = '';
         setForceReviewMode(true);
     } catch (e: any) {
-        alert("Erro ao ler JSON: " + (e.message || "Verifique o formato do arquivo."));
+        alert("Erro ao ler JSON: " + (e.message || "Verifique o formato do arquivo/texto."));
+    } finally {
+        setIsUploading(false);
+    }
+  };
+
+  const handleManualJsonSubmit = async () => {
+    if (manualJsonText.trim()) {
+        await processManualJsonFromContent(manualJsonText);
+    } else if (manualJsonFile) {
+        const ext = manualJsonFile.name.split('.').pop()?.toLowerCase();
+        let text = '';
+        if (ext === 'docx') {
+            const result = await mammoth.extractRawText({ arrayBuffer: await manualJsonFile.arrayBuffer() });
+            text = result.value;
+        } else {
+            text = await manualJsonFile.text();
+        }
+        await processManualJsonFromContent(text);
+    }
+  };
+
+  const processManualJsonFromContent = async (text: string) => {
+    if (isUploading) return;
+    setIsUploading(true);
+    try {
+        // Clean markdown blocks and formatting
+        let cleanText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+
+        // Find json array
+        const firstBracket = cleanText.indexOf('[');
+        const lastBracket = cleanText.lastIndexOf(']');
+        if (firstBracket !== -1 && lastBracket !== -1) {
+            cleanText = cleanText.substring(firstBracket, lastBracket + 1);
+        }
+
+        let parsed: any;
+        try {
+            parsed = JSON.parse(cleanText);
+        } catch(e) {
+            throw new Error("Erro ao parsear JSON. Verifique se o formato está correto. Detalhe: " + e);
+        }
+
+        if (!Array.isArray(parsed) || parsed.length === 0) {
+            throw new Error("O conteúdo não contém um array JSON válido ou está vazio.");
+        }
+
+        addResults(parsed);
+        setManualJsonFile(null);
+        setManualJsonText('');
+        if (manualJsonFileInputRef.current) manualJsonFileInputRef.current.value = '';
+        setForceReviewMode(true);
+    } catch (e: any) {
+        alert("Erro ao ler JSON: " + (e.message || "Verifique o formato do arquivo/texto."));
     } finally {
         setIsUploading(false);
     }
@@ -986,43 +1041,55 @@ export const ImportQuestions: React.FC = () => {
                                 <div className="text-center mb-4">
                                     <h3 className="text-lg font-black uppercase text-slate-900 dark:text-white">Importação Manual por Arquivo (JSON)</h3>
                                     <p className="text-[10px] font-bold text-slate-400 mt-2 max-w-lg mx-auto">
-                                        Anexe um arquivo .txt ou .docx contendo um array JSON de questões nos mesmos moldes do retorno das APIs de IA. Ele será lido, processado localmente e você poderá revisar ou adicionar imagens antes de salvar.
+                                        Anexe um arquivo .txt ou .docx contendo um array JSON de questões nos mesmos moldes do retorno das APIs de IA, ou cole o conteúdo diretamente abaixo.
                                     </p>
                                 </div>
-                                <div
-                                    onClick={() => manualJsonFileInputRef.current?.click()}
-                                    className={`border-4 border-dashed rounded-[3rem] flex flex-col items-center justify-center cursor-pointer transition-all bg-slate-50 dark:bg-black/20 group shadow-2xl p-8 ${manualJsonFileError ? 'border-red-400 hover:border-red-500' : 'border-slate-200 dark:border-zinc-800 hover:border-primary hover:bg-primary/[0.02]'}`}
-                                >
-                                    <input
-                                        type="file"
-                                        ref={manualJsonFileInputRef}
-                                        className="hidden"
-                                        accept=".docx,.txt"
-                                        onChange={(e) => handleManualJsonFileChange(e.target.files?.[0])}
+                                <div className="space-y-4">
+                                    <textarea 
+                                        value={manualJsonText} 
+                                        onChange={e => { setManualJsonText(e.target.value); if (e.target.value) setManualJsonFile(null); }}
+                                        placeholder="Cole seu JSON aqui..."
+                                        className="w-full h-40 bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner"
                                     />
-                                    <div className={`p-6 rounded-[2rem] shadow-xl group-hover:scale-110 transition-transform mb-4 ${manualJsonFileError ? 'bg-red-50 dark:bg-red-900/20' : 'bg-white dark:bg-zinc-900'}`}>
-                                        {manualJsonFileError
-                                            ? <AlertTriangle className="h-12 w-12 text-red-500" />
-                                            : manualJsonFile
-                                                ? <FileJson className="h-12 w-12 text-primary" />
-                                                : <FileUp className="h-12 w-12 text-slate-300" />
-                                        }
+                                    <div className="relative flex items-center justify-center">
+                                        <hr className="absolute w-full border-slate-200 dark:border-zinc-800" />
+                                        <span className="relative bg-slate-50 dark:bg-black px-4 text-[9px] font-black uppercase text-slate-400">ou</span>
                                     </div>
-                                    <h4 className={`text-sm font-black uppercase ${manualJsonFileError ? 'text-red-500' : 'text-slate-900 dark:text-white'}`}>
-                                        {manualJsonFileError ? 'Arquivo rejeitado' : manualJsonFile ? manualJsonFile.name : 'Carregar JSON (.txt ou .docx)'}
-                                    </h4>
-                                    {manualJsonFileError && (
-                                        <p className="text-[9px] font-bold text-red-500 mt-2 text-center max-w-xs">{manualJsonFileError}</p>
-                                    )}
+                                    <div
+                                        onClick={() => manualJsonFileInputRef.current?.click()}
+                                        className={`border-4 border-dashed rounded-[3rem] flex flex-col items-center justify-center cursor-pointer transition-all bg-slate-50 dark:bg-black/20 group shadow-2xl p-8 ${manualJsonFileError ? 'border-red-400 hover:border-red-500' : 'border-slate-200 dark:border-zinc-800 hover:border-primary hover:bg-primary/[0.02]'}`}
+                                    >
+                                        <input
+                                            type="file"
+                                            ref={manualJsonFileInputRef}
+                                            className="hidden"
+                                            accept=".docx,.txt"
+                                            onChange={(e) => { handleManualJsonFileChange(e.target.files?.[0]); if (e.target.files?.[0]) setManualJsonText(''); }}
+                                        />
+                                        <div className={`p-6 rounded-[2rem] shadow-xl group-hover:scale-110 transition-transform mb-4 ${manualJsonFileError ? 'bg-red-50 dark:bg-red-900/20' : 'bg-white dark:bg-zinc-900'}`}>
+                                            {manualJsonFileError
+                                                ? <AlertTriangle className="h-12 w-12 text-red-500" />
+                                                : manualJsonFile
+                                                    ? <FileJson className="h-12 w-12 text-primary" />
+                                                    : <FileUp className="h-12 w-12 text-slate-300" />
+                                            }
+                                        </div>
+                                        <h4 className={`text-sm font-black uppercase ${manualJsonFileError ? 'text-red-500' : 'text-slate-900 dark:text-white'}`}>
+                                            {manualJsonFileError ? 'Arquivo rejeitado' : manualJsonFile ? manualJsonFile.name : 'Carregar JSON (.txt ou .docx)'}
+                                        </h4>
+                                        {manualJsonFileError && (
+                                            <p className="text-[9px] font-bold text-red-500 mt-2 text-center max-w-xs">{manualJsonFileError}</p>
+                                        )}
+                                    </div>
                                 </div>
 
                                 <button 
-                                    onClick={processManualJsonFile} 
-                                    disabled={!manualJsonFile || isUploading || !!manualJsonFileError} 
+                                    onClick={handleManualJsonSubmit} 
+                                    disabled={(!manualJsonFile && !manualJsonText.trim()) || isUploading || !!manualJsonFileError} 
                                     className="w-full bg-primary hover:bg-emerald-700 text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all"
                                 >
                                     {isUploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Layers className="h-4 w-4" />}
-                                    PROCESSAR ARQUIVO MANUALMENTE
+                                    PROCESSAR MANUALMENTE
                                 </button>
                             </div>
                           )}
