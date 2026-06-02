@@ -141,18 +141,64 @@ export const explainWrongAlternatives = async (question: any): Promise<string> =
 };
 
 export const generateQuestionsFromPrompt = async (prompt: string, expectedCount: number = 5): Promise<AIImportedQuestion[]> => {
-  const fullPrompt = `${prompt}\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${expectedCount} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número. Não quebre a resposta JSON antes de terminar todas as ${expectedCount} questões.\n\nRetorne APENAS um array JSON válido com o seguinte formato exato para cada item: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
-  const response = await ai.models.generateContent({
-    model: DEFAULT_MODEL,
-    contents: fullPrompt,
-    config: {
-      responseMimeType: "application/json",
-      responseSchema: questionSchema,
-      temperature: 0.1,
-      maxOutputTokens: 8192
+  const MAX_PER_BATCH = 15;
+  const batches: number[] = [];
+  
+  let remaining = expectedCount;
+  while (remaining > 0) {
+    if (remaining > MAX_PER_BATCH) {
+        batches.push(MAX_PER_BATCH);
+        remaining -= MAX_PER_BATCH;
+    } else {
+        batches.push(remaining);
+        remaining = 0;
     }
-  });
-  return robustJsonParse<AIImportedQuestion[]>(response.text || '');
+  }
+
+  let allQuestions: AIImportedQuestion[] = [];
+  
+  // We process in small chunks concurrently to avoid 429 but speed up generation
+  const CONCURRENCY = 2;
+  for (let i = 0; i < batches.length; i += CONCURRENCY) {
+      const currentBatches = batches.slice(i, i + CONCURRENCY);
+      
+      const batchPromises = currentBatches.map(async (count, idx) => {
+          const globalIdx = i + idx;
+          const fullPrompt = `${prompt}\n\nDIFERENCIAÇÃO DE LOTE: Este é o lote ${globalIdx + 1} de ${batches.length}. Diversifique as questões e não repita o que já foi focado.\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${count} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número.\n\nRetorne APENAS um array JSON válido com o seguinte formato exato para cada item: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
+          
+          try {
+              const response = await ai.models.generateContent({
+                model: DEFAULT_MODEL,
+                contents: fullPrompt,
+                config: {
+                  responseMimeType: "application/json",
+                  responseSchema: questionSchema,
+                  temperature: 0.3,
+                  maxOutputTokens: 8192
+                }
+              });
+              return robustJsonParse<AIImportedQuestion[]>(response.text || '');
+          } catch(e) {
+              console.warn(`Batch ${globalIdx} failed:`, e);
+              return [];
+          }
+      });
+      
+      const results = await Promise.all(batchPromises);
+      allQuestions = allQuestions.concat(...results);
+  }
+
+  // Deduplicate and trim
+  const uniqueNames = new Set();
+  const finalQuestions = [];
+  for (const q of allQuestions) {
+      if (q && q.enunciado && !uniqueNames.has(q.enunciado)) {
+          uniqueNames.add(q.enunciado);
+          finalQuestions.push(q);
+      }
+  }
+
+  return finalQuestions.slice(0, expectedCount);
 };
 
 export const generateFlashcardFromQuestion = async (statement: string, explanation: string): Promise<{ front: string; back: string }> => {

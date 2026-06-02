@@ -760,7 +760,7 @@ export const ImportQuestions: React.FC = () => {
                                         <textarea 
                                             value={chatInput}
                                             onChange={(e) => setChatInput(e.target.value)}
-                                            placeholder="Ex: Crie qeustões sobre neurite óptica..."
+                                            placeholder="Ex: Crie questões sobre neurite óptica..."
                                             className="w-full bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner min-h-[120px] resize-none"
                                         />
                                         <button 
