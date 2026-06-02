@@ -7,7 +7,7 @@ import {
   Brain, MessageSquare, ListChecks, Database,
   Settings2, Activity, Terminal, Layers, ImagePlus, Trash2,
   CheckCircle2, AlertCircle, Zap, Play, AlertTriangle, Minimize2,
-  Maximize2, FileType, Lock
+  Maximize2, FileType, Lock, History
 } from 'lucide-react';
 import * as pdfjsLib from 'pdfjs-dist';
 import { generateQuestionsFromPrompt, processFileQuestions } from '../services/ai';
@@ -100,6 +100,17 @@ export const ImportQuestions: React.FC = () => {
   // NeuroChat states
   const [chatInput, setChatInput] = useState('');
   const [isChatLoading, setIsChatLoading] = useState(false);
+  const [neurochatCount, setNeurochatCount] = useState(10);
+  const [neurochatHistory, setNeurochatHistory] = useState<string[]>([]);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('neurochatHistory');
+      if (stored) {
+        setNeurochatHistory(JSON.parse(stored));
+      }
+    } catch(e) {}
+  }, []);
 
   // Raw Text states
   const [rawText, setRawText] = useState('');
@@ -231,9 +242,16 @@ export const ImportQuestions: React.FC = () => {
     if (!chatInput.trim() || isChatLoading) return;
     setIsChatLoading(true);
     try {
-      const questions = await generateQuestionsFromPrompt(chatInput);
+      const questions = await generateQuestionsFromPrompt(chatInput, neurochatCount);
       if (questions && questions.length > 0) {
         addResults(questions);
+        
+        setNeurochatHistory(prev => {
+            const newHistory = [chatInput, ...prev.filter(h => h !== chatInput)].slice(0, 5);
+            localStorage.setItem('neurochatHistory', JSON.stringify(newHistory));
+            return newHistory;
+        });
+
         setChatInput('');
         setForceReviewMode(true);
       } else {
@@ -693,7 +711,7 @@ export const ImportQuestions: React.FC = () => {
                           {activeTab === 'neurochat' && (
                             <div className="flex-1 flex flex-col max-w-3xl mx-auto w-full py-2 animate-in fade-in overflow-y-auto custom-scrollbar">
                                 <div className="flex-1 flex flex-col items-center justify-center">
-                                    <div className="border-4 border-dashed border-slate-200 dark:border-zinc-800 rounded-[3rem] p-8 mb-8 bg-slate-50 dark:bg-black/20 w-full">
+                                    <div className="border-4 border-dashed border-slate-200 dark:border-zinc-800 rounded-[3rem] p-8 mb-8 bg-slate-50 dark:bg-black/20 w-full relative">
                                         <div className="flex flex-col items-center text-center">
                                             <div className="p-4 bg-white dark:bg-zinc-900 rounded-2xl shadow-lg mb-4">
                                                 <Bot className="h-10 w-10 text-primary" />
@@ -703,13 +721,46 @@ export const ImportQuestions: React.FC = () => {
                                                 Descreva o tema e a IA projetará itens inéditos com explicações completas.
                                             </p>
                                         </div>
+
+                                        <div className="mt-8 max-w-sm mx-auto w-full">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <span className="text-[10px] font-black uppercase text-slate-500">Quantidade de Questões</span>
+                                                <span className="text-xs font-black text-primary bg-primary/10 px-2 py-0.5 rounded-lg">{neurochatCount}</span>
+                                            </div>
+                                            <input 
+                                                type="range" 
+                                                min="1" 
+                                                max="100" 
+                                                value={neurochatCount} 
+                                                onChange={(e) => setNeurochatCount(Number(e.target.value))}
+                                                className="w-full accent-primary"
+                                            />
+                                        </div>
                                     </div>
+
+                                    {neurochatHistory.length > 0 && (
+                                        <div className="w-full mb-6 text-left">
+                                            <h4 className="text-[9px] font-black uppercase text-emerald-600 mb-2 flex items-center gap-1.5"><History className="h-3 w-3" /> Histórico Recente</h4>
+                                            <div className="flex flex-wrap gap-2">
+                                                {neurochatHistory.map((h, idx) => (
+                                                    <button 
+                                                        key={idx} 
+                                                        onClick={() => setChatInput(h)}
+                                                        className="text-[9px] font-bold bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-full hover:border-emerald-500 hover:text-emerald-600 transition-all text-left max-w-[200px] truncate"
+                                                        title={h}
+                                                    >
+                                                        {h}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
 
                                     <div className="w-full space-y-4">
                                         <textarea 
                                             value={chatInput}
                                             onChange={(e) => setChatInput(e.target.value)}
-                                            placeholder="Ex: Crie 5 questões sobre neurite óptica e seu diferencial com em..."
+                                            placeholder="Ex: Crie qeustões sobre neurite óptica..."
                                             className="w-full bg-slate-50 dark:bg-black border-2 border-slate-100 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary shadow-inner min-h-[120px] resize-none"
                                         />
                                         <button 
@@ -718,7 +769,7 @@ export const ImportQuestions: React.FC = () => {
                                             className="w-full bg-primary hover:bg-emerald-700 text-white py-4 rounded-[2rem] font-black text-xs uppercase tracking-[0.3em] shadow-2xl flex items-center justify-center gap-3 active:scale-95 disabled:opacity-50 transition-all"
                                         >
                                             {isChatLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
-                                            Gerar Questões Agora
+                                            Gerar {neurochatCount} Questões Agora
                                         </button>
                                     </div>
                                 </div>

@@ -140,15 +140,16 @@ export const explainWrongAlternatives = async (question: any): Promise<string> =
     return response.text || '';
 };
 
-export const generateQuestionsFromPrompt = async (prompt: string): Promise<AIImportedQuestion[]> => {
-  const fullPrompt = `${prompt}\n\nRetorne APENAS um array JSON de questões com o seguinte formato: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
+export const generateQuestionsFromPrompt = async (prompt: string, expectedCount: number = 5): Promise<AIImportedQuestion[]> => {
+  const fullPrompt = `${prompt}\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${expectedCount} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número. Não quebre a resposta JSON antes de terminar todas as ${expectedCount} questões.\n\nRetorne APENAS um array JSON válido com o seguinte formato exato para cada item: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
   const response = await ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: fullPrompt,
     config: {
       responseMimeType: "application/json",
       responseSchema: questionSchema,
-      temperature: 0.1
+      temperature: 0.1,
+      maxOutputTokens: 8192
     }
   });
   return robustJsonParse<AIImportedQuestion[]>(response.text || '');
