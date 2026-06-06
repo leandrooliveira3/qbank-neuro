@@ -800,11 +800,13 @@ export const Flashcards: React.FC = () => {
                 
                 <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Tema</label>
+                        <div className="flex items-center h-5 mb-2">
+                            <label className="text-[9px] text-slate-500 uppercase font-black">Tema</label>
+                        </div>
                         <input value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-xs font-black shadow-sm" placeholder="Ex: Neurologia" />
                     </div>
                     <div>
-                        <div className="flex justify-between items-center mb-2">
+                        <div className="flex justify-between items-center h-5 mb-2">
                             <label className="text-[9px] text-slate-500 uppercase font-black">Nome do Deck</label>
                             <button 
                                 type="button" 
