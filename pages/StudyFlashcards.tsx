@@ -118,8 +118,16 @@ export const StudyFlashcards: React.FC = () => {
       else if (profile === 'deep') mod = 1.5;
       setSrsModifier(mod);
       loadSessionCards(); 
-      window.addEventListener('neuro_sync_completed', loadSessionCards);
-      return () => window.removeEventListener('neuro_sync_completed', loadSessionCards);
+      const handleSyncCompleted = () => {
+          setCurrentIndex(prev => {
+              if (prev === 0) {
+                  loadSessionCards();
+              }
+              return prev;
+          });
+      };
+      window.addEventListener('neuro_sync_completed', handleSyncCompleted);
+      return () => window.removeEventListener('neuro_sync_completed', handleSyncCompleted);
   }, [user?.id, studyMode]);
 
   const loadSessionCards = async () => {
@@ -535,7 +543,7 @@ export const StudyFlashcards: React.FC = () => {
                         className="absolute inset-0 backface-hidden bg-white dark:bg-zinc-900 rounded-[2rem] border border-slate-200 dark:border-zinc-800 shadow-xl flex flex-col overflow-hidden cursor-pointer"
                         onClick={() => setIsFlipped(true)}
                     >
-                        {currentCard.front_image_url ? (
+                        {currentCard.front_image_url && (!currentCard.image_position || currentCard.image_position === 'front' || currentCard.image_position === 'both') ? (
                             <div className="flex-[1.5] min-h-0 bg-slate-50 dark:bg-black/40 flex items-center justify-center p-3 border-b border-slate-100 dark:border-zinc-800 relative">
                                 <div className="relative h-full w-full flex items-center justify-center">
                                     <div className="relative inline-block max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black">
@@ -584,13 +592,13 @@ export const StudyFlashcards: React.FC = () => {
                         className="absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-zinc-900 rounded-[2rem] border-2 border-emerald-500 shadow-xl flex flex-col overflow-hidden cursor-pointer"
                         onClick={() => setIsFlipped(false)}
                     >
-                        {(currentCard.back_image_url || currentCard.front_image_url) ? (
+                        {(currentCard.back_image_url || (currentCard.front_image_url && (!currentCard.image_position || currentCard.image_position === 'back' || currentCard.image_position === 'both'))) ? (
                             <div className="flex-[1.5] min-h-0 bg-emerald-500/5 dark:bg-emerald-500/10 flex items-center justify-center p-3 border-b border-emerald-100 dark:border-emerald-900/40 relative">
                                 <div className="relative h-full w-full flex items-center justify-center">
                                     <div className="relative inline-block max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black border border-emerald-400/20">
                                         <img 
                                             key={`back-${currentCard.id}`}
-                                            src={currentBackImageUrl || currentImageUrl || currentCard.back_image_url || currentCard.front_image_url} 
+                                            src={currentBackImageUrl || (currentCard.back_image_url ? currentCard.back_image_url : (currentImageUrl || currentCard.front_image_url))} 
                                             alt="Gabarito" 
                                             className="max-h-full max-w-full block opacity-90"
                                         />

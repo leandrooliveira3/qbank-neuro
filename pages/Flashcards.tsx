@@ -94,6 +94,8 @@ export const Flashcards: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [autoEnableOcclusion, setAutoEnableOcclusion] = useState(false);
   const [keepImageAfterSave, setKeepImageAfterSave] = useState(false); // To allow multiple cards per image
+  const [isCreatingNewBank, setIsCreatingNewBank] = useState(true);
+  const [imagePosition, setImagePosition] = useState<'front' | 'back' | 'both'>('front');
 
   useEffect(() => { 
       loadCards(); 
@@ -196,7 +198,31 @@ export const Flashcards: React.FC = () => {
   }, [cards]);
 
   const handleSave = async () => {
-    if (!user || (!formData.front && occlusions.length === 0) || !formData.back) return;
+    if (!user) return;
+
+    const isImageCard = !!frontPreview;
+    
+    if (isImageCard) {
+      if (!formData.category.trim()) {
+        alert("O campo Tema (Especialidade) é obrigatório.");
+        return;
+      }
+      if (!formData.bank_name.trim()) {
+        alert("O campo Nome do Deck é obrigatório.");
+        return;
+      }
+    } else {
+      // Standard text flashcard
+      if (!formData.front.trim()) {
+        alert("A pergunta (Frente) é obrigatória para flashcards de texto.");
+        return;
+      }
+      if (!formData.back.trim()) {
+        alert("A resposta (Verso) é obrigatória para flashcards de texto.");
+        return;
+      }
+    }
+
     setLoading(true);
     try {
       let frontImageUrl = editingCard?.front_image_url || '';
@@ -214,11 +240,20 @@ export const Flashcards: React.FC = () => {
           frontImageUrl = frontPreview; // Reusing existing URL from DB
       }
 
-      const cardData: Flashcard = editingCard ? { ...editingCard, ...formData, front_image_url: frontImageUrl, occlusions } : {
+      const cardData: Flashcard = editingCard ? { 
+        ...editingCard, 
+        ...formData, 
+        front_image_url: frontImageUrl,
+        back_image_url: (imagePosition === 'back' || imagePosition === 'both') ? frontImageUrl : '',
+        image_position: imagePosition,
+        occlusions 
+      } : {
         id: crypto.randomUUID(),
         user_id: user.id,
         ...formData,
         front_image_url: frontImageUrl,
+        back_image_url: (imagePosition === 'back' || imagePosition === 'both') ? frontImageUrl : '',
+        image_position: imagePosition,
         occlusions,
         bank_name: formData.bank_name || 'Principal',
         category: formData.category || 'Geral',
@@ -233,19 +268,25 @@ export const Flashcards: React.FC = () => {
       await syncEngine.enqueue('flashcards', cardData);
       loadCards();
       
-      if (keepImageAfterSave && frontImageUrl) {
-          // Reset form but keep image and category context
-          setEditingCard(null);
-          setFormData({ ...formData, front: '', back: '' }); 
-          // Do NOT clear frontPreview or frontImage here
-          // We must update frontPreview to the URL if it was a file, so subsequent saves reuse it
-          setFrontPreview(frontImageUrl);
-          setFrontImage(null); // Clear file object so we don't re-upload, we use URL now
-          setOcclusions([]); // Clear old occlusions for new card
-          alert("Card salvo! A imagem foi mantida para criar outro.");
-      } else {
+      if (editingCard) {
           setMode('list');
           resetForm();
+      } else {
+          // Creating a new card
+          const currentBank = formData.bank_name;
+          const currentCategory = formData.category;
+          if (keepImageAfterSave && frontImageUrl) {
+              setEditingCard(null);
+              setFormData({ front: '', back: '', bank_name: currentBank, category: currentCategory });
+              setFrontPreview(frontImageUrl);
+              setFrontImage(null);
+              setOcclusions([]);
+              alert("Card salvo! A imagem foi mantida para criar outro.");
+          } else {
+              resetForm();
+              setFormData({ front: '', back: '', bank_name: currentBank, category: currentCategory });
+              alert("Card criado com sucesso!");
+          }
       }
     } catch (e: any) {
       alert("Erro ao salvar card: " + e.message);
@@ -262,6 +303,7 @@ export const Flashcards: React.FC = () => {
       setAutoEnableOcclusion(false);
       setZoomLevel(1);
       setKeepImageAfterSave(false);
+      setImagePosition('front');
   };
 
   const handleGenerateFlashcards = async () => {
@@ -646,7 +688,7 @@ export const Flashcards: React.FC = () => {
                           {openThemes.has(category) && (
                               <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-slate-50 dark:bg-black/20">
                                   {items.map(card => (
-                                      <div key={card.id} onClick={() => { setEditingCard(card); setFormData({front:card.front, back:card.back, category:card.category || '', bank_name: card.bank_name || 'Principal'}); setFrontPreview(card.front_image_url || ''); setOcclusions(card.occlusions || []); setMode('form'); }} className={`bg-white dark:bg-zinc-900 border ${card.status === 'inactive' ? 'border-dashed border-slate-300 dark:border-zinc-700 opacity-75' : 'border-slate-200 dark:border-zinc-800'} rounded-xl p-4 shadow-sm hover:border-primary transition-all cursor-pointer group flex flex-col h-full`}>
+                                      <div key={card.id} onClick={() => { setEditingCard(card); setFormData({front:card.front, back:card.back, category:card.category || '', bank_name: card.bank_name || 'Principal'}); setFrontPreview(card.front_image_url || ''); setOcclusions(card.occlusions || []); setImagePosition(card.image_position || 'front'); setMode('form'); }} className={`bg-white dark:bg-zinc-900 border ${card.status === 'inactive' ? 'border-dashed border-slate-300 dark:border-zinc-700 opacity-75' : 'border-slate-200 dark:border-zinc-800'} rounded-xl p-4 shadow-sm hover:border-primary transition-all cursor-pointer group flex flex-col h-full`}>
                                           {card.front_image_url && (
                                               <div className="mb-3 h-24 bg-slate-100 dark:bg-black rounded-lg flex items-center justify-center overflow-hidden relative">
                                                   <SmartImage url={card.front_image_url} alt="F" className="h-full object-contain" />
@@ -697,7 +739,7 @@ export const Flashcards: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                      <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Especialidade (Opcional)</label>
+                      <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Tema (Opcional)</label>
                       <input 
                           value={genCategory} 
                           onChange={e => setGenCategory(e.target.value)} 
@@ -758,12 +800,39 @@ export const Flashcards: React.FC = () => {
                 
                 <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Especialidade</label>
-                        <input value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-xs font-black" />
+                        <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Tema</label>
+                        <input value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-xs font-black shadow-sm" placeholder="Ex: Neurologia" />
                     </div>
                     <div>
-                        <label className="text-[9px] text-slate-500 uppercase font-black block mb-2">Nome do Deck</label>
-                        <input value={formData.bank_name} onChange={e => setFormData({...formData, bank_name: e.target.value})} className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-xs font-black" placeholder="Principal" />
+                        <div className="flex justify-between items-center mb-2">
+                            <label className="text-[9px] text-slate-500 uppercase font-black">Nome do Deck</label>
+                            <button 
+                                type="button" 
+                                onClick={() => setIsCreatingNewBank(!isCreatingNewBank)} 
+                                className="text-[7px] font-black text-slate-400 uppercase hover:text-primary transition-colors focus:outline-none"
+                            >
+                                {isCreatingNewBank ? 'LISTA' : '+ NOVO'}
+                            </button>
+                        </div>
+                        {isCreatingNewBank ? (
+                            <input 
+                                value={formData.bank_name} 
+                                onChange={e => setFormData({...formData, bank_name: e.target.value})} 
+                                className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-xs font-black shadow-sm" 
+                                placeholder="Principal" 
+                            />
+                        ) : (
+                            <select 
+                                value={formData.bank_name} 
+                                onChange={e => setFormData({...formData, bank_name: e.target.value})} 
+                                className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-xs font-black shadow-sm cursor-pointer uppercase"
+                            >
+                                <option value="">Selecione um deck...</option>
+                                {availableBanks.map(b => (
+                                    <option key={b} value={b}>{b}</option>
+                                ))}
+                            </select>
+                        )}
                     </div>
                 </div>
               </div>
@@ -780,12 +849,54 @@ export const Flashcards: React.FC = () => {
                 
                 {/* Keep Image Toggle */}
                 {frontPreview && (
-                    <div className="flex items-center gap-3 p-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-900 rounded-xl">
-                        <label className="relative inline-flex items-center cursor-pointer">
-                            <input type="checkbox" checked={keepImageAfterSave} onChange={e => setKeepImageAfterSave(e.target.checked)} className="sr-only peer" />
-                            <div className="w-9 h-5 bg-slate-200 peer-focus:outline-none dark:bg-zinc-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                        </label>
-                        <span className="text-[9px] font-black uppercase text-indigo-700 dark:text-indigo-300">Criar múltiplos cards desta imagem</span>
+                    <div className="space-y-4">
+                        <div className="flex items-center gap-3 p-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-900 rounded-xl">
+                            <label className="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" checked={keepImageAfterSave} onChange={e => setKeepImageAfterSave(e.target.checked)} className="sr-only peer" />
+                                <div className="w-9 h-5 bg-slate-200 peer-focus:outline-none dark:bg-zinc-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                            </label>
+                            <span className="text-[9px] font-black uppercase text-indigo-700 dark:text-indigo-300">Criar múltiplos cards desta imagem</span>
+                        </div>
+
+                        {/* Exibição da Imagem */}
+                        <div className="space-y-2 p-4 bg-slate-50 dark:bg-zinc-900/40 border border-slate-150 dark:border-zinc-800 rounded-xl">
+                            <label className="text-[9px] text-slate-500 uppercase font-black block">Exibir Imagem Em</label>
+                            <div className="grid grid-cols-3 gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => setImagePosition('front')}
+                                    className={`py-2 px-3 rounded-lg font-black text-[9px] border uppercase transition-all flex items-center justify-center ${
+                                        imagePosition === 'front'
+                                            ? 'bg-primary text-white border-primary shadow-sm'
+                                            : 'bg-white dark:bg-black border-slate-200 dark:border-zinc-800 text-slate-500 hover:border-primary/50'
+                                    }`}
+                                >
+                                    Pergunta
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setImagePosition('back')}
+                                    className={`py-2 px-3 rounded-lg font-black text-[9px] border uppercase transition-all flex items-center justify-center ${
+                                        imagePosition === 'back'
+                                            ? 'bg-primary text-white border-primary shadow-sm'
+                                            : 'bg-white dark:bg-black border-slate-200 dark:border-zinc-800 text-slate-500 hover:border-primary/50'
+                                    }`}
+                                >
+                                    Resposta
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setImagePosition('both')}
+                                    className={`py-2 px-3 rounded-lg font-black text-[9px] border uppercase transition-all flex items-center justify-center ${
+                                        imagePosition === 'both'
+                                            ? 'bg-primary text-white border-primary shadow-sm'
+                                            : 'bg-white dark:bg-black border-slate-200 dark:border-zinc-800 text-slate-500 hover:border-primary/50'
+                                    }`}
+                                >
+                                    Ambos
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 )}
               </div>

@@ -93,6 +93,7 @@ export interface Flashcard {
   back: string;
   front_image_url?: string;
   back_image_url?: string;
+  image_position?: 'front' | 'back' | 'both';
   occlusions?: Occlusion[];
   category?: string;
   status: 'new' | 'learning' | 'review' | 'mastered' | 'inactive';
