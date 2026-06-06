@@ -97,6 +97,12 @@ export const Flashcards: React.FC = () => {
   const [isCreatingNewBank, setIsCreatingNewBank] = useState(true);
   const [imagePosition, setImagePosition] = useState<'front' | 'back' | 'both'>('front');
 
+  useEffect(() => {
+      if (occlusions.length > 0) {
+          setImagePosition('both');
+      }
+  }, [occlusions]);
+
   useEffect(() => { 
       loadCards(); 
       const savedProfile = localStorage.getItem('neuro_srs_profile') || 'standard';
@@ -866,38 +872,46 @@ export const Flashcards: React.FC = () => {
                             <div className="grid grid-cols-3 gap-2">
                                 <button
                                     type="button"
+                                    disabled={occlusions.length > 0}
                                     onClick={() => setImagePosition('front')}
                                     className={`py-2 px-3 rounded-lg font-black text-[9px] border uppercase transition-all flex items-center justify-center ${
                                         imagePosition === 'front'
                                             ? 'bg-primary text-white border-primary shadow-sm'
                                             : 'bg-white dark:bg-black border-slate-200 dark:border-zinc-800 text-slate-500 hover:border-primary/50'
-                                    }`}
+                                    } ${occlusions.length > 0 ? 'opacity-40 cursor-not-allowed' : ''}`}
                                 >
                                     Pergunta
                                 </button>
                                 <button
                                     type="button"
+                                    disabled={occlusions.length > 0}
                                     onClick={() => setImagePosition('back')}
                                     className={`py-2 px-3 rounded-lg font-black text-[9px] border uppercase transition-all flex items-center justify-center ${
                                         imagePosition === 'back'
                                             ? 'bg-primary text-white border-primary shadow-sm'
                                             : 'bg-white dark:bg-black border-slate-200 dark:border-zinc-800 text-slate-500 hover:border-primary/50'
-                                    }`}
+                                    } ${occlusions.length > 0 ? 'opacity-40 cursor-not-allowed' : ''}`}
                                 >
                                     Resposta
                                 </button>
                                 <button
                                     type="button"
+                                    disabled={occlusions.length > 0}
                                     onClick={() => setImagePosition('both')}
                                     className={`py-2 px-3 rounded-lg font-black text-[9px] border uppercase transition-all flex items-center justify-center ${
                                         imagePosition === 'both'
                                             ? 'bg-primary text-white border-primary shadow-sm'
                                             : 'bg-white dark:bg-black border-slate-200 dark:border-zinc-800 text-slate-500 hover:border-primary/50'
-                                    }`}
+                                    } ${occlusions.length > 0 ? 'opacity-80 cursor-default' : ''}`}
                                 >
                                     Ambos
                                 </button>
                             </div>
+                            {occlusions.length > 0 && (
+                                <p className="text-[8px] font-black text-amber-600 dark:text-amber-400 mt-2 uppercase tracking-wide">
+                                    ⚠️ Oclusão ativa: O card deve mostrar a imagem na Pergunta (ocluída) e no Verso (revelada).
+                                </p>
+                            )}
                         </div>
                     </div>
                 )}
