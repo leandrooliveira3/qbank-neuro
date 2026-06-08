@@ -17,6 +17,9 @@ export interface UserProfile {
   streak_count?: number; 
   achievements?: string[]; 
   created_at: string;
+  srs_profile?: string;
+  daily_limit?: number;
+  priority_config?: any;
 }
 
 export interface Task {

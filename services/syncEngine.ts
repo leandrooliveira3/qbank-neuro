@@ -64,18 +64,20 @@ class SyncEngine {
   isUserInActiveActivity(): boolean {
     if (typeof window === 'undefined') return false;
     const hash = window.location.hash || '';
+    const path = window.location.pathname || '';
+    const url = hash + path;
     
     // Answering questions (realizando questões)
-    if (hash.includes('/practice/session')) return true;
+    if (url.includes('/practice/session')) return true;
     
     // Studying flashcards (flashcards)
-    if (hash.includes('/flashcards/study')) return true;
+    if (url.includes('/flashcards/study')) return true;
     
     // Simulated exams (simulados)
-    if (hash.includes('/simulations/session')) return true;
+    if (url.includes('/simulations/session')) return true;
     
     // Watching videos (vendo videos)
-    if (hash.includes('/videos') && ((window as any).neuro_active_video === true || (window as any).neuro_video_playing === true)) {
+    if (url.includes('/videos') && ((window as any).neuro_active_video === true || (window as any).neuro_video_playing === true)) {
       return true;
     }
     
@@ -95,7 +97,7 @@ class SyncEngine {
     }
     
     const queueLength = await this.getQueueLength();
-    if (queueLength === 0 && !force && Math.random() > 0.3) return; 
+    if (queueLength === 0 && !force && !pull) return; 
 
     this.isSyncing = true;
     this.onStatusChange('syncing');

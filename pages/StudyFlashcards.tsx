@@ -112,7 +112,7 @@ export const StudyFlashcards: React.FC = () => {
   const [savingExplanation, setSavingExplanation] = useState(false);
   
   useEffect(() => { 
-      const profile = localStorage.getItem('neuro_srs_profile') || 'standard';
+      const profile = user?.srs_profile || localStorage.getItem('neuro_srs_profile') || 'standard';
       let mod = 1.0;
       if (profile === 'cramming') mod = 0.5;
       else if (profile === 'deep') mod = 1.5;
@@ -128,7 +128,7 @@ export const StudyFlashcards: React.FC = () => {
       };
       window.addEventListener('neuro_sync_completed', handleSyncCompleted);
       return () => window.removeEventListener('neuro_sync_completed', handleSyncCompleted);
-  }, [user?.id, studyMode]);
+  }, [user?.id, user?.srs_profile, user?.daily_limit, JSON.stringify(user?.priority_config), studyMode]);
 
   const loadSessionCards = async () => {
     if (!user) return;
@@ -178,10 +178,52 @@ export const StudyFlashcards: React.FC = () => {
             .filter(c => c.status !== 'inactive' && c.status !== 'new' && new Date(c.next_review) <= now)
             .sort((a, b) => (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id));
 
-        sessionCards = [...normalDue];
+        // ── Obter Priority Config para priorizar e antecipar cards de Bancos/Temas marcados ──
+        const priorityConfig = user?.priority_config || (() => {
+            const raw = localStorage.getItem('neuro_priority_config');
+            return raw ? JSON.parse(raw) : null;
+        })();
+
+        let priorityCards: Flashcard[] = [];
+        let hasActivePriority = false;
+
+        if (priorityConfig && priorityConfig.activatedAt) {
+            const daysLeft = 7 - Math.floor((Date.now() - new Date(priorityConfig.activatedAt).getTime()) / (1000 * 60 * 60 * 24));
+            if (daysLeft > 0) {
+                const priorityTopics = priorityConfig.topics || [];
+                const priorityBanks = priorityConfig.banks || [];
+
+                if (priorityTopics.length > 0 || priorityBanks.length > 0) {
+                    hasActivePriority = true;
+                    // Filtra todos os cards válidos do usuário que pertençam aos temas ou bancos prioritários
+                    priorityCards = userCards.filter(c => 
+                        c.status !== 'inactive' && 
+                        (priorityBanks.includes(c.bank_name || 'Principal') || priorityTopics.includes(c.category || 'Sem Categoria'))
+                    );
+                }
+            }
+        }
+
+        if (hasActivePriority && priorityCards.length > 0) {
+            // Ordenar prioritários: Vencidos primeiro, depois o restante de forma determinística
+            const sortedPriority = [...priorityCards].sort((a, b) => {
+                const aDue = new Date(a.next_review) <= now;
+                const bDue = new Date(b.next_review) <= now;
+                if (aDue && !bDue) return -1;
+                if (!aDue && bDue) return 1;
+                return (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id);
+            });
+
+            // Os outros cards que NÃO são prioritários ou não casam entram em seguida
+            const otherDue = normalDue.filter(c => !sortedPriority.some(p => p.id === c.id));
+
+            sessionCards = [...sortedPriority, ...otherDue];
+        } else {
+            sessionCards = [...normalDue];
+        }
 
         // ── Apply daily limit ──
-        const dailyLimit = parseInt(localStorage.getItem('neuro_daily_limit') || '0');
+        const dailyLimit = user?.daily_limit ?? parseInt(localStorage.getItem('neuro_daily_limit') || '0');
         if (dailyLimit > 0 && sessionCards.length > dailyLimit) {
           const overflow = sessionCards.slice(dailyLimit);
           // Redistribute overflow across next 1-3 days so they don't pile up

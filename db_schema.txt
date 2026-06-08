@@ -10,6 +10,9 @@ ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS last_daily_bonus DATE;
 ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS streak_count INTEGER DEFAULT 0;
 ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS achievements TEXT[] DEFAULT '{}';
 ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS last_seen TIMESTAMP WITH TIME ZONE; -- Novo campo para Rastreio de Login
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS srs_profile TEXT DEFAULT 'standard';
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS daily_limit INTEGER DEFAULT 0;
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS priority_config JSONB DEFAULT NULL;
 
 UPDATE public.profiles SET xp = 0 WHERE xp IS NULL;
 UPDATE public.profiles SET level = 1 WHERE level IS NULL;
@@ -35,6 +38,9 @@ CREATE TABLE IF NOT EXISTS public.didactic_materials (
 
 -- Habilitar segurança (RLS)
 ALTER TABLE public.didactic_materials ENABLE ROW LEVEL SECURITY;
+
+-- Evita erro se a política já existir ao reexecutar o script
+DROP POLICY IF EXISTS "Leitura pública para usuários autenticados" ON public.didactic_materials;
 
 -- Política de Leitura: Todos os usuários autenticados podem ver e baixar os materiais
 CREATE POLICY "Leitura pública para usuários autenticados" 

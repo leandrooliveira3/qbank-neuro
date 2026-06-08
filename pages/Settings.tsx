@@ -368,7 +368,10 @@ export const Settings: React.FC = () => {
                                 ].map((preset) => {
                                    const isSelected = (localStorage.getItem('neuro_srs_profile') || 'standard') === preset.id;
                                    return (
-                                     <div key={preset.id} onClick={() => localStorage.setItem('neuro_srs_profile', preset.id)} className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${isSelected ? `bg-slate-50 dark:bg-zinc-900 ${preset.border}` : 'bg-white dark:bg-zinc-950 border-slate-100 dark:border-zinc-900'}`}>
+                                     <div key={preset.id} onClick={() => {
+                                         localStorage.setItem('neuro_srs_profile', preset.id);
+                                         updateProfile({ srs_profile: preset.id });
+                                     }} className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${isSelected ? `bg-slate-50 dark:bg-zinc-900 ${preset.border}` : 'bg-white dark:bg-zinc-950 border-slate-100 dark:border-zinc-900'}`}>
                                          <preset.icon className={`h-6 w-6 ${preset.color} mb-3`} />
                                          <h4 className="font-black text-xs mb-1">{preset.name}</h4>
                                          <p className="text-[9px] text-slate-500 leading-relaxed">{preset.description}</p>

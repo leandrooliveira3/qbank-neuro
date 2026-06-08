@@ -31,6 +31,34 @@ const updateLastSeen = async (userId: string) => {
     }
 };
 
+const syncProfileToLocalStorage = (profile: Partial<UserProfile>) => {
+  if (!profile) return;
+  if (profile.srs_profile) {
+    localStorage.setItem('neuro_srs_profile', profile.srs_profile);
+  }
+  if (profile.daily_limit !== undefined && profile.daily_limit !== null) {
+    localStorage.setItem('neuro_daily_limit', String(profile.daily_limit));
+  }
+  if (profile.priority_config) {
+    localStorage.setItem('neuro_priority_config', typeof profile.priority_config === 'string' ? profile.priority_config : JSON.stringify(profile.priority_config));
+  } else if (profile.hasOwnProperty('priority_config') && !profile.priority_config) {
+    localStorage.removeItem('neuro_priority_config');
+  }
+};
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('neuro_sync_completed', async () => {
+    const currentUser = useAuthStore.getState().user;
+    if (currentUser?.id) {
+      const localProfile = await localDB.get('profiles', currentUser.id);
+      if (localProfile) {
+        useAuthStore.setState({ user: localProfile });
+        syncProfileToLocalStorage(localProfile);
+      }
+    }
+  });
+}
+
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   loading: true,
@@ -43,6 +71,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({ user: newUser });
       await localDB.put('profiles', newUser); 
       await syncEngine.enqueue('profiles', newUser);
+      syncProfileToLocalStorage(newUser);
     }
   },
 
@@ -99,10 +128,14 @@ export const useAuthStore = create<AuthState>((set, get) => ({
                 created_at: profile.created_at || authData.user.created_at!,
                 last_daily_bonus: profile.last_daily_bonus,
                 streak_count: profile.streak_count || 0,
-                achievements: profile.achievements || []
+                achievements: profile.achievements || [],
+                srs_profile: profile.srs_profile || 'standard',
+                daily_limit: profile.daily_limit || 0,
+                priority_config: profile.priority_config || null
             };
 
             await localDB.put('profiles', userProfile);
+            syncProfileToLocalStorage(userProfile);
             set({ user: userProfile, loading: false, initialized: true });
             
             setTimeout(() => syncEngine.startSync(true), 100);
@@ -167,6 +200,9 @@ export const useAuthStore = create<AuthState>((set, get) => ({
                     last_daily_bonus: remoteProfile.last_daily_bonus,
                     streak_count: remoteProfile.streak_count ?? 0,
                     achievements: remoteProfile.achievements ?? [],
+                    srs_profile: remoteProfile.srs_profile ?? 'standard',
+                    daily_limit: remoteProfile.daily_limit ?? 0,
+                    priority_config: remoteProfile.priority_config ?? null,
                     // Garante outros campos essenciais
                     role: remoteProfile.role,
                     full_name: remoteProfile.full_name,
@@ -177,6 +213,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
                 
                 // Salva a versão atualizada
                 await localDB.put('profiles', localProfile);
+                syncProfileToLocalStorage(localProfile);
                 set({ user: localProfile });
             }
         }

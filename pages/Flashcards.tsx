@@ -49,7 +49,7 @@ const SRS_PRESETS = [
 ];
 
 export const Flashcards: React.FC = () => {
-  const { user } = useAuthStore();
+  const { user, updateProfile } = useAuthStore();
   const navigate = useNavigate();
   const [cards, setCards] = useState<Flashcard[]>([]);
   const [loading, setLoading] = useState(true);
@@ -105,21 +105,27 @@ export const Flashcards: React.FC = () => {
 
   useEffect(() => { 
       loadCards(); 
-      const savedProfile = localStorage.getItem('neuro_srs_profile') || 'standard';
+      const savedProfile = user?.srs_profile || localStorage.getItem('neuro_srs_profile') || 'standard';
       setSrsProfile(savedProfile);
-      const savedLimit = parseInt(localStorage.getItem('neuro_daily_limit') || '0');
+      const savedLimit = user?.daily_limit ?? parseInt(localStorage.getItem('neuro_daily_limit') || '0');
       setDailyLimit(savedLimit);
-      const priorityRaw = localStorage.getItem('neuro_priority_config');
-      if (priorityRaw) {
-          const cfg = JSON.parse(priorityRaw);
-          setPriorityTopics(cfg.topics || []);
-          setPriorityBanks(cfg.banks || []);
-          setPriorityActivatedAt(cfg.activatedAt || null);
+      const priorityConfig = user?.priority_config || (() => {
+          const raw = localStorage.getItem('neuro_priority_config');
+          return raw ? JSON.parse(raw) : null;
+      })();
+      if (priorityConfig) {
+          setPriorityTopics(priorityConfig.topics || []);
+          setPriorityBanks(priorityConfig.banks || []);
+          setPriorityActivatedAt(priorityConfig.activatedAt || null);
+      } else {
+          setPriorityTopics([]);
+          setPriorityBanks([]);
+          setPriorityActivatedAt(null);
       }
 
       window.addEventListener('neuro_sync_completed', loadCards);
       return () => window.removeEventListener('neuro_sync_completed', loadCards);
-  }, [user?.id]);
+  }, [user?.id, user?.srs_profile, user?.daily_limit, JSON.stringify(user?.priority_config)]);
 
   const loadCards = async () => {
     if (!user) return;
@@ -133,11 +139,13 @@ export const Flashcards: React.FC = () => {
   const handleSaveSettings = (profileId: string) => {
       setSrsProfile(profileId);
       localStorage.setItem('neuro_srs_profile', profileId);
+      updateProfile({ srs_profile: profileId });
   };
 
   const handleDailyLimitChange = (val: number) => {
       setDailyLimit(val);
       localStorage.setItem('neuro_daily_limit', String(val));
+      updateProfile({ daily_limit: val });
   };
 
   const handleTogglePriorityTopic = (topic: string) => {
@@ -158,6 +166,7 @@ export const Flashcards: React.FC = () => {
       setPriorityTopics(nextTopics);
       setPriorityActivatedAt(newActivatedAt);
       localStorage.setItem('neuro_priority_config', JSON.stringify({ topics: nextTopics, banks: priorityBanks, activatedAt: newActivatedAt }));
+      updateProfile({ priority_config: { topics: nextTopics, banks: priorityBanks, activatedAt: newActivatedAt } });
   };
 
   const handleTogglePriorityBank = (bank: string) => {
@@ -178,6 +187,7 @@ export const Flashcards: React.FC = () => {
       setPriorityBanks(nextBanks);
       setPriorityActivatedAt(newActivatedAt);
       localStorage.setItem('neuro_priority_config', JSON.stringify({ topics: priorityTopics, banks: nextBanks, activatedAt: newActivatedAt }));
+      updateProfile({ priority_config: { topics: priorityTopics, banks: nextBanks, activatedAt: newActivatedAt } });
   };
 
   const allCategoriesWithCounts = useMemo(() => {
@@ -1081,6 +1091,7 @@ export const Flashcards: React.FC = () => {
                               setPriorityBanks([]);
                               setPriorityActivatedAt(null);
                               localStorage.removeItem('neuro_priority_config');
+                              updateProfile({ priority_config: null });
                           }}
                           className="mt-6 text-[9px] font-black uppercase text-slate-400 hover:text-red-500 transition-colors flex items-center gap-1"
                       >
