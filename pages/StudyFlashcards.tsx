@@ -11,7 +11,7 @@ import {
   X, Loader2, 
   Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2,
   Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles, ImagePlus, Save,
-  Maximize2
+  Maximize2, AlertCircle
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import { explainFlashcardContext } from '../services/ai';
@@ -115,6 +115,9 @@ export const StudyFlashcards: React.FC = () => {
   const [fullscreenSrc, setFullscreenSrc] = useState<string>('');
   const [fullscreenOcclusions, setFullscreenOcclusions] = useState<any[]>([]);
   const [isFullscreenBack, setIsFullscreenBack] = useState(false);
+  
+  const [isFrontVertical, setIsFrontVertical] = useState(false);
+  const [isBackVertical, setIsBackVertical] = useState(false);
   
   const [aiExplanation, setAiExplanation] = useState<string | null>(null);
   const [isExplaining, setIsExplaining] = useState(false);
@@ -253,6 +256,8 @@ export const StudyFlashcards: React.FC = () => {
 
   useEffect(() => {
       const card = cards[currentIndex];
+      setIsFrontVertical(false);
+      setIsBackVertical(false);
       if (card?.front_image_url) {
           mediaService.getImageUrl(card.front_image_url).then(setCurrentImageUrl);
       } else {
@@ -596,6 +601,14 @@ export const StudyFlashcards: React.FC = () => {
                     >
                         {currentCard.front_image_url && (!currentCard.image_position || currentCard.image_position === 'front' || currentCard.image_position === 'both') ? (
                             <div className="flex-[1.5] min-h-0 bg-slate-50 dark:bg-black/40 border-b border-slate-100 dark:border-zinc-800 relative select-none">
+                                {isFrontVertical && (
+                                    <div className="absolute top-2 left-2 right-2 bg-amber-500/95 dark:bg-amber-600/95 text-white py-1.5 px-3 rounded-lg text-[9px] font-black uppercase tracking-wider shadow-lg flex items-center justify-between z-30 animate-bounce pointer-events-none">
+                                        <span className="flex items-center gap-1.5">
+                                            <AlertCircle className="h-3 w-3 text-white shrink-0" /> Imagem longa: toque para visualizar em tela cheia
+                                        </span>
+                                        <Maximize2 className="h-3 w-3 shrink-0" />
+                                    </div>
+                                )}
                                 <div className="absolute inset-0 p-3 flex items-center justify-center">
                                     <div 
                                         onClick={(e) => {
@@ -614,6 +627,12 @@ export const StudyFlashcards: React.FC = () => {
                                             alt="Referência" 
                                             className="max-h-full max-w-full object-contain block"
                                             referrerPolicy="no-referrer"
+                                            onLoad={(e) => {
+                                                const img = e.currentTarget;
+                                                if (img.naturalHeight > img.naturalWidth) {
+                                                    setIsFrontVertical(true);
+                                                }
+                                            }}
                                         />
                                         {hasOcclusions && currentCard.occlusions?.map(occ => (
                                             <div 
@@ -659,6 +678,14 @@ export const StudyFlashcards: React.FC = () => {
                     >
                         {(currentCard.back_image_url || (currentCard.front_image_url && (!currentCard.image_position || currentCard.image_position === 'back' || currentCard.image_position === 'both'))) ? (
                             <div className="flex-[1.5] min-h-0 bg-emerald-500/5 dark:bg-emerald-500/10 border-b border-emerald-100 dark:border-emerald-900/40 relative select-none">
+                                {isBackVertical && (
+                                    <div className="absolute top-2 left-2 right-2 bg-amber-500/95 dark:bg-amber-600/95 text-white py-1.5 px-3 rounded-lg text-[9px] font-black uppercase tracking-wider shadow-lg flex items-center justify-between z-30 animate-bounce pointer-events-none">
+                                        <span className="flex items-center gap-1.5">
+                                            <AlertCircle className="h-3 w-3 text-white shrink-0" /> Imagem longa: toque para visualizar em tela cheia
+                                        </span>
+                                        <Maximize2 className="h-3 w-3 shrink-0" />
+                                    </div>
+                                )}
                                 <div className="absolute inset-0 p-3 flex items-center justify-center">
                                     <div 
                                         onClick={(e) => {
@@ -678,6 +705,12 @@ export const StudyFlashcards: React.FC = () => {
                                             alt="Gabarito" 
                                             className="max-h-full max-w-full object-contain block opacity-90"
                                             referrerPolicy="no-referrer"
+                                            onLoad={(e) => {
+                                                const img = e.currentTarget;
+                                                if (img.naturalHeight > img.naturalWidth) {
+                                                    setIsBackVertical(true);
+                                                }
+                                            }}
                                         />
                                         {hasOcclusions && currentCard.occlusions?.map(occ => (
                                             <div 
