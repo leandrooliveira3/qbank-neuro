@@ -10,7 +10,8 @@ import { XP_VALUES, xpService } from '../services/xpService';
 import { 
   X, Loader2, 
   Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2,
-  Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles, ImagePlus, Save
+  Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles, ImagePlus, Save,
+  Maximize2
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import { explainFlashcardContext } from '../services/ai';
@@ -109,6 +110,11 @@ export const StudyFlashcards: React.FC = () => {
   const [editBackPreview, setEditBackPreview] = useState('');
   const [editBackFile, setEditBackFile] = useState<File | null>(null);
   const editBackImgRef = React.useRef<HTMLInputElement>(null);
+
+  const [isFullscreenImageOpen, setIsFullscreenImageOpen] = useState(false);
+  const [fullscreenSrc, setFullscreenSrc] = useState<string>('');
+  const [fullscreenOcclusions, setFullscreenOcclusions] = useState<any[]>([]);
+  const [isFullscreenBack, setIsFullscreenBack] = useState(false);
   
   const [aiExplanation, setAiExplanation] = useState<string | null>(null);
   const [isExplaining, setIsExplaining] = useState(false);
@@ -589,14 +595,25 @@ export const StudyFlashcards: React.FC = () => {
                         onClick={() => setIsFlipped(true)}
                     >
                         {currentCard.front_image_url && (!currentCard.image_position || currentCard.image_position === 'front' || currentCard.image_position === 'both') ? (
-                            <div className="flex-[1.5] min-h-0 bg-slate-50 dark:bg-black/40 flex items-center justify-center p-3 border-b border-slate-100 dark:border-zinc-800 relative">
-                                <div className="relative h-full w-full flex items-center justify-center">
-                                    <div className="relative inline-block max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black">
+                            <div className="flex-[1.5] min-h-0 bg-slate-50 dark:bg-black/40 border-b border-slate-100 dark:border-zinc-800 relative select-none">
+                                <div className="absolute inset-0 p-3 flex items-center justify-center">
+                                    <div 
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setFullscreenSrc(currentImageUrl || currentCard.front_image_url);
+                                            setFullscreenOcclusions(currentCard.occlusions || []);
+                                            setIsFullscreenBack(false);
+                                            setIsFullscreenImageOpen(true);
+                                        }}
+                                        className="relative max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black cursor-zoom-in group flex items-center justify-center border border-slate-200/50 dark:border-zinc-800"
+                                        title="Clique para ver em tela cheia"
+                                    >
                                         <img 
                                             key={currentCard.id}
                                             src={currentImageUrl || currentCard.front_image_url} 
                                             alt="Referência" 
-                                            className="max-h-full max-w-full block"
+                                            className="max-h-full max-w-full object-contain block"
+                                            referrerPolicy="no-referrer"
                                         />
                                         {hasOcclusions && currentCard.occlusions?.map(occ => (
                                             <div 
@@ -605,6 +622,9 @@ export const StudyFlashcards: React.FC = () => {
                                                 className="absolute bg-zinc-950 border border-zinc-700 z-10"
                                             />
                                         ))}
+                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20 pointer-events-none">
+                                            <Maximize2 className="h-6 w-6 text-white animate-pulse" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -638,14 +658,26 @@ export const StudyFlashcards: React.FC = () => {
                         onClick={() => setIsFlipped(false)}
                     >
                         {(currentCard.back_image_url || (currentCard.front_image_url && (!currentCard.image_position || currentCard.image_position === 'back' || currentCard.image_position === 'both'))) ? (
-                            <div className="flex-[1.5] min-h-0 bg-emerald-500/5 dark:bg-emerald-500/10 flex items-center justify-center p-3 border-b border-emerald-100 dark:border-emerald-900/40 relative">
-                                <div className="relative h-full w-full flex items-center justify-center">
-                                    <div className="relative inline-block max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black border border-emerald-400/20">
+                            <div className="flex-[1.5] min-h-0 bg-emerald-500/5 dark:bg-emerald-500/10 border-b border-emerald-100 dark:border-emerald-900/40 relative select-none">
+                                <div className="absolute inset-0 p-3 flex items-center justify-center">
+                                    <div 
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            const src = currentBackImageUrl || (currentCard.back_image_url ? currentCard.back_image_url : (currentImageUrl || currentCard.front_image_url));
+                                            setFullscreenSrc(src);
+                                            setFullscreenOcclusions(currentCard.occlusions || []);
+                                            setIsFullscreenBack(true);
+                                            setIsFullscreenImageOpen(true);
+                                        }}
+                                        className="relative max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black border border-emerald-400/20 cursor-zoom-in group flex items-center justify-center"
+                                        title="Clique para ver em tela cheia"
+                                    >
                                         <img 
                                             key={`back-${currentCard.id}`}
                                             src={currentBackImageUrl || (currentCard.back_image_url ? currentCard.back_image_url : (currentImageUrl || currentCard.front_image_url))} 
                                             alt="Gabarito" 
-                                            className="max-h-full max-w-full block opacity-90"
+                                            className="max-h-full max-w-full object-contain block opacity-90"
+                                            referrerPolicy="no-referrer"
                                         />
                                         {hasOcclusions && currentCard.occlusions?.map(occ => (
                                             <div 
@@ -654,6 +686,9 @@ export const StudyFlashcards: React.FC = () => {
                                                 className="absolute border border-emerald-400 bg-emerald-400/20 z-10 animate-pulse"
                                             />
                                         ))}
+                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20 pointer-events-none">
+                                            <Maximize2 className="h-6 w-6 text-white animate-pulse" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -799,6 +834,47 @@ export const StudyFlashcards: React.FC = () => {
                 )}
             </div>
         </footer>
+
+        {/* MODAL FULLSCREEN LIGHTBOX */}
+        {isFullscreenImageOpen && (
+            <div 
+                className="fixed inset-0 bg-black/95 z-[9999] flex flex-col items-center justify-center p-4 select-none animate-in fade-in duration-200 cursor-zoom-out"
+                onClick={() => setIsFullscreenImageOpen(false)}
+            >
+                {/* Header controls inside modal */}
+                <div className="absolute top-4 right-4 z-[10000] flex gap-2">
+                    <button 
+                        onClick={(e) => { e.stopPropagation(); setIsFullscreenImageOpen(false); }}
+                        className="p-3 rounded-full bg-zinc-900/80 hover:bg-zinc-800 text-white shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 text-xs font-black uppercase tracking-wider border border-zinc-800"
+                    >
+                        <X className="h-5 w-5" /> Fechar
+                    </button>
+                </div>
+
+                {/* Subtitle / Tip at bottom */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[10000] bg-zinc-900/80 backdrop-blur-md px-4 py-2 rounded-xl border border-zinc-800/40 text-[9px] font-black text-slate-300 uppercase tracking-widest text-center shadow-lg pointer-events-none">
+                    Toque em qualquer lugar fora para voltar ao card
+                </div>
+
+                {/* Main image view with alignment container */}
+                <div className="relative max-h-[85vh] max-w-[95vw] shadow-2xl rounded-2xl bg-black flex items-center justify-center overflow-auto">
+                    <div className="relative inline-block max-h-[85vh] max-w-[95vw] min-w-[200px]" onClick={(e) => e.stopPropagation()}>
+                        <img 
+                            src={fullscreenSrc} 
+                            alt="Visualização Completa" 
+                            className="max-h-[85vh] max-w-[95vw] object-contain block rounded-xl shadow-inner"
+                        />
+                        {fullscreenOcclusions?.map(occ => (
+                            <div 
+                                key={occ.id}
+                                style={{ left: `${occ.x}%`, top: `${occ.y}%`, width: `${occ.width}%`, height: `${occ.height}%` }}
+                                className={isFullscreenBack ? "absolute border border-emerald-400 bg-emerald-400/20 z-10" : "absolute bg-zinc-950 border border-zinc-700 z-10"}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        )}
     </div>
   );
 };
