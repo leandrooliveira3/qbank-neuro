@@ -17,7 +17,10 @@ import { explainFlashcardContext } from '../services/ai';
 
 // ... neuroSM18 function (unchanged) ...
 const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', modifier: number = 1.0) => {
-    let { interval, ease_factor, repetitions, status } = card;
+    let interval = card.interval ?? 0;
+    let ease_factor = card.ease_factor ?? 2.5;
+    let repetitions = card.repetitions ?? 0;
+    let status = card.status || 'new';
     let nextReview = new Date();
     const MIN_EASE = 1.3;
     const MAX_EASE = 3.5;
@@ -748,7 +751,7 @@ export const StudyFlashcards: React.FC = () => {
                              </button>
                              <span className="text-[8px] font-black uppercase text-slate-300 tracking-widest">Qual foi sua dificuldade?</span>
                         </div>
-                        {(studyMode === 'free' || (studyMode === 'config' && state?.reviewConfig?.type === 'free')) ? (
+                        {(studyMode === 'free' || (studyMode === 'config' && state?.reviewConfig?.type === 'free')) && currentCard?.status !== 'new' && currentCard?.status !== 'inactive' ? (
                         <div className="flex justify-center">
                             <button 
                                 onClick={() => handleRate('good')}
