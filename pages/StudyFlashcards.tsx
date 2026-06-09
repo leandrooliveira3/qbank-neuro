@@ -625,26 +625,28 @@ export const StudyFlashcards: React.FC = () => {
                                         className="relative max-h-full max-w-full shadow-md rounded-xl overflow-hidden bg-black cursor-zoom-in group flex items-center justify-center border border-slate-200/50 dark:border-zinc-800"
                                         title="Clique para ver em tela cheia"
                                     >
-                                        <img 
-                                            key={currentCard.id}
-                                            src={currentImageUrl || currentCard.front_image_url} 
-                                            alt="Referência" 
-                                            className="max-h-full max-w-full object-contain block"
-                                            referrerPolicy="no-referrer"
-                                            onLoad={(e) => {
-                                                const img = e.currentTarget;
-                                                if (img.naturalHeight > img.naturalWidth) {
-                                                    setIsFrontVertical(true);
-                                                }
-                                            }}
-                                        />
-                                        {hasOcclusions && currentCard.occlusions?.map(occ => (
-                                            <div 
-                                                key={occ.id}
-                                                style={{ left: `${occ.x}%`, top: `${occ.y}%`, width: `${occ.width}%`, height: `${occ.height}%` }}
-                                                className="absolute bg-zinc-950 border border-zinc-700 z-10"
+                                        <div className="relative inline-flex max-w-full max-h-full overflow-hidden">
+                                            <img 
+                                                key={currentCard.id}
+                                                src={currentImageUrl || currentCard.front_image_url} 
+                                                alt="Referência" 
+                                                className="max-h-full max-w-full object-contain block"
+                                                referrerPolicy="no-referrer"
+                                                onLoad={(e) => {
+                                                    const img = e.currentTarget;
+                                                    if (img.naturalHeight > img.naturalWidth) {
+                                                        setIsFrontVertical(true);
+                                                    }
+                                                }}
                                             />
-                                        ))}
+                                            {hasOcclusions && currentCard.occlusions?.map(occ => (
+                                                <div 
+                                                    key={occ.id}
+                                                    style={{ left: `${occ.x}%`, top: `${occ.y}%`, width: `${occ.width}%`, height: `${occ.height}%` }}
+                                                    className="absolute bg-zinc-950 border border-zinc-700 z-10"
+                                                />
+                                            ))}
+                                        </div>
                                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20 pointer-events-none">
                                             <Maximize2 className="h-6 w-6 text-white animate-pulse" />
                                         </div>
