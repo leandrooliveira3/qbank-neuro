@@ -14,7 +14,7 @@ import {
   Maximize2, AlertCircle
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
-import { explainFlashcardContext } from '../services/ai';
+import { explainFlashcardContext, generateQuestionFromFlashcard } from '../services/ai';
 
 // ... neuroSM18 function (unchanged) ...
 const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', modifier: number = 1.0) => {
@@ -122,6 +122,14 @@ export const StudyFlashcards: React.FC = () => {
   const [aiExplanation, setAiExplanation] = useState<string | null>(null);
   const [isExplaining, setIsExplaining] = useState(false);
   const [savingExplanation, setSavingExplanation] = useState(false);
+  
+  const [isGeneratingQuestion, setIsGeneratingQuestion] = useState(false);
+  const [generatedQuestionSuccess, setGeneratedQuestionSuccess] = useState<string | null>(null);
+
+  useEffect(() => {
+    setIsGeneratingQuestion(false);
+    setGeneratedQuestionSuccess(null);
+  }, [currentIndex]);
   
   useEffect(() => { 
       const profile = user?.srs_profile || localStorage.getItem('neuro_srs_profile') || 'standard';
@@ -366,6 +374,48 @@ export const StudyFlashcards: React.FC = () => {
           console.error(e);
       } finally {
           setSavingExplanation(false);
+      }
+  };
+
+  const handleGenerateQuestionAI = async () => {
+      if (isGeneratingQuestion || !cards[currentIndex] || !user?.id) return;
+      setIsGeneratingQuestion(true);
+      setGeneratedQuestionSuccess(null);
+      try {
+          const card = cards[currentIndex];
+          const generated = await generateQuestionFromFlashcard(card.front, card.back, card.category);
+          
+          const questionId = crypto.randomUUID();
+          const payload = {
+              id: questionId,
+              bank_name: 'CASOS DE FLASHCARDS',
+              category: card.category || 'Geral',
+              subcategory: generated.subcategoria || '',
+              difficulty: 'Difícil',
+              statement: generated.enunciado,
+              explanation: generated.comentario,
+              statement_image_url: '',
+              alternatives: generated.alternativas.map(alt => ({
+                  id: crypto.randomUUID(),
+                  text: alt.text,
+                  is_correct: alt.is_correct
+              })),
+              created_by: user.id,
+              created_at: new Date().toISOString(),
+              tags: generated.tags || []
+          };
+          
+          await syncEngine.enqueue('questions', payload);
+          setGeneratedQuestionSuccess('Caso clínico de fellowship elaborado e adicionado no banco "CASOS DE FLASHCARDS" com sucesso!');
+      } catch (err: any) {
+          console.error('Failed to generate question from flashcard', err);
+          if (err?.message?.includes("CRÉDITOS_ESGOTADOS")) {
+              setGeneratedQuestionSuccess(`Erro: ${err.message.replace("CRÉDITOS_ESGOTADOS: ", "")}`);
+          } else {
+              setGeneratedQuestionSuccess('Não foi possível gerar no momento. Por favor, revise seus créditos do Gemini API no Google AI Studio.');
+          }
+      } finally {
+          setIsGeneratingQuestion(false);
       }
   };
 
@@ -792,6 +842,30 @@ export const StudyFlashcards: React.FC = () => {
                                         </button>
                                     </div>
                                 )}
+
+                                {/* GERAR QUESTÃO POR IA */}
+                                <div className="mt-4 pt-4 border-t border-emerald-100 dark:border-emerald-900/30">
+                                    {isGeneratingQuestion ? (
+                                        <div className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-slate-50 dark:bg-zinc-900 text-slate-500 rounded-xl animate-pulse">
+                                            <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                                            <span className="font-bold text-[10px] tracking-widest uppercase">Criando Caso Clínico de Altíssimo Nível...</span>
+                                        </div>
+                                    ) : (
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); handleGenerateQuestionAI(); }}
+                                            disabled={isGeneratingQuestion}
+                                            className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-violet-50 hover:bg-violet-100 dark:bg-violet-950/30 dark:hover:bg-violet-900/40 text-violet-600 dark:text-violet-400 rounded-xl transition-all shadow-sm group border border-violet-100/50 dark:border-violet-900/30"
+                                        >
+                                            <Brain className="h-4 w-4 group-hover:scale-110 transition-transform text-violet-500" />
+                                            <span className="font-black text-[10px] tracking-widest uppercase">GERAR QUESTÃO POR IA</span>
+                                        </button>
+                                    )}
+                                    {generatedQuestionSuccess && (
+                                        <div className={`mt-3 p-3 text-left rounded-xl border text-[11px] leading-normal font-medium ${generatedQuestionSuccess.startsWith('Erro') || generatedQuestionSuccess.startsWith('Não') ? 'bg-rose-50 dark:bg-rose-950/20 border-rose-100 dark:border-rose-900/30 text-rose-600 dark:text-rose-400' : 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-100 dark:border-emerald-900/30 text-emerald-600 dark:text-emerald-400'}`}>
+                                            <p>{generatedQuestionSuccess}</p>
+                                        </div>
+                                    )}
+                                </div>
 
                             </div>
                             <div className="mt-2 pt-2 border-t border-emerald-50 dark:border-emerald-900/50 shrink-0">

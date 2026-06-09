@@ -379,3 +379,73 @@ export const createNeuroChat = (): Chat => {
   
   return { history: chatHistory, sendMessage, sendMessageStream };
 };
+
+export interface AIGeneratedQuestion {
+  enunciado: string;
+  alternativas: { text: string; is_correct: boolean }[];
+  comentario: string;
+  subcategoria: string;
+  tags: string[];
+}
+
+export const generateQuestionFromFlashcard = async (
+  front: string, 
+  back: string, 
+  category?: string
+): Promise<AIGeneratedQuestion> => {
+  const prompt = `
+    Você é um professor preceptor do fellowship e da comissão de elaboração do título de especialista médico em neurologia.
+    Crie uma questão de caso clínico de altíssima complexidade (nível Difícil) a partir dos conceitos contidos no seguinte flashcard médico.
+    
+    Flashcard Frente (Pergunta/Conceito):
+    \${front}
+    
+    Flashcard Verso (Gabarito/Conclusão):
+    \${back}
+    
+    Tema geral do flashcard:
+    \${category || "Neurologia Geral"}
+    
+    A questão deve ser:
+    1. Baseada em um Caso Clínico detalhado e instigante, cobrando o conceito do flashcard de forma aprofundada, exigindo raciocínio clínico do candidato (como interpretação de sinais, exames ou melhor conduta subsequente).
+    2. Composta de exatamente 5 alternativas muito plausíveis (distratores de alto nível baseados em erros comuns contidos nas diretrizes/literatura médica), sendo EXATAMENTE uma alternativa a correta de acordo com as evidências/literatura médica.
+    3. Dificuldade: Difícil.
+    4. Comentário: Um texto extremamente explicativo que justifique tecnicamente a resposta e refute, alternativa por alternativa, cada uma das demais opções incorretas de forma polida e brilhante.
+  `;
+
+  const singleQuestionSchema = {
+    type: Type.OBJECT,
+    properties: {
+      enunciado: { type: Type.STRING, description: "Caso clínico longo e a pergunta subsequente da questão" },
+      alternativas: {
+        type: Type.ARRAY,
+        description: "Exatamente 5 alternativas",
+        items: {
+          type: Type.OBJECT,
+          properties: {
+            text: { type: Type.STRING, description: "Texto da alternativa" },
+            is_correct: { type: Type.BOOLEAN, description: "Verdadeiro se esta alternativa for a correta" }
+          },
+          required: ["text", "is_correct"]
+        }
+      },
+      comentario: { type: Type.STRING, description: "Explicação cuidadosa de todas as alternativas" },
+      subcategoria: { type: Type.STRING, description: "Subcategoria técnica do caso clínico" },
+      tags: { type: Type.ARRAY, items: { type: Type.STRING } }
+    },
+    required: ["enunciado", "alternativas", "comentario", "subcategoria", "tags"]
+  };
+
+  const response = await wrapGeminiCall(() => ai.models.generateContent({
+    model: DEFAULT_MODEL,
+    contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: singleQuestionSchema,
+      temperature: 0.4
+    }
+  }));
+
+  return robustJsonParse<AIGeneratedQuestion>(response.text || '');
+};
+
