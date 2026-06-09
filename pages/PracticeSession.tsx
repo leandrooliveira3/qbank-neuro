@@ -145,8 +145,12 @@ export const PracticeSession: React.FC = () => {
       try {
           const exp = await explainWrongAlternatives(currentQ);
           setWrongExplanations(prev => ({ ...prev, [currentQ.id]: exp }));
-      } catch (e) {
-          alert("Erro ao conectar com a IA de reforço.");
+      } catch (e: any) {
+          if (e?.message?.includes("CRÉDITOS_ESGOTADOS")) {
+              alert(e.message.replace("CRÉDITOS_ESGOTADOS: ", ""));
+          } else {
+              alert("Erro ao conectar com a IA de reforço. Verifique se seus créditos do Gemini API no Google AI Studio estão ativos.");
+          }
       } finally {
           setExplainingWrong(false);
       }
@@ -161,7 +165,14 @@ export const PracticeSession: React.FC = () => {
         id: crypto.randomUUID(), user_id: user.id, front: data.front, back: data.back, front_image_url: currentQ.statement_image_url, category: currentQ.category, bank_name: 'IA Reforço', status: 'learning', interval: 0, ease_factor: 2.5, repetitions: 0, next_review: new Date().toISOString(), created_at: new Date().toISOString()
       });
       setFlashcardGenerated(true);
-    } catch (e) { console.error(e); } finally { setGeneratingFlashcard(false); }
+    } catch (e: any) { 
+      console.error(e); 
+      if (e?.message?.includes("CRÉDITOS_ESGOTADOS")) {
+          alert(e.message.replace("CRÉDITOS_ESGOTADOS: ", ""));
+      } else {
+          alert("Erro ao gerar flashcard com IA. Verifique se seus créditos do Gemini API no Google AI Studio estão ativos.");
+      }
+    } finally { setGeneratingFlashcard(false); }
   };
 
   const nextQuestion = () => {

@@ -3,7 +3,26 @@ import JSON5 from 'json5';
 import { GoogleGenAI, Type } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-const DEFAULT_MODEL = "gemini-2.5-flash";
+const DEFAULT_MODEL = "gemini-3.5-flash";
+
+async function wrapGeminiCall<T>(fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (error: any) {
+    console.error("Erro na chamada do Gemini API:", error);
+    const msg = error?.message || String(error);
+    if (
+      msg.includes("prepayment credits") || 
+      msg.includes("RESOURCE_EXHAUSTED") || 
+      msg.includes("429") || 
+      msg.includes("depleted")
+    ) {
+      throw new Error("CRÉDITOS_ESGOTADOS: Seus créditos do Gemini API no Google AI Studio esgotaram. Por favor, adicione fundos ou revise o faturamento no painel do Google AI Studio para restabelecer o serviço.");
+    }
+    throw error;
+  }
+}
+
 
 const questionSchema = {
   type: Type.ARRAY,
@@ -115,7 +134,7 @@ export const processFileQuestions = async (
     });
   }
 
-  const response = await ai.models.generateContent({
+  const response = await wrapGeminiCall(() => ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: contents,
     config: {
@@ -123,7 +142,7 @@ export const processFileQuestions = async (
       responseSchema: questionSchema,
       temperature: 0.1
     }
-  });
+  }));
   
   return robustJsonParse<AIImportedQuestion[]>(response.text || '');
 };
@@ -133,10 +152,10 @@ export const explainWrongAlternatives = async (question: any): Promise<string> =
         Explique detalhadamente por que as alternativas incorretas desta questão estão erradas e por que a correta é a certa.
         Questão: ${JSON.stringify(question)}
     `;
-    const response = await ai.models.generateContent({
+    const response = await wrapGeminiCall(() => ai.models.generateContent({
         model: DEFAULT_MODEL,
         contents: prompt,
-    });
+    }));
     return response.text || '';
 };
 
@@ -169,7 +188,7 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
           const fullPrompt = `${prompt}\n\nDIFERENCIAÇÃO DE LOTE: Este é o lote ${globalIdx + 1}. Diversifique as questões e não repita o que já foi focado. TUDO DEVE SER NOVO E INÉDITO.\n\n[INSTRUÇÃO ABSOLUTA]: Retorne EXATAMENTE ${count} questão/ões. VOCÊ DEVE OBRIGATORIAMENTE obedecer a este número.\n\nRetorne APENAS um array JSON válido com o seguinte formato exato para cada item: [{ "enunciado": "texto da questão", "alternativas": ["opção 1", "opção 2", "opção 3", "opção 4", "opção 5"], "gabarito": "A", "comentario": "explicação detalhada", "categoria": "Temática principal", "subcategoria": "Subtema", "dificuldade": "Médio", "tags": ["tag1"] }].`;
           
           try {
-              const response = await ai.models.generateContent({
+              const response = await wrapGeminiCall(() => ai.models.generateContent({
                 model: DEFAULT_MODEL,
                 contents: fullPrompt,
                 config: {
@@ -178,10 +197,13 @@ export const generateQuestionsFromPrompt = async (prompt: string, expectedCount:
                   temperature: Math.min(0.3 + (loopCount * 0.1), 0.9), // Increase temp over loops to force variety
                   maxOutputTokens: 8192
                 }
-              });
+              }));
               return robustJsonParse<AIImportedQuestion[]>(response.text || '');
-          } catch(e) {
+          } catch(e: any) {
               console.warn(`Batch ${globalIdx} failed:`, e);
+              if (e.message?.includes("CRÉDITOS_ESGOTADOS")) {
+                  throw e;
+              }
               return [];
           }
       });
@@ -211,7 +233,7 @@ export const generateFlashcardFromQuestion = async (statement: string, explanati
     
     Retorne APENAS um JSON: { "front": "pergunta curta", "back": "resposta concisa" }
   `;
-  const response = await ai.models.generateContent({
+  const response = await wrapGeminiCall(() => ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
     config: {
@@ -225,14 +247,14 @@ export const generateFlashcardFromQuestion = async (statement: string, explanati
         required: ["front", "back"]
       }
     }
-  });
+  }));
   return robustJsonParse<{ front: string; back: string }>(response.text || '');
 };
 
 export const generateFlashcardsFromPrompt = async (topicPrompt: string, count: number): Promise<{ front: string; back: string }[]> => {
   const prompt = `Crie exatamente ${count} flashcards (frente e verso) sobre o seguinte tema / instruções: "${topicPrompt}". Foque nos conceitos mais importantes para estudo. Use perguntas curtas e diretas na frente, e respostas concisas e certeiras no verso.`;
   
-  const response = await ai.models.generateContent({
+  const response = await wrapGeminiCall(() => ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
     config: {
@@ -249,25 +271,25 @@ export const generateFlashcardsFromPrompt = async (topicPrompt: string, count: n
         }
       }
     }
-  });
+  }));
   return robustJsonParse<{ front: string; back: string }[]>(response.text || '');
 };
 
 export const summarizeContent = async (text: string): Promise<string> => {
   const prompt = `Resuma o conteúdo médico abaixo de forma estruturada e didática:\n\n${text}`;
-  const response = await ai.models.generateContent({
+  const response = await wrapGeminiCall(() => ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
-  });
+  }));
   return response.text || '';
 };
 
 export const explainFlashcardContext = async (front: string, back: string): Promise<string> => {
   const prompt = `Como um mentor médico especialista, explique de forma aprofundada o contexto clínico, fisiopatologia ou mecanismos relevantes que conectam a seguinte pergunta do flashcard à sua resposta. Mantenha um tom didático, mas vá DIRETO AO PONTO. NÃO faça nenhuma introdução ou saudação. NÃO use Markdown (como **, ##, etc). Formate toda a resposta APENAS utilizando tags em HTML puro (como <p>, <strong>, <ul>, <li>).\n\nPergunta (Frente):\n${front}\n\nResposta (Verso):\n${back}`;
-  const response = await ai.models.generateContent({
+  const response = await wrapGeminiCall(() => ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
-  });
+  }));
   return response.text || '';
 };
 
@@ -284,7 +306,7 @@ export const extractLmeData = async (medicalRecord: string, diseaseType: string)
       "tratamento_atual": "atual"
     }
   `;
-  const response = await ai.models.generateContent({
+  const response = await wrapGeminiCall(() => ai.models.generateContent({
     model: DEFAULT_MODEL,
     contents: prompt,
     config: {
@@ -301,7 +323,7 @@ export const extractLmeData = async (medicalRecord: string, diseaseType: string)
         required: ["cid10", "anamnese_lme", "historia_clinica", "tratamentos_previos", "tratamento_atual"]
       }
     }
-  });
+  }));
   return robustJsonParse<AIExtractedLME>(response.text || '');
 };
 
@@ -309,34 +331,50 @@ export const createNeuroChat = (): Chat => {
   let chatHistory: { role: 'user' | 'model', parts: { text: string }[] }[] = [];
   
   const sendMessage = async (params: { message: string }): Promise<{ text?: string }> => {
-    const chat = ai.chats.create({
-        model: DEFAULT_MODEL,
-        history: chatHistory,
+    return wrapGeminiCall(async () => {
+      const chat = ai.chats.create({
+          model: DEFAULT_MODEL,
+          history: chatHistory,
+      });
+      const response = await chat.sendMessage({ message: params.message });
+      const text = response.text || '';
+      chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text }] });
+      return { text };
     });
-    const response = await chat.sendMessage({ message: params.message });
-    const text = response.text || '';
-    chatHistory.push({ role: 'user', parts: [{ text: params.message }] }, { role: 'model', parts: [{ text }] });
-    return { text };
   };
   
   async function* sendMessageStream(params: { message: string }): AsyncGenerator<{ text?: string }> {
-    const chat = ai.chats.create({
-        model: DEFAULT_MODEL,
-        history: chatHistory,
-    });
-    const stream = await chat.sendMessageStream({ message: params.message });
-    let accumulatedText = '';
-    
-    for await (const chunk of stream) {
-        const chunkText = chunk.text || '';
-        accumulatedText += chunkText;
-        yield { text: chunkText };
+    try {
+      const chat = ai.chats.create({
+          model: DEFAULT_MODEL,
+          history: chatHistory,
+      });
+      const stream = await wrapGeminiCall(() => chat.sendMessageStream({ message: params.message }));
+      let accumulatedText = '';
+      
+      for await (const chunk of stream) {
+          const chunkText = chunk.text || '';
+          accumulatedText += chunkText;
+          yield { text: chunkText };
+      }
+      
+      chatHistory.push(
+        { role: 'user', parts: [{ text: params.message }] },
+        { role: 'model', parts: [{ text: accumulatedText }] }
+      );
+    } catch(e: any) {
+       console.error("Erro no streaming do chat:", e);
+       const msg = e?.message || String(e);
+       if (
+         msg.includes("prepayment credits") || 
+         msg.includes("RESOURCE_EXHAUSTED") || 
+         msg.includes("429") || 
+         msg.includes("depleted")
+       ) {
+         throw new Error("CRÉDITOS_ESGOTADOS: Seus créditos do Gemini API no Google AI Studio esgotaram. Por favor, adicione fundos ou revise o faturamento no painel do Google AI Studio para restabelecer o serviço.");
+       }
+       throw e;
     }
-    
-    chatHistory.push(
-      { role: 'user', parts: [{ text: params.message }] },
-      { role: 'model', parts: [{ text: accumulatedText }] }
-    );
   }
   
   return { history: chatHistory, sendMessage, sendMessageStream };

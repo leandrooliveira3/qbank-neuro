@@ -87,8 +87,10 @@ export const Chat: React.FC = () => {
       
       let errorMsg = "Desculpe, tive um problema ao processar sua pergunta. Pode tentar novamente?";
       
-      if (error.message?.includes('429')) {
-        errorMsg = "Muitas requisições simultâneas. Aguarde um instante e tente novamente.";
+      if (error.message?.includes('CRÉDITOS_ESGOTADOS')) {
+        errorMsg = error.message.replace("CRÉDITOS_ESGOTADOS: ", "");
+      } else if (error.message?.includes('429')) {
+        errorMsg = "Muitas requisições simultâneas ou créditos esgotados. Verifique se o seu limite/saldo de pré-pagamento do Gemini API no Google AI Studio está ativo.";
       } else if (error.message?.includes('Tempo limite')) {
         errorMsg = "O servidor demorou muito para responder. Tente uma pergunta mais curta ou tente novamente.";
       } else if (error.message?.includes('401') || error.message?.includes('403')) {

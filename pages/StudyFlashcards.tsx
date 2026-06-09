@@ -331,9 +331,13 @@ export const StudyFlashcards: React.FC = () => {
           explanation = explanation.replace(/## (.*?)\n/g, '<strong>$1</strong><br/>');
           explanation = explanation.replace(/# (.*?)\n/g, '<strong>$1</strong><br/>');
           setAiExplanation(explanation);
-      } catch (err) {
+      } catch (err: any) {
           console.error('Failed to explain flashcard context', err);
-          setAiExplanation('Não foi possível gerar a explicação no momento.');
+          if (err?.message?.includes("CRÉDITOS_ESGOTADOS")) {
+              setAiExplanation(`<strong>Créditos Esgotados:</strong> ${err.message.replace("CRÉDITOS_ESGOTADOS: ", "")}`);
+          } else {
+              setAiExplanation('Não foi possível gerar a explicação no momento. Por favor, verifique seus créditos do Gemini API no Google AI Studio.');
+          }
       } finally {
           setIsExplaining(false);
       }
