@@ -42,6 +42,7 @@ export const SimulationSession: React.FC = () => {
         try {
             if (stateQuestions && stateQuestions.length > 0) {
                 setQuestions(stateQuestions);
+                await localDB.bulkPut('questions', stateQuestions);
             } else {
                 let all = await localDB.getAll('questions');
                 let filtered = all;
@@ -140,9 +141,7 @@ export const SimulationSession: React.FC = () => {
           };
 
           await syncEngine.enqueue('simulation_sessions', simulationRecord);
-          if (!stateQuestions) {
-             await syncEngine.bulkEnqueue('user_answers', results);
-          }
+          await syncEngine.bulkEnqueue('user_answers', results);
           setIsFinished(true);
       } finally { setLoading(false); }
   };

@@ -51,10 +51,10 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, fullWidth = fal
   return (
     <div className="h-screen w-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex overflow-hidden text-sm md:text-base">
       <div className={`fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMobileMenuOpen(false)} />
-      <div className={`fixed inset-y-0 left-0 z-[70] w-64 bg-white dark:bg-black transform transition-transform duration-300 md:relative md:translate-x-0 md:w-56 md:shrink-0 border-r border-slate-200 dark:border-zinc-900 ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className={`fixed inset-y-0 left-0 z-[70] w-64 bg-white dark:bg-black transform transition-transform duration-300 md:relative md:z-10 md:translate-x-0 md:w-56 md:shrink-0 border-r border-slate-200 dark:border-zinc-900 ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <Sidebar onClose={() => setIsMobileMenuOpen(false)} />
       </div>
-      <main className="flex-1 flex flex-col min-w-0 h-full overflow-hidden relative">
+      <main className="flex-1 flex flex-col min-w-0 h-full overflow-hidden relative z-10 md:z-20">
         <XPNotification />
         {/* WIDGET IMPORTAÇÃO GLOBAL */}
         <ImportProcessingWidget />

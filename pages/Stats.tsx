@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState, useMemo } from 'react';
 import { Layout } from '../components/Layout';
+import { useNavigate } from 'react-router';
 import { 
   BarChart2, TrendingUp, Target, Clock,
   Loader2, Zap, Brain, ChevronRight, Award, Activity,
@@ -27,8 +28,11 @@ interface XPBreakdown {
 
 export const Stats: React.FC = () => {
   const { user } = useAuthStore();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [subjectStats, setSubjectStats] = useState<SubjectStat[]>([]);
+  const [weakConcepts, setWeakConcepts] = useState<any[]>([]);
+  const [strongConcepts, setStrongConcepts] = useState<any[]>([]);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [globalAccuracy, setGlobalAccuracy] = useState(0);
   
@@ -38,6 +42,21 @@ export const Stats: React.FC = () => {
   const [showXpDetails, setShowXpDetails] = useState(false);
   const [showLegend, setShowLegend] = useState(false);
   const [showHistoryModal, setShowHistoryModal] = useState(false);
+
+  const handleStartTargetedPractice = (topicName: string) => {
+      navigate('/practice/session', { 
+          state: { 
+              config: { 
+                  selectedBanks: [], 
+                  selectedTopics: [topicName], 
+                  selectedDifficulty: 'Todas', 
+                  questionLimit: 10, 
+                  immediateFeedback: true, 
+                  practiceMode: 'all' 
+              } 
+          } 
+      });
+  };
 
   const colors = ['bg-blue-500', 'bg-emerald-500', 'bg-purple-500', 'bg-orange-500', 'bg-red-500', 'bg-indigo-500'];
 
@@ -60,6 +79,7 @@ export const Stats: React.FC = () => {
             setGlobalAccuracy(userAnswers.length > 0 ? Math.round((corrects / userAnswers.length) * 100) : 0);
 
             const catMap: Record<string, { total: number; correct: number }> = {};
+            const conceptMap: Record<string, { total: number; correct: number; category: string; mistakes: number }> = {};
             
             userAnswers.forEach(ans => {
                 const q = questions.find(item => item.id === ans.question_id);
@@ -67,6 +87,18 @@ export const Stats: React.FC = () => {
                 if (!catMap[cat]) catMap[cat] = { total: 0, correct: 0 };
                 catMap[cat].total++;
                 if (ans.is_correct) catMap[cat].correct++;
+
+                // Granular concepts (uses subcategory, falls back to category)
+                const concept = q?.subcategory || q?.category || 'Geral';
+                if (!conceptMap[concept]) {
+                    conceptMap[concept] = { total: 0, correct: 0, category: cat, mistakes: 0 };
+                }
+                conceptMap[concept].total++;
+                if (ans.is_correct) {
+                    conceptMap[concept].correct++;
+                } else {
+                    conceptMap[concept].mistakes++;
+                }
             });
 
             const processed = Object.entries(catMap).map(([name, data], idx) => ({
@@ -78,6 +110,40 @@ export const Stats: React.FC = () => {
             })).sort((a, b) => b.total - a.total);
 
             setSubjectStats(processed);
+
+            const processedConcepts = Object.entries(conceptMap).map(([name, data]) => {
+                const parsedPerc = Math.min(100, Math.round((data.correct / data.total) * 100));
+                return {
+                    name,
+                    category: data.category,
+                    total: data.total,
+                    correct: data.correct,
+                    mistakes: data.mistakes,
+                    perc: parsedPerc
+                };
+            });
+
+            // Weakest: accuracy < 75% and has at least 1 mistake, sorted by lower accuracy.
+            setWeakConcepts(
+                processedConcepts
+                    .filter(c => c.perc < 75 && c.mistakes > 0)
+                    .sort((a, b) => {
+                        if (a.perc !== b.perc) return a.perc - b.perc;
+                        return b.mistakes - a.mistakes; // more mistakes first
+                    })
+                    .slice(0, 5)
+            );
+
+            // Strongest: accuracy >= 75%, sorted by highest accuracy and volume.
+            setStrongConcepts(
+                processedConcepts
+                    .filter(c => c.perc >= 75 && c.total >= 1)
+                    .sort((a, b) => {
+                        if (b.perc !== a.perc) return b.perc - a.perc;
+                        return b.total - a.total; // higher volume first
+                    })
+                    .slice(0, 5)
+            );
 
             // --- XP STATS ---
             const userXpHistory = history.filter(h => h.user_id === user.id).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
@@ -235,6 +301,159 @@ export const Stats: React.FC = () => {
                                 ))}
                                 {xpBreakdown.length === 0 && <p className="text-[9px] italic opacity-50">Sem histórico recente.</p>}
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ADVANCED DIAGNOSTIC PANEL (AMBOSS/UWORLD STYLE) */}
+                <div className="bg-white dark:bg-zinc-950 p-6 rounded-[2rem] border border-slate-200 dark:border-zinc-900 shadow-sm w-full space-y-6">
+                    <div className="border-b border-slate-100 dark:border-zinc-900 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                        <div>
+                            <span className="bg-rose-500/10 text-rose-500 dark:text-rose-400 px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest inline-block mb-1">
+                                Análise de Gaps Ativos
+                            </span>
+                            <h3 className="text-xl font-black text-slate-950 dark:text-white tracking-tight flex items-center gap-2">
+                                <Activity className="h-5 w-5 text-rose-500" /> Diagnóstico de Conceitos Críticos
+                            </h3>
+                            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">
+                                Identifique seus maiores pontos de atrito clínico e corrija instantaneamente.
+                            </p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-bold text-slate-500 uppercase">
+                                Meta Fellowship:
+                            </span>
+                            <span className="bg-emerald-500/10 text-emerald-500 text-xs font-black px-3 py-1 rounded-lg">
+                                ≥75% de Acurácia
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        {/* WEAKEST CONCEPTS (LACUNAS DE APRENDIZADO) */}
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between border-b border-rose-100 dark:border-rose-900/20 pb-2">
+                                <h4 className="text-[10px] font-black uppercase text-rose-600 dark:text-rose-400 tracking-wider flex items-center gap-1.5">
+                                    <TrendingUp className="h-4 w-4 rotate-180 text-rose-500" /> Lacunas de Desempenho (Treino Corretivo)
+                                </h4>
+                                <span className="text-[9px] text-slate-400 font-black uppercase">Foco Máximo</span>
+                            </div>
+
+                            {weakConcepts.length === 0 ? (
+                                <div className="p-8 text-center bg-slate-50 dark:bg-zinc-900/50 rounded-2xl border border-dashed border-slate-200 dark:border-zinc-800">
+                                    <Brain className="h-8 w-8 text-slate-300 dark:text-zinc-700 mx-auto mb-2" />
+                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-normal">
+                                        Nenhuma Lacuna Crítica Detectada!
+                                    </p>
+                                    <p className="text-[9px] text-slate-400 mt-1 max-w-xs mx-auto">
+                                        Continue realizando simulados e respondendo a mais questões para calcular seus dados específicos de neurologia.
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="space-y-3">
+                                    {weakConcepts.map((item, index) => (
+                                        <div 
+                                            key={index} 
+                                            className="p-3.5 bg-rose-50/30 dark:bg-rose-950/5 rounded-2xl border border-rose-100/50 dark:border-rose-900/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group hover:border-rose-200 dark:hover:border-rose-900/30 transition-all shadow-sm"
+                                        >
+                                            <div className="flex items-start gap-3 min-w-0 flex-1">
+                                                <div className="h-8 w-8 rounded-lg bg-rose-500/10 text-rose-500 flex items-center justify-center font-black text-xs shrink-0 mt-0.5 leading-none">
+                                                    #{index + 1}
+                                                </div>
+                                                <div className="min-w-0">
+                                                    <p className="text-xs font-black text-slate-900 dark:text-white uppercase leading-tight truncate">
+                                                        {item.name}
+                                                    </p>
+                                                    <div className="flex items-center gap-2 mt-1">
+                                                        <span className="text-[8px] font-black bg-rose-500/10 text-rose-600 px-1.5 py-0.5 rounded uppercase">
+                                                            {item.mistakes} Erros
+                                                        </span>
+                                                        <span className="text-[8px] font-black text-slate-400 uppercase">
+                                                            Subgrupo de {item.category}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0 border-t sm:border-t-0 border-rose-100/50 pt-2 sm:pt-0">
+                                                <div className="text-left sm:text-right">
+                                                    <span className="text-sm font-black text-rose-600 dark:text-rose-400 block leading-tight">
+                                                        {item.perc}%
+                                                    </span>
+                                                    <span className="text-[7px] font-bold text-slate-400 uppercase tracking-widest block">
+                                                        Acurácia
+                                                    </span>
+                                                </div>
+                                                <button 
+                                                    onClick={() => handleStartTargetedPractice(item.name)}
+                                                    className="flex items-center gap-1.5 bg-rose-500 hover:bg-rose-600 text-white px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest active:scale-95 transition-all shadow-sm"
+                                                >
+                                                    Praticar <ChevronRight className="h-3 w-3" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* STRONGEST CONCEPTS (PONTOS FORTES) */}
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between border-b border-emerald-100 dark:border-emerald-900/20 pb-2">
+                                <h4 className="text-[10px] font-black uppercase text-emerald-600 dark:text-emerald-400 tracking-wider flex items-center gap-1.5">
+                                    <Award className="h-4 w-4 text-emerald-500" /> Domínios Clínicos (Seus Pontos Fortes)
+                                </h4>
+                                <span className="text-[9px] text-slate-400 font-black uppercase">Consolidado</span>
+                            </div>
+
+                            {strongConcepts.length === 0 ? (
+                                <div className="p-8 text-center bg-slate-50 dark:bg-zinc-900/50 rounded-2xl border border-dashed border-slate-200 dark:border-zinc-800">
+                                    <Award className="h-8 w-8 text-slate-300 dark:text-zinc-700 mx-auto mb-2" />
+                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-normal">
+                                        Nenhum Tema Consolidado Ainda
+                                    </p>
+                                    <p className="text-[9px] text-slate-400 mt-1 max-w-xs mx-auto">
+                                        Continue respondendo a mais questões corretamente em simulados e práticas para visualizar seus maiores domínios.
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="space-y-3">
+                                    {strongConcepts.map((item, index) => (
+                                        <div 
+                                            key={index} 
+                                            className="p-3.5 bg-emerald-50/30 dark:bg-emerald-950/5 rounded-2xl border border-emerald-100/50 dark:border-emerald-900/10 flex items-center justify-between gap-3 hover:border-emerald-200 dark:hover:border-emerald-900/30 transition-all shadow-sm"
+                                        >
+                                            <div className="flex items-start gap-3 min-w-0 flex-1">
+                                                <div className="h-8 w-8 rounded-lg bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-black text-xs shrink-0 mt-0.5 leading-none">
+                                                    #{index + 1}
+                                                </div>
+                                                <div className="min-w-0">
+                                                    <p className="text-xs font-black text-slate-900 dark:text-white uppercase leading-tight truncate font-bold">
+                                                        {item.name}
+                                                    </p>
+                                                    <div className="flex items-center gap-2 mt-1">
+                                                        <span className="text-[8px] font-black bg-emerald-500/10 text-emerald-600 px-1.5 py-0.5 rounded uppercase">
+                                                            {item.total} Vistos
+                                                        </span>
+                                                        <span className="text-[8px] font-black text-slate-400 uppercase">
+                                                            {item.correct} Acertos
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="text-right shrink-0">
+                                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400 block leading-tight">
+                                                    {item.perc}%
+                                                </span>
+                                                <span className="text-[7px] font-bold text-slate-400 uppercase tracking-widest block">
+                                                    Acurácia
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

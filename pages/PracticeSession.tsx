@@ -46,6 +46,7 @@ export const PracticeSession: React.FC = () => {
         try {
             if (stateQuestions && stateQuestions.length > 0) {
                 setQuestions(stateQuestions);
+                await localDB.bulkPut('questions', stateQuestions);
                 await localDB.put('active_practice_sessions', {
                     id: user.id, user_id: user.id, questions_data: stateQuestions, current_index: 0, answers_data: [], last_updated: new Date().toISOString()
                 });
@@ -119,23 +120,21 @@ export const PracticeSession: React.FC = () => {
       setSelectedAnswers(prev => ({ ...prev, [currentQ.id]: altId }));
       if (isCorrect) setCorrectHits(prev => prev + 1);
 
-      if (!stateQuestions) {
-          const now = new Date().toISOString();
-          await syncEngine.enqueue('user_answers', {
-              id: crypto.randomUUID(), 
-              user_id: user?.id, 
-              question_id: currentQ.id, 
-              is_correct: isCorrect, 
-              selected_alternative_id: altId, 
-              answered_at: now,
-              created_at: now,
-              updated_at: now
-          });
-          const session = await localDB.get('active_practice_sessions', user?.id!);
-          if (session) {
-              const answers = [...(session.answers_data || []), { question_id: currentQ.id, selected_alternative_id: altId, is_correct: isCorrect }];
-              await localDB.put('active_practice_sessions', { ...session, answers_data: answers, current_index: currentIndex });
-          }
+      const now = new Date().toISOString();
+      await syncEngine.enqueue('user_answers', {
+          id: crypto.randomUUID(), 
+          user_id: user?.id, 
+          question_id: currentQ.id, 
+          is_correct: isCorrect, 
+          selected_alternative_id: altId, 
+          answered_at: now,
+          created_at: now,
+          updated_at: now
+      });
+      const session = await localDB.get('active_practice_sessions', user?.id!);
+      if (session) {
+          const answers = [...(session.answers_data || []), { question_id: currentQ.id, selected_alternative_id: altId, is_correct: isCorrect }];
+          await localDB.put('active_practice_sessions', { ...session, answers_data: answers, current_index: currentIndex });
       }
   };
 

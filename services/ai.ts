@@ -397,18 +397,20 @@ export const generateQuestionFromFlashcard = async (
     Você é um professor preceptor do fellowship e da comissão de elaboração do título de especialista médico em neurologia.
     Crie uma questão de caso clínico de altíssima complexidade (nível Difícil) a partir dos conceitos contidos no seguinte flashcard médico.
     
+    CRÍTICO: A questão gerada DEVE SER intrinsicamente baseada no conceito central do flashcard fornecido abaixo. O gabarito ou a chave da questão correspondente deve ser exatamente a conclusão ou conhecimento do flashcard médico. Não desvie do tema ou resposta descrita no flashcard!
+    
     Flashcard Frente (Pergunta/Conceito):
-    \${front}
+    ${front}
     
     Flashcard Verso (Gabarito/Conclusão):
-    \${back}
+    ${back}
     
     Tema geral do flashcard:
-    \${category || "Neurologia Geral"}
+    ${category || "Neurologia Geral"}
     
     A questão deve ser:
     1. Baseada em um Caso Clínico detalhado e instigante, cobrando o conceito do flashcard de forma aprofundada, exigindo raciocínio clínico do candidato (como interpretação de sinais, exames ou melhor conduta subsequente).
-    2. Composta de exatamente 5 alternativas muito plausíveis (distratores de alto nível baseados em erros comuns contidos nas diretrizes/literatura médica), sendo EXATAMENTE uma alternativa a correta de acordo com as evidências/literatura médica.
+    2. Composta de exatamente 5 alternativas muito plausíveis (distratores de alto nível baseados em erros comuns contidos nas diretrizes/literatura médica), sendo EXATAMENTE uma alternativa a correta (a qual deve corresponder e validar o conceito contido no verso do flashcard).
     3. Dificuldade: Difícil.
     4. Comentário: Um texto extremamente explicativo que justifique tecnicamente a resposta e refute, alternativa por alternativa, cada uma das demais opções incorretas de forma polida e brilhante.
   `;
