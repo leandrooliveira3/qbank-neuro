@@ -17,6 +17,7 @@ import { storageService } from '../services/storage';
 import { Flashcard, Occlusion } from '../types';
 import { SmartImage } from '../components/SmartImage';
 import { generateFlashcardsFromPrompt } from '../services/ai';
+import { CloudImagePicker } from '../components/CloudImagePicker';
 
 const SRS_PRESETS = [
   {
@@ -96,6 +97,7 @@ export const Flashcards: React.FC = () => {
   const [keepImageAfterSave, setKeepImageAfterSave] = useState(false); // To allow multiple cards per image
   const [isCreatingNewBank, setIsCreatingNewBank] = useState(true);
   const [imagePosition, setImagePosition] = useState<'front' | 'back' | 'both'>('front');
+  const [isCloudPickerOpen, setIsCloudPickerOpen] = useState(false);
 
   useEffect(() => {
       if (occlusions.length > 0) {
@@ -250,7 +252,8 @@ export const Flashcards: React.FC = () => {
           // For simplicity in this context, we upload every time a *File* object is present.
           // Optimization: check if frontPreview starts with http (already uploaded) vs blob: (local).
           if (!frontImageUrl || frontPreview.startsWith('blob:')) {
-             frontImageUrl = await storageService.uploadImage(frontImage, 'flashcards');
+             const customName = [formData.category, formData.bank_name, formData.front].filter(Boolean).join('_');
+             frontImageUrl = await storageService.uploadImage(frontImage, 'flashcards', customName);
           }
       } else if (frontPreview && frontPreview.startsWith('http')) {
           frontImageUrl = frontPreview; // Reusing existing URL from DB
@@ -862,7 +865,28 @@ export const Flashcards: React.FC = () => {
                       <button onClick={() => { setFrontImage(null); setFrontPreview(''); setOcclusions([]); }} className="absolute top-2 right-2 bg-red-600 text-white p-1.5 rounded-lg shadow-lg z-20"><X className="h-3.5 w-3.5" /></button>
                   </div>
                 ) : (
-                  <div onClick={() => frontImageRef.current?.click()} className="bg-slate-50 dark:bg-zinc-900 border-2 border-dashed border-slate-200 dark:border-zinc-800 p-8 rounded-[1.5rem] flex flex-col items-center justify-center min-h-[200px] cursor-pointer hover:border-primary transition-all"><input type="file" ref={frontImageRef} className="hidden" accept="image/*" onChange={onFrontImageChange} /><ImagePlus className="h-8 w-8 text-slate-300 mb-2" /><p className="text-[9px] font-black uppercase text-slate-400">Anexar Mídia</p></div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Upload local */}
+                      <div 
+                          onClick={() => frontImageRef.current?.click()} 
+                          className="bg-slate-50 dark:bg-zinc-900 border-2 border-dashed border-slate-200 dark:border-zinc-800 p-6 rounded-[1.5rem] flex flex-col items-center justify-center min-h-[160px] cursor-pointer hover:border-primary transition-all group"
+                      >
+                          <input type="file" ref={frontImageRef} className="hidden" accept="image/*" onChange={onFrontImageChange} />
+                          <ImagePlus className="h-7 w-7 text-slate-400 dark:text-zinc-500 group-hover:text-primary transition-colors mb-2" />
+                          <p className="text-[10px] font-black uppercase text-slate-600 dark:text-zinc-300">Meu Dispositivo</p>
+                          <p className="text-[8px] mt-1 text-slate-400 uppercase font-bold tracking-wider">Nova do seu aparelho</p>
+                      </div>
+
+                      {/* Banco de dados Supabase */}
+                      <div 
+                          onClick={() => setIsCloudPickerOpen(true)} 
+                          className="bg-slate-50 dark:bg-zinc-900 border-2 border-dashed border-slate-200 dark:border-zinc-800 p-6 rounded-[1.5rem] flex flex-col items-center justify-center min-h-[160px] cursor-pointer hover:border-emerald-500 transition-all group"
+                      >
+                          <Folder className="h-7 w-7 text-slate-400 dark:text-zinc-500 group-hover:text-emerald-500 transition-colors mb-2" />
+                          <p className="text-[10px] font-black uppercase text-slate-600 dark:text-zinc-300">Escolher da Nuvem</p>
+                          <p className="text-[8px] mt-1 text-slate-400 uppercase font-bold tracking-wider">Banco de imagens (Supabase)</p>
+                      </div>
+                  </div>
                 )}
                 
                 {/* Keep Image Toggle */}
@@ -1167,6 +1191,17 @@ export const Flashcards: React.FC = () => {
           </div>
         ) : null}
       </div>
+
+      <CloudImagePicker
+        isOpen={isCloudPickerOpen}
+        onClose={() => setIsCloudPickerOpen(false)}
+        onSelect={(url) => {
+          setFrontImage(null);
+          setFrontPreview(url);
+          setOcclusions([]);
+          setIsCloudPickerOpen(false);
+        }}
+      />
     </Layout>
   );
 };

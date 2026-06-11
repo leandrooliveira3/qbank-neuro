@@ -434,7 +434,8 @@ export const ImportQuestions: React.FC = () => {
     try {
       let imageUrl = '';
       if (manualInputImage) {
-        imageUrl = await storageService.uploadImage(manualInputImage, 'questions');
+        const customName = [manualData.category, manualData.subcategory, manualData.statement].filter(Boolean).join('_');
+        imageUrl = await storageService.uploadImage(manualInputImage, 'questions', customName);
       }
 
       const correctIndex = alternatives.findIndex(a => a.is_correct);
@@ -489,7 +490,8 @@ export const ImportQuestions: React.FC = () => {
         const uploadedUrls: string[] = [];
         
         for (const f of manualFiles) {
-             uploadedUrls.push(await storageService.uploadImage(f, 'questions'));
+             const customName = [q.categoria, q.subcategoria, q.enunciado].filter(Boolean).join('_');
+             uploadedUrls.push(await storageService.uploadImage(f, 'questions', customName));
         }
         
         const tempUrls = q._tempUrls || (q.imagem ? [q.imagem] : []);
@@ -505,7 +507,8 @@ export const ImportQuestions: React.FC = () => {
         // Let's just store all URLs in statement_image_urls. We'll extract the first for statement_image_url for backwards compatibility.
         // Wait, if q.imagem is present and we don't upload it? Let's handle q.imagem as well just in case.
         if (!manualFiles.length && q.imagem && q.imagem.startsWith('data:')) {
-            uploadedUrls.push(await storageService.uploadBase64(q.imagem.split(',')[1], 'questions'));
+            const customName = [q.categoria, q.subcategoria, q.enunciado].filter(Boolean).join('_');
+            uploadedUrls.push(await storageService.uploadBase64(q.imagem.split(',')[1], 'questions', undefined, customName));
         } else if (q.imagem && !q.imagem.startsWith('data:')) {
             uploadedUrls.push(q.imagem);
         }

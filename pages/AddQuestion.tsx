@@ -104,7 +104,8 @@ export const AddQuestion: React.FC = () => {
 
       // Se o usuário selecionou um arquivo novo, faz upload
       if (manualImage) {
-          finalUrl = await storageService.uploadImage(manualImage, 'questions');
+          const customName = [formData.category, formData.subcategory, formData.statement].filter(Boolean).join('_');
+          finalUrl = await storageService.uploadImage(manualImage, 'questions', customName);
       }
 
       const payload = {

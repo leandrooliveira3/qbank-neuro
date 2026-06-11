@@ -364,12 +364,14 @@ export const ImportFlashcards: React.FC = () => {
                 if (card.frontImageBlob) {
                     setLoadingMsg(`Enviando mídia ${++uploaded}/${total}...`);
                     const f = new File([card.frontImageBlob], `anki_${crypto.randomUUID()}.${card.frontImageExt || 'jpg'}`, { type: card.frontImageBlob.type });
-                    fUrl = await storageService.uploadImage(f, 'flashcards');
+                    const customName = [category, bankName, card.front].filter(Boolean).join('_');
+                    fUrl = await storageService.uploadImage(f, 'flashcards', customName);
                 }
                 if (card.backImageBlob) {
                     setLoadingMsg(`Enviando mídia ${++uploaded}/${total}...`);
                     const f = new File([card.backImageBlob], `anki_${crypto.randomUUID()}.${card.backImageExt || 'jpg'}`, { type: card.backImageBlob.type });
-                    bUrl = await storageService.uploadImage(f, 'flashcards');
+                    const customName = [category, bankName, card.back].filter(Boolean).join('_');
+                    bUrl = await storageService.uploadImage(f, 'flashcards', customName);
                 }
                 withUrls.push({ ...card, frontImageUrl: fUrl, backImageUrl: bUrl });
             }

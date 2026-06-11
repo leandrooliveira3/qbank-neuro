@@ -8,10 +8,29 @@ export const storageService = {
    * Realiza o upload de um arquivo para o Supabase Storage.
    * Retorna a URL pública do objeto.
    */
-  async uploadImage(file: File | Blob, folder: StorageFolder): Promise<string> {
+  async uploadImage(file: File | Blob, folder: StorageFolder, customName?: string): Promise<string> {
     try {
-      const fileExt = (file instanceof File) ? file.name.split('.').pop() : 'jpg';
-      const fileName = `${crypto.randomUUID()}.${fileExt}`;
+      const fileExt = (file instanceof File) ? (file.name.split('.').pop() || 'jpg') : 'jpg';
+      let namePrefix: string = crypto.randomUUID();
+      
+      if (customName) {
+        // Sanitize to safe URL characters: a-z, 0-9, dash, underscore
+        const sanitized = customName
+          .toLowerCase()
+          .normalize('NFD') // remove accents
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9_-]+/g, '-')
+          .replace(/^-+|-+$/g, '') // remove trailing/leading dashes
+          .substring(0, 100); // limit length
+          
+        if (sanitized) {
+          // Append short unique suffix to avoid collisions but keep name highly recognizable and searchable
+          const shortId = Math.random().toString(36).substring(2, 7);
+          namePrefix = `${sanitized}-${shortId}`;
+        }
+      }
+      
+      const fileName = `${namePrefix}.${fileExt}`;
       const filePath = `${folder}/${fileName}`;
 
       const { data, error: uploadError } = await supabase.storage
@@ -88,14 +107,49 @@ export const storageService = {
    * Faz upload de uma string base64 diretamente.
    * Se 'customPath' for fornecido, usa esse caminho completo.
    */
-  async uploadBase64(base64: string, folder: StorageFolder, customPath?: string): Promise<string> {
+  async uploadBase64(base64: string, folder: StorageFolder, customPath?: string, customName?: string): Promise<string> {
     const res = await fetch(`data:image/jpeg;base64,${base64}`);
     const blob = await res.blob();
     
     if (customPath) {
         return this.uploadFile(blob, customPath);
     }
-    return this.uploadImage(blob, folder);
+    return this.uploadImage(blob, folder, customName);
+  },
+
+  /**
+   * Lista imagens salvas em uma determinada pasta do bucket 'imagens'.
+   * Retorna uma lista de URLs públicas.
+   */
+  async listImages(folder: StorageFolder): Promise<string[]> {
+    try {
+      const { data, error } = await supabase.storage
+        .from('imagens')
+        .list(folder, { limit: 100, sortBy: { column: 'created_at', order: 'desc' } });
+      
+      if (error) {
+        console.error('Error listing images:', error);
+        return [];
+      }
+      
+      if (!data) return [];
+      
+      const imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg'];
+      return data
+        .filter(f => {
+          const ext = f.name.split('.').pop()?.toLowerCase();
+          return ext && imageExtensions.includes(ext);
+        })
+        .map(f => {
+          const { data: { publicUrl } } = supabase.storage
+            .from('imagens')
+            .getPublicUrl(`${folder}/${f.name}`);
+          return publicUrl;
+        });
+    } catch (e) {
+      console.error('catch error in listImages:', e);
+      return [];
+    }
   },
 
   /**

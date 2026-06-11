@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import { explainFlashcardContext, generateQuestionFromFlashcard } from '../services/ai';
+import { CloudImagePicker } from '../components/CloudImagePicker';
 
 // ... neuroSM18 function (unchanged) ...
 const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', modifier: number = 1.0) => {
@@ -106,6 +107,7 @@ export const StudyFlashcards: React.FC = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [isCloudPickerOpen, setIsCloudPickerOpen] = useState(false);
   const [editForm, setEditForm] = useState({ front: '', back: '' });
   const [editBackPreview, setEditBackPreview] = useState('');
   const [editBackFile, setEditBackFile] = useState<File | null>(null);
@@ -549,7 +551,8 @@ export const StudyFlashcards: React.FC = () => {
     setIsTransitioning(true);
     let finalBackUrl = currentCard.back_image_url || '';
     if (editBackFile) {
-        finalBackUrl = await storageService.uploadImage(editBackFile, 'flashcards');
+        const customName = [currentCard.category, currentCard.bank_name, editForm.front].filter(Boolean).join('_');
+        finalBackUrl = await storageService.uploadImage(editBackFile, 'flashcards', customName);
         setCurrentBackImageUrl(editBackPreview);
     } else if (!editBackPreview) {
         finalBackUrl = '';
@@ -584,10 +587,25 @@ export const StudyFlashcards: React.FC = () => {
                                 <button onClick={() => { setEditBackFile(null); setEditBackPreview(''); }} className="absolute top-1 right-1 bg-red-600 text-white p-1 rounded shadow-lg"><X className="h-3 w-3" /></button>
                             </div>
                         ) : (
-                            <div onClick={() => editBackImgRef.current?.click()} className="bg-slate-50 dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 p-4 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-primary transition-all">
-                                <input type="file" ref={editBackImgRef} className="hidden" accept="image/*" onChange={handleEditBackImageChange} />
-                                <ImagePlus className="h-6 w-6 text-slate-300 mb-1" />
-                                <p className="text-[9px] font-black uppercase text-slate-400">Anexar Mídia</p>
+                            <div className="grid grid-cols-2 gap-3">
+                                {/* Upload local */}
+                                <div 
+                                    onClick={() => editBackImgRef.current?.click()} 
+                                    className="bg-slate-50 dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 p-4 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-primary transition-all group"
+                                >
+                                    <input type="file" ref={editBackImgRef} className="hidden" accept="image/*" onChange={handleEditBackImageChange} />
+                                    <ImagePlus className="h-5 w-5 text-slate-400 group-hover:text-primary transition-colors mb-1" />
+                                    <p className="text-[9px] font-black uppercase text-slate-600 dark:text-zinc-300">Aparelho</p>
+                                </div>
+                                
+                                {/* Selecionar da Nuvem */}
+                                <div 
+                                    onClick={() => setIsCloudPickerOpen(true)} 
+                                    className="bg-slate-50 dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 p-4 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-emerald-500 transition-all group"
+                                >
+                                    <ImagePlus className="h-5 w-5 text-slate-400 group-hover:text-emerald-500 transition-colors mb-1" />
+                                    <p className="text-[9px] font-black uppercase text-slate-600 dark:text-zinc-300">Nuvem</p>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -988,6 +1006,16 @@ export const StudyFlashcards: React.FC = () => {
                 </div>
             </div>
         )}
+
+        <CloudImagePicker
+          isOpen={isCloudPickerOpen}
+          onClose={() => setIsCloudPickerOpen(false)}
+          onSelect={(url) => {
+            setEditBackFile(null);
+            setEditBackPreview(url);
+            setIsCloudPickerOpen(false);
+          }}
+        />
     </div>
   );
 };
