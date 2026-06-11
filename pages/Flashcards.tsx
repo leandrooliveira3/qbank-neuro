@@ -243,18 +243,12 @@ export const Flashcards: React.FC = () => {
 
     setLoading(true);
     try {
-      let frontImageUrl = editingCard?.front_image_url || '';
+      let frontImageUrl = '';
       
       // Upload logic: if there is a new file, upload it. If reusing previous, keep URL.
       if (frontImage) {
-          // If we have a file object (new selection), upload.
-          // Note: If we are "keeping image", frontPreview might be a Blob URL that needs to be re-uploaded or handled if changing sessions.
-          // For simplicity in this context, we upload every time a *File* object is present.
-          // Optimization: check if frontPreview starts with http (already uploaded) vs blob: (local).
-          if (!frontImageUrl || frontPreview.startsWith('blob:')) {
-             const customName = [formData.category, formData.bank_name, formData.front].filter(Boolean).join('_');
-             frontImageUrl = await storageService.uploadImage(frontImage, 'flashcards', customName);
-          }
+          const customName = [formData.category, formData.bank_name, formData.front].filter(Boolean).join('_');
+          frontImageUrl = await storageService.uploadImage(frontImage, 'flashcards', customName);
       } else if (frontPreview && frontPreview.startsWith('http')) {
           frontImageUrl = frontPreview; // Reusing existing URL from DB
       }

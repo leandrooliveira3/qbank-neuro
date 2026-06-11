@@ -549,12 +549,15 @@ export const StudyFlashcards: React.FC = () => {
 
   const saveEdit = async () => {
     setIsTransitioning(true);
-    let finalBackUrl = currentCard.back_image_url || '';
+    let finalBackUrl = '';
     if (editBackFile) {
         const customName = [currentCard.category, currentCard.bank_name, editForm.front].filter(Boolean).join('_');
         finalBackUrl = await storageService.uploadImage(editBackFile, 'flashcards', customName);
         setCurrentBackImageUrl(editBackPreview);
-    } else if (!editBackPreview) {
+    } else if (editBackPreview && editBackPreview.startsWith('http')) {
+        finalBackUrl = editBackPreview;
+        setCurrentBackImageUrl(editBackPreview);
+    } else {
         finalBackUrl = '';
         setCurrentBackImageUrl('');
     }
