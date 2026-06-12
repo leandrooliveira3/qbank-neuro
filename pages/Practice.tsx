@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout';
 import {
   Check, Database, Loader2, Filter, Play, RotateCw, Zap, EyeOff, Folder,
   History, ChevronDown, ChevronRight, Plus, Clock, Award, Calendar,
-  Target, Trash2, ClipboardList, SlidersHorizontal, X
+  Target, Trash2, ClipboardList, SlidersHorizontal, X, Star
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../store/useAuthStore';
@@ -23,6 +23,9 @@ export const Practice: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useAuthStore();
   const [activeTab, setActiveTab] = useState<Tab>('treino');
+
+  // ─── Favoritos state ────────────────────────────────────────
+  const [favoriteBanks, setFavoriteBanks] = useState<string[]>([]);
 
   // ─── Treino state ───────────────────────────────────────────
   const [groups, setGroups] = useState<CategoryGroup[]>([]);
@@ -70,6 +73,31 @@ export const Practice: React.FC = () => {
     } finally {
       setSimLoading(false);
     }
+  };
+
+  // Load/manage favorite banks from localStorage
+  useEffect(() => {
+    if (user?.id) {
+      const stored = localStorage.getItem(`neuro_favorite_banks_${user.id}`);
+      if (stored) {
+        try {
+          setFavoriteBanks(JSON.parse(stored));
+        } catch (e) {
+          console.error(e);
+        }
+      } else {
+        setFavoriteBanks([]);
+      }
+    }
+  }, [user?.id]);
+
+  const toggleFavoriteBank = (bank: string) => {
+    if (!user) return;
+    setFavoriteBanks(prev => {
+      const updated = prev.includes(bank) ? prev.filter(b => b !== bank) : [...prev, bank];
+      localStorage.setItem(`neuro_favorite_banks_${user.id}`, JSON.stringify(updated));
+      return updated;
+    });
   };
 
   useEffect(() => {
@@ -307,16 +335,47 @@ export const Practice: React.FC = () => {
                   <h3 className="text-[9px] font-black uppercase text-slate-400 tracking-widest mb-3 flex items-center gap-2">
                     <Folder className="h-3 w-3" /> Bancos de Questões
                   </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {availableBanks.map(bank => (
-                      <button
-                        key={bank}
-                        onClick={() => toggleBank(bank)}
-                        className={`px-3 py-1.5 rounded-lg border-2 text-[9px] font-black uppercase transition-all ${selectedBanks.includes(bank) ? 'bg-emerald-600 border-emerald-600 text-white shadow-md' : 'bg-slate-50 dark:bg-zinc-900 border-slate-100 dark:border-zinc-800 text-slate-500'}`}
-                      >
-                        {bank}
-                      </button>
-                    ))}
+                  <div className="flex flex-wrap gap-2.5">
+                    {[...availableBanks]
+                      .sort((a, b) => {
+                        const aFav = favoriteBanks.includes(a);
+                        const bFav = favoriteBanks.includes(b);
+                        if (aFav && !bFav) return -1;
+                        if (!aFav && bFav) return 1;
+                        return a.localeCompare(b);
+                      })
+                      .map(bank => {
+                        const isFav = favoriteBanks.includes(bank);
+                        const isSelected = selectedBanks.includes(bank);
+                        return (
+                          <div 
+                            key={bank} 
+                            className={`inline-flex items-center rounded-lg border-2 transition-all overflow-hidden ${
+                              isSelected 
+                                ? 'bg-emerald-600 border-emerald-600 text-white shadow-md' 
+                                : 'bg-slate-50 dark:bg-zinc-900 border-slate-100 dark:border-zinc-800 text-slate-500'
+                            }`}
+                          >
+                            <button
+                              onClick={() => toggleBank(bank)}
+                              className="px-3 py-1.5 text-[9px] font-black uppercase transition-all leading-tight"
+                            >
+                              {bank}
+                            </button>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); toggleFavoriteBank(bank); }}
+                              className={`p-1 pr-2 transition-colors border-l ${
+                                isSelected 
+                                  ? 'border-emerald-500 text-white/85 hover:text-white' 
+                                  : 'border-slate-200 dark:border-zinc-800 text-slate-300 hover:text-amber-550'
+                              } ${isFav ? 'text-amber-500 hover:text-amber-600' : ''}`}
+                              title={isFav ? "Remover dos Favoritos" : "Adicionar aos Favoritos"}
+                            >
+                              <Star className={`h-3 w-3 ${isFav ? 'fill-current text-amber-500' : ''}`} />
+                            </button>
+                          </div>
+                        );
+                      })}
                     {availableBanks.length === 0 && (
                       <span className="text-[9px] text-slate-400 italic">Nenhum banco encontrado. Importe questões primeiro.</span>
                     )}

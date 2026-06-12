@@ -6,11 +6,12 @@ import {
   BarChart2, TrendingUp, Target, Clock,
   Loader2, Zap, Brain, ChevronRight, Award, Activity,
   Info, PieChart, Star, ChevronDown, ChevronUp, X,
-  Shield, Crown, Medal, Calendar, Scroll
+  Shield, Crown, Medal, Calendar, Scroll, Trash2
 } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
 import { localDB } from '../services/localDB';
 import { xpService, XP_LEGEND, MEDICAL_RANKS } from '../services/xpService';
+import { syncEngine } from '../services/syncEngine';
 
 interface SubjectStat {
     name: string;
@@ -35,6 +36,11 @@ export const Stats: React.FC = () => {
   const [strongConcepts, setStrongConcepts] = useState<any[]>([]);
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [globalAccuracy, setGlobalAccuracy] = useState(0);
+  
+  // Reset States
+  const [confirmStep, setConfirmStep] = useState(0);
+  const [resetting, setResetting] = useState(false);
+  const [reloadCounter, setReloadCounter] = useState(0);
   
   // XP States
   const [xpHistory, setXpHistory] = useState<any[]>([]);
@@ -169,7 +175,40 @@ export const Stats: React.FC = () => {
         } finally { setLoading(false); }
     };
     calculateStats();
-  }, [user?.id]);
+  }, [user?.id, reloadCounter]);
+
+  const handleResetStats = async () => {
+    if (!user) return;
+    setResetting(true);
+    try {
+      const [answers, simulations, activeSessions] = await Promise.all([
+        localDB.getAll('user_answers'),
+        localDB.getAll('simulation_sessions'),
+        localDB.getAll('active_practice_sessions')
+      ]);
+
+      const userAnswers = answers.filter(a => a.user_id === user.id);
+      const userSimulations = simulations.filter(s => s.user_id === user.id);
+      const userActiveSessions = activeSessions.filter(as => as.user_id === user.id);
+
+      if (userAnswers.length > 0) {
+        await syncEngine.bulkDelete('user_answers', userAnswers);
+      }
+      if (userSimulations.length > 0) {
+        await syncEngine.bulkDelete('simulation_sessions', userSimulations);
+      }
+      if (userActiveSessions.length > 0) {
+        await syncEngine.bulkDelete('active_practice_sessions', userActiveSessions);
+      }
+
+      setConfirmStep(0);
+      setReloadCounter(prev => prev + 1);
+    } catch (e) {
+      console.error("Error resetting stats:", e);
+    } finally {
+      setResetting(false);
+    }
+  };
 
   // Level Calculations
   const currentLevelData = useMemo(() => {
@@ -504,6 +543,67 @@ export const Stats: React.FC = () => {
                 </div>
             </>
         )}
+
+        {/* Danger Zone / Reset Stats Section */}
+        <div className="bg-red-50/50 dark:bg-red-950/10 border border-red-200/60 dark:border-red-900/20 rounded-[2rem] p-6 shadow-sm w-full">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h3 className="text-sm font-black text-red-900 dark:text-red-400 uppercase tracking-tight flex items-center gap-1.5"><Trash2 className="h-4 w-4" /> Zona de Perigo</h3>
+                    <p className="text-[10px] text-slate-500 font-medium uppercase tracking-wider mt-0.5">
+                        Deseja recomeçar sua jornada de questões? Resete apenas seus dados de respostas. Os seus patamares de XP e Flashcards não serão alterados.
+                    </p>
+                </div>
+                {confirmStep === 0 ? (
+                    <button
+                        onClick={() => setConfirmStep(1)}
+                        className="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest active:scale-95 transition-all shadow-md shadow-red-500/10 flex items-center gap-2 w-full md:w-auto justify-center"
+                    >
+                        <Trash2 className="h-3.5 w-3.5" /> Zerar Estatísticas
+                    </button>
+                ) : confirmStep === 1 ? (
+                    <div className="flex flex-col sm:flex-row items-center gap-2 w-full md:w-auto">
+                        <span className="text-[10px] text-red-600 dark:text-red-400 font-bold uppercase mr-2 text-center sm:text-left">
+                            Confirmar Zerar? (Etapa 1 de 2) ⚠️
+                        </span>
+                        <div className="flex gap-2 w-full sm:w-auto justify-end">
+                            <button
+                                onClick={() => setConfirmStep(2)}
+                                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest flex-1 sm:flex-none"
+                            >
+                                Sim, Confirmar
+                            </button>
+                            <button
+                                onClick={() => setConfirmStep(0)}
+                                className="bg-slate-200 hover:bg-slate-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest flex-1 sm:flex-none"
+                            >
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="flex flex-col sm:flex-row items-center gap-2 w-full md:w-auto">
+                        <span className="text-[10px] text-red-700 dark:text-red-300 font-black uppercase mr-2 text-center sm:text-left animate-pulse">
+                            Tem certeza absoluta? (Etapa 2 de 2) 🚨
+                        </span>
+                        <div className="flex gap-2 w-full sm:w-auto justify-end">
+                            <button
+                                onClick={handleResetStats}
+                                disabled={resetting}
+                                className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
+                            >
+                                {resetting ? <Loader2 className="h-3 w-3 animate-spin" /> : 'Apagar Tudo'}
+                            </button>
+                            <button
+                                onClick={() => setConfirmStep(0)}
+                                className="bg-slate-200 hover:bg-slate-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest flex-1 sm:flex-none"
+                            >
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
 
         {/* Legend Modal */}
         {showLegend && (
