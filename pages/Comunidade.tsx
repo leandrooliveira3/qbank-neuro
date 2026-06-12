@@ -204,18 +204,25 @@ export const Comunidade: React.FC = () => {
           const targetTable = type;
           const userCol = type === 'questions' ? 'created_by' : 'user_id';
           
-          // Use pagination to get ALL items (bypass 1000 limit)
+          // Use keyset pagination to get ALL items (bypass 1000 limit and offset limitations)
           const allData: any[] = [];
           const PAGE_SIZE = 1000;
-          let page = 0;
+          let lastId: string | null = null;
           let hasMore = true;
           
           while (hasMore) {
-              const { data, error } = await supabase
+              let query = supabase
                   .from(targetTable)
-                  .select('bank_name')
+                  .select('id, bank_name')
                   .eq(userCol, selectedFriend.id)
-                  .range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
+                  .order('id', { ascending: true })
+                  .limit(PAGE_SIZE);
+                  
+              if (lastId) {
+                  query = query.gt('id', lastId);
+              }
+              
+              const { data, error } = await query;
               
               if (error) {
                   hasMore = false;
@@ -224,8 +231,8 @@ export const Comunidade: React.FC = () => {
               
               if (data && data.length > 0) {
                   allData.push(...data);
+                  lastId = data[data.length - 1].id;
                   hasMore = data.length === PAGE_SIZE;
-                  page++;
               } else {
                   hasMore = false;
               }
@@ -263,18 +270,26 @@ export const Comunidade: React.FC = () => {
           const defaultBankName = type === 'questions' ? 'Geral' : type === 'flashcards' ? 'Principal' : 'Meus Resumos';
           const banks = Array.from(selectedBanksToImport);
           
-          // Use pagination to get ALL items (bypass 1000 limit)
+          // Use keyset pagination to get ALL items (bypass 1000 limit and offset limitations)
           const allData: any[] = [];
           const PAGE_SIZE = 1000;
-          let page = 0;
+          let lastId: string | null = null;
           let hasMore = true;
+          let page = 0;
           
           while (hasMore) {
-              const { data, error } = await supabase
+              let query = supabase
                   .from(targetTable)
                   .select('*')
                   .eq(userCol, selectedFriend.id)
-                  .range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
+                  .order('id', { ascending: true })
+                  .limit(PAGE_SIZE);
+                  
+              if (lastId) {
+                  query = query.gt('id', lastId);
+              }
+              
+              const { data, error } = await query;
               
               if (error) {
                   if (page === 0) throw error;
@@ -284,6 +299,7 @@ export const Comunidade: React.FC = () => {
               
               if (data && data.length > 0) {
                   allData.push(...data);
+                  lastId = data[data.length - 1].id;
                   hasMore = data.length === PAGE_SIZE;
                   page++;
               } else {

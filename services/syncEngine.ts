@@ -128,14 +128,18 @@ class SyncEngine {
       try {
         const userCol = USER_COLUMN_MAP[table] || 'user_id';
         
-        // Use pagination to bypass Supabase 1000 row limit
+        // Use keyset pagination to bypass Supabase 1000 row limit and max_rows/OFFSET limitations
         const allData: any[] = [];
         const PAGE_SIZE = 1000;
         let page = 0;
+        let lastId: string | null = null;
         let hasMore = true;
         
         while (hasMore) {
-          let query = supabase.from(table).select('*').order('id').range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
+          let query = supabase.from(table).select('*').order('id', { ascending: true }).limit(PAGE_SIZE);
+          if (lastId) {
+            query = query.gt('id', lastId);
+          }
           if (userCol !== 'global') query = query.eq(userCol, userId);
           
           const { data, error } = await query;
@@ -153,6 +157,7 @@ class SyncEngine {
           
           if (data && data.length > 0) {
             allData.push(...data);
+            lastId = data[data.length - 1].id;
             hasMore = data.length === PAGE_SIZE; // Continue if we got a full page
             page++;
           } else {
