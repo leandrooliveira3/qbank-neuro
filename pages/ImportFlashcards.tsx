@@ -92,6 +92,40 @@ export const ImportFlashcards: React.FC = () => {
 
     const [importedCount, setImportedCount] = useState(0);
     const [mediaCount, setMediaCount] = useState(0);
+    const [pastedJsonText, setPastedJsonText] = useState('');
+
+    const handleRawTextImport = () => {
+        if (!pastedJsonText.trim()) return;
+        setError(null);
+        setParsedCards([]);
+        setLoading(true);
+        setLoadingMsg('Processando texto colado...');
+
+        try {
+            let cards: ParsedCard[] = [];
+            let text = pastedJsonText.trim();
+            
+            if (text.startsWith('[') || text.startsWith('{')) {
+                cards = parseJson(text);
+            } else if (text.includes('Q:') || text.includes('Pergunta:') || text.includes('Frente:')) {
+                cards = parseMarkdown(text);
+            } else {
+                cards = parseTxt(text);
+            }
+
+            if (cards.length === 0) {
+                throw new Error('Nenhum flashcard válido encontrado no texto colado.');
+            }
+
+            setParsedCards(cards);
+            setMediaCount(0);
+            setBankName('Importado (Texto)');
+        } catch (err: any) {
+            setError(err.message || 'Erro ao parsear o conteúdo de texto.');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     // ── File selection ──────────────────────────────────────────────────────
     const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -413,6 +447,7 @@ export const ImportFlashcards: React.FC = () => {
         setBankName('Importado');
         setCategory('Geral');
         setMediaCount(0);
+        setPastedJsonText('');
         if (fileInputRef.current) fileInputRef.current.value = '';
     };
 
@@ -488,28 +523,67 @@ export const ImportFlashcards: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-white dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 rounded-[2rem] p-10 text-center hover:border-primary transition-colors cursor-pointer" 
-                                 onClick={() => !file && fileInputRef.current?.click()}>
-                                <input ref={fileInputRef} type="file" accept=".apkg,.colpkg,.txt,.csv,.json,.md" onChange={handleFileSelect} className="hidden" />
-                                {loading ? (
+                            {loading ? (
+                                <div className="bg-white dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 rounded-[2rem] p-10 text-center">
                                     <div className="flex flex-col items-center gap-3">
                                         <Loader2 className="h-12 w-12 text-primary animate-spin" />
                                         <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">{loadingMsg}</p>
                                     </div>
-                                ) : file ? (
-                                    <div className="flex flex-col items-center">
-                                        <div className="h-16 w-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4"><FileText className="h-8 w-8 text-primary" /></div>
-                                        <p className="font-black text-slate-900 dark:text-white mb-1">{file.name}</p>
-                                        <p className="text-[10px] font-bold text-emerald-600 uppercase tracking-widest">{parsedCards.length} cards · {mediaCount} imagens</p>
-                                        <button onClick={(e) => { e.stopPropagation(); resetForm(); }} className="mt-4 text-[9px] font-bold text-red-500 uppercase flex items-center gap-1"><X className="h-3 w-3" /> Remover</button>
+                                </div>
+                            ) : parsedCards.length === 0 ? (
+                                <div className="space-y-6 animate-in fade-in">
+                                    <div className="space-y-3">
+                                        <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-1 block">Cole o JSON dos Flashcards ou Texto Bruto</label>
+                                        <textarea 
+                                            value={pastedJsonText}
+                                            onChange={e => setPastedJsonText(e.target.value)}
+                                            placeholder='Cole seu JSON aqui. Exemplo:&#10;[&#10;  {"front": "O que é mRs?", "back": "Modified Rankin Scale", "tags": ["AVC"]}&#10;]'
+                                            className="w-full h-44 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 text-xs font-bold outline-none focus:border-primary focus:ring-2 shadow-inner"
+                                        />
+                                        <button 
+                                            onClick={handleRawTextImport}
+                                            disabled={!pastedJsonText.trim()}
+                                            className="w-full bg-slate-900 dark:bg-zinc-900 text-white dark:text-white py-3.5 rounded-xl font-black text-[10px] uppercase tracking-widest shadow-lg flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50 transition-all hover:bg-opacity-90"
+                                        >
+                                            <FileText className="h-4 w-4" /> PROCESSAR TEXTO / JSON COLADO
+                                        </button>
                                     </div>
-                                ) : (
-                                    <div className="flex flex-col items-center">
-                                        <div className="h-16 w-16 bg-slate-100 dark:bg-zinc-900 rounded-2xl flex items-center justify-center mb-4"><Upload className="h-8 w-8 text-slate-400" /></div>
-                                        <p className="font-black text-slate-900 dark:text-white mb-1">Arraste ou clique para selecionar</p>
+
+                                    <div className="relative flex items-center justify-center py-2">
+                                        <hr className="absolute w-full border-slate-200 dark:border-zinc-800" />
+                                        <span className="relative bg-slate-50 dark:bg-zinc-900 px-4 text-[9px] font-black uppercase text-slate-400">ou exportação de arquivo</span>
                                     </div>
-                                )}
-                            </div>
+
+                                    <div className="bg-white dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 rounded-[2rem] p-10 text-center hover:border-primary transition-colors cursor-pointer" 
+                                         onClick={() => fileInputRef.current?.click()}>
+                                        <input ref={fileInputRef} type="file" accept=".apkg,.colpkg,.txt,.csv,.json,.md" onChange={handleFileSelect} className="hidden" />
+                                        <div className="flex flex-col items-center">
+                                            <div className="h-16 w-16 bg-slate-100 dark:bg-zinc-900 rounded-2xl flex items-center justify-center mb-4"><Upload className="h-8 w-8 text-slate-400" /></div>
+                                            <p className="font-black text-slate-900 dark:text-white mb-1">Arraste ou clique para selecionar arquivo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-4 flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                        <div className="p-3 bg-emerald-100 dark:bg-emerald-900/40 rounded-xl text-emerald-600">
+                                            <CheckCircle2 className="h-5 w-5" />
+                                        </div>
+                                        <div>
+                                            <p className="text-xs font-black text-slate-900 dark:text-white uppercase">Dados Carregados Prontos</p>
+                                            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">
+                                                {file ? `Arquivo: ${file.name}` : 'Conteúdo do JSON / Texto colado'} · {parsedCards.length} cards detectados
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <button 
+                                        onClick={resetForm} 
+                                        className="text-[9px] font-black text-red-500 uppercase border border-red-200 dark:border-red-900/50 px-3 py-1.5 rounded-lg hover:bg-red-50"
+                                    >
+                                        Remover
+                                    </button>
+                                </div>
+                            )}
 
                             {error && (
                                 <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/50 rounded-2xl p-4 flex items-start gap-3">

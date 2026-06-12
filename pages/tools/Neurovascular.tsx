@@ -485,6 +485,11 @@ export const NeurovascularTool: React.FC = () => {
   const [patientWeight, setPatientWeight] = useState<string>('');
   const [ictusTime, setIctusTime] = useState<string>('');
   const [criteriaCheck, setCriteriaCheck] = useState<Set<string>>(new Set());
+  const [mrsPrevio, setMrsPrevio] = useState<string>('');
+  const [vitalPAS, setVitalPAS] = useState<string>('');
+  const [vitalPAD, setVitalPAD] = useState<string>('');
+  const [vitalFC, setVitalFC] = useState<string>('');
+  const [glycemia, setGlycemia] = useState<string>('');
   
   // Novo Estado: Agente Trombolítico
   const [thrombolyticAgent, setThrombolyticAgent] = useState<'alteplase' | 'tenecteplase'>('tenecteplase');
@@ -541,7 +546,13 @@ export const NeurovascularTool: React.FC = () => {
   const generateReport = () => {
       const dosage = calculateDosage();
       const nihssDetails = THROMBOLYSIS_TOOL.questions.map(q => `${q.id.toUpperCase()}:${scores[q.id]||0}`).join(' | ');
-      let report = `PROTOCOLO DE AVC AGUDO (2026)\nIctus: ${ictusTime || 'N/A'}\nNIHSS: ${nihssScore} (${nihssDetails})\nASPECTS: ${aspectsScore} | pc-ASPECTS: ${pcAspectsScore}\n`;
+      let report = `PROTOCOLO DE AVC AGUDO (2026)\n`;
+      report += `Ictus: ${ictusTime || 'N/A'}\n`;
+      report += `mRS Prévio: ${mrsPrevio !== '' ? `mRS ${mrsPrevio}` : 'Não informado'}\n`;
+      report += `Dados Vitais: ${vitalPAS && vitalPAD ? `PA ${vitalPAS}/${vitalPAD} mmHg` : 'PA não informada'} ${vitalFC ? `| FC ${vitalFC} bpm` : ''}\n`;
+      report += `Glicemia: ${glycemia ? `${glycemia} mg/dL` : 'Não informada'}\n`;
+      report += `NIHSS: ${nihssScore} (${nihssDetails})\n`;
+      report += `ASPECTS: ${aspectsScore} | pc-ASPECTS: ${pcAspectsScore}\n`;
       if(dosage) {
           if (dosage.drug === 'Alteplase') {
              report += `Alteplase (0.9 mg/kg): Total ${dosage.total}mg | Bolus ${dosage.bolus}mg | Infusão ${dosage.infusion}mg\n`;
@@ -549,6 +560,13 @@ export const NeurovascularTool: React.FC = () => {
              report += `Tenecteplase (0.25 mg/kg): Bolus Único ${dosage.total}mg\n`;
           }
       }
+      
+      // EXAMES RECOMENDADOS (TOAST):
+      report += `\nCUIDADOS PÓS E SOLICITAÇÕES (TOAST):\n`;
+      report += `- Laboratório (Sempre): Hemograma, Função Renal (Ureia/Creatinina), Lipidograma (CT/LDL/HDL/TG), VDRL, HbA1c, Coagulograma (TAP/TTPA/RNI), Eletrólitos (Na/K/Mg/Ca), Troponina\n`;
+      report += `- Cardiovascular (Sempre): ECG (Eletrocardiograma)\n`;
+      report += `- Imagem (Sob Indicação): Angio-TC Crânio/Pescoço, RM de Encéfalo, Doppler de Carótidas e Vertebrais, Doppler Transcraniano, Ecocardiograma Transtorácico/Transesofágico\n`;
+      
       return report;
   };
 
@@ -600,6 +618,85 @@ export const NeurovascularTool: React.FC = () => {
             <div className="space-y-6 animate-in slide-in-from-bottom-5 w-full">
                 <div className="bg-indigo-600 text-white p-5 rounded-[2rem] shadow-xl flex items-start gap-4"><div className="bg-white/20 p-2.5 rounded-xl"><Info className="h-6 w-6 text-white" /></div><div><h4 className="text-sm font-black uppercase tracking-tight">Novos Critérios 2026</h4><p className="text-[10px] font-medium leading-relaxed opacity-90 mt-1">Tenecteplase (0.25 mg/kg) é agora recomendado sobre Alteplase em LVO. Janelas estendidas até 24h são possíveis.</p></div></div>
                 <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm"><h4 className="text-slate-900 dark:text-white font-black uppercase text-[10px] tracking-widest mb-4 flex items-center"><Timer className="h-4 w-4 mr-2 text-primary" /> Tempo de Ictus (Janela de Ouro)</h4><input type="text" value={ictusTime} onChange={e => setIctusTime(e.target.value)} placeholder="Ex: 2 horas" className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-4 rounded-2xl text-xl font-black text-center" /></div>
+                
+                {/* mRS Prévio, Dados Vitais e Glicemia */}
+                <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm space-y-4">
+                    <div>
+                        <h4 className="text-slate-900 dark:text-white font-black uppercase text-[10px] tracking-widest mb-2 flex items-center">
+                            <Activity className="h-4 w-4 mr-2 text-primary" /> mRS Prévio do Paciente
+                        </h4>
+                        <div className="grid grid-cols-4 sm:grid-cols-7 gap-1">
+                            {[0, 1, 2, 3, 4, 5, 6].map((score) => (
+                                <button
+                                    key={score}
+                                    type="button"
+                                    onClick={() => setMrsPrevio(score.toString())}
+                                    className={`py-2 rounded-xl text-xs font-black border transition-all ${
+                                        mrsPrevio === score.toString()
+                                            ? 'bg-primary border-primary text-white shadow-lg'
+                                            : 'bg-slate-50 dark:bg-zinc-900 border-slate-100 dark:border-zinc-800 text-slate-500 hover:border-slate-300'
+                                    }`}
+                                >
+                                    {score}
+                                </button>
+                            ))}
+                        </div>
+                        {mrsPrevio !== '' && (
+                            <p className="text-[9px] text-primary font-black uppercase tracking-wider mt-1.5 pl-1">
+                                {mrsPrevio === '0' && '0 - Assintomático'}
+                                {mrsPrevio === '1' && '1 - Sintomas leves sem incapacidade'}
+                                {mrsPrevio === '2' && '2 - Incapacidade leve (independente)'}
+                                {mrsPrevio === '3' && '3 - Incapacidade moderada (requer alguma ajuda, caminha só)'}
+                                {mrsPrevio === '4' && '4 - Incapacidade moderadamente grave (não caminha sem ajuda)'}
+                                {mrsPrevio === '5' && '5 - Incapacidade grave (acamado, enfermagem constante)'}
+                                {mrsPrevio === '6' && '6 - Óbito'}
+                            </p>
+                        )}
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 pt-2">
+                        <div className="space-y-1">
+                            <label className="text-[9px] font-black uppercase text-slate-400 tracking-wider pl-1 block">PAS (mmHg)</label>
+                            <input 
+                                type="number" 
+                                value={vitalPAS} 
+                                onChange={e => setVitalPAS(e.target.value)} 
+                                placeholder="120" 
+                                className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-center text-sm font-black focus:border-primary focus:ring-1 focus:ring-primary"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="text-[9px] font-black uppercase text-slate-400 tracking-wider pl-1 block">PAD (mmHg)</label>
+                            <input 
+                                type="number" 
+                                value={vitalPAD} 
+                                onChange={e => setVitalPAD(e.target.value)} 
+                                placeholder="80" 
+                                className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-center text-sm font-black focus:border-primary focus:ring-1 focus:ring-primary"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="text-[9px] font-black uppercase text-slate-400 tracking-wider pl-1 block">FC (bpm)</label>
+                            <input 
+                                type="number" 
+                                value={vitalFC} 
+                                onChange={e => setVitalFC(e.target.value)} 
+                                placeholder="80" 
+                                className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-center text-sm font-black focus:border-primary focus:ring-1 focus:ring-primary"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="text-[9px] font-black uppercase text-slate-400 tracking-wider pl-1 block">Glicemia (mg/dL)</label>
+                            <input 
+                                type="number" 
+                                value={glycemia} 
+                                onChange={e => setGlycemia(e.target.value)} 
+                                placeholder="100" 
+                                className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-3 rounded-xl text-center text-sm font-black focus:border-primary focus:ring-1 focus:ring-primary"
+                            />
+                        </div>
+                    </div>
+                </div>
                 
                 {/* WIDGET JANELA ESTENDIDA (NOVO) */}
                 <div className="bg-indigo-50 dark:bg-indigo-950/20 border-2 border-indigo-100 dark:border-indigo-900/40 rounded-[2rem] p-6 shadow-sm">
@@ -792,6 +889,45 @@ export const NeurovascularTool: React.FC = () => {
                                 <p className="text-[10px] text-slate-600 dark:text-slate-400 font-medium leading-relaxed">{c.content}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                {/* Investigação Etiológica (Classificação de TOAST) */}
+                <div className="bg-indigo-50 dark:bg-indigo-950/20 border-2 border-indigo-100 dark:border-indigo-900/40 rounded-[2rem] p-6 shadow-sm">
+                    <h4 className="text-indigo-700 dark:text-indigo-400 font-black uppercase text-[10px] tracking-[0.2em] mb-4 flex items-center gap-2">
+                        <FileBarChart className="h-4 w-4" /> Investigação de AVC / TOAST (Solicitações recomendadas)
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="bg-white dark:bg-zinc-950 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-900/60 font-medium">
+                            <span className="text-[9px] font-black uppercase text-indigo-600 block mb-2 tracking-wider">🔬 Exames Laboratoriais (Sempre)</span>
+                            <ul className="space-y-1 text-[11px] text-slate-700 dark:text-slate-300">
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Hemograma completo</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Função renal (Ureia, Creatinina)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Lipidograma (CT, LDL, HDL, TG)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Sorologia para Sífilis (VDRL)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Hemoglobina Glicada (HbA1c)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Coagulograma (TAP/RNI e TTPA)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Eletrólitos (Na, K, Mg, Ca)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Marcadores Cardíacos (Troponina)</li>
+                            </ul>
+                        </div>
+                        <div className="bg-white dark:bg-zinc-950 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-900/60 font-medium col-span-1">
+                            <span className="text-[9px] font-black uppercase text-indigo-600 block mb-2 tracking-wider">💓 Avaliação Cardíaca (Sempre)</span>
+                            <ul className="space-y-1 text-[11px] text-slate-700 dark:text-slate-300">
+                                <li className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>ECG (Eletrocardiograma) - Sempre</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Holter de 24h (se FA paroxística)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Ecocardiograma Transtorácico/Transesofágico</li>
+                            </ul>
+                        </div>
+                        <div className="bg-white dark:bg-zinc-950 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-900/60 font-medium">
+                            <span className="text-[9px] font-black uppercase text-indigo-600 block mb-2 tracking-wider">🧠 Exames de Imagem (Sob Indicação)</span>
+                            <ul className="space-y-1 text-[11px] text-slate-700 dark:text-slate-300">
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Angiotomografia Arterial (Cranio/Pescoço)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Ressonância Magnética (Encéfalo)</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Doppler de Carótidas e Vertebrais</li>
+                                <li className="flex items-center gap-1.5"><span className="w-1 h-1 bg-indigo-500 rounded-full shrink-0"></span>Doppler Transcraniano</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
