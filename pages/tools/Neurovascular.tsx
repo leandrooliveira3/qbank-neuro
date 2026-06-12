@@ -561,11 +561,20 @@ export const NeurovascularTool: React.FC = () => {
           }
       }
       
-      // EXAMES RECOMENDADOS (TOAST):
-      report += `\nCUIDADOS PÓS E SOLICITAÇÕES (TOAST):\n`;
-      report += `- Laboratório (Sempre): Hemograma, Função Renal (Ureia/Creatinina), Lipidograma (CT/LDL/HDL/TG), VDRL, HbA1c, Coagulograma (TAP/TTPA/RNI), Eletrólitos (Na/K/Mg/Ca), Troponina\n`;
-      report += `- Cardiovascular (Sempre): ECG (Eletrocardiograma)\n`;
-      report += `- Imagem (Sob Indicação): Angio-TC Crânio/Pescoço, RM de Encéfalo, Doppler de Carótidas e Vertebrais, Doppler Transcraniano, Ecocardiograma Transtorácico/Transesofágico\n`;
+      // CUIDADOS PÓS-AVC (PÓS-TROMBÓLISE)
+      report += `\nCUIDADOS PÓS-TROMBÓLISE (24 HORAS):\n`;
+      report += `- Alvo Pressórico: ${POST_THROMBOLYSIS_CARE.bp_goals.target}\n`;
+      POST_THROMBOLYSIS_CARE.bp_goals.measures.forEach(m => {
+          report += `  • ${m}\n`;
+      });
+      report += `- Monitorização Clínica:\n`;
+      POST_THROMBOLYSIS_CARE.monitoring.forEach(m => {
+          report += `  • ${m.time} (${m.frequency}): ${m.activities.join(' • ')}\n`;
+      });
+      report += `- Cuidados Gerais:\n`;
+      POST_THROMBOLYSIS_CARE.general_care.forEach(c => {
+          report += `  • ${c.title}: ${c.content}\n`;
+      });
       
       return report;
   };
