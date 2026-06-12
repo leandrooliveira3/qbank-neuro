@@ -164,17 +164,6 @@ export const Stats: React.FC = () => {
                 totalXpRecorded += h.amount;
             });
 
-            // Auto-recovery of overwritten XP/Level
-            if (totalXpRecorded > (user.xp || 0)) {
-                console.log(`[XP Recovery] Restoring user XP from history: ${user.xp} -> ${totalXpRecorded}`);
-                const levelInfo = xpService.getLevelInfo(totalXpRecorded);
-                useAuthStore.getState().updateProfile({
-                    xp: totalXpRecorded,
-                    level: levelInfo.level,
-                    rank: levelInfo.title
-                });
-            }
-
             const breakdown = Object.entries(xpMap).map(([category, total]) => ({
                 category,
                 total,
@@ -192,16 +181,21 @@ export const Stats: React.FC = () => {
     if (!user) return;
     setResetting(true);
     try {
-      const [answers, activeSessions] = await Promise.all([
+      const [answers, simulations, activeSessions] = await Promise.all([
         localDB.getAll('user_answers'),
+        localDB.getAll('simulation_sessions'),
         localDB.getAll('active_practice_sessions')
       ]);
 
       const userAnswers = answers.filter(a => a.user_id === user.id);
+      const userSimulations = simulations.filter(s => s.user_id === user.id);
       const userActiveSessions = activeSessions.filter(as => as.user_id === user.id);
 
       if (userAnswers.length > 0) {
         await syncEngine.bulkDelete('user_answers', userAnswers);
+      }
+      if (userSimulations.length > 0) {
+        await syncEngine.bulkDelete('simulation_sessions', userSimulations);
       }
       if (userActiveSessions.length > 0) {
         await syncEngine.bulkDelete('active_practice_sessions', userActiveSessions);

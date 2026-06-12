@@ -184,20 +184,7 @@ class SyncEngine {
 
            const safeToPut = allData.filter(d => !pendingIds.has(d.id));
            
-           if (safeToPut.length > 0) if (table === 'profiles') {
-                for (const serverProfile of safeToPut) {
-                  const localProfile = localItems.find(l => l.id === serverProfile.id);
-                  if (localProfile) {
-                    serverProfile.xp = Math.max(localProfile.xp || 0, serverProfile.xp || 0);
-                    serverProfile.level = Math.max(localProfile.level || 1, serverProfile.level || 1);
-                    if ((localProfile.xp || 0) > (serverProfile.xp || 0)) {
-                      serverProfile.rank = localProfile.rank || serverProfile.rank;
-                    }
-                    serverProfile.streak_count = Math.max(localProfile.streak_count || 0, serverProfile.streak_count || 0);
-                  }
-                }
-              }
-              await localDB.bulkPut(table, safeToPut);
+           if (safeToPut.length > 0) await localDB.bulkPut(table, safeToPut);
         }
       } catch (e) {}
     }
@@ -241,14 +228,7 @@ class SyncEngine {
               console.log(`[Sync] Conflito resolvido: Servidor tem versão mais recente para ${item.table} ${payload.id}`);
               // Do nothing, server wins. Will get pulled afterwards.
           } else {
-              let error;
-              if (item.table === 'profiles') {
-                  const { error: errUpdate } = await supabase.from('profiles').update(payload).eq('id', payload.id);
-                  error = errUpdate;
-              } else {
-                  const { error: errUpsert } = await supabase.from(item.table).upsert(payload);
-                  error = errUpsert;
-              }
+              const { error } = await supabase.from(item.table).upsert(payload);
               err = error;
           }
         } else if (item.action === 'delete') {
