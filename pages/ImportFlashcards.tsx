@@ -628,12 +628,23 @@ export const ImportFlashcards: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 rounded-2xl">
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" checked={autoAddToRevision} onChange={e => setAutoAddToRevision(e.target.checked)} className="sr-only peer" />
-                                            <div className="w-9 h-5 bg-slate-200 peer-focus:outline-none dark:bg-zinc-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
-                                        </label>
-                                        <div className="flex-1">
+                                    <div 
+                                        onClick={() => setAutoAddToRevision(!autoAddToRevision)}
+                                        className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 rounded-2xl cursor-pointer hover:bg-slate-100 dark:hover:bg-zinc-900/80 transition-colors"
+                                    >
+                                        <button
+                                            type="button"
+                                            className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                                                autoAddToRevision ? 'bg-primary' : 'bg-slate-200 dark:bg-zinc-700'
+                                            }`}
+                                        >
+                                            <span
+                                                className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                                                    autoAddToRevision ? 'translate-x-4' : 'translate-x-0'
+                                                }`}
+                                            />
+                                        </button>
+                                        <div className="flex-1 select-none">
                                             <span className="text-[10px] font-black uppercase tracking-widest text-slate-900 dark:text-white block">Adicionar à Fila de Revisão</span>
                                             <span className="text-[9px] text-slate-500 font-bold block mt-0.5">Se desativado, os cards ficarão inativos para você adicioná-los manualmente depois.</span>
                                         </div>
