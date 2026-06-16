@@ -901,6 +901,36 @@ export const NeurovascularTool: React.FC = () => {
                                             <span className="text-xs font-black text-slate-900 dark:text-white mt-1.5 bg-purple-100/50 dark:bg-purple-950/40 text-center px-1.5 py-1 rounded">Dia 6 ou 7</span>
                                         </div>
                                     </div>
+
+                                    {/* Imagem de Classificação do Estudo ELAN */}
+                                    <div className="p-3 bg-white dark:bg-zinc-900 rounded-xl border border-slate-100 dark:border-zinc-800 space-y-2">
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-[9px] font-black uppercase text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                                                <Scan className="h-3.5 w-3.5 text-primary" /> Classificação de Tamanho de Infarto (Estudo ELAN)
+                                            </span>
+                                            <button 
+                                                type="button"
+                                                onClick={() => setFullscreenImage('/attached_assets/image_1773625243734.png')}
+                                                className="text-[9px] font-black uppercase text-primary hover:underline flex items-center gap-1"
+                                            >
+                                                <Maximize2 className="h-3 w-3" /> Ampliar
+                                            </button>
+                                        </div>
+                                        <div 
+                                            className="relative h-28 bg-slate-50 dark:bg-black/40 border border-slate-100 dark:border-zinc-800/50 rounded-lg overflow-hidden cursor-zoom-in flex items-center justify-center group"
+                                            onClick={() => setFullscreenImage('/attached_assets/image_1773625243734.png')}
+                                        >
+                                            <img 
+                                                src="/attached_assets/image_1773625243734.png"
+                                                alt="Classificação de Infarto ELAN"
+                                                className="max-h-full max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                                            />
+                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                                                <span className="text-[9px] font-black uppercase tracking-widest bg-zinc-900/80 text-white px-2 py-1 rounded border border-zinc-700 opacity-0 group-hover:opacity-100 transition-opacity">Ver Imagem Anexa</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div className="mt-2 text-[10px] text-slate-500 font-medium leading-relaxed bg-slate-50 dark:bg-zinc-900 p-2.5 rounded-lg border border-slate-100 dark:border-zinc-800/50">
                                         <span className="font-black text-slate-700 dark:text-slate-300">Estudo CATALYST (Lancet 2025):</span> Meta-análise IPD de 5.441 pacientes confirmou que o início precoce (≤ 4 dias) reduziu o desfecho composto (recorrência de AVC ou sICH em 30 dias) de forma expressiva (OR 0.70; p=0.039) e sem aumento de hemorragia.
                                     </div>
@@ -956,40 +986,6 @@ export const NeurovascularTool: React.FC = () => {
                                         <div className="mt-1.5 p-2 bg-amber-500/5 border border-amber-500/20 rounded-lg text-[9px] font-bold text-amber-700 dark:text-amber-400">
                                             🚫 SE SUBMETIDO A TROMBÓLISE/TROMBECTOMIA: Aguardar obrigatoriamente <span className="font-black">24 horas</span> após o término do procedimento antes de iniciar Heparina profilática.
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* IMAGE VIEWING CARD FOR ELAN CLASSIFICATION */}
-                            <div className="p-4 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-2xl flex flex-col justify-between h-[150px] shrink-0">
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <h6 className="text-[9.5px] font-black text-slate-800 dark:text-slate-200 uppercase tracking-widest flex items-center gap-1">
-                                            <Scan className="h-3.5 w-3.5 text-primary animate-pulse" /> Classificação de Tamanho de Infarto ELAN
-                                        </h6>
-                                        <p className="text-[9.5px] text-slate-400 font-medium tracking-tight leading-snug mt-1">
-                                            Toque ou clique abaixo para ampliar a imagem de classificação oficial do estudo.
-                                        </p>
-                                    </div>
-                                    <button 
-                                        type="button"
-                                        onClick={() => setFullscreenImage('/attached_assets/image_1773625243734.png')}
-                                        className="text-[9px] font-black uppercase text-primary hover:underline flex items-center gap-1 shrink-0"
-                                    >
-                                        <Maximize2 className="h-3 w-3" /> Ampliar
-                                    </button>
-                                </div>
-                                <div 
-                                    className="relative h-16 bg-slate-50 dark:bg-black/40 border border-slate-100 dark:border-zinc-800 rounded-xl overflow-hidden cursor-zoom-in flex items-center justify-center group mt-2"
-                                    onClick={() => setFullscreenImage('/attached_assets/image_1773625243734.png')}
-                                >
-                                    <img 
-                                        src="/attached_assets/image_1773625243734.png"
-                                        alt="Classificação ELAN"
-                                        className="max-h-full max-w-full object-cover opacity-60 group-hover:opacity-90 transition-opacity"
-                                    />
-                                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                                        <span className="text-[9px] font-black uppercase tracking-widest bg-zinc-900/80 text-white px-2 py-1 rounded border border-zinc-700">Ver Classificação Infarto</span>
                                     </div>
                                 </div>
                             </div>
