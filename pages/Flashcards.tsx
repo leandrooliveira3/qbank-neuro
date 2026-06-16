@@ -98,6 +98,7 @@ export const Flashcards: React.FC = () => {
   const [isCreatingNewBank, setIsCreatingNewBank] = useState(true);
   const [imagePosition, setImagePosition] = useState<'front' | 'back' | 'both'>('front');
   const [isCloudPickerOpen, setIsCloudPickerOpen] = useState(false);
+  const [isActiveForReview, setIsActiveForReview] = useState(true);
 
   useEffect(() => {
       if (occlusions.length > 0) {
@@ -136,6 +137,24 @@ export const Flashcards: React.FC = () => {
       const allCards = await localDB.getAll('flashcards');
       setCards(allCards.filter(c => c.user_id === user.id));
     } finally { setLoading(false); }
+  };
+
+  const handleExportFlashcards = () => {
+      try {
+          if (cards.length === 0) {
+              alert("Não há flashcards criados para exportar.");
+              return;
+          }
+          const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(cards, null, 2));
+          const downloadAnchor = document.createElement('a');
+          downloadAnchor.setAttribute("href", dataStr);
+          downloadAnchor.setAttribute("download", `neuro_qbank_flashcards_${new Date().toISOString().split('T')[0]}.json`);
+          document.body.appendChild(downloadAnchor);
+          downloadAnchor.click();
+          downloadAnchor.remove();
+      } catch (err: any) {
+          alert("Erro ao exportar flashcards: " + err.message);
+      }
   };
 
   const handleSaveSettings = (profileId: string) => {
@@ -259,7 +278,8 @@ export const Flashcards: React.FC = () => {
         front_image_url: frontImageUrl,
         back_image_url: (imagePosition === 'back' || imagePosition === 'both') ? frontImageUrl : '',
         image_position: imagePosition,
-        occlusions 
+        occlusions,
+        status: isActiveForReview ? (editingCard.status === 'inactive' ? 'new' : editingCard.status) : 'inactive'
       } : {
         id: crypto.randomUUID(),
         user_id: user.id,
@@ -270,7 +290,7 @@ export const Flashcards: React.FC = () => {
         occlusions,
         bank_name: formData.bank_name || 'Principal',
         category: formData.category || 'Geral',
-        status: 'new', 
+        status: isActiveForReview ? 'new' : 'inactive', 
         interval: 0, 
         ease_factor: 2.5, 
         repetitions: 0,
@@ -317,6 +337,7 @@ export const Flashcards: React.FC = () => {
       setZoomLevel(1);
       setKeepImageAfterSave(false);
       setImagePosition('front');
+      setIsActiveForReview(true);
   };
 
   const handleGenerateFlashcards = async () => {
@@ -570,7 +591,7 @@ export const Flashcards: React.FC = () => {
       }
   };
 
-  const dueCount = cards.filter(c => c.status !== 'inactive' && c.status !== 'new' && new Date(c.next_review).getTime() <= Date.now()).length;
+  const dueCount = cards.filter(c => c.status !== 'inactive' && new Date(c.next_review).getTime() <= Date.now()).length;
 
   // EDITOR RENDER (Unchanged mostly)
   if (mode === 'editor') {
@@ -701,7 +722,7 @@ export const Flashcards: React.FC = () => {
                           {openThemes.has(category) && (
                               <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-slate-50 dark:bg-black/20">
                                   {items.map(card => (
-                                      <div key={card.id} onClick={() => { setEditingCard(card); setFormData({front:card.front, back:card.back, category:card.category || '', bank_name: card.bank_name || 'Principal'}); setFrontPreview(card.front_image_url || ''); setOcclusions(card.occlusions || []); setImagePosition(card.image_position || 'front'); setMode('form'); }} className={`bg-white dark:bg-zinc-900 border ${card.status === 'inactive' ? 'border-dashed border-slate-300 dark:border-zinc-700 opacity-75' : 'border-slate-200 dark:border-zinc-800'} rounded-xl p-4 shadow-sm hover:border-primary transition-all cursor-pointer group flex flex-col h-full`}>
+                                      <div key={card.id} onClick={() => { setEditingCard(card); setFormData({front:card.front, back:card.back, category:card.category || '', bank_name: card.bank_name || 'Principal'}); setFrontPreview(card.front_image_url || ''); setOcclusions(card.occlusions || []); setImagePosition(card.image_position || 'front'); setIsActiveForReview(card.status !== 'inactive'); setMode('form'); }} className={`bg-white dark:bg-zinc-900 border ${card.status === 'inactive' ? 'border-dashed border-slate-300 dark:border-zinc-700 opacity-75' : 'border-slate-200 dark:border-zinc-800'} rounded-xl p-4 shadow-sm hover:border-primary transition-all cursor-pointer group flex flex-col h-full`}>
                                           {card.front_image_url && (
                                               <div className="mb-3 h-24 bg-slate-100 dark:bg-black rounded-lg flex items-center justify-center overflow-hidden relative">
                                                   <SmartImage url={card.front_image_url} alt="F" className="h-full object-contain" />
@@ -849,6 +870,14 @@ export const Flashcards: React.FC = () => {
                             </select>
                         )}
                     </div>
+                </div>
+
+                <div className="flex items-center gap-3 p-3 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-950 rounded-xl mt-4">
+                    <label className="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked={isActiveForReview} onChange={e => setIsActiveForReview(e.target.checked)} className="sr-only peer" />
+                        <div className="w-9 h-5 bg-slate-200 peer-focus:outline-none dark:bg-zinc-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
+                    </label>
+                    <span className="text-[9px] font-black uppercase text-emerald-700 dark:text-emerald-300">Ativo para Revisão (Adicionar à lista)</span>
                 </div>
               </div>
               <div className="space-y-6">
@@ -1023,18 +1052,18 @@ export const Flashcards: React.FC = () => {
                           </button>
                       </div>
 
-                      {/* Restore from DB */}
+                      {/* Export Flashcards */}
                       <div className="p-6 bg-indigo-50 dark:bg-indigo-900/10 border-2 border-indigo-100 dark:border-indigo-900/30 rounded-[2rem]">
                           <div className="flex items-center gap-3 mb-3">
                               <Download className="h-5 w-5 text-indigo-500" />
-                              <h3 className="font-black text-[11px] uppercase tracking-widest text-indigo-700 dark:text-indigo-400">Restaurar Decks</h3>
+                              <h3 className="font-black text-[11px] uppercase tracking-widest text-indigo-700 dark:text-indigo-400">Exportar Flashcards</h3>
                           </div>
-                          <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4">Adiciona ou restaura decks baseados nos temas oficiais disponíveis no database.</p>
+                          <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4">Exporta todos os seus flashcards criados no formato JSON para backup portátil ou compartilhamento.</p>
                           <button 
-                            onClick={() => navigate('/flashcards/import')}
-                            className="w-full bg-indigo-600 text-white py-2.5 rounded-xl font-black text-[9px] uppercase tracking-widest shadow-sm active:scale-95 transition-all"
+                            onClick={handleExportFlashcards}
+                            className="w-full bg-indigo-600 text-white py-2.5 rounded-xl font-black text-[9px] uppercase tracking-widest shadow-sm active:scale-95 transition-all text-center flex items-center justify-center gap-2"
                           >
-                              ACESSAR DATABASE
+                              EXPORTAR DECK
                           </button>
                       </div>
                   </div>

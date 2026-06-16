@@ -150,7 +150,7 @@ export const Dashboard: React.FC = () => {
             setActiveVideoSession(null);
         }
 
-        const dueCount = flashcards.filter(c => c.user_id === user.id && c.status !== 'inactive' && c.status !== 'new' && new Date(c.next_review) <= new Date()).length;
+        const dueCount = flashcards.filter(c => c.user_id === user.id && c.status !== 'inactive' && new Date(c.next_review) <= new Date()).length;
         setDueFlashcardsCount(dueCount);
 
         // --- SISTEMA DE OFENSIVA (STREAK) ---

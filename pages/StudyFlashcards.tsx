@@ -197,7 +197,7 @@ export const StudyFlashcards: React.FC = () => {
 
         // Normal due cards: only due, oldest first with deterministic tie breaker
         const normalDue = userCards
-            .filter(c => c.status !== 'inactive' && c.status !== 'new' && new Date(c.next_review) <= now)
+            .filter(c => c.status !== 'inactive' && new Date(c.next_review) <= now)
             .sort((a, b) => (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id));
 
         // ── Obter Priority Config para priorizar e antecipar cards de Bancos/Temas marcados ──

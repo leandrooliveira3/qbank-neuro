@@ -590,16 +590,12 @@ export const NeurovascularTool: React.FC = () => {
   const renderThrombolysis = () => (
     <div className="space-y-6 animate-in fade-in pb-40 w-full">
         <div className="flex bg-slate-100 dark:bg-zinc-900 p-1 rounded-2xl mb-4 overflow-x-auto no-scrollbar shadow-inner shrink-0 w-full">
-            {['NIHSS', 'Neuroimagem', 'Critérios', 'Trombólise', 'Trombectomia', 'Cuidados Pós'].map((stepName, i) => (
+            {['NIHSS', 'Neuroimagem', 'Critérios', 'Trombólise', 'Cuidados Pós', 'Trombectomia'].map((stepName, i) => (
                 <button key={i} onClick={() => setProtocolStep(i)} className={`flex-1 min-w-[90px] px-4 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${protocolStep === i ? 'bg-white dark:bg-zinc-800 text-primary shadow-md' : 'text-slate-500'}`}>{stepName}</button>
             ))}
         </div>
         {protocolStep === 0 && (
             <div className="space-y-4 animate-in fade-in w-full">
-                 <div className="bg-primary/5 border-2 border-primary/20 p-6 rounded-[2rem] flex justify-between items-center shadow-sm w-full">
-                     <div className="flex items-center gap-4"><div className="p-3 bg-primary rounded-2xl shadow-lg shadow-emerald-500/20"><Activity className="h-6 w-6 text-white" /></div><div><h4 className="font-black text-primary text-base uppercase tracking-tight leading-none">NIHSS TOTAL</h4><p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Status Neurológico</p></div></div>
-                     <span className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter">{nihssScore}</span>
-                 </div>
                  {THROMBOLYSIS_TOOL.questions.map((q) => (
                     <section key={q.id} className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm overflow-hidden group w-full">
                       <div className="flex justify-between items-start mb-4"><h4 className="text-lg font-black text-slate-950 dark:text-white leading-tight pr-4">{q.text}</h4>{scores[q.id] !== undefined && <div className="bg-primary h-8 w-8 rounded-lg flex items-center justify-center text-white font-black text-xs">{scores[q.id]}</div>}</div>
@@ -609,6 +605,10 @@ export const NeurovascularTool: React.FC = () => {
                       </div>
                     </section>
                  ))}
+                 <div className="bg-primary/5 border-2 border-primary/20 p-6 rounded-[2rem] flex justify-between items-center shadow-sm w-full">
+                     <div className="flex items-center gap-4"><div className="p-3 bg-primary rounded-2xl shadow-lg shadow-emerald-500/20"><Activity className="h-6 w-6 text-white" /></div><div><h4 className="font-black text-primary text-base uppercase tracking-tight leading-none">NIHSS TOTAL</h4><p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Status Neurológico</p></div></div>
+                     <span className="text-4xl font-black text-slate-900 dark:text-white tracking-tighter">{nihssScore}</span>
+                 </div>
             </div>
         )}
         {protocolStep === 1 && (
@@ -628,42 +628,46 @@ export const NeurovascularTool: React.FC = () => {
                 <div className="bg-indigo-600 text-white p-5 rounded-[2rem] shadow-xl flex items-start gap-4"><div className="bg-white/20 p-2.5 rounded-xl"><Info className="h-6 w-6 text-white" /></div><div><h4 className="text-sm font-black uppercase tracking-tight">Novos Critérios 2026</h4><p className="text-[10px] font-medium leading-relaxed opacity-90 mt-1">Tenecteplase (0.25 mg/kg) é agora recomendado sobre Alteplase em LVO. Janelas estendidas até 24h são possíveis.</p></div></div>
                 <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm"><h4 className="text-slate-900 dark:text-white font-black uppercase text-[10px] tracking-widest mb-4 flex items-center"><Timer className="h-4 w-4 mr-2 text-primary" /> Tempo de Ictus (Janela de Ouro)</h4><input type="text" value={ictusTime} onChange={e => setIctusTime(e.target.value)} placeholder="Ex: 2 horas" className="w-full bg-slate-50 dark:bg-black border border-slate-200 dark:border-zinc-800 p-4 rounded-2xl text-xl font-black text-center" /></div>
                 
-                {/* mRS Prévio, Dados Vitais e Glicemia */}
-                <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm space-y-4">
-                    <div>
-                        <h4 className="text-slate-900 dark:text-white font-black uppercase text-[10px] tracking-widest mb-2 flex items-center">
-                            <Activity className="h-4 w-4 mr-2 text-primary" /> mRS Prévio do Paciente
-                        </h4>
-                        <div className="grid grid-cols-4 sm:grid-cols-7 gap-1">
-                            {[0, 1, 2, 3, 4, 5, 6].map((score) => (
-                                <button
-                                    key={score}
-                                    type="button"
-                                    onClick={() => setMrsPrevio(score.toString())}
-                                    className={`py-2 rounded-xl text-xs font-black border transition-all ${
-                                        mrsPrevio === score.toString()
-                                            ? 'bg-primary border-primary text-white shadow-lg'
-                                            : 'bg-slate-50 dark:bg-zinc-900 border-slate-100 dark:border-zinc-800 text-slate-500 hover:border-slate-300'
-                                    }`}
-                                >
-                                    {score}
-                                </button>
-                            ))}
-                        </div>
-                        {mrsPrevio !== '' && (
-                            <p className="text-[9px] text-primary font-black uppercase tracking-wider mt-1.5 pl-1">
-                                {mrsPrevio === '0' && '0 - Assintomático'}
-                                {mrsPrevio === '1' && '1 - Sintomas leves sem incapacidade'}
-                                {mrsPrevio === '2' && '2 - Incapacidade leve (independente)'}
-                                {mrsPrevio === '3' && '3 - Incapacidade moderada (requer alguma ajuda, caminha só)'}
-                                {mrsPrevio === '4' && '4 - Incapacidade moderadamente grave (não caminha sem ajuda)'}
-                                {mrsPrevio === '5' && '5 - Incapacidade grave (acamado, enfermagem constante)'}
-                                {mrsPrevio === '6' && '6 - Óbito'}
-                            </p>
-                        )}
+                {/* mRS Prévio do Paciente */}
+                <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm">
+                    <h4 className="text-slate-900 dark:text-white font-black uppercase text-[10px] tracking-widest mb-2 flex items-center">
+                        <Activity className="h-4 w-4 mr-2 text-primary" /> mRS Prévio do Paciente
+                    </h4>
+                    <div className="grid grid-cols-4 sm:grid-cols-7 gap-1">
+                        {[0, 1, 2, 3, 4, 5, 6].map((score) => (
+                            <button
+                                key={score}
+                                type="button"
+                                onClick={() => setMrsPrevio(score.toString())}
+                                className={`py-2 rounded-xl text-xs font-black border transition-all ${
+                                    mrsPrevio === score.toString()
+                                        ? 'bg-primary border-primary text-white shadow-lg'
+                                        : 'bg-slate-50 dark:bg-zinc-900 border-slate-100 dark:border-zinc-800 text-slate-500 hover:border-slate-300'
+                                }`}
+                            >
+                                {score}
+                            </button>
+                        ))}
                     </div>
+                    {mrsPrevio !== '' && (
+                        <p className="text-[9px] text-primary font-black uppercase tracking-wider mt-1.5 pl-1">
+                            {mrsPrevio === '0' && '0 - Assintomático'}
+                            {mrsPrevio === '1' && '1 - Sintomas leves sem incapacidade'}
+                            {mrsPrevio === '2' && '2 - Incapacidade leve (independente)'}
+                            {mrsPrevio === '3' && '3 - Incapacidade moderada (requer alguma ajuda, caminha só)'}
+                            {mrsPrevio === '4' && '4 - Incapacidade moderadamente grave (não caminha sem ajuda)'}
+                            {mrsPrevio === '5' && '5 - Incapacidade grave (acamado, enfermagem constante)'}
+                            {mrsPrevio === '6' && '6 - Óbito'}
+                        </p>
+                    )}
+                </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 pt-2">
+                {/* Dados Vitais e Glicemia */}
+                <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm">
+                    <h4 className="text-slate-900 dark:text-white font-black uppercase text-[10px] tracking-widest mb-4 flex items-center">
+                        <Heart className="h-4 w-4 mr-2 text-rose-500" /> Dados Vitais e Glicemia
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
                         <div className="space-y-1">
                             <label className="text-[9px] font-black uppercase text-slate-400 tracking-wider pl-1 block">PAS (mmHg)</label>
                             <input 
@@ -785,55 +789,6 @@ export const NeurovascularTool: React.FC = () => {
         )}
         {protocolStep === 4 && (
             <div className="space-y-6 animate-in fade-in w-full pb-20">
-                <div className="bg-purple-600 text-white p-6 rounded-[2.5rem] shadow-xl flex items-center gap-4">
-                    <Anchor className="h-10 w-10 opacity-40" />
-                    <div><h3 className="font-black uppercase tracking-tight text-lg">Trombectomia Mecânica (EVT)</h3><p className="text-[10px] font-bold opacity-70 uppercase tracking-widest">Critérios Estendidos 2026</p></div>
-                </div>
-
-                <div className="space-y-4">
-                    {EVT_CRITERIA.map((criteria, idx) => (
-                        <div key={idx} className="bg-white dark:bg-zinc-950 border-2 border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm">
-                            <div className="flex justify-between items-start mb-4">
-                                <div>
-                                    <h4 className="text-sm font-black uppercase text-primary tracking-widest">{criteria.title}</h4>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase mt-1">{criteria.subtitle}</p>
-                                </div>
-                                <div className="bg-slate-100 dark:bg-zinc-900 p-2 rounded-xl">
-                                    <CheckCircle2 className="h-5 w-5 text-emerald-500" />
-                                </div>
-                            </div>
-                            <ul className="space-y-2 mb-4">
-                                {criteria.criteria.map((c, i) => (
-                                    <li key={i} className="text-[11px] font-medium text-slate-700 dark:text-slate-300 flex items-start gap-2">
-                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
-                                        {c}
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="bg-emerald-50 dark:bg-emerald-950/20 p-3 rounded-xl border border-emerald-100 dark:border-emerald-900/50">
-                                <p className="text-[9px] font-black text-emerald-700 dark:text-emerald-400 uppercase tracking-widest">Conduta: {criteria.action}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="p-5 bg-slate-50 dark:bg-zinc-900/50 rounded-[2rem] border border-slate-200 dark:border-zinc-800">
-                    <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-2 flex items-center gap-2"><Activity className="h-3 w-3" /> Metas de Pressão Arterial (EVT)</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="p-3 bg-white dark:bg-black rounded-xl border border-slate-100 dark:border-zinc-800">
-                            <p className="text-[9px] font-bold text-slate-500 uppercase">Antes/Durante</p>
-                            <p className="text-lg font-black text-slate-900 dark:text-white">PAS ≤ 180 mmHg</p>
-                        </div>
-                        <div className="p-3 bg-white dark:bg-black rounded-xl border border-slate-100 dark:border-zinc-800">
-                            <p className="text-[9px] font-bold text-slate-500 uppercase">Pós-Reperfusão (TICI 2b/3)</p>
-                            <p className="text-lg font-black text-slate-900 dark:text-white">Evitar PAS {"<"} 140 mmHg (72h)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )}
-        {protocolStep === 5 && (
-            <div className="space-y-6 animate-in fade-in w-full pb-20">
                 <div className="bg-emerald-600 text-white p-6 rounded-[2.5rem] shadow-xl flex items-center gap-4">
                     <Shield className="h-10 w-10 opacity-40" />
                     <div>
@@ -941,6 +896,55 @@ export const NeurovascularTool: React.FC = () => {
                 </div>
             </div>
         )}
+        {protocolStep === 5 && (
+            <div className="space-y-6 animate-in fade-in w-full pb-20">
+                <div className="bg-purple-600 text-white p-6 rounded-[2.5rem] shadow-xl flex items-center gap-4">
+                    <Anchor className="h-10 w-10 opacity-40" />
+                    <div><h3 className="font-black uppercase tracking-tight text-lg">Trombectomia Mecânica (EVT)</h3><p className="text-[10px] font-bold opacity-70 uppercase tracking-widest">Critérios Estendidos 2026</p></div>
+                </div>
+
+                <div className="space-y-4">
+                    {EVT_CRITERIA.map((criteria, idx) => (
+                        <div key={idx} className="bg-white dark:bg-zinc-950 border-2 border-slate-200 dark:border-zinc-900 rounded-[2rem] p-6 shadow-sm">
+                            <div className="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 className="text-sm font-black uppercase text-primary tracking-widest">{criteria.title}</h4>
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase mt-1">{criteria.subtitle}</p>
+                                </div>
+                                <div className="bg-slate-100 dark:bg-zinc-900 p-2 rounded-xl">
+                                    <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+                                </div>
+                            </div>
+                            <ul className="space-y-2 mb-4">
+                                {criteria.criteria.map((c, i) => (
+                                    <li key={i} className="text-[11px] font-medium text-slate-700 dark:text-slate-300 flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0"></span>
+                                        {c}
+                                    </li>
+                                ))}
+                            </ul>
+                            <div className="bg-emerald-50 dark:bg-emerald-950/20 p-3 rounded-xl border border-emerald-100 dark:border-emerald-900/50">
+                                <p className="text-[9px] font-black text-emerald-700 dark:text-emerald-400 uppercase tracking-widest">Conduta: {criteria.action}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="p-5 bg-slate-50 dark:bg-zinc-900/50 rounded-[2rem] border border-slate-200 dark:border-zinc-800">
+                    <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-2 flex items-center gap-2"><Activity className="h-3 w-3" /> Metas de Pressão Arterial (EVT)</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="p-3 bg-white dark:bg-black rounded-xl border border-slate-100 dark:border-zinc-800">
+                            <p className="text-[9px] font-bold text-slate-500 uppercase">Antes/Durante</p>
+                            <p className="text-lg font-black text-slate-900 dark:text-white">PAS ≤ 180 mmHg</p>
+                        </div>
+                        <div className="p-3 bg-white dark:bg-black rounded-xl border border-slate-100 dark:border-zinc-800">
+                            <p className="text-[9px] font-bold text-slate-500 uppercase">Pós-Reperfusão (TICI 2b/3)</p>
+                            <p className="text-lg font-black text-slate-900 dark:text-white">Evitar PAS {"<"} 140 mmHg (72h)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )}
 
         <div className="fixed bottom-0 left-0 w-full p-4 md:p-6 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border-t border-slate-200 dark:border-zinc-900 flex items-center justify-between z-[170] shadow-2xl">
             <div className="flex items-center gap-4"><div className="hidden sm:block"><p className="text-[8px] font-black uppercase text-slate-500 tracking-widest">Status do Protocolo</p><p className="text-3xl font-black text-primary tracking-tighter">{protocolStep === 1 ? (activeSubModule === 'aspects' ? aspectsScore : pcAspectsScore) : nihssScore}</p></div></div>
@@ -1002,11 +1006,16 @@ export const NeurovascularTool: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-slate-100 flex flex-col">
+      {fullscreenImage && (
+        <div className="fixed inset-0 z-[99999] bg-black flex items-center justify-center p-4 animate-in fade-in duration-300" onClick={() => setFullscreenImage(null)}>
+          <button className="absolute top-6 right-6 text-white/50 hover:text-white p-2"><X className="h-10 w-10" /></button>
+          <img src={fullscreenImage} alt="Fullscreen View" className="max-w-full max-h-full object-contain shadow-2xl" />
+        </div>
+      )}
       <header className="h-16 bg-white dark:bg-zinc-950 border-b border-slate-200 dark:border-zinc-900 px-6 flex items-center justify-between sticky top-0 z-50">
         <div className="flex items-center gap-4"><button onClick={() => activeToolId ? setActiveToolId(null) : navigate(user ? '/' : '/login')} className="p-2 text-slate-400 hover:text-primary"><ArrowLeft className="h-5 w-5" /></button><h1 className="text-sm font-black uppercase tracking-widest text-slate-900 dark:text-white">Neurovascular</h1></div>
       </header>
       <main className="flex-1 w-full p-4 md:p-6">
-        {fullscreenImage && (<div className="fixed inset-0 z-[999] bg-black flex items-center justify-center p-4 animate-in fade-in duration-300" onClick={() => setFullscreenImage(null)}><button className="absolute top-6 right-6 text-white/50 hover:text-white p-2"><X className="h-10 w-10" /></button><img src={fullscreenImage} alt="Fullscreen View" className="max-w-full max-h-full object-contain shadow-2xl" /></div>)}
         
         {!activeToolId ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
