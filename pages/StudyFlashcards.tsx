@@ -11,7 +11,7 @@ import {
   X, Loader2, 
   Brain, Trophy, Clock, HelpCircle, Shuffle, ArrowLeft, CheckCircle2,
   Undo2, MoreVertical, Ban, Edit2, CalendarClock, Sparkles, ImagePlus, Save,
-  Maximize2, AlertCircle
+  Maximize2, AlertCircle, Trash2
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router';
 import { explainFlashcardContext, generateQuestionFromFlashcard } from '../services/ai';
@@ -505,6 +505,46 @@ export const StudyFlashcards: React.FC = () => {
     }, 250);
   };
 
+  const handleDeleteActiveCard = async () => {
+    if (!user || currentIndex >= cards.length) return;
+    const cardToDelete = cards[currentIndex];
+    
+    if (!confirm("Tem certeza de que deseja excluir permanentemente este flashcard? Esta ação é irreversível e o card será apagado do servidor.")) return;
+    
+    setIsTransitioning(true);
+    
+    try {
+        await syncEngine.enqueue('flashcards', cardToDelete, 'delete');
+    } catch (err: any) {
+        console.error("Erro ao excluir card na revisão:", err);
+    }
+    
+    const updatedCardsList = cards.filter((_, idx) => idx !== currentIndex);
+    setCards(updatedCardsList);
+    
+    setTimeout(() => {
+        if (updatedCardsList.length > 0) {
+            setIsFlipped(false);
+            setCurrentImageUrl('');
+            setCurrentBackImageUrl('');
+            
+            if (currentIndex >= updatedCardsList.length) {
+                setCurrentIndex(updatedCardsList.length - 1);
+            }
+            
+            setTimeout(() => {
+                setIsTransitioning(false);
+            }, 50);
+        } else {
+            if (accumulatedXP > 0) {
+                xpService.addXP(accumulatedXP, 'Revisão Concluída', 'Flashcards');
+            }
+            setFinished(true);
+            setIsTransitioning(false);
+        }
+    }, 250);
+  };
+
   const currentCard = cards[currentIndex];
   const hasOcclusions = currentCard?.occlusions && currentCard.occlusions.length > 0;
   
@@ -658,6 +698,12 @@ export const StudyFlashcards: React.FC = () => {
                             className="w-full text-left px-4 py-2 text-[10px] font-bold text-red-500 flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-black transition-colors"
                         >
                             <Ban className="h-3 w-3" /> Suspender
+                        </button>
+                        <button 
+                            onClick={() => { setShowMenu(false); handleDeleteActiveCard(); }} 
+                            className="w-full text-left px-4 py-2 text-[10px] font-bold text-rose-500 flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-black transition-colors border-t border-slate-100 dark:border-zinc-800"
+                        >
+                            <Trash2 className="h-3 w-3" /> Excluir Card
                         </button>
                     </div>
                 )}

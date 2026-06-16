@@ -378,23 +378,19 @@ export const Flashcards: React.FC = () => {
   const handleDelete = async (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     const cardToDelete = cards.find(c => c.id === id);
-    if (!cardToDelete || !confirm("Excluir este flashcard?")) return;
+    if (!cardToDelete) return;
+    if (!confirm("Tem certeza de que deseja excluir permanentemente este flashcard? Esta ação é irreversível e o card será apagado do servidor.")) return;
     
-    // Optimistic remove
+    // Immediate and permanent deletion from state, localDB and sync queue
     setCards(prev => prev.filter(c => c.id !== id));
     
-    if (undoToast?.timer) clearTimeout(undoToast.timer);
-    
-    const newTimer = setTimeout(async () => {
-        setUndoToast(null);
-        try {
-            await syncEngine.enqueue('flashcards', cardToDelete, 'delete');
-        } catch (err) {
-            loadCards(); // fallback
-        }
-    }, 7000);
-    
-    setUndoToast({ timer: newTimer, items: [cardToDelete], message: `Flashcard removido.` });
+    try {
+        await syncEngine.enqueue('flashcards', cardToDelete, 'delete');
+    } catch (err: any) {
+        console.error("Erro ao excluir flashcard:", err);
+        alert("Erro ao excluir do servidor: " + err.message);
+        loadCards(); // fallback
+    }
   };
 
   const onFrontImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -513,48 +509,42 @@ export const Flashcards: React.FC = () => {
   const [undoToast, setUndoToast] = useState<{ timer: any, items: Flashcard[], message: string } | null>(null);
 
   const handleDeleteFilteredFlashcards = async () => {
-    if (!filteredCards.length || !confirm(`Excluir permanentemente todos os ${filteredCards.length} flashcards filtrados?`)) return;
+    if (!filteredCards.length) return;
     
-    // Optimistic remove
-    setCards(prev => prev.filter(c => !filteredCards.find(fc => fc.id === c.id)));
+    const isDeletingBank = filterBank !== 'Todos' && !searchTerm;
+    const confirmMessage = isDeletingBank
+        ? `Tem certeza de que deseja excluir permanentemente o banco "${filterBank}" e todos os seus ${filteredCards.length} flashcards? Esta ação é irreversível e todos os cards serão apagados do servidor.`
+        : `Tem certeza de que deseja excluir permanentemente todos os ${filteredCards.length} flashcards filtrados? Esta ação é irreversível e todos os cards serão apagados do servidor.`;
+        
+    if (!confirm(confirmMessage)) return;
     
-    if (undoToast?.timer) clearTimeout(undoToast.timer);
-    
+    // Immediate and permanent local and sync database deletion
     const itemsToDelete = [...filteredCards];
-    const newTimer = setTimeout(async () => {
-        setUndoToast(null);
-        try {
-            await syncEngine.bulkDelete('flashcards', itemsToDelete);
-        } catch (err: any) {
-            alert("Erro ao sincronizar exclusão: " + err.message);
-            loadCards(); // fallback
-        }
-    }, 7000);
-
-    setUndoToast({ timer: newTimer, items: itemsToDelete, message: `${itemsToDelete.length} flashcards removidos.` });
+    setCards(prev => prev.filter(c => !itemsToDelete.find(fc => fc.id === c.id)));
+    
+    try {
+        await syncEngine.bulkDelete('flashcards', itemsToDelete);
+    } catch (err: any) {
+        console.error("Erro ao excluir flashcards:", err);
+        alert("Erro ao excluir do servidor: " + err.message);
+        loadCards(); // fallback
+    }
   };
 
   const handleDeleteCategory = async (category: string, items: Flashcard[], e: React.MouseEvent) => {
       e.stopPropagation();
-      if (!confirm(`Excluir ${items.length} flashcards da categoria "${category}"? (Você terá alguns segundos para desfazer)`)) return;
+      if (!confirm(`Tem certeza de que deseja excluir permanentemente a categoria/tema "${category}" e todos os seus ${items.length} flashcards? Esta ação é irreversível e os cards serão apagados do servidor.`)) return;
       
-      // Optimistic remove
+      // Immediate and permanent local and sync database deletion
       setCards(prev => prev.filter(c => !items.find(i => i.id === c.id)));
       
-      if (undoToast?.timer) clearTimeout(undoToast.timer);
-      
-      const itemsToDelete = [...items];
-      const newTimer = setTimeout(async () => {
-          setUndoToast(null);
-          try {
-              await syncEngine.bulkDelete('flashcards', itemsToDelete);
-          } catch (err: any) {
-              alert("Erro ao sincronizar exclusão: " + err.message);
-              loadCards(); // fallback
-          }
-      }, 8000);
-
-      setUndoToast({ timer: newTimer, items: itemsToDelete, message: `Tema "${category}" removido.` });
+      try {
+          await syncEngine.bulkDelete('flashcards', items);
+      } catch (err: any) {
+          console.error("Erro ao excluir categoria:", err);
+          alert("Erro ao excluir do servidor: " + err.message);
+          loadCards(); // fallback
+      }
   };
 
   const handleUndoDelete = () => {
@@ -667,9 +657,9 @@ export const Flashcards: React.FC = () => {
                     {(searchTerm || filterBank !== 'Todos') && (
                         <button 
                             onClick={handleDeleteFilteredFlashcards}
-                            className="bg-rose-50 dark:bg-rose-900/10 text-rose-600 border border-rose-200 dark:border-rose-900 px-4 py-2.5 rounded-xl font-black text-[9px] uppercase flex items-center gap-2 hover:bg-rose-100 transition-colors"
+                            className="bg-rose-50 dark:bg-rose-900/10 text-rose-600 border border-rose-200 dark:border-rose-900 px-4 py-2.5 rounded-xl font-black text-[9px] uppercase flex items-center gap-2 hover:bg-rose-100 transition-colors animate-in fade-in"
                         >
-                            <Trash2 className="h-3.5 w-3.5" /> Limpar Filtrados ({filteredCards.length})
+                            <Trash2 className="h-3.5 w-3.5" /> {filterBank !== 'Todos' && !searchTerm ? `Excluir Banco "${filterBank}"` : `Limpar Filtrados (${filteredCards.length})`}
                         </button>
                     )}
                     <select value={filterBank} onChange={e => setFilterBank(e.target.value)} className="flex-1 md:w-40 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 p-2.5 rounded-xl text-xs font-black appearance-none">

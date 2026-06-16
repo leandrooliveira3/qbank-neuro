@@ -173,10 +173,12 @@ class SyncEngine {
            
            const pendingQueue = await localDB.getAll('sync_queue');
            const pendingIds = new Set(pendingQueue.filter(q => q.table === table && q.action === 'upsert').map(q => q.data.id));
+           const pendingDeletes = new Set(pendingQueue.filter(q => q.table === table && q.action === 'delete').map(q => q.data?.id || q.data));
            
            const toDelete = localItems.filter(l => {
                if (expectedUserId && l[userCol] !== expectedUserId) return false;
                if (pendingIds.has(l.id)) return false;
+               if (pendingDeletes.has(l.id)) return false;
                
                // Protect recently updated local records from read-replica lag wipeouts
                const lastLocalUpdate = new Date(l.updated_at || l.created_at || 0).getTime();
@@ -187,7 +189,7 @@ class SyncEngine {
            
            if (toDelete.length > 0) await localDB.bulkDelete(table, toDelete);
 
-           const safeToPut = allData.filter(d => !pendingIds.has(d.id));
+           const safeToPut = allData.filter(d => !pendingIds.has(d.id) && !pendingDeletes.has(d.id));
            
            if (safeToPut.length > 0) await localDB.bulkPut(table, safeToPut);
         }
