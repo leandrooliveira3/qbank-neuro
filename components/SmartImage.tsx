@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { mediaService } from '../services/mediaService';
 import { ImageIcon, Loader2, AlertCircle, Maximize2, X } from 'lucide-react';
 
@@ -105,9 +106,9 @@ export const SmartImage: React.FC<SmartImageProps> = ({ url, alt, className = ""
         </div>
       </div>
 
-      {isFullscreen && (
+      {isFullscreen && createPortal(
         <div 
-          className="fixed inset-0 bg-black/95 z-[9999] flex flex-col items-center justify-center p-4 select-none animate-in fade-in duration-200 cursor-zoom-out"
+          className="fixed inset-0 bg-black/95 z-[999999] flex flex-col items-center justify-center p-4 select-none animate-in fade-in duration-200 cursor-zoom-out"
           onClick={() => setIsFullscreen(false)}
         >
           <div className="absolute top-4 right-4 z-[10000]">
@@ -132,7 +133,8 @@ export const SmartImage: React.FC<SmartImageProps> = ({ url, alt, className = ""
               />
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
