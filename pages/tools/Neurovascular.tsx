@@ -873,70 +873,90 @@ export const NeurovascularTool: React.FC = () => {
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         {/* CARDIOEMBOLIC SECTION */}
-                        <div className="space-y-4">
-                            <div className="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl">
-                                <h5 className="text-[10px] font-black uppercase text-emerald-700 dark:text-emerald-400 tracking-wider mb-2 flex items-center gap-1.5">
-                                    <CheckCircle2 className="h-4 w-4" /> 1. AVC Cardioembólico (Estudos ELAN & CATALYST)
-                                </h5>
-                                <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                                    Evidências robustas suportam o início ou reintrodução precoce de DOAC (<span className="font-extrabold text-slate-900 dark:text-white">≤ 4 dias</span> na maioria dos casos) no AVC leve a moderado por Fibrilação Atrial, reduzindo re-infarto sem elevar sangramentos ativos.
-                                </p>
+                        <div className="flex flex-col h-full">
+                            <div className="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-2xl flex-1 flex flex-col justify-between space-y-4">
+                                <div className="space-y-4">
+                                    <h5 className="text-[10px] font-black uppercase text-emerald-700 dark:text-emerald-400 tracking-wider flex items-center gap-1.5 mb-2">
+                                        <CheckCircle2 className="h-4 w-4" /> 1. AVC Cardioembólico (Estudos ELAN & CATALYST)
+                                    </h5>
+                                    <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                                        Evidências robustas suportam o início ou reintrodução precoce de DOAC (<span className="font-extrabold text-slate-900 dark:text-white">≤ 4 dias</span> na maioria dos casos) no AVC leve a moderado por Fibrilação Atrial, reduzindo re-infarto sem elevar sangramentos ativos.
+                                    </p>
 
-                                <div className="space-y-2 mb-4">
-                                    <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest pl-1">Tempo Ótimo de Início (DOAC no Estudo ELAN):</p>
-                                    <div className="grid grid-cols-3 gap-2">
-                                        <div className="p-3 bg-white dark:bg-zinc-900 rounded-xl border border-slate-100 dark:border-zinc-800 flex flex-col justify-between">
-                                            <span className="text-[8px] font-black uppercase text-emerald-600 block">AVC Menor</span>
-                                            <span className="text-[9px] text-slate-400 font-bold leading-tight mt-1">Infarto ≤ 1.5 cm</span>
-                                            <span className="text-xs font-black text-slate-900 dark:text-white mt-1.5 bg-emerald-100/50 dark:bg-emerald-950/40 text-center px-1.5 py-1 rounded">≤ 48 horas</span>
-                                        </div>
-                                        <div className="p-3 bg-white dark:bg-zinc-900 rounded-xl border border-slate-100 dark:border-zinc-800 flex flex-col justify-between">
-                                            <span className="text-[8px] font-black uppercase text-emerald-600 block">AVC Moderado</span>
-                                            <span className="text-[9px] text-slate-400 font-bold leading-tight mt-1">Infarto segmentar cortical</span>
-                                            <span className="text-xs font-black text-slate-900 dark:text-white mt-1.5 bg-emerald-100/50 dark:bg-emerald-950/40 text-center px-1.5 py-1 rounded">≤ 48 horas</span>
-                                        </div>
-                                        <div className="p-3 bg-white dark:bg-zinc-900 rounded-xl border border-slate-100 dark:border-zinc-800 flex flex-col justify-between">
-                                            <span className="text-[8px] font-black uppercase text-purple-600 block">AVC Maior</span>
-                                            <span className="text-[9px] text-slate-400 font-bold leading-tight mt-1">Grande volume / Extenso</span>
-                                            <span className="text-xs font-black text-slate-900 dark:text-white mt-1.5 bg-purple-100/50 dark:bg-purple-950/40 text-center px-1.5 py-1 rounded">Dia 6 ou 7</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Imagem de Classificação do Estudo ELAN */}
-                                    <div className="p-3 bg-white dark:bg-zinc-900 rounded-xl border border-slate-100 dark:border-zinc-800 space-y-2">
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-[9px] font-black uppercase text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                                                <Scan className="h-3.5 w-3.5 text-primary" /> Classificação de Tamanho de Infarto (Estudo ELAN)
-                                            </span>
-                                            <button 
-                                                type="button"
-                                                onClick={() => setFullscreenImage('/attached_assets/image_1773625243734.png')}
-                                                className="text-[9px] font-black uppercase text-primary hover:underline flex items-center gap-1"
+                                    <div className="space-y-2">
+                                        <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest pl-1">Tempo Ótimo de Início (DOAC no Estudo ELAN):</p>
+                                        <div className="grid grid-cols-3 gap-2">
+                                            {/* AVC Menor */}
+                                            <div 
+                                                className="p-2.5 bg-white dark:bg-zinc-900 rounded-xl border border-slate-100 dark:border-zinc-800 flex flex-col justify-between cursor-zoom-in hover:border-emerald-500/40 dark:hover:border-emerald-500/30 transition-all hover:scale-[1.02] duration-200 group/minor"
+                                                onClick={() => setFullscreenImage('https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/elan/minor_final.png')}
                                             >
-                                                <Maximize2 className="h-3 w-3" /> Ampliar
-                                            </button>
-                                        </div>
-                                        <div 
-                                            className="relative h-28 bg-slate-50 dark:bg-black/40 border border-slate-100 dark:border-zinc-800/50 rounded-lg overflow-hidden cursor-zoom-in flex items-center justify-center group"
-                                            onClick={() => setFullscreenImage('/attached_assets/image_1773625243734.png')}
-                                        >
-                                            <img 
-                                                src="/attached_assets/image_1773625243734.png"
-                                                alt="Classificação de Infarto ELAN"
-                                                className="max-h-full max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                                            />
-                                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                                                <span className="text-[9px] font-black uppercase tracking-widest bg-zinc-900/80 text-white px-2 py-1 rounded border border-zinc-700 opacity-0 group-hover:opacity-100 transition-opacity">Ver Imagem Anexa</span>
+                                                <div className="space-y-0.5">
+                                                    <span className="text-[8px] font-black uppercase text-emerald-600 block">AVC Menor</span>
+                                                    <span className="text-[9px] text-slate-400 font-bold leading-tight block">Infarto ≤ 1.5 cm</span>
+                                                </div>
+                                                <div className="mt-2.5 space-y-2">
+                                                    <div className="h-14 bg-slate-50 dark:bg-black/30 rounded-lg overflow-hidden flex items-center justify-center p-0.5 border border-slate-100 dark:border-zinc-800/80">
+                                                        <img 
+                                                            src="https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/elan/minor_final.png" 
+                                                            alt="AVC Menor" 
+                                                            className="max-h-full max-w-full object-contain group-hover/minor:scale-105 transition-transform duration-200"
+                                                        />
+                                                    </div>
+                                                    <span className="text-[10px] font-black text-emerald-700 dark:text-emerald-300 bg-emerald-100/50 dark:bg-emerald-950/40 text-center px-1 py-0.5 rounded block">≤ 48 horas</span>
+                                                </div>
+                                            </div>
+
+                                            {/* AVC Moderado */}
+                                            <div 
+                                                className="p-2.5 bg-white dark:bg-zinc-900 rounded-xl border border-slate-100 dark:border-zinc-800 flex flex-col justify-between cursor-zoom-in hover:border-emerald-500/40 dark:hover:border-emerald-500/30 transition-all hover:scale-[1.02] duration-200 group/mod"
+                                                onClick={() => setFullscreenImage('https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/elan/moderate_final_2.png')}
+                                            >
+                                                <div className="space-y-0.5">
+                                                    <span className="text-[8px] font-black uppercase text-emerald-600 block">AVC Moderado</span>
+                                                    <span className="text-[9px] text-slate-400 font-bold leading-tight block">Cortical superficial</span>
+                                                </div>
+                                                <div className="mt-2.5 space-y-2">
+                                                    <div className="h-14 bg-slate-50 dark:bg-black/30 rounded-lg overflow-hidden flex items-center justify-center p-0.5 border border-slate-100 dark:border-zinc-800/80">
+                                                        <img 
+                                                            src="https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/elan/moderate_final_2.png" 
+                                                            alt="AVC Moderado" 
+                                                            className="max-h-full max-w-full object-contain group-hover/mod:scale-105 transition-transform duration-200"
+                                                        />
+                                                    </div>
+                                                    <span className="text-[10px] font-black text-emerald-700 dark:text-emerald-300 bg-emerald-100/50 dark:bg-emerald-950/40 text-center px-1 py-0.5 rounded block">≤ 48 horas</span>
+                                                </div>
+                                            </div>
+
+                                            {/* AVC Maior */}
+                                            <div 
+                                                className="p-2.5 bg-white dark:bg-zinc-900 rounded-xl border border-slate-100 dark:border-zinc-800 flex flex-col justify-between cursor-zoom-in hover:border-purple-500/40 dark:hover:border-purple-500/30 transition-all hover:scale-[1.02] duration-200 group/major"
+                                                onClick={() => setFullscreenImage('https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/elan/major_final_2.png')}
+                                            >
+                                                <div className="space-y-0.5">
+                                                    <span className="text-[8px] font-black uppercase text-purple-600 block">AVC Maior</span>
+                                                    <span className="text-[9px] text-slate-400 font-bold leading-tight block">Extenso / Tronco</span>
+                                                </div>
+                                                <div className="mt-2.5 space-y-2">
+                                                    <div className="h-14 bg-slate-50 dark:bg-black/30 rounded-lg overflow-hidden flex items-center justify-center p-0.5 border border-slate-100 dark:border-zinc-800/80">
+                                                        <img 
+                                                            src="https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/elan/major_final_2.png" 
+                                                            alt="AVC Maior" 
+                                                            className="max-h-full max-w-full object-contain group-hover/major:scale-105 transition-transform duration-200"
+                                                        />
+                                                    </div>
+                                                    <span className="text-[10px] font-black text-purple-700 dark:text-purple-300 bg-purple-100/50 dark:bg-purple-950/40 text-center px-1 py-0.5 rounded block session-tag">Dia 6 ou 7</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="mt-2 text-[10px] text-slate-500 font-medium leading-relaxed bg-slate-50 dark:bg-zinc-900 p-2.5 rounded-lg border border-slate-100 dark:border-zinc-800/50">
-                                        <span className="font-black text-slate-700 dark:text-slate-300">Estudo CATALYST (Lancet 2025):</span> Meta-análise IPD de 5.441 pacientes confirmou que o início precoce (≤ 4 dias) reduziu o desfecho composto (recorrência de AVC ou sICH em 30 dias) de forma expressiva (OR 0.70; p=0.039) e sem aumento de hemorragia.
+                                    <div className="text-[10px] text-slate-500 font-medium leading-relaxed bg-slate-50 dark:bg-zinc-900 p-2.5 rounded-lg border border-slate-100 dark:border-zinc-800/50">
+                                        <span className="font-black text-slate-700 dark:text-slate-300">Estudo CATALYST (Lancet 2025):</span> Meta-análise IPD de 5.441 pacientes confirmou que o início precoce (≤ 4 dias) reduziu o desfecho composto (recorrência de AVC ou sICH em 30 dias) de forma expressiva (OR 0.70; p=0.039) e sem aumento de hemorrágicos relevantes.
                                     </div>
                                 </div>
 
-                                <div className="space-y-3 pt-2">
+                                <div className="space-y-3 pt-3 border-t border-slate-100 dark:border-zinc-900/60">
                                     <div>
                                         <p className="text-[9px] font-black text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-1">👍 Indicações de Início Precoce:</p>
                                         <ul className="list-disc list-inside text-[10px] text-slate-600 dark:text-slate-400 space-y-0.5 leading-tight">
@@ -958,33 +978,35 @@ export const NeurovascularTool: React.FC = () => {
                         </div>
 
                         {/* OUTROS AVCS (NON-CARDIOEMBOLIC) SECTION & IMAGE CONSULTATION */}
-                        <div className="space-y-4">
-                            <div className="p-4 bg-slate-50 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 rounded-2xl flex-1">
-                                <h5 className="text-[10px] font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider mb-2 flex items-center gap-1.5">
-                                    <Info className="h-4 w-4 text-primary" /> 2. Outros AVCs (AHA/ASA Stroke Guideline)
-                                </h5>
-                                <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                                    Casos de AVC não-cardioembólico (lacunares, grandes artérias, criptogênicos) priorizam antiagregação e profilaxia de estase venosa rápida.
-                                </p>
+                        <div className="flex flex-col h-full">
+                            <div className="p-4 bg-slate-50 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 rounded-2xl flex-1 flex flex-col justify-between space-y-4">
+                                <div className="space-y-4">
+                                    <h5 className="text-[10px] font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider flex items-center gap-1.5 mb-2">
+                                        <Info className="h-4 w-4 text-primary" /> 2. Outros AVCs (AHA/ASA Stroke Guideline)
+                                    </h5>
+                                    <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                                        Casos de AVC não-cardioembólico (lacunares, grandes artérias, criptogênicos) priorizam antiagregação e profilaxia de estase venosa rápida.
+                                    </p>
 
-                                <div className="space-y-3">
-                                    <div className="p-3 bg-white dark:bg-zinc-950 rounded-xl border border-slate-200 dark:border-zinc-800">
-                                        <p className="text-[9px] font-black text-primary uppercase tracking-wider">💊 Retorno / Início do AAS (Aspirina):</p>
-                                        <p className="text-[10.5px] font-bold text-slate-800 dark:text-slate-200 mt-1 leading-relaxed">
-                                            Iniciar AAS (100mg a 325mg/dia) nas primeiras <span className="font-extrabold text-slate-900 dark:text-white">24 a 48 horas</span> do início dos sintomas.
-                                        </p>
-                                        <div className="mt-1.5 p-2 bg-amber-500/5 border border-amber-500/20 rounded-lg text-[9px] font-bold text-amber-700 dark:text-amber-400">
-                                            🚫 SE SUBMETIDO A TROMBÓLISE/TROMBECTOMIA: Aguardar rigorosamente <span className="font-black">24 horas</span> e realizar TC de Crânio de controle sem sangramento antes de introduzir o AAS.
+                                    <div className="space-y-3">
+                                        <div className="p-3 bg-white dark:bg-zinc-950 rounded-xl border border-slate-200 dark:border-zinc-800">
+                                            <p className="text-[9px] font-black text-primary uppercase tracking-wider">💊 Retorno / Início do AAS (Aspirina):</p>
+                                            <p className="text-[10.5px] font-bold text-slate-800 dark:text-slate-200 mt-1 leading-relaxed">
+                                                Iniciar AAS (100mg a 325mg/dia) nas primeiras <span className="font-extrabold text-slate-900 dark:text-white">24 a 48 horas</span> do início dos sintomas.
+                                            </p>
+                                            <div className="mt-1.5 p-2 bg-amber-500/5 border border-amber-500/20 rounded-lg text-[9px] font-bold text-amber-700 dark:text-amber-400">
+                                                🚫 SE SUBMETIDO A TROMBÓLISE/TROMBECTOMIA: Aguardar rigorosamente <span className="font-black">24 horas</span> e realizar TC de Crânio de controle sem sangramento antes de introduzir o AAS.
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div className="p-3 bg-white dark:bg-zinc-950 rounded-xl border border-slate-200 dark:border-zinc-800">
-                                        <p className="text-[9px] font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">⚓ Retorno / Início de Anticoagulação Profilática (TVP):</p>
-                                        <p className="text-[10.5px] font-bold text-slate-800 dark:text-slate-200 mt-1 leading-relaxed">
-                                            Iniciar para pacientes de mobilidade reduzida com Enoxaparina (40mg SC 1x/dia) ou Heparina profilática de <span className="font-extrabold text-slate-900 dark:text-white">24 a 48 horas</span> do início do AVC.
-                                        </p>
-                                        <div className="mt-1.5 p-2 bg-amber-500/5 border border-amber-500/20 rounded-lg text-[9px] font-bold text-amber-700 dark:text-amber-400">
-                                            🚫 SE SUBMETIDO A TROMBÓLISE/TROMBECTOMIA: Aguardar obrigatoriamente <span className="font-black">24 horas</span> após o término do procedimento antes de iniciar Heparina profilática.
+                                        <div className="p-3 bg-white dark:bg-zinc-950 rounded-xl border border-slate-200 dark:border-zinc-800">
+                                            <p className="text-[9px] font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">⚓ Retorno / Início de Anticoagulação Profilática (TVP):</p>
+                                            <p className="text-[10.5px] font-bold text-slate-800 dark:text-slate-200 mt-1 leading-relaxed">
+                                                Iniciar para pacientes de mobilidade reduzida com Enoxaparina (40mg SC 1x/dia) ou Heparina profilática de <span className="font-extrabold text-slate-900 dark:text-white">24 a 48 horas</span> do início do AVC.
+                                            </p>
+                                            <div className="mt-1.5 p-2 bg-amber-500/5 border border-amber-500/20 rounded-lg text-[9px] font-bold text-amber-700 dark:text-amber-400">
+                                                🚫 SE SUBMETIDO A TROMBÓLISE/TROMBECTOMIA: Aguardar obrigatoriamente <span className="font-black">24 horas</span> após o término do procedimento antes de iniciar Heparina profilática.
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
