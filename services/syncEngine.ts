@@ -76,10 +76,8 @@ class SyncEngine {
     // Simulated exams (simulados)
     if (url.includes('/simulations/session')) return true;
     
-    // Watching videos (vendo videos)
-    if (url.includes('/videos') && ((window as any).neuro_active_video === true || (window as any).neuro_video_playing === true)) {
-      return true;
-    }
+    // No menu vídeo aulas ou assistindo vídeos
+    if (url.includes('/videos')) return true;
     
     return false;
   }
