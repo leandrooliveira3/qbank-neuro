@@ -43,27 +43,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, fullWidth = fal
     };
   }, [theme]);
 
-  // GLOBAL DEV CONTAINER KEEP-ALIVE (Evita suspensão do container Cloud Run por inatividade HTTP)
-  useEffect(() => {
-    const runGlobalPing = () => {
-      fetch('/index.html?ping=global&bypass=true&t=' + Date.now(), {
-        method: 'GET',
-        cache: 'no-store',
-        mode: 'same-origin',
-        headers: {
-          'Cache-Control': 'no-cache',
-          'Pragma': 'no-cache'
-        }
-      })
-      .then(() => console.debug('[Layout] Keepalive global bem-sucedido.'))
-      .catch((e) => console.warn('[Layout] Falha no keepalive global:', e));
-    };
-
-    runGlobalPing();
-    const interval = setInterval(runGlobalPing, 60000); // Dispara a cada 60 segundos
-    return () => clearInterval(interval);
-  }, []);
-
   const handleLogout = async () => {
     await logout();
     navigate('/login');
