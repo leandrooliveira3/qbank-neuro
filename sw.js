@@ -73,10 +73,14 @@ self.addEventListener('fetch', (event) => {
   }
 
   // --- STANDARD BYPASS STRATEGY ---
-  // Exclude analytics, database syncs, audio/video file formats, and keepalives
+  // Exclude analytics, database syncs, audio/video file formats, and keepalives from being intercepted
   const isBypass = 
     event.request.url.includes('supabase.co') || 
     event.request.url.includes('googleapis.com') || 
+    event.request.url.includes('drive.google.com') || 
+    event.request.url.includes('youtube.com') || 
+    event.request.url.includes('youtu.be') || 
+    event.request.url.includes('vimeo.com') || 
     event.request.url.includes('ping') || 
     event.request.url.includes('bypass') ||
     /\.(mp4|webm|mkv|avi|mov|mp3|wav|ogg|m4a|m4v|3gp|flac)($|\?)/i.test(url.pathname);

@@ -629,8 +629,8 @@ export const Videos: React.FC = () => {
         <div className="flex-1 flex overflow-hidden relative">
             {/* LEFT SIDEBAR (TREE) - FIXED FOR IPAD & DESKTOP COLLAPSE */}
             <div className={`
-                border-r flex flex-col absolute md:relative z-30 h-full transition-all duration-300 ease-in-out
-                ${isSidebarOpen ? 'w-80 translate-x-0' : 'w-0 -translate-x-full md:translate-x-0 md:w-0 overflow-hidden'}
+                border-r flex flex-col absolute xl:relative z-30 h-full transition-all duration-300 ease-in-out
+                ${isSidebarOpen ? 'w-80 translate-x-0' : 'w-0 -translate-x-full xl:translate-x-0 xl:w-0 overflow-hidden'}
                 ${cinemaMode ? 'bg-zinc-950 border-zinc-900' : 'bg-white border-slate-200'}
             `}>
                 <div className={`p-4 md:p-5 border-b shrink-0 ${cinemaMode ? 'border-zinc-900' : 'border-slate-100 bg-slate-50/50'}`}>
