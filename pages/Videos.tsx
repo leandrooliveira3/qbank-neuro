@@ -184,6 +184,22 @@ export const Videos: React.FC = () => {
       return () => clearInterval(interval);
   }, [activeVideo, isVideoPlaying]);
 
+  // KEEP-ALIVE HEARTBEAT (Evita o timeout por inatividade do servidor local/proxy e reinício do container que causa tela branca e recarregamento)
+  useEffect(() => {
+      let pingInterval: any;
+      if (activeVideo && isVideoPlaying) {
+          pingInterval = setInterval(() => {
+              // Faz uma requisição silenciosa de bypass de cache para o servidor Vite local
+              fetch('/?ping=' + Date.now(), { cache: 'no-store', mode: 'same-origin' })
+                  .then(() => console.log('[Videos] Heartbeat realimentado com sucesso.'))
+                  .catch((e) => console.warn('[Videos] Falha ao disparar heartbeat:', e));
+          }, 45000); // Dispara a cada 45 segundos para máxima segurança
+      }
+      return () => {
+          if (pingInterval) clearInterval(pingInterval);
+      };
+  }, [activeVideo, isVideoPlaying]);
+
   const loadContent = async (forceRefresh = false) => {
     if (!user) return;
     setLoading(true);
