@@ -186,17 +186,28 @@ export const Videos: React.FC = () => {
 
   // KEEP-ALIVE HEARTBEAT (Evita o timeout por inatividade do servidor local/proxy e reinício do container que causa tela branca e recarregamento)
   useEffect(() => {
-      let pingInterval: any;
-      if (activeVideo && isVideoPlaying) {
-          pingInterval = setInterval(() => {
-              // Faz uma requisição silenciosa de bypass de cache para o servidor Vite local
-              fetch('/?ping=' + Date.now(), { cache: 'no-store', mode: 'same-origin' })
-                  .then(() => console.log('[Videos] Heartbeat realimentado com sucesso.'))
-                  .catch((e) => console.warn('[Videos] Falha ao disparar heartbeat:', e));
-          }, 45000); // Dispara a cada 45 segundos para máxima segurança
-      }
+      const runPing = () => {
+          // Faz uma requisição silenciosa de bypass de cache para o servidor Vite local
+          fetch('/index.html?ping=true&bypass=true&t=' + Date.now(), { 
+              method: 'GET',
+              cache: 'no-store', 
+              mode: 'same-origin',
+              headers: {
+                  'Cache-Control': 'no-cache',
+                  'Pragma': 'no-cache'
+              }
+          })
+          .then(() => console.log('[Videos] Heartbeat realimentado com sucesso (bypass=true).'))
+          .catch((e) => console.warn('[Videos] Falha ao disparar heartbeat:', e));
+      };
+
+      runPing();
+      // Define o intervalo dependendo se está reproduzindo vídeo ou apenas com a aba aberta
+      const intervalDelay = (activeVideo && isVideoPlaying) ? 25000 : 45000;
+      const pingInterval = setInterval(runPing, intervalDelay);
+
       return () => {
-          if (pingInterval) clearInterval(pingInterval);
+          clearInterval(pingInterval);
       };
   }, [activeVideo, isVideoPlaying]);
 

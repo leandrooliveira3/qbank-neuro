@@ -23,6 +23,9 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
+  // Exclude range requests (streaming/video seek) from being handled by standard SW cache
+  const isRangeRequest = event.request.headers.has('Range');
+
   // --- GOOGLE DRIVE VIDEO STREAM PROXY ---
   // Format: /drive-stream/{FILE_ID}?token={ACCESS_TOKEN}
   if (url.pathname.startsWith('/drive-stream/')) {
@@ -58,15 +61,8 @@ self.addEventListener('fetch', (event) => {
                     return response;
                 }
                 
-                // Return response to browser with correct CORS headers for the video element
-                const newResponseHeaders = new Headers(response.headers);
-                newResponseHeaders.set('Access-Control-Allow-Origin', '*');
-                
-                return new Response(response.body, {
-                    status: response.status,
-                    statusText: response.statusText,
-                    headers: newResponseHeaders
-                });
+                // Return original response directly to avoid custom Response constructors which leak streams on Safari iOS
+                return response;
             }).catch(err => {
                 console.error("SW Fetch Fail:", err);
                 return new Response("Stream Error", { status: 502 });
@@ -76,16 +72,38 @@ self.addEventListener('fetch', (event) => {
     }
   }
 
-  // --- STANDARD CACHE STRATEGY ---
-  if (event.request.url.includes('supabase.co') || event.request.url.includes('googleapis.com')) {
+  // --- STANDARD BYPASS STRATEGY ---
+  // Exclude analytics, database syncs, audio/video file formats, and keepalives
+  const isBypass = 
+    event.request.url.includes('supabase.co') || 
+    event.request.url.includes('googleapis.com') || 
+    event.request.url.includes('ping') || 
+    event.request.url.includes('bypass') ||
+    /\.(mp4|webm|mkv|avi|mov|mp3|wav|ogg|m4a|m4v|3gp|flac)($|\?)/i.test(url.pathname);
+
+  if (isBypass || isRangeRequest) {
     return; 
   }
 
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request).then((fetchResponse) => {
-        // Cache valid GET requests
-        if(fetchResponse.status === 200 && event.request.method === 'GET' && event.request.url.startsWith('http')) {
+        // Safe checks: Only cache 200 GET requests from same origin or basic HTTP resources
+        const contentType = fetchResponse.headers.get('content-type') || '';
+        const contentLength = fetchResponse.headers.get('content-length');
+        const size = contentLength ? parseInt(contentLength, 10) : 0;
+
+        // CRITICAL PROTECTION AGAINST MULTIMEDIA MEMORY LEAK IN SAFARI
+        const isMedia = contentType.startsWith('video/') || contentType.startsWith('audio/') || contentType.startsWith('application/octet-stream');
+        const isTooLarge = size > 5242880; // 5MB limit to prevent out-of-memory crash
+
+        if (
+          fetchResponse.status === 200 && 
+          event.request.method === 'GET' && 
+          event.request.url.startsWith('http') &&
+          !isMedia && 
+          !isTooLarge
+        ) {
              return caches.open(CACHE_NAME).then((cache) => {
                  cache.put(event.request, fetchResponse.clone());
                  return fetchResponse;
