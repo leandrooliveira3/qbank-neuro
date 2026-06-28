@@ -22,7 +22,7 @@ import {
   Plus, Link as LinkIcon, StickyNote, Sparkles, Brain,
   ThumbsUp, CornerDownRight, Send, User,
   Clock, RefreshCw, Check, Download, FileVideo, AlertCircle,
-  Trophy, Target
+  Trophy, Target, Maximize
 } from 'lucide-react';
 
 // --- ESTRUTURA DE DADOS PARA A ÁRVORE DE NAVEGAÇÃO ---
@@ -509,6 +509,28 @@ export const Videos: React.FC = () => {
       } catch (e: any) { alert("Erro ao gerar quiz: " + e.message); } finally { setGeneratingQuiz(false); }
   };
 
+  const handleFullscreen = async () => {
+      const playerContainer = document.getElementById('video-player-container');
+      const elem = playerContainer || document.documentElement;
+      try {
+          if (elem.requestFullscreen) {
+              await elem.requestFullscreen();
+          } else if ((elem as any).webkitRequestFullscreen) {
+              await (elem as any).webkitRequestFullscreen();
+          } else if ((elem as any).msRequestFullscreen) {
+              await (elem as any).msRequestFullscreen();
+          }
+          
+          if ('wakeLock' in navigator) {
+              try {
+                  await (navigator as any).wakeLock.request('screen');
+              } catch (e) {}
+          }
+      } catch (error) {
+          console.error("Fullscreen error:", error);
+      }
+  };
+
   const navigateLesson = (direction: 'next' | 'prev') => {
       if (!activeVideo) return;
       const currentIndex = flatList.findIndex(v => v.id === activeVideo.id);
@@ -619,7 +641,7 @@ export const Videos: React.FC = () => {
             <div className={`flex-1 flex flex-col relative transition-colors duration-500 overflow-hidden w-full min-w-0 ${cinemaMode ? 'bg-black' : 'bg-slate-50'}`}>
                 {activeVideo ? (
                     <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
-                        <div className="w-full bg-black aspect-video flex items-center justify-center relative group shrink-0 shadow-2xl z-10">
+                        <div id="video-player-container" className="w-full bg-black aspect-video flex items-center justify-center relative group shrink-0 shadow-2xl z-10">
                             
                             {/* PLAYER RENDER: SINGLE CLICK SOLUTION (Using KEY prop to reset state on change) */}
                             {getYouTubeID(activeVideo.url) ? (
@@ -673,12 +695,15 @@ export const Videos: React.FC = () => {
                                         <div className="flex items-center gap-2 mb-2 flex-wrap"><span className={`px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest border ${cinemaMode ? 'bg-zinc-900 border-zinc-800 text-zinc-500' : 'bg-emerald-50 border-emerald-100 text-emerald-700'}`}>{activeVideo.category}</span><span className="text-[8px] font-bold opacity-50 uppercase tracking-widest flex items-center gap-1"><Folder className="h-2.5 w-2.5" /> {activeVideo.drive_path || 'Raiz'}</span></div>
                                         <h2 className={`text-xl md:text-2xl font-black leading-tight break-words ${cinemaMode ? 'text-white' : 'text-slate-900'}`}>{activeVideo.title}</h2>
                                     </div>
-                                    <div className="flex gap-2 shrink-0 w-full md:w-auto">
+                                    <div className="flex gap-2 shrink-0 w-full md:w-auto flex-wrap md:flex-nowrap">
+                                        <button onClick={handleFullscreen} className={`flex-1 md:flex-none p-3 rounded-xl transition-all active:scale-95 flex justify-center items-center gap-2 ${cinemaMode ? 'bg-zinc-900 hover:bg-zinc-800 text-white' : 'bg-indigo-50 border border-indigo-100 hover:bg-indigo-100 text-indigo-700'}`} title="Tela Cheia (Modo Foco)">
+                                            <Maximize className="h-4 w-4" />
+                                        </button>
                                         <button onClick={() => navigateLesson('prev')} className={`flex-1 md:flex-none p-3 rounded-xl transition-all active:scale-95 flex justify-center ${cinemaMode ? 'bg-zinc-900 hover:bg-zinc-800 text-white' : 'bg-white border hover:bg-slate-50 text-slate-700'}`} title="Aula Anterior"><ArrowLeft className="h-4 w-4" /></button>
                                         
                                         <button 
                                             onClick={() => updateProgress(activeVideo.id, !progressMap[activeVideo.id]?.completed)} 
-                                            className={`flex-1 md:flex-none px-6 py-3 rounded-xl font-black text-[9px] uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 whitespace-nowrap relative group/btn ${
+                                            className={`flex-[2] md:flex-none px-6 py-3 rounded-xl font-black text-[9px] uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 whitespace-nowrap relative group/btn ${
                                                 progressMap[activeVideo.id]?.completed 
                                                     ? 'bg-emerald-600 text-white' 
                                                     : cinemaMode 
