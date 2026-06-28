@@ -3,10 +3,25 @@
 <html lang="pt-BR" class="light">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>Neuro Portal | Portal Clínico</title>
     <meta name="theme-color" content="#f1f5f9" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+    <script>
+      // Prevent double tap to zoom in iOS Safari
+      document.addEventListener('touchend', function (event) {
+        var now = (new Date()).getTime();
+        if (now - (window.lastTouchEnd || 0) <= 300) {
+          event.preventDefault();
+        }
+        window.lastTouchEnd = now;
+      }, { passive: false });
+
+      // Prevent pinch to zoom in iOS Safari
+      document.addEventListener('gesturestart', function (event) {
+        event.preventDefault();
+      }, { passive: false });
+    </script>
   <script type="importmap">
 {
   "imports": {

@@ -83,7 +83,7 @@ export const Videos: React.FC = () => {
   const [driveStreamUrl, setDriveStreamUrl] = useState<string | null>(null);
   const [driveStreamError, setDriveStreamError] = useState<boolean>(false);
   const [driveStreamLoading, setDriveStreamLoading] = useState<boolean>(false);
-  const [useIframeFallback, setUseIframeFallback] = useState<boolean>(false);
+  const [useIframeFallback, setUseIframeFallback] = useState<boolean>(true);
 
   const loadDriveStream = async (video: Video) => {
     const fileId = getDriveId(video);
@@ -107,9 +107,14 @@ export const Videos: React.FC = () => {
         setDriveStreamError(true);
         setUseIframeFallback(true);
       } else {
-        // Direct stream URL using standard Google APIs alt=media with access token query param.
-        // Natively supported on iOS Safari with perfect byte-range compatibility and hardware acceleration.
-        const streamUrl = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&access_token=${data.accessToken}`;
+        // Use the Service Worker local proxy endpoint if the SW is active and controlling the client.
+        // This provides perfect range header handling and CORS bypass on iOS Safari.
+        // Otherwise, fall back to the direct Google Drive media stream URL.
+        const useSwProxy = typeof navigator !== 'undefined' && 'serviceWorker' in navigator && !!navigator.serviceWorker.controller;
+        const streamUrl = useSwProxy 
+          ? `/drive-stream/${fileId}?token=${data.accessToken}`
+          : `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&access_token=${data.accessToken}`;
+        
         setDriveStreamUrl(streamUrl);
         setUseIframeFallback(false);
       }
@@ -123,22 +128,44 @@ export const Videos: React.FC = () => {
   };
 
   const handleFullscreen = () => {
-      const video = videoRef.current;
-      if (!video) return;
-      try {
-          if (video.requestFullscreen) {
-              video.requestFullscreen();
-          } else if ((video as any).webkitRequestFullscreen) {
-              (video as any).webkitRequestFullscreen();
-          } else if ((video as any).webkitEnterFullscreen) {
-              (video as any).webkitEnterFullscreen();
-          } else if ((video as any).mozRequestFullScreen) {
-              (video as any).mozRequestFullScreen();
-          } else if ((video as any).msRequestFullscreen) {
-              (video as any).msRequestFullscreen();
+      const container = playerContainerRef.current;
+      if (container) {
+          try {
+              if (container.requestFullscreen) {
+                  container.requestFullscreen();
+                  return;
+              } else if ((container as any).webkitRequestFullscreen) {
+                  (container as any).webkitRequestFullscreen();
+                  return;
+              } else if ((container as any).webkitEnterFullscreen) {
+                  (container as any).webkitEnterFullscreen();
+                  return;
+              } else if ((container as any).mozRequestFullScreen) {
+                  (container as any).mozRequestFullScreen();
+                  return;
+              } else if ((container as any).msRequestFullscreen) {
+                  (container as any).msRequestFullscreen();
+                  return;
+              }
+          } catch (e) {
+              console.warn("Container fullscreen failed, falling back to video:", e);
           }
-      } catch (e) {
-          console.error("Erro ao entrar em tela cheia:", e);
+      }
+
+      // Fallback for older Safari/iOS versions that only support fullscreen on HTMLVideoElement
+      const video = videoRef.current;
+      if (video) {
+          try {
+              if (video.requestFullscreen) {
+                  video.requestFullscreen();
+              } else if ((video as any).webkitRequestFullscreen) {
+                  (video as any).webkitRequestFullscreen();
+              } else if ((video as any).webkitEnterFullscreen) {
+                  (video as any).webkitEnterFullscreen();
+              }
+          } catch (e) {
+              console.error("Erro ao entrar em tela cheia no vídeo:", e);
+          }
       }
   };
 
@@ -151,18 +178,16 @@ export const Videos: React.FC = () => {
       setDriveStreamUrl(null);
       setDriveStreamError(false);
       setDriveStreamLoading(false);
-      setUseIframeFallback(false);
-
-      if (isDriveVideo(activeVideo.url)) {
-        loadDriveStream(activeVideo);
-      }
+      
+      // Sempre inicia com o player padrão estável (Iframe) para garantir consistência de escala no mobile
+      setUseIframeFallback(true);
     } else {
       setWatchTime(0);
       setIsVideoPlaying(false);
       setDriveStreamUrl(null);
       setDriveStreamError(false);
       setDriveStreamLoading(false);
-      setUseIframeFallback(false);
+      setUseIframeFallback(true);
     }
   }, [activeVideo]);
   
@@ -204,6 +229,7 @@ export const Videos: React.FC = () => {
 
   const playerRef = useRef<HTMLIFrameElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const playerContainerRef = useRef<HTMLDivElement>(null);
 
   // Removido useEffect que fechava a sidebar automaticamente no mobile
   // para atender ao requisito de exibir o menu primeiro.
@@ -508,6 +534,15 @@ export const Videos: React.FC = () => {
       return match ? match[1] : null;
   };
 
+  const getEmbedUrl = (video: Video) => {
+      if (!video || !video.url) return '';
+      const fileId = getDriveId(video);
+      if (fileId) {
+          return `https://drive.google.com/file/d/${fileId}/preview`;
+      }
+      return video.url;
+  };
+
   const handleAddMaterial = async () => {
       if (!user || !activeVideo || !newMaterialTitle || !newMaterialContent) return;
       const mat: VideoMaterial = {
@@ -698,7 +733,7 @@ export const Videos: React.FC = () => {
             <div className={`flex-1 flex flex-col relative transition-colors duration-500 overflow-hidden w-full min-w-0 ${cinemaMode ? 'bg-black' : 'bg-slate-50'}`}>
                 {activeVideo ? (
                     <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
-                        <div className="w-full bg-black aspect-video flex items-center justify-center relative group shrink-0 shadow-2xl z-10">
+                        <div ref={playerContainerRef} className="w-full bg-black aspect-video relative group shrink-0 shadow-2xl z-10 overflow-hidden">
                             
                             {/* PLAYER RENDER: SINGLE CLICK SOLUTION (Using KEY prop to reset state on change) */}
                             {getYouTubeID(activeVideo.url) ? (
@@ -706,7 +741,8 @@ export const Videos: React.FC = () => {
                                     key={activeVideo.id}
                                     ref={playerRef} 
                                     src={`https://www.youtube.com/embed/${getYouTubeID(activeVideo.url)}?autoplay=1&modestbranding=1&rel=0&showinfo=0${progressMap[activeVideo.id]?.progress_seconds ? `&start=${Math.floor(progressMap[activeVideo.id].progress_seconds)}` : ''}`} 
-                                    className="w-full h-full absolute inset-0" 
+                                    className="absolute inset-0 w-full h-full border-0 bg-black" 
+                                    scrolling="no"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     allowFullScreen 
                                 />
@@ -720,7 +756,7 @@ export const Videos: React.FC = () => {
                                         playsInline
                                         webkit-playsinline="true"
                                         controlsList="nodownload" 
-                                        className="w-full h-full max-h-screen outline-none" 
+                                        className="absolute inset-0 w-full h-full object-contain outline-none bg-black" 
                                         autoPlay 
                                         onContextMenu={(e) => e.preventDefault()} 
                                         onEnded={() => navigateLesson('next')}
@@ -735,14 +771,18 @@ export const Videos: React.FC = () => {
                                                 setWatchTime(t);
                                             }
                                         }}
+                                        onError={() => {
+                                            console.warn("Native player stream error, falling back to Google Drive iframe.");
+                                            setUseIframeFallback(true);
+                                        }}
                                     />
                                 ) : driveStreamLoading ? (
-                                    <div className="flex flex-col items-center justify-center text-center p-6 gap-3">
+                                    <div className="absolute inset-0 w-full h-full bg-black flex flex-col items-center justify-center text-center p-6 gap-3">
                                         <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
                                         <p className="text-xs font-bold text-zinc-400">Preparando transmissão segura...</p>
                                     </div>
                                 ) : (
-                                    <div className="flex flex-col items-center justify-center text-center p-6 gap-3">
+                                    <div className="absolute inset-0 w-full h-full bg-black flex flex-col items-center justify-center text-center p-6 gap-3">
                                         <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
                                         <p className="text-xs font-bold text-zinc-400">Iniciando player nativo de alto desempenho...</p>
                                     </div>
@@ -751,8 +791,9 @@ export const Videos: React.FC = () => {
                                 <iframe 
                                     key={activeVideo.id + "_iframe"} // FIX DOUBLE CLICK
                                     ref={playerRef} 
-                                    src={activeVideo.url} // Preview URL
-                                    className="w-full h-full absolute inset-0 border-0" 
+                                    src={getEmbedUrl(activeVideo)} // Preview URL
+                                    className="absolute inset-0 w-full h-full border-0 bg-black" 
+                                    scrolling="no"
                                     allow="autoplay; fullscreen"
                                     allowFullScreen
                                 />
@@ -765,7 +806,7 @@ export const Videos: React.FC = () => {
                                     playsInline
                                     webkit-playsinline="true"
                                     controlsList="nodownload" 
-                                    className="w-full h-full max-h-screen outline-none" 
+                                    className="absolute inset-0 w-full h-full object-contain outline-none bg-black" 
                                     autoPlay 
                                     onContextMenu={(e) => e.preventDefault()} 
                                     onEnded={() => navigateLesson('next')}
@@ -782,18 +823,6 @@ export const Videos: React.FC = () => {
                                     }}
                                 />
                             )}
-
-                            {/* Overlaid programmatical fullscreen button as elegant control redundancy */}
-                            {isNativeVideo && (
-                                <button 
-                                    onClick={handleFullscreen}
-                                    className="absolute bottom-4 right-4 z-20 bg-black/60 hover:bg-black/80 text-white px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-md border border-white/10 active:scale-95"
-                                    title="Assistir em Tela Cheia"
-                                >
-                                    <Maximize className="h-3 w-3" />
-                                    Tela Cheia
-                                </button>
-                            )}
                         </div>
                         
                         <div className={`flex-1 p-4 md:p-8 ${cinemaMode ? 'bg-zinc-950 text-zinc-300' : 'bg-white text-slate-700'}`}>
@@ -805,7 +834,13 @@ export const Videos: React.FC = () => {
                                             <span className="text-[8px] font-bold opacity-50 uppercase tracking-widest flex items-center gap-1"><Folder className="h-2.5 w-2.5" /> {activeVideo.drive_path || 'Raiz'}</span>
                                             {isDriveVideo(activeVideo.url) && (
                                                 <button 
-                                                    onClick={() => setUseIframeFallback(prev => !prev)} 
+                                                    onClick={() => {
+                                                        const targetValue = !useIframeFallback;
+                                                        setUseIframeFallback(targetValue);
+                                                        if (!targetValue && activeVideo && isDriveVideo(activeVideo.url)) {
+                                                            loadDriveStream(activeVideo);
+                                                        }
+                                                    }} 
                                                     className={`px-2 py-0.5 rounded text-[8px] font-black uppercase tracking-widest border transition-all ${
                                                         useIframeFallback 
                                                             ? 'bg-amber-500/10 border-amber-500/20 text-amber-500 hover:bg-amber-500/20' 
@@ -820,7 +855,7 @@ export const Videos: React.FC = () => {
                                         <h2 className={`text-xl md:text-2xl font-black leading-tight break-words ${cinemaMode ? 'text-white' : 'text-slate-900'}`}>{activeVideo.title}</h2>
                                     </div>
                                     <div className="flex gap-2 shrink-0 w-full md:w-auto">
-                                        {isNativeVideo && (
+                                        {!!activeVideo && (
                                             <button 
                                                 onClick={handleFullscreen} 
                                                 className={`flex-1 md:flex-none px-4 py-3 rounded-xl font-black text-[9px] uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 whitespace-nowrap ${
