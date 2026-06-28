@@ -83,7 +83,7 @@ export const Videos: React.FC = () => {
   const [driveStreamUrl, setDriveStreamUrl] = useState<string | null>(null);
   const [driveStreamError, setDriveStreamError] = useState<boolean>(false);
   const [driveStreamLoading, setDriveStreamLoading] = useState<boolean>(false);
-  const [useIframeFallback, setUseIframeFallback] = useState<boolean>(true);
+  const [useIframeFallback, setUseIframeFallback] = useState<boolean>(false);
 
   const loadDriveStream = async (video: Video) => {
     const fileId = getDriveId(video);
@@ -178,16 +178,18 @@ export const Videos: React.FC = () => {
       setDriveStreamUrl(null);
       setDriveStreamError(false);
       setDriveStreamLoading(false);
-      
-      // Sempre inicia com o player padrão estável (Iframe) para garantir consistência de escala no mobile
-      setUseIframeFallback(true);
+      setUseIframeFallback(false);
+
+      if (isDriveVideo(activeVideo.url)) {
+        loadDriveStream(activeVideo);
+      }
     } else {
       setWatchTime(0);
       setIsVideoPlaying(false);
       setDriveStreamUrl(null);
       setDriveStreamError(false);
       setDriveStreamLoading(false);
-      setUseIframeFallback(true);
+      setUseIframeFallback(false);
     }
   }, [activeVideo]);
   
@@ -754,9 +756,9 @@ export const Videos: React.FC = () => {
                                         src={driveStreamUrl}
                                         controls 
                                         playsInline
-                                        webkit-playsinline="true"
                                         controlsList="nodownload" 
                                         className="absolute inset-0 w-full h-full object-contain outline-none bg-black" 
+                                        style={{ touchAction: 'manipulation' }}
                                         autoPlay 
                                         onContextMenu={(e) => e.preventDefault()} 
                                         onEnded={() => navigateLesson('next')}
@@ -804,9 +806,9 @@ export const Videos: React.FC = () => {
                                     src={activeVideo.url}
                                     controls 
                                     playsInline
-                                    webkit-playsinline="true"
                                     controlsList="nodownload" 
-                                    className="absolute inset-0 w-full h-full object-contain outline-none bg-black" 
+                                    className="absolute inset-0 w-full h-full object-contain outline-none bg-black"
+                                    style={{ touchAction: 'manipulation' }} 
                                     autoPlay 
                                     onContextMenu={(e) => e.preventDefault()} 
                                     onEnded={() => navigateLesson('next')}
