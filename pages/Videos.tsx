@@ -11,6 +11,8 @@ import { useNavigate, useLocation } from 'react-router';
 import { xpService, XP_VALUES } from '../services/xpService';
 import { generateQuestionsFromPrompt } from '../services/ai';
 import { SmartImage } from '../components/SmartImage';
+import { useVideoSessionManager } from '../components/VideoSessionManager';
+import { VideoPlayer } from '../components/VideoPlayer';
 import { 
   MonitorPlay, Play, CheckCircle2, 
   X, Loader2, Search, List, Menu,
@@ -127,6 +129,9 @@ export const Videos: React.FC = () => {
 
   const playerRef = useRef<HTMLIFrameElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Hook gerenciador para lidar com descarte de abas no Safari
+  useVideoSessionManager(activeVideo, setActiveVideo, watchTime);
 
   // Removido useEffect que fechava a sidebar automaticamente no mobile
   // para atender ao requisito de exibir o menu primeiro.
@@ -643,49 +648,17 @@ export const Videos: React.FC = () => {
                     <div className="flex-1 flex flex-col h-full overflow-y-auto custom-scrollbar">
                         <div id="video-player-container" className="w-full bg-black aspect-video flex items-center justify-center relative group shrink-0 shadow-2xl z-10">
                             
-                            {/* PLAYER RENDER: SINGLE CLICK SOLUTION (Using KEY prop to reset state on change) */}
-                            {getYouTubeID(activeVideo.url) ? (
-                                <iframe 
-                                    key={activeVideo.id}
-                                    ref={playerRef} 
-                                    src={`https://www.youtube.com/embed/${getYouTubeID(activeVideo.url)}?autoplay=1&modestbranding=1&rel=0&showinfo=0${progressMap[activeVideo.id]?.progress_seconds ? `&start=${Math.floor(progressMap[activeVideo.id].progress_seconds)}` : ''}`} 
-                                    className="w-full h-full absolute inset-0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowFullScreen 
-                                />
-                            ) : isDriveVideo(activeVideo.url) ? (
-                                <iframe 
-                                    key={activeVideo.id} // FIX DOUBLE CLICK
-                                    ref={playerRef} 
-                                    src={activeVideo.url} // Preview URL
-                                    className="w-full h-full absolute inset-0 border-0" 
-                                    allow="autoplay; fullscreen"
-                                    allowFullScreen
-                                />
-                            ) : (
-                                <video 
-                                    key={activeVideo.id}
-                                    ref={videoRef} 
-                                    src={activeVideo.url}
-                                    controls 
-                                    controlsList="nodownload" 
-                                    className="w-full h-full max-h-screen outline-none" 
-                                    autoPlay 
-                                    onContextMenu={(e) => e.preventDefault()} 
-                                    onEnded={() => navigateLesson('next')}
-                                    onPlay={() => setIsVideoPlaying(true)}
-                                    onPause={() => setIsVideoPlaying(false)}
-                                    onPlaying={() => setIsVideoPlaying(true)}
-                                    onTimeUpdate={(e) => setWatchTime(e.currentTarget.currentTime)}
-                                    onLoadedMetadata={(e) => {
-                                        const t = progressMap[activeVideo.id]?.progress_seconds;
-                                        if (t && t > 0) {
-                                            e.currentTarget.currentTime = t;
-                                            setWatchTime(t);
-                                        }
-                                    }}
-                                />
-                            )}
+                            <VideoPlayer 
+                                activeVideo={activeVideo}
+                                getYouTubeID={getYouTubeID}
+                                isDriveVideo={isDriveVideo}
+                                progressMap={progressMap}
+                                setWatchTime={setWatchTime}
+                                setIsVideoPlaying={setIsVideoPlaying}
+                                navigateLesson={navigateLesson}
+                                playerRef={playerRef}
+                                videoRef={videoRef}
+                            />
                         </div>
                         
                         <div className={`flex-1 p-4 md:p-8 ${cinemaMode ? 'bg-zinc-950 text-zinc-300' : 'bg-white text-slate-700'}`}>
