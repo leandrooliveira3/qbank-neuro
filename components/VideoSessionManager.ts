@@ -6,7 +6,7 @@ const SESSION_KEY = 'neuro_video_session_recovery';
 export const useVideoSessionManager = (
     activeVideo: any, 
     setActiveVideo: (v: any) => void,
-    watchTime: number
+    getWatchTime: () => number
 ) => {
     // 1. Salvar estado periodicamente
     useEffect(() => {
@@ -19,7 +19,7 @@ export const useVideoSessionManager = (
             try {
                 localStorage.setItem(SESSION_KEY, JSON.stringify({
                     video: activeVideo,
-                    watchTime: watchTime,
+                    watchTime: getWatchTime(),
                     timestamp: Date.now()
                 }));
             } catch (e) {
@@ -39,7 +39,7 @@ export const useVideoSessionManager = (
             window.removeEventListener('pagehide', handlePageHide);
             window.removeEventListener('freeze', handlePageHide);
         };
-    }, [activeVideo, watchTime]);
+    }, [activeVideo, getWatchTime]);
 
     // 2. Restaurar estado em caso de recarregamento (Safari tab discard)
     useEffect(() => {

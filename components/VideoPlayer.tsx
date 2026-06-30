@@ -5,7 +5,7 @@ interface VideoPlayerProps {
     getYouTubeID: (url: string) => string | null;
     isDriveVideo: (url: string) => boolean;
     progressMap: Record<string, any>;
-    setWatchTime: (t: number) => void;
+    updateWatchTime: (t: number) => void;
     setIsVideoPlaying: (playing: boolean) => void;
     navigateLesson: (direction: 'next' | 'prev') => void;
     playerRef: React.RefObject<HTMLIFrameElement>;
@@ -17,7 +17,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     getYouTubeID,
     isDriveVideo,
     progressMap,
-    setWatchTime,
+    updateWatchTime,
     setIsVideoPlaying,
     navigateLesson,
     playerRef,
@@ -91,12 +91,12 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
             onPlay={() => setIsVideoPlaying(true)}
             onPause={() => setIsVideoPlaying(false)}
             onPlaying={() => setIsVideoPlaying(true)}
-            onTimeUpdate={(e) => setWatchTime(e.currentTarget.currentTime)}
+            onTimeUpdate={(e) => updateWatchTime(e.currentTarget.currentTime)}
             onLoadedMetadata={(e) => {
                 const t = progressMap[activeVideo.id]?.progress_seconds;
                 if (t && t > 0) {
                     e.currentTarget.currentTime = t;
-                    setWatchTime(t);
+                    updateWatchTime(t);
                 }
             }}
         />

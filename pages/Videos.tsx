@@ -72,7 +72,7 @@ export const Videos: React.FC = () => {
               progress_seconds: resumeState.resumeVideoInfo.current_time,
           } as VideoProgress
       }));
-      setWatchTime(resumeState.resumeVideoInfo.current_time);
+      watchTimeRef.current = resumeState.resumeVideoInfo.current_time;
       
       window.history.replaceState({}, document.title);
     }
@@ -81,12 +81,15 @@ export const Videos: React.FC = () => {
   // Alteração: Sidebar inicia aberta para ser a "primeira coisa a aparecer"
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); 
 
+  // Use ref to track time without re-rendering everything
+  const watchTimeRef = useRef(0);
+
   useEffect(() => {
     if (activeVideo) {
-      setWatchTime(progressMap[activeVideo.id]?.progress_seconds || 0);
+      watchTimeRef.current = progressMap[activeVideo.id]?.progress_seconds || 0;
       setIsVideoPlaying(true);
     } else {
-      setWatchTime(0);
+      watchTimeRef.current = 0;
       setIsVideoPlaying(false);
     }
   }, [activeVideo]);
@@ -102,7 +105,6 @@ export const Videos: React.FC = () => {
   const [flatList, setFlatList] = useState<Video[]>([]); 
 
   // Watch Time Tracking (Visual only now)
-  const [watchTime, setWatchTime] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   // Materials State
@@ -131,7 +133,7 @@ export const Videos: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Hook gerenciador para lidar com descarte de abas no Safari
-  useVideoSessionManager(activeVideo, setActiveVideo, watchTime);
+  useVideoSessionManager(activeVideo, setActiveVideo, () => watchTimeRef.current);
 
   // Removido useEffect que fechava a sidebar automaticamente no mobile
   // para atender ao requisito de exibir o menu primeiro.
@@ -160,7 +162,7 @@ export const Videos: React.FC = () => {
   useEffect(() => {
       if (activeVideo) {
           const startT = progressMap[activeVideo.id]?.progress_seconds || 0;
-          setWatchTime(startT);
+          watchTimeRef.current = startT;
           
           if (isDriveVideo(activeVideo.url) || getYouTubeID(activeVideo.url)) {
               setIsVideoPlaying(true);
@@ -168,7 +170,7 @@ export const Videos: React.FC = () => {
               setIsVideoPlaying(false);
           }
       } else {
-          setWatchTime(0);
+          watchTimeRef.current = 0;
           setIsVideoPlaying(false);
       }
   }, [activeVideo?.id]);
@@ -180,7 +182,7 @@ export const Videos: React.FC = () => {
           const isIframe = isDriveVideo(activeVideo.url) || getYouTubeID(activeVideo.url);
           if (isIframe) {
               interval = setInterval(() => {
-                  setWatchTime(prev => prev + 1);
+                  watchTimeRef.current += 1;
               }, 1000);
           }
       } else {
@@ -364,7 +366,7 @@ export const Videos: React.FC = () => {
   const updateProgress = async (videoId: string, completed: boolean) => {
       if (!user) return;
       
-      const currentTimeToSave = videoRef.current?.currentTime || watchTime;
+      const currentTimeToSave = videoRef.current?.currentTime || watchTimeRef.current;
 
       const progress: VideoProgress = {
           id: progressMap[videoId]?.id || crypto.randomUUID(),
@@ -394,17 +396,17 @@ export const Videos: React.FC = () => {
   };
 
   // Active session tracking state
-  const lastStateRef = useRef({ activeVideo, watchTime, user });
+  const lastStateRef = useRef({ activeVideo, user });
   useEffect(() => {
-      lastStateRef.current = { activeVideo, watchTime, user };
-  }, [activeVideo, watchTime, user?.id]);
+      lastStateRef.current = { activeVideo, user };
+  }, [activeVideo, user?.id]);
 
   // Save when video changes or unmounts
   useEffect(() => {
       return () => {
           const state = lastStateRef.current;
           if (state.activeVideo && state.user) {
-              const currentT = videoRef.current?.currentTime || state.watchTime;
+              const currentT = videoRef.current?.currentTime || watchTimeRef.current;
               if (currentT > 5 && !progressMap[state.activeVideo.id]?.completed) {
                   localDB.put('active_video_session', {
                       id: state.user.id,
@@ -593,7 +595,7 @@ export const Videos: React.FC = () => {
 
   // FIX: Prevent NaN if duration is 0
   const watchPercentage = activeVideo && activeVideo.duration_seconds > 0 
-      ? Math.min(100, (watchTime / activeVideo.duration_seconds) * 100) 
+      ? Math.min(100, (watchTimeRef.current / activeVideo.duration_seconds) * 100) 
       : 0;
 
   return (
@@ -653,7 +655,7 @@ export const Videos: React.FC = () => {
                                 getYouTubeID={getYouTubeID}
                                 isDriveVideo={isDriveVideo}
                                 progressMap={progressMap}
-                                setWatchTime={setWatchTime}
+                                updateWatchTime={(t) => { watchTimeRef.current = t; }}
                                 setIsVideoPlaying={setIsVideoPlaying}
                                 navigateLesson={navigateLesson}
                                 playerRef={playerRef}
