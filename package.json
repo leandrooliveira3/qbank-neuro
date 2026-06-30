@@ -21,8 +21,6 @@
     "mammoth": "^1.11.0",
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "5.4.530",
-    "plyr": "^3.8.4",
-    "plyr-react": "^6.0.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-markdown": "^10.1.0",

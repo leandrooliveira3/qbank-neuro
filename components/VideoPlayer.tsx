@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { supabase } from '../services/supabase';
+import React, { useEffect, useRef } from 'react';
 
 interface VideoPlayerProps {
     activeVideo: any;
@@ -52,51 +51,6 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
     const ytId = getYouTubeID(activeVideo.url);
     const driveUrl = isDriveVideo(activeVideo.url);
 
-    const [resolvedUrl, setResolvedUrl] = useState<string | null>(null);
-    const [isLoadingUrl, setIsLoadingUrl] = useState(false);
-
-    useEffect(() => {
-        if (!driveUrl) {
-            setResolvedUrl(activeVideo.url);
-            return;
-        }
-
-        let isMounted = true;
-        setResolvedUrl(null);
-        setIsLoadingUrl(true);
-
-        const fetchDirectUrl = async () => {
-            const fileIdMatch = activeVideo.url.match(/\/d\/([^/]+)/);
-            const fileId = fileIdMatch ? fileIdMatch[1] : activeVideo.drive_file_id;
-
-            if (fileId) {
-                try {
-                    const { data, error } = await supabase.functions.invoke('stream-drive-video', {
-                        body: { fileId }
-                    });
-                    
-                    if (isMounted) {
-                        if (data && data.url && data.accessToken) {
-                            setResolvedUrl(`${data.url}&access_token=${data.accessToken}`);
-                        } else {
-                            // Fallback for iframe if extraction fails
-                            setResolvedUrl(activeVideo.url);
-                        }
-                    }
-                } catch (err) {
-                    if (isMounted) setResolvedUrl(activeVideo.url);
-                }
-            } else {
-                if (isMounted) setResolvedUrl(activeVideo.url);
-            }
-            if (isMounted) setIsLoadingUrl(false);
-        };
-
-        fetchDirectUrl();
-        
-        return () => { isMounted = false; };
-    }, [activeVideo.url, driveUrl, activeVideo.drive_file_id]);
-    
     if (ytId) {
         return (
             <iframe 
@@ -110,21 +64,12 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         );
     }
 
-    if (isLoadingUrl || !resolvedUrl) {
-        return (
-            <div className="w-full h-full flex items-center justify-center bg-black absolute inset-0">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
-            </div>
-        );
-    }
-
-    // Se falhar ao obter a URL direta e continuar sendo o link do Drive (preview), usa iframe como fallback
-    if (driveUrl && !resolvedUrl.includes('googleapis.com')) {
+    if (driveUrl) {
         return (
             <iframe 
                 key={`drive-${activeVideo.id}`}
                 ref={playerRef} 
-                src={resolvedUrl} // Preview URL
+                src={activeVideo.url} // Preview URL
                 className="w-full h-full absolute inset-0 border-0" 
                 allow="autoplay; fullscreen"
                 allowFullScreen
@@ -132,15 +77,14 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
         );
     }
 
-    // Usa a tag nativa de vídeo para todos os links diretos (incluindo o gerado pela API do Drive)
     return (
         <video 
             key={`raw-${activeVideo.id}`}
             ref={videoRef} 
-            src={resolvedUrl}
+            src={activeVideo.url}
             controls 
             controlsList="nodownload" 
-            className="w-full h-full max-h-screen outline-none absolute inset-0" 
+            className="w-full h-full max-h-screen outline-none" 
             autoPlay 
             onContextMenu={(e) => e.preventDefault()} 
             onEnded={() => navigateLesson('next')}
