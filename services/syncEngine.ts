@@ -126,18 +126,14 @@ class SyncEngine {
       try {
         const userCol = USER_COLUMN_MAP[table] || 'user_id';
         
-        // Use keyset pagination to bypass Supabase 1000 row limit and max_rows/OFFSET limitations
+        // Use offset pagination to avoid dropping items
         const allData: any[] = [];
         const PAGE_SIZE = 1000;
         let page = 0;
-        let lastId: string | null = null;
         let hasMore = true;
         
         while (hasMore) {
-          let query = supabase.from(table).select('*').order('id', { ascending: true }).limit(PAGE_SIZE);
-          if (lastId) {
-            query = query.gt('id', lastId);
-          }
+          let query = supabase.from(table).select('*').order('id', { ascending: true }).range(page * PAGE_SIZE, (page + 1) * PAGE_SIZE - 1);
           if (userCol !== 'global') query = query.eq(userCol, userId);
           
           const { data, error } = await query;
@@ -150,13 +146,12 @@ class SyncEngine {
                 this.tableBlacklist.add(table);
             }
             hasMore = false;
-            continue;
+            break;
           }
           
           if (data && data.length > 0) {
             allData.push(...data);
-            lastId = data[data.length - 1].id;
-            hasMore = data.length === PAGE_SIZE; // Continue if we got a full page
+            hasMore = data.length === PAGE_SIZE;
             page++;
           } else {
             hasMore = false;
@@ -200,58 +195,106 @@ class SyncEngine {
     if (queue.length === 0) return;
 
     let hasMadeChanges = false;
+    const tables = [...new Set(queue.map(q => q.table))];
 
-    for (const item of queue) {
-      if (this.tableBlacklist.has(item.table)) {
-          await localDB.delete('sync_queue', item.id);
+    for (const table of tables) {
+      if (this.tableBlacklist.has(table)) {
+          const toDelete = queue.filter(q => q.table === table).map(q => q.id);
+          await localDB.bulkDelete('sync_queue', toDelete);
           continue;
       }
+      
       try {
-        const userCol = USER_COLUMN_MAP[item.table] || 'user_id';
-        let err;
-        if (item.action === 'upsert') {
-          const payload = { ...item.data };
-          if (userCol && userCol !== 'global' && item.table !== 'profiles') payload[userCol] = userId;
+          const userCol = USER_COLUMN_MAP[table] || 'user_id';
+          const tableQueue = queue.filter(q => q.table === table);
           
-          // Conflict resolution: Check if the server has a newer version before blindly overwriting
-          const { data: serverExisting, error: checkErr } = await supabase.from(item.table).select('*').eq('id', payload.id).maybeSingle();
+          const upsertItems = tableQueue.filter(q => q.action === 'upsert');
+          const deleteItems = tableQueue.filter(q => q.action === 'delete');
           
-          const getServerTime = (d: any) => {
-              if (!d) return 0;
-              const t = d.updated_at || d.answered_at || d.last_review || d.created_at;
-              return t ? new Date(t).getTime() : 0;
-          };
-          const getLocalTime = (d: any) => {
-              const t = d.updated_at || d.answered_at || d.last_review || d.created_at;
-              return t ? new Date(t).getTime() : 0;
-          };
-
-          const serverUpdate = getServerTime(serverExisting);
-          const localUpdate = getLocalTime(payload);
-
-          if (!checkErr && serverUpdate && localUpdate && serverUpdate > localUpdate) {
-              console.log(`[Sync] Conflito resolvido: Servidor tem versão mais recente para ${item.table} ${payload.id}`);
-              // Do nothing, server wins. Will get pulled afterwards.
-          } else {
-              const { error } = await supabase.from(item.table).upsert(payload);
-              err = error;
+          if (deleteItems.length > 0) {
+              const deleteIds = deleteItems.map(item => item.data.id);
+              for (let i = 0; i < deleteIds.length; i += 500) {
+                  const chunk = deleteIds.slice(i, i + 500);
+                  const { error } = await supabase.from(table).delete().in('id', chunk);
+                  if (error && error.code === '42P01') {
+                      this.tableBlacklist.add(table);
+                      break;
+                  }
+              }
+              if (!this.tableBlacklist.has(table)) {
+                  await localDB.bulkDelete('sync_queue', deleteItems.map(item => item.id));
+                  hasMadeChanges = true;
+              }
           }
-        } else if (item.action === 'delete') {
-          const { error } = await supabase.from(item.table).delete().eq('id', item.data.id);
-          err = error;
-        }
-
-        if (!err) {
-            await localDB.delete('sync_queue', item.id);
-            hasMadeChanges = true;
-        } else if (err.status === 404 || err.code === '42P01') {
-            this.tableBlacklist.add(item.table);
-            await localDB.delete('sync_queue', item.id);
-        } else {
-            console.error('[Sync] Error pushing item:', item.table, err);
-        }
+          
+          if (upsertItems.length > 0 && !this.tableBlacklist.has(table)) {
+              const payloads = upsertItems.map(item => {
+                  const payload = { ...item.data };
+                  if (userCol && userCol !== 'global' && table !== 'profiles') payload[userCol] = userId;
+                  return payload;
+              });
+              
+              const validPayloads = [];
+              const CHUNK_SIZE = 500;
+              for (let i = 0; i < payloads.length; i += CHUNK_SIZE) {
+                  const chunkPayloads = payloads.slice(i, i + CHUNK_SIZE);
+                  const chunkIds = chunkPayloads.map(p => p.id);
+                  
+                  const { data: serverExisting, error: checkErr } = await supabase
+                      .from(table)
+                      .select('id, updated_at, answered_at, last_review, created_at')
+                      .in('id', chunkIds);
+                      
+                  if (checkErr && checkErr.code === '42P01') {
+                      this.tableBlacklist.add(table);
+                      break;
+                  }
+                  
+                  const existingMap = new Map((serverExisting || []).map(s => [s.id, s]));
+                  
+                  for (const payload of chunkPayloads) {
+                      const existing = existingMap.get(payload.id);
+                      
+                      const getServerTime = (d: any) => {
+                          if (!d) return 0;
+                          const t = d.updated_at || d.answered_at || d.last_review || d.created_at;
+                          return t ? new Date(t).getTime() : 0;
+                      };
+                      const getLocalTime = (d: any) => {
+                          const t = d.updated_at || d.answered_at || d.last_review || d.created_at;
+                          return t ? new Date(t).getTime() : 0;
+                      };
+            
+                      const serverUpdate = getServerTime(existing);
+                      const localUpdate = getLocalTime(payload);
+            
+                      if (existing && serverUpdate > localUpdate) {
+                          console.log(`[Sync] Conflito resolvido: Servidor tem versão mais recente para ${table} ${payload.id}`);
+                      } else {
+                          validPayloads.push(payload);
+                      }
+                  }
+              }
+              
+              if (this.tableBlacklist.has(table)) {
+                  await localDB.bulkDelete('sync_queue', tableQueue.map(item => item.id));
+                  continue;
+              }
+              
+              for (let i = 0; i < validPayloads.length; i += CHUNK_SIZE) {
+                  const chunk = validPayloads.slice(i, i + CHUNK_SIZE);
+                  const { error } = await supabase.from(table).upsert(chunk);
+                  if (error) {
+                      console.error('[Sync] Error pushing bulk upsert to table:', table, error);
+                  } else {
+                      hasMadeChanges = true;
+                  }
+              }
+              
+              await localDB.bulkDelete('sync_queue', upsertItems.map(item => item.id));
+          }
       } catch (e) {
-          console.error('[Sync] Exception pushing item:', item.table, e);
+          console.error('[Sync] Exception processing table:', table, e);
       }
     }
 
