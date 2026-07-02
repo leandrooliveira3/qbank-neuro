@@ -10,7 +10,7 @@ import { useAuthStore } from '../store/useAuthStore';
 import { localDB } from '../services/localDB';
 import { syncEngine } from '../services/syncEngine';
 
-interface TopicItem { name: string; count: number; }
+interface TopicItem { name: string; count: number; fullName: string; }
 interface CategoryGroup { name: string; topics: TopicItem[]; totalCount: number; isOpen: boolean; }
 interface SimSession {
   id: string; title: string; total_questions: number; correct_count: number;
@@ -129,7 +129,7 @@ export const Practice: React.FC = () => {
     const processed = Object.entries(groupMap).map(([name, subs]) => ({
       name, isOpen: openStates.has(name),
       totalCount: Object.values(subs).reduce((a, b) => a + b, 0),
-      topics: Object.entries(subs).map(([subName, count]) => ({ name: subName, count }))
+      topics: Object.entries(subs).map(([subName, count]) => ({ name: subName, count, fullName: `${name}|${subName}` }))
     })).sort((a, b) => b.totalCount - a.totalCount);
     setGroups(processed);
   };
@@ -160,8 +160,10 @@ export const Practice: React.FC = () => {
       }
       filtered = filtered.filter((q: any) => {
         if (!q) return false;
-        const name = q.subcategory || q.category || q.categoria;
-        if (selectedTopics.length > 0 && !selectedTopics.includes(name)) return false;
+        const cat = q.category || q.categoria || 'Geral';
+        const sub = q.subcategory || q.category || q.categoria || 'Geral';
+        const fullName = `${cat}|${sub}`;
+        if (selectedTopics.length > 0 && !selectedTopics.includes(fullName)) return false;
         if (selectedDifficulty !== 'Todas' && q.difficulty !== selectedDifficulty) return false;
         return true;
       });
@@ -178,9 +180,9 @@ export const Practice: React.FC = () => {
     setGroups(prev => prev.map(g => g.name === groupName ? { ...g, isOpen: !g.isOpen } : g));
 
   const selectAllInGroup = (group: CategoryGroup) => {
-    const names = group.topics.map(t => t.name);
-    const allSel = names.every(n => selectedTopics.includes(n));
-    setSelectedTopics(prev => allSel ? prev.filter(n => !names.includes(n)) : Array.from(new Set([...prev, ...names])));
+    const fullNames = group.topics.map(t => t.fullName);
+    const allSel = fullNames.every(n => selectedTopics.includes(n));
+    setSelectedTopics(prev => allSel ? prev.filter(n => !fullNames.includes(n)) : Array.from(new Set([...prev, ...fullNames])));
   };
 
   const toggleBank = (bank: string) =>
@@ -402,9 +404,9 @@ export const Practice: React.FC = () => {
                           <div className="flex items-center gap-3">
                             <button
                               onClick={e => { e.stopPropagation(); selectAllInGroup(group); }}
-                              className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all z-20 ${group.topics.every(t => selectedTopics.includes(t.name)) ? 'bg-emerald-500 border-emerald-500 shadow-sm' : 'border-emerald-300 dark:border-emerald-800 bg-white dark:bg-zinc-900'}`}
+                              className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all z-20 ${group.topics.every(t => selectedTopics.includes(t.fullName)) ? 'bg-emerald-500 border-emerald-500 shadow-sm' : 'border-emerald-300 dark:border-emerald-800 bg-white dark:bg-zinc-900'}`}
                             >
-                              <Check className={`h-3 w-3 ${group.topics.every(t => selectedTopics.includes(t.name)) ? 'text-white' : 'text-emerald-300 dark:text-emerald-800'}`} />
+                              <Check className={`h-3 w-3 ${group.topics.every(t => selectedTopics.includes(t.fullName)) ? 'text-white' : 'text-emerald-300 dark:text-emerald-800'}`} />
                             </button>
                             <div>
                               <h3 className="font-black text-emerald-900 dark:text-emerald-100 text-[10px] uppercase tracking-widest">{group.name}</h3>
@@ -419,12 +421,12 @@ export const Practice: React.FC = () => {
                           <div className="p-3 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-2 bg-white dark:bg-zinc-950">
                             {group.topics.map(topic => (
                               <button
-                                key={topic.name}
-                                onClick={e => { e.stopPropagation(); toggleTopic(topic.name); }}
-                                className={`flex items-center justify-between px-3 py-2 rounded-full border transition-all active:scale-95 ${selectedTopics.includes(topic.name) ? 'bg-emerald-500 text-white border-emerald-500 shadow-md' : 'bg-white dark:bg-zinc-900 border-emerald-100 dark:border-emerald-900/30 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-50 dark:hover:bg-emerald-900/20'}`}
+                                key={topic.fullName}
+                                onClick={e => { e.stopPropagation(); toggleTopic(topic.fullName); }}
+                                className={`flex items-center justify-between px-3 py-2 rounded-full border transition-all active:scale-95 ${selectedTopics.includes(topic.fullName) ? 'bg-emerald-500 text-white border-emerald-500 shadow-md' : 'bg-white dark:bg-zinc-900 border-emerald-100 dark:border-emerald-900/30 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-50 dark:hover:bg-emerald-900/20'}`}
                               >
                                 <span className="text-[9px] font-bold truncate pr-1">{topic.name}</span>
-                                <span className={`text-[7px] font-black px-1.5 py-0.5 rounded-full shrink-0 ${selectedTopics.includes(topic.name) ? 'bg-white/20 text-white' : 'bg-emerald-100 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-300'}`}>{topic.count}</span>
+                                <span className={`text-[7px] font-black px-1.5 py-0.5 rounded-full shrink-0 ${selectedTopics.includes(topic.fullName) ? 'bg-white/20 text-white' : 'bg-emerald-100 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-300'}`}>{topic.count}</span>
                               </button>
                             ))}
                           </div>

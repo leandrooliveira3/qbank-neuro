@@ -14,6 +14,7 @@ import { useAuthStore } from '../store/useAuthStore';
 interface TopicItem {
     name: string; 
     count: number;
+    fullName: string;
 }
 
 interface CategoryGroup {
@@ -74,7 +75,7 @@ export const CreateSimulation: React.FC = () => {
           name,
           isOpen: false, // Default closed
           total: Object.values(subs).reduce((a, b) => a + b, 0),
-          topics: Object.entries(subs).map(([n, c]) => ({ name: n, count: c }))
+          topics: Object.entries(subs).map(([n, c]) => ({ name: n, count: c, fullName: `${name}|${n}` }))
         })).sort((a, b) => b.total - a.total);
 
         setGroups(processed);
@@ -87,21 +88,21 @@ export const CreateSimulation: React.FC = () => {
 
   const availableCount = useMemo(() => {
     return groups
-      .filter(g => selectedTopics.length === 0 || g.topics.some(t => selectedTopics.includes(t.name)))
+      .filter(g => selectedTopics.length === 0 || g.topics.some(t => selectedTopics.includes(t.fullName)))
       .reduce((acc, g) => acc + g.total, 0);
   }, [groups, selectedTopics]);
 
-  const toggleTopic = (name: string) => {
-    setSelectedTopics(prev => prev.includes(name) ? prev.filter(n => n !== name) : [...prev, name]);
+  const toggleTopic = (fullName: string) => {
+    setSelectedTopics(prev => prev.includes(fullName) ? prev.filter(n => n !== fullName) : [...prev, fullName]);
   };
 
   const toggleGroup = (group: CategoryGroup) => {
-    const topicNames = group.topics.map(t => t.name);
-    const allSelected = topicNames.every(name => selectedTopics.includes(name));
+    const fullNames = group.topics.map(t => t.fullName);
+    const allSelected = fullNames.every(name => selectedTopics.includes(name));
     if (allSelected) {
-        setSelectedTopics(prev => prev.filter(name => !topicNames.includes(name)));
+        setSelectedTopics(prev => prev.filter(name => !fullNames.includes(name)));
     } else {
-        setSelectedTopics(prev => Array.from(new Set([...prev, ...topicNames])));
+        setSelectedTopics(prev => Array.from(new Set([...prev, ...fullNames])));
     }
   };
 
@@ -189,7 +190,7 @@ export const CreateSimulation: React.FC = () => {
                                     <button 
                                         onClick={() => toggleGroup(group)}
                                         className={`mr-3 h-5 w-5 rounded border-2 flex items-center justify-center transition-all ${
-                                            group.topics.every(t => selectedTopics.includes(t.name)) 
+                                            group.topics.every(t => selectedTopics.includes(t.fullName)) 
                                             ? 'bg-emerald-600 border-emerald-600 text-white' 
                                             : 'bg-white dark:bg-black border-emerald-200 dark:border-emerald-800'
                                         }`}
@@ -209,15 +210,15 @@ export const CreateSimulation: React.FC = () => {
                                     <div className="p-2 grid grid-cols-1 md:grid-cols-2 gap-1.5 border-t border-slate-50 dark:border-zinc-900">
                                         {group.topics.map(topic => (
                                             <button 
-                                                key={topic.name}
-                                                onClick={() => toggleTopic(topic.name)}
+                                                key={topic.fullName}
+                                                onClick={() => toggleTopic(topic.fullName)}
                                                 className={`flex items-center justify-between p-3 rounded-lg border-2 transition-all ${
-                                                    selectedTopics.includes(topic.name) 
+                                                    selectedTopics.includes(topic.fullName) 
                                                     ? 'bg-emerald-50 border-emerald-500 shadow-sm' 
                                                     : 'bg-white dark:bg-zinc-900 border-slate-50 dark:border-zinc-900 hover:border-emerald-200'
                                                 }`}
                                             >
-                                                <span className={`text-[9px] font-bold text-left ${selectedTopics.includes(topic.name) ? 'text-emerald-700' : 'text-slate-500'}`}>{topic.name}</span>
+                                                <span className={`text-[9px] font-bold text-left ${selectedTopics.includes(topic.fullName) ? 'text-emerald-700' : 'text-slate-500'}`}>{topic.name}</span>
                                                 <span className="text-[7px] font-black bg-slate-100 dark:bg-zinc-800 px-1.5 py-0.5 rounded text-slate-500">{topic.count}</span>
                                             </button>
                                         ))}

@@ -70,8 +70,10 @@ export const PracticeSession: React.FC = () => {
                 if (config.selectedBanks?.length > 0) filtered = filtered.filter(q => config.selectedBanks.includes(q.bank_name || 'Geral'));
                 filtered = filtered.filter((q: any) => {
                     if (!q) return false;
-                    const name = q.subcategory || q.category;
-                    if (config.selectedTopics?.length > 0 && !config.selectedTopics.includes(name)) return false;
+                    const cat = q.category || q.categoria || 'Geral';
+                    const sub = q.subcategory || q.category || q.categoria || 'Geral';
+                    const fullName = `${cat}|${sub}`;
+                    if (config.selectedTopics?.length > 0 && !config.selectedTopics.includes(fullName)) return false;
                     if (config.selectedDifficulty !== 'Todas' && q.difficulty !== config.selectedDifficulty) return false;
                     return true;
                 });
