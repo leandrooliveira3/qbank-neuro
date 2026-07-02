@@ -218,10 +218,19 @@ export const StudyFlashcards: React.FC = () => {
                 if (priorityTopics.length > 0 || priorityBanks.length > 0) {
                     hasActivePriority = true;
                     // Filtra todos os cards válidos do usuário que pertençam aos temas ou bancos prioritários
-                    priorityCards = userCards.filter(c => 
-                        c.status !== 'inactive' && 
-                        (priorityBanks.includes(c.bank_name || 'Principal') || priorityTopics.includes(c.category || 'Sem Categoria'))
-                    );
+                    priorityCards = userCards.filter(c => {
+                        if (c.status === 'inactive') return false;
+                        const isPriority = priorityBanks.includes(c.bank_name || 'Principal') || priorityTopics.includes(c.category || 'Sem Categoria');
+                        if (!isPriority) return false;
+                        
+                        const isDue = new Date(c.next_review) <= now;
+                        if (isDue) return true;
+                        
+                        // Para antecipar cards prioritários que não estão vencidos,
+                        // garantir que eles não foram revisados hoje, evitando loops infinitos de duplicidade.
+                        const reviewedToday = c.last_review && new Date(c.last_review).toDateString() === now.toDateString();
+                        return !reviewedToday;
+                    });
                 }
             }
         }
@@ -324,8 +333,10 @@ export const StudyFlashcards: React.FC = () => {
   };
 
   const handleExit = () => {
-      // Exit early = NO XP awarded for unfinished session
-      navigate('/');
+      if (accumulatedXP > 0) {
+          xpService.addXP(accumulatedXP, 'Revisão Parcial', 'Flashcards');
+      }
+      navigate('/', { state: { xpEarned: accumulatedXP > 0 ? accumulatedXP : undefined, source: 'Flashcards' } });
   };
 
   const handleExplainAI = async () => {
@@ -662,7 +673,7 @@ export const StudyFlashcards: React.FC = () => {
         )}
         {/* HEADER */}
         <header className="h-14 shrink-0 bg-white dark:bg-zinc-950 border-b border-slate-200 dark:border-zinc-900 px-6 flex items-center justify-between z-[110] shadow-sm relative">
-            <button onClick={() => confirm("Sair agora cancelará o XP desta sessão.") && handleExit()} className="p-2 text-slate-400 hover:text-red-500 transition-colors bg-slate-50 dark:bg-zinc-900 rounded-lg">
+            <button onClick={() => confirm("Deseja interromper a sessão? O progresso dos cards revisados será salvo.") && handleExit()} className="p-2 text-slate-400 hover:text-red-500 transition-colors bg-slate-50 dark:bg-zinc-900 rounded-lg">
                 <X className="h-4 w-4" />
             </button>
             <div className="flex flex-col items-center">
