@@ -32,6 +32,14 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, fullWidth = fal
     window.addEventListener('offline', handleOffline);
     syncEngine.setListener((status) => setSyncStatus(status));
     
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+         // Push any pending changes when tab goes to background
+         syncEngine.startSync(false, false);
+      }
+    };
+    window.addEventListener('visibilitychange', handleVisibilityChange);
+    
     // Trigger sync on layout mount to synchronize across devices
     if (navigator.onLine) {
       syncEngine.startSync(true);
@@ -40,6 +48,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, fullWidth = fal
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
+      window.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [theme]);
 

@@ -89,9 +89,11 @@ class SyncEngine {
   async startSync(force = false, pull = true) {
     if (this.isSyncing || !navigator.onLine) return;
 
-    if (this.isUserInActiveActivity()) {
-      console.log('[Sync] Synchronization suspended to prevent freezing/lag during active activity.');
-      return;
+    if (this.isUserInActiveActivity() && !force) {
+      // Allow pushing changes to the server, but suspend pulling to prevent UI freezing
+      pull = false;
+      const queueLength = await this.getQueueLength();
+      if (queueLength === 0) return;
     }
     
     const queueLength = await this.getQueueLength();
@@ -116,6 +118,12 @@ class SyncEngine {
       // Falha silenciosa
     } finally {
       this.isSyncing = false;
+      
+      // Check if more items were added to the queue while we were syncing
+      const remaining = await this.getQueueLength();
+      if (remaining > 0) {
+          setTimeout(() => this.startSync(false, pull), 2000);
+      }
     }
   }
 
