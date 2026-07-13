@@ -1,6 +1,6 @@
 {
   "name": "Neuro Portal",
-  "description": "A comprehensive, offline-first educational SaaS platform for neurology studies with practice questions, flashcards, and advanced analytics.",
+  "description": "A comprehensive educational SaaS platform for neurology studies with practice questions, flashcards, and advanced analytics.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

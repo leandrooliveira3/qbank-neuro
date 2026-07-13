@@ -291,7 +291,18 @@ class SyncEngine {
               
               for (let i = 0; i < validPayloads.length; i += CHUNK_SIZE) {
                   const chunk = validPayloads.slice(i, i + CHUNK_SIZE);
-                  const { error } = await supabase.from(table).upsert(chunk);
+                  let error;
+                  if (table === 'profiles') {
+                      for (const p of chunk) {
+                          const { email, ...profileData } = p;
+                          const { error: updateErr } = await supabase.from(table).update(profileData).eq('id', p.id);
+                          if (updateErr) error = updateErr;
+                      }
+                  } else {
+                      const { error: upsertErr } = await supabase.from(table).upsert(chunk);
+                      error = upsertErr;
+                  }
+                  
                   if (error) {
                       console.error('[Sync] Error pushing bulk upsert to table:', table, error);
                   } else {

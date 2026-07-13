@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobrador de Exames</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="text-center mb-4">
+            <h1 class="text-primary fw-bold" style="color: #2563eb !important;"><i class="bi bi-file-earmark-medical-fill"></i> COBRADOR DE EXAMES DO HC-UFMG</h1>
+            <h5 class="fw-bold" style="color: #4b5563;">Otimizado para Pediatria</h5>
+            <p class="text-muted mt-3">Cole o texto contido no PDF para extrair os dados de forma organizada.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 rounded-4 p-4">
+                    <form action="/processar" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-dark">Cole o conteúdo dos exames:</label>
+                            <textarea name="texto" class="form-control" rows="10" placeholder="DICA: CTRL+A em todo o PDF para selecioná-lo. CTRL+C para copiar. Então cole aqui." required></textarea>
+                        </div>
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-3 px-4 shadow-sm fw-bold" style="background-color: #2563eb; border-color: #2563eb;">
+                                <i class="bi bi-gear-fill me-1"></i> Processar e Ver Resultados
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

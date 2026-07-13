@@ -1,0 +1,49 @@
+/* static/style.css */
+body {
+    background-color: #f3f4f6 !important;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.card {
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.gaso-table td {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.95rem;
+}
+
+.gaso-table tr:last-child td {
+    border-bottom: none;
+}
+
+textarea {
+    resize: none;
+    font-size: 0.95rem;
+    color: #374151;
+    background-color: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+}
+
+textarea:focus {
+    background-color: #ffffff !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25) !important;
+}
+
+textarea::placeholder {
+    color: #9ca3af;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #fef2f2;
+}

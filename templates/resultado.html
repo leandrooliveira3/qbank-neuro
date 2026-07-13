@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Cobrador de Exames</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-light">
+    <div class="container mt-4 mb-5">
+        <div class="mb-4">
+            <a href="/" class="text-decoration-none text-secondary"><i class="bi bi-house-door-fill"></i> Início</a> <span class="text-muted mx-2">></span> <span class="text-muted">Resultados do Extrator</span>
+        </div>
+        
+        <div class="text-center mb-4">
+            <h2 class="text-primary fw-bold" style="color: #2563eb !important;"><i class="bi bi-bar-chart-fill"></i> Resultados</h2>
+        </div>
+
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 rounded-4 h-100">
+                    <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center pt-4 pb-0">
+                        <h4 class="mb-0 fw-bold text-success"><i class="bi bi-file-earmark-text"></i> Texto Processado</h4>
+                        <button class="btn btn-light border btn-sm rounded-3 shadow-sm text-secondary fw-bold" id="btn-copiar" onclick="copiarTexto()">
+                            <i class="bi bi-clipboard"></i> Copiar
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="p-3 rounded-3 border bg-white" id="texto-processado-html" style="font-family: monospace; font-size: 0.95rem; line-height: 1.6; color: #374151;">
+                            ({{ data_coleta }}) - SANGUE: 
+                            {% for ex in exames %}
+                                {% if ex.status == 'Alterado' %}
+                                    <span class="text-danger fw-bold">{{ ex.chave }}: {{ ex.valor }}</span>
+                                {% else %}
+                                    <span class="text-dark">{{ ex.chave }}: {{ ex.valor }}</span>
+                                {% endif %}
+                                {% if not loop.last %} | {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 rounded-4 h-100">
+                    <div class="card-header bg-white border-0 pt-4 pb-0">
+                        <h4 class="mb-0 fw-bold" style="color: #8b5cf6;"><i class="bi bi-lungs-fill"></i> Avaliação da Gasometria</h4>
+                    </div>
+                    <div class="card-body">
+                        {% if gasometria %}
+                        <table class="table table-borderless text-secondary gaso-table mb-2">
+                            <tbody>
+                                <tr>
+                                    <td>Distúrbio primário:</td>
+                                    <td class="text-end fw-bold {{ 'text-danger' if gasometria.disturbio_primario != 'Normal' else 'text-success' }}">{{ gasometria.disturbio_primario }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Ânion gap:</td>
+                                    <td class="text-end fw-bold text-success">{{ gasometria.ag }} mEq/L (ref: 8 – 12)</td>
+                                </tr>
+                                <tr>
+                                    <td>Ânion gap corrigido (albumina {{ albumina_usada }}):</td>
+                                    <td class="text-end fw-bold {{ 'text-success' if gasometria.ag_interpretacao == 'Normal' else 'text-danger' }}">{{ gasometria.ag_corrigido }} mEq/L (ref: 8 – 12)</td>
+                                </tr>
+                                <tr>
+                                    <td>Interpretação do Ânion Gap:</td>
+                                    <td class="text-end fw-bold {{ 'text-success' if gasometria.ag_interpretacao == 'Normal' else 'text-danger' }}">{{ gasometria.ag_interpretacao }}</td>
+                                </tr>
+                                {% if gasometria.osmolaridade %}
+                                <tr>
+                                    <td>Osmolaridade calculada:</td>
+                                    <td class="text-end fw-bold {{ 'text-success' if gasometria.osm_interpretacao == 'Normal' else 'text-danger' }}">{{ gasometria.osmolaridade }} mOsm/kg (ref: 275 – 295)</td>
+                                </tr>
+                                <tr>
+                                    <td>Interpretação da Osmolaridade:</td>
+                                    <td class="text-end fw-bold {{ 'text-success' if gasometria.osm_interpretacao == 'Normal' else 'text-danger' }}">{{ gasometria.osm_interpretacao }}</td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                        {% else %}
+                        <div class="alert alert-secondary">Gasometria incompleta ou não encontrada.</div>
+                        {% endif %}
+
+                        <div class="alert alert-warning mt-2 mb-3 rounded-3 py-2 px-3" role="alert" style="background-color: #fef9c3; border-color: #fde047; color: #854d0e; font-size: 0.9rem;">
+                            <strong><i class="bi bi-exclamation-triangle-fill"></i></strong> A <strong>albumina</strong> não foi encontrada. Um valor padrão de 4.0 g/dL foi usado. Para maior precisão, insira o valor real abaixo.
+                        </div>
+
+                        <form action="/processar" method="POST" class="d-flex gap-2">
+                            <input type="hidden" name="texto" value="{{ texto_raw }}">
+                            <input type="text" name="albumina" class="form-control" placeholder="Insira a albumina (ex: 3.5)">
+                            <button type="submit" class="btn btn-primary shadow-sm fw-bold px-3" style="background-color: #2563eb; border-color: #2563eb;"><i class="bi bi-arrow-clockwise me-1"></i> Recalcular</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4 p-3 bg-light border rounded-3 text-center shadow-sm" style="background-color: #fefce8 !important; border-color: #fef08a !important; color: #713f12;">
+            <span class="fw-bold" style="color: #ca8a04;">Faltou algum exame?</span> Notifique na sessão <a href="#" class="text-decoration-underline text-dark">contato</a>.
+        </div>
+
+        {% if alertas %}
+        <div class="card shadow-sm mt-4 border-danger rounded-4" style="border-width: 1px;">
+            <div class="card-header bg-white border-0 pt-4 pb-2">
+                <h4 class="mb-0 fw-bold text-danger"><i class="bi bi-exclamation-triangle-fill"></i> Painel de Alertas</h4>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive rounded-bottom-4">
+                    <table class="table table-hover mb-0">
+                        <thead style="background-color: #fee2e2;">
+                            <tr>
+                                <th class="text-danger ps-4 py-3 border-0" style="font-size: 0.85rem; letter-spacing: 0.5px;">EXAME</th>
+                                <th class="text-danger py-3 border-0" style="font-size: 0.85rem; letter-spacing: 0.5px;">MATERIAL</th>
+                                <th class="text-danger py-3 border-0" style="font-size: 0.85rem; letter-spacing: 0.5px;">RESULTADO</th>
+                                <th class="text-danger pe-4 py-3 border-0" style="font-size: 0.85rem; letter-spacing: 0.5px;">REFERÊNCIA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for alerta in alertas %}
+                            <tr>
+                                <td class="ps-4 py-3 text-dark">{{ alerta.chave }}</td>
+                                <td class="py-3 text-secondary">{{ alerta.material }}</td>
+                                <td class="py-3 text-danger fw-bold">{{ alerta.resultado }}</td>
+                                <td class="pe-4 py-3 text-secondary">{{ alerta.referencia }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

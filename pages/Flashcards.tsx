@@ -483,7 +483,9 @@ export const Flashcards: React.FC = () => {
   // Grouping Logic
   const filteredCards = useMemo(() => {
       let filtered = cards.filter(c => {
-          const matchesSearch = c.front.toLowerCase().includes(searchTerm.toLowerCase()) || c.back.toLowerCase().includes(searchTerm.toLowerCase()) || (c.category || '').toLowerCase().includes(searchTerm.toLowerCase());
+          const removeAccents = (str: string) => (str || '').normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
+          const search = removeAccents(searchTerm);
+          const matchesSearch = removeAccents(c.front).includes(search) || removeAccents(c.back).includes(search) || removeAccents(c.category || '').includes(search);
           const matchesBank = filterBank === 'Todos' || (c.bank_name || 'Principal') === filterBank;
           return matchesSearch && matchesBank;
       });
