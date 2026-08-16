@@ -33,10 +33,11 @@ const CLINICAL_IMAGES = {
   NAMING_CARD: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/nihss/nihss2.jpg",
   NIHSS_SENTENCES: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/nihss/afasia.jpg",
   NIHSS_WORDS: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/nihss/disartria.jpg",
-  ASPECTS_G: "https://radathand.com/wp-content/uploads/2023/06/ASPECTS-RadAide-4-e1688154886452.png", 
-  ASPECTS_S: "https://radathand.com/wp-content/uploads/2023/06/ASPECTS-RadAide-3-e1688154856528.png",
-  PC_RAD_1: "https://radathand.com/wp-content/uploads/2023/06/ASPECTS-RadAide-1-e1688154921299.png", 
-  PC_RAD_2: "https://radathand.com/wp-content/uploads/2023/06/ASPECTS-RadAide-2-e1688154904117.png",
+  ASPECTS_G: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/aspects/aspects1.png", 
+  ASPECTS_S: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/aspects/aspects2.png",
+  PC_RAD_1: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/aspects/paspects1.png", 
+  PC_RAD_2: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/aspects/psaspects2.png",
+  PC_RAD_3: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/aspects/pacspects3.png",
 };
 
 const THROMBOLYSIS_TOOL = {
@@ -106,7 +107,7 @@ const THROMBOLYSIS_TOOL = {
                 },
                 {
                     id: 'pc_thalamus',
-                    imageId: CLINICAL_IMAGES.ASPECTS_G, 
+                    imageId: CLINICAL_IMAGES.PC_RAD_2, 
                     title: "Tálamo / Occipital",
                     regions: [
                         { id: 'th_l', name: 'Tálamo (Esq)', value: 1, side: 'L' as const, points: "241,295 250,300 262,303 273,303 280,299 278,289 266,279 257,270 246,259 237,247 232,235 226,230 221,231 216,242 215,253 214,262 217,271 223,279 228,286 234,290 237,293" },
@@ -117,7 +118,7 @@ const THROMBOLYSIS_TOOL = {
                 },
                 {
                     id: 'pc_pons',
-                    imageId: CLINICAL_IMAGES.PC_RAD_2, 
+                    imageId: CLINICAL_IMAGES.PC_RAD_3, 
                     title: "Ponte / Cerebelo",
                     regions: [
                         { id: 'pons', name: 'Ponte (2 pts)', value: 2, side: 'C' as const, points: "251,298 244,308 238,314 231,318 220,318 211,315 200,317 190,306 184,299 179,293 180,281 185,271 194,260 202,256 214,254 229,256 239,258 246,265 252,277 255,284 255,289" },
