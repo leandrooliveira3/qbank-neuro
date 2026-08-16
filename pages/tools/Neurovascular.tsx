@@ -31,6 +31,8 @@ interface CalcTool {
 const CLINICAL_IMAGES = {
   COOKIE_THEFT: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/nihss/nihss1.jpg", 
   NAMING_CARD: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/nihss/nihss2.jpg",
+  NIHSS_SENTENCES: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/nihss/afasia.jpg",
+  NIHSS_WORDS: "https://azigaziisnjguakkajza.supabase.co/storage/v1/object/public/imagens/ferramentas/nihss/disartria.jpg",
   ASPECTS_G: "https://radathand.com/wp-content/uploads/2023/06/ASPECTS-RadAide-4-e1688154886452.png", 
   ASPECTS_S: "https://radathand.com/wp-content/uploads/2023/06/ASPECTS-RadAide-3-e1688154856528.png",
   PC_RAD_1: "https://radathand.com/wp-content/uploads/2023/06/ASPECTS-RadAide-1-e1688154921299.png", 
@@ -53,8 +55,8 @@ const THROMBOLYSIS_TOOL = {
       { id: '6b', text: '6b. Perna Direito (5s)', options: [{value:0, label:'Sem queda'}, {value:1, label:'Queda leve'}, {value:2, label:'Toca o leito'}, {value:3, label:'Sem esforço'}, {value:4, label:'Plegia'}] },
       { id: '7', text: '7. Ataxia de Membros', options: [{value:0, label:'Ausente'}, {value:1, label:'1 membro'}, {value:2, label:'2+ membros'}] },
       { id: '8', text: '8. Sensibilidade', options: [{value:0, label:'Normal'}, {value:1, label:'Perda leve'}, {value:2, label:'Anestesia'}] },
-      { id: '9', text: '9. Linguagem (Afasia)', images: [CLINICAL_IMAGES.COOKIE_THEFT, CLINICAL_IMAGES.NAMING_CARD], options: [{value:0, label:'Normal'}, {value:1, label:'Afasia Leve'}, {value:2, label:'Afasia Grave'}, {value:3, label:'Global/Mutismo'}] },
-      { id: '10', text: '10. Disartria', options: [{value:0, label:'Normal'}, {value:1, label:'Leve/Moderada'}, {value:2, label:'Anartria/Grave'}] },
+      { id: '9', text: '9. Linguagem (Afasia)', images: [CLINICAL_IMAGES.COOKIE_THEFT, CLINICAL_IMAGES.NAMING_CARD, CLINICAL_IMAGES.NIHSS_SENTENCES], options: [{value:0, label:'Normal'}, {value:1, label:'Afasia Leve'}, {value:2, label:'Afasia Grave'}, {value:3, label:'Global/Mutismo'}] },
+      { id: '10', text: '10. Disartria', images: [CLINICAL_IMAGES.NIHSS_WORDS], options: [{value:0, label:'Normal'}, {value:1, label:'Leve/Moderada'}, {value:2, label:'Anartria/Grave'}] },
       { id: '11', text: '11. Extinção/Inatenção', options: [{value:0, label:'Normal'}, {value:1, label:'Parcial'}, {value:2, label:'Total'}] }
     ],
     subModules: [
