@@ -77,17 +77,21 @@ export const Layout: React.FC<LayoutProps> = ({ children, title, fullWidth = fal
               <h2 className="text-[10px] md:text-xs font-black text-primary uppercase tracking-[0.2em] truncate">{title}</h2>
               <div className="flex items-center mt-0.5 truncate">
                 {!isOnline ? (
-                  <div className="flex items-center text-orange-600 text-[7px] font-black uppercase tracking-widest">
-                    <CloudOff className="h-2 w-2 mr-1" /> Offline
+                  <div className="flex items-center text-amber-600 dark:text-amber-400 text-[8px] font-black uppercase tracking-widest" title="Modo Offline ativo - Dados salvos localmente">
+                    <CloudOff className="h-2.5 w-2.5 mr-1 text-amber-500 animate-pulse" /> Offline (Local)
                   </div>
                 ) : syncStatus === 'syncing' ? (
-                  <div className="flex items-center text-primary text-[7px] font-black uppercase tracking-widest">
-                    <RefreshCw className="h-2 w-2 mr-1 animate-spin" /> Sync...
+                  <div className="flex items-center text-primary text-[8px] font-black uppercase tracking-widest" title="Sincronizando com a nuvem...">
+                    <RefreshCw className="h-2.5 w-2.5 mr-1 animate-spin" /> Sincronizando...
                   </div>
                 ) : (
-                  <div className="flex items-center text-slate-400 text-[7px] font-black uppercase tracking-widest">
-                    <CheckCircle2 className="h-2 w-2 mr-1" /> Online
-                  </div>
+                  <button 
+                    onClick={() => syncEngine.startSync(true, true)} 
+                    className="flex items-center text-slate-400 hover:text-primary transition-colors text-[8px] font-black uppercase tracking-widest" 
+                    title="Online e sincronizado. Clique para forçar sincronização."
+                  >
+                    <CheckCircle2 className="h-2.5 w-2.5 mr-1 text-emerald-500" /> Sincronizado
+                  </button>
                 )}
               </div>
             </div>

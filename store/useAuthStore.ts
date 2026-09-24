@@ -80,6 +80,23 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     try {
       const formattedEmail = email.trim().toLowerCase();
       
+      // Fallback para login offline se o dispositivo estiver desconectado
+      if (!navigator.onLine) {
+        const localProfiles = await localDB.getAll('profiles');
+        const matched = localProfiles.find((p: any) => p.email?.trim().toLowerCase() === formattedEmail) 
+          || (localProfiles.length > 0 ? localProfiles[0] : null);
+
+        if (matched) {
+          localStorage.setItem('neuro_last_user_id', matched.id);
+          syncProfileToLocalStorage(matched);
+          set({ user: matched, loading: false, initialized: true });
+          return { error: null };
+        } else {
+          set({ loading: false });
+          return { error: 'Sem conexão com a internet e nenhum perfil local salvo para este e-mail.' };
+        }
+      }
+
       const { data: authData, error: authError } = await supabase.auth.signInWithPassword({ 
         email: formattedEmail, 
         password 
@@ -135,6 +152,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
             };
 
             await localDB.put('profiles', userProfile);
+            localStorage.setItem('neuro_last_user_id', userProfile.id);
             syncProfileToLocalStorage(userProfile);
             set({ user: userProfile, loading: false, initialized: true });
             
@@ -154,6 +172,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   logout: async () => {
     const userId = get().user?.id;
     set({ loading: true });
+    localStorage.removeItem('neuro_last_user_id');
     
     try {
       if (userId && navigator.onLine) {
@@ -173,48 +192,57 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   checkSession: async () => {
     set({ loading: true });
     try {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session?.user) {
+      let sessionUser: any = null;
+      try {
+        const { data } = await supabase.auth.getSession();
+        sessionUser = data?.session?.user;
+      } catch (err) {
+        console.warn("Falha ao obter sessão do Supabase (offline):", err);
+      }
+
+      if (sessionUser) {
         // 1. Carrega do LocalDB para renderização instantânea (Optimistic UI)
-        let localProfile = await localDB.get('profiles', session.user.id);
+        let localProfile = await localDB.get('profiles', sessionUser.id);
         
         if (localProfile) {
+            localStorage.setItem('neuro_last_user_id', localProfile.id);
             set({ user: localProfile });
         }
 
         // 2. Se estiver online, busca a "Verdade" do servidor imediatamente para corrigir discrepâncias de Streak/XP
         if (navigator.onLine) {
-            const { data: remoteProfile } = await supabase
-                .from('profiles')
-                .select('*')
-                .eq('id', session.user.id)
-                .maybeSingle();
+            try {
+              const { data: remoteProfile } = await supabase
+                  .from('profiles')
+                  .select('*')
+                  .eq('id', sessionUser.id)
+                  .maybeSingle();
 
-            if (remoteProfile) {
-                // Atualiza o objeto com dados do servidor
-                localProfile = {
-                    ...localProfile, // Mantém campos locais se necessário, mas sobrescreve críticos
-                    xp: remoteProfile.xp ?? 0,
-                    level: remoteProfile.level ?? 1,
-                    rank: remoteProfile.rank ?? 'Estudante de Medicina',
-                    last_daily_bonus: remoteProfile.last_daily_bonus,
-                    streak_count: remoteProfile.streak_count ?? 0,
-                    achievements: remoteProfile.achievements ?? [],
-                    srs_profile: remoteProfile.srs_profile ?? 'standard',
-                    daily_limit: remoteProfile.daily_limit ?? 0,
-                    priority_config: remoteProfile.priority_config ?? null,
-                    // Garante outros campos essenciais
-                    role: remoteProfile.role,
-                    full_name: remoteProfile.full_name,
-                    avatar_url: remoteProfile.avatar_url,
-                    specialty: remoteProfile.specialty,
-                    id: remoteProfile.id
-                };
-                
-                // Salva a versão atualizada
-                await localDB.put('profiles', localProfile);
-                syncProfileToLocalStorage(localProfile);
-                set({ user: localProfile });
+              if (remoteProfile) {
+                  localProfile = {
+                      ...localProfile,
+                      xp: remoteProfile.xp ?? 0,
+                      level: remoteProfile.level ?? 1,
+                      rank: remoteProfile.rank ?? 'Estudante de Medicina',
+                      last_daily_bonus: remoteProfile.last_daily_bonus,
+                      streak_count: remoteProfile.streak_count ?? 0,
+                      achievements: remoteProfile.achievements ?? [],
+                      srs_profile: remoteProfile.srs_profile ?? 'standard',
+                      daily_limit: remoteProfile.daily_limit ?? 0,
+                      priority_config: remoteProfile.priority_config ?? null,
+                      role: remoteProfile.role,
+                      full_name: remoteProfile.full_name,
+                      avatar_url: remoteProfile.avatar_url,
+                      specialty: remoteProfile.specialty,
+                      id: remoteProfile.id
+                  };
+                  
+                  await localDB.put('profiles', localProfile);
+                  syncProfileToLocalStorage(localProfile);
+                  set({ user: localProfile });
+              }
+            } catch (err) {
+              console.warn("Falha ao atualizar perfil remoto:", err);
             }
         }
           
@@ -225,14 +253,39 @@ export const useAuthStore = create<AuthState>((set, get) => ({
              return;
           }
           
-          setTimeout(() => syncEngine.startSync(), 500);
-          updateLastSeen(localProfile.id);
+          if (navigator.onLine) {
+            setTimeout(() => syncEngine.startSync(), 500);
+            updateLastSeen(localProfile.id);
+          }
         }
       } else {
-        set({ user: null });
+        // Modo Offline ou token expirado sem internet:
+        // Verifica se há perfil armazenado localmente para manter a navegação do usuário ativa
+        const lastUserId = localStorage.getItem('neuro_last_user_id');
+        let offlineProfile: any = null;
+        if (lastUserId) {
+          offlineProfile = await localDB.get('profiles', lastUserId);
+        }
+        if (!offlineProfile) {
+          const allProfiles = await localDB.getAll('profiles');
+          if (allProfiles.length > 0) offlineProfile = allProfiles[0];
+        }
+
+        if (offlineProfile && (!navigator.onLine || !offlineProfile.deleted_at)) {
+          console.log("[Auth] Restaurando perfil ativo do cache local (modo offline):", offlineProfile.email);
+          set({ user: offlineProfile });
+        } else {
+          set({ user: null });
+        }
       }
     } catch (e) {
       console.error("Erro ao validar sessão:", e);
+      const allProfiles = await localDB.getAll('profiles');
+      if (allProfiles.length > 0) {
+        set({ user: allProfiles[0] });
+      } else {
+        set({ user: null });
+      }
     } finally {
       set({ loading: false, initialized: true });
     }

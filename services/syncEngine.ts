@@ -37,8 +37,21 @@ class SyncEngine {
   constructor() {
     if (typeof window !== 'undefined') {
         this.syncInterval = window.setInterval(() => {
-            if (document.hasFocus()) this.startSync(false, true);
+            if (document.hasFocus() && navigator.onLine) this.startSync(false, true);
         }, 120000);
+
+        // Retomada automática da sincronização assim que a internet voltar
+        window.addEventListener('online', () => {
+            console.log('[Sync] Conexão com a internet restabelecida! Retomando sincronização com a nuvem...');
+            this.onStatusChange('syncing');
+            setTimeout(() => this.startSync(true, true), 800);
+            setTimeout(() => this.startSync(true, true), 3500);
+        });
+
+        window.addEventListener('offline', () => {
+            console.log('[Sync] Dispositivo desconectado da internet. Alterações serão mantidas no cache local.');
+            this.onStatusChange('offline');
+        });
 
         // Setup Realtime Broadcast for Cross-Device Sync
         this.channel = supabase.channel('neuro_global_sync');
@@ -87,7 +100,11 @@ class SyncEngine {
   }
 
   async startSync(force = false, pull = true) {
-    if (this.isSyncing || !navigator.onLine) return;
+    if (this.isSyncing) return;
+    if (!navigator.onLine) {
+      this.onStatusChange('offline');
+      return;
+    }
 
     if (this.isUserInActiveActivity() && !force) {
       // Allow pushing changes to the server, but suspend pulling to prevent UI freezing
@@ -103,8 +120,15 @@ class SyncEngine {
     this.onStatusChange('syncing');
 
     try {
-      const { data: { session } } = await supabase.auth.getSession();
-      const userId = session?.user?.id;
+      let userId: string | undefined;
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        userId = session?.user?.id;
+      } catch (err) {}
+
+      if (!userId) {
+        userId = localStorage.getItem('neuro_last_user_id') || undefined;
+      }
 
       if (userId) {
         await this.pushLocalChanges(userId);
@@ -113,15 +137,15 @@ class SyncEngine {
             if (typeof window !== 'undefined') window.dispatchEvent(new Event('neuro_sync_completed'));
         }
       }
-      this.onStatusChange('synced');
+      this.onStatusChange(navigator.onLine ? 'synced' : 'offline');
     } catch (error) {
-      // Falha silenciosa
+      this.onStatusChange(navigator.onLine ? 'error' : 'offline');
     } finally {
       this.isSyncing = false;
       
       // Check if more items were added to the queue while we were syncing
       const remaining = await this.getQueueLength();
-      if (remaining > 0) {
+      if (remaining > 0 && navigator.onLine) {
           setTimeout(() => this.startSync(false, pull), 2000);
       }
     }

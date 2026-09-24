@@ -17,30 +17,33 @@ const initApp = async () => {
 
   // Registro do Service Worker (Global)
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      // Usar './sw.js' sem escopo explícito permite que o navegador infira o escopo correto
-      // baseado na localização do arquivo, evitando erros de segurança em alguns ambientes.
-      navigator.serviceWorker.register('./sw.js')
+    const registerSW = () => {
+      navigator.serviceWorker.register('/sw.js')
         .then(reg => {
           console.debug('SW registrado com sucesso:', reg.scope);
-          // Força atualização se houver nova versão
           reg.onupdatefound = () => {
             const installingWorker = reg.installing;
             if (installingWorker) {
               installingWorker.onstatechange = () => {
-                if (installingWorker.state === 'installed') {
-                  if (navigator.serviceWorker.controller) {
-                    console.log('Nova versão disponível. Recarregue.');
-                  }
+                if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('Nova versão disponível do aplicativo.');
                 }
               };
             }
           };
         })
-        .catch(err => {
-          console.warn('SW falha no registro:', err);
+        .catch(() => {
+          navigator.serviceWorker.register('./sw.js').catch(err => {
+            console.warn('SW falha no registro:', err);
+          });
         });
-    });
+    };
+
+    if (document.readyState === 'complete') {
+      registerSW();
+    } else {
+      window.addEventListener('load', registerSW);
+    }
   }
 
   const rootElement = document.getElementById('root');

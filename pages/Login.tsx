@@ -8,7 +8,7 @@ import {
   Brain, Moon, Sun, 
   ArrowRight, Loader2,
   AlertCircle, UserPlus, CheckCircle2,
-  ArrowLeft, Info
+  ArrowLeft, Info, CloudOff
 } from 'lucide-react';
 import { SPECIALTIES, TOOLS_CATEGORIES } from '../constants';
 
@@ -20,6 +20,7 @@ export const Login: React.FC = () => {
   const [view, setView] = useState<'portal' | 'auth' | 'register'>('portal');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
   
   // Register fields
   const [regName, setRegName] = useState('');
@@ -30,7 +31,17 @@ export const Login: React.FC = () => {
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [localLoading, setLocalLoading] = useState(false);
 
-  useEffect(() => { applyTheme(theme); }, [theme]);
+  useEffect(() => { 
+    applyTheme(theme); 
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, [theme]);
 
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -135,6 +146,15 @@ export const Login: React.FC = () => {
             <div className="w-full max-w-sm bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-[2rem] p-8 shadow-2xl">
               <div className="text-center mb-6"><h2 className="text-2xl font-black">Neuro <span className="text-primary">Portal</span></h2></div>
               
+              {!isOnline && (
+                  <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900 rounded-xl flex items-center gap-2">
+                      <CloudOff className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                      <p className="text-[10px] font-bold text-amber-700 dark:text-amber-300 leading-tight">
+                        Modo Offline. Você pode acessar seus dados e ferramentas salvos localmente sem internet.
+                      </p>
+                  </div>
+              )}
+
               {successMsg && (
                   <div className="mb-4 p-3 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900 rounded-xl flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -153,7 +173,7 @@ export const Login: React.FC = () => {
                   <input type="email" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded-xl p-3 text-xs font-bold bg-slate-50 dark:bg-black border-slate-200 dark:border-zinc-800 focus:border-primary outline-none" />
                   <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full rounded-xl p-3 text-xs font-bold bg-slate-50 dark:bg-black border-slate-200 dark:border-zinc-800 focus:border-primary outline-none" />
                   <button type="submit" disabled={authLoading} className="w-full bg-primary text-white font-black py-4 rounded-xl text-[9px] uppercase tracking-widest shadow-lg flex justify-center items-center gap-2 disabled:opacity-50">
-                      ENTRAR
+                      {isOnline ? 'ENTRAR' : 'ENTRAR (MODO OFFLINE)'}
                   </button>
               </form>
               
