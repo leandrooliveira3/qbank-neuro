@@ -13,8 +13,9 @@ import {
   visibleStructures,
 } from "./model";
 import "./neuro3d.css";
-const SimulationLab = lazy(() => import("./simulation/SimulationLab"));
-const VideoLibrary = lazy(() => import("./simulation/VideoLibrary"));
+const SimulationLab = lazy(
+  () => import("./simulation/station/ProcedureStation"),
+);
 const Viewer = lazy(() => import("./Viewer"));
 const progressKey = "qbank_neuro3d_progress_v1";
 function download(name: string, value: unknown) {
@@ -166,7 +167,6 @@ export default function Neuro3DAtlas() {
           {[
             "Atlas",
             "Simulação",
-            "Vídeos Mentice",
             "Módulos",
             "Questões",
             "Matriz",
@@ -623,13 +623,7 @@ export default function Neuro3DAtlas() {
               openScene(s);
               setVariant(v);
             }}
-            onOpenVideos={() => setTab("Vídeos Mentice")}
           />
-        </Suspense>
-      )}
-      {tab === "Vídeos Mentice" && (
-        <Suspense fallback={<p role="status">Carregando biblioteca…</p>}>
-          <VideoLibrary />
         </Suspense>
       )}
       <footer className="n3-footer">

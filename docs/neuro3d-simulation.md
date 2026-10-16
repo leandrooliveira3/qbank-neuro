@@ -1,4 +1,6 @@
-# Casos, dispositivos e biblioteca Mentice
+# Histórico: exercícios e inventário Mentice
+
+> Esta etapa foi substituída pela estação procedural descrita em [neuro3d-station.md](./neuro3d-station.md). A aba de vídeos foi retirada da aplicação; o catálogo permanece somente como registro de pesquisa. As descrições e contagens abaixo documentam a versão anterior, não o simulador atual.
 
 ## Escopo entregue
 

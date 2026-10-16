@@ -1,157 +1,103 @@
 import { expect, test } from "@playwright/test";
 const route = "/#/tools/neuro3d";
-test("Mentice catalogue is filterable and only embeds a selected video after an explicit click", async ({
+test("the simulator is a workstation rather than a video library, with four selectable clinical cases", async ({
   page,
 }) => {
-  const videoRequests: string[] = [];
-  page.on("request", (r) => {
-    if (r.url().includes("youtube-nocookie")) videoRequests.push(r.url());
-  });
-  await page.route("https://www.youtube-nocookie.com/**", (r) =>
-    r.fulfill({
-      contentType: "text/html",
-      body: "<p>External player stub for UI testing</p>",
-    }),
-  );
   await page.goto(route);
-  await page
-    .getByRole("button", { name: "Vídeos Mentice", exact: true })
-    .click();
-  await expect(page.locator(".n3-videogrid article")).toHaveCount(55);
-  expect(videoRequests).toHaveLength(0);
-  await page
-    .getByLabel("Buscar vídeos", { exact: true })
-    .fill("Brain Aneurysm Coiling Demo");
-  await expect(page.locator(".n3-videogrid article")).toHaveCount(1);
-  await page
-    .getByRole("button", { name: "Selecionar vídeo", exact: true })
-    .click();
-  await expect(page.locator("iframe")).toHaveCount(0);
-  await page
-    .getByRole("button", { name: "Carregar vídeo do YouTube", exact: true })
-    .click();
-  await expect(page.locator("iframe")).toHaveAttribute(
-    "src",
-    /youtube-nocookie.com\/embed\/BpPYaBwrbT8/,
-  );
   await expect(
-    page.getByRole("link", { name: "Abrir no YouTube ↗", exact: true }),
-  ).toHaveAttribute("href", "https://www.youtube.com/watch?v=BpPYaBwrbT8");
+    page.getByRole("button", { name: "Vídeos Mentice", exact: true }),
+  ).toHaveCount(0);
+  await page.getByRole("button", { name: "Simulação", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Console da hemodinâmica", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByLabel("Caso clínico", { exact: true }).locator("option"),
+  ).toHaveCount(4);
+  await page.getByLabel("Caso clínico", { exact: true }).selectOption("m1");
+  await expect(page.locator(".nvs-case")).toContainText("oclusão proximal");
+  await page
+    .getByLabel("Dispositivo terapêutico", { exact: true })
+    .selectOption("retriever");
+  await page
+    .getByRole("button", { name: "Carregar dispositivo", exact: true })
+    .click();
+  await expect(page.locator(".nvs-device")).toContainText("Stent retriever");
+  await expect(page.locator("iframe")).toHaveCount(0);
 });
-test("simulation requires checks, handles an event and saves a debrief", async ({
+test("wire and catheter are controlled separately, DSA produces contrast and a captured roadmap becomes stale after C-arm rotation", async ({
   page,
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto(route);
   await page.getByRole("button", { name: "Simulação", exact: true }).click();
-  await expect(page.locator(".n3-cases button")).toHaveCount(8);
   await page
-    .getByRole("button", { name: "Iniciar exercício", exact: true })
+    .getByLabel("Passo de manipulação", { exact: true })
+    .selectOption("1.2");
+  await page.getByRole("button", { name: "↑ Avançar", exact: true }).click();
+  await page.getByRole("button", { name: "↑ Avançar", exact: true }).click();
+  await page
+    .getByRole("button", { name: "2 · Cateter-guia", exact: true })
     .click();
-  await expect(page.getByTestId("device-3d").locator("canvas")).toBeVisible();
-  await page
-    .getByLabel("Família de dispositivo", { exact: true })
-    .selectOption("coil");
-  await page
-    .getByRole("button", { name: "Continuar etapa", exact: true })
-    .click();
-  await page.getByLabel("Posição na trajetória", { exact: true }).fill("80");
-  await expect(
-    page.getByRole("button", { name: "Continuar etapa", exact: true }),
-  ).toBeDisabled();
-  for (const label of [
-    "Examinei o alvo e a anatomia vinculada",
-    "Comparei duas projeções esquemáticas",
-    "Reconheci a função e os limites da família de dispositivo",
-  ])
-    await page.getByLabel(label, { exact: true }).check();
-  await page
-    .getByRole("button", {
-      name: "Treinar intercorrência: projeção ambígua",
-      exact: true,
-    })
-    .click();
-  await expect(
-    page.getByLabel("Comparei duas projeções esquemáticas", { exact: true }),
-  ).not.toBeChecked();
-  await page
-    .getByLabel("Comparei duas projeções esquemáticas", { exact: true })
-    .check();
-  await page
-    .getByRole("button", { name: "Continuar etapa", exact: true })
-    .click();
-  await page
-    .getByLabel("Progresso do dispositivo", { exact: true })
-    .fill("100");
-  await page
-    .getByRole("button", { name: "Continuar etapa", exact: true })
-    .click();
-  await page
-    .getByRole("button", {
-      name: "A. Ocupação do saco por espirais",
-      exact: true,
-    })
-    .click();
-  await page
-    .getByRole("button", { name: "Salvar revisão", exact: true })
-    .click();
-  await expect(
-    page.getByRole("button", { name: "Revisão salva", exact: true }),
-  ).toBeDisabled();
-  await page.reload();
-  await page.getByRole("button", { name: "Simulação", exact: true }).click();
-  await expect(page.locator(".n3-cases button").first()).toContainText(
-    "Revisão registrada",
+  await page.getByRole("button", { name: "↑ Avançar", exact: true }).click();
+  await page.getByRole("button", { name: "DSA", exact: true }).click();
+  await page.getByRole("button", { name: /Injetar contraste virtual/ }).click();
+  await expect(page.locator(".nvs-events")).toContainText("Contraste virtual");
+  await page.getByRole("button", { name: /Capturar roadmap/ }).click();
+  await expect(page.locator(".nvs-events")).toContainText(
+    "Máscara de roadmap capturada",
   );
-  expect(
-    await page.evaluate(
-      () => document.documentElement.scrollWidth <= innerWidth,
-    ),
-  ).toBe(true);
+  await page.getByLabel("RAO / LAO", { exact: true }).fill("30");
+  await expect(
+    page.getByRole("status").filter({ hasText: "roadmap desalinhado" }),
+  ).toBeVisible();
   expect(errors).toEqual([]);
 });
-test("the MMA case opens its linked videos and anatomical variant", async ({
+test("the pedal is momentary, machine controls affect live imaging, and mobile layout stays in bounds", async ({
   page,
 }) => {
   await page.goto(route);
   await page.getByRole("button", { name: "Simulação", exact: true }).click();
   await page
-    .locator(".n3-cases button")
-    .filter({ hasText: "Meníngea média" })
-    .click();
-  await page
-    .getByRole("button", { name: "Vídeos deste exercício", exact: true })
-    .click();
-  await expect(page.locator(".n3-videogrid article")).toHaveCount(2);
-  await page
-    .getByRole("button", { name: "Explorar anatomia vinculada", exact: true })
-    .click();
-  await expect(page.locator(".n3-sceneheading h2")).toHaveText(
-    "Anastomoses ECA–ACI–oftálmica",
-  );
-  await expect(
-    page.getByRole("button", {
-      name: "Suprimento meningo-oftálmico",
+    .getByLabel("Manipulador virtual: arraste para avançar e girar", {
       exact: true,
-    }),
-  ).toHaveAttribute("aria-pressed", "true");
-});
-
-test("resizing an already loaded 3D task to a phone keeps the layout within the viewport", async ({
-  page,
-}) => {
-  await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.goto(route);
-  await page.getByRole("button", { name: "Simulação", exact: true }).click();
-  await page
-    .getByRole("button", { name: "Iniciar exercício", exact: true })
-    .click();
-  await expect(page.getByTestId("device-3d").locator("canvas")).toBeVisible();
+    })
+    .focus();
+  await page.keyboard.down("Space");
+  await expect(page.locator(".nvs-rx")).toContainText("ATIVO");
+  await page.keyboard.press("ArrowUp");
+  await page.keyboard.press("ArrowRight");
+  await page.keyboard.up("Space");
+  await expect(page.locator(".nvs-rx")).toContainText("PAUSADO");
+  await page.getByLabel("Magnificação", { exact: true }).fill("3");
+  await expect(page.getByLabel("Magnificação", { exact: true })).toHaveValue(
+    "3",
+  );
+  await page.getByLabel("Colimação", { exact: true }).fill("55");
   await page.setViewportSize({ width: 393, height: 852 });
   await expect
     .poll(() =>
       page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
     )
     .toBe(true);
+  await expect(page.getByTestId("fluoro-A")).toBeVisible();
+});
+test("a session can be exported and ended without claiming proficiency", async ({
+  page,
+}) => {
+  await page.goto(route);
+  await page.getByRole("button", { name: "Simulação", exact: true }).click();
+  const download = page.waitForEvent("download");
+  await page
+    .getByRole("button", { name: "Exportar sessão", exact: true })
+    .click();
+  expect((await download).suggestedFilename()).toContain("neuro3d_sessao_");
+  await page
+    .getByRole("button", { name: "Encerrar e registrar sessão", exact: true })
+    .click();
+  await expect(page.getByRole("status")).toContainText("Sessão registrada");
+  await expect(page.locator(".nvs-outcome")).toContainText(
+    "Objetivo ainda incompleto",
+  );
 });
