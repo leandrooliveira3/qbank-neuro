@@ -13,6 +13,8 @@ import {
   visibleStructures,
 } from "./model";
 import "./neuro3d.css";
+const SimulationLab = lazy(() => import("./simulation/SimulationLab"));
+const VideoLibrary = lazy(() => import("./simulation/VideoLibrary"));
 const Viewer = lazy(() => import("./Viewer"));
 const progressKey = "qbank_neuro3d_progress_v1";
 function download(name: string, value: unknown) {
@@ -161,7 +163,15 @@ export default function Neuro3DAtlas() {
       </aside>
       <div className="n3-topbar">
         <nav aria-label="Seções do atlas">
-          {["Atlas", "Módulos", "Questões", "Matriz", "Progresso"].map((t) => (
+          {[
+            "Atlas",
+            "Simulação",
+            "Vídeos Mentice",
+            "Módulos",
+            "Questões",
+            "Matriz",
+            "Progresso",
+          ].map((t) => (
             <button key={t} aria-pressed={tab === t} onClick={() => setTab(t)}>
               {t}
             </button>
@@ -605,6 +615,22 @@ export default function Neuro3DAtlas() {
             />
           </label>
         </section>
+      )}
+      {tab === "Simulação" && (
+        <Suspense fallback={<p role="status">Carregando laboratório…</p>}>
+          <SimulationLab
+            onOpenAnatomy={(s, v) => {
+              openScene(s);
+              setVariant(v);
+            }}
+            onOpenVideos={() => setTab("Vídeos Mentice")}
+          />
+        </Suspense>
+      )}
+      {tab === "Vídeos Mentice" && (
+        <Suspense fallback={<p role="status">Carregando biblioteca…</p>}>
+          <VideoLibrary />
+        </Suspense>
       )}
       <footer className="n3-footer">
         Bouthillier C1–C7 · embriologia de Lasjaunias em eixo independente ·

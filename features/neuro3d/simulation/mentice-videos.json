@@ -1,0 +1,1608 @@
+{
+  "channel": "https://www.youtube.com/@Mentice/videos",
+  "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+  "scanned_at": "2026-10-16",
+  "total_scanned": 165,
+  "pages": 6,
+  "complete": true,
+  "review_scope": "Triagem de títulos e descrições; sem revisão audiovisual integral ou transcrição dos vídeos.",
+  "videos": [
+    {
+      "id": "BseEJMC9-38",
+      "title": "Vascular Twin® Neuro Full Demonstration | From Patient DICOM Data to Hands-On Rehearsal",
+      "duration": 444,
+      "url": "https://www.youtube.com/watch?v=BseEJMC9-38",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2026-09-02T05:48:38-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Planejamento e ensaio",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "DGa-hk6FCls",
+      "title": "Preparing for Complex Neurovascular Procedures with Simulation | Vascular Twin® Neuro",
+      "duration": 313,
+      "url": "https://www.youtube.com/watch?v=DGa-hk6FCls",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2026-09-01T04:30:01-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Planejamento e ensaio",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "57rJHXDDZMc",
+      "title": "Vascular Twin® Neuro | Patient-Specific Cerebral Aneurysm Rehearsal",
+      "duration": 67,
+      "url": "https://www.youtube.com/watch?v=57rJHXDDZMc",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2026-06-18T05:44:24-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Planejamento e ensaio",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "KKn0kjTfLUQ",
+      "title": "MMA Embolization - New procedural training module from Mentice",
+      "duration": 59,
+      "url": "https://www.youtube.com/watch?v=KKn0kjTfLUQ",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2026-04-07T12:15:52-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Meníngea média",
+      "kind": "Ensino e contexto"
+    },
+    {
+      "id": "gw5yagme3mA",
+      "title": "Ankyras® 6.0 Advancing Aneurysm Treatment Planning with Seamless Integration",
+      "duration": 136,
+      "url": "https://www.youtube.com/watch?v=gw5yagme3mA",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2025-03-18T06:30:06-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Diversão de fluxo",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "qYEesh_95Do",
+      "title": "Ankyras® 5.0 Highlights",
+      "duration": 32,
+      "url": "https://www.youtube.com/watch?v=qYEesh_95Do",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-12-10T01:30:06-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Diversão de fluxo",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "mlD-qZWzgnU",
+      "title": "Exclusive access to the VIST® Ankyras® Flow Diverter Rehearsal simulation - Only on NV Connect",
+      "duration": 91,
+      "url": "https://www.youtube.com/watch?v=mlD-qZWzgnU",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-11-25T08:14:26-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Diversão de fluxo",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "wDsRNG38BI8",
+      "title": "Exclusive access to the VIST® Ankyras® Flow Diverter Rehearsal simulation - Only on NV Connect",
+      "duration": 65,
+      "url": "https://www.youtube.com/watch?v=wDsRNG38BI8",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-10-14T15:00:21-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Diversão de fluxo",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "_Zq3gw1lCq8",
+      "title": "NV Connect | Cerebral Aneurysm Flow Diversion",
+      "duration": 91,
+      "url": "https://www.youtube.com/watch?v=_Zq3gw1lCq8",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-10-08T15:00:27-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Diversão de fluxo",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "jOQCAHuMUuM",
+      "title": "NV | Connect Intracranial Artery Stenosis",
+      "duration": 84,
+      "url": "https://www.youtube.com/watch?v=jOQCAHuMUuM",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-10-08T15:00:26-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Estenose intracraniana",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "petwIx-8KcQ",
+      "title": "NV Connect | Acute Ischemic Stroke",
+      "duration": 110,
+      "url": "https://www.youtube.com/watch?v=petwIx-8KcQ",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-10-08T15:00:06-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "oY3yLa64TSI",
+      "title": "NV Connect | Carotid Artery Stenting",
+      "duration": 113,
+      "url": "https://www.youtube.com/watch?v=oY3yLa64TSI",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-10-08T15:00:06-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Carótida",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "98BafsAPbbI",
+      "title": "NV Connect | Cerebral Aneurysm Coiling",
+      "duration": 118,
+      "url": "https://www.youtube.com/watch?v=98BafsAPbbI",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-10-08T15:00:06-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Coiling",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "3Yf0pwksRaw",
+      "title": "Mentice NV Connect  Arteriovenous Malformations",
+      "duration": 90,
+      "url": "https://www.youtube.com/watch?v=3Yf0pwksRaw",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-10-07T15:00:22-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "MAV e FAV",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "jy2gDtUjR1c",
+      "title": "Advancing Neurovascular Care: Dr. Demetrius Lopes on the Benefits of Mentice Simulation Solutions",
+      "duration": 203,
+      "url": "https://www.youtube.com/watch?v=jy2gDtUjR1c",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2024-07-05T00:00:06-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Plataformas e dispositivos",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "iBe8n_faXrU",
+      "title": "Neurovascular Essentials",
+      "duration": 184,
+      "url": "https://www.youtube.com/watch?v=iBe8n_faXrU",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2022-12-07T06:56:22-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Fundamentos neurovasculares",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "s9i3znpeoSc",
+      "title": "Interventional Neuroradiology fellows exposed to advanced techniques on the Mentice virtual patient",
+      "duration": 2516,
+      "url": "https://www.youtube.com/watch?v=s9i3znpeoSc",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2022-11-04T01:16:06-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Plataformas e dispositivos",
+      "kind": "Ensino e contexto"
+    },
+    {
+      "id": "nyDo2aThR38",
+      "title": "Endovascular Device within a Life-like Simulation Model",
+      "duration": 53,
+      "url": "https://www.youtube.com/watch?v=nyDo2aThR38",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2022-10-10T03:55:39-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Plataformas e dispositivos",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "Apmi-8L6hCI",
+      "title": "Neurovascular platform for cerebral device selection, patient-specific anatomical variances",
+      "duration": 2271,
+      "url": "https://www.youtube.com/watch?v=Apmi-8L6hCI",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2022-10-06T07:59:41-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Plataformas e dispositivos",
+      "kind": "Webinar"
+    },
+    {
+      "id": "cedg0jPaVmo",
+      "title": "Safe Assessment and Utilization of Clinical Devices in Neuro Interventions",
+      "duration": 1958,
+      "url": "https://www.youtube.com/watch?v=cedg0jPaVmo",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2022-10-06T07:58:00-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Plataformas e dispositivos",
+      "kind": "Webinar"
+    },
+    {
+      "id": "JVIVviDKws8",
+      "title": "ASPIRATION THROMBECTOMY - Simulated with ASIST",
+      "duration": 100,
+      "url": "https://www.youtube.com/watch?v=JVIVviDKws8",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2022-10-04T08:16:02-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "XvB6-wjuWvI",
+      "title": "SIM Radial Access",
+      "duration": 62,
+      "url": "https://www.youtube.com/watch?v=XvB6-wjuWvI",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2022-10-04T07:57:52-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Cateteres e acesso",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "pzvtV5OJmqk",
+      "title": "MENTICE   Introducing VIST Virtual Patient into the Angiosuite",
+      "duration": 120,
+      "url": "https://www.youtube.com/watch?v=pzvtV5OJmqk",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2022-01-13T05:01:20-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Plataformas e dispositivos",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "xFuBw06HBrQ",
+      "title": "Case It",
+      "duration": 59,
+      "url": "https://www.youtube.com/watch?v=xFuBw06HBrQ",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T01:07:29-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Planejamento e ensaio",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "UbnfGZQ_vgw",
+      "title": "Mentice Neurovascular Coiling   Product Video   short version",
+      "duration": 94,
+      "url": "https://www.youtube.com/watch?v=UbnfGZQ_vgw",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T01:07:29-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Coiling",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "FXhFHS_ozyg",
+      "title": "Carotid Intervention",
+      "duration": 52,
+      "url": "https://www.youtube.com/watch?v=FXhFHS_ozyg",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T01:07:29-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Carótida",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "6JUzFcJ1WHQ",
+      "title": "Mentice AIS Intervention   Product Video   short version",
+      "duration": 94,
+      "url": "https://www.youtube.com/watch?v=6JUzFcJ1WHQ",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T01:07:29-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "vaCm4X64rEw",
+      "title": "Mentice - VIST® G5 Overview & Simulation Basics",
+      "duration": 1759,
+      "url": "https://www.youtube.com/watch?v=vaCm4X64rEw",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T00:53:00-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Plataformas e dispositivos",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "rj6Ok5ywaD0",
+      "title": "Mentice - Carotid Intervention Demo - Chicago",
+      "duration": 2078,
+      "url": "https://www.youtube.com/watch?v=rj6Ok5ywaD0",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T00:53:00-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Carótida",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "SP0zbOw0fEA",
+      "title": "Mentice - Acute Ischemic Stroke clot retrieval using aspiration and stent retrieval",
+      "duration": 1840,
+      "url": "https://www.youtube.com/watch?v=SP0zbOw0fEA",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T00:53:00-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "HdUAVMndoLg",
+      "title": "Neurovascular Thrombectomy Gothenburg 2020-04-02",
+      "duration": 2174,
+      "url": "https://www.youtube.com/watch?v=HdUAVMndoLg",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T00:53:00-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "xmYpboekytY",
+      "title": "Mentice Transradial Approach Product Video",
+      "duration": 165,
+      "url": "https://www.youtube.com/watch?v=xmYpboekytY",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T00:50:23-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Cateteres e acesso",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "aylzxjEMMeQ",
+      "title": "Mentice - Acute Ischemic Stroke Intervention - Dissection Case 5 Demo with Kyle",
+      "duration": 1549,
+      "url": "https://www.youtube.com/watch?v=aylzxjEMMeQ",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T00:50:23-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "9NlJLbWO2BE",
+      "title": "Mentice Radiation Safety software demo",
+      "duration": 1265,
+      "url": "https://www.youtube.com/watch?v=9NlJLbWO2BE",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T00:50:23-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Radioproteção",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "NqI4Vhih0Bw",
+      "title": "Replicator - High Fidelity Neurovascular Flow System",
+      "duration": 64,
+      "url": "https://www.youtube.com/watch?v=NqI4Vhih0Bw",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2021-08-09T00:47:49-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Plataformas e dispositivos",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "U1fprbeRliA",
+      "title": "Mentice Neurovascular Thrombectomy Training Software Step-By-Step Video",
+      "duration": 1339,
+      "url": "https://www.youtube.com/watch?v=U1fprbeRliA",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2020-01-08T08:15:01-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "DYWq_CjsSVw",
+      "title": "Mentice Neurovascular Thrombectomy",
+      "duration": 134,
+      "url": "https://www.youtube.com/watch?v=DYWq_CjsSVw",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2019-12-06T00:35:49-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "OphK7xHzgdE",
+      "title": "The Neuroradiology Department TUM - VIST® Case-It Patient-Specific Simulation",
+      "duration": 136,
+      "url": "https://www.youtube.com/watch?v=OphK7xHzgdE",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2019-07-03T12:52:32-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Planejamento e ensaio",
+      "kind": "Ensino e contexto"
+    },
+    {
+      "id": "DXgqeJ_NSAM",
+      "title": "The Neuroradiology Department TUM - Curriculum based Simulation Training in Daily Practice",
+      "duration": 163,
+      "url": "https://www.youtube.com/watch?v=DXgqeJ_NSAM",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2019-07-03T12:42:30-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Ensino e avaliação",
+      "kind": "Ensino e contexto"
+    },
+    {
+      "id": "s9sDpbDzd6M",
+      "title": "MENTICE - The Technical University of Munich Introduces endovascular simulation into daily practice",
+      "duration": 337,
+      "url": "https://www.youtube.com/watch?v=s9sDpbDzd6M",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2019-06-18T07:28:35-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Ensino e avaliação",
+      "kind": "Ensino e contexto"
+    },
+    {
+      "id": "RDsgL8ipxXo",
+      "title": "The Technical University of Munich Introduces endovascular simulation into daily practice",
+      "duration": 337,
+      "url": "https://www.youtube.com/watch?v=RDsgL8ipxXo",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2019-06-17T02:27:48-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Ensino e avaliação",
+      "kind": "Ensino e contexto"
+    },
+    {
+      "id": "ugbCgj5RV7I",
+      "title": "Thrombectomy - A challenging procedure",
+      "duration": 156,
+      "url": "https://www.youtube.com/watch?v=ugbCgj5RV7I",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2019-03-28T00:59:04-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "4sWYUj3_JTc",
+      "title": "Thrombectomy  -Training to proficiency",
+      "duration": 237,
+      "url": "https://www.youtube.com/watch?v=4sWYUj3_JTc",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2019-02-28T03:51:26-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Ensino e contexto"
+    },
+    {
+      "id": "3SJfxOLrqqg",
+      "title": "Mentice Course Creation With Benchmarking Support",
+      "duration": 155,
+      "url": "https://www.youtube.com/watch?v=3SJfxOLrqqg",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2018-11-27T03:42:09-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Ensino e avaliação",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "BpPYaBwrbT8",
+      "title": "Mentice Neurovascular Brain Aneurysm Coiling Demo",
+      "duration": 441,
+      "url": "https://www.youtube.com/watch?v=BpPYaBwrbT8",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2016-03-21T02:52:39-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Coiling",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "jlxZg4KbC8Y",
+      "title": "Mentice Acute Ischemic Stroke Intervention Demo",
+      "duration": 377,
+      "url": "https://www.youtube.com/watch?v=jlxZg4KbC8Y",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2016-03-18T06:00:19-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "neurovascular",
+      "topic": "Trombectomia",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "czY91bSZPXs",
+      "title": "Basic Catheter Skills",
+      "duration": 111,
+      "url": "https://www.youtube.com/watch?v=czY91bSZPXs",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2015-06-05T07:48:26-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Cateteres e acesso",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "KNA2ILAZY98",
+      "title": "The Basics of Sheaths and Catheters",
+      "duration": 153,
+      "url": "https://www.youtube.com/watch?v=KNA2ILAZY98",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2015-06-05T07:48:26-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Cateteres e acesso",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "BE8MZQvggN8",
+      "title": "Understanding the Metric Report",
+      "duration": 215,
+      "url": "https://www.youtube.com/watch?v=BE8MZQvggN8",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2015-06-05T07:48:26-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Ensino e avaliação",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "fMxflUErA1I",
+      "title": "Mentice Radiation Safety",
+      "duration": 435,
+      "url": "https://www.youtube.com/watch?v=fMxflUErA1I",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2015-04-13T09:21:34-07:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Radioproteção",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "a6oYjl1kQn4",
+      "title": "Mentice VIST® Case-It",
+      "duration": 435,
+      "url": "https://www.youtube.com/watch?v=a6oYjl1kQn4",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2014-01-14T00:31:49-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Planejamento e ensaio",
+      "kind": "Apresentação do fabricante"
+    },
+    {
+      "id": "nzjB0yxjulk",
+      "title": "Case-It Workflow - Adjusting Template Anatomy Before Inserting Patient-Specific Data",
+      "duration": 460,
+      "url": "https://www.youtube.com/watch?v=nzjB0yxjulk",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2013-12-17T02:53:06-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Planejamento e ensaio",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "mrKWrfq9vvE",
+      "title": "Case-It Workflow - Importing Patient-Specific Data",
+      "duration": 333,
+      "url": "https://www.youtube.com/watch?v=mrKWrfq9vvE",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2013-12-17T02:17:41-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Planejamento e ensaio",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "qrahzKqy_qs",
+      "title": "Case-It Workflow - Customizing Predefined Anatomy",
+      "duration": 273,
+      "url": "https://www.youtube.com/watch?v=qrahzKqy_qs",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2013-12-17T00:59:36-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Planejamento e ensaio",
+      "kind": "Demonstração"
+    },
+    {
+      "id": "mrUHF3iz6dg",
+      "title": "Mentice VIST® Case-It",
+      "duration": 435,
+      "url": "https://www.youtube.com/watch?v=mrUHF3iz6dg",
+      "channel_id": "UCD8fhJKXCPwp5C3e-q7Fs5A",
+      "author": "Mentice",
+      "published": "2013-11-29T08:04:28-08:00",
+      "embed_allowed": true,
+      "metadata_checked": true,
+      "review_basis": "titulo_e_metadados_publicos; sem_revisao_integral_do_video",
+      "scope": "complementar",
+      "topic": "Planejamento e ensaio",
+      "kind": "Apresentação do fabricante"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "ZC0TBi57fkw",
+      "title": "Mentice Company Presentation 2026",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "hoWzKEB53xk",
+      "title": "Mentice VIST® G7 Go Setup Video",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "IThAi7Q8GQ4",
+      "title": "VIST® G7 Go. Portable hands-on device demonstrations wherever you meet customers",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "t_fxwY7gh-o",
+      "title": "VIST G7 Go",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "sRPzOwLUQsg",
+      "title": "EP Essentials (Pre-Release Edition) | Portable Electrophysiology Training & Device Demo Tool",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "UKb172xy8rI",
+      "title": "Mentice: Navigate Aortic Valve Implantation (TAVI/TAVR) with the Updated Learning Module",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "2cF2roatGXI",
+      "title": "Mentice VIST G7 Setup Video Guide 2025",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "eZiqqZwyz80",
+      "title": "Mentice: Prepare for the Complexities of Post-TAVI PCI with the Updated Coronary Intermediate Module",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "om9BSa3cbfA",
+      "title": "Season’s Greetings from Mentice: Göran Malmberg introducing new CEO Frans Venker",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "svhINvEXgUQ",
+      "title": "Interventional Cardiology - Left main PCI perforation complication management - VR simulation",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "nVabhfsec44",
+      "title": "Renal Intervention",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "aafuX3Tta18",
+      "title": "Mentice Capital Markets Day (CMD) 2024",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "N0EsEYDlrf0",
+      "title": "Mentice Celebrating 25 years",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "E16sYy44B-A",
+      "title": "Mentice Celebrates 25 Years",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "VuWs7DN5-cg",
+      "title": "Mentice Transseptal Puncture",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "h1Hdtxov_bU",
+      "title": "Mentice UAE case with Dr. Gloria Salazar during SIR 2022",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "7IjHi_KG67Y",
+      "title": "Cardiac Sculptor - Structural Heart Anatomy Importation Software",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "9f2n7gtf0w0",
+      "title": "How are Interventional Cardiologists using simulation to improve their training workflow?",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "n8SwjLduPq0",
+      "title": "The Brazilian Society of Radiology (SOBRICE) restructured PAE certification utilizing simulation",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "LTiMQ1IkvRI",
+      "title": "Clinical Trainer Leads Team of Principal Investigators with Simulated Aortic Endograft Deployment",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "GXVOdNExgdI",
+      "title": "Atrial Septal Defect and Patent Foramen Ovale Occlusion (ASD PFO )",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "Nxeg0Ht1eb0",
+      "title": "Mentice Coronary Advanced -  Perforation Case",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "6KoUGkYdpV0",
+      "title": "TEVAR",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "t-d7y_QQyME",
+      "title": "Transseptal Puncture",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "qW-HLXTYH6E",
+      "title": "Mentice Iliac and SFA Intervention   Product Video   short version",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "oxPeI0kW3Rw",
+      "title": "Below the knee Intervention",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "dfDgHRDxUFY",
+      "title": "Mentice TACE   Product Video   short version",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "ZONbYlOnHtc",
+      "title": "Coronary PRO",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "VNCixFN9KTM",
+      "title": "Mentice Vascular Trauma Management   Product Video   short version",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "Tiosfu6I4b8",
+      "title": "Peripheral Angiography",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "SJMvRMJOTNw",
+      "title": "Cardiac Rhythm Management",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "M_3OCDwdtMw",
+      "title": "Endovascular Aortic Repair",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "MCuTLAmms0Y",
+      "title": "Mentice PAE   Product Video   short version",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "7rG91edm7y0",
+      "title": "Renal Intervention",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "V3wLBJ7hCWo",
+      "title": "Uterine Artery Embolization",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "hLhSElr8mJ0",
+      "title": "Endovascular Aortic Repair (EVAR) with Lars Lonn",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "qc1o9TCOS5Q",
+      "title": "Renal Intervention Narrow Curved Ostial Lesion",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "NSJ8Sh9Upe4",
+      "title": "Mentice - Transseptal Puncture Demo - Chicago",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "wDOsgZfy0V0",
+      "title": "Mentice Coronary Advanced - Building proficiency in complex coronary interventions",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "PVTUdUvjIlY",
+      "title": "Mentice Renal Intervention - Right mid distal renal lesion, brachial approach Patient R8",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "_8tL212_q3I",
+      "title": "Transarterial Chemoembolization (TACE) walk-through with Lars",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "Lz2I1oFMXr8",
+      "title": "Mentice Live Learning Center Product Video",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "mXQBcdCY31Q",
+      "title": "SimMan Vascular - Annotations and Subtitles",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "kboKnJ4hFbg",
+      "title": "Mentice Corindus Icono integration",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "TOgiLtaDlB8",
+      "title": "Mentice Icono integration",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "xPsoX2IDeeA",
+      "title": "Mentice SiM Core",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "kmoub_7z8p4",
+      "title": "Mentice Right Heart Catheterization Promo Video",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "-mgRouvhL9g",
+      "title": "Coronary Advanced - Develop Expert Skills for Complex Bifurcation Cases",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "y8500jHt8nk",
+      "title": "Dr. Mansour Razminia Expert testimonial on Mentice Intracardiac Echocardiography (ICE) simulation",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "HtQEXmjFeMk",
+      "title": "Endovascular simulation during the COVID 19 crisis - How to address the proficiency challenge.",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "NT38RqQPAas",
+      "title": "Siemens Healthineers and Mentice",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "t1p_OMEjn00",
+      "title": "Trauma - CTA vs. no CTA",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "9cvN2Sm26uA",
+      "title": "TACE - hepatic artery variant anatomy",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "Wh0Dup8JM1A",
+      "title": "Trauma - gel foam vs. coils",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "jsfSrTpQuI0",
+      "title": "Uterine artery anatomy and positioning for embolization",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "KiZiqoLTcRA",
+      "title": "Introduction to Simulation in Interventional Radiology during COVID-19",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "wFOvaLCx_t8",
+      "title": "Formation of a reverse curve catheter over the aortic bifurcation",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "sLcyWADTl_k",
+      "title": "Choices for base catheter selection in transarterial liver embolization (TACE)",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": false,
+      "player_status": "LOGIN_REQUIRED"
+    },
+    {
+      "id": "ugsAF9UjRMc",
+      "title": "Mentice - Medical Simulation during COVID-19",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "MYIwU9kVoX8",
+      "title": "Mentice - CABG PCI - Get confident with challenging anatomies",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "3ZvJoQe7gYk",
+      "title": "Mentice: FFR - Understand when to treat a lesion",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "sINrdSi7Qy0",
+      "title": "Mentice: iPad Proctor - Add real-time complications",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "9kLcIAlcVVk",
+      "title": "Mentice: Integrated Expert Guidance - Save valuable proctor time",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "QoAmzdjWmQ4",
+      "title": "Mentice: Chronic Total Occlusion (CTO) - Master Antegrade Crossing Techniques",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "93P6eqiPuL8",
+      "title": "Mentice: Coronary Intermediate",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "4vUVjUCbQtk",
+      "title": "Mentice - Coronary Intermediate",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "8mcVt0Zmizw",
+      "title": "CABG Intro reverse",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "tTdOQrdeqaI",
+      "title": "Mentice Coronary Essentials",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "Ornh18VgbHM",
+      "title": "Webinar: TEE Training Challenges and Solutions - Expert Talk",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "aXLANpVYR9M",
+      "title": "VIST® One TEE full version",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "SY4GpPkgnHI",
+      "title": "VIST® One TEE Product Highlight",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "bJMsmGXqNfU",
+      "title": "Mentice Matters - celebrating 20 years of simulation excellence",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "kNLRJZ8cU1U",
+      "title": "VIST® One TEE - the most sophisticated real-time ultrasound simulation",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "s-QcAuu_61w",
+      "title": "VIST® One TEE – TEE probe based on real vendor’s probes",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "-GhwhP1OnRU",
+      "title": "VIST® One TEE - Highly portable and flexible solution",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "0qexykqlXUo",
+      "title": "VIST® One TEE – assessment of skills and curriculum-based self-learning under expert guidance",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "oXt26oN5zlk",
+      "title": "Florida Hospital Interview with Melanie Reynolds, RN",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "QUusFCodiFo",
+      "title": "Florida Hospital Interview with Dr. Rajesh Shah",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "6XkqGPYI7Os",
+      "title": "Florida Hospital Interview with Barry Egolf, RN",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "yNT147RWX2w",
+      "title": "Meet Our Developers!",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "cN4uWEJ-SSs",
+      "title": "We are looking for developers - https://www.mentice.com/career",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": false,
+      "player_status": "LOGIN_REQUIRED"
+    },
+    {
+      "id": "ia5XdW2-IZE",
+      "title": "Southampton PAE workshop interview with Dr. Nigel Hacking, University Hospital Southampton. Number 1",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "KzDNCCBEt38",
+      "title": "Southampton PAE workshop interview with Dr. Nigel Hacking, University Hospital Southampton. Number 2",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "pZvdT_gN0Hw",
+      "title": "Southampton PAE workshop interview with Dr. Nigel Hacking, University Hospital Southampton. Number 3",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "InB5d_KO5jo",
+      "title": "Southampton PAE workshop interview with Dr. Timothy Bryant, University Hospital Southampton.",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "hc3vF0oebj8",
+      "title": "Southampton PAE workshop interview with Dr. Sachin Modi, University Hospital Southampton.",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "lOk5g4FtkTE",
+      "title": "Southampton PAE workshop - Powered by Mentice Simulators",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "JPNJapaI1tk",
+      "title": "Florida Hospital introduces Mentice VIST® Lab to their institution.",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "NSQR9W5IsYg",
+      "title": "Mentice Transarterial Chemoembolization (TACE) Training Software",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "i-ZiokfBsqk",
+      "title": "Mentice Prostatic Artery Embolization (PAE) Training Software",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "FfYZ2vX0q2U",
+      "title": "Mentice Vascular Trauma Management Demo",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "Vsr-CIXUzl4",
+      "title": "Mentice Iliac Artery Stenoses Intervention Demo",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "dNa0CIiAoqc",
+      "title": "Ji Buethe, M.D. Guest speaker at Mentice User Meeting 2015",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "ObKqSZ3vbt0",
+      "title": "Jeff Davis, RRT, RCIS Florida SouthWestern State College, Guest speaker",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "jKm57Qc1GZk",
+      "title": "Guest speaker at Mentice User Meeting 2015: Mr. Todd Pietila, Business Dev Manager, Materialise",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "_ki8Cbn6zUA",
+      "title": "Dr Mark Meyer's speach at the Mentice User Meeting 2015",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "bZ8ABnE2v-I",
+      "title": "Panel discussion at the Mentice User Meeting 2015",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "o-2ILcOSN1M",
+      "title": "Key Note Speaker at Mentice User Meeting 2015 Dr. Tony Gallagher",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "xTrv3cAlteg",
+      "title": "Indroduction to the New VIST Control Box.",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "OgtiKY3Z7Ic",
+      "title": "How to perform patient specific EVAR intervention simulation",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "4Z9q-0ZNuFw",
+      "title": "Train the Trainer Workshop - Session 3",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "fesA70hSjL8",
+      "title": "Train the Trainer Workshop - Session 1",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "E_ummd-P_og",
+      "title": "Train the Trainer Workshop - Session 2",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "x3zyYA01WyQ",
+      "title": "Required Open and Endovascular Skills Resuscitative Endovascular Balloon Occlusion of the Aorta",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "Rg0rmTm5RLQ",
+      "title": "Implementing a Multidisciplinary Simulation Based Training in Interventional Radiology",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "IInxSwF4DvM",
+      "title": "Technical Innovation, the Learning Environment and the Vascular Fellowship – A Mandate for Change",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "6zgYC0qrqN0",
+      "title": "Curriculum Considerations for Simulation Integration by Dr. Nancy Schindler, M.D",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "vzX2bUBIZzM",
+      "title": "Southwest Florida Transradial Project – A Collaborative Effort by Jeff Davis, RRT-NPS, RCIS",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "pAUqltrOMPQ",
+      "title": "Mentice - Thoracic Endovascular Aortic Repair (TEVAR) Case Video",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    },
+    {
+      "id": "Mhn87Oe8CfQ",
+      "title": "Mentice - Thoracic Endovascular Aortic Repair (TEVAR)",
+      "reason": "Fora do escopo neurointervencionista e dos fundamentos selecionados",
+      "metadata_checked": true,
+      "player_status": "OK"
+    }
+  ]
+}
