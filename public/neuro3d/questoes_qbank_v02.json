@@ -1,0 +1,502 @@
+[
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "ACI — Bouthillier C1–C7",
+    "enunciado": "Em Bouthillier, qual é o limite proximal de C6?",
+    "alternativas": [
+      "Origem da oftálmica",
+      "Anel dural distal",
+      "Ligamento petrolingual",
+      "Bifurcação carotídea"
+    ],
+    "gabarito": "B",
+    "comentario": "O segmento oftálmico C6 começa no anel dural distal; a origem da oftálmica é variável.\n\nReferência: Harrigan & Deveikis, 4ª ed., cap. 1, pp. 33–47 — ACI e Bouthillier\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "aci"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "ACI — Bouthillier C1–C7",
+    "enunciado": "Qual estrutura delimita a transição de C3 para C4?",
+    "alternativas": [
+      "Ligamento petrolingual",
+      "Anel dural distal",
+      "Comunicação posterior",
+      "Forame espinhoso"
+    ],
+    "gabarito": "A",
+    "comentario": "O C4 cavernoso começa no limite superior do ligamento petrolingual.\n\nReferência: Harrigan & Deveikis, 4ª ed., cap. 1, pp. 33–47 — ACI e Bouthillier\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "aci"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Paraclinoide e anéis durais",
+    "enunciado": "Qual estrutura separa os segmentos C4 e C5 de Bouthillier?",
+    "alternativas": [
+      "Anel dural distal",
+      "Anel dural proximal",
+      "Bifurcação ACI–ACA",
+      "Canal carotídeo"
+    ],
+    "gabarito": "B",
+    "comentario": "O anel proximal marca a transição cavernoso/clinoideo.\n\nReferência: Harrigan & Deveikis, 4ª ed., cap. 1, pp. 33–47 — ACI e Bouthillier\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "paraclinoid"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Paraclinoide e anéis durais",
+    "enunciado": "Por que a carotid cave é relevante para aneurismas paraclinoideos?",
+    "alternativas": [
+      "É sempre extradural",
+      "É um recesso intradural potencial",
+      "É o óstio da oftálmica",
+      "É o canal da vertebral"
+    ],
+    "gabarito": "B",
+    "comentario": "O recesso pode estender componente intradural sob marcos ósseos usuais.\n\nReferência: Krings et al. Neurovascular Anatomy in Interventional Neuroradiology (2015), caso 6, pp. 27–30: anéis durais e carotid cave\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "paraclinoid"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Embriologia vascular inicial",
+    "enunciado": "O quinto arco arterial faríngeo deve estar presente no esquema normal obrigatório?",
+    "alternativas": [
+      "Sim, sempre",
+      "Somente no lado direito",
+      "Não: sua existência independente é controversa",
+      "Somente após a sexta semana"
+    ],
+    "gabarito": "C",
+    "comentario": "A literatura questiona a existência do quinto arco como entidade independente humana.\n\nReferência: Krings et al., 2015, casos 1–2, pp. 2–10 — variantes do arco e subclávia aberrante\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "embryo"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Junção craniocervical e vertebrais",
+    "enunciado": "A formação cervical das vertebrais depende principalmente de:",
+    "alternativas": [
+      "Fusão das carótidas externas",
+      "Anastomoses longitudinais intersegmentares",
+      "Regressão das arteríolas da retina",
+      "Ramificação da cerebral média"
+    ],
+    "gabarito": "B",
+    "comentario": "Plexos longitudinais conectam artérias cervicais intersegmentares.\n\nReferência: Krings et al., 2015, casos 1–2, pp. 2–10 — variantes do arco e subclávia aberrante\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "craniocervical"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Arco aórtico e troncos supra-aórticos",
+    "enunciado": "Uma subclávia direita aberrante decorre classicamente de:",
+    "alternativas": [
+      "Persistência da trigeminal",
+      "Remodelamento anômalo do IV arco direito e aorta dorsal",
+      "Diminuição do calibre da A1",
+      "Fusão de seios venosos"
+    ],
+    "gabarito": "B",
+    "comentario": "A involução anômala do quarto arco direito e segmento de aorta dorsal produz a configuração aberrante.\n\nReferência: Krings et al., 2015, casos 1–2, pp. 2–10 — variantes do arco e subclávia aberrante\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "arch"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Junção craniocervical e vertebrais",
+    "enunciado": "A artéria hipoglossal persistente é identificada especialmente por atravessar:",
+    "alternativas": [
+      "Forame oval",
+      "Canal hipoglossal",
+      "Canal óptico",
+      "Forame espinhoso"
+    ],
+    "gabarito": "B",
+    "comentario": "A trajetória pelo canal hipoglossal diferencia essa anastomose embrionária persistente.\n\nReferência: Krings et al., 2015, caso 4, pp. 17–20 — anastomoses carotidobasilares primitivas\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "craniocervical"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Junção craniocervical e vertebrais",
+    "enunciado": "A proatlântica persistente tipo II se relaciona principalmente a qual território?",
+    "alternativas": [
+      "Carótida externa",
+      "Artéria oftálmica da ACA",
+      "Arco aórtico sexto",
+      "Artéria cerebral média"
+    ],
+    "gabarito": "A",
+    "comentario": "A via tipo II frequentemente se associa à carótida externa e ao sistema intersegmentar superior.\n\nReferência: Krings et al., 2015, caso 4, pp. 17–20 — anastomoses carotidobasilares primitivas\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "craniocervical"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Embriologia vascular inicial",
+    "enunciado": "A artéria ótica primitiva como conexão independente é considerada:",
+    "alternativas": [
+      "Constante",
+      "Demonstrada em todos os embriões",
+      "Uma entidade controversa",
+      "Um ramo da retinal"
+    ],
+    "gabarito": "C",
+    "comentario": "Não há consenso de que exista como sistema segmentar independente.\n\nReferência: Krings et al., 2015, caso 4, pp. 17–20 — anastomoses carotidobasilares primitivas\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "embryo"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Anastomoses ECA–ACI–oftálmica",
+    "enunciado": "Uma variante oftálmica originada do sistema meníngeo representa especial preocupação devido a:",
+    "alternativas": [
+      "Trombose das veias hepáticas",
+      "Dependência de irrigação ocular de ramos da ECA",
+      "Fusão da medula",
+      "Hipertensão pulmonar"
+    ],
+    "gabarito": "B",
+    "comentario": "Anastomoses meningo-oftálmicas podem conectar irrigação ocular ao território da ECA.\n\nReferência: Krings et al. (2015), casos 25–27, pp. 128–145: anastomoses perigosas orbitárias, petrocavernosas e cervicais\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "orbit"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Anastomoses ECA–ACI–oftálmica",
+    "enunciado": "O suprimento retiniano exige atenção porque a artéria central da retina é:",
+    "alternativas": [
+      "Um ramo venoso",
+      "Uma artéria terminal de pouca circulação colateral",
+      "Uma anastomose vertebral",
+      "Uma perfurante da basilar"
+    ],
+    "gabarito": "B",
+    "comentario": "A oclusão da artéria central da retina pode comprometer definitivamente a visão.\n\nReferência: Harrigan & Deveikis, 4ª ed., cap. 1, pp. 33–47 — ACI e Bouthillier\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "orbit"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Paraclinoide e anéis durais",
+    "enunciado": "A localização da origem da artéria oftálmica determina sempre o começo de C6?",
+    "alternativas": [
+      "Sim",
+      "Não",
+      "Apenas com variantes da ACP",
+      "Apenas nos adultos jovens"
+    ],
+    "gabarito": "B",
+    "comentario": "C6 é definido pelo anel dural distal, não obrigatoriamente pela origem variável da oftálmica.\n\nReferência: Harrigan & Deveikis, 4ª ed., cap. 1, pp. 33–47 — ACI e Bouthillier\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "paraclinoid"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Angioarquitetura patológica",
+    "enunciado": "A principal diferença entre uma MAV e uma FAVd é:",
+    "alternativas": [
+      "A presença de grande veia sempre",
+      "O compartimento do shunt e sua angioarquitetura",
+      "O uso de TC sem contraste",
+      "A idade ao diagnóstico"
+    ],
+    "gabarito": "B",
+    "comentario": "A MAV inclui nido parenquimatoso; a FAVd corresponde a conexão arteriovenosa dural sem nido desse tipo.\n\nReferência: Krings et al. (2015), casos 32–36, pp. 158–190: seios durais e sistemas venosos\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "disease"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Angioarquitetura patológica",
+    "enunciado": "Nas FAVs durais, o elemento angiográfico decisivo para estratificação é:",
+    "alternativas": [
+      "Diâmetro apenas",
+      "Padrão de drenagem e refluxo cortical",
+      "Sexo do paciente",
+      "Número de carótidas"
+    ],
+    "gabarito": "B",
+    "comentario": "A drenagem venosa cortical/refluxo é fator crítico de classificação e risco.\n\nReferência: Krings et al. (2015), casos 32–36, pp. 158–190: seios durais e sistemas venosos\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "disease"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Topo da basilar — três padrões",
+    "enunciado": "A configuração do topo basilar com fusão assimétrica permite inferir automaticamente um aneurisma?",
+    "alternativas": [
+      "Sim, é diagnóstico",
+      "Não, descreve morfologia e associações, não causalidade individual",
+      "Sempre no lado direito",
+      "Apenas quando há FAV"
+    ],
+    "gabarito": "B",
+    "comentario": "Associações observacionais não são regras individuais de predição.\n\nReferência: Krings et al. (2015), caso 22, pp. 111–113: tipos de fusão do ápice basilar e perfurantes\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "basilar"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Topo da basilar — três padrões",
+    "enunciado": "Artéria de Percheron é:",
+    "alternativas": [
+      "Vaso obrigatório em todos",
+      "Uma variante de suprimento talâmico a partir do sistema P1",
+      "Origem da artéria oftálmica",
+      "Ramo da carótida externa"
+    ],
+    "gabarito": "B",
+    "comentario": "A Percheron corresponde a um padrão variante de tronco perfurante comum.\n\nReferência: Krings et al. (2015), caso 22, pp. 111–113: tipos de fusão do ápice basilar e perfurantes\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "basilar"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Sistema venoso cerebral",
+    "enunciado": "A veia de Trolard se relaciona principalmente ao sistema de:",
+    "alternativas": [
+      "Seio sagital superior",
+      "Veias portais",
+      "Veia jugular externa direta",
+      "Seio cavernoso obrigatório"
+    ],
+    "gabarito": "A",
+    "comentario": "É grande anastomose superior superficial, com variações individuais de dominância.\n\nReferência: Krings et al. (2015), casos 32–36, pp. 158–190: seios durais e sistemas venosos\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "venous"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Sistema venoso cerebral",
+    "enunciado": "A veia de Labbé usualmente relaciona drenagem superficial ao:",
+    "alternativas": [
+      "Seio transverso",
+      "Saco aórtico",
+      "Canal carotídeo",
+      "Arco VI"
+    ],
+    "gabarito": "A",
+    "comentario": "Coletor superficial anastomótico inferior, frequentemente para o seio transverso.\n\nReferência: Krings et al. (2015), casos 32–36, pp. 158–190: seios durais e sistemas venosos\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "venous"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Vascularização medular",
+    "enunciado": "A artéria radiculomedular anterior diferencia-se da artéria radicular porque:",
+    "alternativas": [
+      "Participa do suprimento da artéria espinal anterior",
+      "É sempre veia",
+      "Nasce da ACA",
+      "Nutre só a pele"
+    ],
+    "gabarito": "A",
+    "comentario": "A radiculomedular alcança e reforça o eixo arterial medular; a radicular pode restringir-se à raiz.\n\nReferência: Lasjaunias et al., Surgical Neuroangiography vol.1, 2ª ed., cap. 2, pp. 74–164: anatomia vascular medular (arquivo disponibilizado traduzido automaticamente)\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "spinal"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Vascularização medular",
+    "enunciado": "A presença de ramos segmentares espinais em cada nível implica artéria medular funcional em todos?",
+    "alternativas": [
+      "Sim",
+      "Não, há regressão seletiva e reforço irregular",
+      "Somente em C1",
+      "Somente no sacro"
+    ],
+    "gabarito": "B",
+    "comentario": "O suprimento medular segmentar se remodela e nem todo nível contém alimentador medular significativo.\n\nReferência: Krings et al. (2015), casos 39–43, pp. 200–226: artérias segmentares e veias medulares\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "spinal"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Vascularização medular",
+    "enunciado": "O modelo 3D mostra dois tubos posteriores medulares contínuos; qual ressalva é correta?",
+    "alternativas": [
+      "É anatomia invariável",
+      "Representação didática de rede pial variável",
+      "Mostra uma veia cardíaca",
+      "É um circuito artificial sem vasos"
+    ],
+    "gabarito": "B",
+    "comentario": "O sistema posterior é plexiforme e variável e não deve ser interpretado como duas artérias invariáveis.\n\nReferência: Lasjaunias et al., Surgical Neuroangiography vol.1, 2ª ed., cap. 2, pp. 74–164: anatomia vascular medular (arquivo disponibilizado traduzido automaticamente)\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "spinal"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Anastomoses ECA–ACI–oftálmica",
+    "enunciado": "Uma comunicação ECA–ACI pode ficar pouco aparente em angiografia de rotina e tornar-se relevante por:",
+    "alternativas": [
+      "Mudança de gradientes hemodinâmicos",
+      "Perda de expressão de angiotensina apenas",
+      "Compressão da íris",
+      "Presença obrigatória de aneurisma"
+    ],
+    "gabarito": "A",
+    "comentario": "Comunicações potenciais podem se tornar hemodinamicamente funcionais sob condições específicas.\n\nReferência: Krings et al. (2015), casos 25–27, pp. 128–145: anastomoses perigosas orbitárias, petrocavernosas e cervicais\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "orbit"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "ACI — Bouthillier C1–C7",
+    "enunciado": "A segmentação de Lasjaunias deve ser numericamente equiparada a Bouthillier?",
+    "alternativas": [
+      "Sim",
+      "Não: o critério embriológico é distinto",
+      "Só nos segmentos C1 e C2",
+      "Apenas se houver sinusite"
+    ],
+    "gabarito": "B",
+    "comentario": "São classificações com finalidades e marcos distintos.\n\nReferência: Lasjaunias et al., Surgical Neuroangiography, 2ª ed., vol. 1, caps. 1, 3–4 — embriologia e anatomia funcional (PDF traduzido automaticamente)\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "aci"
+    ]
+  },
+  {
+    "categoria": "Neurorradiologia Intervencionista",
+    "subcategoria": "Polígono de Willis e ramos",
+    "enunciado": "Uma reconstrução angiográfica 3D que não mostra perfurantes autoriza concluir que estão ausentes?",
+    "alternativas": [
+      "Sim",
+      "Não; limitações de resolução não demonstram ausência anatômica",
+      "Somente na circulação posterior",
+      "Só com contraste iodado"
+    ],
+    "gabarito": "B",
+    "comentario": "O atlas de Borden reconhece limitações da 3DRA em vasos pequenos e contexto anatômico.\n\nReferência: Borden, 3D Angiographic Atlas of Neurovascular Anatomy and Pathology (2007), capítulos da circulação intracraniana e vascularização cervical — referência conceitual de projeções\n\nMaterial didático; não homologado como questão de exame.",
+    "justificativa_incorretas": {},
+    "dificuldade": "Médio",
+    "tags": [
+      "Neuro3D",
+      "Anatomia Neurovascular",
+      "circle"
+    ]
+  }
+]

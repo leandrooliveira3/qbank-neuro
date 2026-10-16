@@ -1,0 +1,279 @@
+{
+  "versao": "0.2-documental-verificada",
+  "categoria": "Anatomia arterial carotídea (referência topológica, não geometria 3D)",
+  "sistema_de_nomeacao": "Bouthillier 1996; C1-C7, fluxo proximal para distal",
+  "lado": "Instanciar L e R separadamente; não pressupor simetria completa",
+  "segmentos": [
+    {
+      "id": "ICA-C1",
+      "nome": "cervical",
+      "proximo": "Bifurcação carotídea",
+      "distal": "Entrada do canal carotídeo",
+      "ramos_habituais": [],
+      "estruturas_adjacentes": [
+        "bainha carotídea",
+        "veia jugular interna",
+        "nervo vago",
+        "bulbo carotídeo"
+      ]
+    },
+    {
+      "id": "ICA-C2",
+      "nome": "petroso",
+      "proximo": "Entrada do canal carotídeo",
+      "distal": "Margem posterior do forame lacerado",
+      "ramos_habituais": [
+        "ART-caroticotimpanica (variável)",
+        "ART-canal_pterigoideo (variável)"
+      ],
+      "estruturas_adjacentes": [
+        "canal carotídeo",
+        "cóclea",
+        "cavidade timpânica",
+        "canal pterigoideo"
+      ]
+    },
+    {
+      "id": "ICA-C3",
+      "nome": "lacerum",
+      "proximo": "Margem posterior do forame lacerado",
+      "distal": "Margem superior do ligamento petrolingual",
+      "ramos_habituais": [],
+      "estruturas_adjacentes": [
+        "fibrocartilagem do forame lacerado",
+        "ligamento petrolingual",
+        "gânglio trigeminal"
+      ]
+    },
+    {
+      "id": "ICA-C4",
+      "nome": "cavernoso",
+      "proximo": "Ligamento petrolingual",
+      "distal": "Anel dural proximal",
+      "ramos_habituais": [
+        "ART-meningohipofisario (variável)",
+        "ART-inferolateral (variável)"
+      ],
+      "estruturas_adjacentes": [
+        "seio cavernoso",
+        "nervo abducente",
+        "nervo oculomotor",
+        "nervo troclear",
+        "nervo oftálmico V1",
+        "nervo maxilar V2",
+        "sela",
+        "esfenoide"
+      ]
+    },
+    {
+      "id": "ICA-C5",
+      "nome": "clinoideo",
+      "proximo": "Anel dural proximal",
+      "distal": "Anel dural distal",
+      "ramos_habituais": [],
+      "estruturas_adjacentes": [
+        "clinoide anterior",
+        "colar dural",
+        "plexo venoso clinoideo",
+        "pilar optico"
+      ]
+    },
+    {
+      "id": "ICA-C6",
+      "nome": "oftalmico",
+      "proximo": "Anel dural distal",
+      "distal": "Imediatamente proximal à origem da comunicante posterior",
+      "ramos_habituais": [
+        "ART-oftalmica (local variável)",
+        "ART-hipofisarias_superiores (variáveis)"
+      ],
+      "estruturas_adjacentes": [
+        "nervo óptico",
+        "quiasma óptico",
+        "carotid cave",
+        "diafragma da sela"
+      ]
+    },
+    {
+      "id": "ICA-C7",
+      "nome": "comunicante",
+      "proximo": "Imediatamente proximal à origem da comunicante posterior",
+      "distal": "Bifurcação ACI em ACA/ACM",
+      "ramos_habituais": [
+        "ART-comunicante_posterior",
+        "ART-coroideia_anterior"
+      ],
+      "estruturas_adjacentes": [
+        "trato óptico",
+        "quiasma óptico",
+        "substância perfurada anterior"
+      ]
+    }
+  ],
+  "transicoes": [
+    {
+      "de": "ICA-C1",
+      "para": "ICA-C2"
+    },
+    {
+      "de": "ICA-C2",
+      "para": "ICA-C3"
+    },
+    {
+      "de": "ICA-C3",
+      "para": "ICA-C4"
+    },
+    {
+      "de": "ICA-C4",
+      "para": "ICA-C5"
+    },
+    {
+      "de": "ICA-C5",
+      "para": "ICA-C6"
+    },
+    {
+      "de": "ICA-C6",
+      "para": "ICA-C7"
+    }
+  ],
+  "bifurcacao_terminal": {
+    "de": "ICA-C7",
+    "para": [
+      "ACA-A1",
+      "ACM-M1"
+    ]
+  },
+  "ramos_e_variantes": [
+    {
+      "vaso": "ART-oftalmica",
+      "origem_padrao": "ICA-C6",
+      "origem_alternativa": [
+        "ICA-C4",
+        "ICA-C5",
+        "ACA-A1",
+        "ART-meningea_media"
+      ],
+      "requer_validacao_caso": true
+    },
+    {
+      "vaso": "ART-comunicante_posterior",
+      "origem_padrao": "ICA-C7",
+      "destino": "ACP-P1",
+      "requer_validacao_caso": true
+    },
+    {
+      "vaso": "ART-coroideia_anterior",
+      "origem_padrao": "ICA-C7",
+      "requer_validacao_caso": true
+    },
+    {
+      "vaso": "ART-meningohipofisario",
+      "origem_padrao": "ICA-C4",
+      "requer_validacao_caso": true
+    },
+    {
+      "vaso": "ART-inferolateral",
+      "origem_padrao": "ICA-C4",
+      "requer_validacao_caso": true
+    }
+  ],
+  "regras_de_integridade": [
+    "Não equiparar numeração embriológica 1-7 de Lasjaunias a C1-C7 de Bouthillier",
+    "C5 tem limites nos anéis durais, e não na artéria oftálmica",
+    "C6 começa no anel dural distal, mesmo quando artéria oftálmica nasce em outro segmento",
+    "Forame lacerado contém fibrocartilagem e ACI passa sobre sua porção exocraniana",
+    "A carotid cave pode alterar a interpretação intra/extradural",
+    "Ramos angiograficamente invisíveis não podem ser automaticamente eliminados",
+    "Qualquer microanastomose não representada recebe marcador de abstração didática",
+    "Nenhuma geometria, calibre, relação espacial ou variante está homologada para paciente real"
+  ],
+  "fontes": [
+    "Bouthillier et al. 1996",
+    "Harrigan 4ª ed. cap.1 pp.33-48",
+    "Krings casos 3,5-8",
+    "Lasjaunias v1 cap.4.1 (camada embriológica independente)"
+  ],
+  "homologacao_humana": "PENDENTE",
+  "estado": "TOPOLOGIA DOCUMENTAL — GEOMETRIA PENDENTE — HOMOLOGAÇÃO HUMANA PENDENTE",
+  "fontes_indexadas": [
+    {
+      "tema": "Bouthillier C1-C7",
+      "pmid": "8837792",
+      "tipo": "dissecção cadavérica e crânios secos"
+    },
+    {
+      "tema": "anel dural e clinoide",
+      "pmid": "9574652",
+      "tipo": "dissecção microanatômica"
+    },
+    {
+      "tema": "carotid cave — alta frequência em uma amostra",
+      "pmid": "22113241",
+      "tipo": "20 regiões paraclinoideas"
+    },
+    {
+      "tema": "carotid cave — presença variável",
+      "pmid": "9351992",
+      "tipo": "50 lados de autópsia"
+    },
+    {
+      "tema": "anastomoses ECA-ACI-vertebral",
+      "pmid": "19279274",
+      "tipo": "revisão anatômica"
+    },
+    {
+      "tema": "origem variável da oftálmica",
+      "pmid": "17236500",
+      "tipo": "microdissecção"
+    }
+  ],
+  "restricoes_de_interpretacao": {
+    "C3": "Topônimo lacerum: a ACI corre sobre a região preenchida por fibrocartilagem; não atravessa o forame lacerado como canal vascular aberto.",
+    "C5": "O colar dural e os anéis possuem geometrias irregulares; não representar dois planos circulares uniformes.",
+    "C6": "Começa no anel dural distal, inclusive na ausência de artéria oftálmica nessa origem; carotid cave pode incluir recesso intradural medial proximal.",
+    "C7": "Definido desde a origem da PCom até a bifurcação terminal em ACA e ACM. Origem variável da coroideia anterior.",
+    "ramificacoes_invisiveis": "Não converter vasos não vistos em DSA para nós inexistentes; utilizar flag de visibilidade e nível esquemático de detalhe."
+  },
+  "camadas_independentes": [
+    "adulto_Bouthillier_C1_C7",
+    "embriologia_Lasjaunias_6_7_8_versoes_com_autoria",
+    "osteologia_base_do_cranio",
+    "dura_anéis_e_cave",
+    "nervos_cranianos",
+    "anastomoses_perigosas",
+    "angiografia_projecoes",
+    "variantes_observadas"
+  ],
+  "testes_topologicos_pre_modelagem": [
+    {
+      "id": "TEST-ICA-01",
+      "regra": "Existe exatamente um caminho de ICA-C1 a ICA-C7 para cada lado na variante padrão e continuidade de origem até bifurcação",
+      "estado": "ESPECIFICADO_NAO_EXECUTADO_EM_GEOMETRIA"
+    },
+    {
+      "id": "TEST-ICA-02",
+      "regra": "C3 mantém relação sobre o forame lacerado, sem atravessar sua fibrocartilagem",
+      "estado": "ESPECIFICADO_NAO_EXECUTADO_EM_GEOMETRIA"
+    },
+    {
+      "id": "TEST-ICA-03",
+      "regra": "C5 delimitado por anéis durais e relações de colar dural; cave não obrigatória",
+      "estado": "ESPECIFICADO_NAO_EXECUTADO_EM_GEOMETRIA"
+    },
+    {
+      "id": "TEST-ICA-04",
+      "regra": "C6 inicia no anel distal mesmo se artéria oftálmica provier de C4, C5, A1 ou meníngea média",
+      "estado": "ESPECIFICADO_NAO_EXECUTADO_EM_GEOMETRIA"
+    },
+    {
+      "id": "TEST-ICA-05",
+      "regra": "Conexões petrocavernosas e oftálmicas de risco são marcadas mesmo quando angiograficamente não vistas",
+      "estado": "ESPECIFICADO_NAO_EXECUTADO_EM_GEOMETRIA"
+    },
+    {
+      "id": "TEST-ICA-06",
+      "regra": "Cada detalhe contestado tem nível de evidência e autor; não renderiza como certeza",
+      "estado": "ESPECIFICADO_NAO_EXECUTADO_EM_GEOMETRIA"
+    }
+  ]
+}

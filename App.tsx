@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { HashRouter } from 'react-router-dom';
 import { Routes, Route, Navigate, useLocation } from 'react-router';
 import { useAuthStore } from './store/useAuthStore';
@@ -44,6 +44,8 @@ import { NeuroSonologiaTool } from './pages/tools/NeuroSonologia';
 import { BureaucracyTool } from './pages/tools/BureaucracyTool';
 import { NeuroRadiologyTool } from './pages/tools/NeuroRadiology';
 
+const Neuro3DAtlas = lazy(() => import('./features/neuro3d/Neuro3DAtlas'));
+
 const PrivateRoute = ({ children }: { children?: React.ReactNode }) => {
   const { user, loading, initialized } = useAuthStore();
   const location = useLocation();
@@ -61,6 +63,7 @@ export default function App() {
   return (
     <HashRouter>
       <Routes>
+        <Route path="/tools/neuro3d" element={<Suspense fallback={<p role="status">Carregando atlas…</p>}><Neuro3DAtlas /></Suspense>} />
         <Route path="/login" element={<Login />} />
         <Route path="/tools/neurovascular" element={<NeurovascularTool />} />
         <Route path="/tools/emergency" element={<NeuroEmergencyTool />} />
