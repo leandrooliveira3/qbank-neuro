@@ -6,7 +6,7 @@ test('loads open meshes, selects basilar artery, isolates and clips the same ali
   await expect(page.getByRole('heading', {name:'Anatomia neurovascular', exact:true})).toBeVisible();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
   await page.getByRole("button", {name:"Estruturas",exact:true}).click();
-  await expect(page.locator('.nda-list button')).toHaveCount(531);
+  await expect(page.locator('.nda-list button')).toHaveCount(562);
   await page.getByLabel('Buscar no atlas detalhado').fill('Basilar artery');
   await page.getByRole('button',{name:'Basilar artery Artérias',exact:true}).click();
   await expect(page.getByTestId('detailed-structure')).toContainText('Basilar artery');
@@ -112,4 +112,66 @@ test('contrast passage changes the detector image and roadmap keeps its capture 
   await expect(roadmap).toHaveAttribute('href',image!);
   await page.screenshot({path:`test-results/angiographic-acquisition-${test.info().project.name}.png`,fullPage:true});
   expect(errors).toEqual([]);
+});
+
+test('sellar landmarks stay selected across representations, layers and atlas tabs until explicitly cleared', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');
+  await page.getByLabel('Apresentação anatômica').selectOption('sellar');
+  const selection = page.getByTestId('atlas-selection');
+  await expect(selection).toHaveAttribute('data-selected-id', 'adenohypophysis');
+  await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered', 'true');
+  await page.getByLabel('Opacidade · Hipófise', { exact: true }).fill('0');
+  await expect(selection).toContainText('Adenohypophysis');
+  await page.getByRole('button', { name: 'Angiografia', exact: true }).click();
+  await expect(page.getByTestId('atlas-angiography')).toHaveAttribute('data-selected-structure', 'adenohypophysis');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false', { timeout: 30000 });
+  await page.getByRole('button', { name: 'Atlas', exact: true }).click();
+  await expect(selection).toHaveAttribute('data-selected-id', 'adenohypophysis');
+  await page.getByRole('button', { name: 'Restaurar visão', exact: true }).click();
+  await expect(selection).toHaveAttribute('data-selected-id', 'adenohypophysis');
+  await page.getByRole('button', { name: 'Seio cavernoso esquerdo', exact: true }).click();
+  await expect(selection).toHaveAttribute('data-selected-id', 'cavernous_sinus_l');
+  await page.getByRole('button', { name: 'Anatomia detalhada', exact: true }).click();
+  await expect(selection).toHaveAttribute('data-selected-id', 'cavernous_sinus_l');
+  await page.getByRole('button', { name: 'Esfenoide', exact: true }).click();
+  await expect(selection).toHaveAttribute('data-selected-id', 'sphenoid_bone');
+  await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered', 'true');
+  await page.screenshot({path: `test-results/skull-landmarks-${test.info().project.name}.png`, fullPage: true});
+  await page.getByRole('button', { name: 'Limpar seleção', exact: true }).click();
+  await expect(selection).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+test('clicking an angiographic vessel pins its identity and an empty click keeps it selected', async ({ page }) => {
+  await page.goto('/#/tools/neuro3d');
+  await page.getByRole('button', { name: 'Estruturas', exact: true }).click();
+  await page.getByLabel('Buscar no atlas detalhado').fill('Basilar artery');
+  await page.getByRole('button', {name: 'Basilar artery Artérias', exact: true}).click();
+  await page.getByRole('button', { name: 'Isolar seleção', exact: true }).click();
+  await page.getByRole('button', { name: 'AP', exact: true }).click();
+  await page.getByRole('button', { name: 'Angiografia', exact: true }).click();
+  const canvas = page.getByTestId('atlas-angiography');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false', { timeout: 30000 });
+  const point = await canvas.evaluate((node: HTMLCanvasElement) => {
+    const data = node.getContext('2d')!.getImageData(0, 0, node.width, node.height).data;
+    // The gold interior identifies a real source-surface footprint, not a hand-coded screen coordinate.
+    const samples: number[] = [];
+    for (let i = 0; i < data.length; i += 4) if (data[i] > data[i + 2] + 20 && data[i + 1] > data[i + 2] + 10) samples.push(i / 4);
+    if (!samples.length) throw new Error('Selected source surface did not receive a projected outline');
+    const pixel = samples[Math.floor(samples.length / 2)];
+    const rect = node.getBoundingClientRect(), scale = Math.min(rect.width / node.width, rect.height / node.height);
+    return { x: (rect.width - node.width * scale) / 2 + (pixel % node.width + .5) * scale,
+      y: (rect.height - node.height * scale) / 2 + (Math.floor(pixel / node.width) + .5) * scale };
+  });
+  await page.getByRole('button', { name: 'Limpar seleção', exact: true }).click();
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false');
+  await canvas.click({ position: point });
+  const selection = page.getByTestId('atlas-selection');
+  await expect(selection).toBeVisible();
+  const id = await selection.getAttribute('data-selected-id');
+  const box = await canvas.boundingBox();
+  await canvas.click({ position: { x: box!.width / 2, y: 16 } });
+  await expect(selection).toHaveAttribute('data-selected-id', id!);
 });

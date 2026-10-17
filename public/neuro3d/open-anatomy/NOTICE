@@ -168,3 +168,5 @@ terminology is yours: have it reviewed by someone qualified before presenting
 it as authoritative.
 
 QBank-Neuro adaptations (2026-10-17): head/neck subset selected from male skeletal, nervous and cardiovascular models; source node transforms and Draco geometry preserved, unused mesh buffers removed, no new anatomical validation. Adapted assets and derived labels remain CC BY-SA 4.0.
+
+Additional QBank-Neuro adaptations: original skull bones, adenohypophysis, neurohypophysis, falx cerebri and tentorium meshes imported with source transforms preserved; projection-only copies decimated to at most 4000 faces per structure. CC BY-SA 4.0. Source labels require anatomical review.

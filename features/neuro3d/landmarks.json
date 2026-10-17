@@ -1,0 +1,779 @@
+{
+  "sourceRepository": "https://github.com/Nurkan1/Anatria-3D",
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS → Z-Anatomy → Anatria3D → QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "assets": [
+    {
+      "file": "landmarks_bone.glb",
+      "sha256": "a31ac9367c374267898c65bae05eb10ea07d57d2184d099274a8642b579db1af",
+      "size": 358428,
+      "structures": 26,
+      "upstreamSha256": "b49d71788bfa0b4a3188e2954d59728a699b08ec280e70df1c2a95e13d4b81f8"
+    },
+    {
+      "file": "landmarks_gland.glb",
+      "sha256": "ba207a7d87da550ec618b9b764f72f1a2d2d34db4bfb33cce7dfbe95586e9dfc",
+      "size": 6968,
+      "structures": 2,
+      "upstreamSha256": "44ffd5a7de6731bfd36a83e7806b02c05685cabbae902ef85abb6b1681ae9684"
+    },
+    {
+      "file": "landmarks_dura.glb",
+      "sha256": "730eb2e0fafb74dcdf4ad9a4c4b8a816c2720e2e9d6439a6fe5044aa3801d054",
+      "size": 64240,
+      "structures": 3,
+      "upstreamSha256": "e7a3a2de6c6f098152e3619dd75613531749235cfa9f687d971c8b334a08dcb8"
+    }
+  ],
+  "structures": [
+    {
+      "id": "inferior_nasal_concha_bone_l",
+      "name": "Inferior nasal concha bone (left)",
+      "latin": "Concha nasalis inferior",
+      "node": "Inferior nasal concha bone.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          0.004423435150030186,
+          1.5521033215585684,
+          0.040787716391400046
+        ],
+        [
+          0.014880185168984317,
+          1.5746226706121438,
+          0.07542936420885488
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "inferior_nasal_concha_bone_r",
+      "name": "Inferior nasal concha bone (right)",
+      "latin": "Concha nasalis inferior",
+      "node": "Inferior nasal concha bone.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.014880184549838305,
+          1.5521033210679889,
+          0.04078771732747555
+        ],
+        [
+          -0.004423435777425766,
+          1.5746226711198688,
+          0.07542936317622662
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "incus_l",
+      "name": "Incus (left)",
+      "latin": "Incus",
+      "node": "Incus.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          0.04497438064215542,
+          1.5795691510128063,
+          -0.009651120722877772
+        ],
+        [
+          0.04919545593166097,
+          1.5858010828471627,
+          -0.004758756249196981
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "incus_r",
+      "name": "Incus (right)",
+      "latin": "Incus",
+      "node": "Incus.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.04919545538723469,
+          1.5795691508046388,
+          -0.009651121168851421
+        ],
+        [
+          -0.04497438110411167,
+          1.5858010826389952,
+          -0.004758756111955366
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "malleus_l",
+      "name": "Malleus (left)",
+      "latin": "Malleus",
+      "node": "Malleus.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          0.046371194996639,
+          1.5780489815916485,
+          -0.005365878682552089
+        ],
+        [
+          0.05000809061135714,
+          1.5862277509445217,
+          -0.0024904828483511693
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "malleus_r",
+      "name": "Malleus (right)",
+      "latin": "Malleus",
+      "node": "Malleus.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.05000809021294117,
+          1.5780489812605083,
+          -0.005365878343582153
+        ],
+        [
+          -0.04637119546532631,
+          1.5862277513369918,
+          -0.0024904832243919373
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "ethmoid_bone",
+      "name": "Ethmoid bone",
+      "latin": "Os ethmoideum",
+      "node": "Ethmoid bone",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.01874004863202572,
+          1.5658773817121983,
+          0.03140878118574619
+        ],
+        [
+          0.018740078434348106,
+          1.6053110603243113,
+          0.07594645768404007
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "frontal_bone",
+      "name": "Frontal bone",
+      "latin": "Os frontale",
+      "node": "Frontal bone",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.061188992112874985,
+          1.5926116667687893,
+          0.01801314577460289
+        ],
+        [
+          0.061188992112874985,
+          1.6991924569010735,
+          0.08711200207471848
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "hyoid_bone",
+      "name": "Hyoid bone",
+      "latin": "Os hyoideum",
+      "node": "Hyoid bone",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.02274440973997116,
+          1.4915179312229156,
+          0.0030274707823991776
+        ],
+        [
+          0.022744417190551758,
+          1.5110311806201935,
+          0.03899828437715769
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "lacrimal_bone_l",
+      "name": "Lacrimal bone (left)",
+      "latin": "Os lacrimale",
+      "node": "Lacrimal bone.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          0.0064682098530992604,
+          1.5731173982511009,
+          0.06151899593494155
+        ],
+        [
+          0.017119670574616996,
+          1.5982194143583992,
+          0.07622788218981222
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "lacrimal_bone_r",
+      "name": "Lacrimal bone (right)",
+      "latin": "Os lacrimale",
+      "node": "Lacrimal bone.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.017119669821113348,
+          1.5731173967942595,
+          0.06151899695396423
+        ],
+        [
+          -0.006468210369348526,
+          1.598219416104257,
+          0.07622788101434708
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "nasal_bone_l",
+      "name": "Nasal bone (left)",
+      "latin": "Os nasale",
+      "node": "Nasal bone.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          1.7474883040602407e-08,
+          1.5737073143541254,
+          0.0793358668537505
+        ],
+        [
+          0.008399777895474803,
+          1.605079620236987,
+          0.10027167324821412
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "nasal_bone_r",
+      "name": "Nasal bone (right)",
+      "latin": "Os nasale",
+      "node": "Nasal bone.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.00839977734722197,
+          1.5737073123455048,
+          0.07933586835861206
+        ],
+        [
+          -1.792795956134796e-08,
+          1.6050796220079064,
+          0.10027167201042175
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "occipital_bone",
+      "name": "Occipital bone",
+      "latin": "Os occipitale",
+      "node": "Occipital bone",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.05963079258799553,
+          1.5507360808551311,
+          -0.10337518900632858
+        ],
+        [
+          0.05963079258799553,
+          1.6551929824054241,
+          0.012472253292798996
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "palatine_bone_l",
+      "name": "Palatine bone (left)",
+      "latin": "Os palatinum",
+      "node": "Palatine bone.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          0.0007838833579584259,
+          1.543977716640988,
+          0.02477785613044522
+        ],
+        [
+          0.02703838488753263,
+          1.5841305007022928,
+          0.059996955288047875
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "palatine_bone_r",
+      "name": "Palatine bone (right)",
+      "latin": "Os palatinum",
+      "node": "Palatine bone.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.027038383297622204,
+          1.543977715075016,
+          0.024777857586741447
+        ],
+        [
+          -0.0007838848978281021,
+          1.5841305032372475,
+          0.0599969532340765
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "parietal_bone_l",
+      "name": "Parietal bone (left)",
+      "latin": "Os parietale",
+      "node": "Parietal bone.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.007425181567668915,
+          1.5896922796964645,
+          -0.10056015849113464
+        ],
+        [
+          0.0742856077849865,
+          1.7053676061332226,
+          0.042743049561977386
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "parietal_bone_r",
+      "name": "Parietal bone (right)",
+      "latin": "Os parietale",
+      "node": "Parietal bone.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.07439018227159977,
+          1.5898201763629913,
+          -0.10030511766672134
+        ],
+        [
+          0.00561598502099514,
+          1.7054541446268559,
+          0.03906109184026718
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "sphenoid_bone",
+      "name": "Sphenoid bone",
+      "latin": "Os sphenoideum",
+      "node": "Sphenoid bone",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.05441931635141373,
+          1.550312239676714,
+          0.0022515375167131424
+        ],
+        [
+          0.05441931635141373,
+          1.6202486455440521,
+          0.05545402504503727
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "temporal_bone_l",
+      "name": "Temporal bone (left)",
+      "latin": "Os temporale",
+      "node": "Temporal bone.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          0.009648575550917915,
+          1.5487265006690156,
+          -0.0515639820879424
+        ],
+        [
+          0.07242035413703984,
+          1.6231455583694165,
+          0.04478308819780845
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "temporal_bone_r",
+      "name": "Temporal bone (right)",
+      "latin": "Os temporale",
+      "node": "Temporal bone.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.07242035120725632,
+          1.548726499080658,
+          -0.051563979126513004
+        ],
+        [
+          -0.009648580104112625,
+          1.6231455616652966,
+          0.04478308465331793
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "zygomatic_bone_l",
+      "name": "Zygomatic bone (left)",
+      "latin": "Os zygomaticum",
+      "node": "Zygomatic bone.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          0.0316171154280932,
+          1.5537165803051811,
+          0.0327085477955079
+        ],
+        [
+          0.062324695400846286,
+          1.6084655859154717,
+          0.07167744348719793
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "zygomatic_bone_r",
+      "name": "Zygomatic bone (right)",
+      "latin": "Os zygomaticum",
+      "node": "Zygomatic bone.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.06232469342648983,
+          1.5537165775895119,
+          0.03270854987204075
+        ],
+        [
+          -0.0316171171143651,
+          1.60846558958292,
+          0.071677440777421
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "stapes_l",
+      "name": "Stapes (left)",
+      "latin": "Stapes",
+      "node": "Stapes.l",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          0.040953781663573136,
+          1.5798340816641083,
+          -0.005962501834465029
+        ],
+        [
+          0.04500776332426987,
+          1.5822651635982716,
+          -0.002910811563150423
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "stapes_r",
+      "name": "Stapes (right)",
+      "latin": "Stapes",
+      "node": "Stapes.r",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.04500776273198426,
+          1.579834081698209,
+          -0.005962501745671034
+        ],
+        [
+          -0.04095378203783184,
+          1.5822651636553928,
+          -0.002910811686888337
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "vomer",
+      "name": "Vomer",
+      "latin": "Vomer",
+      "node": "Vomer",
+      "layer": "bone",
+      "file": "landmarks_bone.glb",
+      "path": [
+        "Axial skeleton"
+      ],
+      "bounds": [
+        [
+          -0.005118665895600949,
+          1.5574067431102272,
+          0.020958364733271555
+        ],
+        [
+          0.005118665895600949,
+          1.580358106074762,
+          0.08210162905155918
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "adenohypophysis",
+      "name": "Adenohypophysis",
+      "latin": "Adenohypophysis",
+      "node": "Adenohypophysis",
+      "layer": "gland",
+      "file": "landmarks_gland.glb",
+      "path": [
+        "Endocrine glands"
+      ],
+      "bounds": [
+        [
+          -0.005950074460719601,
+          1.5956869708159138,
+          0.013345981598264209
+        ],
+        [
+          0.005950074460719601,
+          1.6077384509740582,
+          0.021455388682851323
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "neurohypophysis",
+      "name": "Neurohypophysis",
+      "latin": "Neurohypophysis",
+      "node": "Neurohypophysis",
+      "layer": "gland",
+      "file": "landmarks_gland.glb",
+      "path": [
+        "Endocrine glands"
+      ],
+      "bounds": [
+        [
+          -0.0058573963616129765,
+          1.5951786738580127,
+          0.01229863384026314
+        ],
+        [
+          0.0058573963616129765,
+          1.6072959724777567,
+          0.018117950707551067
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "falx_cerebri",
+      "name": "Falx cerebri",
+      "latin": "Falx cerebri",
+      "node": "Falx cerebri",
+      "layer": "dura",
+      "file": "landmarks_dura.glb",
+      "path": [
+        "Central nervous system",
+        "Meninges"
+      ],
+      "bounds": [
+        [
+          -0.0028948786523438907,
+          1.5810357150214318,
+          -0.09641316210122053
+        ],
+        [
+          0.0029602825331802307,
+          1.7005745542195854,
+          0.0783915041566523
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "tentorium_cerebelli_l",
+      "name": "Tentorium cerebelli (left)",
+      "latin": "Tentorium cerebelli",
+      "node": "Tentorium cerebelli.l",
+      "layer": "dura",
+      "file": "landmarks_dura.glb",
+      "path": [
+        "Central nervous system",
+        "Meninges"
+      ],
+      "bounds": [
+        [
+          -0.0005624642784964884,
+          1.5837278866721298,
+          -0.08569990318018166
+        ],
+        [
+          0.060336847343728905,
+          1.6146499494006905,
+          0.004775474522084412
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "tentorium_cerebelli_r",
+      "name": "Tentorium cerebelli (right)",
+      "latin": "Tentorium cerebelli",
+      "node": "Tentorium cerebelli.r",
+      "layer": "dura",
+      "file": "landmarks_dura.glb",
+      "path": [
+        "Central nervous system",
+        "Meninges"
+      ],
+      "bounds": [
+        [
+          -0.060336851069019204,
+          1.5837278905038252,
+          -0.08569990154151474
+        ],
+        [
+          0.0005624605532061899,
+          1.6146499453227774,
+          0.004775473457459434
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    }
+  ]
+}

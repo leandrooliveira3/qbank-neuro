@@ -10,7 +10,7 @@ function transform(p,n){
  const ix=qw*x+qy*z-qz*y,iy=qw*y+qz*x-qx*z,iz=qw*z+qx*y-qy*x,iw=-qx*x-qy*y-qz*z;
  return [(ix*qw+iw*-qx+iy*-qz-iz*-qy+t[0])*100,(iy*qw+iw*-qy+iz*-qx-ix*-qz+t[1])*100-160,(iz*qw+iw*-qz+ix*-qy-iy*-qx+t[2])*100];
 }
-for(const file of ['cardiovascular_head.glb','skeletal_head.glb']){
+for(const file of (process.argv[5]?.split(',') ?? ['cardiovascular_head.glb','skeletal_head.glb'])){
  const raw=fs.readFileSync(root+file);const len=raw.readUInt32LE(12),doc=JSON.parse(raw.subarray(20,20+len)),bin=raw.subarray(28+len);
  for(const node of doc.nodes){
   const prim=doc.meshes[node.mesh].primitives[0],ext=prim.extensions.KHR_draco_mesh_compression,bv=doc.bufferViews[ext.bufferView];

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { gunzipSync } from "node:zlib";
+import landmarksMetadata from "../../reference-landmarks.json";
 import distalMetadata from "../../reference-distal-aca.json";
 import { closeProjectionSurface } from "./projectionClosure";
 import { readFileSync } from "node:fs";
@@ -20,6 +21,22 @@ const geometry: ReferenceGeometry = new Map(metadata.structures.map((item) => [i
   t: "tOffset" in item ? new Float32Array(buffer, item.tOffset, item.tCount) : undefined,
 }]));
 describe("shared anatomical reference", () => {
+  it("verifies source-aligned skull and sellar projection context without misclassifying soft tissue as bone", () => {
+    const compressed = readFileSync(`public/neuro3d/open-anatomy/${landmarksMetadata.file}`);
+    expect(compressed.length).toBe(landmarksMetadata.size);
+    expect(createHash("sha256").update(compressed).digest("hex")).toBe(landmarksMetadata.sha256);
+    const decoded = gunzipSync(compressed);
+    expect(decoded.length).toBe(landmarksMetadata.uncompressedSize);
+    const rows = JSON.parse(decoded.toString()) as {id: string; layer: string; positions: number[]; indices: number[]}[];
+    expect(rows).toHaveLength(31);
+    for (const row of rows) {
+      expect(row.positions.every(Number.isFinite)).toBe(true);
+      expect(row.indices.every((index) => index >= 0 && index < row.positions.length / 3)).toBe(true);
+      expect(row.indices.length / 3).toBeLessThanOrEqual(4000);
+    }
+    expect(rows.find((row) => row.id === "adenohypophysis")?.layer).toBe("gland");
+    expect(rows.find((row) => row.id === "sphenoid_bone")?.layer).toBe("bone");
+  });
   it("preserves verified original distal ACA components instead of the damaged low-resolution surfaces", () => {
     const compressed = readFileSync(`public/neuro3d/open-anatomy/${distalMetadata.file}`);
     expect(compressed.length).toBe(distalMetadata.size);

@@ -44,7 +44,7 @@
 .nda-angiography { height:100%; position:relative; background:#162029; display:flex; justify-content:center; align-items:center; }
 .nda-angiography canvas { width:100%; height:100%; object-fit:contain; }
 .nda-angiography p { position:absolute; top:50%; background:#12212ddd; padding:12px; border-radius:8px; }
-.nda-projection-label { position:absolute; left:15px; top:15px; font-size:10px; color:#16212a; background:#e7eaecdd; padding:7px 10px; border-radius:4px; }
+.nda-projection-label { pointer-events:none; position:absolute; left:15px; top:15px; font-size:10px; color:#16212a; background:#e7eaecdd; padding:7px 10px; border-radius:4px; }
 .nda-projection-controls label { display:block; font-size:12px; margin:18px 0; }
 .nda-projection-controls output { float:right; color:#70d0bc; }
 .nda-sidebar>nav { flex-wrap:wrap; }
@@ -52,3 +52,5 @@
 .nda-reconstruction-note { color:#efb976; font-size:12px; }
 .nda-review-status.reconstructed { color:#efb976; }
 .nda-projection-controls label select { display:block; width:100%; margin-top:8px; }
+
+.nda-selection{display:flex;align-items:center;gap:8px;padding:12px;background:#29312b;border:1px solid #d9ae49;border-radius:8px;flex-wrap:wrap}.nda-selection>div{flex:1;min-width:180px}.nda-selection small{display:block;color:#d9cfae;margin-top:4px}.nda-landmarks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}.nda-landmarks button{font-size:12px}

@@ -13,6 +13,8 @@ import {
   visibleStructures,
 } from "./model";
 import "./neuro3d.css";
+import { openAnatomy } from "./openAnatomy";
+import { reconstructedArteries } from "./reconstructedArteries";
 const SimulationLab = lazy(
   () => import("./simulation/station/ProcedureStation"),
 );
@@ -45,6 +47,7 @@ export default function Neuro3DAtlas() {
   const [layerOpacity, setLayerOpacity] = useState<Record<string, number>>({});
   const [selected, setSelected] = useState<string | null>(null);
   const [tab, setTab] = useState("Anatomia detalhada");
+  const [detailedSelected, setDetailedSelected] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [registrySearch, setRegistrySearch] = useState("");
   const [labels, setLabels] = useState(true);
@@ -153,7 +156,7 @@ export default function Neuro3DAtlas() {
         </div>
         <div className="n3-metrics">
           <span>
-            <b>{surfaceAtlas ? "531" : "12"}</b>{surfaceAtlas ? "estruturas" : "cenas"}
+            <b>{surfaceAtlas ? String(openAnatomy.structures.length + reconstructedArteries.length) : "12"}</b>{surfaceAtlas ? "estruturas" : "cenas"}
           </span>
           <span>
             <b>126</b>registros
@@ -217,13 +220,13 @@ export default function Neuro3DAtlas() {
         </p>
       )}
       {tab === "Anatomia detalhada" && (
-        <Suspense fallback={<p role="status">Carregando atlas de superfícies…</p>}><DetailedAtlas /></Suspense>
+        <Suspense fallback={<p role="status">Carregando atlas de superfícies…</p>}><DetailedAtlas selected={detailedSelected} onSelect={setDetailedSelected} /></Suspense>
       )}
       {tab === "Atlas" && <nav className="nda-mode" aria-label="Conteúdo do atlas">
         <button aria-pressed={atlasMode === "surface"} onClick={() => setAtlasMode("surface")}>Atlas de superfícies e angiografia</button>
         <button aria-pressed={atlasMode === "concept"} onClick={() => setAtlasMode("concept")}>Embriologia e variantes conceituais</button>
       </nav>}
-      {tab === "Atlas" && atlasMode === "surface" && <Suspense fallback={<p role="status">Carregando superfícies anatômicas…</p>}><DetailedAtlas /></Suspense>}
+      {tab === "Atlas" && atlasMode === "surface" && <Suspense fallback={<p role="status">Carregando superfícies anatômicas…</p>}><DetailedAtlas selected={detailedSelected} onSelect={setDetailedSelected} /></Suspense>}
       {tab === "Atlas" && atlasMode === "concept" && (
         <div className="n3-workspace">
           <aside className="n3-scenes">

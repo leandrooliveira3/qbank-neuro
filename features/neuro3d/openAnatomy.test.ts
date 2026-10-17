@@ -4,6 +4,11 @@ import { createHash } from "node:crypto";
 import { openAnatomy } from "./openAnatomy";
 
 describe("imported open anatomical assets", () => {
+  it("includes skull-base bones, pituitary lobes, dura and cavernous landmarks in distinct layers", () => {
+    const expected = { sphenoid_bone: "bone", ethmoid_bone: "bone", frontal_bone: "bone", occipital_bone: "bone", temporal_bone_l: "bone", parietal_bone_r: "bone", adenohypophysis: "gland", neurohypophysis: "gland", falx_cerebri: "dura", tentorium_cerebelli_l: "dura", cavernous_sinus_l: "venous", cavernous_sinus_r: "venous" };
+    for (const [id, layer] of Object.entries(expected)) expect(openAnatomy.structures.find((row) => row.id === id)?.layer, id).toBe(layer);
+    expect(openAnatomy.structures.filter((row) => row.layer === "bone").some((row) => row.id.includes("sinus_of_"))).toBe(false);
+  });
   it("maps every structure to one preserved GLB node and verifies delivered bytes", () => {
     const ids = new Set<string>();
     for (const asset of openAnatomy.assets) {

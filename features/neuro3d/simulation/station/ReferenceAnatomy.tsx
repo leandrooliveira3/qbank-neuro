@@ -21,7 +21,7 @@ export default function ReferenceAnatomy({ s }: { s: StationState }) {
   const network = networkFor(s), definition = caseFor(s);
   const surfaces = useMemo(() => {
     if (!geometry) return [];
-    return [...geometry.values()].filter((surface) => surface.layer !== "venous").map((surface) => {
+    return [...geometry.values()].filter((surface) => surface.layer === "bone" || surface.layer === "arterial").map((surface) => {
       const target = network[definition.target];
       const lesion = definition.kind === "carotid" && surface.id === target.sourceId;
       return { id: surface.id, layer: surface.layer,

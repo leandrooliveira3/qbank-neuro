@@ -1,5 +1,6 @@
 import { reconstructedArteries } from "../../reconstructedArteries";
 import { useEffect, useState } from "react";
+import landmarks from "../../reference-landmarks.json";
 import distal from "../../reference-distal-aca.json";
 import metadata from "../../reference-surfaces.json";
 import networkData from "../../reference-network.json";
@@ -14,22 +15,21 @@ export type ReferenceGeometry = Map<string, ReferenceSurface>;
 let request: Promise<ReferenceGeometry> | null = null;
 export function loadReferenceGeometry() {
   if (!request) request = (async () => {
-    const distalRequest = (async () => {
-      const response = await fetch(`${import.meta.env.BASE_URL}neuro3d/open-anatomy/${distal.file}`);
-      if (!response.ok) throw new Error("Não foi possível carregar os ramos distais de alta resolução.");
+    const supplementaryRequest = Promise.all([distal, landmarks].map(async (pack) => {
+      const response = await fetch(`${import.meta.env.BASE_URL}neuro3d/open-anatomy/${pack.file}`);
+      if (!response.ok) throw new Error("Não foi possível carregar as superfícies complementares.");
       const bytes = await response.arrayBuffer();
-      if (bytes.byteLength !== distal.size) throw new Error("Geometria distal incompleta.");
+      if (bytes.byteLength !== pack.size) throw new Error("Geometria complementar incompleta.");
       const hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))).map((n) => n.toString(16).padStart(2, "0")).join("");
-      if (hash !== distal.sha256) throw new Error("Falha na integridade dos ramos distais.");
-      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
-      const decoded = await new Response(stream).arrayBuffer();
-      if (decoded.byteLength !== distal.uncompressedSize) throw new Error("Geometria distal descomprimida incompleta.");
+      if (hash !== pack.sha256) throw new Error("Falha na integridade das superfícies complementares.");
+      const decoded = await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+      if (decoded.byteLength !== pack.uncompressedSize) throw new Error("Geometria descomprimida incompleta.");
       return JSON.parse(new TextDecoder().decode(decoded)) as { id: string; layer: string; positions: number[]; indices: number[] }[];
-    })();
+    })).then((packs) => packs.flat());
     // Both requests start together. The catch is attached immediately to avoid
     // an unhandled rejection if the distal request fails before the base one.
     const baseRequest = fetch(`${import.meta.env.BASE_URL}neuro3d/open-anatomy/reference-surfaces.bin`);
-    const [response, distalSurfaces] = await Promise.all([baseRequest, distalRequest]);
+    const [response, distalSurfaces] = await Promise.all([baseRequest, supplementaryRequest]);
     if (!response.ok) throw new Error("Não foi possível carregar a geometria compartilhada.");
     const bytes = await response.arrayBuffer();
     if (bytes.byteLength !== metadata.size) throw new Error("Geometria incompleta.");
