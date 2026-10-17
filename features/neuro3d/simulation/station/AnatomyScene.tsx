@@ -1,11 +1,12 @@
-import React, { Component, useMemo } from "react";
+import React, { Component, useMemo, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei/core/OrbitControls";
-import { CatmullRomCurve3, DoubleSide, Vector3 } from "three";
+import { BufferGeometry, Float32BufferAttribute, CatmullRomCurve3, DoubleSide, Vector3 } from "three";
 import { caseFor, networkFor, StationState } from "./engine";
 import { P3, pointAt, locate, trackPoints } from "./network";
 import { instrumentPoints } from "./mechanics";
 import { lumenFactor, devicePoints } from "./imaging";
+import { sacRadius, vesselSurface, Surface } from "./surfaces";
 class Boundary extends Component<
   { children: React.ReactNode },
   { failed: boolean }
@@ -57,10 +58,29 @@ function Tube({
     </mesh>
   );
 }
+function Lumen({ surface, sac }: { surface: Surface; sac: boolean }) {
+  const geometry = useMemo(() => {
+    const result = new BufferGeometry();
+    result.setAttribute("position", new Float32BufferAttribute(surface.positions, 3));
+    result.setIndex(surface.indices);
+    result.computeVertexNormals();
+    return result;
+  }, [surface]);
+  useEffect(() => () => geometry.dispose(), [geometry]);
+  return <mesh geometry={geometry}>
+    <meshStandardMaterial color={sac ? "#bd5364" : "#ba7880"}
+      transparent opacity={0.29} depthWrite={false} side={DoubleSide} roughness={0.62} />
+  </mesh>;
+}
 function Content({ s }: { s: StationState }) {
   const n = networkFor(s),
     c = caseFor(s);
-  const vessels = useMemo(() => Object.values(n), [n]);
+  const vessels = useMemo(() => Object.values(n).map((v) => ({
+    id: v.id,
+    surface: vesselSurface(v, v.id === "sac" ? sacRadius : (t) =>
+      v.radius * (c.kind === "carotid" && v.id === c.target
+        ? lumenFactor(t, c.targetT, s.dilation) : 1)),
+  })), [n, c, s.dilation]);
   const tools = useMemo(
     () =>
       (["wire", "catheter", "micro"] as const).map((k) => ({
@@ -73,30 +93,7 @@ function Content({ s }: { s: StationState }) {
   const target = pointAt(n[c.target], c.targetT);
   return (
     <group>
-      {vessels.flatMap((v) => {
-        const focal = c.kind === "carotid" && v.id === c.target;
-        return focal
-          ? Array.from({ length: 24 }, (_, i) => (
-              <Tube
-                key={`${v.id}-${i}`}
-                points={[pointAt(v, i / 24), pointAt(v, (i + 1) / 24)]}
-                radius={
-                  v.radius * lumenFactor((i + 0.5) / 24, c.targetT, s.dilation)
-                }
-                color="#bf7e83"
-                opacity={0.23}
-              />
-            ))
-          : [
-              <Tube
-                key={v.id}
-                points={v.points}
-                radius={v.radius}
-                color={v.id === "sac" ? "#c77c8b" : "#bf7e83"}
-                opacity={0.23}
-              />,
-            ];
-      })}
+      {vessels.map((v) => <Lumen key={v.id} surface={v.surface} sac={v.id === "sac"} />)}
       {tools.map((t, i) => (
         <Tube
           key={t.key}
@@ -115,17 +112,6 @@ function Content({ s }: { s: StationState }) {
           </mesh>
         );
       })}
-      {c.kind === "aneurysm" && (
-        <mesh position={target}>
-          <sphereGeometry args={[0.65, 24, 18]} />
-          <meshStandardMaterial
-            color="#cc6a79"
-            opacity={0.25}
-            transparent
-            depthWrite={false}
-          />
-        </mesh>
-      )}
       {s.clot && (
         <mesh position={target}>
           <capsuleGeometry args={[0.16, 0.55, 6, 12]} />

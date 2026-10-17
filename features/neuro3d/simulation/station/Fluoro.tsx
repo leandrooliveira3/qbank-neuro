@@ -1,4 +1,5 @@
 import React from "react";
+import VascularImage from "./VascularImage";
 import { instrumentPoints } from "./mechanics";
 import {
   StationState,
@@ -7,15 +8,13 @@ import {
   caseFor,
   projectionKey,
 } from "./engine";
-import { locate, pointAt, trackPoints } from "./network";
+import { locate, trackPoints } from "./network";
 import {
   devicePoints,
   HEIGHT,
   imagePath,
-  maskLines,
   project,
   statusLabel,
-  vesselSegments,
   WIDTH,
 } from "./imaging";
 export default function Fluoro({
@@ -35,7 +34,6 @@ export default function Fluoro({
   return (
     <div className={`nvs-screens ${biplane ? "biplane" : ""}`}>
       {(biplane ? [0, 90] : [0]).map((plane, index) => {
-        const mask = maskLines(frame, n, plane);
         return (
           <section
             className="nvs-detector"
@@ -99,48 +97,14 @@ export default function Fluoro({
                     strokeWidth="12"
                   />
                 </g>
-                {frame.mode === "roadmap" &&
-                  mask.map((m) => (
-                    <path
-                      key={m.id}
-                      d={m.path}
-                      fill="none"
-                      stroke="#f7fbfd"
-                      strokeWidth={Math.max(1, m.width)}
-                      opacity={0.85}
-                      strokeLinecap="round"
-                    />
-                  ))}
-                {opacified.map((id) => {
-                  const v = n[id];
-                  return (
-                    <g key={id} opacity={contrastOpacity}>
-                      {vesselSegments(frame, n, id, frame.view, plane).map(
-                        (segment) => (
-                          <path
-                            key={segment.id}
-                            d={segment.path}
-                            fill="none"
-                            stroke="#1e252c"
-                            strokeWidth={Math.max(1, segment.width)}
-                            strokeLinejoin="round"
-                            strokeLinecap="round"
-                          />
-                        ),
-                      )}
-                      {id === "sac" && (
-                        <ellipse
-                          cx={project(pointAt(v, 0.8), frame.view, plane)[0]}
-                          cy={project(pointAt(v, 0.8), frame.view, plane)[1]}
-                          rx={0.65 * 12 * frame.view.zoom}
-                          ry={0.7 * 12 * frame.view.zoom}
-                          fill="#242b31"
-                          opacity={Math.max(0.1, 1 - frame.coilFill * 0.24)}
-                        />
-                      )}
-                    </g>
-                  );
-                })}
+                {frame.mode === "roadmap" && frame.mask && (
+                  <VascularImage network={n} definition={c} edges={frame.mask.edges}
+                    view={frame.mask.view} plane={plane} clot={frame.mask.clot}
+                    dilation={frame.mask.dilation} opacity={0.85} inverted />
+                )}
+                <VascularImage network={n} definition={c} edges={opacified}
+                  view={frame.view} plane={plane} clot={frame.clot}
+                  dilation={frame.dilation} opacity={contrastOpacity} />
                 {(["wire", "catheter", "micro"] as const).map((tool, i) => (
                   <path
                     data-instrument={tool}

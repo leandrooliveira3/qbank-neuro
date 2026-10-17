@@ -16,6 +16,7 @@ import "./neuro3d.css";
 const SimulationLab = lazy(
   () => import("./simulation/station/ProcedureStation"),
 );
+const DetailedAtlas = lazy(() => import("./DetailedAtlas"));
 const Viewer = lazy(() => import("./Viewer"));
 const progressKey = "qbank_neuro3d_progress_v1";
 function download(name: string, value: unknown) {
@@ -42,7 +43,7 @@ export default function Neuro3DAtlas() {
   const [layers, setLayers] = useState(Object.keys(layerNames));
   const [layerOpacity, setLayerOpacity] = useState<Record<string, number>>({});
   const [selected, setSelected] = useState<string | null>(null);
-  const [tab, setTab] = useState("Atlas");
+  const [tab, setTab] = useState("Anatomia detalhada");
   const [search, setSearch] = useState("");
   const [registrySearch, setRegistrySearch] = useState("");
   const [labels, setLabels] = useState(true);
@@ -160,13 +161,14 @@ export default function Neuro3DAtlas() {
         </div>
       </header>
       <aside className="n3-warning" role="note">
-        <strong>Geometria esquemática · não homologada.</strong> Uso
+        <strong>{tab === "Anatomia detalhada" ? "Superfícies anatômicas de referência · revisão pendente." : "Geometria esquemática · não homologada."}</strong> Uso
         educacional. Sem escala clínica, planejamento de pacientes ou simulação
         hemodinâmica validada.
       </aside>
       <div className="n3-topbar">
         <nav aria-label="Seções do atlas">
           {[
+            "Anatomia detalhada",
             "Atlas",
             "Simulação",
             "Módulos",
@@ -210,6 +212,9 @@ export default function Neuro3DAtlas() {
             ×
           </button>
         </p>
+      )}
+      {tab === "Anatomia detalhada" && (
+        <Suspense fallback={<p role="status">Carregando atlas de superfícies…</p>}><DetailedAtlas /></Suspense>
       )}
       {tab === "Atlas" && (
         <div className="n3-workspace">

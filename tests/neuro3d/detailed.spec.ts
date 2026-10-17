@@ -1,0 +1,20 @@
+import { test, expect } from '@playwright/test';
+test('loads open meshes, selects basilar artery, isolates and clips the same aligned anatomy', async ({page}) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');
+  await expect(page.getByRole('heading', {name:'Anatomia neurovascular', exact:true})).toBeVisible();
+  await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
+  await expect(page.locator('.nda-list button')).toHaveCount(513);
+  await page.getByLabel('Buscar no atlas detalhado').fill('Basilar artery');
+  await page.getByRole('button',{name:'Basilar artery Artérias',exact:true}).click();
+  await expect(page.getByTestId('detailed-structure')).toContainText('Basilar artery');
+  await page.getByLabel('Isolar estrutura selecionada').check();
+  await page.getByLabel('Plano de corte anatômico').selectOption('sagittal');
+  await page.getByLabel('Posição do corte anatômico').fill('2');
+  await page.getByRole('button',{name:'Restaurar visão',exact:true}).click();
+  await expect(page.getByLabel('Plano de corte anatômico')).toHaveValue('none');
+  await page.screenshot({path:`test-results/detailed-${test.info().project.name}.png`, fullPage:true});
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  expect(errors).toEqual([]);
+});
