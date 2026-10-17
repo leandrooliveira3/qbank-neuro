@@ -141,16 +141,16 @@ export default function Neuro3DAtlas() {
             ← QBank-Neuro
           </Link>
           <span className="n3-eyebrow">
-            ATLAS NEUROVASCULAR · EDIÇÃO DE DESENVOLVIMENTO
+            ANATOMIA · IMAGEM · SIMULAÇÃO
           </span>
           <h1>
             QBank-Neuro <em>3D</em>
           </h1>
-          <p>Explore conexões. Entenda a anatomia.</p>
+          <p>Explore a anatomia e pratique a navegação no mesmo espaço.</p>
         </div>
         <div className="n3-metrics">
           <span>
-            <b>12</b>cenas
+            <b>{tab === "Anatomia detalhada" ? "513" : "12"}</b>{tab === "Anatomia detalhada" ? "estruturas" : "cenas"}
           </span>
           <span>
             <b>126</b>registros
@@ -161,7 +161,7 @@ export default function Neuro3DAtlas() {
         </div>
       </header>
       <aside className="n3-warning" role="note">
-        <strong>{tab === "Anatomia detalhada" ? "Superfícies anatômicas de referência · revisão pendente." : "Geometria esquemática · não homologada."}</strong> Uso
+        <strong>{tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : "Geometria esquemática · não homologada."}</strong> Uso
         educacional. Sem escala clínica, planejamento de pacientes ou simulação
         hemodinâmica validada.
       </aside>
@@ -181,7 +181,7 @@ export default function Neuro3DAtlas() {
             </button>
           ))}
         </nav>
-        <div className="n3-search">
+        {tab === "Atlas" && <div className="n3-search">
           <label htmlFor="n3-search">Busca livre em todas as cenas</label>
           <input
             id="n3-search"
@@ -203,7 +203,7 @@ export default function Neuro3DAtlas() {
               )}
             </div>
           )}
-        </div>
+        </div>}
       </div>
       {notice && (
         <p role="status" className="n3-notice">

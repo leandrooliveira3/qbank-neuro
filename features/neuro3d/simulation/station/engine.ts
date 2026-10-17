@@ -7,6 +7,7 @@ import {
   Track,
   Network,
 } from "./network";
+import { makeReferenceNetwork } from "./referenceNetwork";
 import { ProcedureCase, procedureCases } from "./cases";
 export type Family =
   | "coil"
@@ -36,6 +37,7 @@ export interface View {
   zoom: number;
   collimation: number;
   gain: number;
+  boneOpacity: number;
 }
 export interface DeviceState {
   family: Family;
@@ -57,6 +59,7 @@ export interface ImageMask {
 }
 export interface StationState {
   caseId: string;
+  geometry: "schematic" | "reference";
   tools: Record<"wire" | "catheter" | "micro", Track>;
   active: Tool;
   rotation: number;
@@ -87,7 +90,7 @@ export interface StationState {
   completed: boolean;
 }
 export type StationAction =
-  | { type: "new"; caseId: string }
+  | { type: "new"; caseId: string; geometry?: StationState["geometry"] }
   | { type: "tool"; tool: Tool }
   | { type: "move"; delta: number }
   | { type: "rotate"; delta: number }
@@ -105,11 +108,12 @@ export type StationAction =
   | { type: "shape"; value: string }
   | { type: "wireKind"; value: string }
   | { type: "finish" };
-export function createStation(caseId = procedureCases[0].id): StationState {
+export function createStation(caseId = procedureCases[0].id, geometry: StationState["geometry"] = "schematic"): StationState {
   const c = procedureCases.find((c) => c.id === caseId) || procedureCases[0];
   const track = () => ({ path: ["access"], depth: 0 });
   return {
     caseId: c.id,
+    geometry,
     tools: { wire: track(), catheter: track(), micro: track() },
     active: "wire",
     rotation: 0,
@@ -123,10 +127,11 @@ export function createStation(caseId = procedureCases[0].id): StationState {
       yawB: 90,
       pitchB: 0,
       panX: 0,
-      panY: c.initialView.panY,
-      zoom: c.initialView.zoom,
+      panY: geometry === "reference" ? 0.2 : c.initialView.panY,
+      zoom: geometry === "reference" ? 1.6 : c.initialView.zoom,
       collimation: 96,
       gain: 1,
+      boneOpacity: 0.4,
     },
     mode: "fluoro",
     pedal: false,
@@ -150,14 +155,28 @@ export function createStation(caseId = procedureCases[0].id): StationState {
     completed: false,
   };
 }
+const referenceCases = procedureCases.map((definition) => ({
+  ...definition,
+  target: definition.kind === "aneurysm" ? "sac" : definition.kind === "stroke" ? "ref-M1-L" : "ref-ICA-L",
+  targetT: definition.kind === "carotid" ? 0.16 : definition.targetT,
+  patient: definition.kind === "aneurysm" ? "Caso fictício · aneurisma virtual de ACI esquerda" : definition.patient,
+  brief: definition.kind === "angiography"
+    ? "Entrada cervical na ACI esquerda. Avance os instrumentos nas trajetórias extraídas das malhas e obtenha uma aquisição seletiva. Acesso aórtico/femoral e navegação contralateral permanecem no cenário esquemático."
+    : definition.kind === "aneurysm"
+      ? "Saco virtual conectado à ACI esquerda do atlas. Navegue até o saco e explore o posicionamento de coils. A relação fina com anéis durais ainda não foi reconstruída."
+      : definition.kind === "carotid" ? "Uma estenose virtual deforma a superfície cervical da ACI esquerda. Explore proteção, balão e stent no mesmo referencial do atlas. A indicação terapêutica é pressuposta no exercício." : definition.brief,
+  goal: definition.kind === "angiography" ? "Registrar aquisição seletiva da ACI esquerda no referencial do atlas." : definition.goal,
+}));
 export function caseFor(s: StationState) {
-  return procedureCases.find((c) => c.id === s.caseId)!;
+  return (s.geometry === "reference" ? referenceCases : procedureCases).find((c) => c.id === s.caseId)!;
 }
 const networkCache = new Map<string, Network>();
 export function networkFor(s: StationState) {
-  if (!networkCache.has(s.caseId))
-    networkCache.set(s.caseId, makeNetwork(caseFor(s).kind === "aneurysm"));
-  return networkCache.get(s.caseId)!;
+  const key = `${s.geometry}/${s.caseId}`;
+  if (!networkCache.has(key)) networkCache.set(key, s.geometry === "reference"
+    ? makeReferenceNetwork(caseFor(s).kind === "aneurysm")
+    : makeNetwork(caseFor(s).kind === "aneurysm"));
+  return networkCache.get(key)!;
 }
 const note = (
   s: StationState,
@@ -285,6 +304,7 @@ export function goalMet(s: StationState) {
       )
     );
   if (kind === "carotid") return s.stented && s.dilation >= 0.6;
+  if (s.geometry === "reference") return s.runs.some((r) => r.territory === "ref-ICA-L");
   return (
     s.runs.some((r) => r.territory.includes("ICA")) &&
     s.runs.some((r) => r.territory === "CI-BA" || r.territory.includes("vert_"))
@@ -294,7 +314,7 @@ export function stationReducer(
   s: StationState,
   a: StationAction,
 ): StationState {
-  if (a.type === "new") return createStation(a.caseId);
+  if (a.type === "new") return createStation(a.caseId, a.geometry ?? s.geometry);
   if (s.completed && !["new", "view", "tool"].includes(a.type)) return s;
   const n = networkFor(s),
     c = caseFor(s);
@@ -346,6 +366,7 @@ export function stationReducer(
           zoom: clamp(p.zoom ?? s.view.zoom, 0.5, 5),
           collimation: clamp(p.collimation ?? s.view.collimation, 25, 100),
           gain: clamp(p.gain ?? s.view.gain, 0.4, 2),
+          boneOpacity: clamp(p.boneOpacity ?? s.view.boneOpacity, 0, 1),
         },
       };
     }
@@ -361,6 +382,7 @@ export function stationReducer(
           s.wireKind === "Guia diagnóstico" &&
           (next.edge.startsWith("CI-") ||
             /ICA-[LR]-C[2-7]/.test(next.edge) ||
+            next.edge.startsWith("ref-M") || next.edge.startsWith("ref-ACA") || next.edge.startsWith("ref-OA") ||
             next.edge === "sac")
         )
           return note(
@@ -417,7 +439,7 @@ export function stationReducer(
             d.family === "retriever" &&
             d.captured &&
             s.clot &&
-            locate(n, track).edge.startsWith("ICA-")
+            (locate(n, track).edge.startsWith("ICA-") || locate(n, track).edge.startsWith("ref-ICA"))
           ) {
             clot = false;
             result = note(

@@ -2,8 +2,8 @@ import type { P3, Vessel } from "./network";
 import { pointAt } from "./network";
 
 export interface Surface {
-  positions: number[];
-  indices: number[];
+  positions: number[] | Float32Array;
+  indices: number[] | Uint32Array;
 }
 const dot = (a: P3, b: P3) => a.reduce((sum, v, i) => sum + v * b[i], 0);
 const sub = (a: P3, b: P3) => a.map((v, i) => v - b[i]) as P3;

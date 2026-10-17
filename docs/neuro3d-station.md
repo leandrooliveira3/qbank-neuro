@@ -1,5 +1,10 @@
 # Estação procedural virtual Neuro3D
 
+Esta descrição detalha a base esquemática original. O modo padrão agora usa
+as malhas da ACI esquerda, com entrada cervical e três saídas conectadas.
+Veja [neuro3d-connected-reference.md](neuro3d-connected-reference.md) para
+escopo, método, projeção óssea e limites da conexão às malhas.
+
 ## Escopo atual
 
 A aba **Simulação** em `/#/tools/neuro3d` abre uma estação operada por mouse, toque e teclado, sem hardware externo. Substitui a antiga sequência de oito exercícios e a aba de videoaulas. Os arquivos antigos são históricos; o catálogo Mentice não é carregado nesta estação.

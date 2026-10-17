@@ -39,7 +39,7 @@ export default function ProcedureStation({
   onOpenAnatomy: (scene: string, variant: string) => void;
 }) {
   const [s, dispatch] = useReducer(stationReducer, undefined, () =>
-    createStation(),
+    createStation(undefined, "reference"),
   );
   const [frame, setFrame] = useState<StationState>(s);
   const [biplane, setBiplane] = useState(true),
@@ -92,6 +92,7 @@ export default function ProcedureStation({
         e.altKey
       )
         return;
+      if (e.code === "Space" && t.closest("button,summary,a")) return;
       let action: StationAction | undefined;
       if (e.code === "Space") action = { type: "pedal", on: true };
       if (["ArrowUp", "KeyW"].includes(e.code))
@@ -117,7 +118,7 @@ export default function ProcedureStation({
       }
     };
     const keyup = (e: KeyboardEvent) => {
-      if (e.code === "Space") {
+      if (e.code === "Space" && !(e.target as HTMLElement).closest("button,summary,a")) {
         e.preventDefault();
         dispatch({ type: "pedal", on: false });
       }
@@ -147,9 +148,9 @@ export default function ProcedureStation({
     el.addEventListener("wheel", wheel, { passive: false });
     return () => el.removeEventListener("wheel", wheel);
   }, [step]);
-  function newCase(id: string) {
-    const next = createStation(id);
-    dispatch({ type: "new", caseId: id });
+  function newCase(id: string, geometry = s.geometry) {
+    const next = createStation(id, geometry);
+    dispatch({ type: "new", caseId: id, geometry });
     setFrame(next);
     lastPulse.current = 0;
     setNotice("");
@@ -167,7 +168,7 @@ export default function ProcedureStation({
       actions: s.attempts,
       events: s.log,
       implants: s.implants,
-      model: "schematic-unvalidated",
+      model: s.geometry === "reference" ? "atlas-centerlines-unvalidated" : "schematic-unvalidated",
     };
     try {
       const old = JSON.parse(
@@ -256,6 +257,15 @@ export default function ProcedureStation({
           </select>
         </label>
       </header>
+      <div className="nvs-basis">
+        <label>Base anatômica
+          <select aria-label="Base anatômica da simulação" value={s.geometry} onChange={(e) => newCase(s.caseId, e.target.value as StationState["geometry"])}>
+            <option value="reference">Malhas do atlas · ACI esquerda</option>
+            <option value="schematic">Cenário esquemático · acesso aórtico</option>
+          </select>
+        </label>
+        <span>{s.geometry === "reference" ? "Malhas, instrumentos e projeções no mesmo referencial. Entrada cervical; junções numéricas ainda em revisão." : "Rede esquemática para exploração do acesso e das duas circulações."}</span>
+      </div>
       <div className="nvs-case">
         <div>
           <strong>{c.patient}</strong>
@@ -313,6 +323,7 @@ export default function ProcedureStation({
               Biplano
             </label>
           </div>
+          {biplane && <small className="nvs-mobilehint">Deslize os monitores para alternar entre os planos A e B.</small>}
           <Fluoro frame={frame} current={s} biplane={biplane} />
           {s.mask && projectionKey(s.mask.view) !== projectionKey(s.view) && (
             <p className="nvs-alert" role="status">
@@ -325,6 +336,12 @@ export default function ProcedureStation({
               className={`nvs-pedal ${s.pedal ? "active" : ""}`}
               aria-label="Pedal de fluoroscopia"
               aria-pressed={s.pedal}
+              onKeyDown={(event) => {
+                if (["Space", "Enter"].includes(event.code)) { event.preventDefault(); event.stopPropagation(); dispatch({ type: "pedal", on: true }); }
+              }}
+              onKeyUp={(event) => {
+                if (["Space", "Enter"].includes(event.code)) { event.preventDefault(); event.stopPropagation(); dispatch({ type: "pedal", on: false }); }
+              }}
               onPointerDown={(e) => {
                 e.currentTarget.setPointerCapture(e.pointerId);
                 dispatch({ type: "pedal", on: true });
@@ -550,8 +567,8 @@ export default function ProcedureStation({
         </section>
         <aside className="nvs-console">
           <h3>Console da hemodinâmica</h3>
-          <section>
-            <h4>Arco C · plano A</h4>
+          <details open className="nvs-machine">
+            <summary>Arco C · plano A</summary>
             {control("RAO / LAO", "yaw", -110, 110)}
             {control("Caudal / cranial", "pitch", -75, 75)}
             <button
@@ -575,24 +592,25 @@ export default function ProcedureStation({
             >
               Oblíqua
             </button>
-          </section>
+          </details>
           {biplane && (
-            <section>
-              <h4>Arco C · plano B</h4>
+            <details className="nvs-machine">
+              <summary>Arco C · plano B</summary>
               {control("RAO / LAO · B", "yawB", -110, 110)}
               {control("Caudal / cranial · B", "pitchB", -75, 75)}
               <button onClick={() => dispatch({ type: "view", patch: { yawB: 90, pitchB: 0 } })}>
                 Lateral B
               </button>
-            </section>
+            </details>
           )}
-          <section>
-            <h4>Mesa e campo</h4>
+          <details className="nvs-machine">
+            <summary>Mesa, imagem e osso</summary>
             {control("Mesa horizontal", "panX", -12, 12, 0.1)}
             {control("Mesa longitudinal", "panY", -12, 12, 0.1)}
             {control("Magnificação", "zoom", 0.5, 5, 0.1)}
             {control("Colimação", "collimation", 25, 100)}
             {control("Ganho da imagem", "gain", 0.4, 2, 0.1)}
+            {s.geometry === "reference" && control("Sobreposição óssea", "boneOpacity", 0, 1, 0.05)}
             <button
               onClick={() => {
                 const p = locate(n, s.tools.wire).point;
@@ -601,8 +619,9 @@ export default function ProcedureStation({
             >
               Centralizar ponta do guia
             </button>
-          </section>
-          <section>
+          </details>
+          <details className="nvs-machine">
+            <summary>Anatomia 3D e assistência</summary>
             <label>
               <input
                 type="checkbox"
@@ -624,7 +643,7 @@ export default function ProcedureStation({
                 <AnatomyScene s={s} />
               </Suspense>
             )}
-          </section>
+          </details>
           <section className="nvs-outcome">
             <h4>Estado do caso · modelo gráfico</h4>
             <p>

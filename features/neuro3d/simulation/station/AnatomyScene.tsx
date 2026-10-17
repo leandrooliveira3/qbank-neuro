@@ -6,6 +6,7 @@ import { caseFor, networkFor, StationState } from "./engine";
 import { P3, pointAt, locate, trackPoints } from "./network";
 import { instrumentPoints } from "./mechanics";
 import { lumenFactor, devicePoints } from "./imaging";
+import ReferenceAnatomy from "./ReferenceAnatomy";
 import { sacRadius, vesselSurface, Surface } from "./surfaces";
 class Boundary extends Component<
   { children: React.ReactNode },
@@ -62,7 +63,7 @@ function Lumen({ surface, sac }: { surface: Surface; sac: boolean }) {
   const geometry = useMemo(() => {
     const result = new BufferGeometry();
     result.setAttribute("position", new Float32BufferAttribute(surface.positions, 3));
-    result.setIndex(surface.indices);
+    result.setIndex(Array.from(surface.indices));
     result.computeVertexNormals();
     return result;
   }, [surface]);
@@ -93,7 +94,7 @@ function Content({ s }: { s: StationState }) {
   const target = pointAt(n[c.target], c.targetT);
   return (
     <group>
-      {vessels.map((v) => <Lumen key={v.id} surface={v.surface} sac={v.id === "sac"} />)}
+      {s.geometry === "reference" ? <ReferenceAnatomy s={s} /> : vessels.map((v) => <Lumen key={v.id} surface={v.surface} sac={v.id === "sac"} />)}
       {tools.map((t, i) => (
         <Tube
           key={t.key}

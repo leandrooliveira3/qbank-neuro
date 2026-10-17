@@ -452,3 +452,29 @@
     font-size: 9px;
   }
 }
+.nvs-heading { padding:18px 0 0; margin-bottom:12px; }
+.nvs-heading h2 { font-size:24px; letter-spacing:-.5px; } .nvs-heading p { margin-bottom:0; }
+.nvs-heading>label { min-width:235px; }
+.nvs-basis { display:flex; align-items:center; gap:20px; padding:10px 14px; border:1px solid #2b414f; background:#10232c; border-radius:9px; margin-bottom:12px; }
+.nvs-basis>label { flex:0 0 235px; } .nvs-basis>span { color:#8eacbb; font-size:11px; line-height:1.55; }
+.nvs-case { padding:13px 16px; background:#11212c; margin-bottom:14px; border-radius:9px; }
+.nvs-case p { font-size:11px; line-height:1.6; margin:5px 0; } .nvs-case strong { font-size:12px; }
+.nvs-layout { grid-template-columns:minmax(0,1fr) 285px; gap:14px; }
+.nvs-console { border:1px solid #2b414f; background:#10212d; border-radius:11px; padding:15px; position:sticky; top:14px; align-self:start; max-height:calc(100dvh - 28px); overflow:auto; }
+.nvs-console>h3 { padding-bottom:13px; border-bottom:1px solid #2b414f; font-size:14px; }
+.nvs-console section { border-radius:8px; margin-bottom:10px; padding:10px; }
+.nvs-detector { border-radius:10px; border-color:#344955; }
+.nvs-monitorhead,.nvs-monitorfoot { padding:9px 12px; }
+.nvs-monitorhead span { font-size:9px; letter-spacing:.3px; }
+.nvs-acquisition { padding:12px; background:#11232d; border:1px solid #2b414f; border-radius:10px; gap:7px; }
+.nvs-anatomy { border-radius:11px; overflow:hidden; }
+.nvs-manipulation,.nvs-controls { border-radius:11px; }
+@media(max-width:950px) { .nvs-layout { grid-template-columns:minmax(0,1fr) 245px; } .nvs-heading { gap:14px; } }
+@media(max-width:720px) { .nvs-layout { display:flex; flex-direction:column; } .nvs-console { position:static; max-height:none; width:100%; } .nvs-heading>label { min-width:0; width:100%; } .nvs-basis { flex-direction:column; align-items:stretch; gap:8px; } .nvs-basis>label { flex:auto; } .nvs-case { gap:10px; } .nvs-screens.biplane { grid-template-columns:repeat(2,minmax(0,1fr)); } .nvs-monitorhead { padding:6px; } .nvs-monitorhead span { font-size:7px; } }
+.nvs-machine { border:1px solid #2a404c; border-radius:8px; padding:10px 12px; margin:10px 0; background:#11232e; }
+.nvs-machine summary { cursor:pointer; color:#9fb9c8; font-size:11px; font-weight:600; }
+.nvs-machine[open] summary { margin-bottom:14px; color:#d1e5eb; }
+.nvs-machine>label { display:block; margin:10px 0; }
+.nvs-machine button { font-size:10px; margin:5px 3px 3px 0; }
+.nvs-mobilehint { display:none; }
+@media(max-width:720px) { .nvs-screens.biplane { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; } .nvs-screens.biplane .nvs-detector { flex:0 0 calc(100% - 12px); scroll-snap-align:start; } .nvs-mobilehint { display:block; color:#91adbd; font-size:10px; margin-bottom:8px; } }

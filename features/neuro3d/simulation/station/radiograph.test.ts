@@ -24,7 +24,7 @@ describe("surface-derived radiographic projection", () => {
     const edges = new Map<string, number>();
     let volume = 0;
     for (let i = 0; i < surface.indices.length; i += 3) {
-      const ids = surface.indices.slice(i, i + 3);
+      const ids = Array.from(surface.indices.slice(i, i + 3));
       for (let j = 0; j < 3; j++) {
         const key = [ids[j], ids[(j + 1) % 3]].sort((a,b) => a-b).join(":");
         edges.set(key, (edges.get(key) ?? 0) + 1);

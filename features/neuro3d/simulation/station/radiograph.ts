@@ -14,7 +14,7 @@ export function thicknessImage(
   for (const surface of surfaces) {
     const vertices: [number, number, number][] = [];
     for (let i = 0; i < surface.positions.length; i += 3)
-      vertices.push(project(surface.positions.slice(i, i + 3) as P3));
+      vertices.push(project([surface.positions[i], surface.positions[i + 1], surface.positions[i + 2]] as P3));
     for (let i = 0; i < surface.indices.length; i += 3) {
       const a = vertices[surface.indices[i]], b = vertices[surface.indices[i + 1]], c = vertices[surface.indices[i + 2]];
       const area = (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);

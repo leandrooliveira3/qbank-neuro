@@ -70,6 +70,9 @@ test("the pedal is momentary, machine controls affect live imaging, and mobile l
   await page.keyboard.press("ArrowRight");
   await page.keyboard.up("Space");
   await expect(page.locator(".nvs-rx")).toContainText("PAUSADO");
+  await page.getByText("Mesa, imagem e osso", { exact: true }).focus();
+  await page.keyboard.press("Space");
+  await expect(page.locator(".nvs-rx")).toContainText("PAUSADO");
   await page.getByLabel("Magnificação", { exact: true }).fill("3");
   await expect(page.getByLabel("Magnificação", { exact: true })).toHaveValue(
     "3",

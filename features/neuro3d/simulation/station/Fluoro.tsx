@@ -1,5 +1,6 @@
 import React from "react";
 import VascularImage from "./VascularImage";
+import ReferenceImage from "./ReferenceImage";
 import { instrumentPoints } from "./mechanics";
 import {
   StationState,
@@ -76,7 +77,9 @@ export default function Fluoro({
                   height={HEIGHT}
                   fill={`url(#detector-${index})`}
                 />
-                <g
+                {frame.geometry === "reference" ? (
+                  frame.mode === "fluoro" && <ReferenceImage state={frame} plane={plane} opacity={frame.view.boneOpacity} bone />
+                ) : <g
                   opacity={
                     frame.mode === "dsa" || frame.mode === "roadmap" ? 0 : 0.1
                   }
@@ -96,15 +99,13 @@ export default function Fluoro({
                     stroke="#505860"
                     strokeWidth="12"
                   />
-                </g>
-                {frame.mode === "roadmap" && frame.mask && (
-                  <VascularImage network={n} definition={c} edges={frame.mask.edges}
-                    view={frame.mask.view} plane={plane} clot={frame.mask.clot}
-                    dilation={frame.mask.dilation} opacity={0.85} inverted />
-                )}
-                <VascularImage network={n} definition={c} edges={opacified}
-                  view={frame.view} plane={plane} clot={frame.clot}
-                  dilation={frame.dilation} opacity={contrastOpacity} />
+                </g>}
+                {frame.mode === "roadmap" && frame.mask && (frame.geometry === "reference"
+                  ? <ReferenceImage state={{ ...frame, view: frame.mask.view, clot: frame.mask.clot, dilation: frame.mask.dilation }} edges={frame.mask.edges} plane={plane} opacity={0.85} inverted />
+                  : <VascularImage network={n} definition={c} edges={frame.mask.edges} view={frame.mask.view} plane={plane} clot={frame.mask.clot} dilation={frame.mask.dilation} opacity={0.85} inverted />)}
+                {frame.geometry === "reference"
+                  ? <ReferenceImage state={frame} edges={opacified} plane={plane} opacity={contrastOpacity} />
+                  : <VascularImage network={n} definition={c} edges={opacified} view={frame.view} plane={plane} clot={frame.clot} dilation={frame.dilation} opacity={contrastOpacity} />}
                 {(["wire", "catheter", "micro"] as const).map((tool, i) => (
                   <path
                     data-instrument={tool}

@@ -8,6 +8,12 @@ export interface Vessel {
   radius: number;
   children: string[];
   synthetic?: boolean;
+  sourceId?: string;
+  sourceRange?: [number, number];
+  sourceReverse?: boolean;
+  visualBranches?: string[];
+  junctionGapCm?: number;
+  syntheticJunction?: boolean;
 }
 export type Network = Record<string, Vessel>;
 const copy = (p: number[]) => [...p] as P3;

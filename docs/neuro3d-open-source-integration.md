@@ -1,5 +1,8 @@
 # Integração de anatomia aberta — 17/10/2026
 
+Registro da primeira importação. O estado posterior de conexão com a estação
+está em [neuro3d-connected-reference.md](neuro3d-connected-reference.md).
+
 ## Resultado implementado
 
 A rota `/#/tools/neuro3d` abre a aba **Anatomia detalhada** por padrão.

@@ -23,7 +23,9 @@ export function instrumentPoints(
             ? 0.35
             : 0.12
         : 0.05;
-  const amplitude = supported ? 0.015 : Math.min(desired, vessel.radius * 0.8);
+  const amplitude = s.geometry === "reference"
+    ? (supported ? 0 : Math.min(desired, vessel.radius * 0.25, 0.04))
+    : supported ? 0.015 : Math.min(desired, vessel.radius * 0.8);
   const angle = (s.rotation * Math.PI) / 180,
     start = Math.max(0, points.length - 9);
   return points.map((p, i) => {
