@@ -12,12 +12,13 @@ import { useGLTF } from "@react-three/drei/core/Gltf";
 import {
   Box3,
   Mesh,
-  MeshStandardMaterial,
   PropertyBinding,
   Vector3,
 } from "three";
 import type { OrbitControls as OrbitControlsType } from "three-stdlib";
 import { data, modelUrl, Structure } from "./model";
+import { cloneAtlasMaterial } from "./materials";
+const opaqueLayers: Record<string, number> = {};
 
 type Props = {
   scene: string;
@@ -27,6 +28,7 @@ type Props = {
   selected: string | null;
   onSelect: (id: string) => void;
   labels: boolean;
+  layerOpacity?: Record<string, number>;
 };
 class RenderBoundary extends Component<
   {
@@ -53,28 +55,28 @@ function Model({
   selected,
   onSelect,
   labels,
+  layerOpacity = opaqueLayers,
 }: Omit<Props, "scene" | "variant" | "stage"> & { url: string }) {
   const { scene } = useGLTF(url);
   const invalidate = useThree((state) => state.invalidate);
   const cloned = useMemo(() => {
-    const clone = scene.clone(true);
-    clone.traverse((node) => {
-      if (node instanceof Mesh) {
-        node.material = new MeshStandardMaterial({
-          color: 0xffffff,
-          roughness: 0.38,
-          metalness: 0.12,
-        });
-      }
+    const root = scene.clone(true);
+    const materials = new Map<Mesh, ReturnType<typeof cloneAtlasMaterial>[]>();
+    root.traverse((node) => {
+      if (!(node instanceof Mesh)) return;
+      const originals = Array.isArray(node.material) ? node.material : [node.material];
+      const copies = originals.map(cloneAtlasMaterial);
+      node.material = Array.isArray(node.material)
+        ? copies.map((entry) => entry.material)
+        : copies[0].material;
+      materials.set(node, copies);
     });
-    return clone;
+    return { root, materials };
   }, [scene]);
   useEffect(
     () => () => {
-      cloned.traverse((node) => {
-        if (node instanceof Mesh)
-          (node.material as MeshStandardMaterial).dispose();
-      });
+      for (const entries of cloned.materials.values())
+        entries.forEach(({ material }) => material.dispose());
     },
     [cloned],
   );
@@ -86,27 +88,26 @@ function Model({
     [objects],
   );
   useEffect(() => {
-    cloned.traverse((node) => {
+    cloned.root.traverse((node) => {
       if (!(node instanceof Mesh)) return;
       const o = byName.get(node.name);
-      node.visible = !!o;
+      node.visible = !!o && (layerOpacity[o.layer] ?? 1) > 0;
       node.userData.atlasId = o?.id;
       node.onAfterRender = (renderer) => {
         renderer.domElement.dataset.atlasRendered = url;
       };
       if (o) {
-        const m = node.material as MeshStandardMaterial;
-        m.color.set(o.color);
-        m.emissive.set(o.id === selected ? "#237c72" : "#000000");
-        m.emissiveIntensity = 0.65;
+        cloned.materials.get(node)?.forEach((entry) =>
+          entry.update(layerOpacity[o.layer] ?? 1, o.id === selected),
+        );
       }
     });
     invalidate();
-  }, [cloned, byName, selected, scene, invalidate, url]);
+  }, [cloned, byName, selected, scene, invalidate, url, layerOpacity]);
   return (
     <group>
       <primitive
-        object={cloned}
+        object={cloned.root}
         dispose={null}
         onClick={(event: { stopPropagation: () => void; object: Mesh }) => {
           event.stopPropagation();
@@ -161,7 +162,8 @@ function Compatible({
   objects,
   selected,
   onSelect,
-}: Pick<Props, "objects" | "selected" | "onSelect">) {
+  layerOpacity = opaqueLayers,
+}: Pick<Props, "objects" | "selected" | "onSelect" | "layerOpacity">) {
   const points = objects.flatMap((o) => o.points);
   const bounds = new Box3().setFromPoints(
     points.map((p) => new Vector3(...(p as [number, number, number]))),
@@ -197,6 +199,7 @@ function Compatible({
           <polyline
             key={o.id}
             points={o.points.map(project).join(" ")}
+            opacity={layerOpacity[o.layer] ?? 1}
             fill="none"
             stroke={o.id === selected ? "#f8fafc" : o.color}
             strokeWidth={Math.max(2, o.radius * scale * 1.3)}

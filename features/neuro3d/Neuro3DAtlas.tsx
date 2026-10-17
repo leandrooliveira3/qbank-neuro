@@ -40,6 +40,7 @@ export default function Neuro3DAtlas() {
   const [variant, setVariant] = useState("normal");
   const [stage, setStage] = useState(1);
   const [layers, setLayers] = useState(Object.keys(layerNames));
+  const [layerOpacity, setLayerOpacity] = useState<Record<string, number>>({});
   const [selected, setSelected] = useState<string | null>(null);
   const [tab, setTab] = useState("Atlas");
   const [search, setSearch] = useState("");
@@ -90,6 +91,7 @@ export default function Neuro3DAtlas() {
     setVariant(target?.variants[0] || data.variants[id]?.[0]?.id || "normal");
     setStage(target?.stages[0] ?? 1);
     setLayers(Object.keys(layerNames));
+    setLayerOpacity({});
     setSelected(target?.id || null);
     setPlaying(false);
     setTab("Atlas");
@@ -312,6 +314,7 @@ export default function Neuro3DAtlas() {
                   selected={selected}
                   onSelect={setSelected}
                   labels={labels}
+                  layerOpacity={layerOpacity}
                 />
                 {compare && (
                   <Viewer
@@ -334,6 +337,7 @@ export default function Neuro3DAtlas() {
                       }
                     }}
                     labels={false}
+                    layerOpacity={layerOpacity}
                   />
                 )}
               </Suspense>
@@ -358,6 +362,21 @@ export default function Neuro3DAtlas() {
                     {layerNames[l]}
                   </label>
                 ))}
+              {["bone", "dura", "tissue"].filter((layer) =>
+                layers.includes(layer) && data.scenes[scene].some((o) => o.layer === layer),
+              ).map((layer) => (
+                <label key={`opacity-${layer}`}>
+                  Opacidade · {layerNames[layer]}
+                  <input type="range" min="0" max="100" step="5"
+                    aria-label={`Opacidade · ${layerNames[layer]}`}
+                    value={Math.round((layerOpacity[layer] ?? 1) * 100)}
+                    onChange={(event) => setLayerOpacity((previous) => ({
+                      ...previous, [layer]: Number(event.target.value) / 100,
+                    }))}
+                  />
+                  <output>{Math.round((layerOpacity[layer] ?? 1) * 100)}%</output>
+                </label>
+              ))}
               <label>
                 <input
                   type="checkbox"
