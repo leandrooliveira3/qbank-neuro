@@ -285,3 +285,27 @@ it("retriever captures beyond the occlusion and removes thrombus only on proxima
   expect(locate(n, s.device!.track).edge).toContain("ICA-");
   expect(goalMet(s)).toBe(false);
 });
+
+
+describe("independent biplane acquisition", () => {
+  it("changing A leaves the B projection unchanged and vice versa", () => {
+    const s = createStation();
+    const point: [number, number, number] = [2, 3, 4];
+    const a = stationReducer(s, { type: "view", patch: { yaw: 30, pitch: 20 } });
+    expect(project(point, a.view, 90)).toEqual(project(point, s.view, 90));
+    expect(project(point, a.view)).not.toEqual(project(point, s.view));
+    const b = stationReducer(s, { type: "view", patch: { yawB: -20, pitchB: 35 } });
+    expect(project(point, b.view)).toEqual(project(point, s.view));
+    expect(project(point, b.view, 90)).not.toEqual(project(point, s.view, 90));
+  });
+  it("keeps the captured B mask fixed while detecting B movement", () => {
+    let s = createStation();
+    s = { ...s, mask: { view: { ...s.view }, edges: ["ICA-L-C1"], clot: false, dilation: 0 } };
+    const original = maskLines(s, networkFor(s), 90);
+    const moved = stationReducer(s, { type: "view", patch: { yawB: 40, pitchB: 10 } });
+    expect(maskLines(moved, networkFor(moved), 90)).toEqual(original);
+    expect(projectionKey(moved.view)).not.toBe(projectionKey(moved.mask!.view));
+    const reset = stationReducer(moved, { type: "view", patch: { yawB: 90, pitchB: 0 } });
+    expect(projectionKey(reset.view)).toBe(projectionKey(reset.mask!.view));
+  });
+});

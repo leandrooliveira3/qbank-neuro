@@ -213,7 +213,7 @@ export default function ProcedureStation({
       {label}
       <b>
         {s.view[key].toFixed(increment < 1 ? 1 : 0)}
-        {["yaw", "pitch"].includes(key) ? "°" : ""}
+        {["yaw", "pitch", "yawB", "pitchB"].includes(key) ? "°" : ""}
       </b>
       <input
         aria-label={label}
@@ -551,7 +551,7 @@ export default function ProcedureStation({
         <aside className="nvs-console">
           <h3>Console da hemodinâmica</h3>
           <section>
-            <h4>Arco C</h4>
+            <h4>Arco C · plano A</h4>
             {control("RAO / LAO", "yaw", -110, 110)}
             {control("Caudal / cranial", "pitch", -75, 75)}
             <button
@@ -576,6 +576,16 @@ export default function ProcedureStation({
               Oblíqua
             </button>
           </section>
+          {biplane && (
+            <section>
+              <h4>Arco C · plano B</h4>
+              {control("RAO / LAO · B", "yawB", -110, 110)}
+              {control("Caudal / cranial · B", "pitchB", -75, 75)}
+              <button onClick={() => dispatch({ type: "view", patch: { yawB: 90, pitchB: 0 } })}>
+                Lateral B
+              </button>
+            </section>
+          )}
           <section>
             <h4>Mesa e campo</h4>
             {control("Mesa horizontal", "panX", -12, 12, 0.1)}

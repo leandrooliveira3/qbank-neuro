@@ -29,6 +29,8 @@ export type Tool = "wire" | "catheter" | "micro" | "device";
 export interface View {
   yaw: number;
   pitch: number;
+  yawB: number;
+  pitchB: number;
   panX: number;
   panY: number;
   zoom: number;
@@ -118,6 +120,8 @@ export function createStation(caseId = procedureCases[0].id): StationState {
     view: {
       yaw: 0,
       pitch: 0,
+      yawB: 90,
+      pitchB: 0,
       panX: 0,
       panY: c.initialView.panY,
       zoom: c.initialView.zoom,
@@ -173,7 +177,7 @@ const note = (
 const clamp = (v: number, min: number, max: number) =>
   Math.max(min, Math.min(max, v));
 export function projectionKey(v: View) {
-  return [v.yaw, v.pitch, v.panX, v.panY, v.zoom]
+  return [v.yaw, v.pitch, v.yawB, v.pitchB, v.panX, v.panY, v.zoom]
     .map((n) => n.toFixed(2))
     .join("|");
 }
@@ -335,6 +339,8 @@ export function stationReducer(
         view: {
           yaw: clamp(p.yaw ?? s.view.yaw, -110, 110),
           pitch: clamp(p.pitch ?? s.view.pitch, -75, 75),
+          yawB: clamp(p.yawB ?? s.view.yawB, -110, 110),
+          pitchB: clamp(p.pitchB ?? s.view.pitchB, -75, 75),
           panX: clamp(p.panX ?? s.view.panX, -12, 12),
           panY: clamp(p.panY ?? s.view.panY, -12, 12),
           zoom: clamp(p.zoom ?? s.view.zoom, 0.5, 5),

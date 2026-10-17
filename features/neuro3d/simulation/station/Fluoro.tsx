@@ -47,7 +47,7 @@ export default function Fluoro({
                 {index ? "B" : "A"} · {statusLabel(current)}
               </span>
               <b>
-                {frame.view.yaw + plane}° / {frame.view.pitch}°
+                {index ? frame.view.yawB : frame.view.yaw}° / {index ? frame.view.pitchB : frame.view.pitch}°
               </b>
             </div>
             <svg

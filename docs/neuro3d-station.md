@@ -25,7 +25,7 @@ A curvatura distal varia com perfil, rotação e suporte, limitada por uma estim
 
 ## Imagem e controles da hemodinâmica
 
-- Dois monitores sintéticos, separados por 90°, projetam a mesma geometria dos instrumentos e vasos. O segundo plano não possui ainda arco independente.
+- Dois monitores sintéticos projetam a mesma geometria dos instrumentos e vasos. Os planos A e B têm angulações RAO/LAO e cranial/caudal independentes, inicialmente em AP e lateral. Mesa, magnificação e colimação ainda são compartilhadas. A máscara preserva as angulações capturadas dos dois planos.
 - Pedal momentâneo de fluoroscopia (Espaço ou manter botão pressionado), seleção de 3/7,5/15/30 pulsos por segundo e retenção da última imagem ao soltar. Perda de foco solta o pedal.
 - DSA inicia aquisição virtual de quatro segundos após injeção. A representação óssea sintética é retirada no modo subtraído; não há imagens DICOM ou simulação física de raios X.
 - Contraste temporário se origina no cateter e percorre os descendentes do grafo, respeitando o corte da oclusão M1. Injeção no acesso femoral não opacifica a circulação cerebral. Não há transporte físico, refluxo, circulação venosa ou análise de fluxo.
@@ -57,6 +57,6 @@ Não houve cópia de software, casos, mídia ou algoritmos proprietários. Não 
 
 Verificações: TypeScript, testes de motor/contratos, Playwright desktop e viewport móvel e build Vite. Os testes incluem junções, alvos alcançáveis, seleção de ramo, suporte e recuo independentes, navegação completa do acesso ao saco com entrega de coil, regras espaciais, máscara persistente, projeção, pedal, limites da sessão e preservação do atlas. Testar software não equivale a homologar anatomia ou habilidades.
 
-Esta versão é um **protótipo cinemático e gráfico não homologado**, não um equivalente de alta fidelidade da Mentice nem um dispositivo de treinamento profissional validado. Avanço necessário para esse objetivo: revisão presencial das demonstrações acessíveis e validação por neurointervencionistas; geometria homologada; instrumentos orientados e deformáveis com contato/colisão física; IFUs e compatibilidade por modelo; transporte de contraste/fluxo; imagem calibrada e arcos independentes; complicações e resposta fisiológica; avaliação de métricas e competência com estudos de validade.
+Esta versão é um **protótipo cinemático e gráfico não homologado**, não um equivalente de alta fidelidade da Mentice nem um dispositivo de treinamento profissional validado. Avanço necessário para esse objetivo: revisão presencial das demonstrações acessíveis e validação por neurointervencionistas; geometria homologada; instrumentos orientados e deformáveis com contato/colisão física; IFUs e compatibilidade por modelo; transporte de contraste/fluxo; imagem calibrada e detectores com ajustes independentes; complicações e resposta fisiológica; avaliação de métricas e competência com estudos de validade.
 
 Manter somente preview e PR em revisão. Não integrar à main nem promover produção sem aprovação.
