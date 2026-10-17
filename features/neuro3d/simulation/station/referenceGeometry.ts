@@ -1,5 +1,6 @@
 import { reconstructedArteries } from "../../reconstructedArteries";
 import { useEffect, useState } from "react";
+import supraAortic from "../../reference-supra-aortic.json";
 import landmarks from "../../reference-landmarks.json";
 import distal from "../../reference-distal-aca.json";
 import metadata from "../../reference-surfaces.json";
@@ -15,7 +16,7 @@ export type ReferenceGeometry = Map<string, ReferenceSurface>;
 let request: Promise<ReferenceGeometry> | null = null;
 export function loadReferenceGeometry() {
   if (!request) request = (async () => {
-    const supplementaryRequest = Promise.all([distal, landmarks].map(async (pack) => {
+    const supplementaryRequest = Promise.all([distal, landmarks, supraAortic].map(async (pack) => {
       const response = await fetch(`${import.meta.env.BASE_URL}neuro3d/open-anatomy/${pack.file}`);
       if (!response.ok) throw new Error("Não foi possível carregar as superfícies complementares.");
       const bytes = await response.arrayBuffer();

@@ -6,7 +6,7 @@ test('loads open meshes, selects basilar artery, isolates and clips the same ali
   await expect(page.getByRole('heading', {name:'Anatomia neurovascular', exact:true})).toBeVisible();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
   await page.getByRole("button", {name:"Estruturas",exact:true}).click();
-  await expect(page.locator('.nda-list button')).toHaveCount(562);
+  await expect(page.locator('.nda-list button')).toHaveCount(576);
   await page.getByLabel('Buscar no atlas detalhado').fill('Basilar artery');
   await page.getByRole('button',{name:'Basilar artery Artérias',exact:true}).click();
   await expect(page.getByTestId('detailed-structure')).toContainText('Basilar artery');
@@ -76,7 +76,7 @@ test('surface atlas transitions to the same angiographic geometry, adds bone and
   await page.getByRole('button',{name:'Superfícies anatômicas 3D',exact:true}).click();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true');
   await page.getByRole('button',{name:'Inventário',exact:true}).click();
-  await expect(page.locator('.nda-review article')).toHaveCount(124);
+  await expect(page.locator('.nda-review article')).toHaveCount(130);
   await expect(page.locator('.nda-review')).toContainText('Sem malha individual identificada');
   await page.screenshot({path:`test-results/atlas-transition-${test.info().project.name}.png`, fullPage:true});
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
@@ -174,4 +174,43 @@ test('clicking an angiographic vessel pins its identity and an empty click keeps
   const box = await canvas.boundingBox();
   await canvas.click({ position: { x: box!.width / 2, y: 16 } });
   await expect(selection).toHaveAttribute('data-selected-id', id!);
+});
+
+test('supra-aortic source anatomy is framed in 3D and angiography, with picking preserved after recentering', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');
+  await page.getByLabel('Apresentação anatômica').selectOption('supraaortic');
+  const selection = page.getByTestId('atlas-selection');
+  await expect(selection).toHaveAttribute('data-selected-id', 'aortic_arch');
+  await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered', 'true');
+  await page.getByRole('button', { name: 'Angiografia', exact: true }).click();
+  const canvas = page.getByTestId('atlas-angiography');
+  await expect(canvas).toHaveAttribute('data-field-center', '0,-18,0');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false', {timeout: 30000});
+  await page.getByRole('button', {name: 'Focar seleção', exact: true}).click();
+  await expect(canvas).not.toHaveAttribute('data-field-center', '0,-18,0');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false');
+  await page.getByLabel('Campo angiográfico', {exact: true}).selectOption('supraaortic');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false');
+  const point = await canvas.evaluate((node: HTMLCanvasElement) => {
+    const data = node.getContext('2d')!.getImageData(0, 0, node.width, node.height).data;
+    const selected: number[] = [];
+    for (let i = 0; i < data.length; i += 4) if (data[i] > data[i + 2] + 20 && data[i + 1] > data[i + 2] + 10) selected.push(i / 4);
+    if (!selected.length) throw Error('Aortic source geometry is outside the detector field');
+    const pixel = selected[Math.floor(selected.length * .8)];
+    const box = node.getBoundingClientRect(), scale = Math.min(box.width / node.width, box.height / node.height);
+    return {x: (box.width - node.width * scale) / 2 + (pixel % node.width + .5) * scale,
+      y: (box.height - node.height * scale) / 2 + (Math.floor(pixel / node.width) + .5) * scale};
+  });
+  await page.getByRole('button', {name: 'Limpar seleção', exact: true}).click();
+  await expect(selection).toHaveCount(0);
+  await canvas.click({position: point});
+  await expect(selection).toHaveAttribute('data-selected-id', 'aortic_arch');
+  await page.screenshot({path: `test-results/supra-aortic-${test.info().project.name}.png`, fullPage: true});
+  await page.getByRole('button', {name: 'Superfícies anatômicas 3D', exact: true}).click();
+  await page.getByRole('button', {name: 'Estruturas', exact: true}).click();
+  await page.getByLabel('Buscar no atlas detalhado').fill('tireoidiana inferior');
+  await expect(page.locator('.nda-list button')).toHaveCount(2);
+  expect(errors).toEqual([]);
 });

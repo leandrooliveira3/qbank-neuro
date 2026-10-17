@@ -3,22 +3,18 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useReferenceGeometry } from "./simulation/station/referenceGeometry";
 import { projectThickness, detectorImage } from "./simulation/station/detector";
 import { projectSpatial, WIDTH, HEIGHT } from "./simulation/station/imaging";
-import type { View } from "./simulation/station/engine";
-
-export function atlasProjection(yaw: number, pitch: number, zoom: number): View {
-  return { yaw, pitch, yawB: 90, pitchB: 0, zoom, panX: 0, panY: 0,
-    gain: 1, collimation: 100, boneOpacity: 1 };
-}
+import type { P3 } from "./simulation/station/network";
+import { atlasProjection, unprojectAtlasPixel } from "./atlasProjection";
 
 /** Projects the atlas source surfaces, without centerline/SVG substitutes. */
-export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, selected, isolate, layers, contrastLayer, onSelect }: {
-  yaw: number; pitch: number; zoom: number; boneOpacity: number;
+export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, selected, isolate, layers, contrastLayer, onSelect, center }: {
+  center: P3; yaw: number; pitch: number; zoom: number; boneOpacity: number;
   onSelect: (id: string) => void; contrastLayer: string; selected: string | null; isolate: boolean; layers: Record<string, number>;
 }) {
   const { geometry, error } = useReferenceGeometry();
   const canvas = useRef<HTMLCanvasElement>(null);
   const [busy, setBusy] = useState(true);
-  const view = useMemo(() => atlasProjection(yaw, pitch, zoom), [yaw, pitch, zoom]);
+  const view = useMemo(() => atlasProjection(yaw, pitch, zoom, center), [yaw, pitch, zoom, center]);
   const pickMeshes = useMemo(() => {
     if (!geometry) return [];
     const material = new MeshBasicMaterial({ side: DoubleSide });
@@ -37,14 +33,8 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
     const px = (event.clientX - rect.left - (rect.width - WIDTH * scale) / 2) / scale;
     const py = (event.clientY - rect.top - (rect.height - HEIGHT * scale) / 2) / scale;
     if (px < 0 || py < 0 || px > WIDTH || py > HEIGHT) return;
-    const yawR = yaw * Math.PI / 180, pitchR = pitch * Math.PI / 180;
-    const x = (px - WIDTH / 2) / (12 * zoom), y = -(py - HEIGHT / 2) / (12 * zoom);
-    const inverse = (depth: number) => {
-      const wy = y * Math.cos(pitchR) + depth * Math.sin(pitchR);
-      const wz = -y * Math.sin(pitchR) + depth * Math.cos(pitchR);
-      return new Vector3(x * Math.cos(yawR) + wz * Math.sin(yawR), wy, -x * Math.sin(yawR) + wz * Math.cos(yawR));
-    };
-    const origin = inverse(200), ray = new Raycaster(origin, inverse(-200).sub(origin).normalize());
+    const origin = new Vector3(...unprojectAtlasPixel(px, py, 200, view));
+    const ray = new Raycaster(origin, new Vector3(...unprojectAtlasPixel(px, py, -200, view)).sub(origin).normalize());
     const visible = pickMeshes.filter((mesh) => (!isolate || !selected || selected === mesh.userData.id) &&
       (mesh.userData.id === selected || (layers[mesh.userData.layer] ?? 0) > 0));
     const vessels = visible.filter((mesh) => contrastLayer === "both" ? ["arterial", "venous"].includes(mesh.userData.layer) : mesh.userData.layer === contrastLayer);
@@ -84,7 +74,7 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
     return () => window.clearTimeout(task);
   }, [geometry, view, boneOpacity, selected, isolate, layers, contrastLayer]);
   return <div className="nda-angiography" aria-busy={busy}>
-    <canvas ref={canvas} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} onClick={pick}
+    <canvas ref={canvas} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} data-field-center={center.join(",")} onClick={pick}
       role="img" aria-label="Projeção angiográfica sintética das superfícies do atlas" />
     {error ? <p role="alert">{error}</p> : busy && <p role="status">Calculando projeção das superfícies…</p>}
     <span className="nda-projection-label">{boneOpacity > 0 ? "ANGIOGRAFIA COM OSSO" : "DSA SINTÉTICA"} · {yaw}° / {pitch}°{selected && " · dourado: marcação da seleção"}</span>

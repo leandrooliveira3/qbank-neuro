@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { gunzipSync } from "node:zlib";
+import supraAortic from "../../reference-supra-aortic.json";
+import { openAnatomy, worldPoint } from "../../openAnatomy";
 import landmarksMetadata from "../../reference-landmarks.json";
 import distalMetadata from "../../reference-distal-aca.json";
 import { closeProjectionSurface } from "./projectionClosure";
@@ -21,6 +23,30 @@ const geometry: ReferenceGeometry = new Map(metadata.structures.map((item) => [i
   t: "tOffset" in item ? new Float32Array(buffer, item.tOffset, item.tCount) : undefined,
 }]));
 describe("shared anatomical reference", () => {
+  it("preserves the source frame for all additional supra-aortic surfaces and excludes them from selective ICA injections", () => {
+    const compressed = readFileSync(`public/neuro3d/open-anatomy/${supraAortic.file}`);
+    expect(compressed.length).toBe(supraAortic.size);
+    expect(createHash("sha256").update(compressed).digest("hex")).toBe(supraAortic.sha256);
+    const decoded = gunzipSync(compressed);
+    expect(decoded.length).toBe(supraAortic.uncompressedSize);
+    const rows = JSON.parse(decoded.toString()) as {id: string; layer: string; positions: number[]; indices: number[]}[];
+    expect(rows).toHaveLength(14);
+    const combined: ReferenceGeometry = new Map(geometry);
+    for (const row of rows) {
+      const source = openAnatomy.structures.find((item) => item.id === row.id)!;
+      const low = worldPoint(source.bounds[0]), high = worldPoint(source.bounds[1]);
+      row.positions.forEach((value, i) => {
+        expect(value).toBeGreaterThanOrEqual(low[i % 3] - .02);
+        expect(value).toBeLessThanOrEqual(high[i % 3] + .02);
+      });
+      expect(row.layer).toBe("arterial");
+      expect(row.indices.every((index) => index >= 0 && index < row.positions.length / 3)).toBe(true);
+      combined.set(row.id, {...row, positions: new Float32Array(row.positions), indices: new Uint32Array(row.indices)});
+    }
+    const state = { ...createStation("diagnostic", "reference"), contrast: { edge: "ref-ICA-L", at: 0 } };
+    const contrast = referenceContrast(state, combined, opacifiedEdges(state, networkFor(state)));
+    for (const row of rows) expect(contrast).not.toContain(combined.get(row.id));
+  });
   it("verifies source-aligned skull and sellar projection context without misclassifying soft tissue as bone", () => {
     const compressed = readFileSync(`public/neuro3d/open-anatomy/${landmarksMetadata.file}`);
     expect(compressed.length).toBe(landmarksMetadata.size);

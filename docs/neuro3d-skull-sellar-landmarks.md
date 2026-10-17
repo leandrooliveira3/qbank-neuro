@@ -1,6 +1,6 @@
 # Skull, sellar and dural landmarks
 
-The atlas now contains 544 imported structures and 18 explicitly illustrative arterial reconstructions (562 selectable entries). The original skeletal filter only recognized selected manifest paths and missed cranial bones labeled `Axial skeleton`. The pituitary was in the endocrine source, outside the original import. Cavernous/intercavernous sinuses, optic nerves/chiasm and hypothalamus were already present.
+The skull/sellar update added 31 structures. The subsequent supra-aortic update brings the atlas to 558 imported structures and 18 explicitly illustrative arterial reconstructions (576 selectable entries); see `neuro3d-supraaortic.md`. The original skeletal filter only recognized selected manifest paths and missed cranial bones labeled `Axial skeleton`. The pituitary was in the endocrine source, outside the original import. Cavernous/intercavernous sinuses, optic nerves/chiasm and hypothalamus were already present.
 
 ## Added source meshes
 

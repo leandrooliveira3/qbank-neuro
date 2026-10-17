@@ -1,0 +1,356 @@
+{
+  "sourceRepository": "https://github.com/Nurkan1/Anatria-3D",
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS → Z-Anatomy → Anatria3D → QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "structures": [
+    {
+      "id": "aortic_arch",
+      "name": "Aortic arch",
+      "latin": "Arcus aortae",
+      "node": "Aortic arch",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries",
+        "Aorta"
+      ],
+      "bounds": [
+        [
+          -0.007973749190568924,
+          1.3553340006619692,
+          -0.043027210514992476
+        ],
+        [
+          0.03173314407467842,
+          1.3968675583600998,
+          0.0421294872649014
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "supreme_intercostal_artery_l",
+      "name": "Supreme intercostal artery (left)",
+      "latin": "Arteria intercostalis suprema",
+      "node": "Supreme intercostal artery.l",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          0.045015773037448525,
+          1.4191267504356802,
+          -0.019100245088338852
+        ],
+        [
+          0.051055066753178835,
+          1.4217737418366596,
+          -0.010205551981925964
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "supreme_intercostal_artery_r",
+      "name": "Supreme intercostal artery (right)",
+      "latin": "Arteria intercostalis suprema",
+      "node": "Supreme intercostal artery.r",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.051055066753178835,
+          1.419126750028445,
+          -0.01910024520260123
+        ],
+        [
+          -0.045015773037448525,
+          1.4217737422070233,
+          -0.010205551864781004
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "right_subclavian_artery",
+      "name": "Right subclavian artery",
+      "latin": "Arteria subclavia dextra",
+      "node": "Right subclavian artery",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.08061791583895683,
+          1.408171025570482,
+          -0.005487983580678701
+        ],
+        [
+          -0.011268343776464462,
+          1.4235419509932399,
+          0.01898115547373891
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "left_subclavian_artery",
+      "name": "Left subclavian artery",
+      "latin": "Arteria subclavia sinistra",
+      "node": "Left subclavian artery",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          0.019122224301099777,
+          1.3889611586928368,
+          -0.00882029632339254
+        ],
+        [
+          0.08062581717967987,
+          1.4273068029433489,
+          0.0042933408985845745
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "inferior_thyroid_artery_l",
+      "name": "Inferior thyroid artery (left)",
+      "latin": "Arteria thyreoidea inferior",
+      "node": "Inferior thyroid artery.l",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          0.028738442808389664,
+          1.4313653409481049,
+          -2.771196886897087e-05
+        ],
+        [
+          0.04342017136514187,
+          1.4655101643875241,
+          0.007693338207900524
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "inferior_thyroid_artery_r",
+      "name": "Inferior thyroid artery (right)",
+      "latin": "Arteria thyreoidea inferior",
+      "node": "Inferior thyroid artery.r",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.04342017136514187,
+          1.4313653406373819,
+          -2.7713833453408242e-05
+        ],
+        [
+          -0.028738442808389664,
+          1.4655101647517967,
+          0.007693339328351358
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "transverse_cervical_artery_l",
+      "name": "Transverse cervical artery (left)",
+      "latin": "Arteria transversa colli",
+      "node": "Transverse cervical artery.l",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          0.041133289225399494,
+          1.4295430432539433,
+          -0.017903823434608057
+        ],
+        [
+          0.06171301752328873,
+          1.4783004894852638,
+          0.005276780080748722
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "transverse_cervical_artery_r",
+      "name": "Transverse cervical artery (right)",
+      "latin": "Arteria transversa colli",
+      "node": "Transverse cervical artery.r",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.06171301752328873,
+          1.4295430428140743,
+          -0.017903823644246926
+        ],
+        [
+          -0.041133289225399494,
+          1.4783004910719075,
+          0.00527678413362118
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "brachiocephalic_trunk",
+      "name": "Brachiocephalic trunk",
+      "latin": "Truncus brachiocephalicus",
+      "node": "Brachiocephalic trunk",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries",
+        "Aorta"
+      ],
+      "bounds": [
+        [
+          -0.018995885038748384,
+          1.381722018122673,
+          0.006782243959605694
+        ],
+        [
+          0.017033248906955123,
+          1.415261834859848,
+          0.022280702833086252
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "costocervical_trunk_l",
+      "name": "Costocervical trunk (left)",
+      "latin": "Truncus costocervicalis",
+      "node": "Costocervical trunk.l",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          0.04566002171486616,
+          1.4197942042956129,
+          -0.010766558116301894
+        ],
+        [
+          0.05015633441507816,
+          1.423356109764427,
+          -0.0006860736757516861
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "costocervical_trunk_r",
+      "name": "Costocervical trunk (right)",
+      "latin": "Truncus costocervicalis",
+      "node": "Costocervical trunk.r",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.05015633441507816,
+          1.4197942040390643,
+          -0.010766558278712006
+        ],
+        [
+          -0.04566002171486616,
+          1.4233561103891423,
+          -0.0006860735267701311
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "thyrocervical_trunk_l",
+      "name": "Thyrocervical trunk (left)",
+      "latin": "Truncus thyreocervicalis",
+      "node": "Thyrocervical trunk.l",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          0.04001822147984058,
+          1.4203766100108624,
+          -0.0015065018087625504
+        ],
+        [
+          0.04264791449531913,
+          1.4325307398103178,
+          0.0021891023498028517
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "thyrocervical_trunk_r",
+      "name": "Thyrocervical trunk (right)",
+      "latin": "Truncus thyreocervicalis",
+      "node": "Thyrocervical trunk.r",
+      "layer": "arterial",
+      "file": "supra_aortic.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.04264791449531913,
+          1.4203766099961235,
+          -0.0015065025146534967
+        ],
+        [
+          -0.04001822147984058,
+          1.4325307401186587,
+          0.002189102706459679
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    }
+  ],
+  "assets": [
+    {
+      "file": "supra_aortic.glb",
+      "sha256": "197c4d2be604470b94f408caf0fe8ea1b84fd209f092297ae30589f1281f8f96",
+      "size": 47024,
+      "structures": 14,
+      "upstreamSha256": "05f373a294ab809b9a628bc1474a66028642997330fddc553a33d4ac6409b757"
+    }
+  ]
+}

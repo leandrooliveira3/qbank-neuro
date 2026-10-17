@@ -10,10 +10,11 @@ import "./detailed-atlas.css";
 import { anatomicalInventory, inventoryStatus } from "./anatomicalInventory";
 import ReconstructedSurfaces from "./ReconstructedSurfaces";
 import { reconstructedArteries } from "./reconstructedArteries";
+import type { P3 } from "./simulation/station/network";
 import AtlasAngiography from "./AtlasAngiography";
 import { coverageReview, coverageStatus } from "./coverageReview";
 
-const landmarkShortcuts = [["sphenoid_bone", "Esfenoide"], ["temporal_bone_l", "Temporal esquerdo"], ["adenohypophysis", "Adeno-hipófise"], ["neurohypophysis", "Neuro-hipófise"], ["cavernous_sinus_l", "Seio cavernoso esquerdo"], ["cavernous_sinus_r", "Seio cavernoso direito"], ["optic_chiasm_l", "Quiasma óptico"], ["falx_cerebri", "Foice cerebral"], ["tentorium_cerebelli_l", "Tentório esquerdo"]];
+const landmarkShortcuts = [["aortic_arch", "Arco aórtico"], ["brachiocephalic_trunk", "Tronco braquiocefálico"], ["left_subclavian_artery", "Subclávia esquerda"], ["right_subclavian_artery", "Subclávia direita"], ["inferior_thyroid_artery_l", "Tireoidiana inferior esquerda"], ["inferior_thyroid_artery_r", "Tireoidiana inferior direita"], ["sphenoid_bone", "Esfenoide"], ["temporal_bone_l", "Temporal esquerdo"], ["adenohypophysis", "Adeno-hipófise"], ["neurohypophysis", "Neuro-hipófise"], ["cavernous_sinus_l", "Seio cavernoso esquerdo"], ["cavernous_sinus_r", "Seio cavernoso direito"], ["optic_chiasm_l", "Quiasma óptico"], ["falx_cerebri", "Foice cerebral"], ["tentorium_cerebelli_l", "Tentório esquerdo"]];
 const landmarkAliases: Record<string, string> = Object.fromEntries(landmarkShortcuts);
 const atlasStructures = [...openAnatomy.structures, ...reconstructedArteries];
 type AtlasStructure = typeof atlasStructures[number];
@@ -98,6 +99,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
   const [pitch, setPitch] = useState(0);
   const [imageZoom, setImageZoom] = useState(1);
   const [imageBone, setImageBone] = useState(0);
+  const [imageField, setImageField] = useState("cranial");
   const [presentation, setPresentation] = useState("vascular");
   const [panel, setPanel] = useState("Camadas");
   const [expanded, setExpanded] = useState(false);
@@ -109,10 +111,17 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
   const [reset, setReset] = useState(0);
   const [cut, setCut] = useState({ axis: "none", offset: 0 });
   const item = atlasStructures.find((o) => o.id === selected);
+  const imageCenter = useMemo<P3>(() => {
+    if (imageField === "selection" && item) {
+      const low = worldPoint(item.bounds[0]), high = worldPoint(item.bounds[1]);
+      return low.map((value, k) => (value + high[k]) / 2) as P3;
+    }
+    return imageField === "supraaortic" ? [0, -18, 0] : [0, 0, 0];
+  }, [imageField, item]);
   const matches = useMemo(() => atlasStructures.filter((o) => normalize(`${o.name} ${o.latin} ${o.path.join(" ")} ${landmarkAliases[o.id] ?? ""}`).includes(normalize(search))), [search]);
   function restore() {
     setIsolate(false); setOpacity(initialOpacity); setPresentation("vascular");
-    setImageMode(false); setContrastLayer("arterial"); setYaw(0); setPitch(0); setImageZoom(1); setImageBone(0);
+    setImageMode(false); setContrastLayer("arterial"); setYaw(0); setPitch(0); setImageZoom(1); setImageBone(0); setImageField("cranial");
     setCut({ axis: "none", offset: 0 }); setReset((n) => n + 1);
   }
   return <section className={`nda ${expanded ? "nda-expanded" : ""}`} aria-label="Atlas anatômico de superfícies">
@@ -121,7 +130,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
       <div className="nda-actions"><button onClick={restore}>Restaurar visão</button>
       <button aria-pressed={expanded} onClick={() => setExpanded((value) => !value)}>{expanded ? "Reduzir área 3D" : "Ampliar área 3D"}</button></div>
     </header>
-    {item && <div className="nda-selection" data-testid="atlas-selection" data-selected-id={item.id} role="status"><div><strong>{item.name}</strong><small>{openLayerNames[item.layer]} · seleção mantida até escolher outra estrutura ou limpar</small></div><button onClick={() => { setReset((n) => n + 1); }}>Focar seleção</button><button aria-pressed={isolate} onClick={() => setIsolate((value) => !value)}>Isolar seleção</button><button onClick={() => { setSelected(null); setIsolate(false); }}>Limpar seleção</button></div>}
+    {item && <div className="nda-selection" data-testid="atlas-selection" data-selected-id={item.id} role="status"><div><strong>{item.name}</strong><small>{openLayerNames[item.layer]} · seleção mantida até escolher outra estrutura ou limpar</small></div><button onClick={() => { setReset((n) => n + 1); setImageField("selection"); }}>Focar seleção</button><button aria-pressed={isolate} onClick={() => setIsolate((value) => !value)}>Isolar seleção</button><button onClick={() => { setSelected(null); setIsolate(false); }}>Limpar seleção</button></div>}
     <div className="nda-workspace">
       <div className="nda-stage"><nav className="nda-mode" aria-label="Representação do atlas">
         <button aria-pressed={!imageMode} onClick={() => setImageMode(false)}>Superfícies anatômicas 3D</button>
@@ -130,11 +139,16 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         {(["AP", "Lateral", "Oblíqua", "Posterior"] as View[]).map((name) => <button key={name} aria-pressed={view === name} onClick={() => { setView(name); setYaw(name === "Lateral" ? 90 : name === "Posterior" ? 180 : name === "Oblíqua" ? 30 : 0); setPitch(0); }}>{name}</button>)}
       </nav><select aria-label="Apresentação anatômica" value={presentation} onChange={(event) => {
         const mode = event.target.value; setPresentation(mode);
+        if (mode === "supraaortic") {
+          setOpacity({ ...initialOpacity, bone: 0, tissue: 0, nerve: 0, gland: 0, dura: 0, venous: 0.15 });
+          setSelected("aortic_arch"); setImageField("supraaortic"); setImageZoom(1.5); return;
+        }
+        setImageField(mode === "sellar" ? "selection" : "cranial");
         setOpacity(mode === "bone" ? { ...initialOpacity, bone: 0.65, tissue: 0, nerve: 0.5 } : mode === "brain" ? { ...initialOpacity, tissue: 0.85, bone: 0, nerve: 0.5, arterial: 0.5, venous: 0.2 } : mode === "sellar" ? { ...initialOpacity, bone: 0.12, tissue: 0.02, dura: 0.2, gland: 1, venous: 0.8 } : initialOpacity);
         if (mode === "sellar") setSelected("adenohypophysis");
-      }}><option value="custom" disabled>Personalizada</option><option value="vascular">Visão vascular</option><option value="bone">Vasos e osso</option><option value="brain">Encéfalo</option><option value="sellar">Região selar e cavernosa</option></select></div>
+      }}><option value="custom" disabled>Personalizada</option><option value="vascular">Visão vascular</option><option value="bone">Vasos e osso</option><option value="brain">Encéfalo</option><option value="sellar">Região selar e cavernosa</option><option value="supraaortic">Arco e troncos supra-aórticos</option></select></div>
       <div className="nda-canvas" data-testid="detailed-atlas-canvas"><Boundary>
-        {imageMode ? <AtlasAngiography yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 250, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
+        {imageMode ? <AtlasAngiography center={imageCenter} yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 250, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
           fallback={<p>WebGL indisponível neste navegador. Explore a lista de estruturas.</p>}>
           <color attach="background" args={["#101b25"]} /><ambientLight intensity={1.1} />
           <directionalLight position={[15, 25, 35]} intensity={2.4} /><directionalLight position={[-20, 10, -15]} intensity={1.2} />
@@ -149,6 +163,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
       </nav>
       {panel === "Camadas" && <div className="nda-controls" key={reset}>{imageMode && <div className="nda-projection-controls">
         <h3>Imagem angiográfica</h3><p className="nda-help">Projeção sintética do atlas. Todos os vasos visíveis são opacificados; não é uma injeção seletiva. Use a estação para cateterização.</p>
+        <label>Campo angiográfico<select aria-label="Campo angiográfico" value={imageField} onChange={(event) => setImageField(event.target.value)}><option value="cranial">Cabeça</option><option value="supraaortic">Cervicotorácico</option><option value="selection" disabled={!item}>Centrado na seleção</option></select></label>
         <label>Camada contrastada<select aria-label="Camada vascular na angiografia" value={contrastLayer} onChange={(e) => setContrastLayer(e.target.value)}><option value="arterial">Artérias</option><option value="venous">Veias e seios</option><option value="both">Artérias e veias</option></select></label>
         <label>Rotação LAO / RAO <output>{yaw}°</output><input aria-label="Rotação angiográfica" type="range" min="-180" max="180" step="5" value={yaw} onChange={(e) => setYaw(Number(e.target.value))} /></label>
         <label>Angulação cranial / caudal <output>{pitch}°</output><input aria-label="Angulação angiográfica" type="range" min="-60" max="60" step="5" value={pitch} onChange={(e) => setPitch(Number(e.target.value))} /></label>

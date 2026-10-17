@@ -24,6 +24,10 @@ const identities: Record<string, string[]> = {
   "68": ["descending_palatine_artery"], "110": ["anterior_cerebral_artery"], "111": ["posterior_communicating_artery"],
   "112": ["anterior_choroidal_artery"], "114": ["posterior_cerebral_artery"], "115": ["superior_cerebellar_artery"],
   "116": ["anterior_inferior_cerebellar_artery"], "117": ["basilar_artery"], "118": ["middle_cerebral_artery_m1_segment"],
+  "105": ["supreme_intercostal_artery"], "106": ["superior_thyroid_artery"], "107": ["supreme_intercostal_artery"],
+  "arch": ["aortic_arch"], "brachiocephalic": ["brachiocephalic_trunk"],
+  "subclavian": ["right_subclavian_artery", "left_subclavian_artery"],
+  "thyrocervical": ["thyrocervical_trunk"], "costocervical": ["costocervical_trunk"], "transverse-cervical": ["transverse_cervical_artery"],
   "109": ["anterior_cerebral_artery", "posterior_communicating_artery", "anterior_choroidal_artery", "posterior_cerebral_artery", "superior_cerebellar_artery", "anterior_inferior_cerebellar_artery", "basilar_artery", "middle_cerebral_artery_m1_segment"],
 };
 const grouped = new Set(["5", "57", "63", "109"]);
@@ -43,8 +47,11 @@ const expandedEntries = [
   ["115", "Superior cerebellar artery"], ["116", "Anterior inferior cerebellar artery"],
   ["117", "Basilar artery"], ["118", "Middle cerebral artery"],
 ].map(([sourceNumber, label]) => ({ sourceNumber, label }));
-export const anatomicalInventory = [...requirements.numberedEntries, ...expandedEntries].map((entry, index) => {
-  const targets = identities[entry.sourceNumber] ?? [];
+const supplementalEntries = [["arch", "Aortic arch"], ["brachiocephalic", "Brachiocephalic trunk"], ["subclavian", "Subclavian arteries"], ["thyrocervical", "Thyrocervical trunks"], ["costocervical", "Costocervical trunks"], ["transverse-cervical", "Transverse cervical arteries"]].map(([sourceNumber, label]) => ({ sourceNumber, label }));
+export const anatomicalInventory = [...requirements.numberedEntries, ...expandedEntries, ...supplementalEntries].map((entry, index) => {
+  // The source repeats 105 for two different arteries; preserve its numbering,
+  // but resolve by label to avoid silently mapping thyroid to intercostal.
+  const targets = entry.sourceNumber === "105" && entry.label === "inferior thyroid" ? ["inferior_thyroid_artery"] : identities[entry.sourceNumber] ?? [];
   const imported = openAnatomy.structures.filter((structure) => targets.some((target) => structure.id === target || structure.id === `${target}_l` || structure.id === `${target}_r`));
   const rebuilt = reconstructedArteries.filter((structure) => targets.some((target) => structure.id === `${target}_l` || structure.id === `${target}_r`));
   const status = grouped.has(entry.sourceNumber) ? "partial" : imported.length ? "imported" : rebuilt.length ? "reconstructed" : "missing";

@@ -1,8 +1,9 @@
 import raw from "./open-anatomy.json";
 
 import landmarks from "./landmarks.json";
+import supraAortic from "./supra-aortic.json";
 
-export const openAnatomy = { ...raw, structures: [...raw.structures, ...landmarks.structures], assets: [...raw.assets, ...landmarks.assets] };
+export const openAnatomy = { ...raw, structures: [...raw.structures, ...landmarks.structures, ...supraAortic.structures], assets: [...raw.assets, ...landmarks.assets, ...supraAortic.assets] };
 export type OpenStructure = typeof openAnatomy.structures[number];
 export const openLayerNames: Record<string, string> = {
   arterial: "Artérias", venous: "Veias e seios", bone: "Crânio e coluna cervical",
