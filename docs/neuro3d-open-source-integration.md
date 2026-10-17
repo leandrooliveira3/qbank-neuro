@@ -1,6 +1,6 @@
 # Integração de anatomia aberta — 17/10/2026
 
-Registro da primeira importação. O estado posterior de conexão com a estação
+Registro da primeira importação. Atualização: [superfícies, projeção e busca adicional de malhas](neuro3d-surface-angiography.md). O estado posterior de conexão com a estação
 está em [neuro3d-connected-reference.md](neuro3d-connected-reference.md).
 
 ## Resultado implementado

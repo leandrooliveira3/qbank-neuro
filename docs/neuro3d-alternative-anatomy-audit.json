@@ -1,0 +1,92 @@
+{
+  "repository": "https://github.com/jixiangying/anatomy",
+  "commit": "be67a977abe25a36f59793fda86a506618fd4d27",
+  "license": "CC-BY-SA-2.1-JP",
+  "status": "retrieved-candidates-not-registered-or-integrated",
+  "files": [
+    {
+      "id": "FJ1658",
+      "name": "right anterior choroidal artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ1658.obj",
+      "gitBlobSha": "a38f0b17d7572336ff8271d025b2fa716809d153"
+    },
+    {
+      "id": "FJ1658M",
+      "name": "left anterior choroidal artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ1658M.obj",
+      "gitBlobSha": "1e52a98738a4a5575fce7755d050d6ce0da6ec10"
+    },
+    {
+      "id": "FJ1674",
+      "name": "branch of right anterior choroidal artery to posterior limb of right internal capsule",
+      "path": "isa_BP3D_4.0_obj_99/FJ1674.obj",
+      "gitBlobSha": "8fbd6356116504bb9ae7e38dcf65bc971b111efb"
+    },
+    {
+      "id": "FJ1674M",
+      "name": "branch of left anterior choroidal artery to posterior limb of left internal capsule",
+      "path": "isa_BP3D_4.0_obj_99/FJ1674M.obj",
+      "gitBlobSha": "83687ee5ceec81281be687d2180392b586c13481"
+    },
+    {
+      "id": "FJ1727",
+      "name": "right posterior medial choroidal artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ1727.obj",
+      "gitBlobSha": "daffabc68b1db8a6903b160fbec9f5a37b643472"
+    },
+    {
+      "id": "FJ1727M",
+      "name": "left posterior medial choroidal artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ1727M.obj",
+      "gitBlobSha": "902fbe7ca3f4ca9688f4d458dc6e9b821bbd750d"
+    },
+    {
+      "id": "FJ2209",
+      "name": "right inferior thyroid artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ2209.obj",
+      "gitBlobSha": "1ba3d7441ff7df7b800ab4fbf141239834559074"
+    },
+    {
+      "id": "FJ2210",
+      "name": "left inferior thyroid artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ2210.obj",
+      "gitBlobSha": "0791417a5160d51afeca51c72035f936d8df9065"
+    },
+    {
+      "id": "FJ1682",
+      "name": "right internal carotid artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ1682.obj",
+      "gitBlobSha": "f9d8e091bb64ca4715ee24031692add91e3821d5"
+    },
+    {
+      "id": "FJ1682M",
+      "name": "left internal carotid artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ1682M.obj",
+      "gitBlobSha": "1c98497e43f0dd9b9805670983ecffcd364f100f"
+    },
+    {
+      "id": "FJ1695",
+      "name": "right ophthalmic artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ1695.obj",
+      "gitBlobSha": "26d86468a05ea9eccd853449e5567467637e0d4b"
+    },
+    {
+      "id": "FJ1695M",
+      "name": "left ophthalmic artery",
+      "path": "isa_BP3D_4.0_obj_99/FJ1695M.obj",
+      "gitBlobSha": "573bb1fdd44449b2593e96d89e9bb61cb0a3a970"
+    }
+  ],
+  "comparison": {
+    "method": "Local similarity fit; fixed mm/Z-up to cm/Y-up; source vertex to target vertex cloud; one-way distances, not clinical registration accuracy",
+    "ica": {
+      "medianCm": 0.558,
+      "p95Cm": 0.872
+    },
+    "ophthalmic": {
+      "medianCm": 0.603,
+      "p95Cm": 1.671
+    },
+    "conclusion": "Not accepted for fusion into the current atlas; global coordinate correspondence unverified"
+  }
+}

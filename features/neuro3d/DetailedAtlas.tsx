@@ -4,11 +4,17 @@ import { useGLTF } from "@react-three/drei/core/Gltf";
 import { OrbitControls } from "@react-three/drei/core/OrbitControls";
 import { Mesh, MeshStandardMaterial, Plane, Vector3 } from "three";
 import type { OrbitControls as Controls } from "three-stdlib";
-import { initialOpacity, openAnatomy, openAssetUrl, openLayerNames, OpenStructure, worldPoint } from "./openAnatomy";
+import { initialOpacity, openAnatomy, openAssetUrl, openLayerNames, worldPoint } from "./openAnatomy";
 import { normalize } from "./model";
 import "./detailed-atlas.css";
+import { anatomicalInventory, inventoryStatus } from "./anatomicalInventory";
+import ReconstructedSurfaces from "./ReconstructedSurfaces";
+import { reconstructedArteries } from "./reconstructedArteries";
+import AtlasAngiography from "./AtlasAngiography";
 import { coverageReview, coverageStatus } from "./coverageReview";
 
+const atlasStructures = [...openAnatomy.structures, ...reconstructedArteries];
+type AtlasStructure = typeof atlasStructures[number];
 type View = "Oblíqua" | "AP" | "Lateral" | "Posterior";
 const colors: Record<string, string> = {
   arterial: "#b53d4c", venous: "#46649b", bone: "#e8d9bb", tissue: "#c9ada4", nerve: "#e8cc78",
@@ -65,7 +71,7 @@ function Asset({ file, opacity, selected, isolate, cut, onSelect }: {
     if (id) onSelect(id);
   }} />;
 }
-function Camera({ selected, view, reset }: { selected?: OpenStructure; view: View; reset: number }) {
+function Camera({ selected, view, reset }: { selected?: AtlasStructure; view: View; reset: number }) {
   const ref = useRef<Controls>(null);
   const { camera, invalidate } = useThree();
   useEffect(() => {
@@ -84,6 +90,12 @@ function Camera({ selected, view, reset }: { selected?: OpenStructure; view: Vie
   return <OrbitControls ref={ref} makeDefault minDistance={1} maxDistance={130} enableDamping />;
 }
 export default function DetailedAtlas() {
+  const [contrastLayer, setContrastLayer] = useState("arterial");
+  const [imageMode, setImageMode] = useState(false);
+  const [yaw, setYaw] = useState(0);
+  const [pitch, setPitch] = useState(0);
+  const [imageZoom, setImageZoom] = useState(1);
+  const [imageBone, setImageBone] = useState(0);
   const [presentation, setPresentation] = useState("vascular");
   const [panel, setPanel] = useState("Camadas");
   const [expanded, setExpanded] = useState(false);
@@ -95,40 +107,52 @@ export default function DetailedAtlas() {
   const [view, setView] = useState<View>("Oblíqua");
   const [reset, setReset] = useState(0);
   const [cut, setCut] = useState({ axis: "none", offset: 0 });
-  const item = openAnatomy.structures.find((o) => o.id === selected);
-  const matches = useMemo(() => openAnatomy.structures.filter((o) => normalize(`${o.name} ${o.latin} ${o.path.join(" ")}`).includes(normalize(search))), [search]);
+  const item = atlasStructures.find((o) => o.id === selected);
+  const matches = useMemo(() => atlasStructures.filter((o) => normalize(`${o.name} ${o.latin} ${o.path.join(" ")}`).includes(normalize(search))), [search]);
   function restore() {
     setSelected(null); setIsolate(false); setOpacity(initialOpacity); setPresentation("vascular");
+    setImageMode(false); setContrastLayer("arterial"); setYaw(0); setPitch(0); setImageZoom(1); setImageBone(0);
     setCut({ axis: "none", offset: 0 }); setReset((n) => n + 1);
   }
   return <section className={`nda ${expanded ? "nda-expanded" : ""}`} aria-label="Atlas anatômico de superfícies">
     <header><div><span className="n3-eyebrow">EXPLORAR · CABEÇA E PESCOÇO</span>
-      <h2>Anatomia neurovascular</h2><p>{openAnatomy.structures.length} estruturas em um mesmo referencial</p></div>
+      <h2>Anatomia neurovascular</h2><p>{openAnatomy.structures.length} estruturas importadas + {reconstructedArteries.length} reconstruções didáticas</p></div>
       <div className="nda-actions"><button onClick={restore}>Restaurar visão</button>
       <button aria-pressed={expanded} onClick={() => setExpanded((value) => !value)}>{expanded ? "Reduzir área 3D" : "Ampliar área 3D"}</button></div>
     </header>
     <div className="nda-workspace">
-      <div className="nda-stage"><div className="nda-toolbar"><nav aria-label="Vistas do modelo detalhado">
-        {(["AP", "Lateral", "Oblíqua", "Posterior"] as View[]).map((name) => <button key={name} aria-pressed={view === name} onClick={() => setView(name)}>{name}</button>)}
+      <div className="nda-stage"><nav className="nda-mode" aria-label="Representação do atlas">
+        <button aria-pressed={!imageMode} onClick={() => setImageMode(false)}>Superfícies anatômicas 3D</button>
+        <button aria-pressed={imageMode} onClick={() => { setImageMode(true); setYaw(view === "Lateral" ? 90 : view === "Posterior" ? 180 : view === "Oblíqua" ? 30 : 0); }}>Angiografia</button>
+      </nav><div className="nda-toolbar"><nav aria-label="Vistas do modelo detalhado">
+        {(["AP", "Lateral", "Oblíqua", "Posterior"] as View[]).map((name) => <button key={name} aria-pressed={view === name} onClick={() => { setView(name); setYaw(name === "Lateral" ? 90 : name === "Posterior" ? 180 : name === "Oblíqua" ? 30 : 0); setPitch(0); }}>{name}</button>)}
       </nav><select aria-label="Apresentação anatômica" value={presentation} onChange={(event) => {
         const mode = event.target.value; setPresentation(mode);
         setOpacity(mode === "bone" ? { ...initialOpacity, bone: 0.65, tissue: 0, nerve: 0.5 } : mode === "brain" ? { ...initialOpacity, tissue: 0.85, bone: 0, nerve: 0.5, arterial: 0.5, venous: 0.2 } : initialOpacity);
       }}><option value="custom" disabled>Personalizada</option><option value="vascular">Visão vascular</option><option value="bone">Vasos e osso</option><option value="brain">Encéfalo</option></select></div>
       <div className="nda-canvas" data-testid="detailed-atlas-canvas"><Boundary>
-        <Canvas frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 250, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
+        {imageMode ? <AtlasAngiography yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} /> : <Canvas frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 250, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
           fallback={<p>WebGL indisponível neste navegador. Explore a lista de estruturas.</p>}>
           <color attach="background" args={["#101b25"]} /><ambientLight intensity={1.1} />
           <directionalLight position={[15, 25, 35]} intensity={2.4} /><directionalLight position={[-20, 10, -15]} intensity={1.2} />
           <Suspense fallback={null}><group scale={100} position={[0, -160, 0]}>
             {openAnatomy.assets.map((asset) => <Asset key={asset.file} file={asset.file} opacity={opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setSelected(id); setPanel("Estruturas"); }} />)}
-          </group></Suspense><Camera selected={item} view={view} reset={reset} />
-        </Canvas></Boundary>
-        <div className="nda-canvas-caption">{item ? item.name : "Selecione uma estrutura para explorar"}<small>Arraste para girar · roda ou pinça para ampliar</small></div>
+          </group><ReconstructedSurfaces opacity={opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setSelected(id); setPanel("Estruturas"); }} /></Suspense><Camera selected={item} view={view} reset={reset} />
+        </Canvas>}</Boundary>
+        <div className="nda-canvas-caption">{item ? item.name : "Selecione uma estrutura para explorar"}<small>{imageMode ? "Projeção das mesmas superfícies · ajuste os ângulos no painel" : "Arraste para girar · roda ou pinça para ampliar"}</small></div>
       </div></div>
       <aside className="nda-sidebar"><nav aria-label="Painel do atlas detalhado">
-        {["Camadas", "Estruturas", "Revisão"].map((name) => <button key={name} aria-pressed={panel === name} onClick={() => setPanel(name)}>{name}</button>)}
+        {["Camadas", "Estruturas", "Revisão", "Inventário"].map((name) => <button key={name} aria-pressed={panel === name} onClick={() => setPanel(name)}>{name}</button>)}
       </nav>
-      {panel === "Camadas" && <div className="nda-controls" key={reset}><h3>Visibilidade das camadas</h3><p className="nda-help">Ajuste a transparência para revelar as relações entre vasos, ossos e nervos.</p>
+      {panel === "Camadas" && <div className="nda-controls" key={reset}>{imageMode && <div className="nda-projection-controls">
+        <h3>Imagem angiográfica</h3><p className="nda-help">Projeção sintética do atlas. Todos os vasos visíveis são opacificados; não é uma injeção seletiva. Use a estação para cateterização.</p>
+        <label>Camada contrastada<select aria-label="Camada vascular na angiografia" value={contrastLayer} onChange={(e) => setContrastLayer(e.target.value)}><option value="arterial">Artérias</option><option value="venous">Veias e seios</option><option value="both">Artérias e veias</option></select></label>
+        <label>Rotação LAO / RAO <output>{yaw}°</output><input aria-label="Rotação angiográfica" type="range" min="-180" max="180" step="5" value={yaw} onChange={(e) => setYaw(Number(e.target.value))} /></label>
+        <label>Angulação cranial / caudal <output>{pitch}°</output><input aria-label="Angulação angiográfica" type="range" min="-60" max="60" step="5" value={pitch} onChange={(e) => setPitch(Number(e.target.value))} /></label>
+        <label>Ampliação <output>{imageZoom.toFixed(1)}×</output><input aria-label="Ampliação angiográfica" type="range" min="0.5" max="2" step="0.1" value={imageZoom} onChange={(e) => setImageZoom(Number(e.target.value))} /></label>
+        <label>Sobreposição óssea <output>{Math.round(imageBone * 100)}%</output><input aria-label="Sobreposição óssea angiográfica" type="range" min="0" max="1" step="0.05" value={imageBone} onChange={(e) => setImageBone(Number(e.target.value))} /></label>
+        <small>Opacidade vascular controla inclusão de camadas. Cortes de exploração aplicam-se à visão 3D.</small>
+      </div>}<h3>Visibilidade das camadas</h3><p className="nda-help">Ajuste a transparência para revelar as relações entre vasos, ossos e nervos.</p>
         {Object.entries(openLayerNames).map(([key, label]) => <label key={key} className="nda-layer"><span>{label}<output>{Math.round(opacity[key] * 100)}%</output></span>
           <input type="range" min="0" max="100" step="5" aria-label={`Opacidade · ${label}`} value={Math.round(opacity[key] * 100)} onChange={(event) => { setPresentation("custom"); setOpacity((old) => ({ ...old, [key]: Number(event.target.value) / 100 })); }} />
         </label>)}
@@ -137,13 +161,20 @@ export default function DetailedAtlas() {
         {cut.axis !== "none" && <label>Posição do corte<input type="range" aria-label="Posição do corte anatômico" min="-25" max="25" step="0.5" value={cut.offset} onChange={(event) => setCut((old) => ({ ...old, offset: Number(event.target.value) }))} /></label>}
         <small>Corte geométrico de superfície; não corresponde a TC ou RM.</small>
       </div>}
-      {panel === "Estruturas" && <div className="nda-inspector"><label className="nda-search-label">Encontrar estrutura<input aria-label="Buscar no atlas detalhado" placeholder="Nome em inglês ou latim…" value={search} onChange={(event) => setSearch(event.target.value)} /></label>
+      {panel === "Estruturas" && <div className="nda-inspector"><label className="nda-search-label">Encontrar estrutura<input aria-label="Buscar no atlas detalhado" placeholder="Nome, inglês ou latim…" value={search} onChange={(event) => setSearch(event.target.value)} /></label>
         <div className="nda-resultcount">{matches.length} resultados</div><div className="nda-list">
-          {matches.map((structure) => <button key={structure.id} aria-pressed={selected === structure.id} onClick={() => setSelected(structure.id)}>{structure.name}<small>{openLayerNames[structure.layer]}</small></button>)}
+          {matches.map((structure) => <button key={structure.id} aria-pressed={selected === structure.id} onClick={() => setSelected(structure.id)}>{structure.name}<small>{"status" in structure ? "Reconstrução didática · não validada" : openLayerNames[structure.layer]}</small></button>)}
         </div>
         {item && <article data-testid="detailed-structure"><h3>{item.name}</h3><p><i>{item.latin}</i></p><small>{item.path.join(" › ")}</small>
           <label className="nda-isolate"><input type="checkbox" checked={isolate} onChange={(event) => setIsolate(event.target.checked)} /> Isolar estrutura selecionada</label>
-          <small>Rótulo de origem ainda em revisão anatômica.</small></article>}
+          {"status" in item ? <><p className="nda-reconstruction-note">Reconstrução didática · não validada</p><small>{item.note}</small><a href={item.reference} target="_blank" rel="noreferrer">Referência anatômica · Neuroangio</a></> : <small>Rótulo de origem ainda em revisão anatômica.</small>}</article>}
+      </div>}
+      {panel === "Inventário" && <div className="nda-review"><h3>Índice anatômico obrigatório</h3>
+        <p className="nda-help">{anatomicalInventory.length} entradas, incluindo grupos originais e ramos desdobrados do índice. A lista mantém as pendências visíveis.</p>
+        {Object.entries(inventoryStatus).map(([status, label]) => <small key={status}>{label}: {anatomicalInventory.filter((row) => row.status === status).length}</small>)}
+        {anatomicalInventory.map((row) => <article key={row.key}><span className="nda-review-status">{inventoryStatus[row.status]}</span><h4>{row.number} · {row.label.replace(/https?:\/\/[^)\s]+/g, "").replace(/[\[\]]/g, "")}</h4><p>{row.note}</p>
+          {row.ids.map((id) => <button key={id} onClick={() => { setSelected(id); setPanel("Estruturas"); }}>{atlasStructures.find((structure) => structure.id === id)?.name}</button>)}
+        </article>)}
       </div>}
       {panel === "Revisão" && <div className="nda-review"><h3>Pequenos ramos e relações finas</h3><p className="nda-help">Inventário dirigido. Presença de uma malha não equivale a validação anatômica.</p>
         {coverageReview.map((review) => <article key={review.name}><span className={`nda-review-status ${review.status}`}>{coverageStatus[review.status]}</span><h4>{review.name}</h4><p>{review.note}</p><small>{review.reference}</small>

@@ -202,7 +202,7 @@ export default function Fluoro({
                   ? "máscara alinhada"
                   : "MÁSCARA DESALINHADA"
                 : "sem máscara"}{" "}
-              · contraste virtual
+              · contraste virtual{frame.geometry === "reference" && " · ramos finos incluem reconstruções didáticas"}
             </div>
           </section>
         );

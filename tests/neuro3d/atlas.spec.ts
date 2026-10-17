@@ -10,6 +10,7 @@ test("renders GLB, selects structures, searches variants and changes stages", as
   );
   await page.goto(route);
   await page.getByRole("button", { name: "Atlas", exact: true }).click();
+  await page.getByRole("button", { name: "Embriologia e variantes conceituais", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "QBank-Neuro 3D" }),
   ).toBeVisible();
@@ -48,6 +49,7 @@ test("quiz explanations, progress survives reload, matrix and curriculum remain 
 }) => {
   await page.goto(route);
   await page.getByRole("button", { name: "Atlas", exact: true }).click();
+  await page.getByRole("button", { name: "Embriologia e variantes conceituais", exact: true }).click();
   await page.getByRole("button", { name: "Questões", exact: true }).click();
   await page
     .getByRole("button", { name: "B. Anel dural distal", exact: true })
@@ -86,6 +88,7 @@ test("compatible projection works without WebGL and failed GLB is recoverable", 
   });
   await page.goto(route);
   await page.getByRole("button", { name: "Atlas", exact: true }).click();
+  await page.getByRole("button", { name: "Embriologia e variantes conceituais", exact: true }).click();
   await expect(page.getByTestId("compatible-view")).toBeVisible();
   await page.getByRole("button", { name: "Arco aórtico", exact: true }).click();
   await expect(page.locator(".n3-dossier h3")).toHaveText("Arco aórtico");
@@ -100,6 +103,7 @@ test("failed model request displays fallback instead of losing atlas", async ({
   await page.route("**/neuro3d/models/*.glb", (route) => route.abort());
   await page.goto(route);
   await page.getByRole("button", { name: "Atlas", exact: true }).click();
+  await page.getByRole("button", { name: "Embriologia e variantes conceituais", exact: true }).click();
   await expect(page.getByTestId("compatible-view")).toBeVisible();
   await expect(page.locator(".n3-scenes button")).toHaveCount(12);
 });
@@ -109,6 +113,7 @@ test("compares variants and keeps layer controls scoped to both models", async (
 }) => {
   await page.goto(route);
   await page.getByRole("button", { name: "Atlas", exact: true }).click();
+  await page.getByRole("button", { name: "Embriologia e variantes conceituais", exact: true }).click();
   await page.getByLabel("Comparar configurações", { exact: true }).check();
   await expect(page.locator(".n3-viewer")).toHaveCount(2);
   await expect(page.locator("canvas").nth(1)).toHaveAttribute(
@@ -131,6 +136,7 @@ test("compares variants and keeps layer controls scoped to both models", async (
 test("invalid progress import preserves earlier answers", async ({ page }) => {
   await page.goto(route);
   await page.getByRole("button", { name: "Atlas", exact: true }).click();
+  await page.getByRole("button", { name: "Embriologia e variantes conceituais", exact: true }).click();
   await page.getByRole("button", { name: "Questões", exact: true }).click();
   await page
     .getByRole("button", { name: "B. Anel dural distal", exact: true })

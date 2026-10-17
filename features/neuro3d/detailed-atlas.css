@@ -38,3 +38,17 @@
 .nda-expanded .nda-canvas { height:calc(100dvh - 160px); } .nda-expanded .nda-sidebar { max-height:calc(100dvh - 115px); }
 @media(max-width:900px) { .nda-workspace { grid-template-columns:minmax(0,1fr) 255px; } .nda h2 { font-size:21px; } }
 @media(max-width:680px) { .nda header { align-items:flex-start; flex-direction:column; gap:10px; } .nda-workspace { display:flex; flex-direction:column; } .nda-canvas { height:420px; min-height:0; } .nda-sidebar { max-height:460px; } .nda-toolbar { align-items:stretch; } .nda-toolbar nav { flex:1; } .nda-toolbar nav button { flex:1; padding:7px 9px; } .nda-expanded { padding:0 10px; } .nda-expanded .nda-canvas { height:60dvh; } .nda-actions button { font-size:11px; } }
+.nda-mode { display:flex; gap:6px; margin:10px 0 14px; flex-wrap:wrap; }
+.nda-mode button { flex:1; min-width:140px; border:1px solid #2c414f; border-radius:8px; background:#142633; color:#e2edf6; padding:10px 12px; font-size:12px; }
+.nda-mode button[aria-pressed=true] { border-color:#55b6a6; background:#173d3c; color:#a8e9db; }
+.nda-angiography { height:100%; position:relative; background:#162029; display:flex; justify-content:center; align-items:center; }
+.nda-angiography canvas { width:100%; height:100%; object-fit:contain; }
+.nda-angiography p { position:absolute; top:50%; background:#12212ddd; padding:12px; border-radius:8px; }
+.nda-projection-label { position:absolute; left:15px; top:15px; font-size:10px; color:#16212a; background:#e7eaecdd; padding:7px 10px; border-radius:4px; }
+.nda-projection-controls label { display:block; font-size:12px; margin:18px 0; }
+.nda-projection-controls output { float:right; color:#70d0bc; }
+.nda-sidebar>nav { flex-wrap:wrap; }
+.nda-sidebar>nav button { min-width:68px; }
+.nda-reconstruction-note { color:#efb976; font-size:12px; }
+.nda-review-status.reconstructed { color:#efb976; }
+.nda-projection-controls label select { display:block; width:100%; margin-top:8px; }

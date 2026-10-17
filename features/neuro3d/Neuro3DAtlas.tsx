@@ -37,6 +37,7 @@ function loadProgress() {
   }
 }
 export default function Neuro3DAtlas() {
+  const [atlasMode, setAtlasMode] = useState("surface");
   const [scene, setScene] = useState("arch");
   const [variant, setVariant] = useState("normal");
   const [stage, setStage] = useState(1);
@@ -55,6 +56,7 @@ export default function Neuro3DAtlas() {
   const [answer, setAnswer] = useState<number | null>(null);
   const [compare, setCompare] = useState(false);
   const [compareVariant, setCompareVariant] = useState("common");
+  const surfaceAtlas = tab === "Anatomia detalhada" || (tab === "Atlas" && atlasMode === "surface");
   const objects = useMemo(
     () => visibleStructures(scene, variant, stage, layers),
     [scene, variant, stage, layers],
@@ -88,6 +90,7 @@ export default function Neuro3DAtlas() {
   }, [objects, selected]);
   function openScene(id: string, target?: Structure) {
     if (!data.scenes[id]) return;
+    setAtlasMode("concept");
     setScene(id);
     setVariant(target?.variants[0] || data.variants[id]?.[0]?.id || "normal");
     setStage(target?.stages[0] ?? 1);
@@ -150,7 +153,7 @@ export default function Neuro3DAtlas() {
         </div>
         <div className="n3-metrics">
           <span>
-            <b>{tab === "Anatomia detalhada" ? "513" : "12"}</b>{tab === "Anatomia detalhada" ? "estruturas" : "cenas"}
+            <b>{surfaceAtlas ? "531" : "12"}</b>{surfaceAtlas ? "estruturas" : "cenas"}
           </span>
           <span>
             <b>126</b>registros
@@ -161,7 +164,7 @@ export default function Neuro3DAtlas() {
         </div>
       </header>
       <aside className="n3-warning" role="note">
-        <strong>{tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : "Geometria esquemática · não homologada."}</strong> Uso
+        <strong>{tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : tab === "Atlas" && atlasMode === "surface" ? "Base anatômica de referência · revisão em andamento." : "Geometria esquemática · não homologada."}</strong> Uso
         educacional. Sem escala clínica, planejamento de pacientes ou simulação
         hemodinâmica validada.
       </aside>
@@ -181,7 +184,7 @@ export default function Neuro3DAtlas() {
             </button>
           ))}
         </nav>
-        {tab === "Atlas" && <div className="n3-search">
+        {tab === "Atlas" && atlasMode === "concept" && <div className="n3-search">
           <label htmlFor="n3-search">Busca livre em todas as cenas</label>
           <input
             id="n3-search"
@@ -216,7 +219,12 @@ export default function Neuro3DAtlas() {
       {tab === "Anatomia detalhada" && (
         <Suspense fallback={<p role="status">Carregando atlas de superfícies…</p>}><DetailedAtlas /></Suspense>
       )}
-      {tab === "Atlas" && (
+      {tab === "Atlas" && <nav className="nda-mode" aria-label="Conteúdo do atlas">
+        <button aria-pressed={atlasMode === "surface"} onClick={() => setAtlasMode("surface")}>Atlas de superfícies e angiografia</button>
+        <button aria-pressed={atlasMode === "concept"} onClick={() => setAtlasMode("concept")}>Embriologia e variantes conceituais</button>
+      </nav>}
+      {tab === "Atlas" && atlasMode === "surface" && <Suspense fallback={<p role="status">Carregando superfícies anatômicas…</p>}><DetailedAtlas /></Suspense>}
+      {tab === "Atlas" && atlasMode === "concept" && (
         <div className="n3-workspace">
           <aside className="n3-scenes">
             <h2>Explorar anatomia</h2>

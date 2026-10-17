@@ -1,3 +1,4 @@
+import { reconstructedArteries } from "../../reconstructedArteries";
 import { useEffect, useState } from "react";
 import metadata from "../../reference-surfaces.json";
 import networkData from "../../reference-network.json";
@@ -18,12 +19,16 @@ export function loadReferenceGeometry() {
     if (bytes.byteLength !== metadata.size) throw new Error("Geometria incompleta.");
     const hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))).map((n) => n.toString(16).padStart(2, "0")).join("");
     if (hash !== metadata.sha256) throw new Error("A geometria não passou na verificação de integridade.");
-    return new Map(metadata.structures.map((item) => [item.id, {
+    const result: ReferenceGeometry = new Map(metadata.structures.map((item) => [item.id, {
       id: item.id, layer: item.layer,
       positions: new Float32Array(bytes, item.positionsOffset, item.positionsCount),
       indices: new Uint32Array(bytes, item.indicesOffset, item.indicesCount),
       t: "tOffset" in item ? new Float32Array(bytes, item.tOffset, item.tCount) : undefined,
     }]));
+    for (const item of reconstructedArteries) result.set(item.id, {
+      id: item.id, layer: item.layer, positions: new Float32Array(item.surface.positions), indices: new Uint32Array(item.surface.indices),
+    });
+    return result;
   })().catch((error) => { request = null; throw error; });
   return request;
 }

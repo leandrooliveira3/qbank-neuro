@@ -1,3 +1,4 @@
+import { reconstructedArteries } from "../../reconstructedArteries";
 import { caseFor, networkFor, StationState } from "./engine";
 import { sourceFraction } from "./referenceNetwork";
 import { ReferenceGeometry, routeSurface } from "./referenceGeometry";
@@ -17,6 +18,12 @@ export function referenceContrast(s: StationState, geometry: ReferenceGeometry, 
       definition.kind === "carotid" && definition.target === id
         ? { center: sourceFraction(route, definition.targetT), dilation: s.dilation } : undefined,
     ));
+    if (source) for (const branch of reconstructedArteries) {
+      if (route.sourceId !== branch.rootId) continue;
+      // Only the portion of the ICA reached by this contrast route may fill its branches.
+      const max = sourceFraction(route, s.clot && definition.target === id ? definition.targetT : 1);
+      if (branch.rootFraction >= (route.sourceRange?.[0] ?? 0) && branch.rootFraction <= max) additional.add(branch.id);
+    }
     if (!(s.clot && definition.target === id)) for (const branch of route.visualBranches ?? []) additional.add(branch);
   }
   for (const id of additional) { const surface = geometry.get(id); if (surface) result.push(surface); }

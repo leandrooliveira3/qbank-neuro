@@ -6,7 +6,7 @@ test('loads open meshes, selects basilar artery, isolates and clips the same ali
   await expect(page.getByRole('heading', {name:'Anatomia neurovascular', exact:true})).toBeVisible();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
   await page.getByRole("button", {name:"Estruturas",exact:true}).click();
-  await expect(page.locator('.nda-list button')).toHaveCount(513);
+  await expect(page.locator('.nda-list button')).toHaveCount(531);
   await page.getByLabel('Buscar no atlas detalhado').fill('Basilar artery');
   await page.getByRole('button',{name:'Basilar artery Artérias',exact:true}).click();
   await expect(page.getByTestId('detailed-structure')).toContainText('Basilar artery');
@@ -48,5 +48,37 @@ test('reference navigation and biplane angiograms share anatomical surfaces, wit
   await expect(page.getByTestId('reference-angiogram')).toHaveCount(2, {timeout:30000});
   await expect(page.getByTestId('reference-bone-projection')).toHaveCount(0);
   await page.screenshot({path:`test-results/reference-station-${test.info().project.name}.png`,fullPage:true});
+  expect(errors).toEqual([]);
+});
+
+test('surface atlas transitions to the same angiographic geometry, adds bone and inspects reconstructed arteries', async ({page}) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');
+  await page.getByRole('button',{name:'Atlas',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Atlas de superfícies e angiografia',exact:true})).toHaveAttribute('aria-pressed','true');
+  await page.getByRole('button',{name:'Angiografia',exact:true}).click();
+  const image = page.getByTestId('atlas-angiography');
+  await expect(image).toHaveAttribute('data-projection-ready','true',{timeout:30000});
+  const before = await image.evaluate((node: HTMLCanvasElement) => node.toDataURL());
+  await page.getByLabel('Sobreposição óssea angiográfica').fill('0.65');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy','false');
+  await expect.poll(() => image.evaluate((node: HTMLCanvasElement) => node.toDataURL())).not.toBe(before);
+  await page.screenshot({path:`test-results/atlas-angiography-${test.info().project.name}.png`, fullPage:true});
+  await page.getByLabel('Rotação angiográfica').fill('45');
+  await expect(page.locator('.nda-projection-label')).toContainText('45°');
+  await page.getByRole('button',{name:'Estruturas',exact:true}).click();
+  await page.getByLabel('Buscar no atlas detalhado').fill('coroidea');
+  await expect(page.locator('.nda-list button')).toHaveCount(2);
+  await page.locator('.nda-list button').first().click();
+  await expect(page.getByTestId('detailed-structure')).toContainText('Reconstrução didática');
+  await page.getByLabel('Isolar estrutura selecionada').check();
+  await page.getByRole('button',{name:'Superfícies anatômicas 3D',exact:true}).click();
+  await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true');
+  await page.getByRole('button',{name:'Inventário',exact:true}).click();
+  await expect(page.locator('.nda-review article')).toHaveCount(124);
+  await expect(page.locator('.nda-review')).toContainText('Sem malha individual identificada');
+  await page.screenshot({path:`test-results/atlas-transition-${test.info().project.name}.png`, fullPage:true});
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   expect(errors).toEqual([]);
 });

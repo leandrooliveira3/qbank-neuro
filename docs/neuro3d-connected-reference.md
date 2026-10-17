@@ -1,5 +1,8 @@
 # Malhas conectadas, navegação e organização da página
 
+Estado da primeira conexão. Para o avanço posterior do atlas e as reconstruções
+de ramos finos, veja [superfícies e angiografia](neuro3d-surface-angiography.md).
+
 ## Modo conectado implementado
 
 A estação abre com **Malhas do atlas · ACI esquerda**. A entrada está dentro
