@@ -20,3 +20,8 @@ Computational derivation does not establish independent anatomical validation.
 anchored to the derived atlas frame. The branch geometry, source-frame anchors
 and their derived surfaces are also distributed under CC BY-SA 4.0. They are
 not copied image segmentations or validated anatomical measurements.
+
+2026-10-17: reference-distal-aca.bin preserves four full-resolution
+pericallosal/callosomarginal source meshes in the same atlas frame. Derived
+data remain CC BY-SA 4.0 with the attribution above. No patient-image
+registration or independent anatomical validation is implied.

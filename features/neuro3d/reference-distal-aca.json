@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "file": "reference-distal-aca.bin",
+  "size": 1249210,
+  "uncompressedSize": 4183977,
+  "sha256": "dcb7333f015a5753b799b9f664a86a204f040c80297be15fe2dd45d29fab5542",
+  "license": "CC-BY-SA-4.0",
+  "coordinateSystem": "Source world cm, Y minus160; identical to decoded atlas; no recentering or registration",
+  "structures": [
+    {
+      "id": "pericallosal_artery_l",
+      "faces": 32256
+    },
+    {
+      "id": "pericallosal_artery_r",
+      "faces": 32256
+    },
+    {
+      "id": "callosomarginal_artery_l",
+      "faces": 14976
+    },
+    {
+      "id": "callosomarginal_artery_r",
+      "faces": 14976
+    }
+  ],
+  "reason": "Retain source distal ACA components instead of global 700-face decimation; source openings computationally capped only by projector",
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "attribution": "BodyParts3D / DBCLS -> Z-Anatomy -> Anatria3D -> QBank-Neuro source-frame projection subset"
+}

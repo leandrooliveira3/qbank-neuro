@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useReferenceGeometry } from "./simulation/station/referenceGeometry";
-import { thicknessImage, attenuationRGBA } from "./simulation/station/radiograph";
+import { projectThickness, detectorImage } from "./simulation/station/detector";
 import { projectSpatial, WIDTH, HEIGHT } from "./simulation/station/imaging";
 import type { View } from "./simulation/station/engine";
 
@@ -29,19 +29,9 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
         (contrastLayer === "both" ? surface.layer === "arterial" || surface.layer === "venous" : surface.layer === contrastLayer) && (layers[surface.layer] ?? 0) > 0 &&
         (!isolate || !selected || surface.id === selected));
       const project = (point: [number, number, number]) => projectSpatial(point, view);
-      const contrast = thicknessImage(vessels, project, WIDTH, HEIGHT);
-      const bones = boneOpacity > 0 ? thicknessImage([...geometry.values()].filter((s) => s.layer === "bone"), project, WIDTH, HEIGHT) : null;
-      const vascular = attenuationRGBA(contrast, 2);
-      const pixels = new Uint8ClampedArray(WIDTH * HEIGHT * 4);
-      for (let i = 0; i < contrast.length; i++) {
-        const x = i % WIDTH, y = Math.floor(i / WIDTH);
-        const vignette = Math.min(1, ((x - WIDTH / 2) ** 2 + (y - HEIGHT / 2) ** 2) / (WIDTH * HEIGHT));
-        const background = 230 - 22 * vignette;
-        const osseous = bones ? 1 - Math.exp(-0.45 * boneOpacity * bones[i]) : 0;
-        const value = (background * (1 - osseous) + 65 * osseous) * (1 - vascular[i * 4 + 3] / 255);
-        pixels[i * 4] = pixels[i * 4 + 1] = pixels[i * 4 + 2] = value;
-        pixels[i * 4 + 3] = 255;
-      }
+      const contrast = projectThickness(vessels, project, WIDTH, HEIGHT);
+      const bones = boneOpacity > 0 ? projectThickness([...geometry.values()].filter((s) => s.layer === "bone"), project, WIDTH, HEIGHT) : null;
+      const pixels = detectorImage(contrast, bones, WIDTH, HEIGHT, boneOpacity);
       context.putImageData(new ImageData(pixels, WIDTH, HEIGHT), 0, 0);
       canvas.current!.dataset.projectionReady = "true";
       setBusy(false);

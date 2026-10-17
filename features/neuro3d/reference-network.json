@@ -851,7 +851,9 @@
         "ref-OA-L"
       ],
       "id": "ref-ICA-L",
-      "visualBranches": []
+      "visualBranches": [
+        "posterior_communicating_artery_l"
+      ]
     },
     "ref-M1-L": {
       "name": "Middle cerebral artery (M1-segment) (left)",
@@ -1042,7 +1044,8 @@
       "id": "ref-M1-L",
       "visualBranches": [
         "parietal_branches_of_middle_cerebral_artery_l",
-        "temporal_branches_of_middle_cerebral_artery_l"
+        "temporal_branches_of_middle_cerebral_artery_l",
+        "postcentral_arterial_branch_l"
       ]
     },
     "ref-ACA-L": {
@@ -1198,7 +1201,10 @@
       "sourceReverse": false,
       "id": "ref-ACA-L",
       "visualBranches": [
-        "orbitofrontal_branches_of_anterior_cerebral_artery_l"
+        "orbitofrontal_branches_of_anterior_cerebral_artery_l",
+        "pericallosal_artery_l",
+        "callosomarginal_artery_l",
+        "frontal_branches_of_callosomarginal_artery_l"
       ]
     },
     "ref-OA-L": {

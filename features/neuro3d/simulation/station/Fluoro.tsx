@@ -1,4 +1,5 @@
 import React from "react";
+import { bolusLabel } from "./contrast";
 import VascularImage from "./VascularImage";
 import ReferenceImage from "./ReferenceImage";
 import { instrumentPoints } from "./mechanics";
@@ -104,7 +105,7 @@ export default function Fluoro({
                   ? <ReferenceImage state={{ ...frame, view: frame.mask.view, clot: frame.mask.clot, dilation: frame.mask.dilation }} edges={frame.mask.edges} plane={plane} opacity={0.85} inverted />
                   : <VascularImage network={n} definition={c} edges={frame.mask.edges} view={frame.mask.view} plane={plane} clot={frame.mask.clot} dilation={frame.mask.dilation} opacity={0.85} inverted />)}
                 {frame.geometry === "reference"
-                  ? <ReferenceImage state={frame} edges={opacified} plane={plane} opacity={contrastOpacity} />
+                  ? <ReferenceImage state={frame} edges={opacified} plane={plane} opacity={1} />
                   : <VascularImage network={n} definition={c} edges={opacified} view={frame.view} plane={plane} clot={frame.clot} dilation={frame.dilation} opacity={contrastOpacity} />}
                 {(["wire", "catheter", "micro"] as const).map((tool, i) => (
                   <path
@@ -202,7 +203,7 @@ export default function Fluoro({
                   ? "máscara alinhada"
                   : "MÁSCARA DESALINHADA"
                 : "sem máscara"}{" "}
-              · contraste virtual{frame.geometry === "reference" && " · ramos finos incluem reconstruções didáticas"}
+              · {frame.geometry === "reference" ? bolusLabel(age) : "contraste virtual"}{frame.geometry === "reference" && " · ramos finos incluem reconstruções didáticas"}
             </div>
           </section>
         );

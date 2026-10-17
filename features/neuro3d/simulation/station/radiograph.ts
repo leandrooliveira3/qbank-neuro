@@ -11,7 +11,9 @@ export function thicknessImage(
   height: number,
 ) {
   const thickness = new Float32Array(width * height);
+  const occupied = new Float32Array(width * height);
   for (const surface of surfaces) {
+    occupied.fill(0);
     const vertices: [number, number, number][] = [];
     for (let i = 0; i < surface.positions.length; i += 3)
       vertices.push(project([surface.positions[i], surface.positions[i + 1], surface.positions[i + 2]] as P3));
@@ -36,11 +38,13 @@ export function thicknessImage(
         if (Math.abs(u) < 1e-9 && !edge(b, c)) continue;
         if (Math.abs(v) < 1e-9 && !edge(c, a)) continue;
         if (Math.abs(w) < 1e-9 && !edge(a, b)) continue;
-        thickness[y * width + x] += Math.sign(area) * (u * a[2] + v * b[2] + w * c[2]);
+        occupied[y * width + x] += Math.sign(area) * (u * a[2] + v * b[2] + w * c[2]);
       }
     }
+    // Separate source meshes can have opposite winding. Their occupied path
+    // lengths add; one vessel must never erase another at a projected crossing.
+    for (let i = 0; i < thickness.length; i++) thickness[i] += Math.abs(occupied[i]);
   }
-  for (let i = 0; i < thickness.length; i++) thickness[i] = Math.abs(thickness[i]);
   return thickness;
 }
 

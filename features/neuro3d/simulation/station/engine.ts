@@ -52,6 +52,8 @@ export interface Intervention {
   amount: number;
 }
 export interface ImageMask {
+  contrastAge?: number;
+  contrastOrigin?: { edge: string; originT?: number };
   view: View;
   edges: string[];
   clot: boolean;
@@ -75,7 +77,7 @@ export interface StationState {
   clock: number;
   exposure: number;
   injections: number;
-  contrast: { edge: string; at: number } | null;
+  contrast: { edge: string; at: number; originT?: number } | null;
   mask: ImageMask | null;
   clot: boolean;
   coilFill: number;
@@ -474,7 +476,7 @@ export function stationReducer(
       return note(
         {
           ...s,
-          contrast: { edge: origin.edge, at: s.clock },
+          contrast: { edge: origin.edge, at: s.clock, originT: origin.t },
           injections: s.injections + 1,
           acquiring: s.mode === "dsa" ? 4 : s.acquiring,
           runs:
@@ -497,6 +499,8 @@ export function stationReducer(
         {
           ...s,
           mask: {
+            contrastAge: s.contrast ? s.clock - s.contrast.at : 0,
+            contrastOrigin: s.contrast ? { edge: s.contrast.edge, originT: s.contrast.originT } : undefined,
             view: { ...s.view },
             edges,
             clot: s.clot,

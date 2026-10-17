@@ -31,8 +31,9 @@ for sid,id in [('middle_cerebral_artery_m1_segment_l','ref-M1-L'),('anterior_cer
  net[id]={'name':name,'anatomicalId':sid,'sourceId':sid,'points':[end.tolist()]+p.tolist(),'radius':float(np.median(rr)),'children':[],'junctionGapCm':gap,'syntheticJunction':True,'sourceReverse':reverse}
  net['ref-ICA-L']['children'].append(id);connections.append({'parent':'ref-ICA-L','child':id,'centerlineGapCm':round(gap,4),'status':'numerically-bridged-within-source-voxel-tolerance; human-review-pending'})
 extras={
- 'ref-M1-L':['parietal_branches_of_middle_cerebral_artery_l','temporal_branches_of_middle_cerebral_artery_l'],
- 'ref-ACA-L':['orbitofrontal_branches_of_anterior_cerebral_artery_l'],
+ 'ref-ICA-L':['posterior_communicating_artery_l'],
+ 'ref-M1-L':['parietal_branches_of_middle_cerebral_artery_l','temporal_branches_of_middle_cerebral_artery_l','postcentral_arterial_branch_l'],
+ 'ref-ACA-L':['orbitofrontal_branches_of_anterior_cerebral_artery_l','pericallosal_artery_l','callosomarginal_artery_l','frontal_branches_of_callosomarginal_artery_l'],
  'ref-OA-L':[o['id'] for o in manifest['structures'] if o['layer']=='arterial' and o['id'].endswith('_l') and any(k in o['id'] for k in ['retinal','ciliary','ethmoidal','lacrimal','supraorbital','supratrochlear'])]}
 for id,n in net.items():n['id']=id;n['visualBranches']=extras.get(id,[])
 network={'version':1,'sourceCommit':manifest['sourceCommit'],'license':'CC-BY-SA-4.0','units':'cm','entry':'Left cervical ICA; upstream access not included','method':'0.8mm voxel medial skeleton; longest connected path; source frame preserved','reviewStatus':'numeric checks only; specialist review pending','connections':connections,'routes':net,'originalAxes':C}

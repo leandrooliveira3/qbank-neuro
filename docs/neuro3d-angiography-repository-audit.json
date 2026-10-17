@@ -1,0 +1,61 @@
+{
+  "scope": "Angiographic image formation and source segmentation ingestion",
+  "repositories": [
+    {
+      "repository": "https://github.com/intra3d2019/IntrA",
+      "commit": "5b01afc5263db1b43726fd6e547ac85c014558b8",
+      "codeLicense": "See project-specific notices; no top-level SPDX licence resolved",
+      "readmeBlob": "bfcb4324490051aa5a41d723a3f89dacf05a9542",
+      "assetsIncorporated": false,
+      "pretrainedInferenceExecuted": false,
+      "readmeAndTreeReviewed": true
+    },
+    {
+      "repository": "https://github.com/jongdory/Vessel-Diffusion",
+      "commit": "f9d3bd81a1fb1d97e98e0a2ad1b53eb99429c02c",
+      "codeLicense": "Apache-2.0",
+      "readmeBlob": "296b62d95c23e3541182575aac47f3b1abda5d13",
+      "assetsIncorporated": false,
+      "pretrainedInferenceExecuted": false,
+      "readmeAndTreeReviewed": true
+    },
+    {
+      "repository": "https://github.com/MIAGroupUT/carotid-segmentation",
+      "commit": "fb2f55aadd2f0b2a3ceb192d83a0888e36e32559",
+      "codeLicense": "MIT",
+      "readmeBlob": "42cb4429da9dca77be2310ccf1e69350930c2593",
+      "assetsIncorporated": false,
+      "pretrainedInferenceExecuted": false,
+      "readmeAndTreeReviewed": true
+    },
+    {
+      "repository": "https://github.com/dipterix/threeBrain",
+      "commit": "ba524c71efb812e010f69e80a5985f4a351485e2",
+      "codeLicense": "See project-specific notices; no top-level SPDX licence resolved",
+      "readmeBlob": "e14a2fadb24b0447ffba6beec4ef0e1c88e7e9c0",
+      "assetsIncorporated": false,
+      "pretrainedInferenceExecuted": false,
+      "readmeAndTreeReviewed": true
+    },
+    {
+      "repository": "https://github.com/caetanope/angio3d",
+      "commit": "24657d1858609ae1be8913ff094520f0b3a5256f",
+      "codeLicense": "MIT",
+      "readmeBlob": "e98aac552a6ce726c3b74309c5a425fb95b3a4bc",
+      "assetsIncorporated": false,
+      "pretrainedInferenceExecuted": false,
+      "readmeAndTreeReviewed": true
+    },
+    {
+      "repository": "https://github.com/mirthAI/CIS-UNet",
+      "commit": "ca12b105f5bc6a5e1ec1e727364cc4d60033efb8",
+      "codeLicense": "MIT",
+      "readmeBlob": "04fa4fe8ea66b5dff20f99ae8b5ba2da7e0ad812",
+      "assetsIncorporated": false,
+      "pretrainedInferenceExecuted": false,
+      "readmeAndTreeReviewed": true
+    }
+  ],
+  "topicPage": "https://github.com/topics/mri-segmentation",
+  "topicPageRole": "Discovery index, not a dataset or reconstruction engine"
+}

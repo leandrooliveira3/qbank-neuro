@@ -82,3 +82,34 @@ test('surface atlas transitions to the same angiographic geometry, adds bone and
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   expect(errors).toEqual([]);
 });
+
+test('contrast passage changes the detector image and roadmap keeps its capture time', async ({page}) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');
+  await page.getByRole('button',{name:'Simulação',exact:true}).click();
+  await page.getByLabel('Passo de manipulação',{exact:true}).selectOption('1.2');
+  await page.getByRole('button',{name:'↑ Avançar',exact:true}).click();
+  await page.getByRole('button',{name:'↑ Avançar',exact:true}).click();
+  await page.getByRole('button',{name:'2 · Cateter-guia',exact:true}).click();
+  await page.getByRole('button',{name:'↑ Avançar',exact:true}).click();
+  await page.getByRole('button',{name:'DSA',exact:true}).click();
+  await page.getByRole('button',{name:/Injetar contraste virtual/}).click();
+  const live = page.getByTestId('reference-angiogram').first();
+  await expect(live).toBeVisible();
+  const first = await live.getAttribute('href');
+  await expect.poll(() => live.getAttribute('href')).not.toBe(first);
+  await expect.poll(async () => Number(await live.getAttribute('data-contrast-age'))).toBeGreaterThan(.6);
+  await expect.poll(async () => Number(await live.getAttribute('data-contrast-age'))).toBeGreaterThan(2.2);
+  await page.getByRole('button',{name:/Capturar roadmap/}).click();
+  const roadmap = page.getByTestId('reference-roadmap').first();
+  await expect(roadmap).toBeVisible();
+  const age = await roadmap.getAttribute('data-contrast-age');
+  const image = await roadmap.getAttribute('href');
+  await page.getByRole('button',{name:/Injetar contraste virtual/}).click();
+  await expect.poll(async () => Number(await live.getAttribute('data-contrast-age'))).toBeGreaterThan(.3);
+  await expect(roadmap).toHaveAttribute('data-contrast-age',age!);
+  await expect(roadmap).toHaveAttribute('href',image!);
+  await page.screenshot({path:`test-results/angiographic-acquisition-${test.info().project.name}.png`,fullPage:true});
+  expect(errors).toEqual([]);
+});

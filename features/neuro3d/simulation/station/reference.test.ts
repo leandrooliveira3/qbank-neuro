@@ -1,4 +1,7 @@
 import { describe, expect, it } from "vitest";
+import { gunzipSync } from "node:zlib";
+import distalMetadata from "../../reference-distal-aca.json";
+import { closeProjectionSurface } from "./projectionClosure";
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import metadata from "../../reference-surfaces.json";
@@ -17,6 +20,22 @@ const geometry: ReferenceGeometry = new Map(metadata.structures.map((item) => [i
   t: "tOffset" in item ? new Float32Array(buffer, item.tOffset, item.tCount) : undefined,
 }]));
 describe("shared anatomical reference", () => {
+  it("preserves verified original distal ACA components instead of the damaged low-resolution surfaces", () => {
+    const compressed = readFileSync(`public/neuro3d/open-anatomy/${distalMetadata.file}`);
+    expect(compressed.length).toBe(distalMetadata.size);
+    expect(createHash("sha256").update(compressed).digest("hex")).toBe(distalMetadata.sha256);
+    const decoded = gunzipSync(compressed);
+    expect(decoded.length).toBe(distalMetadata.uncompressedSize);
+    const rows = JSON.parse(decoded.toString()) as { id: string; positions: number[]; indices: number[] }[];
+    expect(rows).toHaveLength(4);
+    for (const row of rows) {
+      expect(row.indices.length / 3).toBe(distalMetadata.structures.find((item) => item.id === row.id)?.faces);
+      expect(row.positions.every(Number.isFinite)).toBe(true);
+      const closed = closeProjectionSurface(row);
+      expect(closed.nonManifoldEdges).toBe(0);
+      expect(closed.sealedLoops).toBeGreaterThan(0);
+    }
+  });
   it("uses verified asset bytes and source-frame axes, preserving continuous navigable junctions", () => {
     expect(createHash("sha256").update(binary).digest("hex")).toBe(metadata.sha256);
     expect(binary.length).toBe(metadata.size);
@@ -39,6 +58,18 @@ describe("shared anatomical reference", () => {
     expect(after.length).toBeGreaterThan(before.length);
     const source = geometry.get("internal_carotid_artery_l")!;
     expect(Array.from(before[0].positions.slice(0, source.positions.length))).toEqual(Array.from(source.positions));
+  });
+  it("includes existing distal ACA meshes selectively without filling them from an M1-only injection", () => {
+    const state = createStation("diagnostic", "reference");
+    const aca = referenceContrast(state, geometry, ["ref-ACA-L"]);
+    const mca = referenceContrast(state, geometry, ["ref-M1-L"]);
+    for (const id of ["pericallosal_artery_l", "callosomarginal_artery_l", "frontal_branches_of_callosomarginal_artery_l"]) {
+      expect(geometry.has(id)).toBe(true);
+      expect(aca).toContain(geometry.get(id));
+      expect(mca).not.toContain(geometry.get(id));
+    }
+    expect(mca).toContain(geometry.get("postcentral_arterial_branch_l"));
+    expect(aca).not.toContain(geometry.get("posterior_communicating_artery_r"));
   });
   it("independent instruments travel in the extracted axis and case resets retain the selected basis", () => {
     let state = createStation("saccular", "reference");
