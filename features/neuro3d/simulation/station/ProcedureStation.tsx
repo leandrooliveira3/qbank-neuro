@@ -1,4 +1,4 @@
-import DeviceCatalogue from "./DeviceCatalogue";
+import DeviceCatalogue from "./DeviceCataloguePanel";
 import { archProfileNames, archProfileData, type ArchProfile } from "./archMorphology";
 import React, {
   lazy,

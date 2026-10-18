@@ -134,7 +134,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     return atlasStructures.filter((o) => {
       const labels = diagramLabelsByStructure.get(o.id) ?? [];
       return /^\d+[a-z]?$/.test(needle) ? labels.some((row) => row.number === needle)
-        : normalize(`${o.name} ${o.latin} ${o.path.join(" ")} ${landmarkAliases[o.id] ?? ""} ${labels.map((row) => row.portuguese).join(" ")}`).includes(needle);
+        : normalize(`${o.name} ${o.latin} ${"portuguese" in o ? o.portuguese : ""} ${o.path.join(" ")} ${landmarkAliases[o.id] ?? ""} ${labels.map((row) => row.portuguese).join(" ")}`).includes(needle);
     });
   }, [search]);
   function restore() {

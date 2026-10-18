@@ -23,16 +23,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "internal_carotid_artery_l",
         "internal_carotid_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "108",
+          "toNumber": "1",
+          "kind": "variant-connection",
+          "note": "Conexão embrionária persistente carotídeo-vertebrobasilar; não obrigatória.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -47,17 +58,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
-      "status": "reconstructed",
       "ids": [
         "meningohypophyseal_trunk_l",
         "meningohypophyseal_trunk_r"
       ],
       "candidateIds": [],
+      "status": "reconstructed",
       "geometryKinds": [
         "reconstructed"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-3",
@@ -71,16 +83,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
-      "status": "reconstructed",
       "ids": [
         "inferolateral_trunk_l",
         "inferolateral_trunk_r"
       ],
       "candidateIds": [],
+      "status": "reconstructed",
       "geometryKinds": [
         "reconstructed"
+      ],
+      "relations": [
+        {
+          "fromNumber": "35",
+          "toNumber": "3",
+          "kind": "anastomosis",
+          "note": "Extremidade ILT da conexão cavernosa/espinhosa.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -95,16 +118,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "ophthalmic_artery_l",
         "ophthalmic_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "109",
+          "toNumber": "5",
+          "kind": "variant-connection",
+          "note": "Conexão persistente com o sistema oftálmico intraorbitário.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -117,12 +151,13 @@
       "kind": "segment",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-7",
@@ -134,12 +169,13 @@
       "kind": "segment",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-8",
@@ -154,9 +190,8 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "O grupo etmoidal inclui 66 e 67; as entradas não representam vasos adicionais.",
+      "note": "O grupo etmoidal inclui 66 e 67; as entradas não representam vasos adicionais. Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
-      "status": "imported",
       "ids": [
         "anterior_ethmoidal_artery_l",
         "anterior_ethmoidal_artery_r",
@@ -164,8 +199,29 @@
         "posterior_ethmoidal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "8",
+          "toNumber": "66",
+          "kind": "group-member",
+          "note": "Etmoidal posterior é membro do grupo, não um vaso extra.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "8",
+          "toNumber": "67",
+          "kind": "group-member",
+          "note": "Etmoidal anterior é membro do grupo, não um vaso extra.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -178,12 +234,23 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "67",
+          "toNumber": "9",
+          "kind": "anastomosis",
+          "note": "Continuidade etmoidal–meníngea anterior.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-10",
@@ -197,17 +264,18 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "short_posterior_ciliary_arteries_l",
         "short_posterior_ciliary_arteries_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-11",
@@ -221,17 +289,18 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "long_posterior_ciliary_arteries_l",
         "long_posterior_ciliary_arteries_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-12",
@@ -245,17 +314,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "central_retinal_artery_l",
         "central_retinal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-12a",
@@ -267,12 +337,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramos ARTERIAIS para o nervo óptico; não são a malha do nervo nem a artéria central da retina.",
+      "note": "Ramos ARTERIAIS para o nervo óptico; não são a malha do nervo nem a artéria central da retina. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-13",
@@ -286,16 +357,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "lacrimal_artery_l",
         "lacrimal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "56",
+          "toNumber": "13",
+          "kind": "anastomosis",
+          "note": "Conexões temporais profundas–lacrimais.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -310,16 +392,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
-      "status": "reconstructed",
       "ids": [
         "inferior_hypophyseal_artery_l",
         "inferior_hypophyseal_artery_r"
       ],
       "candidateIds": [],
+      "status": "reconstructed",
       "geometryKinds": [
         "reconstructed"
+      ],
+      "relations": [
+        {
+          "fromNumber": "14",
+          "toNumber": "15",
+          "kind": "anastomosis",
+          "note": "Conexões hipofisárias e intercavernosas entre os lados.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -332,12 +425,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-14b",
@@ -349,12 +443,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Grupo capsular selar distinto das hipofisárias; hipófise não equivale a malha arterial.",
+      "note": "Grupo capsular selar distinto das hipofisárias; hipófise não equivale a malha arterial. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-15",
@@ -366,12 +461,23 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Conexão ARTERIAL intercavernosa, não o seio intercavernoso venoso.",
+      "note": "Conexão ARTERIAL intercavernosa, não o seio intercavernoso venoso. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "14",
+          "toNumber": "15",
+          "kind": "anastomosis",
+          "note": "Conexões hipofisárias e intercavernosas entre os lados.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-16",
@@ -383,12 +489,13 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Arcada arterial petrosa distinta da tentorial marginal e do seio petroso superior.",
+      "note": "Arcada arterial petrosa distinta da tentorial marginal e do seio petroso superior. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-17",
@@ -402,16 +509,27 @@
       "kind": "arterial-network",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "Há reconstrução de um ramo marginal. A arcada e as conexões MHT–ILT permanecem incompletas.",
+      "note": "Há reconstrução de um ramo marginal. A arcada e as conexões MHT–ILT permanecem incompletas. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
-      "status": "partial",
       "ids": [
         "marginal_tentorial_artery_l",
         "marginal_tentorial_artery_r"
       ],
       "candidateIds": [],
+      "status": "partial",
       "geometryKinds": [
         "reconstructed"
+      ],
+      "relations": [
+        {
+          "fromNumber": "17",
+          "toNumber": "42",
+          "kind": "anastomosis",
+          "note": "Continuidade marginal tentorial com a arcada clinoidea.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -426,16 +544,27 @@
       "kind": "arterial-network",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "Há reconstrução de um ramo clival medial; faltam a arcada bilateral e a conexão com a divisão hipoglossal da APA.",
+      "note": "Há reconstrução de um ramo clival medial; faltam a arcada bilateral e a conexão com a divisão hipoglossal da APA. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
-      "status": "partial",
       "ids": [
         "medial_clival_branch_l",
         "medial_clival_branch_r"
       ],
       "candidateIds": [],
+      "status": "partial",
       "geometryKinds": [
         "reconstructed"
+      ],
+      "relations": [
+        {
+          "fromNumber": "18",
+          "toNumber": "22",
+          "kind": "anastomosis",
+          "note": "Arcada clival medial: MHT e divisão hipoglossal da APA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -448,12 +577,23 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "19",
+          "toNumber": "23a",
+          "kind": "anastomosis",
+          "note": "Arcada clival lateral: MHT e divisão jugular da APA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-20",
@@ -465,12 +605,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "20",
+          "toNumber": "21",
+          "kind": "anastomosis",
+          "note": "Via hipoglossal à arcada odontoidea.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-21",
@@ -482,12 +633,23 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "20",
+          "toNumber": "21",
+          "kind": "anastomosis",
+          "note": "Via hipoglossal à arcada odontoidea.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-22",
@@ -499,12 +661,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "18",
+          "toNumber": "22",
+          "kind": "anastomosis",
+          "note": "Arcada clival medial: MHT e divisão hipoglossal da APA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-23a",
@@ -516,12 +689,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "19",
+          "toNumber": "23a",
+          "kind": "anastomosis",
+          "note": "Arcada clival lateral: MHT e divisão jugular da APA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-23b",
@@ -533,12 +717,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-24",
@@ -550,12 +735,13 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-25",
@@ -567,12 +753,13 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-26",
@@ -584,12 +771,13 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-26a",
@@ -601,12 +789,13 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-27",
@@ -618,12 +807,13 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-28",
@@ -635,12 +825,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-29",
@@ -654,16 +845,36 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "occipital_artery_l",
         "occipital_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "89",
+          "toNumber": "29",
+          "kind": "anastomosis",
+          "note": "Extremidade occipital da anastomose OA–MMA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "99",
+          "toNumber": "29",
+          "kind": "anastomosis",
+          "note": "Extremidade occipital da conexão muscular C1.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -676,12 +887,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "30",
+          "toNumber": "31",
+          "kind": "anastomosis",
+          "note": "Via timpânica inferior–caroticotimpânica.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-31",
@@ -693,12 +915,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "30",
+          "toNumber": "31",
+          "kind": "anastomosis",
+          "note": "Via timpânica inferior–caroticotimpânica.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-32",
@@ -710,12 +943,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Origem variável occipital ou auricular posterior; integra a arcada facial com 33.",
+      "note": "Origem variável occipital ou auricular posterior; integra a arcada facial com 33. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "32",
+          "toNumber": "33",
+          "kind": "anastomosis",
+          "note": "Componentes estilomastóideo e petroso da arcada facial.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-33",
@@ -727,12 +971,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "32",
+          "toNumber": "33",
+          "kind": "anastomosis",
+          "note": "Componentes estilomastóideo e petroso da arcada facial.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-34",
@@ -744,12 +999,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-35",
@@ -761,12 +1017,32 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Cavernoso da AMM e espinhoso do ILT nomeiam extremidades da mesma conexão, não redes independentes.",
+      "note": "Cavernoso da AMM e espinhoso do ILT nomeiam extremidades da mesma conexão, não redes independentes. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "35",
+          "toNumber": "39",
+          "kind": "anastomosis",
+          "note": "Extremidade meníngea média da conexão cavernosa/espinhosa.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "35",
+          "toNumber": "3",
+          "kind": "anastomosis",
+          "note": "Extremidade ILT da conexão cavernosa/espinhosa.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-36",
@@ -780,16 +1056,27 @@
       "kind": "arterial-network",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "A reconstrução representa apenas a extremidade ILT. Falta a conexão com a meníngea acessória pelo oval.",
+      "note": "A reconstrução representa apenas a extremidade ILT. Falta a conexão com a meníngea acessória pelo oval. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
-      "status": "partial",
       "ids": [
         "foramen_ovale_branch_l",
         "foramen_ovale_branch_r"
       ],
       "candidateIds": [],
+      "status": "partial",
       "geometryKinds": [
         "reconstructed"
+      ],
+      "relations": [
+        {
+          "fromNumber": "36",
+          "toNumber": "53a",
+          "kind": "anastomosis",
+          "note": "Conexão ILT–meníngea acessória pelo forame oval.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -804,16 +1091,27 @@
       "kind": "arterial-network",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "A reconstrução representa apenas a extremidade ILT. Faltam a contribuição maxilar e a conexão completa pelo redondo.",
+      "note": "A reconstrução representa apenas a extremidade ILT. Faltam a contribuição maxilar e a conexão completa pelo redondo. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
-      "status": "partial",
       "ids": [
         "foramen_rotundum_branch_l",
         "foramen_rotundum_branch_r"
       ],
       "candidateIds": [],
+      "status": "partial",
       "geometryKinds": [
         "reconstructed"
+      ],
+      "relations": [
+        {
+          "fromNumber": "37",
+          "toNumber": "55",
+          "kind": "anastomosis",
+          "note": "Conexão ILT–maxilar pelo forame redondo.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -826,12 +1124,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-38",
@@ -845,16 +1144,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Remanescente oftálmico dorsal segundo esta fonte, distinto da oftálmica ventral 109.",
+      "note": "Remanescente oftálmico dorsal segundo esta fonte, distinto da oftálmica ventral 109. Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
-      "status": "reconstructed",
       "ids": [
         "anteromedial_ilt_branch_l",
         "anteromedial_ilt_branch_r"
       ],
       "candidateIds": [],
+      "status": "reconstructed",
       "geometryKinds": [
         "reconstructed"
+      ],
+      "relations": [
+        {
+          "fromNumber": "38",
+          "toNumber": "41",
+          "kind": "anastomosis",
+          "note": "Rede anteromedial ILT–meníngea recorrente oftálmica.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -869,16 +1179,45 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "middle_meningeal_artery_l",
         "middle_meningeal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "35",
+          "toNumber": "39",
+          "kind": "anastomosis",
+          "note": "Extremidade meníngea média da conexão cavernosa/espinhosa.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "88",
+          "toNumber": "39",
+          "kind": "anastomosis",
+          "note": "Extremidade meníngea média da anastomose STA–MMA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "89",
+          "toNumber": "39",
+          "kind": "anastomosis",
+          "note": "Extremidade meníngea média da anastomose OA–MMA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -891,12 +1230,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-41",
@@ -908,12 +1248,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "38",
+          "toNumber": "41",
+          "kind": "anastomosis",
+          "note": "Rede anteromedial ILT–meníngea recorrente oftálmica.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-42",
@@ -925,12 +1276,32 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "A legenda atual especifica arcada clinoide-tentorial, corrigindo o índice antigo inespecífico.",
+      "note": "A legenda atual especifica arcada clinoide-tentorial, corrigindo o índice antigo inespecífico. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "17",
+          "toNumber": "42",
+          "kind": "anastomosis",
+          "note": "Continuidade marginal tentorial com a arcada clinoidea.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "42",
+          "toNumber": "43",
+          "kind": "anastomosis",
+          "note": "Continuidade clinoidea com o ramo posterior do ILT.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-43",
@@ -942,12 +1313,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramo posterior do ILT na legenda atual; a descrição antiga de ramo clival foi corrigida.",
+      "note": "Ramo posterior do ILT na legenda atual; a descrição antiga de ramo clival foi corrigida. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "42",
+          "toNumber": "43",
+          "kind": "anastomosis",
+          "note": "Continuidade clinoidea com o ramo posterior do ILT.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-44",
@@ -959,12 +1341,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-45",
@@ -976,12 +1359,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-46",
@@ -993,12 +1377,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-47",
@@ -1012,17 +1397,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "ascending_pharyngeal_artery_l",
         "ascending_pharyngeal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-48",
@@ -1034,12 +1420,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-49",
@@ -1051,12 +1438,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-50",
@@ -1068,12 +1456,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-51",
@@ -1085,12 +1474,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-52",
@@ -1104,17 +1494,18 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "artery_of_pterygoid_canal_l",
         "artery_of_pterygoid_canal_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-53",
@@ -1126,12 +1517,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-53a",
@@ -1143,12 +1535,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "36",
+          "toNumber": "53a",
+          "kind": "anastomosis",
+          "note": "Conexão ILT–meníngea acessória pelo forame oval.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-54",
@@ -1160,12 +1563,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-55",
@@ -1179,16 +1583,27 @@
       "kind": "vessel",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "A malha maxilar está presente, mas suas subdivisões angiográficas precisam de conferência.",
+      "note": "A malha maxilar está presente, mas suas subdivisões angiográficas precisam de conferência. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "partial",
       "ids": [
         "maxillary_artery_l",
         "maxillary_artery_r"
       ],
       "candidateIds": [],
+      "status": "partial",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "37",
+          "toNumber": "55",
+          "kind": "anastomosis",
+          "note": "Conexão ILT–maxilar pelo forame redondo.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -1203,16 +1618,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "anterior_deep_temporal_artery_l",
         "anterior_deep_temporal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "56",
+          "toNumber": "13",
+          "kind": "anastomosis",
+          "note": "Conexões temporais profundas–lacrimais.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -1227,17 +1653,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "posterior_deep_temporal_artery_l",
         "posterior_deep_temporal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-58",
@@ -1249,12 +1676,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-59",
@@ -1266,12 +1694,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-60",
@@ -1285,17 +1714,18 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "posterior_lateral_nasal_branches_of_sphenopalatine_artery_l",
         "posterior_lateral_nasal_branches_of_sphenopalatine_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-61",
@@ -1307,12 +1737,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-62",
@@ -1324,12 +1755,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-62a",
@@ -1341,12 +1773,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-63",
@@ -1360,16 +1793,36 @@
       "kind": "arterial-network",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "Apenas a contribuição septal esfenopalatina foi mapeada. Etmoidais 66/67 têm outra origem e se conectam à rede; não são sinônimos deste ramo.",
+      "note": "Apenas a contribuição septal esfenopalatina foi mapeada. Etmoidais 66/67 têm outra origem e se conectam à rede; não são sinônimos deste ramo. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "partial",
       "ids": [
         "posterior_septal_branches_of_sphenopalatine_artery_l",
         "posterior_septal_branches_of_sphenopalatine_artery_r"
       ],
       "candidateIds": [],
+      "status": "partial",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "63",
+          "toNumber": "66",
+          "kind": "anastomosis",
+          "note": "Rede septal esfenopalatina–etmoidal posterior.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "63",
+          "toNumber": "67",
+          "kind": "anastomosis",
+          "note": "Rede septal esfenopalatina–etmoidal anterior.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -1384,17 +1837,18 @@
       "kind": "territory",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "Uma malha de ramo septal não representa todo o sistema septal posterior.",
+      "note": "Uma malha de ramo septal não representa todo o sistema septal posterior. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "partial",
       "ids": [
         "posterior_septal_branches_of_sphenopalatine_artery_l",
         "posterior_septal_branches_of_sphenopalatine_artery_r"
       ],
       "candidateIds": [],
+      "status": "partial",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-65",
@@ -1406,12 +1860,13 @@
       "kind": "territory",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-66",
@@ -1425,16 +1880,36 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
-      "status": "imported",
       "ids": [
         "posterior_ethmoidal_artery_l",
         "posterior_ethmoidal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "63",
+          "toNumber": "66",
+          "kind": "anastomosis",
+          "note": "Rede septal esfenopalatina–etmoidal posterior.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "8",
+          "toNumber": "66",
+          "kind": "group-member",
+          "note": "Etmoidal posterior é membro do grupo, não um vaso extra.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -1449,16 +1924,45 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
-      "status": "imported",
       "ids": [
         "anterior_ethmoidal_artery_l",
         "anterior_ethmoidal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "63",
+          "toNumber": "67",
+          "kind": "anastomosis",
+          "note": "Rede septal esfenopalatina–etmoidal anterior.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "67",
+          "toNumber": "9",
+          "kind": "anastomosis",
+          "note": "Continuidade etmoidal–meníngea anterior.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "8",
+          "toNumber": "67",
+          "kind": "group-member",
+          "note": "Etmoidal anterior é membro do grupo, não um vaso extra.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -1473,17 +1977,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "descending_palatine_artery_l",
         "descending_palatine_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-68a",
@@ -1497,17 +2002,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "greater_palatine_artery_l",
         "greater_palatine_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-69",
@@ -1519,12 +2025,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-70",
@@ -1536,12 +2043,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-71",
@@ -1555,17 +2063,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "submental_artery_l",
         "submental_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-72",
@@ -1579,17 +2088,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "inferior_alveolar_artery_l",
         "inferior_alveolar_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-73",
@@ -1603,17 +2113,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "facial_artery_l",
         "facial_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-73a",
@@ -1625,12 +2136,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-74",
@@ -1642,12 +2154,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-75",
@@ -1661,16 +2174,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "angular_artery_l",
         "angular_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "75",
+          "toNumber": "82",
+          "kind": "anastomosis",
+          "note": "Conexão angular–nasal dorsal orbitonasal.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -1685,17 +2209,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "inferior_labial_artery_l",
         "inferior_labial_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-77",
@@ -1709,17 +2234,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "superior_labial_artery_l",
         "superior_labial_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-78",
@@ -1731,12 +2257,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-79",
@@ -1750,17 +2277,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "buccal_artery_l",
         "buccal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-80",
@@ -1774,17 +2302,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "transverse_facial_artery_l",
         "transverse_facial_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-81",
@@ -1798,17 +2327,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "infra_orbital_artery_l",
         "infra_orbital_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-82",
@@ -1820,12 +2350,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "75",
+          "toNumber": "82",
+          "kind": "anastomosis",
+          "note": "Conexão angular–nasal dorsal orbitonasal.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-83",
@@ -1839,17 +2380,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "supratrochlear_artery_l",
         "supratrochlear_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-84",
@@ -1863,17 +2405,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "supra_orbital_artery_l",
         "supra_orbital_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-85",
@@ -1887,16 +2430,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "superficial_temporal_artery_l",
         "superficial_temporal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "88",
+          "toNumber": "85",
+          "kind": "anastomosis",
+          "note": "Extremidade temporal superficial da anastomose STA–MMA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -1911,17 +2465,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "frontal_branch_of_superficial_temporal_artery_l",
         "frontal_branch_of_superficial_temporal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-87",
@@ -1933,12 +2488,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-88",
@@ -1950,12 +2506,32 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "88",
+          "toNumber": "85",
+          "kind": "anastomosis",
+          "note": "Extremidade temporal superficial da anastomose STA–MMA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "88",
+          "toNumber": "39",
+          "kind": "anastomosis",
+          "note": "Extremidade meníngea média da anastomose STA–MMA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-89",
@@ -1967,12 +2543,32 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "89",
+          "toNumber": "29",
+          "kind": "anastomosis",
+          "note": "Extremidade occipital da anastomose OA–MMA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "89",
+          "toNumber": "39",
+          "kind": "anastomosis",
+          "note": "Extremidade meníngea média da anastomose OA–MMA.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-90",
@@ -1986,16 +2582,36 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "vertebral_artery_l",
         "vertebral_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "99",
+          "toNumber": "90",
+          "kind": "anastomosis",
+          "note": "Extremidade vertebral da conexão muscular C1.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "104",
+          "toNumber": "90",
+          "kind": "anastomosis",
+          "note": "Extremidade vertebral da rede anastomótica cervical.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -2010,16 +2626,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "anterior_spinal_artery_l",
         "anterior_spinal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "94",
+          "toNumber": "91",
+          "kind": "anastomosis",
+          "note": "Vasocorona e sistema espinal anterior.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -2034,17 +2661,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "posterior_inferior_cerebellar_artery_l",
         "posterior_inferior_cerebellar_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-93",
@@ -2056,12 +2684,23 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "94",
+          "toNumber": "93",
+          "kind": "anastomosis",
+          "note": "Vasocorona e sistema espinal posterior/lateral.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-94",
@@ -2073,12 +2712,32 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Rede pial circunferencial da medula, não artérias coronárias cardíacas.",
+      "note": "Rede pial circunferencial da medula, não artérias coronárias cardíacas. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "94",
+          "toNumber": "91",
+          "kind": "anastomosis",
+          "note": "Vasocorona e sistema espinal anterior.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "94",
+          "toNumber": "93",
+          "kind": "anastomosis",
+          "note": "Vasocorona e sistema espinal posterior/lateral.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-95",
@@ -2090,12 +2749,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-96",
@@ -2107,12 +2767,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramo ARTERIAL para o XII par, não a malha do nervo hipoglosso.",
+      "note": "Ramo ARTERIAL para o XII par, não a malha do nervo hipoglosso. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-97",
@@ -2124,12 +2785,13 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-98",
@@ -2141,12 +2803,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-99",
@@ -2158,12 +2821,32 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "99",
+          "toNumber": "29",
+          "kind": "anastomosis",
+          "note": "Extremidade occipital da conexão muscular C1.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "99",
+          "toNumber": "90",
+          "kind": "anastomosis",
+          "note": "Extremidade vertebral da conexão muscular C1.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-100",
@@ -2175,12 +2858,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-101",
@@ -2192,12 +2876,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-102",
@@ -2211,17 +2896,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "deep_cervical_artery_l",
         "deep_cervical_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-103",
@@ -2233,12 +2919,23 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Tronco cervical ascendente distinto das anastomoses 104.",
+      "note": "Tronco cervical ascendente distinto das anastomoses 104. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "104",
+          "toNumber": "103",
+          "kind": "anastomosis",
+          "note": "Extremidade cervical ascendente da rede anastomótica.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-104",
@@ -2250,12 +2947,32 @@
       "kind": "arterial-network",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "104",
+          "toNumber": "103",
+          "kind": "anastomosis",
+          "note": "Extremidade cervical ascendente da rede anastomótica.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "104",
+          "toNumber": "90",
+          "kind": "anastomosis",
+          "note": "Extremidade vertebral da rede anastomótica cervical.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-105-intercostal",
@@ -2269,17 +2986,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "supreme_intercostal_artery_l",
         "supreme_intercostal_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-105-thyroid",
@@ -2293,17 +3011,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "inferior_thyroid_artery_l",
         "inferior_thyroid_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-106",
@@ -2317,12 +3036,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-107",
@@ -2336,17 +3056,18 @@
       "kind": "source-conflict",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "A legenda repete intercostal suprema em 105 e 107; na figura 107 está no eixo aórtico torácico. Identidade pendente de reconciliação.",
+      "note": "A legenda repete intercostal suprema em 105 e 107; na figura 107 está no eixo aórtico torácico. Identidade pendente de reconciliação. Divergência ou número sem definição na legenda. Correspondência geométrica não confirmada.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "unresolved",
       "ids": [],
       "candidateIds": [
         "supreme_intercostal_artery_l",
         "supreme_intercostal_artery_r"
       ],
+      "status": "unresolved",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-108",
@@ -2358,12 +3079,32 @@
       "kind": "variant",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Conexão embrionária persistente, não obrigatória em todo adulto.",
+      "note": "Conexão embrionária persistente, não obrigatória em todo adulto. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "108",
+          "toNumber": "1",
+          "kind": "variant-connection",
+          "note": "Conexão embrionária persistente carotídeo-vertebrobasilar; não obrigatória.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "108",
+          "toNumber": "117",
+          "kind": "variant-connection",
+          "note": "A conexão pode envolver basilar ou território cerebelar; não impor padrão único.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-109",
@@ -2375,12 +3116,32 @@
       "kind": "variant",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Variante oftálmica ventral: conexão ACA/A1 ou ACI supraclinoidea–órbita. Não representa o conjunto de artérias intracranianas 110–118.",
+      "note": "Variante oftálmica ventral: conexão ACA/A1 ou ACI supraclinoidea–órbita. Não representa o conjunto de artérias intracranianas 110–118. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": [
+        {
+          "fromNumber": "109",
+          "toNumber": "110",
+          "kind": "variant-connection",
+          "note": "Origem ACA/A1 ou ACI supraclinoidea, conforme a variante.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        },
+        {
+          "fromNumber": "109",
+          "toNumber": "5",
+          "kind": "variant-connection",
+          "note": "Conexão persistente com o sistema oftálmico intraorbitário.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
+      ]
     },
     {
       "key": "na-110",
@@ -2394,16 +3155,27 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "anterior_cerebral_artery_l",
         "anterior_cerebral_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "109",
+          "toNumber": "110",
+          "kind": "variant-connection",
+          "note": "Origem ACA/A1 ou ACI supraclinoidea, conforme a variante.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -2418,17 +3190,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "posterior_communicating_artery_l",
         "posterior_communicating_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-112",
@@ -2442,17 +3215,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "reconstructed",
       "ids": [
         "anterior_choroidal_artery_l",
         "anterior_choroidal_artery_r"
       ],
       "candidateIds": [],
+      "status": "reconstructed",
       "geometryKinds": [
         "reconstructed"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-113",
@@ -2464,12 +3238,13 @@
       "kind": "group",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Grupo medial e lateral. A presença da ACP não preenche essas artérias.",
+      "note": "Grupo medial e lateral. A presença da ACP não preenche essas artérias. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-114",
@@ -2483,17 +3258,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "posterior_cerebral_artery_l",
         "posterior_cerebral_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-115",
@@ -2507,17 +3283,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "superior_cerebellar_artery_l",
         "superior_cerebellar_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-116",
@@ -2531,17 +3308,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "anterior_inferior_cerebellar_artery_l",
         "anterior_inferior_cerebellar_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-116a",
@@ -2553,12 +3331,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramo labiríntico para o canal acústico interno e ouvido interno, distinto de 116b.",
+      "note": "Ramo labiríntico para o canal acústico interno e ouvido interno, distinto de 116b. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/labyrinthine-artery/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-116b",
@@ -2570,12 +3349,13 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramo osteodural subarqueado no canal subarqueado/petromastóideo, distinto da labiríntica.",
+      "note": "Ramo osteodural subarqueado no canal subarqueado/petromastóideo, distinto da labiríntica. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/subarcuate-artery/",
-      "status": "missing",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "missing",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-117",
@@ -2589,15 +3369,26 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "basilar_artery"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
+      ],
+      "relations": [
+        {
+          "fromNumber": "108",
+          "toNumber": "117",
+          "kind": "variant-connection",
+          "note": "A conexão pode envolver basilar ou território cerebelar; não impor padrão único.",
+          "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+          "geometryStatus": "not-validated",
+          "flowModel": false
+        }
       ]
     },
     {
@@ -2606,23 +3397,72 @@
       "label": "Artéria cerebral média, M1 e ramos",
       "portuguese": "Artéria cerebral média, M1 e ramos",
       "targets": [
-        "middle_cerebral_artery_m1_segment"
+        "middle_cerebral_artery_m1_segment",
+        "middle_cerebral_artery_m3_segment",
+        "insular_branches_of_middle_cerebral_artery_m2",
+        "parietal_branches_of_middle_cerebral_artery",
+        "temporal_branches_of_middle_cerebral_artery",
+        "postcentral_arterial_branch",
+        "anterior_temporal_branch_of_mca",
+        "artery_of_central_sulcus",
+        "artery_of_precentral_sulcus",
+        "arterial_branch_to_angular_gyrus",
+        "distal_lateral_striate_branches",
+        "lateral_frontobasal_artery",
+        "posterior_parietal_artery",
+        "posterior_temporal_branch_of_mca",
+        "prefrontal_artery",
+        "proximal_lateral_striate_branches",
+        "temporo_occipital_branch_of_mca"
       ],
       "parent": "1",
       "kind": "vessel",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "A malha corresponde apenas a M1; falta a correspondência com a árvore completa da ACM.",
+      "note": "M1 e segmentos M2/M3 bilaterais identificados, com ramos corticais e estriados recuperados de nós omitidos pelo manifesto. Cobertura ampliada, mas óstios, continuidade, variantes, distribuição e árvore completa ainda exigem revisão. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "partial",
       "ids": [
         "middle_cerebral_artery_m1_segment_l",
-        "middle_cerebral_artery_m1_segment_r"
+        "middle_cerebral_artery_m1_segment_r",
+        "middle_cerebral_artery_m3_segment_r",
+        "insular_branches_of_middle_cerebral_artery_m2_r",
+        "parietal_branches_of_middle_cerebral_artery_l",
+        "parietal_branches_of_middle_cerebral_artery_r",
+        "temporal_branches_of_middle_cerebral_artery_l",
+        "temporal_branches_of_middle_cerebral_artery_r",
+        "postcentral_arterial_branch_l",
+        "postcentral_arterial_branch_r",
+        "insular_branches_of_middle_cerebral_artery_m2_l",
+        "middle_cerebral_artery_m3_segment_l",
+        "anterior_temporal_branch_of_mca_l",
+        "anterior_temporal_branch_of_mca_r",
+        "artery_of_central_sulcus_l",
+        "artery_of_central_sulcus_r",
+        "artery_of_precentral_sulcus_l",
+        "artery_of_precentral_sulcus_r",
+        "arterial_branch_to_angular_gyrus_l",
+        "arterial_branch_to_angular_gyrus_r",
+        "distal_lateral_striate_branches_l",
+        "distal_lateral_striate_branches_r",
+        "lateral_frontobasal_artery_l",
+        "lateral_frontobasal_artery_r",
+        "posterior_parietal_artery_l",
+        "posterior_parietal_artery_r",
+        "posterior_temporal_branch_of_mca_l",
+        "posterior_temporal_branch_of_mca_r",
+        "prefrontal_artery_l",
+        "prefrontal_artery_r",
+        "proximal_lateral_striate_branches_l",
+        "proximal_lateral_striate_branches_r",
+        "temporo_occipital_branch_of_mca_l",
+        "temporo_occipital_branch_of_mca_r"
       ],
       "candidateIds": [],
+      "status": "partial",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "na-figure-4",
@@ -2634,12 +3474,13 @@
       "kind": "figure-label",
       "partial": false,
       "sourceEvidence": "figure-only",
-      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha. Divergência ou número sem definição na legenda. Correspondência geométrica não confirmada.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "unresolved",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "unresolved",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-figure-26b",
@@ -2651,12 +3492,13 @@
       "kind": "figure-label",
       "partial": false,
       "sourceEvidence": "figure-only",
-      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha. Divergência ou número sem definição na legenda. Correspondência geométrica não confirmada.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "unresolved",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "unresolved",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-figure-70a",
@@ -2668,12 +3510,13 @@
       "kind": "figure-label",
       "partial": false,
       "sourceEvidence": "figure-only",
-      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha. Divergência ou número sem definição na legenda. Correspondência geométrica não confirmada.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "unresolved",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "unresolved",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-figure-74a",
@@ -2685,12 +3528,13 @@
       "kind": "figure-label",
       "partial": false,
       "sourceEvidence": "figure-only",
-      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha. Divergência ou número sem definição na legenda. Correspondência geométrica não confirmada.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "unresolved",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "unresolved",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-figure-114a",
@@ -2702,12 +3546,13 @@
       "kind": "figure-label",
       "partial": false,
       "sourceEvidence": "figure-only",
-      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha. Divergência ou número sem definição na legenda. Correspondência geométrica não confirmada.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "unresolved",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "unresolved",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "na-figure-115a",
@@ -2719,12 +3564,13 @@
       "kind": "figure-label",
       "partial": false,
       "sourceEvidence": "figure-only",
-      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha. Divergência ou número sem definição na legenda. Correspondência geométrica não confirmada.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "unresolved",
       "ids": [],
       "candidateIds": [],
-      "geometryKinds": []
+      "status": "unresolved",
+      "geometryKinds": [],
+      "relations": []
     },
     {
       "key": "supp-arch",
@@ -2738,16 +3584,17 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "supplemental-context",
-      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda. Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "aortic_arch"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "supp-brachiocephalic",
@@ -2761,16 +3608,17 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "supplemental-context",
-      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda. Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "brachiocephalic_trunk"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "supp-subclavian",
@@ -2785,17 +3633,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "supplemental-context",
-      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda. Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "right_subclavian_artery",
         "left_subclavian_artery"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "supp-thyrocervical",
@@ -2809,17 +3658,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "supplemental-context",
-      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda. Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "thyrocervical_trunk_l",
         "thyrocervical_trunk_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "supp-costocervical",
@@ -2833,17 +3683,18 @@
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "supplemental-context",
-      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda. Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "costocervical_trunk_l",
         "costocervical_trunk_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     },
     {
       "key": "supp-transverse-cervical",
@@ -2851,23 +3702,30 @@
       "label": "Artérias cervicais transversas",
       "portuguese": "Artérias cervicais transversas",
       "targets": [
-        "transverse_cervical_artery"
+        "transverse_cervical_artery",
+        "deep_branch_of_transverse_cervical_artery",
+        "superficial_branch_of_transverse_cervical_artery"
       ],
       "parent": "",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "supplemental-context",
-      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "note": "Contexto supra-aórtico adicional: tronco e ramos profundo/superficial bilaterais identificados na fonte. O ramo profundo da cervical transversa não foi confundido com a artéria cervical profunda (102). Relações e nomenclatura da fonte permanecem em revisão. Malha identificada; trajeto, óstio e relações não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "status": "imported",
       "ids": [
         "transverse_cervical_artery_l",
-        "transverse_cervical_artery_r"
+        "transverse_cervical_artery_r",
+        "deep_branch_of_transverse_cervical_artery_l",
+        "deep_branch_of_transverse_cervical_artery_r",
+        "superficial_branch_of_transverse_cervical_artery_l",
+        "superficial_branch_of_transverse_cervical_artery_r"
       ],
       "candidateIds": [],
+      "status": "imported",
       "geometryKinds": [
         "imported"
-      ]
+      ],
+      "relations": []
     }
   ],
   "relations": [

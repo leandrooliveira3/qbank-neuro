@@ -1,7 +1,13 @@
 import { test, expect } from '@playwright/test';
-import { openAnatomy } from '../../features/neuro3d/openAnatomy';
-import { reconstructedArteries } from '../../features/neuro3d/reconstructedArteries';
-import { anatomicalInventory } from '../../features/neuro3d/anatomicalInventory';
+import { readFileSync } from 'node:fs';
+
+// Read the pinned data directly; browser tests should not load Vite-only modules
+// through Node's ESM loader, which requires JSON import attributes.
+const readManifest = (name: string) => JSON.parse(readFileSync(new URL(`../../features/neuro3d/${name}.json`, import.meta.url), 'utf8'));
+const importedStructureCount = ['open-anatomy', 'landmarks', 'supra-aortic', 'body-access', 'craniocervical', 'unindexed-vessels']
+  .reduce((count, name) => count + readManifest(name).structures.length, 0);
+const didacticStructureCount = 18;
+const diagramEntryCount = readManifest('diagram-registry').entries.length;
 test('loads open meshes, selects basilar artery, isolates and clips the same aligned anatomy', async ({page}) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -9,7 +15,7 @@ test('loads open meshes, selects basilar artery, isolates and clips the same ali
   await expect(page.getByRole('heading', {name:'Anatomia neurovascular', exact:true})).toBeVisible();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
   await page.getByRole("button", {name:"Estruturas",exact:true}).click();
-  await expect(page.locator('.nda-list button')).toHaveCount(openAnatomy.structures.length + reconstructedArteries.length);
+  await expect(page.locator('.nda-list button')).toHaveCount(importedStructureCount + didacticStructureCount);
   await page.getByLabel('Buscar no atlas detalhado').fill('Basilar artery');
   await page.getByRole('button',{name:'Basilar artery Artérias',exact:true}).click();
   await expect(page.getByTestId('detailed-structure')).toContainText('Basilar artery');
@@ -83,7 +89,7 @@ test('surface atlas transitions to the same angiographic geometry, adds bone and
   await page.getByRole('button',{name:'Superfícies anatômicas 3D',exact:true}).click();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true');
   await page.getByRole('button',{name:'Inventário',exact:true}).click();
-  await expect(page.getByTestId('diagram-inventory').locator('article')).toHaveCount(anatomicalInventory.length);
+  await expect(page.getByTestId('diagram-inventory').locator('article')).toHaveCount(diagramEntryCount);
   await expect(page.locator('.nda-review')).toContainText('Sem malha individual identificada');
   await page.getByLabel('Buscar no diagrama Neuroangio').fill('109');
   await expect(page.getByTestId('diagram-inventory').locator('article')).toHaveCount(1);

@@ -2,9 +2,11 @@
 
 Fonte principal desta revisão: https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/
 
-Foram confrontadas as 130 entradas da legenda atual e inspecionadas as quatro figuras vinculadas. Foram mantidos seis números visíveis apenas nas figuras e seis elementos supra-aórticos de contexto. O índice tem 142 entradas, não 142 vasos únicos. O atlas mantém 1086 estruturas importadas e 18 reconstruções didáticas.
+Foram confrontadas as 130 entradas da legenda atual e inspecionadas as quatro figuras vinculadas. Foram mantidos seis números visíveis apenas nas figuras e seis elementos supra-aórticos de contexto. O índice tem 142 entradas, não 142 vasos únicos. O atlas mantém 1114 estruturas importadas e 18 reconstruções didáticas.
 
 **A compatibilidade geométrica integral ainda não foi atingida.** Os diagramas documentam redes e variantes; não fornecem coordenadas 3D ou calibres medidos. Esta revisão corrige identidade, cobertura e relações bibliográficas, sem apresentar uma correspondência nominal como validação anatômica.
+
+Recuperação de 28 malhas adicionais: [neuro3d-unindexed-vessels.md](neuro3d-unindexed-vessels.md).
 
 ## Cobertura
 
@@ -30,7 +32,7 @@ Esses totais usam outro recorte que o índice anterior de 130 linhas/65 pendênc
 - **105:** preservadas as duas ocorrências, intercostal suprema e tireoidiana inferior, com chaves distintas.
 - **107:** a legenda repete intercostal suprema, mas a figura o posiciona no eixo aórtico torácico. Identidade não conciliada; nenhuma malha é selecionada como correspondência confirmada.
 - **4, 26b, 70a, 74a, 114a e 115a:** números identificados nas figuras sem definição explícita na legenda. A identidade fica pendente, inclusive a divergência 26a/26b.
-- **118:** M1 passa a cobertura parcial da ACM, em vez de representar toda a árvore.
+- **118:** cobertura parcial ampliada para 34 malhas associadas à ACM, incluindo M1/M2/M3 bilaterais e ramos corticais/estriados; não equivale à árvore completa homologada.
 - **Reconstruções bilaterais:** âncora e fração do eixo carotídeo usam o lado correspondente. O trajeto distal continua ilustrativo, espelhado e transladado à âncora, sem homologação de óstio ou calibre.
 
 ## Rede e navegação no aplicativo
@@ -43,7 +45,7 @@ Foram documentadas 34 relações conceituais com fontes: clivais, MHT–ILT, orb
 
 A implementação e a auditoria local passaram por TypeScript e 71 testes unitários antes de uma interrupção do ambiente de execução. Durante o build/publicação, a execução local ficou indisponível; os arquivos finais foram recuperados e reconstruídos pelo conector GitHub a partir do mesmo estado-base, com nova conferência de contagens, unicidade, referências e identidade arterial. Não se atribui uma nova execução local de TypeScript/testes a esse estado recuperado. O resultado do build remoto deve ser conferido no PR.
 
-A conferência visual interativa desta revisão no navegador não foi concluída. Continuam pendentes a comparação multiprojeção, a revisão especializada de cada trajeto/óstio/calibre, as relações osteodurais finas e a reconstrução completa das redes ainda ausentes. Não foram deformadas malhas reais para reproduzir proporções de ilustrações. Não foi executada validação clínica.
+A conferência funcional do atlas e angiografia foi concluída em desktop e celular após a recuperação: oito testes de navegador, 74 testes unitários, TypeScript e build aprovados. Detalhes em [neuro3d-unindexed-vessels.md](neuro3d-unindexed-vessels.md). Continuam pendentes a comparação anatômica multiprojeção, a revisão especializada de cada trajeto/óstio/calibre, as relações osteodurais finas e a reconstrução completa das redes ainda ausentes. Não foram deformadas malhas reais para reproduzir proporções de ilustrações. Não foi executada validação clínica.
 
 As figuras de referência foram consultadas, não redistribuídas. A atribuição e CC BY-SA 4.0 das malhas existentes são preservadas. Nenhum livro, imagem de paciente ou figura protegida foi acrescentado ao repositório.
 
@@ -180,7 +182,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 116a | Artéria labiríntica | Pendente | — |
 | 116b | Artéria subarqueada | Pendente | — |
 | 117 | Artéria basilar | Malha importada | basilar_artery |
-| 118 | Artéria cerebral média, M1 e ramos | Representação parcial | middle_cerebral_artery_m1_segment_l, middle_cerebral_artery_m1_segment_r |
+| 118 | Artéria cerebral média, M1 e ramos | Representação parcial | middle_cerebral_artery_m1_segment_l, middle_cerebral_artery_m1_segment_r, middle_cerebral_artery_m3_segment_r, insular_branches_of_middle_cerebral_artery_m2_r, parietal_branches_of_middle_cerebral_artery_l, parietal_branches_of_middle_cerebral_artery_r, temporal_branches_of_middle_cerebral_artery_l, temporal_branches_of_middle_cerebral_artery_r, postcentral_arterial_branch_l, postcentral_arterial_branch_r, insular_branches_of_middle_cerebral_artery_m2_l, middle_cerebral_artery_m3_segment_l, anterior_temporal_branch_of_mca_l, anterior_temporal_branch_of_mca_r, artery_of_central_sulcus_l, artery_of_central_sulcus_r, artery_of_precentral_sulcus_l, artery_of_precentral_sulcus_r, arterial_branch_to_angular_gyrus_l, arterial_branch_to_angular_gyrus_r, distal_lateral_striate_branches_l, distal_lateral_striate_branches_r, lateral_frontobasal_artery_l, lateral_frontobasal_artery_r, posterior_parietal_artery_l, posterior_parietal_artery_r, posterior_temporal_branch_of_mca_l, posterior_temporal_branch_of_mca_r, prefrontal_artery_l, prefrontal_artery_r, proximal_lateral_striate_branches_l, proximal_lateral_striate_branches_r, temporo_occipital_branch_of_mca_l, temporo_occipital_branch_of_mca_r |
 | 4 | Rótulo 4 visível apenas na figura | Identidade a reconciliar | — |
 | 26b | Rótulo 26b visível apenas na figura | Identidade a reconciliar | — |
 | 70a | Rótulo 70a visível apenas na figura | Identidade a reconciliar | — |
@@ -277,7 +279,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **113 — Artérias coroideas posteriores, medial e lateral**: Grupo medial e lateral. A presença da ACP não preenche essas artérias..
 - **116a — Artéria labiríntica**: Ramo labiríntico para o canal acústico interno e ouvido interno, distinto de 116b..
 - **116b — Artéria subarqueada**: Ramo osteodural subarqueado no canal subarqueado/petromastóideo, distinto da labiríntica..
-- **118 — Artéria cerebral média, M1 e ramos**: A malha corresponde apenas a M1; falta a correspondência com a árvore completa da ACM..
+- **118 — Artéria cerebral média, M1 e ramos**: M1 e segmentos M2/M3 bilaterais identificados, com ramos corticais e estriados recuperados de nós omitidos pelo manifesto. Cobertura ampliada, mas óstios, continuidade, variantes, distribuição e árvore completa ainda exigem revisão. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **4 — Rótulo 4 visível apenas na figura**: Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha..
 - **26b — Rótulo 26b visível apenas na figura**: Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha..
 - **70a — Rótulo 70a visível apenas na figura**: Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha..

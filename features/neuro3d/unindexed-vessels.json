@@ -1,0 +1,802 @@
+{
+  "sourceRepository": "https://github.com/Nurkan1/Anatria-3D",
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS → Z-Anatomy → Anatria3D → QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "assets": [
+    {
+      "file": "unindexed_vessels.glb",
+      "sha256": "64a30621dc7a20af40191a03aee32300d91cc30eae938925d10e6d9019cbd3fa",
+      "size": 366772,
+      "structures": 28,
+      "upstreamSha256": "05f373a294ab809b9a628bc1474a66028642997330fddc553a33d4ac6409b757"
+    }
+  ],
+  "structures": [
+    {
+      "id": "insular_branches_of_middle_cerebral_artery_m2_l",
+      "name": "Insular branches of middle cerebral artery (M2-segment).l",
+      "latin": "",
+      "node": "Insular branches of middle cerebral artery (M2-segment).l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.036278897896409035,
+          1.6151360049843788,
+          0.014773338101804256
+        ],
+        [
+          0.0489800083450973,
+          1.6272629632148892,
+          0.020995373255573213
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramos insulares da ACM, M2 esquerdo"
+    },
+    {
+      "id": "middle_cerebral_artery_m3_segment_l",
+      "name": "Middle cerebral artery (M3 segment).l",
+      "latin": "",
+      "node": "Middle cerebral artery (M3 segment).l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.04620733065530658,
+          1.621569549664855,
+          -0.05477928835898638
+        ],
+        [
+          0.060656958259642124,
+          1.638058583252132,
+          0.016860431991517544
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "ACM, segmento M3 esquerdo"
+    },
+    {
+      "id": "anterior_temporal_branch_of_mca_l",
+      "name": "Anterior temporal branch.l",
+      "latin": "",
+      "node": "Anterior temporal branch.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.046173566952347755,
+          1.591133501380682,
+          -0.013973343186080456
+        ],
+        [
+          0.06813944969326258,
+          1.6276409616693854,
+          0.028389849700033665
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo temporal anterior da ACM · esquerdo"
+    },
+    {
+      "id": "anterior_temporal_branch_of_mca_r",
+      "name": "Anterior temporal branch.r",
+      "latin": "",
+      "node": "Anterior temporal branch.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.06813944969326258,
+          1.5911334992458825,
+          -0.013973344368119894
+        ],
+        [
+          -0.046173566952347755,
+          1.627640963238094,
+          0.028389851709577772
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo temporal anterior da ACM · direito"
+    },
+    {
+      "id": "artery_of_central_sulcus_l",
+      "name": "Artery of central sulcus.l",
+      "latin": "",
+      "node": "Artery of central sulcus.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.01476740837097168,
+          1.621341958642006,
+          -0.03529118560254574
+        ],
+        [
+          0.06451600231230259,
+          1.6957614310085773,
+          0.017016945406794548
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria do sulco central · esquerdo"
+    },
+    {
+      "id": "artery_of_central_sulcus_r",
+      "name": "Artery of central sulcus.r",
+      "latin": "",
+      "node": "Artery of central sulcus.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.06451600231230259,
+          1.6213419569390255,
+          -0.03529118806230457
+        ],
+        [
+          -0.01476740837097168,
+          1.695761433878519,
+          0.01701694945299262
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria do sulco central · direito"
+    },
+    {
+      "id": "artery_of_precentral_sulcus_l",
+      "name": "Artery of precentral sulcus.l",
+      "latin": "",
+      "node": "Artery of precentral sulcus.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.022943176329135895,
+          1.6246574223041534,
+          -0.001269923523068428
+        ],
+        [
+          0.061403168365359306,
+          1.695661123842001,
+          0.033879466354846954
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria do sulco pré-central · esquerdo"
+    },
+    {
+      "id": "artery_of_precentral_sulcus_r",
+      "name": "Artery of precentral sulcus.r",
+      "latin": "",
+      "node": "Artery of precentral sulcus.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.061403168365359306,
+          1.6246574212874396,
+          -0.001269926074897603
+        ],
+        [
+          -0.022943176329135895,
+          1.6956611258981442,
+          0.033879470010358514
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria do sulco pré-central · direito"
+    },
+    {
+      "id": "arterial_branch_to_angular_gyrus_l",
+      "name": "Branch to angular gyrus.l",
+      "latin": "",
+      "node": "Branch to angular gyrus.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.059067151974886656,
+          1.6218793927691877,
+          -0.06502816081047058
+        ],
+        [
+          0.06135097844526172,
+          1.6337630529887974,
+          -0.05893256585113704
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo arterial para o giro angular · esquerdo"
+    },
+    {
+      "id": "arterial_branch_to_angular_gyrus_r",
+      "name": "Branch to angular gyrus.r",
+      "latin": "",
+      "node": "Branch to angular gyrus.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.06135097844526172,
+          1.6218793925473136,
+          -0.06502816124597721
+        ],
+        [
+          -0.059067151974886656,
+          1.6337630532998173,
+          -0.0589325652477411
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo arterial para o giro angular · direito"
+    },
+    {
+      "id": "distal_lateral_striate_branches_l",
+      "name": "Distal lateral striate branches.l",
+      "latin": "",
+      "node": "Distal lateral striate branches.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.016492798858392492,
+          1.6097826682962477,
+          0.020282222701521226
+        ],
+        [
+          0.028184287212982034,
+          1.6229698471724987,
+          0.03176700529279079
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramos estriados laterais distais · esquerdo"
+    },
+    {
+      "id": "distal_lateral_striate_branches_r",
+      "name": "Distal lateral striate branches.r",
+      "latin": "",
+      "node": "Distal lateral striate branches.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.028184286520318007,
+          1.609782667833229,
+          0.020282222628383036
+        ],
+        [
+          -0.016492799404960776,
+          1.6229698479073966,
+          0.031767005186747424
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramos estriados laterais distais · direito"
+    },
+    {
+      "id": "lateral_frontobasal_artery_l",
+      "name": "Lateral frontobasal artery.l",
+      "latin": "",
+      "node": "Lateral frontobasal artery.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.010901415720582008,
+          1.615431901998818,
+          0.017728179693222046
+        ],
+        [
+          0.05533504392951727,
+          1.6561370361596346,
+          0.07679669559001923
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria frontobasal lateral · esquerdo"
+    },
+    {
+      "id": "lateral_frontobasal_artery_r",
+      "name": "Lateral frontobasal artery.r",
+      "latin": "",
+      "node": "Lateral frontobasal artery.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.05533504392951727,
+          1.6154319000416921,
+          0.017728177059802924
+        ],
+        [
+          -0.010901415720582008,
+          1.6561370393664425,
+          0.07679669651515594
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria frontobasal lateral · direito"
+    },
+    {
+      "id": "posterior_parietal_artery_l",
+      "name": "Posterior parietal artery.l",
+      "latin": "",
+      "node": "Posterior parietal artery.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.03828141000121832,
+          1.6324823386967182,
+          -0.07478968054056168
+        ],
+        [
+          0.06474936660379171,
+          1.6706500155851245,
+          -0.03133708983659744
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria parietal posterior · esquerdo"
+    },
+    {
+      "id": "posterior_parietal_artery_r",
+      "name": "Posterior parietal artery.r",
+      "latin": "",
+      "node": "Posterior parietal artery.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.06474936660379171,
+          1.6324823373043167,
+          -0.07478968187556001
+        ],
+        [
+          -0.03828141000121832,
+          1.670650017991469,
+          -0.03133708783487149
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria parietal posterior · direito"
+    },
+    {
+      "id": "posterior_temporal_branch_of_mca_l",
+      "name": "Posterior temporal branch.l",
+      "latin": "",
+      "node": "Posterior temporal branch.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.04940596874803305,
+          1.5952050741761923,
+          -0.06953543238341808
+        ],
+        [
+          0.06887433864176273,
+          1.6361329965293407,
+          -0.031111912801861763
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo temporal posterior da ACM · esquerdo"
+    },
+    {
+      "id": "posterior_temporal_branch_of_mca_r",
+      "name": "Posterior temporal branch.r",
+      "latin": "",
+      "node": "Posterior temporal branch.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.06887433864176273,
+          1.5952050722523263,
+          -0.06953543411239754
+        ],
+        [
+          -0.04940596874803305,
+          1.6361329979645656,
+          -0.031111910952808613
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo temporal posterior da ACM · direito"
+    },
+    {
+      "id": "prefrontal_artery_l",
+      "name": "Prefrontal artery.l",
+      "latin": "",
+      "node": "Prefrontal artery.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.032214473001658916,
+          1.625485386699438,
+          0.018714984878897667
+        ],
+        [
+          0.06098556891083717,
+          1.6806189827620983,
+          0.049830470234155655
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria pré-frontal · esquerdo"
+    },
+    {
+      "id": "prefrontal_artery_r",
+      "name": "Prefrontal artery.r",
+      "latin": "",
+      "node": "Prefrontal artery.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.06098556891083717,
+          1.6254853852902393,
+          0.01871498227264295
+        ],
+        [
+          -0.032214473001658916,
+          1.6806189840731016,
+          0.049830472447832994
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Artéria pré-frontal · direito"
+    },
+    {
+      "id": "proximal_lateral_striate_branches_l",
+      "name": "Proximal lateral striate branches.l",
+      "latin": "",
+      "node": "Proximal lateral striate branches.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.00913992072932226,
+          1.6093818740919232,
+          0.01979682640549877
+        ],
+        [
+          0.016003836252275055,
+          1.6215910511091352,
+          0.024688358892120173
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramos estriados laterais proximais · esquerdo"
+    },
+    {
+      "id": "proximal_lateral_striate_branches_r",
+      "name": "Proximal lateral striate branches.r",
+      "latin": "",
+      "node": "Proximal lateral striate branches.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.016003835908229225,
+          1.6093818737648582,
+          0.019796826157452055
+        ],
+        [
+          -0.009139921060475537,
+          1.621591051412008,
+          0.024688359182837093
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramos estriados laterais proximais · direito"
+    },
+    {
+      "id": "temporo_occipital_branch_of_mca_l",
+      "name": "Temporo-occipital branch.l",
+      "latin": "",
+      "node": "Temporo-occipital branch.l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          0.01529187522828579,
+          1.5953114703297615,
+          -0.09650990180671215
+        ],
+        [
+          0.06006043404340744,
+          1.6409369241446257,
+          -0.054367393255233765
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo temporo-occipital da ACM · esquerdo"
+    },
+    {
+      "id": "temporo_occipital_branch_of_mca_r",
+      "name": "Temporo-occipital branch.r",
+      "latin": "",
+      "node": "Temporo-occipital branch.r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Middle cerebral artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "mca",
+      "bounds": [
+        [
+          -0.06006043404340744,
+          1.595311468887548,
+          -0.09650990328926506
+        ],
+        [
+          -0.01529187522828579,
+          1.6409369263866274,
+          -0.05436739074908282
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo temporo-occipital da ACM · direito"
+    },
+    {
+      "id": "deep_branch_of_transverse_cervical_artery_l",
+      "name": "(Deep branch of transverse cervical artery).l",
+      "latin": "",
+      "node": "(Deep branch of transverse cervical artery).l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Transverse cervical artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "transverse-cervical",
+      "bounds": [
+        [
+          0.055196162313222885,
+          1.2578692808747292,
+          -0.10145723819732666
+        ],
+        [
+          0.10660453140735626,
+          1.4362017586827278,
+          -0.0010509714484214783
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo profundo da artéria cervical transversa · esquerdo"
+    },
+    {
+      "id": "deep_branch_of_transverse_cervical_artery_r",
+      "name": "(Deep branch of transverse cervical artery).r",
+      "latin": "",
+      "node": "(Deep branch of transverse cervical artery).r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Transverse cervical artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "transverse-cervical",
+      "bounds": [
+        [
+          -0.10660453140735626,
+          1.257869274698044,
+          -0.10145724805704955
+        ],
+        [
+          -0.055196162313222885,
+          1.4362017612838371,
+          -0.0010509657178239956
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo profundo da artéria cervical transversa · direito"
+    },
+    {
+      "id": "superficial_branch_of_transverse_cervical_artery_l",
+      "name": "(Superficial branch of transverse cervical artery).l",
+      "latin": "",
+      "node": "(Superficial branch of transverse cervical artery).l",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Transverse cervical artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "transverse-cervical",
+      "bounds": [
+        [
+          0.05164979584515095,
+          1.2904202938079834,
+          -0.11265529692173004
+        ],
+        [
+          0.08113768137991428,
+          1.420900259166956,
+          -0.0638749422505498
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo superficial da artéria cervical transversa · esquerdo"
+    },
+    {
+      "id": "superficial_branch_of_transverse_cervical_artery_r",
+      "name": "(Superficial branch of transverse cervical artery).r",
+      "latin": "",
+      "node": "(Superficial branch of transverse cervical artery).r",
+      "layer": "arterial",
+      "file": "unindexed_vessels.glb",
+      "path": [
+        "Systemic arteries",
+        "Transverse cervical artery",
+        "Recovered source nodes"
+      ],
+      "sourceRegion": "transverse-cervical",
+      "bounds": [
+        [
+          -0.08113768137991428,
+          1.2904202931235442,
+          -0.11265530393575299
+        ],
+        [
+          -0.05164979584515095,
+          1.4209002627470306,
+          -0.06387493785765189
+        ]
+      ],
+      "reviewStatus": "source-node-label-unreviewed",
+      "portuguese": "Ramo superficial da artéria cervical transversa · direito"
+    }
+  ]
+}

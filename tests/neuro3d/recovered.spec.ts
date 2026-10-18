@@ -1,0 +1,40 @@
+import { test, expect } from '@playwright/test';
+
+test('recovered MCA and cervical source vessels retain identity in atlas and angiography', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');
+  await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered', 'true', { timeout: 45000 });
+  await page.getByRole('button', { name: 'Estruturas', exact: true }).click();
+  await page.getByLabel('Buscar no atlas detalhado').fill('118');
+  await expect(page.locator('.nda-list button')).toHaveCount(34);
+  await page.getByRole('button', { name: 'Insular branches of middle cerebral artery (M2-segment).l Artérias', exact: true }).click();
+  const selection = page.getByTestId('atlas-selection');
+  await expect(selection).toHaveAttribute('data-selected-id', 'insular_branches_of_middle_cerebral_artery_m2_l');
+  await page.getByLabel('Isolar estrutura selecionada').check();
+  await page.getByRole('button', { name: 'Focar seleção', exact: true }).click();
+  await page.getByRole('button', { name: 'Angiografia 3D', exact: true }).click();
+  await expect(page.locator('canvas')).toHaveAttribute('data-angiography3d-rendered', 'true');
+  await page.screenshot({ path: `test-results/recovered-mca-3d-${test.info().project.name}.png`, fullPage: true });
+  await page.getByRole('button', { name: 'Angiografia', exact: true }).click();
+  const detector = page.getByTestId('atlas-angiography');
+  await expect(detector).toHaveAttribute('data-selected-structure', 'insular_branches_of_middle_cerebral_artery_m2_l');
+  await expect(detector).toHaveAttribute('data-projection-ready', 'true', { timeout: 30000 });
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false', { timeout: 30000 });
+  const highlighted = await detector.evaluate((canvas: HTMLCanvasElement) => {
+    const pixels = canvas.getContext('2d')!.getImageData(0, 0, canvas.width, canvas.height).data;
+    let count = 0;
+    for (let i = 0; i < pixels.length; i += 4) if (pixels[i] > pixels[i + 2] + 20 && pixels[i + 1] > pixels[i + 2] + 10) count++;
+    return count;
+  });
+  expect(highlighted).toBeGreaterThan(0);
+  await page.screenshot({ path: `test-results/recovered-mca-2d-${test.info().project.name}.png`, fullPage: true });
+  await page.getByLabel('Buscar no atlas detalhado').fill('ramo profundo da artéria cervical transversa');
+  await expect(page.locator('.nda-list button')).toHaveCount(2);
+  await page.locator('.nda-list button').first().click();
+  await expect(selection).toHaveAttribute('data-selected-id', 'deep_branch_of_transverse_cervical_artery_l');
+  await page.getByRole('button', { name: 'Focar seleção', exact: true }).click();
+  await expect(detector).toHaveAttribute('data-selected-structure', 'deep_branch_of_transverse_cervical_artery_l');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false', { timeout: 30000 });
+  expect(errors).toEqual([]);
+});

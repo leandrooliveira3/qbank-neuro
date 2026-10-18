@@ -1,0 +1,209 @@
+{
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS \u2192 Z-Anatomy \u2192 Anatria3D \u2192 QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "file": "reference-unindexed-vessels.bin",
+  "size": 1619180,
+  "uncompressedSize": 4247116,
+  "sha256": "0523bbcc27f0db2d5dd2d549adafe84228caa88a3d670770543576ce20463666",
+  "structures": [
+    {
+      "id": "insular_branches_of_middle_cerebral_artery_m2_l",
+      "layer": "arterial",
+      "originalFaces": 1728,
+      "faces": 1728,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "middle_cerebral_artery_m3_segment_l",
+      "layer": "arterial",
+      "originalFaces": 3744,
+      "faces": 3744,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_temporal_branch_of_mca_l",
+      "layer": "arterial",
+      "originalFaces": 10368,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_temporal_branch_of_mca_r",
+      "layer": "arterial",
+      "originalFaces": 10368,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "artery_of_central_sulcus_l",
+      "layer": "arterial",
+      "originalFaces": 4608,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "artery_of_central_sulcus_r",
+      "layer": "arterial",
+      "originalFaces": 4608,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "artery_of_precentral_sulcus_l",
+      "layer": "arterial",
+      "originalFaces": 12384,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "artery_of_precentral_sulcus_r",
+      "layer": "arterial",
+      "originalFaces": 12384,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "arterial_branch_to_angular_gyrus_l",
+      "layer": "arterial",
+      "originalFaces": 864,
+      "faces": 864,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "arterial_branch_to_angular_gyrus_r",
+      "layer": "arterial",
+      "originalFaces": 864,
+      "faces": 864,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "distal_lateral_striate_branches_l",
+      "layer": "arterial",
+      "originalFaces": 9216,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "distal_lateral_striate_branches_r",
+      "layer": "arterial",
+      "originalFaces": 9216,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_frontobasal_artery_l",
+      "layer": "arterial",
+      "originalFaces": 5760,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_frontobasal_artery_r",
+      "layer": "arterial",
+      "originalFaces": 5760,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_parietal_artery_l",
+      "layer": "arterial",
+      "originalFaces": 9216,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_parietal_artery_r",
+      "layer": "arterial",
+      "originalFaces": 9216,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_temporal_branch_of_mca_l",
+      "layer": "arterial",
+      "originalFaces": 4320,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_temporal_branch_of_mca_r",
+      "layer": "arterial",
+      "originalFaces": 4320,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "prefrontal_artery_l",
+      "layer": "arterial",
+      "originalFaces": 6336,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "prefrontal_artery_r",
+      "layer": "arterial",
+      "originalFaces": 6336,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "proximal_lateral_striate_branches_l",
+      "layer": "arterial",
+      "originalFaces": 7776,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "proximal_lateral_striate_branches_r",
+      "layer": "arterial",
+      "originalFaces": 7776,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "temporo_occipital_branch_of_mca_l",
+      "layer": "arterial",
+      "originalFaces": 8352,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "temporo_occipital_branch_of_mca_r",
+      "layer": "arterial",
+      "originalFaces": 8352,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "deep_branch_of_transverse_cervical_artery_l",
+      "layer": "arterial",
+      "originalFaces": 8640,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "deep_branch_of_transverse_cervical_artery_r",
+      "layer": "arterial",
+      "originalFaces": 8640,
+      "faces": 4000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_branch_of_transverse_cervical_artery_l",
+      "layer": "arterial",
+      "originalFaces": 3168,
+      "faces": 3168,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_branch_of_transverse_cervical_artery_r",
+      "layer": "arterial",
+      "originalFaces": 3168,
+      "faces": 3168,
+      "retainedOriginalForBounds": false
+    }
+  ],
+  "projectionCoordinates": "Source world cm; Y minus160, same as atlas. Target 4000 faces for bone/vessels/nerves; 1000 for other context; original retained if simplification exceeds source bounds by 0.01cm. Only bone and vessels contribute radiographic signal; other layers are selection annotations only."
+}

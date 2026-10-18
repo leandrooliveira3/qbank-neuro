@@ -4,8 +4,9 @@ import landmarks from "./landmarks.json";
 import bodyAccess from "./body-access.json";
 import supraAortic from "./supra-aortic.json";
 import craniocervical from "./craniocervical.json";
+import unindexed from "./unindexed-vessels.json";
 
-export const openAnatomy = { ...raw, structures: [...raw.structures, ...landmarks.structures, ...supraAortic.structures, ...bodyAccess.structures, ...craniocervical.structures], assets: [...raw.assets, ...landmarks.assets, ...supraAortic.assets, ...bodyAccess.assets, ...craniocervical.assets] };
+export const openAnatomy = { ...raw, structures: [...raw.structures, ...landmarks.structures, ...supraAortic.structures, ...bodyAccess.structures, ...craniocervical.structures, ...unindexed.structures], assets: [...raw.assets, ...landmarks.assets, ...supraAortic.assets, ...bodyAccess.assets, ...craniocervical.assets, ...unindexed.assets] };
 export type OpenStructure = typeof openAnatomy.structures[number];
 export const openLayerNames: Record<string, string> = {
   arterial: "Artérias", venous: "Veias e seios", bone: "Crânio e coluna cervical",

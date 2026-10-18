@@ -6,6 +6,8 @@ O índice atual tem 142 entradas: 130 da legenda, seis apenas nas figuras e seis
 
 A lista atual completa está em [neuro3d-diagram-review.md](neuro3d-diagram-review.md). Os totais de 130 entradas/65 pendências abaixo pertencem ao checkpoint anterior, antes de corrigir duplicatas, omissões e a identidade de 109.
 
+A recuperação posterior de nós omitidos pelo manifesto acrescentou 28 malhas reais da fonte, elevando o atlas a 1114 estruturas importadas. O item 118 agora referencia 34 malhas. Detalhes em [neuro3d-unindexed-vessels.md](neuro3d-unindexed-vessels.md).
+
 ## Checkpoint anterior
 
 A prioridade confirmada é anatomia e angiografia; a conclusão do simulador fica para depois. O checkpoint funciona nos fluxos de atlas testados, mas não é uma base anatômica completa ou homologada.
