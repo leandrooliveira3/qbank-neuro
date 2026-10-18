@@ -1,9 +1,11 @@
+import body from "../../reference-body-access-network.json";
+import access from "../../reference-access-network.json";
 import raw from "../../reference-network.json";
 import type { Network, P3, Vessel } from "./network";
 import { distance, edgeLength, pointAt } from "./network";
 
-export function makeReferenceNetwork(aneurysm = false): Network {
-  const network = structuredClone(raw.routes) as unknown as Network;
+export function makeReferenceNetwork(aneurysm = false, entry: "cervical" | "arch" | "femoral" | "radial" = "cervical"): Network {
+  const network = structuredClone(entry === "femoral" || entry === "radial" ? { ...raw.routes, ...body.routes[entry] } : entry === "arch" ? { ...raw.routes, ...access.routes } : raw.routes) as unknown as Network;
   if (!aneurysm) return network;
   const parent = network["ref-ICA-L"];
   const at = edgeLength(parent) * 0.85;
@@ -34,7 +36,8 @@ export function makeReferenceNetwork(aneurysm = false): Network {
 export function sourceFraction(vessel: Vessel, fraction: number) {
   const length = edgeLength(vessel);
   const junction = vessel.junctionGapCm ?? 0;
-  const t = Math.max(0, Math.min(1, (fraction * length - junction) / Math.max(0.001, length - junction)));
+  const startJunction = vessel.junctionAtEnd ? 0 : junction;
+  const t = Math.max(0, Math.min(1, (fraction * length - startJunction) / Math.max(0.001, length - junction)));
   const [start, end] = vessel.sourceRange ?? [0, 1];
   return start + (end - start) * t;
 }

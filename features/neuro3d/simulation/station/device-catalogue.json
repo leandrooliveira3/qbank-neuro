@@ -1,0 +1,649 @@
+{
+  "version": 1,
+  "sourceName": "Catalogo_Devices_Kits_Neurorradiologia_Intervencionista.docx",
+  "sourceSha256": "01c45be3204a3008dd312f7a018f7ea1695d6bbfa0694eaaa769fb53c30affe6",
+  "scope": "User-provided inventory; representative ranges, not a full SKU or compatibility database",
+  "records": [
+    {
+      "id": "s1r1",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Introdutores arteriais",
+      "products": [
+        "Prelude",
+        "Avanti+",
+        "Radifocus Introducer II"
+      ],
+      "dimensions": "4–9 Fr; 10–25 cm (faixas usuais)",
+      "notes": "Femoral/radial; confirmar comprimento por SKU",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s1r2",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Bainhas longas",
+      "products": [
+        "Destination",
+        "Flexor Shuttle",
+        "AXS Infinity LS Plus",
+        "Neuron MAX 088"
+      ],
+      "dimensions": "6–9 Fr; ~45–100 cm (varia)",
+      "notes": "Verificar diâmetro interno e externo",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s1r3",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Cateteres diagnósticos",
+      "products": [
+        "Simmons 1/2/3",
+        "Vertebral",
+        "Headhunter",
+        "Berenstein",
+        "JB1",
+        "Pigtail"
+      ],
+      "dimensions": "4–5 Fr; 65–125 cm (usuais)",
+      "notes": "Curvas e pontas variáveis",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s1r4",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Fios de acesso",
+      "products": [
+        "Terumo Radifocus",
+        "Glidewire",
+        "Amplatz Super Stiff",
+        "Rosen"
+      ],
+      "dimensions": "0,035″/0,038″; 150–260 cm (usuais)",
+      "notes": "Hidrofílicos e suporte",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s1r5",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Cateteres-guia",
+      "products": [
+        "Envoy",
+        "Guider Softip",
+        "Neuron 070",
+        "AXS Infinity"
+      ],
+      "dimensions": "5–8 Fr; ~90–115 cm (usuais)",
+      "notes": "Compatibilidade de lúmen por IFU",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s1r6",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Balão-guia",
+      "products": [
+        "FlowGate2",
+        "Cello",
+        "Walrus"
+      ],
+      "dimensions": "~8–9 Fr; ~85–100 cm (modelos variam)",
+      "notes": "Controle proximal de fluxo",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s1r7",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Cateteres intermediários",
+      "products": [
+        "Sofia",
+        "Sofia Plus",
+        "Catalyst 5/6/7",
+        "Navien",
+        "AXS Vecta"
+      ],
+      "dimensions": "DI ~0,055–0,074″; ~115–132 cm (faixas usuais)",
+      "notes": "Acesso distal e suporte",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s1r8",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Microguias",
+      "products": [
+        "Synchro 2",
+        "CHIKAI",
+        "Traxcess",
+        "Transend",
+        "Aristotle"
+      ],
+      "dimensions": "0,008–0,014″; ~180–300 cm (faixas usuais)",
+      "notes": "Escolher ponta/rigidez",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s1r9",
+      "section": "1. Acesso, angiografia e suporte",
+      "category": "Microcateteres gerais",
+      "products": [
+        "Echelon 10/14",
+        "Excelsior SL-10",
+        "Headway 17/21/27",
+        "Phenom 17/21/27",
+        "XT-27"
+      ],
+      "dimensions": "DI 0,010–0,027″; ~150–167 cm (varia)",
+      "notes": "Microcateter específico para cada implante",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s2r1",
+      "section": "2. Trombectomia mecânica do AVC isquêmico",
+      "category": "Stent retriever",
+      "products": [
+        "Solitaire X"
+      ],
+      "dimensions": "3×20, 3×40, 4×20, 4×40, 6×20, 6×24, 6×40 mm",
+      "notes": "Microcateter mínimo 0,017″ (3 mm) ou 0,021″ (4/6 mm) [1]",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s2r2",
+      "section": "2. Trombectomia mecânica do AVC isquêmico",
+      "category": "Stent retriever",
+      "products": [
+        "Trevo NXT"
+      ],
+      "dimensions": "3×32; 4×28; 4×41; 6×37 mm",
+      "notes": "Trak 21 para 4/6 mm; Pro14 ou Trak21 para 3 mm [2]",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s2r3",
+      "section": "2. Trombectomia mecânica do AVC isquêmico",
+      "category": "Stent retriever",
+      "products": [
+        "EmboTrap III",
+        "pRESET",
+        "Tigertriever",
+        "Eric",
+        "Nimbus"
+      ],
+      "dimensions": "Vários diâmetros/comprimentos — confirmar IFU",
+      "notes": "Famílias com diferentes mecanismos de captura",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s2r4",
+      "section": "2. Trombectomia mecânica do AVC isquêmico",
+      "category": "Aspiração distal",
+      "products": [
+        "Penumbra ACE/RED",
+        "Medtronic React 68/71",
+        "Sofia Plus",
+        "Vecta 71/74",
+        "Catalyst 7"
+      ],
+      "dimensions": "DI nominal ~0,060–0,074″ (segundo modelo)",
+      "notes": "Confirmar OD, comprimento e sistema de aspiração",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s2r5",
+      "section": "2. Trombectomia mecânica do AVC isquêmico",
+      "category": "Aspiração e conexões",
+      "products": [
+        "Penumbra ENGINE",
+        "Riptide",
+        "AXS Universal",
+        "seringa de aspiração"
+      ],
+      "dimensions": "Tubos, válvulas, conectores; sem calibre único",
+      "notes": "Configuração depende do sistema",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s2r6",
+      "section": "2. Trombectomia mecânica do AVC isquêmico",
+      "category": "Trombectomia distal",
+      "products": [
+        "Tigertriever 13",
+        "Solitaire 3 mm",
+        "microcateteres distais"
+      ],
+      "dimensions": "Faixas menores; confirmar IFU",
+      "notes": "Selecionar por calibre vascular e indicação",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s3r1",
+      "section": "3. Angioplastia e stent carotídeo",
+      "category": "Stent autoexpansível",
+      "products": [
+        "Carotid Wallstent",
+        "Precise",
+        "Xact",
+        "Protégé RX",
+        "Roadsaver",
+        "CGuard"
+      ],
+      "dimensions": "Diâmetros típicos ~5–10 mm; comprimentos ~20–60 mm",
+      "notes": "Cônico/reto, célula aberta/fechada ou dupla malha",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s3r2",
+      "section": "3. Angioplastia e stent carotídeo",
+      "category": "Proteção distal",
+      "products": [
+        "FilterWire EZ",
+        "SpiderFX",
+        "Emboshield NAV6",
+        "RX Accunet"
+      ],
+      "dimensions": "Filtros dimensionados ao vaso ~3–7 mm (variável)",
+      "notes": "Requer zona distal de aterrissagem",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s3r3",
+      "section": "3. Angioplastia e stent carotídeo",
+      "category": "Proteção proximal",
+      "products": [
+        "Mo.Ma Ultra",
+        "sistemas de reversão de fluxo TCAR"
+      ],
+      "dimensions": "Bainhas e balões dependem do sistema",
+      "notes": "Alternativa ao filtro distal",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s3r4",
+      "section": "3. Angioplastia e stent carotídeo",
+      "category": "Balões carotídeos",
+      "products": [
+        "Aviator Plus",
+        "Sterling",
+        "Viatrac",
+        "Submarine"
+      ],
+      "dimensions": "Diâmetros usuais ~3–7 mm; 15–40 mm comprimento",
+      "notes": "Pré/pós-dilatação individualizada",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s3r5",
+      "section": "3. Angioplastia e stent carotídeo",
+      "category": "Fios 0,014″",
+      "products": [
+        "BMW",
+        "Spartacore",
+        "Transend",
+        "fios de proteção"
+      ],
+      "dimensions": "0,014″; ~180–300 cm",
+      "notes": "Confirmar plataforma monorail/OTW",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s4r1",
+      "section": "4. Estenose intracraniana, angioplastia e stents de resgate",
+      "category": "Balões intracranianos",
+      "products": [
+        "Gateway",
+        "Scepter C/XC (uso específico)",
+        "NeuroSpeed"
+      ],
+      "dimensions": "Diâmetros típicos ~1,5–4 mm; comprimentos ~9–20 mm",
+      "notes": "Não intercambiáveis entre indicações",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s4r2",
+      "section": "4. Estenose intracraniana, angioplastia e stents de resgate",
+      "category": "Stents intracranianos",
+      "products": [
+        "Wingspan",
+        "Neuroform Atlas",
+        "Enterprise 2",
+        "LVIS Jr"
+      ],
+      "dimensions": "Diâmetros típicos ~2,5–4,5 mm; comprimentos ~8–30 mm",
+      "notes": "Wingspan para estenose; demais conforme indicação/IFU",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s4r3",
+      "section": "4. Estenose intracraniana, angioplastia e stents de resgate",
+      "category": "Stents de resgate",
+      "products": [
+        "Acclino",
+        "Neuroform Atlas",
+        "Enterprise",
+        "Solitaire destacável (versões próprias)"
+      ],
+      "dimensions": "Confirmar modelo e dimensões",
+      "notes": "Implante permanente exige indicação e estratégia antitrombótica",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s5r1",
+      "section": "5. Aneurismas intracranianos",
+      "category": "Coils destacáveis",
+      "products": [
+        "Target 360/Helical",
+        "Axium Prime",
+        "HydroFrame/HydroSoft",
+        "Penumbra SMART Coil",
+        "MicroPlex"
+      ],
+      "dimensions": "Diâmetros de alça ~1–30 mm; comprimentos variáveis",
+      "notes": "Framing/filling/finishing; especificar cada SKU",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s5r2",
+      "section": "5. Aneurismas intracranianos",
+      "category": "Microcateter de coils",
+      "products": [
+        "SL-10",
+        "Echelon 10",
+        "Headway 17",
+        "Excelsior"
+      ],
+      "dimensions": "DI ~0,0165–0,017″ para várias linhas",
+      "notes": "Compatibilidade do coil por IFU",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s5r3",
+      "section": "5. Aneurismas intracranianos",
+      "category": "Balões de remodelamento",
+      "products": [
+        "Scepter C/XC",
+        "HyperForm/HyperGlide",
+        "Transform"
+      ],
+      "dimensions": "Diâmetros usuais ~3–7 mm; comprimentos ~7–20 mm",
+      "notes": "Complacência e microguia variam",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s5r4",
+      "section": "5. Aneurismas intracranianos",
+      "category": "Stent assistido",
+      "products": [
+        "Neuroform Atlas",
+        "LVIS/LVIS Jr",
+        "Enterprise 2",
+        "LEO Baby"
+      ],
+      "dimensions": "Diâmetros ~2,5–5,5 mm; comprimentos ~8–40 mm (famílias)",
+      "notes": "Compatibilidade de microcateter específica",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s5r5",
+      "section": "5. Aneurismas intracranianos",
+      "category": "Diversores de fluxo",
+      "products": [
+        "Pipeline Flex/Shield/Vantage",
+        "FRED/FRED Jr",
+        "Surpass Evolve",
+        "Silk Vista Baby",
+        "p64"
+      ],
+      "dimensions": "Diâmetros ~2,5–6 mm; comprimentos ~10–50 mm (faixas familiares)",
+      "notes": "Não presumir todas as combinações disponíveis",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s5r6",
+      "section": "5. Aneurismas intracranianos",
+      "category": "Dispositivos intra-saco",
+      "products": [
+        "WEB SL/SLS",
+        "Contour",
+        "Artisse",
+        "Nautilus"
+      ],
+      "dimensions": "Diâmetro e altura em mm; numerosas combinações",
+      "notes": "Dimensionamento por geometria do aneurisma",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s5r7",
+      "section": "5. Aneurismas intracranianos",
+      "category": "Oclusão vascular",
+      "products": [
+        "Amplatzer Vascular Plug",
+        "coils de sacrifício"
+      ],
+      "dimensions": "Plugs ~3–22 mm (famílias variáveis)",
+      "notes": "Oclusão de vaso selecionada",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s6r1",
+      "section": "6. MAV, fístulas durais e embolização tumoral",
+      "category": "EVOH não adesivo",
+      "products": [
+        "Onyx 18/34",
+        "Squid 12/18/34",
+        "PHIL 25/30/35"
+      ],
+      "dimensions": "Viscosidade/concentração por formulação; frascos variáveis",
+      "notes": "Microcateter DMSO-compatível quando aplicável",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s6r2",
+      "section": "6. MAV, fístulas durais e embolização tumoral",
+      "category": "Adesivos",
+      "products": [
+        "n-BCA/Histoacryl + Lipiodol"
+      ],
+      "dimensions": "Misturas com proporções variáveis",
+      "notes": "Técnica e compatibilidade específicas",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s6r3",
+      "section": "6. MAV, fístulas durais e embolização tumoral",
+      "category": "Partículas",
+      "products": [
+        "PVA",
+        "Embosphere",
+        "Contour"
+      ],
+      "dimensions": "Faixas usuais 45–1200 µm, conforme produto",
+      "notes": "Selecionar por território e risco de anastomoses",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s6r4",
+      "section": "6. MAV, fístulas durais e embolização tumoral",
+      "category": "Microcateter DMSO",
+      "products": [
+        "Marathon",
+        "Apollo",
+        "Sonic",
+        "Headway Duo"
+      ],
+      "dimensions": "DI e comprimento por versão; ~150–165 cm",
+      "notes": "Apollo/Sonic com ponta destacável em variantes",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s6r5",
+      "section": "6. MAV, fístulas durais e embolização tumoral",
+      "category": "Balões de embolização",
+      "products": [
+        "Scepter C/XC/Mini",
+        "Eclipse"
+      ],
+      "dimensions": "Diâmetros e comprimentos por IFU",
+      "notes": "Injeção sob controle de fluxo",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s6r6",
+      "section": "6. MAV, fístulas durais e embolização tumoral",
+      "category": "Coils e plugs",
+      "products": [
+        "Axium",
+        "Target",
+        "MicroPlex",
+        "MVP"
+      ],
+      "dimensions": "Coils em mm/cm; MVP em diferentes tamanhos",
+      "notes": "Embolização transarterial/transvenosa",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s7r1",
+      "section": "7. Procedimentos venosos, vasoespasmo e suporte",
+      "category": "Stents venosos",
+      "products": [
+        "Wallstent venoso",
+        "Zilver Vena",
+        "Venovo"
+      ],
+      "dimensions": "~10–20 mm diâmetro; comprimentos variáveis",
+      "notes": "Uso neurovenoso depende de indicação e regulamentação",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s7r2",
+      "section": "7. Procedimentos venosos, vasoespasmo e suporte",
+      "category": "Balões venosos",
+      "products": [
+        "Atlas Gold",
+        "Mustang",
+        "Conquest"
+      ],
+      "dimensions": "~4–20 mm; comprimentos variados",
+      "notes": "Alta pressão conforme necessidade",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s7r3",
+      "section": "7. Procedimentos venosos, vasoespasmo e suporte",
+      "category": "Trombectomia/aspiração venosa",
+      "products": [
+        "Indigo",
+        "cateteres de aspiração selecionados"
+      ],
+      "dimensions": "Calibres e comprimentos por sistema",
+      "notes": "Evidência/indicação variáveis",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s7r4",
+      "section": "7. Procedimentos venosos, vasoespasmo e suporte",
+      "category": "Vasoespasmo",
+      "products": [
+        "Balões de angioplastia intracraniana",
+        "microcateteres de infusão"
+      ],
+      "dimensions": "Balões tipicamente ~1,5–4 mm",
+      "notes": "Farmacoterapia intra-arterial conforme protocolo",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    },
+    {
+      "id": "s7r5",
+      "section": "7. Procedimentos venosos, vasoespasmo e suporte",
+      "category": "Fechamento vascular",
+      "products": [
+        "Angio-Seal",
+        "Perclose ProGlide",
+        "MynxGrip",
+        "TR Band"
+      ],
+      "dimensions": "Compatibilidade frequente 5–8 Fr; conferir modelo",
+      "notes": "Femoral ou radial; técnica dependente do acesso",
+      "specificationStatus": "user-catalogue-representative-not-independently-IFU-verified"
+    }
+  ],
+  "kits": [
+    {
+      "id": "kit-1",
+      "name": "Trombectomia anterior (aspiração)",
+      "composition": "Introdutor 8–9 Fr; guia/balão-guia 8–9 Fr; cateter aspiração DI ~0,068–0,074″; microguia/microcateter opcionais; bomba/seringa, válvula e hemostasia."
+    },
+    {
+      "id": "kit-2",
+      "name": "Trombectomia combinada",
+      "composition": "Kit de aspiração + microcateter 0,017/0,021″; Solitaire X ou Trevo NXT compatível; linhas de aspiração e conexão."
+    },
+    {
+      "id": "kit-3",
+      "name": "Trombectomia distal",
+      "composition": "Guia de suporte; microcateter distal; microguia 0,008–0,014″; retriever de pequeno perfil ou aspiração de menor calibre."
+    },
+    {
+      "id": "kit-4",
+      "name": "Stent carotídeo transfemoral",
+      "composition": "Introdutor 6–9 Fr; bainha longa/guia; fio 0,014″; filtro distal ou proteção proximal; balões; stent autoexpansível; fechamento."
+    },
+    {
+      "id": "kit-5",
+      "name": "Revascularização carotídea TCAR",
+      "composition": "Sistema de acesso carotídeo e reversão de fluxo específico; fio, balão e stent compatíveis; materiais cirúrgicos e de hemostasia."
+    },
+    {
+      "id": "kit-6",
+      "name": "Angioplastia intracraniana",
+      "composition": "Guia; microguia; balão intracraniano dimensionado; eventual stent de resgate; sistema de infusão e monitorização."
+    },
+    {
+      "id": "kit-7",
+      "name": "Aneurisma com coils",
+      "composition": "Guia; microcateter compatível; microguia; coils framing/filling/finishing; sistema de destacamento; eventual balão ou stent."
+    },
+    {
+      "id": "kit-8",
+      "name": "Aneurisma com diversor",
+      "composition": "Bainha/guia; cateter intermediário; microcateter de entrega especificado; diversor dimensionado; materiais de resgate."
+    },
+    {
+      "id": "kit-9",
+      "name": "Aneurisma com WEB/Contour",
+      "composition": "Guia; microcateter indicado pelo fabricante; dispositivo intra-saco dimensionado por medidas angiográficas."
+    },
+    {
+      "id": "kit-10",
+      "name": "MAV cerebral",
+      "composition": "Guia; microcateter DMSO-compatível ou adequado ao adesivo; microguia; agente líquido; DMSO/solvente quando requerido; eventual balão/coils."
+    },
+    {
+      "id": "kit-11",
+      "name": "FAV dural",
+      "composition": "Acesso arterial ou venoso; microcateter; microguia; Onyx/PHIL/Squid ou coils/plugs conforme angioarquitetura."
+    },
+    {
+      "id": "kit-12",
+      "name": "Embolização tumoral/epistaxe",
+      "composition": "Cateter diagnóstico/guia; microcateter superseletivo; partículas/coils/agente líquido conforme anatomia e anastomoses perigosas."
+    },
+    {
+      "id": "kit-13",
+      "name": "Stent venoso intracraniano",
+      "composition": "Acesso venoso; cateter-guia; fio de suporte; manometria quando indicada; balão e stent compatíveis; hemostasia."
+    },
+    {
+      "id": "kit-14",
+      "name": "Angioplastia de vasoespasmo",
+      "composition": "Cateter-guia; microguia; balão intracraniano; microcateter para infusão farmacológica se indicado."
+    }
+  ],
+  "notes": [
+    "Não inferir compatibilidade apenas pelo diâmetro nominal: verificar diâmetro interno útil, perfil externo, comprimento, ponta e IFU.",
+    "Para cada SKU, registrar fabricante, código de referência, dimensões exatas, cateter mínimo, faixa de vaso, status ANVISA e data da ficha técnica.",
+    "Kits são exemplos de composição e não substituem planejamento por anatomia, indicação, contraindicações e protocolos locais.",
+    "Embolização com líquidos requer avaliação das anastomoses perigosas e compatibilidade química do microcateter."
+  ],
+  "sources": [
+    "[1] Medtronic. Solitaire X Revascularization Device: ordering information. https://www.medtronic.com/en-us/healthcare-professionals/products/neurological/neurovascular/stent-retrievers/solitaire-x-revascularization-device.html",
+    "[2] Stryker. Trevo NXT ProVue Retriever: specifications and compatibility. https://www.stryker.com/us/en/neurovascular/products/trevo-nxt.html",
+    "[3] Stryker. Trevo NXT Instructions for Use. https://www.stryker.com/content/dam/stryker/neurovascular/products/trevo-nxt/resources/NV00045358-01A%20-%20Cell%20coverage-min%20vessel%20IFU.pdf",
+    "Demais marcas e dimensões usuais: inventário orientativo de famílias de dispositivos, não verificação exaustiva de IFU. Confirmar nas páginas oficiais de Medtronic, Stryker, MicroVention/Terumo, Penumbra, Balt, Cerenovus, Boston Scientific, Abbott e Cook Medical."
+  ]
+}

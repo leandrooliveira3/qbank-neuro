@@ -1,13 +1,29 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { openAnatomy } from "./openAnatomy";
+import { gunzipSync } from "node:zlib";
+import bodyPack from "./reference-body-access.json";
+import { openAnatomy, worldPoint } from "./openAnatomy";
 
 describe("imported open anatomical assets", () => {
   it("includes skull-base bones, pituitary lobes, dura and cavernous landmarks in distinct layers", () => {
     const expected = { sphenoid_bone: "bone", ethmoid_bone: "bone", frontal_bone: "bone", occipital_bone: "bone", temporal_bone_l: "bone", parietal_bone_r: "bone", adenohypophysis: "gland", neurohypophysis: "gland", falx_cerebri: "dura", tentorium_cerebelli_l: "dura", cavernous_sinus_l: "venous", cavernous_sinus_r: "venous" };
     for (const [id, layer] of Object.entries(expected)) expect(openAnatomy.structures.find((row) => row.id === id)?.layer, id).toBe(layer);
     expect(openAnatomy.structures.filter((row) => row.layer === "bone").some((row) => row.id.includes("sinus_of_"))).toBe(false);
+  });
+  it("keeps the added aortic and access projection meshes in their original world frame", () => {
+    const bytes = readFileSync(`public/neuro3d/open-anatomy/${bodyPack.file}`);
+    expect(bytes.length).toBe(bodyPack.size);
+    expect(createHash("sha256").update(bytes).digest("hex")).toBe(bodyPack.sha256);
+    const decoded = gunzipSync(bytes); expect(decoded.length).toBe(bodyPack.uncompressedSize);
+    const rows = JSON.parse(decoded.toString()) as {id: string; positions: number[]; indices: number[]}[];
+    expect(rows).toHaveLength(8);
+    for (const row of rows) {
+      const source = openAnatomy.structures.find(item => item.id === row.id)!;
+      const low = worldPoint(source.bounds[0]), high = worldPoint(source.bounds[1]);
+      expect(row.indices.every(index => index >= 0 && index < row.positions.length / 3)).toBe(true);
+      expect(row.positions.every((value, i) => Number.isFinite(value) && value >= low[i % 3] - .02 && value <= high[i % 3] + .02)).toBe(true);
+    }
   });
   it("maps every structure to one preserved GLB node and verifies delivered bytes", () => {
     const ids = new Set<string>();

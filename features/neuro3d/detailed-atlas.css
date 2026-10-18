@@ -54,3 +54,6 @@
 .nda-projection-controls label select { display:block; width:100%; margin-top:8px; }
 
 .nda-selection{display:flex;align-items:center;gap:8px;padding:12px;background:#29312b;border:1px solid #d9ae49;border-radius:8px;flex-wrap:wrap}.nda-selection>div{flex:1;min-width:180px}.nda-selection small{display:block;color:#d9cfae;margin-top:4px}.nda-landmarks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}.nda-landmarks button{font-size:12px}
+
+.nda-controls>label { display:block; font-size:12px; margin:14px 0; }
+.nda-controls>label select { display:block; width:100%; margin-top:8px; }

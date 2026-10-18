@@ -172,3 +172,5 @@ QBank-Neuro adaptations (2026-10-17): head/neck subset selected from male skelet
 Additional QBank-Neuro adaptations: original skull bones, adenohypophysis, neurohypophysis, falx cerebri and tentorium meshes imported with source transforms preserved; projection-only copies decimated to at most 4000 faces per structure. CC BY-SA 4.0. Source labels require anatomical review.
 
 Supra-aortic adaptation: 14 original arterial meshes extracted from the same pinned cardiovascular source, preserving Draco geometry and source transforms. Projection-only copies retain source coordinates and use a maximum of 4000 faces per structure. CC BY-SA 4.0; source labels and junction relationships require review.
+
+Body-access adaptation: eight original right-sided peripheral and aortic source meshes extracted with original transforms; projection copies preserve source frame. Derived axes and didactic arch deformations are unvalidated educational adaptations. Source-derived data and meshes remain CC BY-SA 4.0, BodyParts3D/DBCLS → Z-Anatomy → Anatria3D.

@@ -1,6 +1,6 @@
 import type { P3 } from "./simulation/station/network";
 import type { View } from "./simulation/station/engine";
-import { projectSpatial, WIDTH, HEIGHT } from "./simulation/station/imaging";
+import { projectSpatial, WIDTH, HEIGHT } from "./simulation/station/projectionMath";
 
 /** Move the detector field, never the source anatomy. */
 export function atlasProjection(yaw: number, pitch: number, zoom: number, center: P3 = [0, 0, 0]): View {

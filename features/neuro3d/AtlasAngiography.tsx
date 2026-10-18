@@ -1,8 +1,8 @@
 import { BufferGeometry, Float32BufferAttribute, Mesh, MeshBasicMaterial, DoubleSide, Raycaster, Vector3 } from "three";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useReferenceGeometry } from "./simulation/station/referenceGeometry";
-import { projectThickness, detectorImage } from "./simulation/station/detector";
-import { projectSpatial, WIDTH, HEIGHT } from "./simulation/station/imaging";
+import { WIDTH, HEIGHT } from "./simulation/station/projectionMath";
+import type { AtlasProjectionRequest } from "./atlasRadiograph";
 import type { P3 } from "./simulation/station/network";
 import { atlasProjection, unprojectAtlasPixel } from "./atlasProjection";
 
@@ -14,6 +14,9 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
   const { geometry, error } = useReferenceGeometry();
   const canvas = useRef<HTMLCanvasElement>(null);
   const [busy, setBusy] = useState(true);
+  const [renderError, setRenderError] = useState<string>();
+  const generation = useRef(0);
+  const workerState = useRef<{worker: Worker; inFlight: boolean; pending?: AtlasProjectionRequest}>(null);
   const view = useMemo(() => atlasProjection(yaw, pitch, zoom, center), [yaw, pitch, zoom, center]);
   const pickMeshes = useMemo(() => {
     if (!geometry) return [];
@@ -28,6 +31,8 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
   }, [geometry]);
   useEffect(() => () => { pickMeshes.forEach((mesh) => mesh.geometry.dispose()); pickMeshes[0]?.material.dispose(); }, [pickMeshes]);
   function pick(event: React.MouseEvent<HTMLCanvasElement>) {
+    // An image awaiting a newer pose must not be picked using that newer pose.
+    if (busy || error || renderError) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const scale = Math.min(rect.width / WIDTH, rect.height / HEIGHT);
     const px = (event.clientX - rect.left - (rect.width - WIDTH * scale) / 2) / scale;
@@ -43,40 +48,42 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
   }
   useEffect(() => {
     if (!geometry) return;
-    setBusy(true);
-    // Defer rasterization so the projection controls can paint first.
-    const task = window.setTimeout(() => {
-      const context = canvas.current?.getContext("2d");
-      if (!context) return;
-      const vessels = [...geometry.values()].filter((surface) =>
-        (contrastLayer === "both" ? surface.layer === "arterial" || surface.layer === "venous" : surface.layer === contrastLayer) && (layers[surface.layer] ?? 0) > 0 &&
-        (!isolate || !selected || surface.id === selected));
-      const project = (point: [number, number, number]) => projectSpatial(point, view);
-      const contrast = projectThickness(vessels, project, WIDTH, HEIGHT);
-      const bones = boneOpacity > 0 ? projectThickness([...geometry.values()].filter((s) => s.layer === "bone"), project, WIDTH, HEIGHT) : null;
-      const pixels = detectorImage(contrast, bones, WIDTH, HEIGHT, boneOpacity);
-      const selectedSurface = selected ? geometry.get(selected) : undefined;
-      if (selectedSurface) {
-        // Gold is an identification overlay, never part of the radiographic signal.
-        const mask = projectThickness([selectedSurface], project, WIDTH, HEIGHT);
-        for (let y = 1; y < HEIGHT - 1; y++) for (let x = 1; x < WIDTH - 1; x++) {
-          const i = y * WIDTH + x;
-          if (mask[i] <= 0) continue;
-          const edge = mask[i - 1] <= 0 || mask[i + 1] <= 0 || mask[i - WIDTH] <= 0 || mask[i + WIDTH] <= 0;
-          const alpha = edge ? 0.95 : 0.2;
-          [255, 199, 54].forEach((value, k) => { pixels[i * 4 + k] = Math.round(pixels[i * 4 + k] * (1 - alpha) + value * alpha); });
+    let worker: Worker;
+    try { worker = new Worker(new URL("./atlasProjection.worker.ts", import.meta.url), {type: "module"}); }
+    catch { setRenderError("Não foi possível iniciar o cálculo angiográfico. Recarregue para tentar novamente."); setBusy(false); return; }
+    const state: NonNullable<typeof workerState.current> = {worker, inFlight: false};
+    workerState.current = state;
+    worker.onmessage = (event: MessageEvent<{id: number; pixels?: Uint8ClampedArray; error?: string}>) => {
+      state.inFlight = false;
+      if (event.data.id === generation.current) {
+        if (event.data.error) setRenderError(event.data.error);
+        else if (event.data.pixels) {
+          canvas.current?.getContext("2d")?.putImageData(new ImageData(event.data.pixels, WIDTH, HEIGHT), 0, 0);
+          if (canvas.current) canvas.current.dataset.projectionReady = "true";
+          setRenderError(undefined);
         }
+        setBusy(false);
       }
-      context.putImageData(new ImageData(pixels, WIDTH, HEIGHT), 0, 0);
-      canvas.current!.dataset.projectionReady = "true";
-      setBusy(false);
-    }, 30);
-    return () => window.clearTimeout(task);
+      if (state.pending) { const request = state.pending; state.pending = undefined; state.inFlight = true; worker.postMessage({kind: "render", request}); }
+    };
+    worker.onerror = () => { state.inFlight = false; state.pending = undefined; setRenderError("Falha ao calcular a projeção. Recarregue para tentar novamente."); setBusy(false); };
+    worker.postMessage({kind: "init", surfaces: [...geometry.values()].map(({id, layer, positions, indices}) => ({id, layer, positions, indices}))});
+    return () => { worker.terminate(); if (workerState.current === state) workerState.current = null; };
+  }, [geometry]);
+  useEffect(() => {
+    const state = workerState.current;
+    if (!state) return;
+    setBusy(true);
+    if (canvas.current) canvas.current.dataset.projectionReady = "false";
+    const request = {id: ++generation.current, view, boneOpacity, selected, isolate, layers, contrastLayer};
+    // Retain only the newest queued pose while the worker computes the current one.
+    if (state.inFlight) state.pending = request;
+    else { state.inFlight = true; state.worker.postMessage({kind: "render", request}); }
   }, [geometry, view, boneOpacity, selected, isolate, layers, contrastLayer]);
-  return <div className="nda-angiography" aria-busy={busy}>
+  return <div className="nda-angiography" aria-busy={busy && !error && !renderError}>
     <canvas ref={canvas} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} data-field-center={center.join(",")} onClick={pick}
       role="img" aria-label="Projeção angiográfica sintética das superfícies do atlas" />
-    {error ? <p role="alert">{error}</p> : busy && <p role="status">Calculando projeção das superfícies…</p>}
+    {error || renderError ? <p role="alert">{error || renderError}</p> : busy && <p role="status">Calculando projeção das superfícies…</p>}
     <span className="nda-projection-label">{boneOpacity > 0 ? "ANGIOGRAFIA COM OSSO" : "DSA SINTÉTICA"} · {yaw}° / {pitch}°{selected && " · dourado: marcação da seleção"}</span>
   </div>;
 }

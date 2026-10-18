@@ -1,4 +1,4 @@
-import json,numpy as np,trimesh
+import argparse,json,numpy as np,trimesh
 from pathlib import Path
 from scipy.ndimage import distance_transform_edt,label
 from scipy.sparse import coo_matrix
@@ -50,8 +50,13 @@ def centerline(id,pitch=.08):
  return {'id':id,'points':np.round(p,4).tolist(),'radii':np.round(r,4).tolist(),'maxComponents':int(num),'meshWatertightAfterCapping':mesh.is_watertight,'pitchCm':pitch,'lengthCm':round(float(np.linalg.norm(np.diff(p,axis=0),axis=1).sum()),3)}
 
 if __name__=='__main__':
- ids=['left_common_carotid_artery','internal_carotid_artery_l','external_carotid_artery_l','middle_cerebral_artery_m1_segment_l','anterior_cerebral_artery_l','ophthalmic_artery_l']
- out=[]
- for id in ids:
-  c=centerline(id);out.append(c);print(id,c['lengthCm'],c['points'][0],c['points'][-1],len(c['points']))
- Path(sys.argv[2]).write_text(json.dumps(out))
+ parser=argparse.ArgumentParser(description='Extract source-frame voxel centerlines; not a validated device path')
+ parser.add_argument('decoded',type=Path);parser.add_argument('output',type=Path)
+ parser.add_argument('--ids',nargs='+',default=['left_common_carotid_artery','internal_carotid_artery_l','external_carotid_artery_l','middle_cerebral_artery_m1_segment_l','anterior_cerebral_artery_l','ophthalmic_artery_l'])
+ parser.add_argument('--pitch',type=float,default=.08)
+ args=parser.parse_args()
+ if args.pitch<=0:parser.error('pitch must be positive')
+ D=json.loads(args.decoded.read_text());out=[]
+ for identifier in args.ids:
+  c=centerline(identifier,args.pitch);out.append(c);print(identifier,c['lengthCm'],c['points'][0],c['points'][-1],len(c['points']),flush=True)
+ args.output.write_text(json.dumps(out))

@@ -1,0 +1,60 @@
+{
+  "reviewedOn": "2026-10-18",
+  "scope": "Bounded primary-source survey, not exhaustive coverage of the web or all repository files",
+  "repositories": [
+    {
+      "repository": "Kitware/VolView",
+      "reviewedFile": "https://github.com/Kitware/VolView/blob/main/README.md",
+      "blobSha": "f49301b0ef4d8063da296cab981e0a33303778a6",
+      "scope": "README review only; no build or runtime validation"
+    },
+    {
+      "repository": "OHIF/Viewers",
+      "reviewedFile": "https://github.com/OHIF/Viewers/blob/master/README.md",
+      "blobSha": "fc8e6377ab0c79255e1061035142af0248e58a1e",
+      "scope": "README review only; no build or runtime validation"
+    },
+    {
+      "repository": "cornerstonejs/cornerstone3D",
+      "reviewedFile": "https://github.com/cornerstonejs/cornerstone3D/blob/main/README.md",
+      "blobSha": "f912fb48bce9258bb34531cccb5692843fc892a8",
+      "scope": "README review only; no build or runtime validation"
+    },
+    {
+      "repository": "Kitware/vtk-js",
+      "reviewedFile": "https://github.com/Kitware/vtk-js/blob/master/README.md",
+      "blobSha": "4f1fa71646a1a8973d288a617236594baad9dd07",
+      "scope": "README review only; no build or runtime validation"
+    },
+    {
+      "repository": "Slicer/Slicer",
+      "reviewedFile": "https://github.com/Slicer/Slicer/blob/main/README.md",
+      "blobSha": "cae3acc7db18198829f04d0fc00cf95fb5d6a8dd",
+      "scope": "README review only; no build or runtime validation"
+    },
+    {
+      "repository": "vmtk/SlicerExtension-VMTK",
+      "reviewedFile": "https://github.com/vmtk/SlicerExtension-VMTK/blob/master/README.md",
+      "blobSha": "cc9fa62484481df2a47065af9c2cc364c6a3af0d",
+      "scope": "README review only; no build or runtime validation"
+    },
+    {
+      "repository": "sofa-framework/BeamAdapter",
+      "reviewedFile": "https://github.com/sofa-framework/BeamAdapter/blob/master/README.md",
+      "blobSha": "2db0a7c6bc458186d76b2d295d7611a258b29eef",
+      "scope": "README review only; no build or runtime validation"
+    },
+    {
+      "repository": "simvascular/simvascular",
+      "reviewedFile": "https://github.com/SimVascular/SimVascular/blob/master/README.md",
+      "blobSha": "e59955733e8de5ba686e57eb97011e3c5c6685a5",
+      "scope": "README review only; no build or runtime validation"
+    },
+    {
+      "repository": "mhalle/oabrowser",
+      "reviewedFile": "https://github.com/mhalle/oabrowser/blob/master/README.md",
+      "blobSha": "22ff6463f580bbecf06d872163d94422a9cbaed4",
+      "scope": "README review only; no build or runtime validation"
+    }
+  ]
+}

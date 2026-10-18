@@ -29,8 +29,8 @@ class Boundary extends Component<{ children: React.ReactNode }, { failed: boolea
     return this.state.failed ? <div role="alert" className="nda-failure">Não foi possível abrir a geometria 3D. A lista de estruturas continua disponível. Recarregue para tentar novamente.</div> : this.props.children;
   }
 }
-function Asset({ file, opacity, selected, isolate, cut, onSelect }: {
-  file: string; opacity: Record<string, number>; selected: string | null;
+function Asset({ file, opacity, selected, isolate, cut, onSelect, angiographic, contrastLayer }: {
+  angiographic: boolean; contrastLayer: string; file: string; opacity: Record<string, number>; selected: string | null;
   isolate: boolean; cut: { axis: string; offset: number }; onSelect: (id: string) => void;
 }) {
   const { scene } = useGLTF(openAssetUrl(file), openAssetUrl("draco/"));
@@ -55,19 +55,19 @@ function Asset({ file, opacity, selected, isolate, cut, onSelect }: {
       const item = byId.get(node.userData.qbankAnatomyId);
       if (!item) { node.visible = false; return; }
       const value = opacity[item.layer] ?? 1;
-      node.visible = (value > 0 || selected === item.id) && (!isolate || !selected || selected === item.id);
+      node.visible = (selected === item.id || (!angiographic || item.layer === "bone" || (contrastLayer === "both" ? ["arterial", "venous"].includes(item.layer) : item.layer === contrastLayer)) && value > 0) && (!isolate || !selected || selected === item.id);
       const material = node.material as MeshStandardMaterial;
-      material.color.set(selected === item.id ? "#ffd45a" : colors[item.layer]);
+      material.color.set(selected === item.id ? "#ffd45a" : angiographic ? item.layer === "bone" ? "#7d8990" : "#e6edf2" : colors[item.layer]);
       const alpha = selected === item.id ? 1 : value;
       if (material.transparent !== (alpha < 1) || material.clippingPlanes?.length !== plane.length) material.needsUpdate = true;
       material.opacity = alpha; material.transparent = alpha < 1; material.depthWrite = alpha === 1;
       material.emissive.set(selected === item.id ? "#b77912" : "#000000");
       material.emissiveIntensity = selected === item.id ? 0.65 : 0;
       material.clippingPlanes = plane;
-      node.onAfterRender = (renderer) => { renderer.domElement.dataset.detailedAtlasRendered = "true"; };
+      node.onAfterRender = (renderer) => { renderer.domElement.dataset.detailedAtlasRendered = "true"; renderer.domElement.dataset.angiography3dRendered = angiographic ? "true" : "false"; };
     });
     invalidate();
-  }, [instance, opacity, selected, isolate, cut, byId, invalidate]);
+  }, [instance, opacity, selected, isolate, cut, byId, invalidate, angiographic, contrastLayer]);
   return <primitive object={instance} dispose={null} onClick={(event) => {
     event.stopPropagation();
     const id = event.object.userData.qbankAnatomyId;
@@ -90,11 +90,12 @@ function Camera({ selected, view, reset }: { selected?: AtlasStructure; view: Vi
     camera.position.copy(target.clone().add(direction.multiplyScalar(distance)));
     camera.lookAt(target); ref.current?.target.copy(target); ref.current?.update(); invalidate();
   }, [selected, view, reset, camera, invalidate]);
-  return <OrbitControls ref={ref} makeDefault minDistance={1} maxDistance={130} enableDamping />;
+  return <OrbitControls ref={ref} makeDefault minDistance={1} maxDistance={350} enableDamping />;
 }
 export default function DetailedAtlas({ selected, onSelect: setSelected }: { selected: string | null; onSelect: (id: string | null) => void }) {
   const [contrastLayer, setContrastLayer] = useState("arterial");
   const [imageMode, setImageMode] = useState(false);
+  const [angiographic3D, setAngiographic3D] = useState(false);
   const [yaw, setYaw] = useState(0);
   const [pitch, setPitch] = useState(0);
   const [imageZoom, setImageZoom] = useState(1);
@@ -121,7 +122,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
   const matches = useMemo(() => atlasStructures.filter((o) => normalize(`${o.name} ${o.latin} ${o.path.join(" ")} ${landmarkAliases[o.id] ?? ""}`).includes(normalize(search))), [search]);
   function restore() {
     setIsolate(false); setOpacity(initialOpacity); setPresentation("vascular");
-    setImageMode(false); setContrastLayer("arterial"); setYaw(0); setPitch(0); setImageZoom(1); setImageBone(0); setImageField("cranial");
+    setImageMode(false); setAngiographic3D(false); setContrastLayer("arterial"); setYaw(0); setPitch(0); setImageZoom(1); setImageBone(0); setImageField("cranial");
     setCut({ axis: "none", offset: 0 }); setReset((n) => n + 1);
   }
   return <section className={`nda ${expanded ? "nda-expanded" : ""}`} aria-label="Atlas anatômico de superfícies">
@@ -133,8 +134,9 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     {item && <div className="nda-selection" data-testid="atlas-selection" data-selected-id={item.id} role="status"><div><strong>{item.name}</strong><small>{openLayerNames[item.layer]} · seleção mantida até escolher outra estrutura ou limpar</small></div><button onClick={() => { setReset((n) => n + 1); setImageField("selection"); }}>Focar seleção</button><button aria-pressed={isolate} onClick={() => setIsolate((value) => !value)}>Isolar seleção</button><button onClick={() => { setSelected(null); setIsolate(false); }}>Limpar seleção</button></div>}
     <div className="nda-workspace">
       <div className="nda-stage"><nav className="nda-mode" aria-label="Representação do atlas">
-        <button aria-pressed={!imageMode} onClick={() => setImageMode(false)}>Superfícies anatômicas 3D</button>
-        <button aria-pressed={imageMode} onClick={() => { setImageMode(true); setYaw(view === "Lateral" ? 90 : view === "Posterior" ? 180 : view === "Oblíqua" ? 30 : 0); }}>Angiografia</button>
+        <button aria-pressed={!imageMode && !angiographic3D} onClick={() => { setImageMode(false); setAngiographic3D(false); }}>Superfícies anatômicas 3D</button>
+        <button aria-pressed={imageMode} onClick={() => { setImageMode(true); setAngiographic3D(false); setYaw(view === "Lateral" ? 90 : view === "Posterior" ? 180 : view === "Oblíqua" ? 30 : 0); }}>Angiografia</button>
+        <button aria-pressed={angiographic3D} onClick={() => { setImageMode(false); setAngiographic3D(true); }}>Angiografia 3D</button>
       </nav><div className="nda-toolbar"><nav aria-label="Vistas do modelo detalhado">
         {(["AP", "Lateral", "Oblíqua", "Posterior"] as View[]).map((name) => <button key={name} aria-pressed={view === name} onClick={() => { setView(name); setYaw(name === "Lateral" ? 90 : name === "Posterior" ? 180 : name === "Oblíqua" ? 30 : 0); setPitch(0); }}>{name}</button>)}
       </nav><select aria-label="Apresentação anatômica" value={presentation} onChange={(event) => {
@@ -147,24 +149,24 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         setOpacity(mode === "bone" ? { ...initialOpacity, bone: 0.65, tissue: 0, nerve: 0.5 } : mode === "brain" ? { ...initialOpacity, tissue: 0.85, bone: 0, nerve: 0.5, arterial: 0.5, venous: 0.2 } : mode === "sellar" ? { ...initialOpacity, bone: 0.12, tissue: 0.02, dura: 0.2, gland: 1, venous: 0.8 } : initialOpacity);
         if (mode === "sellar") setSelected("adenohypophysis");
       }}><option value="custom" disabled>Personalizada</option><option value="vascular">Visão vascular</option><option value="bone">Vasos e osso</option><option value="brain">Encéfalo</option><option value="sellar">Região selar e cavernosa</option><option value="supraaortic">Arco e troncos supra-aórticos</option></select></div>
-      <div className="nda-canvas" data-testid="detailed-atlas-canvas"><Boundary>
-        {imageMode ? <AtlasAngiography center={imageCenter} yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 250, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
+      <div className="nda-canvas" data-testid="detailed-atlas-canvas" data-representation={imageMode ? "angiography-2d" : angiographic3D ? "angiography-3d" : "anatomy-3d"}><Boundary>
+        {imageMode ? <AtlasAngiography center={imageCenter} yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 600, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
           fallback={<p>WebGL indisponível neste navegador. Explore a lista de estruturas.</p>}>
-          <color attach="background" args={["#101b25"]} /><ambientLight intensity={1.1} />
+          <color attach="background" args={[angiographic3D ? "#05090d" : "#101b25"]} /><ambientLight intensity={1.1} />
           <directionalLight position={[15, 25, 35]} intensity={2.4} /><directionalLight position={[-20, 10, -15]} intensity={1.2} />
           <Suspense fallback={null}><group scale={100} position={[0, -160, 0]}>
-            {openAnatomy.assets.map((asset) => <Asset key={asset.file} file={asset.file} opacity={opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setSelected(id); setPanel("Estruturas"); }} />)}
-          </group><ReconstructedSurfaces opacity={opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setSelected(id); setPanel("Estruturas"); }} /></Suspense><Camera selected={item} view={view} reset={reset} />
+            {openAnatomy.assets.map((asset) => <Asset key={asset.file} file={asset.file} angiographic={angiographic3D} contrastLayer={contrastLayer} opacity={opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setSelected(id); setPanel("Estruturas"); }} />)}
+          </group><ReconstructedSurfaces angiographic={angiographic3D} opacity={angiographic3D && contrastLayer === "venous" ? { ...opacity, arterial: 0 } : opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setSelected(id); setPanel("Estruturas"); }} /></Suspense><Camera selected={item} view={view} reset={reset} />
         </Canvas>}</Boundary>
-        <div className="nda-canvas-caption">{item ? item.name : "Selecione uma estrutura para explorar"}<small>{imageMode ? "Projeção das mesmas superfícies · ajuste os ângulos no painel" : "Arraste para girar · roda ou pinça para ampliar"}</small></div>
+        <div className="nda-canvas-caption">{item ? item.name : "Selecione uma estrutura para explorar"}<small>{imageMode ? "Projeção das mesmas superfícies · ajuste os ângulos no painel" : angiographic3D ? "Reconstrução angiográfica 3D sintética · arraste para girar, pinça ou roda para ampliar" : "Arraste para girar · roda ou pinça para ampliar"}</small></div>
       </div></div>
       <aside className="nda-sidebar"><nav aria-label="Painel do atlas detalhado">
         {["Camadas", "Estruturas", "Revisão", "Inventário"].map((name) => <button key={name} aria-pressed={panel === name} onClick={() => setPanel(name)}>{name}</button>)}
       </nav>
-      {panel === "Camadas" && <div className="nda-controls" key={reset}>{imageMode && <div className="nda-projection-controls">
+      {panel === "Camadas" && <div className="nda-controls" key={reset}>{(imageMode || angiographic3D) && <label>Camada contrastada<select aria-label="Camada vascular na angiografia" value={contrastLayer} onChange={(e) => setContrastLayer(e.target.value)}><option value="arterial">Artérias</option><option value="venous">Veias e seios</option><option value="both">Artérias e veias</option></select></label>}{angiographic3D && <><h3>Reconstrução angiográfica 3D</h3><p className="nda-help">Superfícies vasculares do atlas em tons angiográficos. Gire livremente e selecione os vasos. Ajuste veias e osso nas camadas abaixo. Não corresponde a uma aquisição volumétrica de angiografia rotacional.</p></>}{imageMode && <div className="nda-projection-controls">
         <h3>Imagem angiográfica</h3><p className="nda-help">Projeção sintética do atlas. Todos os vasos visíveis são opacificados; não é uma injeção seletiva. Use a estação para cateterização.</p>
         <label>Campo angiográfico<select aria-label="Campo angiográfico" value={imageField} onChange={(event) => setImageField(event.target.value)}><option value="cranial">Cabeça</option><option value="supraaortic">Cervicotorácico</option><option value="selection" disabled={!item}>Centrado na seleção</option></select></label>
-        <label>Camada contrastada<select aria-label="Camada vascular na angiografia" value={contrastLayer} onChange={(e) => setContrastLayer(e.target.value)}><option value="arterial">Artérias</option><option value="venous">Veias e seios</option><option value="both">Artérias e veias</option></select></label>
+
         <label>Rotação LAO / RAO <output>{yaw}°</output><input aria-label="Rotação angiográfica" type="range" min="-180" max="180" step="5" value={yaw} onChange={(e) => setYaw(Number(e.target.value))} /></label>
         <label>Angulação cranial / caudal <output>{pitch}°</output><input aria-label="Angulação angiográfica" type="range" min="-60" max="60" step="5" value={pitch} onChange={(e) => setPitch(Number(e.target.value))} /></label>
         <label>Ampliação <output>{imageZoom.toFixed(1)}×</output><input aria-label="Ampliação angiográfica" type="range" min="0.5" max="2" step="0.1" value={imageZoom} onChange={(e) => setImageZoom(Number(e.target.value))} /></label>

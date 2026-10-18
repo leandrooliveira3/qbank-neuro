@@ -1,0 +1,61 @@
+{
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS \u2192 Z-Anatomy \u2192 Anatria3D \u2192 QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "file": "reference-body-access.bin",
+  "size": 235100,
+  "uncompressedSize": 646114,
+  "sha256": "3b163f28e9a78e64ac84cfac0461f4721b03c815c46eb2ad998b24da978ae8e8",
+  "structures": [
+    {
+      "id": "abdominal_aorta",
+      "layer": "arterial",
+      "originalFaces": 2016,
+      "faces": 2016
+    },
+    {
+      "id": "thoracic_aorta",
+      "layer": "arterial",
+      "originalFaces": 864,
+      "faces": 864
+    },
+    {
+      "id": "axillary_artery_r",
+      "layer": "arterial",
+      "originalFaces": 1152,
+      "faces": 1152
+    },
+    {
+      "id": "brachial_artery_r",
+      "layer": "arterial",
+      "originalFaces": 2880,
+      "faces": 2880
+    },
+    {
+      "id": "femoral_artery_r",
+      "layer": "arterial",
+      "originalFaces": 4320,
+      "faces": 4000
+    },
+    {
+      "id": "common_iliac_artery_r",
+      "layer": "arterial",
+      "originalFaces": 576,
+      "faces": 576
+    },
+    {
+      "id": "external_iliac_artery_r",
+      "layer": "arterial",
+      "originalFaces": 864,
+      "faces": 864
+    },
+    {
+      "id": "radial_artery_r",
+      "layer": "arterial",
+      "originalFaces": 3168,
+      "faces": 3168
+    }
+  ],
+  "projectionCoordinates": "Source world cm; Y minus160, same as atlas. Up to 4000 faces per structure. Gland and dura are selection context only, never radiopaque signal."
+}

@@ -1,0 +1,43 @@
+{
+  "evidence_id": "ev_68bfb57b6208a14461bcf5530fee1139f69b318a182b5516bd3e2f68ddb351ba",
+  "provider": {
+    "id": "rea-artifact-graph",
+    "name": "REA safe artifact graph provider",
+    "version": "1"
+  },
+  "operation": "inspect_artifact",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "limitations": [
+    "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics.",
+    "ZIP inventory lists central-directory entries only. Non-entry bytes, including an APK Signing Block before the central directory or a ZIP comment after it, are not occurrences."
+  ],
+  "toolVersion": "6.5.0",
+  "subject": {
+    "name": "User-supplied Smart Device decompiler ZIP",
+    "sha256": "b2724a24059080450d454d681ea2cf5f6056d1bbf93918546a8350ac5c027300"
+  },
+  "manifest": {
+    "manifest_id": "agm_19f9c7bc8f68fe56e7d55d085408436d5b6c3e36478f1974384c8cac0839e5c8",
+    "root_artifact_id": "art_03d4f425b53819695ea3e6d59c0537c71ae92a3b7927fbbc90836d735cb721be",
+    "root_sha256": "b2724a24059080450d454d681ea2cf5f6056d1bbf93918546a8350ac5c027300",
+    "root_format": "zip",
+    "graph_sha256": "be1b436a7746d3ca88f622dacc538814e9c04175d3fa2b044d12b7d19b1138dc",
+    "node_count": 13127,
+    "occurrence_count": 13221,
+    "edge_count": 13220
+  },
+  "coverage": {
+    "status": "complete-within-substeps",
+    "substeps_completed": 1,
+    "observations_retained": 1,
+    "observations_omitted": 0,
+    "hypotheses_retained": 0,
+    "hypotheses_omitted": 0,
+    "unexplored_branches_retained": 0,
+    "unexplored_branches_omitted": 0,
+    "next_probes_retained": 0,
+    "next_probes_omitted": 0
+  },
+  "interpretation": "Static archive inventory only; no runtime execution or recovered device physics. Source archive and full report are not redistributed."
+}

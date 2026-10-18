@@ -10,18 +10,18 @@ import { arrivalTimes, bolusConcentration } from "./contrast";
 export default function ReferenceImage({ state, edges = [], plane, opacity, bone = false, inverted = false }: {
   state: StationState; edges?: string[]; plane: number; opacity: number; bone?: boolean; inverted?: boolean;
 }) {
-  const { geometry, error } = useReferenceGeometry();
+  const { geometry, error } = useReferenceGeometry(state.archProfile);
   const edgeKey = edges.join("|");
   // The expensive projections depend on geometry and pose, not the simulation clock.
   const groups = useMemo(() => {
     if (!geometry) return [];
     return bone ? [{ id: "bone", surfaces: [...geometry.values()].filter((surface) => surface.layer === "bone") }]
       : edges.map((id) => ({ id, surfaces: referenceContrast(state, geometry, [id]) }));
-  }, [geometry, bone, edgeKey, state.caseId, state.clot, state.dilation, state.geometry]);
+  }, [geometry, bone, edgeKey, state.caseId, state.clot, state.dilation, state.geometry, state.referenceEntry, state.archProfile]);
   const projections = useMemo(() => groups.map((group) => ({ id: group.id,
     pixels: projectThickness(group.surfaces, (point) => projectSpatial(point, state.view, plane), WIDTH, HEIGHT),
   })), [groups, state.view, plane]);
-  const network = useMemo(() => networkFor(state), [state.caseId, state.geometry]);
+  const network = useMemo(() => networkFor(state), [state.caseId, state.geometry, state.referenceEntry, state.archProfile]);
   const origin = inverted ? state.mask?.contrastOrigin : state.contrast;
   const times = useMemo(() => arrivalTimes(network, origin?.edge ?? edges[0] ?? "access", origin?.originT ?? 0), [network, origin?.edge, origin?.originT, edgeKey]);
   const age = bone ? 0 : inverted ? state.mask?.contrastAge ?? 1.2 : state.contrast ? state.clock - state.contrast.at : 20;

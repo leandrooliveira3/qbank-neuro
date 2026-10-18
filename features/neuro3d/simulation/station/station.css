@@ -455,7 +455,7 @@
 .nvs-heading { padding:18px 0 0; margin-bottom:12px; }
 .nvs-heading h2 { font-size:24px; letter-spacing:-.5px; } .nvs-heading p { margin-bottom:0; }
 .nvs-heading>label { min-width:235px; }
-.nvs-basis { display:flex; align-items:center; gap:20px; padding:10px 14px; border:1px solid #2b414f; background:#10232c; border-radius:9px; margin-bottom:12px; }
+.nvs-basis { display:flex; flex-wrap:wrap; align-items:center; gap:20px; padding:10px 14px; border:1px solid #2b414f; background:#10232c; border-radius:9px; margin-bottom:12px; }
 .nvs-basis>label { flex:0 0 235px; } .nvs-basis>span { color:#8eacbb; font-size:11px; line-height:1.55; }
 .nvs-case { padding:13px 16px; background:#11212c; margin-bottom:14px; border-radius:9px; }
 .nvs-case p { font-size:11px; line-height:1.6; margin:5px 0; } .nvs-case strong { font-size:12px; }
@@ -478,3 +478,4 @@
 .nvs-machine button { font-size:10px; margin:5px 3px 3px 0; }
 .nvs-mobilehint { display:none; }
 @media(max-width:720px) { .nvs-screens.biplane { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; } .nvs-screens.biplane .nvs-detector { flex:0 0 calc(100% - 12px); scroll-snap-align:start; } .nvs-mobilehint { display:block; color:#91adbd; font-size:10px; margin-bottom:8px; } }
+.nvs-catalogue{margin:12px 0;padding:14px;border:1px solid #304b5b;border-radius:10px;min-width:0}.nvs-catalogue summary{cursor:pointer;font-weight:600}.nvs-catalogue label{display:block;margin:12px 0}.nvs-catalogue select,.nvs-catalogue input{display:block;width:100%;min-width:0;max-width:100%;margin-top:5px}.nvs-catalogue article{margin:12px 0}.nvs-catalogue p,.nvs-catalogue li,.nvs-catalogue small{font-size:12px;line-height:1.6;overflow-wrap:anywhere}.nvs-catalogue .nvs-movement{flex-wrap:wrap}

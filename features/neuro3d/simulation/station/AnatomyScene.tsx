@@ -1,4 +1,4 @@
-import React, { Component, useMemo, useEffect } from "react";
+import React, { Component, useMemo, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei/core/OrbitControls";
 import { BufferGeometry, Float32BufferAttribute, CatmullRomCurve3, DoubleSide, Vector3 } from "three";
@@ -73,7 +73,7 @@ function Lumen({ surface, sac }: { surface: Surface; sac: boolean }) {
       transparent opacity={0.29} depthWrite={false} side={DoubleSide} roughness={0.62} />
   </mesh>;
 }
-function Content({ s }: { s: StationState }) {
+function Content({ s, angiographic }: { s: StationState; angiographic: boolean }) {
   const n = networkFor(s),
     c = caseFor(s);
   const vessels = useMemo(() => Object.values(n).map((v) => ({
@@ -94,7 +94,7 @@ function Content({ s }: { s: StationState }) {
   const target = pointAt(n[c.target], c.targetT);
   return (
     <group>
-      {s.geometry === "reference" ? <ReferenceAnatomy s={s} /> : vessels.map((v) => <Lumen key={v.id} surface={v.surface} sac={v.id === "sac"} />)}
+      {s.geometry === "reference" ? <ReferenceAnatomy s={s} angiographic={angiographic} /> : vessels.map((v) => <Lumen key={v.id} surface={v.surface} sac={v.id === "sac"} />)}
       {tools.map((t, i) => (
         <Tube
           key={t.key}
@@ -129,24 +129,29 @@ function Content({ s }: { s: StationState }) {
   );
 }
 export default function AnatomyScene({ s }: { s: StationState }) {
+  const [angiographic, setAngiographic] = useState(false);
+  const entryPoint = networkFor(s).access.points[0];
+  const extendedEntry = s.geometry === "reference" && s.referenceEntry !== "cervical";
+  const target: P3 = extendedEntry ? entryPoint : [0, -4, 0];
   return (
     <Boundary>
-      <div className="nvs-anatomy" data-testid="station-3d">
+      {s.geometry === "reference" && <label>Representação 3D da estação<select aria-label="Representação 3D da estação" value={angiographic ? "angiographic" : "anatomical"} onChange={(event) => setAngiographic(event.target.value === "angiographic")}><option value="anatomical">Contexto anatômico</option><option value="angiographic">Reconstrução angiográfica 3D</option></select></label>}
+      <div className="nvs-anatomy" data-testid="station-3d" data-representation={angiographic ? "angiography-3d" : "anatomy-3d"}>
         <Canvas
           frameloop="demand"
-          camera={{ position: [0, -2, 32], fov: 55 }}
+          camera={{ position: [target[0], target[1] + 2, target[2] + 32], fov: 55 }}
           dpr={[1, 1.3]}
           fallback={<p>Visão 3D indisponível; monitores 2D operacionais.</p>}
         >
           <color attach="background" args={["#09141c"]} />
           <ambientLight intensity={1.5} />
           <directionalLight position={[5, 10, 15]} intensity={2.5} />
-          <Content s={s} />
+          <Content s={s} angiographic={angiographic} />
           <OrbitControls
             makeDefault
-            target={[0, -4, 0]}
+            target={target}
             minDistance={3}
-            maxDistance={65}
+            maxDistance={180}
           />
         </Canvas>
       </div>

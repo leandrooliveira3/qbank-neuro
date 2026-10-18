@@ -7,6 +7,8 @@ import {
   Track,
   Network,
 } from "./network";
+import { deviceCatalogue, validCatalogueChoice, catalogueFamilies, type CatalogueChoice } from "./deviceCatalogue";
+import { morphNetwork, type ArchProfile } from "./archMorphology";
 import { makeReferenceNetwork } from "./referenceNetwork";
 import { ProcedureCase, procedureCases } from "./cases";
 export type Family =
@@ -40,6 +42,7 @@ export interface View {
   boneOpacity: number;
 }
 export interface DeviceState {
+  catalogueChoice?: CatalogueChoice;
   family: Family;
   track: Track;
   open: number;
@@ -62,6 +65,10 @@ export interface ImageMask {
 export interface StationState {
   caseId: string;
   geometry: "schematic" | "reference";
+  referenceEntry: "cervical" | "arch" | "femoral" | "radial";
+  archProfile: ArchProfile;
+  catalogueTray: CatalogueChoice[];
+  preparedKit: string | null;
   tools: Record<"wire" | "catheter" | "micro", Track>;
   active: Tool;
   rotation: number;
@@ -92,7 +99,7 @@ export interface StationState {
   completed: boolean;
 }
 export type StationAction =
-  | { type: "new"; caseId: string; geometry?: StationState["geometry"] }
+  | { type: "new"; caseId: string; geometry?: StationState["geometry"]; referenceEntry?: StationState["referenceEntry"]; archProfile?: ArchProfile }
   | { type: "tool"; tool: Tool }
   | { type: "move"; delta: number }
   | { type: "rotate"; delta: number }
@@ -102,7 +109,9 @@ export type StationAction =
   | { type: "mode"; mode: StationState["mode"] }
   | { type: "inject" }
   | { type: "mask" }
-  | { type: "load"; family: Family }
+  | { type: "catalogue-add"; choice: CatalogueChoice }
+  | { type: "catalogue-kit"; id: string }
+  | { type: "load"; family: Family; catalogueChoice?: CatalogueChoice }
   | { type: "open"; delta: number }
   | { type: "detach" }
   | { type: "aspirate" }
@@ -110,12 +119,16 @@ export type StationAction =
   | { type: "shape"; value: string }
   | { type: "wireKind"; value: string }
   | { type: "finish" };
-export function createStation(caseId = procedureCases[0].id, geometry: StationState["geometry"] = "schematic"): StationState {
+export function createStation(caseId = procedureCases[0].id, geometry: StationState["geometry"] = "schematic", referenceEntry: StationState["referenceEntry"] = "cervical", archProfile: ArchProfile = "source"): StationState {
   const c = procedureCases.find((c) => c.id === caseId) || procedureCases[0];
   const track = () => ({ path: ["access"], depth: 0 });
   return {
     caseId: c.id,
     geometry,
+    referenceEntry,
+    archProfile,
+    catalogueTray: [],
+    preparedKit: null,
     tools: { wire: track(), catheter: track(), micro: track() },
     active: "wire",
     rotation: 0,
@@ -128,9 +141,9 @@ export function createStation(caseId = procedureCases[0].id, geometry: StationSt
       pitch: 0,
       yawB: 90,
       pitchB: 0,
-      panX: 0,
-      panY: geometry === "reference" ? 0.2 : c.initialView.panY,
-      zoom: geometry === "reference" ? 1.6 : c.initialView.zoom,
+      panX: geometry === "reference" && referenceEntry === "radial" ? 28 : 0,
+      panY: geometry === "reference" ? referenceEntry === "femoral" ? 70 : referenceEntry === "radial" ? 70 : referenceEntry === "arch" ? 18 : 0.2 : c.initialView.panY,
+      zoom: geometry === "reference" ? referenceEntry === "femoral" || referenceEntry === "radial" ? .8 : referenceEntry === "arch" ? 1 : 1.6 : c.initialView.zoom,
       collimation: 96,
       gain: 1,
       boneOpacity: 0.4,
@@ -169,14 +182,19 @@ const referenceCases = procedureCases.map((definition) => ({
       : definition.kind === "carotid" ? "Uma estenose virtual deforma a superfície cervical da ACI esquerda. Explore proteção, balão e stent no mesmo referencial do atlas. A indicação terapêutica é pressuposta no exercício." : definition.brief,
   goal: definition.kind === "angiography" ? "Registrar aquisição seletiva da ACI esquerda no referencial do atlas." : definition.goal,
 }));
+const archReferenceCases = referenceCases.map((definition) => definition.kind === "angiography" ? {
+  ...definition,
+  brief: "Navegue desde a via selecionada, escolhendo os ramos pela rotação da guia, até a ACI esquerda para aquisição seletiva. Acessos radial e femoral são direitos, com pontos de entrada virtuais e trajetos numéricos. Ramos intracranianos direitos e demais colaterais seguem pendentes.",
+} : definition);
 export function caseFor(s: StationState) {
-  return (s.geometry === "reference" ? referenceCases : procedureCases).find((c) => c.id === s.caseId)!;
+  const cases = s.geometry === "reference" ? s.referenceEntry !== "cervical" ? archReferenceCases : referenceCases : procedureCases;
+  return cases.find((definition) => definition.id === s.caseId)!;
 }
 const networkCache = new Map<string, Network>();
 export function networkFor(s: StationState) {
-  const key = `${s.geometry}/${s.caseId}`;
+  const key = `${s.geometry}/${s.caseId}/${s.referenceEntry}/${s.archProfile}`;
   if (!networkCache.has(key)) networkCache.set(key, s.geometry === "reference"
-    ? makeReferenceNetwork(caseFor(s).kind === "aneurysm")
+    ? morphNetwork(makeReferenceNetwork(caseFor(s).kind === "aneurysm", s.referenceEntry), s.archProfile)
     : makeNetwork(caseFor(s).kind === "aneurysm"));
   return networkCache.get(key)!;
 }
@@ -274,10 +292,10 @@ export function opacifiedEdges(s: StationState, n: Network): string[] {
     if (out.includes(id)) return;
     out.push(id);
     if (s.clot && id === caseFor(s).target) return;
-    for (const c of n[id]?.children || []) walk(c);
+    for (const c of n[id]?.contrastChildren ?? n[id]?.children ?? []) walk(c);
   };
   // Femoral entry is a synthetic access route, not antegrade cerebral blood flow.
-  if (s.contrast.edge === "access") return ["access"];
+  if (s.contrast.edge === "access" && (s.geometry !== "reference" || s.referenceEntry === "cervical")) return ["access"];
   walk(s.contrast.edge);
   return out;
 }
@@ -316,8 +334,13 @@ export function stationReducer(
   s: StationState,
   a: StationAction,
 ): StationState {
-  if (a.type === "new") return createStation(a.caseId, a.geometry ?? s.geometry);
+  if (a.type === "new") return createStation(a.caseId, a.geometry ?? s.geometry, a.referenceEntry ?? s.referenceEntry, a.archProfile ?? s.archProfile);
   if (s.completed && !["new", "view", "tool"].includes(a.type)) return s;
+  if (a.type === "catalogue-add") {
+    if (!validCatalogueChoice(a.choice) || s.catalogueTray.some((item) => item.recordId === a.choice.recordId && item.product === a.choice.product)) return s;
+    return { ...s, catalogueTray: [...s.catalogueTray, a.choice] };
+  }
+  if (a.type === "catalogue-kit") return deviceCatalogue.kits.some((item) => item.id === a.id) ? { ...s, preparedKit: a.id } : s;
   const n = networkFor(s),
     c = caseFor(s);
   switch (a.type) {
@@ -512,11 +535,13 @@ export function stationReducer(
       );
     }
     case "load": {
+      if (a.catalogueChoice && (!validCatalogueChoice(a.catalogueChoice) || catalogueFamilies[a.catalogueChoice.recordId] !== a.family)) return s;
       return note(
         {
           ...s,
           device: {
             family: a.family,
+            catalogueChoice: a.catalogueChoice,
             track: { path: ["access"], depth: 0 },
             open: 0,
             detached: false,

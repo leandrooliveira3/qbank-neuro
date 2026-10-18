@@ -6,8 +6,9 @@ export function arrivalTimes(network: Network, origin: string, originT = 0) {
   const visit = (id: string, delay: number) => {
     if (!network[id] || (times.has(id) && times.get(id)! <= delay)) return;
     times.set(id, delay);
-    const remaining = edgeLength(network[id]) * (id === origin ? 1 - Math.max(0, Math.min(1, originT)) : 1);
-    for (const child of network[id].children) visit(child, delay + remaining / 12);
+    const originFraction = Math.max(0, Math.min(1, originT));
+    const remaining = edgeLength(network[id]) * (id === origin ? network[id].contrastReverse ? originFraction : 1 - originFraction : 1);
+    for (const child of (network[id].contrastChildren ?? network[id].children)) visit(child, delay + remaining / 12);
   };
   visit(origin, 0);
   return times;

@@ -1,3 +1,5 @@
+import DeviceCatalogue from "./DeviceCatalogue";
+import { archProfileNames, archProfileData, type ArchProfile } from "./archMorphology";
 import React, {
   lazy,
   Suspense,
@@ -148,9 +150,9 @@ export default function ProcedureStation({
     el.addEventListener("wheel", wheel, { passive: false });
     return () => el.removeEventListener("wheel", wheel);
   }, [step]);
-  function newCase(id: string, geometry = s.geometry) {
-    const next = createStation(id, geometry);
-    dispatch({ type: "new", caseId: id, geometry });
+  function newCase(id: string, geometry = s.geometry, referenceEntry = s.referenceEntry, archProfile = s.archProfile) {
+    const next = createStation(id, geometry, referenceEntry, archProfile);
+    dispatch({ type: "new", caseId: id, geometry, referenceEntry, archProfile });
     setFrame(next);
     lastPulse.current = 0;
     setNotice("");
@@ -161,6 +163,10 @@ export default function ProcedureStation({
     const report = {
       version: 2,
       caseId: s.caseId,
+      referenceEntry: s.referenceEntry,
+      archProfile: s.archProfile,
+      catalogueTray: s.catalogueTray,
+      preparedKit: s.preparedKit,
       at: new Date().toISOString(),
       objectiveGraphical: goalMet(s),
       exposureSimulatedSeconds: s.exposure,
@@ -260,12 +266,24 @@ export default function ProcedureStation({
       <div className="nvs-basis">
         <label>Base anatômica
           <select aria-label="Base anatômica da simulação" value={s.geometry} onChange={(e) => newCase(s.caseId, e.target.value as StationState["geometry"])}>
-            <option value="reference">Malhas do atlas · ACI esquerda</option>
+            <option value="reference">Malhas do atlas · acesso e vasos</option>
             <option value="schematic">Cenário esquemático · acesso aórtico</option>
           </select>
         </label>
-        <span>{s.geometry === "reference" ? "Malhas, instrumentos e projeções no mesmo referencial. Entrada cervical; junções numéricas ainda em revisão." : "Rede esquemática para exploração do acesso e das duas circulações."}</span>
+        {s.geometry === "reference" && <label>Entrada da simulação<select aria-label="Entrada da simulação" value={s.referenceEntry} onChange={(event) => newCase(s.caseId, s.geometry, event.target.value as StationState["referenceEntry"])}><option value="femoral">Femoral direita</option><option value="radial">Radial direita</option><option value="cervical">ACI esquerda · cervical</option><option value="arch">Arco aórtico · entrada virtual</option></select></label>}
+        {s.geometry === "reference" && <label>Perfil do arco<select aria-label="Perfil do arco" value={s.archProfile} onChange={(event) => newCase(s.caseId, s.geometry, s.referenceEntry, event.target.value as ArchProfile)}>{Object.entries(archProfileNames).map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label>}
+        <span>{s.geometry === "reference" ? (s.referenceEntry !== "cervical" ? "Acesso direito → arco → carótidas. Pontos de entrada virtuais e junções numéricas em revisão." : "Malhas, instrumentos e projeções no mesmo referencial. Entrada cervical; junções numéricas ainda em revisão.") : "Rede esquemática para exploração do acesso e das duas circulações."}</span>
       </div>
+      {s.geometry === "reference" && s.archProfile !== "source" && <p className="nvs-hint">Perfil {s.archProfile} didático · altura do arco / diâmetro da ACC esquerda: {archProfileData.profiles[s.archProfile].heightRatio.toFixed(2)}. Geometria e trajetos deformados em conjunto. Dificuldade de cateterização não validada.</p>}
+      <DeviceCatalogue state={s} onAdd={(choice) => dispatch({ type: "catalogue-add", choice })} onKit={(id) => dispatch({ type: "catalogue-kit", id })} onUse={(choice, family, tool) => {
+        dispatch({type: "catalogue-add", choice});
+        if (family) { setFamily(family); dispatch({type: "load", family, catalogueChoice: choice}); }
+        else if (tool) {
+          if (tool === "wire") dispatch({ type: "wireKind", value: choice.recordId === "s1r8" ? "Microguia" : "Guia diagnóstico" });
+          if (tool === "catheter" && choice.product.includes("Simmons")) dispatch({type: "shape", value: "Curva reversa tipo Simmons"});
+          dispatch({type: "tool", tool});
+        }
+      }} />
       <div className="nvs-case">
         <div>
           <strong>{c.patient}</strong>
@@ -471,7 +489,7 @@ export default function ProcedureStation({
                 u
               </p>
               {assist && (
-                <p className="nvs-hint">
+                <p className="nvs-hint" data-testid="station-tip" data-edge={at.edge}>
                   Ponta: {n[at.edge].name}
                   {branch.branches.length > 1 ? (
                     <>
@@ -534,7 +552,7 @@ export default function ProcedureStation({
               {s.device && (
                 <>
                   <p>
-                    <b>{families[s.device.family]}</b> · abertura gráfica{" "}
+                    <b>{s.device.catalogueChoice?.product ?? families[s.device.family]}</b> · representação genérica · abertura gráfica{" "}
                     {Math.round(s.device.open * 100)}%
                     {s.device.captured ? " · trombo engajado" : ""}
                     {s.device.detached ? " · destacado" : ""}
@@ -605,8 +623,8 @@ export default function ProcedureStation({
           )}
           <details className="nvs-machine">
             <summary>Mesa, imagem e osso</summary>
-            {control("Mesa horizontal", "panX", -12, 12, 0.1)}
-            {control("Mesa longitudinal", "panY", -12, 12, 0.1)}
+            {control("Mesa horizontal", "panX", -40, 40, 0.1)}
+            {control("Mesa longitudinal", "panY", -20, 120, 0.1)}
             {control("Magnificação", "zoom", 0.5, 5, 0.1)}
             {control("Colimação", "collimation", 25, 100)}
             {control("Ganho da imagem", "gain", 0.4, 2, 0.1)}

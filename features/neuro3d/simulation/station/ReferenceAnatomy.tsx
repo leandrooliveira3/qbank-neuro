@@ -14,10 +14,10 @@ function SurfaceMesh({ surface, color, opacity }: { surface: Surface; color: str
     return mesh;
   }, [surface]);
   useEffect(() => () => geometry.dispose(), [geometry]);
-  return <mesh geometry={geometry}><meshStandardMaterial color={color} roughness={0.65} transparent opacity={opacity} depthWrite={false} side={DoubleSide} /></mesh>;
+  return <mesh geometry={geometry} onAfterRender={(renderer) => { renderer.domElement.dataset.station3dRendered = "true"; }}><meshStandardMaterial color={color} roughness={0.65} transparent={opacity < 1} opacity={opacity} depthWrite={opacity === 1} side={DoubleSide} /></mesh>;
 }
-export default function ReferenceAnatomy({ s }: { s: StationState }) {
-  const { geometry } = useReferenceGeometry();
+export default function ReferenceAnatomy({ s, angiographic = false }: { s: StationState; angiographic?: boolean }) {
+  const { geometry } = useReferenceGeometry(s.archProfile);
   const network = networkFor(s), definition = caseFor(s);
   const surfaces = useMemo(() => {
     if (!geometry) return [];
@@ -34,8 +34,8 @@ export default function ReferenceAnatomy({ s }: { s: StationState }) {
   const sac = useMemo(() => network.sac ? vesselSurface(network.sac, sacRadius) : null, [network]);
   return <group>
     {surfaces.map((entry) => <SurfaceMesh key={entry.id} surface={entry.surface}
-      color={entry.layer === "bone" ? "#d7c8ac" : "#bf6878"}
-      opacity={entry.layer === "bone" ? s.view.boneOpacity * 0.4 : 0.2} />)}
-    {sac && <SurfaceMesh surface={sac} color="#d95c77" opacity={0.3} />}
+      color={entry.layer === "bone" ? "#d7c8ac" : angiographic ? "#e6edf2" : "#bf6878"}
+      opacity={entry.layer === "bone" ? s.view.boneOpacity * 0.4 : angiographic ? 1 : 0.2} />)}
+    {sac && <SurfaceMesh surface={sac} color={angiographic ? "#e6edf2" : "#d95c77"} opacity={angiographic ? 1 : 0.3} />}
   </group>;
 }

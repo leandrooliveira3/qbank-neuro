@@ -1,6 +1,6 @@
 # Supra-aortic and lower cervical source anatomy
 
-The atlas now has 558 imported structures plus 18 explicitly unvalidated illustrative arterial reconstructions (576 selectable entries). This update adds 14 original arterial meshes previously excluded by the head/neck spatial filter:
+At the supra-aortic checkpoint, the atlas had 558 imported structures plus 18 explicitly unvalidated illustrative arterial reconstructions (576 selectable entries). The subsequent body-access update brings this to 584; see `neuro3d-access-and-3d-update.md`. This update adds 14 original arterial meshes previously excluded by the head/neck spatial filter:
 
 | Source IDs | Meshes |
 | --- | ---: |
@@ -26,7 +26,7 @@ The Neuroangio index https://neuroangio.org/anatomy-and-variants/ repeats **105*
 
 Reference pages: https://neuroangio.org/anatomy-and-variants/aortic-arch/ and the main index above. No source images were copied into the app. No new AI inference was executed. Previously documented repository audits remain available.
 
-The procedure station still starts in the left cervical ICA. Adding these surfaces does **not** add femoral/aortic catheter access, registered junctions, validated arch variants or navigable supra-aortic routes. Unit tests ensure a selective ICA injection does not opacify these upstream surfaces. Bone and sellar context from the previous update remains intact; clinical and fine-anatomy review is still required.
+The procedure station at this checkpoint started in the left cervical ICA. The subsequent access update adds radial/femoral/arch navigation and didactic arch deformations; see `neuro3d-access-and-3d-update.md` for their limits. These remain unvalidated numerical junctions and variants. Unit tests ensure a selective ICA injection does not opacify these upstream surfaces. Bone and sellar context from the previous update remains intact; clinical and fine-anatomy review is still required.
 
 ## Verification
 

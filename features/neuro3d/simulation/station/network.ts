@@ -9,6 +9,9 @@ export interface Vessel {
   children: string[];
   synthetic?: boolean;
   sourceId?: string;
+  contrastChildren?: string[];
+  contrastReverse?: boolean;
+  junctionAtEnd?: boolean;
   sourceRange?: [number, number];
   sourceReverse?: boolean;
   visualBranches?: string[];

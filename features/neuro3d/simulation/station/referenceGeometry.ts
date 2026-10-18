@@ -1,22 +1,27 @@
 import { reconstructedArteries } from "../../reconstructedArteries";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import supraAortic from "../../reference-supra-aortic.json";
 import landmarks from "../../reference-landmarks.json";
 import distal from "../../reference-distal-aca.json";
 import metadata from "../../reference-surfaces.json";
+import bodyData from "../../reference-body-access-network.json";
+import bodyPack from "../../reference-body-access.json";
+import { morphArchPoint, type ArchProfile } from "./archMorphology";
+import accessData from "../../reference-access-network.json";
 import networkData from "../../reference-network.json";
 import type { P3, Vessel } from "./network";
 import type { Surface } from "./surfaces";
 import { sourceFraction } from "./referenceNetwork";
 
 export interface ReferenceSurface extends Surface {
-  id: string; layer: string; positions: Float32Array; indices: Uint32Array; t?: Float32Array;
+  id: string; layer: string; positions: Float32Array; indices: Uint32Array; t?: Float32Array; axis?: P3[]; axisDistances?: number[];
 }
 export type ReferenceGeometry = Map<string, ReferenceSurface>;
+const sourceAxes = { ...networkData.originalAxes, ...accessData.originalAxes, ...bodyData.originalAxes };
 let request: Promise<ReferenceGeometry> | null = null;
 export function loadReferenceGeometry() {
   if (!request) request = (async () => {
-    const supplementaryRequest = Promise.all([distal, landmarks, supraAortic].map(async (pack) => {
+    const supplementaryRequest = Promise.all([distal, landmarks, supraAortic, bodyPack].map(async (pack) => {
       const response = await fetch(`${import.meta.env.BASE_URL}neuro3d/open-anatomy/${pack.file}`);
       if (!response.ok) throw new Error("Não foi possível carregar as superfícies complementares.");
       const bytes = await response.arrayBuffer();
@@ -48,27 +53,57 @@ export function loadReferenceGeometry() {
     for (const item of reconstructedArteries) result.set(item.id, {
       id: item.id, layer: item.layer, positions: new Float32Array(item.surface.positions), indices: new Uint32Array(item.surface.indices),
     });
+    // Match each shared source vertex to the same oriented source axis used by access routes.
+    // This supports partial arch segments without creating substitute vascular tubes.
+    for (const [id, axis] of Object.entries(sourceAxes)) {
+      const surface = result.get(id); if (!surface) continue;
+      const points = axis.points as P3[], arc = [0];
+      for (let i = 1; i < points.length; i++) arc.push(arc[i - 1] + Math.hypot(...points[i].map((v, k) => v - points[i - 1][k])));
+      surface.axis = points; surface.axisDistances = arc;
+      surface.t = new Float32Array(surface.positions.length / 3);
+      for (let vertex = 0; vertex < surface.t.length; vertex++) {
+        let nearest = 0, best = Infinity;
+        for (let i = 0; i < points.length; i++) {
+          const distance = points[i].reduce((sum, v, k) => sum + (v - surface.positions[vertex * 3 + k]) ** 2, 0);
+          if (distance < best) { best = distance; nearest = i; }
+        }
+        surface.t[vertex] = arc[nearest] / arc.at(-1)!;
+      }
+    }
     return result;
   })().catch((error) => { request = null; throw error; });
   return request;
 }
-export function useReferenceGeometry() {
+const transformed = new WeakMap<ReferenceGeometry, Map<ArchProfile, ReferenceGeometry>>();
+export function morphReferenceGeometry(source: ReferenceGeometry, profile: ArchProfile): ReferenceGeometry {
+  if (profile === "source") return source;
+  let variants = transformed.get(source); if (!variants) { variants = new Map(); transformed.set(source, variants); }
+  const cached = variants.get(profile); if (cached) return cached;
+  const result: ReferenceGeometry = new Map();
+  for (const [id, surface] of source) {
+    const positions = new Float32Array(surface.positions.length);
+    for (let i = 0; i < positions.length; i += 3) positions.set(morphArchPoint(Array.from(surface.positions.subarray(i, i + 3)) as P3, profile), i);
+    result.set(id, { ...surface, positions, axis: surface.axis?.map((point) => morphArchPoint(point, profile)) });
+  }
+  variants.set(profile, result); return result;
+}
+export function useReferenceGeometry(profile: ArchProfile = "source") {
   const [state, setState] = useState<{ geometry?: ReferenceGeometry; error?: string }>({});
   useEffect(() => {
     let active = true;
     loadReferenceGeometry().then((geometry) => { if (active) setState({ geometry }); }, (error) => { if (active) setState({ error: String(error.message) }); });
     return () => { active = false; };
   }, []);
-  return state;
+  return useMemo(() => state.geometry ? { geometry: morphReferenceGeometry(state.geometry, profile), error: state.error } : state, [state, profile]);
 }
 
 export function routeSurface(source: ReferenceSurface, route: Vessel, limit = 1, stenosis?: { center: number; dilation: number }): Surface {
   const positions = stenosis && source.t ? source.positions.slice() : source.positions;
-  const originalAxis = networkData.originalAxes[route.sourceId ?? ""];
+  const originalAxis = source.axis ? { points: source.axis } : sourceAxes[route.sourceId ?? ""];
   if (stenosis && source.t && originalAxis) {
     const axis = originalAxis.points as P3[];
-    const arc = [0];
-    for (let i = 1; i < axis.length; i++) arc.push(arc[i - 1] + Math.hypot(...axis[i].map((v, k) => v - axis[i - 1][k])));
+    const arc = source.axisDistances ? [...source.axisDistances] : [0];
+    if (!source.axisDistances) for (let i = 1; i < axis.length; i++) arc.push(arc[i - 1] + Math.hypot(...axis[i].map((v, k) => v - axis[i - 1][k])));
     for (let i = 0; i < positions.length; i += 3) {
       const at = source.t[i / 3] * arc.at(-1)!;
       let high = arc.findIndex((value) => value >= at);
