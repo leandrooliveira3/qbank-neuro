@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import { openAnatomy } from '../../features/neuro3d/openAnatomy';
+import { reconstructedArteries } from '../../features/neuro3d/reconstructedArteries';
 test('loads open meshes, selects basilar artery, isolates and clips the same aligned anatomy', async ({page}) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -6,7 +8,7 @@ test('loads open meshes, selects basilar artery, isolates and clips the same ali
   await expect(page.getByRole('heading', {name:'Anatomia neurovascular', exact:true})).toBeVisible();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
   await page.getByRole("button", {name:"Estruturas",exact:true}).click();
-  await expect(page.locator('.nda-list button')).toHaveCount(584);
+  await expect(page.locator('.nda-list button')).toHaveCount(openAnatomy.structures.length + reconstructedArteries.length);
   await page.getByLabel('Buscar no atlas detalhado').fill('Basilar artery');
   await page.getByRole('button',{name:'Basilar artery Artérias',exact:true}).click();
   await expect(page.getByTestId('detailed-structure')).toContainText('Basilar artery');
@@ -126,7 +128,7 @@ test('sellar landmarks stay selected across representations, layers and atlas ta
   const selection = page.getByTestId('atlas-selection');
   await expect(selection).toHaveAttribute('data-selected-id', 'adenohypophysis');
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered', 'true');
-  await page.getByLabel('Opacidade · Hipófise', { exact: true }).fill('0');
+  await page.getByLabel('Opacidade · Glândulas', { exact: true }).fill('0');
   await expect(selection).toContainText('Adenohypophysis');
   await page.getByRole('button', { name: 'Angiografia', exact: true }).click();
   await expect(page.getByTestId('atlas-angiography')).toHaveAttribute('data-selected-structure', 'adenohypophysis');

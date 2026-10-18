@@ -1,0 +1,3653 @@
+{
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS \u2192 Z-Anatomy \u2192 Anatria3D \u2192 QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "file": "reference-craniocervical.bin",
+  "size": 7381711,
+  "uncompressedSize": 19861406,
+  "sha256": "7cd633032a5374b8fcc0a0a089425dce2299b5a74eca60a4006bae26b41e4499",
+  "structures": [
+    {
+      "id": "major_alar_cartilage_l",
+      "layer": "cartilage",
+      "originalFaces": 344,
+      "faces": 344,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "major_alar_cartilage_r",
+      "layer": "cartilage",
+      "originalFaces": 344,
+      "faces": 344,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "arytenoid_cartilage_l",
+      "layer": "cartilage",
+      "originalFaces": 3780,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "arytenoid_cartilage_r",
+      "layer": "cartilage",
+      "originalFaces": 3780,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "corniculate_cartilage_l",
+      "layer": "cartilage",
+      "originalFaces": 136,
+      "faces": 136,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "corniculate_cartilage_r",
+      "layer": "cartilage",
+      "originalFaces": 136,
+      "faces": 136,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "cricoid_cartilage",
+      "layer": "cartilage",
+      "originalFaces": 1882,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasal_septal_cartilage",
+      "layer": "cartilage",
+      "originalFaces": 360,
+      "faces": 360,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyroid_cartilage",
+      "layer": "cartilage",
+      "originalFaces": 4488,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_cells_of_ethmoid_bone_l",
+      "layer": "cavity",
+      "originalFaces": 736,
+      "faces": 736,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_cells_of_ethmoid_bone_r",
+      "layer": "cavity",
+      "originalFaces": 736,
+      "faces": 736,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "middle_cells_of_ethmoid_bone_l",
+      "layer": "cavity",
+      "originalFaces": 960,
+      "faces": 960,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "middle_cells_of_ethmoid_bone_r",
+      "layer": "cavity",
+      "originalFaces": 960,
+      "faces": 960,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_cells_of_ethmoid_bone_l",
+      "layer": "cavity",
+      "originalFaces": 1216,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_cells_of_ethmoid_bone_r",
+      "layer": "cavity",
+      "originalFaces": 1216,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "first_rib_l",
+      "layer": "bone",
+      "originalFaces": 3210,
+      "faces": 3210,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "first_rib_r",
+      "layer": "bone",
+      "originalFaces": 3210,
+      "faces": 3210,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intervertebral_disc_c2_c3",
+      "layer": "cartilage",
+      "originalFaces": 848,
+      "faces": 848,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intervertebral_disc_c3_c4",
+      "layer": "cartilage",
+      "originalFaces": 688,
+      "faces": 688,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intervertebral_disc_c4_c5",
+      "layer": "cartilage",
+      "originalFaces": 856,
+      "faces": 856,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intervertebral_disc_c5_c6",
+      "layer": "cartilage",
+      "originalFaces": 968,
+      "faces": 968,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intervertebral_disc_c6_c7",
+      "layer": "cartilage",
+      "originalFaces": 834,
+      "faces": 834,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intervertebral_disc_c7_t1",
+      "layer": "cartilage",
+      "originalFaces": 1168,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nuchal_ligament",
+      "layer": "ligament",
+      "originalFaces": 648,
+      "faces": 648,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nucleus_pulposus_c2_c3",
+      "layer": "cartilage",
+      "originalFaces": 960,
+      "faces": 960,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nucleus_pulposus_c3_c4",
+      "layer": "cartilage",
+      "originalFaces": 960,
+      "faces": 960,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nucleus_pulposus_c4_c5",
+      "layer": "cartilage",
+      "originalFaces": 960,
+      "faces": 960,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nucleus_pulposus_c5_c6",
+      "layer": "cartilage",
+      "originalFaces": 960,
+      "faces": 960,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nucleus_pulposus_c6_c7",
+      "layer": "cartilage",
+      "originalFaces": 960,
+      "faces": 960,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nucleus_pulposus_c7_t1",
+      "layer": "cartilage",
+      "originalFaces": 960,
+      "faces": 960,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_process_of_nasal_septal_cartilage_l",
+      "layer": "cartilage",
+      "originalFaces": 347,
+      "faces": 347,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_process_of_nasal_septal_cartilage_r",
+      "layer": "cartilage",
+      "originalFaces": 347,
+      "faces": 347,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sinus_of_frontal_bone",
+      "layer": "cavity",
+      "originalFaces": 1504,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sinus_of_sphenoid_bone",
+      "layer": "cavity",
+      "originalFaces": 384,
+      "faces": 384,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "vertebra_t1",
+      "layer": "bone",
+      "originalFaces": 1946,
+      "faces": 1946,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "cuneate_fasciculus",
+      "layer": "tissue",
+      "originalFaces": 3024,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "abducens_nerve_vi_l",
+      "layer": "nerve",
+      "originalFaces": 4936,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "abducens_nerve_vi_r",
+      "layer": "nerve",
+      "originalFaces": 4936,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "subclavian_nerve_l",
+      "layer": "nerve",
+      "originalFaces": 864,
+      "faces": 864,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "subclavian_nerve_r",
+      "layer": "nerve",
+      "originalFaces": 864,
+      "faces": 864,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "trochlear_nerve_iv_l",
+      "layer": "nerve",
+      "originalFaces": 3764,
+      "faces": 3764,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "trochlear_nerve_iv_r",
+      "layer": "nerve",
+      "originalFaces": 3764,
+      "faces": 3764,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "roots_of_brachial_plexus_l",
+      "layer": "nerve",
+      "originalFaces": 4608,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "roots_of_brachial_plexus_r",
+      "layer": "nerve",
+      "originalFaces": 4608,
+      "faces": 3999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "middle_trunk_of_brachial_plexus_l",
+      "layer": "nerve",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "middle_trunk_of_brachial_plexus_r",
+      "layer": "nerve",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_trunk_of_brachial_plexus_l",
+      "layer": "nerve",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_trunk_of_brachial_plexus_r",
+      "layer": "nerve",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "right_brachiocephalic_vein",
+      "layer": "venous",
+      "originalFaces": 576,
+      "faces": 576,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "left_brachiocephalic_vein",
+      "layer": "venous",
+      "originalFaces": 864,
+      "faces": 864,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_jugular_vein_l",
+      "layer": "venous",
+      "originalFaces": 1728,
+      "faces": 1728,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_jugular_vein_r",
+      "layer": "venous",
+      "originalFaces": 1728,
+      "faces": 1728,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "right_subclavian_vein",
+      "layer": "venous",
+      "originalFaces": 864,
+      "faces": 864,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "left_subclavian_vein",
+      "layer": "venous",
+      "originalFaces": 1152,
+      "faces": 1152,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "pineal_gland",
+      "layer": "gland",
+      "originalFaces": 634,
+      "faces": 634,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyroid_gland",
+      "layer": "gland",
+      "originalFaces": 2600,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "articular_capsule_of_temporomandibular_joint_l",
+      "layer": "ligament",
+      "originalFaces": 1800,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "articular_capsule_of_temporomandibular_joint_r",
+      "layer": "ligament",
+      "originalFaces": 1800,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "articular_disc_of_temporomandibular_joint_l",
+      "layer": "ligament",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "articular_disc_of_temporomandibular_joint_r",
+      "layer": "ligament",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "cricopharyngeal_ligament_l",
+      "layer": "ligament",
+      "originalFaces": 3119,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "cricopharyngeal_ligament_r",
+      "layer": "ligament",
+      "originalFaces": 3119,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "median_cricothyroid_ligament",
+      "layer": "ligament",
+      "originalFaces": 1958,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "pterygospinous_ligament_l",
+      "layer": "ligament",
+      "originalFaces": 12,
+      "faces": 12,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "pterygospinous_ligament_r",
+      "layer": "ligament",
+      "originalFaces": 12,
+      "faces": 12,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sphenomandibular_ligament_l",
+      "layer": "ligament",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sphenomandibular_ligament_r",
+      "layer": "ligament",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "stylohyoid_ligament_l",
+      "layer": "ligament",
+      "originalFaces": 624,
+      "faces": 624,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "stylohyoid_ligament_r",
+      "layer": "ligament",
+      "originalFaces": 624,
+      "faces": 624,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "stylomandibular_ligament_l",
+      "layer": "ligament",
+      "originalFaces": 44,
+      "faces": 44,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "stylomandibular_ligament_r",
+      "layer": "ligament",
+      "originalFaces": 44,
+      "faces": 44,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_temporomandibular_ligament_l",
+      "layer": "ligament",
+      "originalFaces": 76,
+      "faces": 76,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_temporomandibular_ligament_r",
+      "layer": "ligament",
+      "originalFaces": 76,
+      "faces": 76,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_thyrohyoid_ligament_l",
+      "layer": "ligament",
+      "originalFaces": 912,
+      "faces": 912,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_thyrohyoid_ligament_r",
+      "layer": "ligament",
+      "originalFaces": 912,
+      "faces": 912,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "median_thyrohyoid_ligament",
+      "layer": "ligament",
+      "originalFaces": 2771,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "quadrangular_membrane_l",
+      "layer": "ligament",
+      "originalFaces": 4592,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "quadrangular_membrane_r",
+      "layer": "ligament",
+      "originalFaces": 4592,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "common_tendinous_ring_l",
+      "layer": "ligament",
+      "originalFaces": 362,
+      "faces": 362,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "common_tendinous_ring_r",
+      "layer": "ligament",
+      "originalFaces": 362,
+      "faces": 362,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "bucinator_l",
+      "layer": "muscle",
+      "originalFaces": 884,
+      "faces": 884,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "bucinator_ol",
+      "layer": "attachment",
+      "originalFaces": 412,
+      "faces": 412,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "bucinator_or",
+      "layer": "attachment",
+      "originalFaces": 412,
+      "faces": 412,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "bucinator_r",
+      "layer": "muscle",
+      "originalFaces": 884,
+      "faces": 884,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_head_of_lateral_pterygoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 326,
+      "faces": 326,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_head_of_lateral_pterygoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 326,
+      "faces": 326,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_head_of_lateral_pterygoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 226,
+      "faces": 226,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_head_of_lateral_pterygoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 226,
+      "faces": 226,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_pharyngeal_constrictor_l",
+      "layer": "muscle",
+      "originalFaces": 3696,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_pharyngeal_constrictor_r",
+      "layer": "muscle",
+      "originalFaces": 3696,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "middle_pharyngeal_constrictor_l",
+      "layer": "muscle",
+      "originalFaces": 2948,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "middle_pharyngeal_constrictor_r",
+      "layer": "muscle",
+      "originalFaces": 2948,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_pharyngeal_constrictor_l",
+      "layer": "muscle",
+      "originalFaces": 5334,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_pharyngeal_constrictor_r",
+      "layer": "muscle",
+      "originalFaces": 5334,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_anguli_oris_l",
+      "layer": "muscle",
+      "originalFaces": 594,
+      "faces": 594,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_anguli_oris_ol",
+      "layer": "attachment",
+      "originalFaces": 340,
+      "faces": 340,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_anguli_oris_or",
+      "layer": "attachment",
+      "originalFaces": 340,
+      "faces": 340,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_anguli_oris_r",
+      "layer": "muscle",
+      "originalFaces": 594,
+      "faces": 594,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_labii_inferioris_l",
+      "layer": "muscle",
+      "originalFaces": 832,
+      "faces": 832,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_labii_inferioris_ol",
+      "layer": "attachment",
+      "originalFaces": 380,
+      "faces": 380,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_labii_inferioris_or",
+      "layer": "attachment",
+      "originalFaces": 380,
+      "faces": 380,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_labii_inferioris_r",
+      "layer": "muscle",
+      "originalFaces": 832,
+      "faces": 832,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_septi_nasi_l",
+      "layer": "muscle",
+      "originalFaces": 276,
+      "faces": 276,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_septi_nasi_ol",
+      "layer": "attachment",
+      "originalFaces": 420,
+      "faces": 420,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_septi_nasi_or",
+      "layer": "attachment",
+      "originalFaces": 420,
+      "faces": 420,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "depressor_septi_nasi_r",
+      "layer": "muscle",
+      "originalFaces": 276,
+      "faces": 276,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_investing_cervical_fascia_l",
+      "layer": "ligament",
+      "originalFaces": 3336,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_investing_cervical_fascia_r",
+      "layer": "ligament",
+      "originalFaces": 3336,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "masseteric_fascia_l",
+      "layer": "ligament",
+      "originalFaces": 398,
+      "faces": 398,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "masseteric_fascia_r",
+      "layer": "ligament",
+      "originalFaces": 398,
+      "faces": 398,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "epicranial_aponeurosis_l",
+      "layer": "ligament",
+      "originalFaces": 20118,
+      "faces": 998,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "epicranial_aponeurosis_r",
+      "layer": "ligament",
+      "originalFaces": 20118,
+      "faces": 20118,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "superficial_layer_of_temporal_fascia_l",
+      "layer": "ligament",
+      "originalFaces": 685,
+      "faces": 685,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_layer_of_temporal_fascia_r",
+      "layer": "ligament",
+      "originalFaces": 685,
+      "faces": 685,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_anguli_oris_l",
+      "layer": "muscle",
+      "originalFaces": 330,
+      "faces": 330,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_anguli_oris_ol",
+      "layer": "attachment",
+      "originalFaces": 352,
+      "faces": 352,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_anguli_oris_or",
+      "layer": "attachment",
+      "originalFaces": 352,
+      "faces": 352,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_anguli_oris_r",
+      "layer": "muscle",
+      "originalFaces": 330,
+      "faces": 330,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_labii_superioris_l",
+      "layer": "muscle",
+      "originalFaces": 540,
+      "faces": 540,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_labii_superioris_ol",
+      "layer": "attachment",
+      "originalFaces": 1156,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_labii_superioris_or",
+      "layer": "attachment",
+      "originalFaces": 1156,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_labii_superioris_r",
+      "layer": "muscle",
+      "originalFaces": 540,
+      "faces": 540,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_nasolabialis_l",
+      "layer": "muscle",
+      "originalFaces": 172,
+      "faces": 172,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_nasolabialis_ol",
+      "layer": "attachment",
+      "originalFaces": 432,
+      "faces": 432,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_nasolabialis_or",
+      "layer": "attachment",
+      "originalFaces": 432,
+      "faces": 432,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_nasolabialis_r",
+      "layer": "muscle",
+      "originalFaces": 172,
+      "faces": 172,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_palpebrae_superioris_l",
+      "layer": "muscle",
+      "originalFaces": 2152,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_palpebrae_superioris_r",
+      "layer": "muscle",
+      "originalFaces": 2152,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_scapulae_l",
+      "layer": "muscle",
+      "originalFaces": 3082,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_scapulae_ol",
+      "layer": "attachment",
+      "originalFaces": 256,
+      "faces": 256,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_scapulae_or",
+      "layer": "attachment",
+      "originalFaces": 256,
+      "faces": 256,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "levator_scapulae_r",
+      "layer": "muscle",
+      "originalFaces": 3082,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "masseter_el",
+      "layer": "attachment",
+      "originalFaces": 716,
+      "faces": 716,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "masseter_er",
+      "layer": "attachment",
+      "originalFaces": 716,
+      "faces": 716,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "masseter_ol",
+      "layer": "attachment",
+      "originalFaces": 1384,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "masseter_or",
+      "layer": "attachment",
+      "originalFaces": 1384,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "interspinales_colli_muscles_l",
+      "layer": "muscle",
+      "originalFaces": 444,
+      "faces": 444,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "interspinales_colli_muscles_r",
+      "layer": "muscle",
+      "originalFaces": 444,
+      "faces": 444,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "transverse_arytenoid_muscle",
+      "layer": "muscle",
+      "originalFaces": 1822,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "corrugator_supercilii_l",
+      "layer": "muscle",
+      "originalFaces": 278,
+      "faces": 278,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "corrugator_supercilii_r",
+      "layer": "muscle",
+      "originalFaces": 278,
+      "faces": 278,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_crico_arytenoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1623,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_crico_arytenoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1623,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_crico_arytenoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1812,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_crico_arytenoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1812,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "frontalis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 5874,
+      "faces": 5874,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "frontalis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 1188,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "frontalis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 1188,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "frontalis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 5874,
+      "faces": 5874,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "genioglossus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 3746,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "genioglossus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 3746,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "geniohyoid_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 588,
+      "faces": 588,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "geniohyoid_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 588,
+      "faces": 588,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "geniohyoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 530,
+      "faces": 530,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "geniohyoid_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 156,
+      "faces": 156,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "geniohyoid_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 156,
+      "faces": 156,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "geniohyoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 530,
+      "faces": 530,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "hyoglossus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1424,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "hyoglossus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1424,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "iliocostalis_colli_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 344,
+      "faces": 344,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "iliocostalis_colli_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 344,
+      "faces": 344,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "longissimus_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1573,
+      "faces": 1573,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "longissimus_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1573,
+      "faces": 1573,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "longissimus_colli_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1826,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "longissimus_colli_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1826,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "longus_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1980,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "longus_capitis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 144,
+      "faces": 144,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "longus_capitis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 144,
+      "faces": 144,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "longus_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1980,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "longus_colli_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 6294,
+      "faces": 6294,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "longus_colli_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 6294,
+      "faces": 6294,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "mentalis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 166,
+      "faces": 166,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mentalis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 88,
+      "faces": 88,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mentalis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 88,
+      "faces": 88,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mentalis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 166,
+      "faces": 166,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "multifidus_colli_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1390,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "multifidus_colli_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1390,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mylohyoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1122,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mylohyoid_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 388,
+      "faces": 388,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mylohyoid_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 388,
+      "faces": 388,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mylohyoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1122,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasalis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 704,
+      "faces": 704,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasalis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 528,
+      "faces": 528,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasalis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 528,
+      "faces": 528,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasalis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 704,
+      "faces": 704,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_oblique_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1148,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_oblique_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1148,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_inferior_capitis_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 344,
+      "faces": 344,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_inferior_capitis_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 344,
+      "faces": 344,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_inferior_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 540,
+      "faces": 540,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_inferior_capitis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 224,
+      "faces": 224,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_inferior_capitis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 224,
+      "faces": 224,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_inferior_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 540,
+      "faces": 540,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_oblique_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1750,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_oblique_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1750,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_superior_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 654,
+      "faces": 654,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_superior_capitis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 608,
+      "faces": 608,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_superior_capitis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 608,
+      "faces": 608,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "obliquus_superior_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 654,
+      "faces": 654,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "occipitalis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 2602,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "occipitalis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 500,
+      "faces": 500,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "occipitalis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 500,
+      "faces": 500,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "occipitalis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 2602,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "omohyoid_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 260,
+      "faces": 260,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "omohyoid_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 260,
+      "faces": 260,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "omohyoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 2706,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "omohyoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 2706,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbicularis_oris_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1880,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbicularis_oris_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 160,
+      "faces": 160,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbicularis_oris_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 160,
+      "faces": 160,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbicularis_oris_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1880,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "palatopharyngeus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 15282,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "palatopharyngeus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 15282,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "procerus_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 268,
+      "faces": 268,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "procerus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 546,
+      "faces": 546,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "procerus_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "procerus_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 288,
+      "faces": 288,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "procerus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 546,
+      "faces": 546,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_pterygoid_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 844,
+      "faces": 844,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_pterygoid_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 844,
+      "faces": 844,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "medial_pterygoid_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 340,
+      "faces": 340,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "medial_pterygoid_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 340,
+      "faces": 340,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "medial_pterygoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 496,
+      "faces": 496,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "medial_pterygoid_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 684,
+      "faces": 684,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "medial_pterygoid_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 684,
+      "faces": 684,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "medial_pterygoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 496,
+      "faces": 496,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_anterior_capitis_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 356,
+      "faces": 356,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_anterior_capitis_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 356,
+      "faces": 356,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_anterior_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 396,
+      "faces": 396,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_anterior_capitis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 132,
+      "faces": 132,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_anterior_capitis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 132,
+      "faces": 132,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_anterior_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 396,
+      "faces": 396,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_rectus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1736,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_rectus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1736,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_rectus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1600,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_rectus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1600,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_lateralis_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 360,
+      "faces": 360,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_lateralis_capitis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 516,
+      "faces": 516,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_lateralis_capitis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 516,
+      "faces": 516,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_lateralis_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 360,
+      "faces": 360,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "medial_rectus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1252,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "medial_rectus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1252,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_major_capitis_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 316,
+      "faces": 316,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_major_capitis_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 316,
+      "faces": 316,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_major_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 788,
+      "faces": 788,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_major_capitis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 292,
+      "faces": 292,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_major_capitis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 292,
+      "faces": 292,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_major_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 788,
+      "faces": 788,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_minor_capitis_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 484,
+      "faces": 484,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_minor_capitis_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 484,
+      "faces": 484,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_minor_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 432,
+      "faces": 432,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_minor_capitis_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 292,
+      "faces": 292,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_minor_capitis_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 292,
+      "faces": 292,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rectus_posterior_minor_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 432,
+      "faces": 432,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_rectus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1284,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_rectus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1284,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "rhomboid_minor_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1494,
+      "faces": 1494,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "rhomboid_minor_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1494,
+      "faces": 1494,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "risorius_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 592,
+      "faces": 592,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "risorius_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 592,
+      "faces": 592,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_anterior_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 392,
+      "faces": 392,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_anterior_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 392,
+      "faces": 392,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_anterior_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1386,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_anterior_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1386,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_medius_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 572,
+      "faces": 572,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_medius_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 572,
+      "faces": 572,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_medius_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 2078,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_medius_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 2078,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_posterior_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 600,
+      "faces": 600,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_posterior_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 600,
+      "faces": 600,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_posterior_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1326,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scalenus_posterior_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1326,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "semispinalis_colli_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 2584,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "semispinalis_colli_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 2584,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "serratus_posterior_superior_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 5518,
+      "faces": 5518,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "serratus_posterior_superior_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 5518,
+      "faces": 5518,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "spinalis_capitis_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 452,
+      "faces": 452,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "spinalis_capitis_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 452,
+      "faces": 452,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "spinalis_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 2560,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "spinalis_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 2560,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "spinalis_colli_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 596,
+      "faces": 596,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "spinalis_colli_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 596,
+      "faces": 596,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "splenius_capitis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 5262,
+      "faces": 5262,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "splenius_capitis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 5262,
+      "faces": 5262,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "splenius_colli_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 252,
+      "faces": 252,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "splenius_colli_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 252,
+      "faces": 252,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternocleidomastoid_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 2912,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternocleidomastoid_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 2912,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternocleidomastoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 4952,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternocleidomastoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 4952,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternohyoid_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 452,
+      "faces": 452,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternohyoid_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 452,
+      "faces": 452,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternohyoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1394,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternohyoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1394,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternothyroid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1088,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternothyroid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1088,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "stylohyoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 694,
+      "faces": 694,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "stylohyoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 694,
+      "faces": 694,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "stylopharyngeus_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 9478,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "stylopharyngeus_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 9478,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "temporalis_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 1820,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "temporalis_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 1820,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "temporalis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 10260,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "temporalis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 10260,
+      "faces": 10260,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "temporoparietalis_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 11972,
+      "faces": 11972,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "temporoparietalis_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 11972,
+      "faces": 11972,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "thyrohyoid_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 1176,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyrohyoid_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 1176,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyrohyoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 700,
+      "faces": 700,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyrohyoid_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 536,
+      "faces": 536,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyrohyoid_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 536,
+      "faces": 536,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyrohyoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 700,
+      "faces": 700,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomaticus_major_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 798,
+      "faces": 798,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomaticus_major_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 136,
+      "faces": 136,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomaticus_major_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 136,
+      "faces": 136,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomaticus_major_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 798,
+      "faces": 798,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomaticus_minor_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 432,
+      "faces": 432,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomaticus_minor_muscle_ol",
+      "layer": "attachment",
+      "originalFaces": 176,
+      "faces": 176,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomaticus_minor_muscle_or",
+      "layer": "attachment",
+      "originalFaces": 176,
+      "faces": 176,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomaticus_minor_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 432,
+      "faces": 432,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "ary_epiglottic_part_of_oblique_arytenoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1022,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "ary_epiglottic_part_of_oblique_arytenoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1022,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "ascending_part_of_trapezius_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 364,
+      "faces": 364,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "ascending_part_of_trapezius_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 364,
+      "faces": 364,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "ascending_part_of_trapezius_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 4596,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "ascending_part_of_trapezius_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 4596,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "external_part_of_thyro_arytenoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 2236,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "external_part_of_thyro_arytenoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 2236,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "oblique_part_of_cricothyroid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 2060,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "oblique_part_of_cricothyroid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 2060,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbital_part_of_orbicularis_oculi_l",
+      "layer": "muscle",
+      "originalFaces": 2390,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbital_part_of_orbicularis_oculi_ol",
+      "layer": "attachment",
+      "originalFaces": 304,
+      "faces": 304,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbital_part_of_orbicularis_oculi_or",
+      "layer": "attachment",
+      "originalFaces": 304,
+      "faces": 304,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbital_part_of_orbicularis_oculi_r",
+      "layer": "muscle",
+      "originalFaces": 2390,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "palpebral_part_of_orbicularis_oculi_l",
+      "layer": "muscle",
+      "originalFaces": 830,
+      "faces": 830,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "palpebral_part_of_orbicularis_oculi_r",
+      "layer": "muscle",
+      "originalFaces": 830,
+      "faces": 830,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "deep_part_of_masseter_l",
+      "layer": "muscle",
+      "originalFaces": 994,
+      "faces": 994,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "deep_part_of_masseter_r",
+      "layer": "muscle",
+      "originalFaces": 994,
+      "faces": 994,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "straight_part_of_cricothyroid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1180,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "straight_part_of_cricothyroid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1180,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_part_of_masseter_l",
+      "layer": "muscle",
+      "originalFaces": 1404,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_part_of_masseter_r",
+      "layer": "muscle",
+      "originalFaces": 1404,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyro_epiglottic_part_of_thyro_arytenoid_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 3110,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyro_epiglottic_part_of_thyro_arytenoid_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 3110,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "transverse_part_of_trapezius_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 2992,
+      "faces": 2992,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "transverse_part_of_trapezius_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 2992,
+      "faces": 2992,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "platysma_l",
+      "layer": "muscle",
+      "originalFaces": 6548,
+      "faces": 6548,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "platysma_r",
+      "layer": "muscle",
+      "originalFaces": 6548,
+      "faces": 6548,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "inferior_tarsus_l",
+      "layer": "ligament",
+      "originalFaces": 108,
+      "faces": 108,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "inferior_tarsus_r",
+      "layer": "ligament",
+      "originalFaces": 108,
+      "faces": 108,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_tarsus_l",
+      "layer": "ligament",
+      "originalFaces": 178,
+      "faces": 178,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superior_tarsus_r",
+      "layer": "ligament",
+      "originalFaces": 178,
+      "faces": 178,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intermediate_tendon_of_digastric_muscle_l",
+      "layer": "ligament",
+      "originalFaces": 228,
+      "faces": 228,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intermediate_tendon_of_digastric_muscle_r",
+      "layer": "ligament",
+      "originalFaces": 228,
+      "faces": 228,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "trochlea_of_superior_oblique_muscle_l",
+      "layer": "ligament",
+      "originalFaces": 192,
+      "faces": 192,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "trochlea_of_superior_oblique_muscle_r",
+      "layer": "ligament",
+      "originalFaces": 192,
+      "faces": 192,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_belly_of_digastric_muscle_el",
+      "layer": "attachment",
+      "originalFaces": 316,
+      "faces": 316,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_belly_of_digastric_muscle_er",
+      "layer": "attachment",
+      "originalFaces": 316,
+      "faces": 316,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_belly_of_digastric_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 392,
+      "faces": 392,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_belly_of_digastric_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 392,
+      "faces": 392,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_belly_of_digastric_muscle_l",
+      "layer": "muscle",
+      "originalFaces": 1276,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_belly_of_digastric_muscle_r",
+      "layer": "muscle",
+      "originalFaces": 1276,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "parotid_duct_l",
+      "layer": "visceral",
+      "originalFaces": 1152,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "parotid_duct_r",
+      "layer": "visceral",
+      "originalFaces": 1152,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submandibular_duct_l",
+      "layer": "visceral",
+      "originalFaces": 1152,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submandibular_duct_r",
+      "layer": "visceral",
+      "originalFaces": 1152,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "epiglottis",
+      "layer": "visceral",
+      "originalFaces": 3376,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "gingiva",
+      "layer": "visceral",
+      "originalFaces": 24596,
+      "faces": 24596,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "parotid_gland_l",
+      "layer": "gland",
+      "originalFaces": 1704,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "parotid_gland_r",
+      "layer": "gland",
+      "originalFaces": 1704,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sublingual_gland_l",
+      "layer": "gland",
+      "originalFaces": 324,
+      "faces": 324,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sublingual_gland_r",
+      "layer": "gland",
+      "originalFaces": 324,
+      "faces": 324,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submandibular_gland_l",
+      "layer": "gland",
+      "originalFaces": 392,
+      "faces": 392,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submandibular_gland_r",
+      "layer": "gland",
+      "originalFaces": 392,
+      "faces": 392,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "tongue",
+      "layer": "visceral",
+      "originalFaces": 682,
+      "faces": 682,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "uvula_of_palate",
+      "layer": "visceral",
+      "originalFaces": 1502,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "trachea",
+      "layer": "visceral",
+      "originalFaces": 4756,
+      "faces": 999,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_anterior_cervical_nodes",
+      "layer": "lymphatic",
+      "originalFaces": 1008,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_lateral_cervical_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 1008,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_lateral_cervical_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 1008,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "infra_auricular_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 336,
+      "faces": 336,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "infra_auricular_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 336,
+      "faces": 336,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_inferior_jugular_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 1008,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_inferior_jugular_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 1008,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mastoid_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 840,
+      "faces": 840,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mastoid_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 840,
+      "faces": 840,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "occipital_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 336,
+      "faces": 336,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "occipital_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 336,
+      "faces": 336,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "paratracheal_cervical_nodes",
+      "layer": "lymphatic",
+      "originalFaces": 1008,
+      "faces": 1000,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intraglandular_parotid_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intraglandular_parotid_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_parotid_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "superficial_parotid_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "pre_auricular_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "pre_auricular_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "pretracheal_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "pretracheal_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "retropharyngeal_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 336,
+      "faces": 336,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "retropharyngeal_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 336,
+      "faces": 336,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submandibular_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submandibular_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submental_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 672,
+      "faces": 672,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submental_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 672,
+      "faces": 672,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyroid_nodes_l",
+      "layer": "lymphatic",
+      "originalFaces": 336,
+      "faces": 336,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "thyroid_nodes_r",
+      "layer": "lymphatic",
+      "originalFaces": 336,
+      "faces": 336,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "bucinator_node_l",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "bucinator_node_r",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_superior_jugular_node_l",
+      "layer": "lymphatic",
+      "originalFaces": 840,
+      "faces": 840,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_superior_jugular_node_r",
+      "layer": "lymphatic",
+      "originalFaces": 840,
+      "faces": 840,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "jugulodigastric_node_l",
+      "layer": "lymphatic",
+      "originalFaces": 168,
+      "faces": 168,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "jugulodigastric_node_r",
+      "layer": "lymphatic",
+      "originalFaces": 168,
+      "faces": 168,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mandibular_node_l",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mandibular_node_r",
+      "layer": "lymphatic",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasolabial_node_l",
+      "layer": "lymphatic",
+      "originalFaces": 168,
+      "faces": 168,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasolabial_node_r",
+      "layer": "lymphatic",
+      "originalFaces": 168,
+      "faces": 168,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "palatine_tonsil_l",
+      "layer": "lymphatic",
+      "originalFaces": 168,
+      "faces": 168,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "palatine_tonsil_r",
+      "layer": "lymphatic",
+      "originalFaces": 168,
+      "faces": 168,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "angle_of_mouth_l",
+      "layer": "region",
+      "originalFaces": 80,
+      "faces": 80,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "angle_of_mouth_r",
+      "layer": "region",
+      "originalFaces": 80,
+      "faces": 80,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "antihelix_l",
+      "layer": "region",
+      "originalFaces": 88,
+      "faces": 88,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "antihelix_r",
+      "layer": "region",
+      "originalFaces": 88,
+      "faces": 88,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "antitragus_l",
+      "layer": "region",
+      "originalFaces": 39,
+      "faces": 39,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "antitragus_r",
+      "layer": "region",
+      "originalFaces": 39,
+      "faces": 39,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "apex_of_auricle_l",
+      "layer": "region",
+      "originalFaces": 36,
+      "faces": 36,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "apex_of_auricle_r",
+      "layer": "region",
+      "originalFaces": 36,
+      "faces": 36,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "hairs_of_head",
+      "layer": "region",
+      "originalFaces": 16563,
+      "faces": 16563,
+      "retainedOriginalForBounds": true
+    },
+    {
+      "id": "cavity_of_concha_l",
+      "layer": "region",
+      "originalFaces": 215,
+      "faces": 215,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "cavity_of_concha_r",
+      "layer": "region",
+      "originalFaces": 215,
+      "faces": 215,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eyelashes_l",
+      "layer": "region",
+      "originalFaces": 600,
+      "faces": 600,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eyelashes_r",
+      "layer": "region",
+      "originalFaces": 600,
+      "faces": 600,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "labial_commissure_l",
+      "layer": "region",
+      "originalFaces": 140,
+      "faces": 140,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "labial_commissure_r",
+      "layer": "region",
+      "originalFaces": 140,
+      "faces": 140,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "concha_of_auricle_l",
+      "layer": "region",
+      "originalFaces": 64,
+      "faces": 64,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "concha_of_auricle_r",
+      "layer": "region",
+      "originalFaces": 64,
+      "faces": 64,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "crura_of_antihelix_l",
+      "layer": "region",
+      "originalFaces": 92,
+      "faces": 92,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "crura_of_antihelix_r",
+      "layer": "region",
+      "originalFaces": 92,
+      "faces": 92,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "cymba_conchae_l",
+      "layer": "region",
+      "originalFaces": 89,
+      "faces": 89,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "cymba_conchae_r",
+      "layer": "region",
+      "originalFaces": 89,
+      "faces": 89,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eminentia_conchae_l",
+      "layer": "region",
+      "originalFaces": 61,
+      "faces": 61,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eminentia_conchae_r",
+      "layer": "region",
+      "originalFaces": 61,
+      "faces": 61,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eminentia_fossae_triangularis_l",
+      "layer": "region",
+      "originalFaces": 51,
+      "faces": 51,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eminentia_fossae_triangularis_r",
+      "layer": "region",
+      "originalFaces": 51,
+      "faces": 51,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eminentia_scaphae_l",
+      "layer": "region",
+      "originalFaces": 103,
+      "faces": 103,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eminentia_scaphae_r",
+      "layer": "region",
+      "originalFaces": 103,
+      "faces": 103,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "fossa_antihelica_l",
+      "layer": "region",
+      "originalFaces": 61,
+      "faces": 61,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "fossa_antihelica_r",
+      "layer": "region",
+      "originalFaces": 61,
+      "faces": 61,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "greater_supraclavicular_fossa_l",
+      "layer": "region",
+      "originalFaces": 200,
+      "faces": 200,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "greater_supraclavicular_fossa_r",
+      "layer": "region",
+      "originalFaces": 200,
+      "faces": 200,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "triangular_fossa_l",
+      "layer": "region",
+      "originalFaces": 58,
+      "faces": 58,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "triangular_fossa_r",
+      "layer": "region",
+      "originalFaces": 58,
+      "faces": 58,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "helix_l",
+      "layer": "region",
+      "originalFaces": 473,
+      "faces": 473,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "helix_r",
+      "layer": "region",
+      "originalFaces": 473,
+      "faces": 473,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_notch_of_auricle_l",
+      "layer": "region",
+      "originalFaces": 49,
+      "faces": 49,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "anterior_notch_of_auricle_r",
+      "layer": "region",
+      "originalFaces": 49,
+      "faces": 49,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intertragic_incisure_l",
+      "layer": "region",
+      "originalFaces": 71,
+      "faces": 71,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "intertragic_incisure_r",
+      "layer": "region",
+      "originalFaces": 71,
+      "faces": 71,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lobule_of_auricle_l",
+      "layer": "region",
+      "originalFaces": 219,
+      "faces": 219,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lobule_of_auricle_r",
+      "layer": "region",
+      "originalFaces": 219,
+      "faces": 219,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "philtrum_l",
+      "layer": "region",
+      "originalFaces": 56,
+      "faces": 56,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "philtrum_r",
+      "layer": "region",
+      "originalFaces": 56,
+      "faces": 56,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "hairs_of_eyebrow_l",
+      "layer": "region",
+      "originalFaces": 794,
+      "faces": 794,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "hairs_of_eyebrow_r",
+      "layer": "region",
+      "originalFaces": 794,
+      "faces": 794,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "auricular_region_l",
+      "layer": "region",
+      "originalFaces": 296,
+      "faces": 296,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "auricular_region_r",
+      "layer": "region",
+      "originalFaces": 296,
+      "faces": 296,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "buccal_region_l",
+      "layer": "region",
+      "originalFaces": 428,
+      "faces": 428,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "buccal_region_r",
+      "layer": "region",
+      "originalFaces": 428,
+      "faces": 428,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "frontal_region_l",
+      "layer": "region",
+      "originalFaces": 552,
+      "faces": 552,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "frontal_region_r",
+      "layer": "region",
+      "originalFaces": 552,
+      "faces": 552,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "infra_orbital_region_l",
+      "layer": "region",
+      "originalFaces": 136,
+      "faces": 136,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "infra_orbital_region_r",
+      "layer": "region",
+      "originalFaces": 136,
+      "faces": 136,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_region_of_neck_l",
+      "layer": "region",
+      "originalFaces": 460,
+      "faces": 460,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "lateral_region_of_neck_r",
+      "layer": "region",
+      "originalFaces": 460,
+      "faces": 460,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mastoid_region_l",
+      "layer": "region",
+      "originalFaces": 116,
+      "faces": 116,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mastoid_region_r",
+      "layer": "region",
+      "originalFaces": 116,
+      "faces": 116,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mental_region_l",
+      "layer": "region",
+      "originalFaces": 208,
+      "faces": 208,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mental_region_r",
+      "layer": "region",
+      "originalFaces": 208,
+      "faces": 208,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasal_region_l",
+      "layer": "region",
+      "originalFaces": 608,
+      "faces": 608,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasal_region_r",
+      "layer": "region",
+      "originalFaces": 608,
+      "faces": 608,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "occipital_region_l",
+      "layer": "region",
+      "originalFaces": 344,
+      "faces": 344,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "occipital_region_r",
+      "layer": "region",
+      "originalFaces": 344,
+      "faces": 344,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "oral_region_l",
+      "layer": "region",
+      "originalFaces": 672,
+      "faces": 672,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "oral_region_r",
+      "layer": "region",
+      "originalFaces": 672,
+      "faces": 672,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbital_region_l",
+      "layer": "region",
+      "originalFaces": 584,
+      "faces": 584,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "orbital_region_r",
+      "layer": "region",
+      "originalFaces": 584,
+      "faces": 584,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "parietal_region_l",
+      "layer": "region",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "parietal_region_r",
+      "layer": "region",
+      "originalFaces": 504,
+      "faces": 504,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "parotideomasseteric_region_l",
+      "layer": "region",
+      "originalFaces": 232,
+      "faces": 232,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "parotideomasseteric_region_r",
+      "layer": "region",
+      "originalFaces": 232,
+      "faces": 232,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_region_of_neck_l",
+      "layer": "region",
+      "originalFaces": 684,
+      "faces": 684,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_region_of_neck_r",
+      "layer": "region",
+      "originalFaces": 684,
+      "faces": 684,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternocleidomastoid_region_l",
+      "layer": "region",
+      "originalFaces": 544,
+      "faces": 544,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "sternocleidomastoid_region_r",
+      "layer": "region",
+      "originalFaces": 544,
+      "faces": 544,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "temporal_region_l",
+      "layer": "region",
+      "originalFaces": 436,
+      "faces": 436,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "temporal_region_r",
+      "layer": "region",
+      "originalFaces": 436,
+      "faces": 436,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomatic_region_l",
+      "layer": "region",
+      "originalFaces": 212,
+      "faces": 212,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "zygomatic_region_r",
+      "layer": "region",
+      "originalFaces": 212,
+      "faces": 212,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scapha_l",
+      "layer": "region",
+      "originalFaces": 69,
+      "faces": 69,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "scapha_r",
+      "layer": "region",
+      "originalFaces": 69,
+      "faces": 69,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mentolabial_sulcus_l",
+      "layer": "region",
+      "originalFaces": 108,
+      "faces": 108,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "mentolabial_sulcus_r",
+      "layer": "region",
+      "originalFaces": 108,
+      "faces": 108,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasolabial_sulcus_l",
+      "layer": "region",
+      "originalFaces": 96,
+      "faces": 96,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "nasolabial_sulcus_r",
+      "layer": "region",
+      "originalFaces": 96,
+      "faces": 96,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_auricular_groove_l",
+      "layer": "region",
+      "originalFaces": 184,
+      "faces": 184,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "posterior_auricular_groove_r",
+      "layer": "region",
+      "originalFaces": 184,
+      "faces": 184,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eyebrow_l",
+      "layer": "region",
+      "originalFaces": 52,
+      "faces": 52,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "eyebrow_r",
+      "layer": "region",
+      "originalFaces": 52,
+      "faces": 52,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "tragus_l",
+      "layer": "region",
+      "originalFaces": 76,
+      "faces": 76,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "tragus_r",
+      "layer": "region",
+      "originalFaces": 76,
+      "faces": 76,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "carotid_triangle_l",
+      "layer": "region",
+      "originalFaces": 84,
+      "faces": 84,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "carotid_triangle_r",
+      "layer": "region",
+      "originalFaces": 84,
+      "faces": 84,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "muscular_triangle_l",
+      "layer": "region",
+      "originalFaces": 260,
+      "faces": 260,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "muscular_triangle_r",
+      "layer": "region",
+      "originalFaces": 260,
+      "faces": 260,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submandibular_triangle_l",
+      "layer": "region",
+      "originalFaces": 156,
+      "faces": 156,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submandibular_triangle_r",
+      "layer": "region",
+      "originalFaces": 156,
+      "faces": 156,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submental_triangle_l",
+      "layer": "region",
+      "originalFaces": 124,
+      "faces": 124,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "submental_triangle_r",
+      "layer": "region",
+      "originalFaces": 124,
+      "faces": 124,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "auricular_tubercle_l",
+      "layer": "region",
+      "originalFaces": 26,
+      "faces": 26,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "auricular_tubercle_r",
+      "layer": "region",
+      "originalFaces": 26,
+      "faces": 26,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "tubercle_of_upper_lip_l",
+      "layer": "region",
+      "originalFaces": 20,
+      "faces": 20,
+      "retainedOriginalForBounds": false
+    },
+    {
+      "id": "tubercle_of_upper_lip_r",
+      "layer": "region",
+      "originalFaces": 20,
+      "faces": 20,
+      "retainedOriginalForBounds": false
+    }
+  ],
+  "projectionCoordinates": "Source world cm; Y minus160, same as atlas. Target 4000 faces for bone/vessels/nerves; 1000 for other context; original retained if simplification exceeds source bounds by 0.01cm. Only bone and vessels contribute radiographic signal; other layers are selection annotations only."
+}

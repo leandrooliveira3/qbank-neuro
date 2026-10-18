@@ -13,9 +13,9 @@ O índice preserva 130 entradas (inclui números repetidos, grupos, segmentos e 
 | Grupo parcialmente mapeado | 4 |
 | Pendente de malha individual/mapeamento/revisão | 65 |
 
-Esses números não medem exatidão anatômica. Uma artéria principal pode estar presente enquanto seus segmentos ou anastomoses continuam pendentes. O atlas contém 566 estruturas importadas de todos os tipos, mais 18 superfícies arteriais didáticas bilaterais. Os números de estruturas e de entradas do índice medem coisas diferentes.
+Esses números não medem exatidão anatômica. Uma artéria principal pode estar presente enquanto seus segmentos ou anastomoses continuam pendentes. Após a recuperação craniana/cervical de 18/10, o atlas contém 1086 estruturas importadas de todos os tipos, mais 18 superfícies arteriais didáticas bilaterais. Os números de estruturas e de entradas do índice medem coisas diferentes. As 520 adições incluem regiões e áreas de inserção: não são 520 vasos ou órgãos únicos. Detalhes em `neuro3d-craniocervical-update.md`.
 
-Foi conferido o manifesto completo da fonte já disponível para ramos cranianos ainda ausentes: não foram identificadas outras malhas individuais prontas que resolvessem essas pendências. Os modelos existentes não devem ser renomeados como artérias vizinhas para preencher lacunas. A lista permanece visível no painel Inventário.
+Foi conferido o manifesto completo da fonte já disponível para ramos arteriais cranianos ainda ausentes: não foram identificadas outras malhas individuais prontas que resolvessem essas pendências arteriais. A recuperação posterior de contexto não muda esse resultado. Os modelos existentes não devem ser renomeados como artérias vizinhas para preencher lacunas. A lista permanece visível no painel Inventário.
 
 ## Funcionamento verificado
 

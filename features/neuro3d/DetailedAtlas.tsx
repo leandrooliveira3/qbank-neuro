@@ -13,6 +13,8 @@ import { reconstructedArteries } from "./reconstructedArteries";
 import type { P3 } from "./simulation/station/network";
 import AtlasAngiography from "./AtlasAngiography";
 import { coverageReview, coverageStatus } from "./coverageReview";
+import craniocervical from "./craniocervical.json";
+import contextAudit from "../../docs/neuro3d-craniocervical-audit.json";
 
 const landmarkShortcuts = [["aortic_arch", "Arco aórtico"], ["brachiocephalic_trunk", "Tronco braquiocefálico"], ["left_subclavian_artery", "Subclávia esquerda"], ["right_subclavian_artery", "Subclávia direita"], ["inferior_thyroid_artery_l", "Tireoidiana inferior esquerda"], ["inferior_thyroid_artery_r", "Tireoidiana inferior direita"], ["sphenoid_bone", "Esfenoide"], ["temporal_bone_l", "Temporal esquerdo"], ["adenohypophysis", "Adeno-hipófise"], ["neurohypophysis", "Neuro-hipófise"], ["cavernous_sinus_l", "Seio cavernoso esquerdo"], ["cavernous_sinus_r", "Seio cavernoso direito"], ["optic_chiasm_l", "Quiasma óptico"], ["falx_cerebri", "Foice cerebral"], ["tentorium_cerebelli_l", "Tentório esquerdo"]];
 const landmarkAliases: Record<string, string> = Object.fromEntries(landmarkShortcuts);
@@ -21,6 +23,8 @@ type AtlasStructure = typeof atlasStructures[number];
 type View = "Oblíqua" | "AP" | "Lateral" | "Posterior";
 const colors: Record<string, string> = {
   arterial: "#b53d4c", venous: "#46649b", bone: "#e8d9bb", tissue: "#c9ada4", nerve: "#e8cc78", gland: "#ed91b8", dura: "#b7c9db",
+  muscle: "#a65c58", ligament: "#d9d8c4", cartilage: "#a2cfda", visceral: "#c89598", lymphatic: "#8db896",
+  cavity: "#72b1d0", attachment: "#d6a476", region: "#ae93bc",
 };
 class Boundary extends Component<{ children: React.ReactNode }, { failed: boolean }> {
   state = { failed: false };
@@ -190,6 +194,14 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
           {"status" in item ? <><p className="nda-reconstruction-note">Reconstrução didática · não validada</p><small>{item.note}</small><a href={item.reference} target="_blank" rel="noreferrer">Referência anatômica · Neuroangio</a></> : <small>Rótulo de origem ainda em revisão anatômica.</small>}</article>}
       </div>}
       {panel === "Inventário" && <div className="nda-review"><h3>Índice anatômico obrigatório</h3>
+        <details><summary>Estruturas cranianas e cervicais recuperadas ({craniocervical.structures.length})</summary>
+          <p className="nda-help">CC BY-SA 4.0 · coordenadas originais preservadas. Regiões, cavidades e inserções são camadas de contexto. Selecione para identificar em 3D ou marcar a projeção 2D.</p>
+          {Object.entries(openLayerNames).map(([layer, label]) => {
+            const rows = craniocervical.structures.filter((structure) => structure.layer === layer);
+            return rows.length > 0 && <details key={layer}><summary>{label} ({rows.length})</summary>{rows.map((structure) => <button key={structure.id} onClick={() => { setSelected(structure.id); setPanel("Estruturas"); }}>{structure.name}</button>)}</details>;
+          })}
+          <details><summary>Elementos sem superfície utilizável na fonte</summary>{contextAudit.excludedCandidates.filter((row) => !["meso_appendix", "mesocolon", "greater_omentum", "lesser_omentum"].includes(row.id)).map((row) => <p key={row.id}>{row.id}: {row.reason === "source-node-missing" ? "rótulo sem nó correspondente no arquivo de origem" : "superfície degenerada na origem"}</p>)}</details>
+        </details>
         <p className="nda-help">{anatomicalInventory.length} entradas, incluindo grupos originais e ramos desdobrados do índice. A lista mantém as pendências visíveis.</p>
         {Object.entries(inventoryStatus).map(([status, label]) => <small key={status}>{label}: {anatomicalInventory.filter((row) => row.status === status).length}</small>)}
         {anatomicalInventory.map((row) => <article key={row.key}><span className="nda-review-status">{inventoryStatus[row.status]}</span><h4>{row.number} · {row.label.replace(/https?:\/\/[^)\s]+/g, "").replace(/[\[\]]/g, "")}</h4><p>{row.note}</p>

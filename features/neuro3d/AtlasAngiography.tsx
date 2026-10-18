@@ -43,7 +43,9 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
     const visible = pickMeshes.filter((mesh) => (!isolate || !selected || selected === mesh.userData.id) &&
       (mesh.userData.id === selected || (layers[mesh.userData.layer] ?? 0) > 0));
     const vessels = visible.filter((mesh) => contrastLayer === "both" ? ["arterial", "venous"].includes(mesh.userData.layer) : mesh.userData.layer === contrastLayer);
-    const hit = ray.intersectObjects(vessels, false)[0] ?? (boneOpacity > 0 ? ray.intersectObjects(visible.filter((mesh) => mesh.userData.layer === "bone"), false)[0] : undefined);
+    const hit = ray.intersectObjects(vessels, false)[0]
+      ?? ray.intersectObjects(visible.filter((mesh) => mesh.userData.id === selected), false)[0]
+      ?? (boneOpacity > 0 ? ray.intersectObjects(visible.filter((mesh) => mesh.userData.layer === "bone"), false)[0] : undefined);
     if (hit) onSelect(hit.object.userData.id);
   }
   useEffect(() => {

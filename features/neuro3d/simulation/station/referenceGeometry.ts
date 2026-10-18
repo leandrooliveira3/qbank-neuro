@@ -6,6 +6,7 @@ import distal from "../../reference-distal-aca.json";
 import metadata from "../../reference-surfaces.json";
 import bodyData from "../../reference-body-access-network.json";
 import bodyPack from "../../reference-body-access.json";
+import craniocervical from "../../reference-craniocervical.json";
 import { morphArchPoint, type ArchProfile } from "./archMorphology";
 import accessData from "../../reference-access-network.json";
 import networkData from "../../reference-network.json";
@@ -21,7 +22,7 @@ const sourceAxes = { ...networkData.originalAxes, ...accessData.originalAxes, ..
 let request: Promise<ReferenceGeometry> | null = null;
 export function loadReferenceGeometry() {
   if (!request) request = (async () => {
-    const supplementaryRequest = Promise.all([distal, landmarks, supraAortic, bodyPack].map(async (pack) => {
+    const supplementaryRequest = Promise.all([distal, landmarks, supraAortic, bodyPack, craniocervical].map(async (pack) => {
       const response = await fetch(`${import.meta.env.BASE_URL}neuro3d/open-anatomy/${pack.file}`);
       if (!response.ok) throw new Error("Não foi possível carregar as superfícies complementares.");
       const bytes = await response.arrayBuffer();
