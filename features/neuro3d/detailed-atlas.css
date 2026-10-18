@@ -57,3 +57,10 @@
 
 .nda-controls>label { display:block; font-size:12px; margin:14px 0; }
 .nda-controls>label select { display:block; width:100%; margin-top:8px; }
+
+.nda-diagram-index>label {display:block;font-size:12px;margin:14px 0}
+.nda-diagram-index>label select {display:block;width:100%;margin-top:7px}
+.nda-diagram-index details {margin:10px 0;padding:8px;border:1px solid #304453;border-radius:6px}
+.nda-diagram-index summary {cursor:pointer;font-size:12px;color:#91c9c0}
+.nda-diagram-index article {content-visibility:auto;contain-intrinsic-size:auto 250px}
+.nda-diagram-index a {font-size:12px;overflow-wrap:anywhere}

@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { openAnatomy } from '../../features/neuro3d/openAnatomy';
 import { reconstructedArteries } from '../../features/neuro3d/reconstructedArteries';
+import { anatomicalInventory } from '../../features/neuro3d/anatomicalInventory';
 test('loads open meshes, selects basilar artery, isolates and clips the same aligned anatomy', async ({page}) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -82,8 +83,13 @@ test('surface atlas transitions to the same angiographic geometry, adds bone and
   await page.getByRole('button',{name:'Superfícies anatômicas 3D',exact:true}).click();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true');
   await page.getByRole('button',{name:'Inventário',exact:true}).click();
-  await expect(page.locator('.nda-review article')).toHaveCount(130);
+  await expect(page.getByTestId('diagram-inventory').locator('article')).toHaveCount(anatomicalInventory.length);
   await expect(page.locator('.nda-review')).toContainText('Sem malha individual identificada');
+  await page.getByLabel('Buscar no diagrama Neuroangio').fill('109');
+  await expect(page.getByTestId('diagram-inventory').locator('article')).toHaveCount(1);
+  await expect(page.getByTestId('diagram-inventory')).toContainText('oftálmica ventral');
+  await expect(page.getByTestId('diagram-inventory').locator('article')).toContainText('Pendente');
+  await page.getByRole('button',{name:'Mostrar todo o índice',exact:true}).click();
   await page.screenshot({path:`test-results/atlas-transition-${test.info().project.name}.png`, fullPage:true});
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   expect(errors).toEqual([]);

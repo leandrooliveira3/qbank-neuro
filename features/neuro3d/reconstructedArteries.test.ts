@@ -5,6 +5,8 @@ import { createStation, networkFor, opacifiedEdges } from "./simulation/station/
 import { referenceContrast } from "./simulation/station/referenceScene";
 import { readFileSync } from "node:fs";
 import metadata from "./reference-surfaces.json";
+import sourceAxes from "./reference-network.json";
+import accessAxes from "./reference-access-network.json";
 import type { ReferenceGeometry } from "./simulation/station/referenceGeometry";
 
 describe("reconstructed educational arterial surfaces", () => {
@@ -47,10 +49,21 @@ describe("reconstructed educational arterial surfaces", () => {
     expect(anatomicalInventory.find((row) => row.number === "arch")?.ids).toEqual(["aortic_arch"]);
   });
   it("retains the full source index and never equates grouped or absent structures with complete geometry", () => {
-    expect(anatomicalInventory).toHaveLength(130);
+    expect(anatomicalInventory).toHaveLength(142);
     expect(anatomicalInventory.find((row) => row.number === "2")?.status).toBe("reconstructed");
-    expect(anatomicalInventory.find((row) => row.number === "109")?.status).toBe("partial");
+    expect(anatomicalInventory.find((row) => row.number === "109")?.status).toBe("missing");
     expect(anatomicalInventory.find((row) => row.number === "19")?.status).toBe("missing");
     expect(anatomicalInventory.find((row) => row.number === "95")?.status).toBe("missing");
+  });
+  it("anchors each root branch to its own carotid and preserves parent-child endpoints", () => {
+    for (const branch of reconstructedArteries) {
+      if (branch.parentId.startsWith("internal_carotid")) {
+        const axis = branch.id.endsWith("_l") ? sourceAxes.originalAxes.internal_carotid_artery_l.points : accessAxes.originalAxes.internal_carotid_artery_r.points;
+        expect(branch.points[0]).toEqual(axis[branch.anchorIndex]);
+      } else {
+        const parent = reconstructedArteries.find(row => row.id === branch.parentId)!;
+        expect(branch.points[0]).toEqual(parent.points.at(-1));
+      }
+    }
   });
 });

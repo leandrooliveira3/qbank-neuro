@@ -7,7 +7,8 @@ import type { OrbitControls as Controls } from "three-stdlib";
 import { initialOpacity, openAnatomy, openAssetUrl, openLayerNames, worldPoint } from "./openAnatomy";
 import { normalize } from "./model";
 import "./detailed-atlas.css";
-import { anatomicalInventory, inventoryStatus } from "./anatomicalInventory";
+import { anatomicalInventory } from "./anatomicalInventory";
+import DiagramInventory from "./DiagramInventory";
 import ReconstructedSurfaces from "./ReconstructedSurfaces";
 import { reconstructedArteries } from "./reconstructedArteries";
 import type { P3 } from "./simulation/station/network";
@@ -19,6 +20,11 @@ import contextAudit from "../../docs/neuro3d-craniocervical-audit.json";
 const landmarkShortcuts = [["aortic_arch", "Arco aórtico"], ["brachiocephalic_trunk", "Tronco braquiocefálico"], ["left_subclavian_artery", "Subclávia esquerda"], ["right_subclavian_artery", "Subclávia direita"], ["inferior_thyroid_artery_l", "Tireoidiana inferior esquerda"], ["inferior_thyroid_artery_r", "Tireoidiana inferior direita"], ["sphenoid_bone", "Esfenoide"], ["temporal_bone_l", "Temporal esquerdo"], ["adenohypophysis", "Adeno-hipófise"], ["neurohypophysis", "Neuro-hipófise"], ["cavernous_sinus_l", "Seio cavernoso esquerdo"], ["cavernous_sinus_r", "Seio cavernoso direito"], ["optic_chiasm_l", "Quiasma óptico"], ["falx_cerebri", "Foice cerebral"], ["tentorium_cerebelli_l", "Tentório esquerdo"]];
 const landmarkAliases: Record<string, string> = Object.fromEntries(landmarkShortcuts);
 const atlasStructures = [...openAnatomy.structures, ...reconstructedArteries];
+const diagramLabelsByStructure = new Map<string, typeof anatomicalInventory>();
+for (const row of anatomicalInventory) for (const id of row.ids) {
+  const labels = diagramLabelsByStructure.get(id) ?? [];
+  labels.push(row); diagramLabelsByStructure.set(id, labels);
+}
 type AtlasStructure = typeof atlasStructures[number];
 type View = "Oblíqua" | "AP" | "Lateral" | "Posterior";
 const colors: Record<string, string> = {
@@ -123,7 +129,14 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     }
     return imageField === "supraaortic" ? [0, -18, 0] : [0, 0, 0];
   }, [imageField, item]);
-  const matches = useMemo(() => atlasStructures.filter((o) => normalize(`${o.name} ${o.latin} ${o.path.join(" ")} ${landmarkAliases[o.id] ?? ""}`).includes(normalize(search))), [search]);
+  const matches = useMemo(() => {
+    const needle = normalize(search.trim());
+    return atlasStructures.filter((o) => {
+      const labels = diagramLabelsByStructure.get(o.id) ?? [];
+      return /^\d+[a-z]?$/.test(needle) ? labels.some((row) => row.number === needle)
+        : normalize(`${o.name} ${o.latin} ${o.path.join(" ")} ${landmarkAliases[o.id] ?? ""} ${labels.map((row) => row.portuguese).join(" ")}`).includes(needle);
+    });
+  }, [search]);
   function restore() {
     setIsolate(false); setOpacity(initialOpacity); setPresentation("vascular");
     setImageMode(false); setAngiographic3D(false); setContrastLayer("arterial"); setYaw(0); setPitch(0); setImageZoom(1); setImageBone(0); setImageField("cranial");
@@ -135,7 +148,8 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
       <div className="nda-actions"><button onClick={restore}>Restaurar visão</button>
       <button aria-pressed={expanded} onClick={() => setExpanded((value) => !value)}>{expanded ? "Reduzir área 3D" : "Ampliar área 3D"}</button></div>
     </header>
-    {item && <div className="nda-selection" data-testid="atlas-selection" data-selected-id={item.id} role="status"><div><strong>{item.name}</strong><small>{openLayerNames[item.layer]} · seleção mantida até escolher outra estrutura ou limpar</small></div><button onClick={() => { setReset((n) => n + 1); setImageField("selection"); }}>Focar seleção</button><button aria-pressed={isolate} onClick={() => setIsolate((value) => !value)}>Isolar seleção</button><button onClick={() => { setSelected(null); setIsolate(false); }}>Limpar seleção</button></div>}
+    {item && <div className="nda-selection" data-testid="atlas-selection" data-selected-id={item.id} role="status"><div><strong>{item.name}</strong><small>{openLayerNames[item.layer]} · seleção mantida até escolher outra estrutura ou limpar</small>
+      {anatomicalInventory.some((row) => row.ids.includes(item.id)) && <small data-testid="selected-diagram-numbers">Neuroangio: {anatomicalInventory.filter((row) => row.ids.includes(item.id)).map((row) => `${row.number} (${row.status === "partial" ? "parcial" : "identificado"})`).join(" · ")}</small>}</div><button onClick={() => { setReset((n) => n + 1); setImageField("selection"); }}>Focar seleção</button><button aria-pressed={isolate} onClick={() => setIsolate((value) => !value)}>Isolar seleção</button><button onClick={() => { setSelected(null); setIsolate(false); }}>Limpar seleção</button></div>}
     <div className="nda-workspace">
       <div className="nda-stage"><nav className="nda-mode" aria-label="Representação do atlas">
         <button aria-pressed={!imageMode && !angiographic3D} onClick={() => { setImageMode(false); setAngiographic3D(false); }}>Superfícies anatômicas 3D</button>
@@ -202,11 +216,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
           })}
           <details><summary>Elementos sem superfície utilizável na fonte</summary>{contextAudit.excludedCandidates.filter((row) => !["meso_appendix", "mesocolon", "greater_omentum", "lesser_omentum"].includes(row.id)).map((row) => <p key={row.id}>{row.id}: {row.reason === "source-node-missing" ? "rótulo sem nó correspondente no arquivo de origem" : "superfície degenerada na origem"}</p>)}</details>
         </details>
-        <p className="nda-help">{anatomicalInventory.length} entradas, incluindo grupos originais e ramos desdobrados do índice. A lista mantém as pendências visíveis.</p>
-        {Object.entries(inventoryStatus).map(([status, label]) => <small key={status}>{label}: {anatomicalInventory.filter((row) => row.status === status).length}</small>)}
-        {anatomicalInventory.map((row) => <article key={row.key}><span className="nda-review-status">{inventoryStatus[row.status]}</span><h4>{row.number} · {row.label.replace(/https?:\/\/[^)\s]+/g, "").replace(/[\[\]]/g, "")}</h4><p>{row.note}</p>
-          {row.ids.map((id) => <button key={id} onClick={() => { setSelected(id); setPanel("Estruturas"); }}>{atlasStructures.find((structure) => structure.id === id)?.name}</button>)}
-        </article>)}
+        <DiagramInventory onSelect={(id) => { setSelected(id); setPanel("Estruturas"); }} />
       </div>}
       {panel === "Revisão" && <div className="nda-review"><h3>Pequenos ramos e relações finas</h3><p className="nda-help">Inventário dirigido. Presença de uma malha não equivale a validação anatômica.</p>
         {coverageReview.map((review) => <article key={review.name}><span className={`nda-review-status ${review.status}`}>{coverageStatus[review.status]}</span><h4>{review.name}</h4><p>{review.note}</p><small>{review.reference}</small>

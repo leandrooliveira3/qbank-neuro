@@ -1,5 +1,13 @@
 # Estado de revisão da anatomia e angiografia — 18/10/2026
 
+## Revisão vigente: reconciliação dos diagramas
+
+O índice atual tem 142 entradas: 130 da legenda, seis apenas nas figuras e seis referências adicionais. São 49 com malhas identificadas, cinco com reconstruções didáticas, oito parciais, 73 sem geometria e sete com identidade a reconciliar. Não são vasos únicos.
+
+A lista atual completa está em [neuro3d-diagram-review.md](neuro3d-diagram-review.md). Os totais de 130 entradas/65 pendências abaixo pertencem ao checkpoint anterior, antes de corrigir duplicatas, omissões e a identidade de 109.
+
+## Checkpoint anterior
+
 A prioridade confirmada é anatomia e angiografia; a conclusão do simulador fica para depois. O checkpoint funciona nos fluxos de atlas testados, mas não é uma base anatômica completa ou homologada.
 
 ## Inventário obrigatório

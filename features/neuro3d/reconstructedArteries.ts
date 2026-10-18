@@ -1,5 +1,6 @@
 import { CatmullRomCurve3, Vector3 } from "three";
 import axes from "./reference-network.json";
+import accessAxes from "./reference-access-network.json";
 import { vesselSurface } from "./simulation/station/surfaces";
 import type { P3, Vessel } from "./simulation/station/network";
 
@@ -34,13 +35,17 @@ const templates: Template[] = [
 ];
 export const reconstructedArteries = (["l", "r"] as const).flatMap((side) => templates.map((template) => {
   const sign = side === "l" ? 1 : -1;
-  const points = template.points.map(([x, y, z]) => [sign * x, y, z] as P3);
+  const sideAxis = (side === "l" ? axes.originalAxes.internal_carotid_artery_l.points : accessAxes.originalAxes.internal_carotid_artery_r.points) as P3[];
+  const sourceAnchor = sideAxis[template.anchor];
+  const mirroredAnchor = source[template.anchor].map((value, k) => k === 0 ? sign * value : value);
+  const delta = sourceAnchor.map((value, k) => value - mirroredAnchor[k]);
+  const points = template.points.map(([x, y, z]) => [sign * x + delta[0], y + delta[1], z + delta[2]] as P3);
   const id = `${template.id}_${side}`;
   const smooth = new CatmullRomCurve3(points.map((point) => new Vector3(...point)), false, "centripetal").getPoints(96).map((point) => point.toArray() as P3);
   const vessel: Vessel = { id, name: template.name, anatomicalId: id, points: smooth,
     radius: template.radius, children: [], synthetic: true };
   const surface = vesselSurface(vessel, (t) => template.radius * (1 - 0.55 * t), 1, 48, 16);
-  const sourceArc = source.slice(1).map((point, i) => Math.hypot(...point.map((value, k) => value - source[i][k])));
+  const sourceArc = sideAxis.slice(1).map((point, i) => Math.hypot(...point.map((value, k) => value - sideAxis[i][k])));
   const rootFraction = sourceArc.slice(0, template.anchor).reduce((sum, value) => sum + value, 0) / sourceArc.reduce((sum, value) => sum + value, 0);
   const min = [0, 1, 2].map((k) => Math.min(...smooth.map((p) => p[k])) - template.radius);
   const max = [0, 1, 2].map((k) => Math.max(...smooth.map((p) => p[k])) + template.radius);
@@ -50,6 +55,6 @@ export const reconstructedArteries = (["l", "r"] as const).flatMap((side) => tem
     bounds: [toSource(min), toSource(max)], surface, points, parentId: `${template.parent}_${side}`,
     rootId: `internal_carotid_artery_${side}`, anchorIndex: template.anchor, rootFraction,
     reference: template.reference, status: "reconstructed-unvalidated" as const,
-    note: "Trajeto e calibre ilustrativos, ancorados na ACI da base. Simetria bilateral construída; relações finas e óstios não validados. Não navegável por instrumentos.",
+    note: "Trajeto e calibre ilustrativos, com âncora numérica na ACI de cada lado. Modelo de ramo espelhado e transladado à âncora; relações finas, óstios e arcadas completas não validados. Não navegável por instrumentos.",
   };
 }));

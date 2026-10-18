@@ -1,0 +1,3181 @@
+{
+  "reviewedAt": "2026-10-18",
+  "sourceUrl": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+  "counts": {
+    "imported": 49,
+    "reconstructed": 5,
+    "partial": 8,
+    "missing": 73,
+    "unresolved": 7
+  },
+  "relationCount": 34,
+  "geometryReview": "Identity and conceptual network audit; specialist geometric and interactive-browser validation pending.",
+  "entries": [
+    {
+      "key": "na-1",
+      "number": "1",
+      "label": "Carótida interna",
+      "portuguese": "Carótida interna",
+      "targets": [
+        "internal_carotid_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "internal_carotid_artery_l",
+        "internal_carotid_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-2",
+      "number": "2",
+      "label": "Tronco meningohipofisário",
+      "portuguese": "Tronco meningohipofisário",
+      "targets": [
+        "meningohypophyseal_trunk"
+      ],
+      "parent": "1",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "status": "reconstructed",
+      "ids": [
+        "meningohypophyseal_trunk_l",
+        "meningohypophyseal_trunk_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-3",
+      "number": "3",
+      "label": "Tronco inferolateral",
+      "portuguese": "Tronco inferolateral",
+      "targets": [
+        "inferolateral_trunk"
+      ],
+      "parent": "1",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "status": "reconstructed",
+      "ids": [
+        "inferolateral_trunk_l",
+        "inferolateral_trunk_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-5",
+      "number": "5",
+      "label": "Artéria oftálmica",
+      "portuguese": "Artéria oftálmica",
+      "targets": [
+        "ophthalmic_artery"
+      ],
+      "parent": "1",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "ophthalmic_artery_l",
+        "ophthalmic_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-6",
+      "number": "6",
+      "label": "Alça intraorbitária da oftálmica",
+      "portuguese": "Alça intraorbitária da oftálmica",
+      "targets": [],
+      "parent": "5",
+      "kind": "segment",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-7",
+      "number": "7",
+      "label": "Oftálmica intraorbitária distal",
+      "portuguese": "Oftálmica intraorbitária distal",
+      "targets": [],
+      "parent": "5",
+      "kind": "segment",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-8",
+      "number": "8",
+      "label": "Artérias etmoidais, grupo anterior e posterior",
+      "portuguese": "Artérias etmoidais, grupo anterior e posterior",
+      "targets": [
+        "anterior_ethmoidal_artery",
+        "posterior_ethmoidal_artery"
+      ],
+      "parent": "5",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "O grupo etmoidal inclui 66 e 67; as entradas não representam vasos adicionais.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "status": "imported",
+      "ids": [
+        "anterior_ethmoidal_artery_l",
+        "anterior_ethmoidal_artery_r",
+        "posterior_ethmoidal_artery_l",
+        "posterior_ethmoidal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-9",
+      "number": "9",
+      "label": "Meníngea anterior e falcina anterior",
+      "portuguese": "Meníngea anterior e falcina anterior",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-10",
+      "number": "10",
+      "label": "Ciliares posteriores curtas",
+      "portuguese": "Ciliares posteriores curtas",
+      "targets": [
+        "short_posterior_ciliary_arteries"
+      ],
+      "parent": "5",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "short_posterior_ciliary_arteries_l",
+        "short_posterior_ciliary_arteries_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-11",
+      "number": "11",
+      "label": "Ciliares posteriores longas",
+      "portuguese": "Ciliares posteriores longas",
+      "targets": [
+        "long_posterior_ciliary_arteries"
+      ],
+      "parent": "5",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "long_posterior_ciliary_arteries_l",
+        "long_posterior_ciliary_arteries_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-12",
+      "number": "12",
+      "label": "Artéria central da retina",
+      "portuguese": "Artéria central da retina",
+      "targets": [
+        "central_retinal_artery"
+      ],
+      "parent": "5",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "central_retinal_artery_l",
+        "central_retinal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-12a",
+      "number": "12a",
+      "label": "Ramos colaterais para o nervo óptico",
+      "portuguese": "Ramos colaterais para o nervo óptico",
+      "targets": [],
+      "parent": "5",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Ramos ARTERIAIS para o nervo óptico; não são a malha do nervo nem a artéria central da retina.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-13",
+      "number": "13",
+      "label": "Artéria lacrimal",
+      "portuguese": "Artéria lacrimal",
+      "targets": [
+        "lacrimal_artery"
+      ],
+      "parent": "5",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "lacrimal_artery_l",
+        "lacrimal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-14",
+      "number": "14",
+      "label": "Artéria hipofisária inferior",
+      "portuguese": "Artéria hipofisária inferior",
+      "targets": [
+        "inferior_hypophyseal_artery"
+      ],
+      "parent": "2",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "status": "reconstructed",
+      "ids": [
+        "inferior_hypophyseal_artery_l",
+        "inferior_hypophyseal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-14a",
+      "number": "14a",
+      "label": "Artérias hipofisárias superiores",
+      "portuguese": "Artérias hipofisárias superiores",
+      "targets": [],
+      "parent": "1",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-14b",
+      "number": "14b",
+      "label": "Artérias capsulares de McConnell",
+      "portuguese": "Artérias capsulares de McConnell",
+      "targets": [],
+      "parent": "1",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Grupo capsular selar distinto das hipofisárias; hipófise não equivale a malha arterial.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-15",
+      "number": "15",
+      "label": "Conexões arteriais intercavernosas",
+      "portuguese": "Conexões arteriais intercavernosas",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Conexão ARTERIAL intercavernosa, não o seio intercavernoso venoso.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-16",
+      "number": "16",
+      "label": "Arcada tentorial lateral, borda petrosa",
+      "portuguese": "Arcada tentorial lateral, borda petrosa",
+      "targets": [],
+      "parent": "2",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Arcada arterial petrosa distinta da tentorial marginal e do seio petroso superior.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-17",
+      "number": "17",
+      "label": "Tentorial marginal, Bernasconi-Cassinari",
+      "portuguese": "Tentorial marginal, Bernasconi-Cassinari",
+      "targets": [
+        "marginal_tentorial_artery"
+      ],
+      "parent": "2",
+      "kind": "arterial-network",
+      "partial": true,
+      "sourceEvidence": "legend",
+      "note": "Há reconstrução de um ramo marginal. A arcada e as conexões MHT–ILT permanecem incompletas.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "status": "partial",
+      "ids": [
+        "marginal_tentorial_artery_l",
+        "marginal_tentorial_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-18",
+      "number": "18",
+      "label": "Arcada clival medial",
+      "portuguese": "Arcada clival medial",
+      "targets": [
+        "medial_clival_branch"
+      ],
+      "parent": "2",
+      "kind": "arterial-network",
+      "partial": true,
+      "sourceEvidence": "legend",
+      "note": "Há reconstrução de um ramo clival medial; faltam a arcada bilateral e a conexão com a divisão hipoglossal da APA.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "status": "partial",
+      "ids": [
+        "medial_clival_branch_l",
+        "medial_clival_branch_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-19",
+      "number": "19",
+      "label": "Arcada clival lateral",
+      "portuguese": "Arcada clival lateral",
+      "targets": [],
+      "parent": "2",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-20",
+      "number": "20",
+      "label": "Ramo hipoglossal para a arcada odontoidea",
+      "portuguese": "Ramo hipoglossal para a arcada odontoidea",
+      "targets": [],
+      "parent": "22",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-21",
+      "number": "21",
+      "label": "Arcada odontoidea epidural ventral",
+      "portuguese": "Arcada odontoidea epidural ventral",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-22",
+      "number": "22",
+      "label": "Divisão hipoglossal da faríngea ascendente",
+      "portuguese": "Divisão hipoglossal da faríngea ascendente",
+      "targets": [],
+      "parent": "47",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-23a",
+      "number": "23a",
+      "label": "Divisão jugular da faríngea ascendente",
+      "portuguese": "Divisão jugular da faríngea ascendente",
+      "targets": [],
+      "parent": "47",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-23b",
+      "number": "23b",
+      "label": "Ramo jugular da occipital",
+      "portuguese": "Ramo jugular da occipital",
+      "targets": [],
+      "parent": "29",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-24",
+      "number": "24",
+      "label": "Meníngea posterior e ramos tentoriais",
+      "portuguese": "Meníngea posterior e ramos tentoriais",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-25",
+      "number": "25",
+      "label": "Arcada arterial do seio sigmoide",
+      "portuguese": "Arcada arterial do seio sigmoide",
+      "targets": [],
+      "parent": "24",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-26",
+      "number": "26",
+      "label": "Arcada arterial do seio transverso",
+      "portuguese": "Arcada arterial do seio transverso",
+      "targets": [],
+      "parent": "24",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-26a",
+      "number": "26a",
+      "label": "Artéria do seio reto",
+      "portuguese": "Artéria do seio reto",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-27",
+      "number": "27",
+      "label": "Arcada arterial do seio sagital superior",
+      "portuguese": "Arcada arterial do seio sagital superior",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-28",
+      "number": "28",
+      "label": "Ramo transmastóideo da occipital",
+      "portuguese": "Ramo transmastóideo da occipital",
+      "targets": [],
+      "parent": "29",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-29",
+      "number": "29",
+      "label": "Artéria occipital",
+      "portuguese": "Artéria occipital",
+      "targets": [
+        "occipital_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "occipital_artery_l",
+        "occipital_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-30",
+      "number": "30",
+      "label": "Timpânica inferior da faríngea ascendente",
+      "portuguese": "Timpânica inferior da faríngea ascendente",
+      "targets": [],
+      "parent": "47",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-31",
+      "number": "31",
+      "label": "Ramo caroticotimpânico",
+      "portuguese": "Ramo caroticotimpânico",
+      "targets": [],
+      "parent": "1",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-32",
+      "number": "32",
+      "label": "Artéria estilomastóidea",
+      "portuguese": "Artéria estilomastóidea",
+      "targets": [],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Origem variável occipital ou auricular posterior; integra a arcada facial com 33.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-33",
+      "number": "33",
+      "label": "Ramo petroso da meníngea média",
+      "portuguese": "Ramo petroso da meníngea média",
+      "targets": [],
+      "parent": "39",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-34",
+      "number": "34",
+      "label": "Ramo do forame lacerado da faríngea ascendente",
+      "portuguese": "Ramo do forame lacerado da faríngea ascendente",
+      "targets": [],
+      "parent": "47",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-35",
+      "number": "35",
+      "label": "Conexão cavernosa AMM–ILT pelo forame espinhoso",
+      "portuguese": "Conexão cavernosa AMM–ILT pelo forame espinhoso",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Cavernoso da AMM e espinhoso do ILT nomeiam extremidades da mesma conexão, não redes independentes.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-36",
+      "number": "36",
+      "label": "Ramo do forame oval do ILT",
+      "portuguese": "Ramo do forame oval do ILT",
+      "targets": [
+        "foramen_ovale_branch"
+      ],
+      "parent": "3",
+      "kind": "arterial-network",
+      "partial": true,
+      "sourceEvidence": "legend",
+      "note": "A reconstrução representa apenas a extremidade ILT. Falta a conexão com a meníngea acessória pelo oval.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "status": "partial",
+      "ids": [
+        "foramen_ovale_branch_l",
+        "foramen_ovale_branch_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-37",
+      "number": "37",
+      "label": "Artéria do forame redondo, ILT–maxilar",
+      "portuguese": "Artéria do forame redondo, ILT–maxilar",
+      "targets": [
+        "foramen_rotundum_branch"
+      ],
+      "parent": "3",
+      "kind": "arterial-network",
+      "partial": true,
+      "sourceEvidence": "legend",
+      "note": "A reconstrução representa apenas a extremidade ILT. Faltam a contribuição maxilar e a conexão completa pelo redondo.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "status": "partial",
+      "ids": [
+        "foramen_rotundum_branch_l",
+        "foramen_rotundum_branch_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-37a",
+      "number": "37a",
+      "label": "Artéria da fissura orbital superior",
+      "portuguese": "Artéria da fissura orbital superior",
+      "targets": [],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-38",
+      "number": "38",
+      "label": "Ramo anteromedial do ILT, remanescente oftálmico dorsal",
+      "portuguese": "Ramo anteromedial do ILT, remanescente oftálmico dorsal",
+      "targets": [
+        "anteromedial_ilt_branch"
+      ],
+      "parent": "3",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Remanescente oftálmico dorsal segundo esta fonte, distinto da oftálmica ventral 109.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "status": "reconstructed",
+      "ids": [
+        "anteromedial_ilt_branch_l",
+        "anteromedial_ilt_branch_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-39",
+      "number": "39",
+      "label": "Artéria meníngea média",
+      "portuguese": "Artéria meníngea média",
+      "targets": [
+        "middle_meningeal_artery"
+      ],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "middle_meningeal_artery_l",
+        "middle_meningeal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-40",
+      "number": "40",
+      "label": "Ramo da crista esfenoidal",
+      "portuguese": "Ramo da crista esfenoidal",
+      "targets": [],
+      "parent": "39",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-41",
+      "number": "41",
+      "label": "Ramo meníngeo recorrente profundo",
+      "portuguese": "Ramo meníngeo recorrente profundo",
+      "targets": [],
+      "parent": "5",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-42",
+      "number": "42",
+      "label": "Arcada tentorial clinoidea",
+      "portuguese": "Arcada tentorial clinoidea",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "A legenda atual especifica arcada clinoide-tentorial, corrigindo o índice antigo inespecífico.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-43",
+      "number": "43",
+      "label": "Ramo posterior do ILT",
+      "portuguese": "Ramo posterior do ILT",
+      "targets": [],
+      "parent": "3",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Ramo posterior do ILT na legenda atual; a descrição antiga de ramo clival foi corrigida.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-44",
+      "number": "44",
+      "label": "Ramo frontal ou anterior da meníngea média",
+      "portuguese": "Ramo frontal ou anterior da meníngea média",
+      "targets": [],
+      "parent": "39",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-45",
+      "number": "45",
+      "label": "Ramo parietal ou posterior da meníngea média",
+      "portuguese": "Ramo parietal ou posterior da meníngea média",
+      "targets": [],
+      "parent": "39",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-46",
+      "number": "46",
+      "label": "Ramo petrosquamoso da meníngea média",
+      "portuguese": "Ramo petrosquamoso da meníngea média",
+      "targets": [],
+      "parent": "39",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-47",
+      "number": "47",
+      "label": "Artéria faríngea ascendente",
+      "portuguese": "Artéria faríngea ascendente",
+      "targets": [
+        "ascending_pharyngeal_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "ascending_pharyngeal_artery_l",
+        "ascending_pharyngeal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-48",
+      "number": "48",
+      "label": "Tronco faríngeo da faríngea ascendente",
+      "portuguese": "Tronco faríngeo da faríngea ascendente",
+      "targets": [],
+      "parent": "47",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-49",
+      "number": "49",
+      "label": "Divisão inferior do tronco faríngeo",
+      "portuguese": "Divisão inferior do tronco faríngeo",
+      "targets": [],
+      "parent": "48",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-50",
+      "number": "50",
+      "label": "Divisão média do tronco faríngeo",
+      "portuguese": "Divisão média do tronco faríngeo",
+      "targets": [],
+      "parent": "48",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-51",
+      "number": "51",
+      "label": "Divisão superior do tronco faríngeo",
+      "portuguese": "Divisão superior do tronco faríngeo",
+      "targets": [],
+      "parent": "48",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-52",
+      "number": "52",
+      "label": "Artéria vidiana e canal pterigoideo",
+      "portuguese": "Artéria vidiana e canal pterigoideo",
+      "targets": [
+        "artery_of_pterygoid_canal"
+      ],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "artery_of_pterygoid_canal_l",
+        "artery_of_pterygoid_canal_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-53",
+      "number": "53",
+      "label": "Artéria pterigovaginal",
+      "portuguese": "Artéria pterigovaginal",
+      "targets": [],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-53a",
+      "number": "53a",
+      "label": "Artéria meníngea acessória",
+      "portuguese": "Artéria meníngea acessória",
+      "targets": [],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-54",
+      "number": "54",
+      "label": "Ramo cutâneo ou tubário da meníngea acessória",
+      "portuguese": "Ramo cutâneo ou tubário da meníngea acessória",
+      "targets": [],
+      "parent": "53a",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-55",
+      "number": "55",
+      "label": "Artéria maxilar",
+      "portuguese": "Artéria maxilar",
+      "targets": [
+        "maxillary_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": true,
+      "sourceEvidence": "legend",
+      "note": "A malha maxilar está presente, mas suas subdivisões angiográficas precisam de conferência.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "partial",
+      "ids": [
+        "maxillary_artery_l",
+        "maxillary_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-56",
+      "number": "56",
+      "label": "Artéria temporal profunda anterior",
+      "portuguese": "Artéria temporal profunda anterior",
+      "targets": [
+        "anterior_deep_temporal_artery"
+      ],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "anterior_deep_temporal_artery_l",
+        "anterior_deep_temporal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-57",
+      "number": "57",
+      "label": "Artéria temporal profunda posterior",
+      "portuguese": "Artéria temporal profunda posterior",
+      "targets": [
+        "posterior_deep_temporal_artery"
+      ],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "posterior_deep_temporal_artery_l",
+        "posterior_deep_temporal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-58",
+      "number": "58",
+      "label": "Artéria temporal profunda média",
+      "portuguese": "Artéria temporal profunda média",
+      "targets": [],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-59",
+      "number": "59",
+      "label": "Artéria alveolar superior anterior",
+      "portuguese": "Artéria alveolar superior anterior",
+      "targets": [],
+      "parent": "81",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-60",
+      "number": "60",
+      "label": "Ramos nasais laterais da esfenopalatina",
+      "portuguese": "Ramos nasais laterais da esfenopalatina",
+      "targets": [
+        "posterior_lateral_nasal_branches_of_sphenopalatine_artery"
+      ],
+      "parent": "55",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "posterior_lateral_nasal_branches_of_sphenopalatine_artery_l",
+        "posterior_lateral_nasal_branches_of_sphenopalatine_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-61",
+      "number": "61",
+      "label": "Ramos para a concha nasal inferior",
+      "portuguese": "Ramos para a concha nasal inferior",
+      "targets": [],
+      "parent": "60",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-62",
+      "number": "62",
+      "label": "Ramos para a concha nasal média",
+      "portuguese": "Ramos para a concha nasal média",
+      "targets": [],
+      "parent": "60",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-62a",
+      "number": "62a",
+      "label": "Ramos para a concha nasal superior",
+      "portuguese": "Ramos para a concha nasal superior",
+      "targets": [],
+      "parent": "60",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-63",
+      "number": "63",
+      "label": "Ramo medial ou septal da esfenopalatina",
+      "portuguese": "Ramo medial ou septal da esfenopalatina",
+      "targets": [
+        "posterior_septal_branches_of_sphenopalatine_artery"
+      ],
+      "parent": "55",
+      "kind": "arterial-network",
+      "partial": true,
+      "sourceEvidence": "legend",
+      "note": "Apenas a contribuição septal esfenopalatina foi mapeada. Etmoidais 66/67 têm outra origem e se conectam à rede; não são sinônimos deste ramo.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "partial",
+      "ids": [
+        "posterior_septal_branches_of_sphenopalatine_artery_l",
+        "posterior_septal_branches_of_sphenopalatine_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-64",
+      "number": "64",
+      "label": "Sistema septal nasal posterior",
+      "portuguese": "Sistema septal nasal posterior",
+      "targets": [
+        "posterior_septal_branches_of_sphenopalatine_artery"
+      ],
+      "parent": "63",
+      "kind": "territory",
+      "partial": true,
+      "sourceEvidence": "legend",
+      "note": "Uma malha de ramo septal não representa todo o sistema septal posterior.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "partial",
+      "ids": [
+        "posterior_septal_branches_of_sphenopalatine_artery_l",
+        "posterior_septal_branches_of_sphenopalatine_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-65",
+      "number": "65",
+      "label": "Sistema septal nasal anterior",
+      "portuguese": "Sistema septal nasal anterior",
+      "targets": [],
+      "parent": "",
+      "kind": "territory",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-66",
+      "number": "66",
+      "label": "Artéria etmoidal posterior",
+      "portuguese": "Artéria etmoidal posterior",
+      "targets": [
+        "posterior_ethmoidal_artery"
+      ],
+      "parent": "5",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "status": "imported",
+      "ids": [
+        "posterior_ethmoidal_artery_l",
+        "posterior_ethmoidal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-67",
+      "number": "67",
+      "label": "Artéria etmoidal anterior",
+      "portuguese": "Artéria etmoidal anterior",
+      "targets": [
+        "anterior_ethmoidal_artery"
+      ],
+      "parent": "5",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "status": "imported",
+      "ids": [
+        "anterior_ethmoidal_artery_l",
+        "anterior_ethmoidal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-68",
+      "number": "68",
+      "label": "Artéria palatina descendente",
+      "portuguese": "Artéria palatina descendente",
+      "targets": [
+        "descending_palatine_artery"
+      ],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "descending_palatine_artery_l",
+        "descending_palatine_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-68a",
+      "number": "68a",
+      "label": "Artéria palatina maior",
+      "portuguese": "Artéria palatina maior",
+      "targets": [
+        "greater_palatine_artery"
+      ],
+      "parent": "68",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "greater_palatine_artery_l",
+        "greater_palatine_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-69",
+      "number": "69",
+      "label": "Artéria palatina menor",
+      "portuguese": "Artéria palatina menor",
+      "targets": [],
+      "parent": "68",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-70",
+      "number": "70",
+      "label": "Artéria lingual",
+      "portuguese": "Artéria lingual",
+      "targets": [],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-71",
+      "number": "71",
+      "label": "Artéria submentoniana",
+      "portuguese": "Artéria submentoniana",
+      "targets": [
+        "submental_artery"
+      ],
+      "parent": "73",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "submental_artery_l",
+        "submental_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-72",
+      "number": "72",
+      "label": "Artéria alveolar inferior",
+      "portuguese": "Artéria alveolar inferior",
+      "targets": [
+        "inferior_alveolar_artery"
+      ],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "inferior_alveolar_artery_l",
+        "inferior_alveolar_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-73",
+      "number": "73",
+      "label": "Artéria facial",
+      "portuguese": "Artéria facial",
+      "targets": [
+        "facial_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "facial_artery_l",
+        "facial_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-73a",
+      "number": "73a",
+      "label": "Ramo arterial submandibular",
+      "portuguese": "Ramo arterial submandibular",
+      "targets": [],
+      "parent": "73",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-74",
+      "number": "74",
+      "label": "Artéria palatina ascendente",
+      "portuguese": "Artéria palatina ascendente",
+      "targets": [],
+      "parent": "73",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-75",
+      "number": "75",
+      "label": "Artéria angular",
+      "portuguese": "Artéria angular",
+      "targets": [
+        "angular_artery"
+      ],
+      "parent": "73",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "angular_artery_l",
+        "angular_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-76",
+      "number": "76",
+      "label": "Artéria labial inferior",
+      "portuguese": "Artéria labial inferior",
+      "targets": [
+        "inferior_labial_artery"
+      ],
+      "parent": "73",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "inferior_labial_artery_l",
+        "inferior_labial_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-77",
+      "number": "77",
+      "label": "Artéria labial superior",
+      "portuguese": "Artéria labial superior",
+      "targets": [
+        "superior_labial_artery"
+      ],
+      "parent": "73",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "superior_labial_artery_l",
+        "superior_labial_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-78",
+      "number": "78",
+      "label": "Artéria nasal superficial",
+      "portuguese": "Artéria nasal superficial",
+      "targets": [],
+      "parent": "73",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-79",
+      "number": "79",
+      "label": "Artéria bucal",
+      "portuguese": "Artéria bucal",
+      "targets": [
+        "buccal_artery"
+      ],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "buccal_artery_l",
+        "buccal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-80",
+      "number": "80",
+      "label": "Artéria transversa da face",
+      "portuguese": "Artéria transversa da face",
+      "targets": [
+        "transverse_facial_artery"
+      ],
+      "parent": "85",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "transverse_facial_artery_l",
+        "transverse_facial_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-81",
+      "number": "81",
+      "label": "Artéria infraorbital",
+      "portuguese": "Artéria infraorbital",
+      "targets": [
+        "infra_orbital_artery"
+      ],
+      "parent": "55",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "infra_orbital_artery_l",
+        "infra_orbital_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-82",
+      "number": "82",
+      "label": "Artéria nasal dorsal",
+      "portuguese": "Artéria nasal dorsal",
+      "targets": [],
+      "parent": "5",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-83",
+      "number": "83",
+      "label": "Artéria supratroclear",
+      "portuguese": "Artéria supratroclear",
+      "targets": [
+        "supratrochlear_artery"
+      ],
+      "parent": "5",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "supratrochlear_artery_l",
+        "supratrochlear_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-84",
+      "number": "84",
+      "label": "Artéria supraorbital",
+      "portuguese": "Artéria supraorbital",
+      "targets": [
+        "supra_orbital_artery"
+      ],
+      "parent": "5",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "supra_orbital_artery_l",
+        "supra_orbital_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-85",
+      "number": "85",
+      "label": "Artéria temporal superficial",
+      "portuguese": "Artéria temporal superficial",
+      "targets": [
+        "superficial_temporal_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "superficial_temporal_artery_l",
+        "superficial_temporal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-86",
+      "number": "86",
+      "label": "Ramo frontal da temporal superficial",
+      "portuguese": "Ramo frontal da temporal superficial",
+      "targets": [
+        "frontal_branch_of_superficial_temporal_artery"
+      ],
+      "parent": "85",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "frontal_branch_of_superficial_temporal_artery_l",
+        "frontal_branch_of_superficial_temporal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-87",
+      "number": "87",
+      "label": "Ramo parietal da temporal superficial",
+      "portuguese": "Ramo parietal da temporal superficial",
+      "targets": [],
+      "parent": "85",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-88",
+      "number": "88",
+      "label": "Anastomose temporal superficial–meníngea média",
+      "portuguese": "Anastomose temporal superficial–meníngea média",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-89",
+      "number": "89",
+      "label": "Anastomose occipital–meníngea média",
+      "portuguese": "Anastomose occipital–meníngea média",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-90",
+      "number": "90",
+      "label": "Artéria vertebral",
+      "portuguese": "Artéria vertebral",
+      "targets": [
+        "vertebral_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "vertebral_artery_l",
+        "vertebral_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-91",
+      "number": "91",
+      "label": "Artéria espinal anterior",
+      "portuguese": "Artéria espinal anterior",
+      "targets": [
+        "anterior_spinal_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "anterior_spinal_artery_l",
+        "anterior_spinal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-92",
+      "number": "92",
+      "label": "Artéria cerebelar posteroinferior, PICA",
+      "portuguese": "Artéria cerebelar posteroinferior, PICA",
+      "targets": [
+        "posterior_inferior_cerebellar_artery"
+      ],
+      "parent": "90",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "posterior_inferior_cerebellar_artery_l",
+        "posterior_inferior_cerebellar_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-93",
+      "number": "93",
+      "label": "Sistema espinal lateral ou posterior",
+      "portuguese": "Sistema espinal lateral ou posterior",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-94",
+      "number": "94",
+      "label": "Vasocorona e artérias circunferenciais medulares",
+      "portuguese": "Vasocorona e artérias circunferenciais medulares",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Rede pial circunferencial da medula, não artérias coronárias cardíacas.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-95",
+      "number": "95",
+      "label": "Artérias sulcocomissurais",
+      "portuguese": "Artérias sulcocomissurais",
+      "targets": [],
+      "parent": "91",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-96",
+      "number": "96",
+      "label": "Ramo arterial para o nervo hipoglosso",
+      "portuguese": "Ramo arterial para o nervo hipoglosso",
+      "targets": [],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Ramo ARTERIAL para o XII par, não a malha do nervo hipoglosso.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-97",
+      "number": "97",
+      "label": "Ramo musculoespinal com conexões C1–C2",
+      "portuguese": "Ramo musculoespinal com conexões C1–C2",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-98",
+      "number": "98",
+      "label": "Ramo occipital para a raiz C1",
+      "portuguese": "Ramo occipital para a raiz C1",
+      "targets": [],
+      "parent": "29",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-99",
+      "number": "99",
+      "label": "Conexão muscular occipital–vertebral em C1",
+      "portuguese": "Conexão muscular occipital–vertebral em C1",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-100",
+      "number": "100",
+      "label": "Ramo muscular em C2",
+      "portuguese": "Ramo muscular em C2",
+      "targets": [],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-101",
+      "number": "101",
+      "label": "Ramos musculares segmentares",
+      "portuguese": "Ramos musculares segmentares",
+      "targets": [],
+      "parent": "",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-102",
+      "number": "102",
+      "label": "Artéria cervical profunda",
+      "portuguese": "Artéria cervical profunda",
+      "targets": [
+        "deep_cervical_artery"
+      ],
+      "parent": "costocervical",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "deep_cervical_artery_l",
+        "deep_cervical_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-103",
+      "number": "103",
+      "label": "Artéria cervical ascendente",
+      "portuguese": "Artéria cervical ascendente",
+      "targets": [],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Tronco cervical ascendente distinto das anastomoses 104.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-104",
+      "number": "104",
+      "label": "Anastomoses cervical ascendente–vertebral",
+      "portuguese": "Anastomoses cervical ascendente–vertebral",
+      "targets": [],
+      "parent": "",
+      "kind": "arterial-network",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-105-intercostal",
+      "number": "105",
+      "label": "supreme intercostal",
+      "portuguese": "Artéria intercostal suprema",
+      "targets": [
+        "supreme_intercostal_artery"
+      ],
+      "parent": "costocervical",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "supreme_intercostal_artery_l",
+        "supreme_intercostal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-105-thyroid",
+      "number": "105",
+      "label": "inferior thyroid",
+      "portuguese": "Artéria tireoidiana inferior",
+      "targets": [
+        "inferior_thyroid_artery"
+      ],
+      "parent": "thyrocervical",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "inferior_thyroid_artery_l",
+        "inferior_thyroid_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-106",
+      "number": "106",
+      "label": "Artéria tireoidiana superior",
+      "portuguese": "Artéria tireoidiana superior",
+      "targets": [
+        "superior_thyroid_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-107",
+      "number": "107",
+      "label": "Intercostal suprema: legenda repetida, figura discordante",
+      "portuguese": "Intercostal suprema: legenda repetida, figura discordante",
+      "targets": [
+        "supreme_intercostal_artery"
+      ],
+      "parent": "",
+      "kind": "source-conflict",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "A legenda repete intercostal suprema em 105 e 107; na figura 107 está no eixo aórtico torácico. Identidade pendente de reconciliação.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "unresolved",
+      "ids": [],
+      "candidateIds": [
+        "supreme_intercostal_artery_l",
+        "supreme_intercostal_artery_r"
+      ],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-108",
+      "number": "108",
+      "label": "Artéria trigeminal persistente",
+      "portuguese": "Artéria trigeminal persistente",
+      "targets": [],
+      "parent": "",
+      "kind": "variant",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Conexão embrionária persistente, não obrigatória em todo adulto.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-109",
+      "number": "109",
+      "label": "Artéria oftálmica ventral persistente",
+      "portuguese": "Artéria oftálmica ventral persistente",
+      "targets": [],
+      "parent": "",
+      "kind": "variant",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Variante oftálmica ventral: conexão ACA/A1 ou ACI supraclinoidea–órbita. Não representa o conjunto de artérias intracranianas 110–118.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-110",
+      "number": "110",
+      "label": "Artéria cerebral anterior",
+      "portuguese": "Artéria cerebral anterior",
+      "targets": [
+        "anterior_cerebral_artery"
+      ],
+      "parent": "1",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "anterior_cerebral_artery_l",
+        "anterior_cerebral_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-111",
+      "number": "111",
+      "label": "Artéria comunicante posterior",
+      "portuguese": "Artéria comunicante posterior",
+      "targets": [
+        "posterior_communicating_artery"
+      ],
+      "parent": "1",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "posterior_communicating_artery_l",
+        "posterior_communicating_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-112",
+      "number": "112",
+      "label": "Artéria coroidea anterior",
+      "portuguese": "Artéria coroidea anterior",
+      "targets": [
+        "anterior_choroidal_artery"
+      ],
+      "parent": "1",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "reconstructed",
+      "ids": [
+        "anterior_choroidal_artery_l",
+        "anterior_choroidal_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "reconstructed"
+      ]
+    },
+    {
+      "key": "na-113",
+      "number": "113",
+      "label": "Artérias coroideas posteriores, medial e lateral",
+      "portuguese": "Artérias coroideas posteriores, medial e lateral",
+      "targets": [],
+      "parent": "114",
+      "kind": "group",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Grupo medial e lateral. A presença da ACP não preenche essas artérias.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-114",
+      "number": "114",
+      "label": "Artéria cerebral posterior",
+      "portuguese": "Artéria cerebral posterior",
+      "targets": [
+        "posterior_cerebral_artery"
+      ],
+      "parent": "117",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "posterior_cerebral_artery_l",
+        "posterior_cerebral_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-115",
+      "number": "115",
+      "label": "Artéria cerebelar superior",
+      "portuguese": "Artéria cerebelar superior",
+      "targets": [
+        "superior_cerebellar_artery"
+      ],
+      "parent": "117",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "superior_cerebellar_artery_l",
+        "superior_cerebellar_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-116",
+      "number": "116",
+      "label": "Artéria cerebelar anteroinferior, AICA",
+      "portuguese": "Artéria cerebelar anteroinferior, AICA",
+      "targets": [
+        "anterior_inferior_cerebellar_artery"
+      ],
+      "parent": "117",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "anterior_inferior_cerebellar_artery_l",
+        "anterior_inferior_cerebellar_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-116a",
+      "number": "116a",
+      "label": "Artéria labiríntica",
+      "portuguese": "Artéria labiríntica",
+      "targets": [],
+      "parent": "116",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Ramo labiríntico para o canal acústico interno e ouvido interno, distinto de 116b.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/labyrinthine-artery/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-116b",
+      "number": "116b",
+      "label": "Artéria subarqueada",
+      "portuguese": "Artéria subarqueada",
+      "targets": [],
+      "parent": "116",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "Ramo osteodural subarqueado no canal subarqueado/petromastóideo, distinto da labiríntica.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/subarcuate-artery/",
+      "status": "missing",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-117",
+      "number": "117",
+      "label": "Artéria basilar",
+      "portuguese": "Artéria basilar",
+      "targets": [
+        "basilar_artery"
+      ],
+      "parent": "90",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "legend",
+      "note": "",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "basilar_artery"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-118",
+      "number": "118",
+      "label": "Artéria cerebral média, M1 e ramos",
+      "portuguese": "Artéria cerebral média, M1 e ramos",
+      "targets": [
+        "middle_cerebral_artery_m1_segment"
+      ],
+      "parent": "1",
+      "kind": "vessel",
+      "partial": true,
+      "sourceEvidence": "legend",
+      "note": "A malha corresponde apenas a M1; falta a correspondência com a árvore completa da ACM.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "partial",
+      "ids": [
+        "middle_cerebral_artery_m1_segment_l",
+        "middle_cerebral_artery_m1_segment_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "na-figure-4",
+      "number": "4",
+      "label": "figure-only label 4",
+      "portuguese": "Rótulo 4 visível apenas na figura",
+      "targets": [],
+      "parent": "",
+      "kind": "figure-label",
+      "partial": false,
+      "sourceEvidence": "figure-only",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "unresolved",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-figure-26b",
+      "number": "26b",
+      "label": "figure-only label 26b",
+      "portuguese": "Rótulo 26b visível apenas na figura",
+      "targets": [],
+      "parent": "",
+      "kind": "figure-label",
+      "partial": false,
+      "sourceEvidence": "figure-only",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "unresolved",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-figure-70a",
+      "number": "70a",
+      "label": "figure-only label 70a",
+      "portuguese": "Rótulo 70a visível apenas na figura",
+      "targets": [],
+      "parent": "",
+      "kind": "figure-label",
+      "partial": false,
+      "sourceEvidence": "figure-only",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "unresolved",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-figure-74a",
+      "number": "74a",
+      "label": "figure-only label 74a",
+      "portuguese": "Rótulo 74a visível apenas na figura",
+      "targets": [],
+      "parent": "",
+      "kind": "figure-label",
+      "partial": false,
+      "sourceEvidence": "figure-only",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "unresolved",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-figure-114a",
+      "number": "114a",
+      "label": "figure-only label 114a",
+      "portuguese": "Rótulo 114a visível apenas na figura",
+      "targets": [],
+      "parent": "",
+      "kind": "figure-label",
+      "partial": false,
+      "sourceEvidence": "figure-only",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "unresolved",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "na-figure-115a",
+      "number": "115a",
+      "label": "figure-only label 115a",
+      "portuguese": "Rótulo 115a visível apenas na figura",
+      "targets": [],
+      "parent": "",
+      "kind": "figure-label",
+      "partial": false,
+      "sourceEvidence": "figure-only",
+      "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "unresolved",
+      "ids": [],
+      "candidateIds": [],
+      "geometryKinds": []
+    },
+    {
+      "key": "supp-arch",
+      "number": "arch",
+      "label": "Arco aórtico",
+      "portuguese": "Arco aórtico",
+      "targets": [
+        "aortic_arch"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "supplemental-context",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "aortic_arch"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "supp-brachiocephalic",
+      "number": "brachiocephalic",
+      "label": "Tronco braquiocefálico",
+      "portuguese": "Tronco braquiocefálico",
+      "targets": [
+        "brachiocephalic_trunk"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "supplemental-context",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "brachiocephalic_trunk"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "supp-subclavian",
+      "number": "subclavian",
+      "label": "Artérias subclávias",
+      "portuguese": "Artérias subclávias",
+      "targets": [
+        "right_subclavian_artery",
+        "left_subclavian_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "supplemental-context",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "right_subclavian_artery",
+        "left_subclavian_artery"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "supp-thyrocervical",
+      "number": "thyrocervical",
+      "label": "Troncos tireocervicais",
+      "portuguese": "Troncos tireocervicais",
+      "targets": [
+        "thyrocervical_trunk"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "supplemental-context",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "thyrocervical_trunk_l",
+        "thyrocervical_trunk_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "supp-costocervical",
+      "number": "costocervical",
+      "label": "Troncos costocervicais",
+      "portuguese": "Troncos costocervicais",
+      "targets": [
+        "costocervical_trunk"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "supplemental-context",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "costocervical_trunk_l",
+        "costocervical_trunk_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    },
+    {
+      "key": "supp-transverse-cervical",
+      "number": "transverse-cervical",
+      "label": "Artérias cervicais transversas",
+      "portuguese": "Artérias cervicais transversas",
+      "targets": [
+        "transverse_cervical_artery"
+      ],
+      "parent": "",
+      "kind": "vessel",
+      "partial": false,
+      "sourceEvidence": "supplemental-context",
+      "note": "Contexto supra-aórtico adicional, sem número próprio na legenda.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "status": "imported",
+      "ids": [
+        "transverse_cervical_artery_l",
+        "transverse_cervical_artery_r"
+      ],
+      "candidateIds": [],
+      "geometryKinds": [
+        "imported"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "fromNumber": "14",
+      "toNumber": "15",
+      "kind": "anastomosis",
+      "note": "Conexões hipofisárias e intercavernosas entre os lados.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "18",
+      "toNumber": "22",
+      "kind": "anastomosis",
+      "note": "Arcada clival medial: MHT e divisão hipoglossal da APA.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "19",
+      "toNumber": "23a",
+      "kind": "anastomosis",
+      "note": "Arcada clival lateral: MHT e divisão jugular da APA.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "17",
+      "toNumber": "42",
+      "kind": "anastomosis",
+      "note": "Continuidade marginal tentorial com a arcada clinoidea.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "42",
+      "toNumber": "43",
+      "kind": "anastomosis",
+      "note": "Continuidade clinoidea com o ramo posterior do ILT.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "38",
+      "toNumber": "41",
+      "kind": "anastomosis",
+      "note": "Rede anteromedial ILT–meníngea recorrente oftálmica.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "35",
+      "toNumber": "39",
+      "kind": "anastomosis",
+      "note": "Extremidade meníngea média da conexão cavernosa/espinhosa.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "35",
+      "toNumber": "3",
+      "kind": "anastomosis",
+      "note": "Extremidade ILT da conexão cavernosa/espinhosa.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "36",
+      "toNumber": "53a",
+      "kind": "anastomosis",
+      "note": "Conexão ILT–meníngea acessória pelo forame oval.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "37",
+      "toNumber": "55",
+      "kind": "anastomosis",
+      "note": "Conexão ILT–maxilar pelo forame redondo.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "30",
+      "toNumber": "31",
+      "kind": "anastomosis",
+      "note": "Via timpânica inferior–caroticotimpânica.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "32",
+      "toNumber": "33",
+      "kind": "anastomosis",
+      "note": "Componentes estilomastóideo e petroso da arcada facial.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "56",
+      "toNumber": "13",
+      "kind": "anastomosis",
+      "note": "Conexões temporais profundas–lacrimais.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "63",
+      "toNumber": "66",
+      "kind": "anastomosis",
+      "note": "Rede septal esfenopalatina–etmoidal posterior.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "63",
+      "toNumber": "67",
+      "kind": "anastomosis",
+      "note": "Rede septal esfenopalatina–etmoidal anterior.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "67",
+      "toNumber": "9",
+      "kind": "anastomosis",
+      "note": "Continuidade etmoidal–meníngea anterior.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "75",
+      "toNumber": "82",
+      "kind": "anastomosis",
+      "note": "Conexão angular–nasal dorsal orbitonasal.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "88",
+      "toNumber": "85",
+      "kind": "anastomosis",
+      "note": "Extremidade temporal superficial da anastomose STA–MMA.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "88",
+      "toNumber": "39",
+      "kind": "anastomosis",
+      "note": "Extremidade meníngea média da anastomose STA–MMA.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "89",
+      "toNumber": "29",
+      "kind": "anastomosis",
+      "note": "Extremidade occipital da anastomose OA–MMA.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "89",
+      "toNumber": "39",
+      "kind": "anastomosis",
+      "note": "Extremidade meníngea média da anastomose OA–MMA.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "20",
+      "toNumber": "21",
+      "kind": "anastomosis",
+      "note": "Via hipoglossal à arcada odontoidea.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "99",
+      "toNumber": "29",
+      "kind": "anastomosis",
+      "note": "Extremidade occipital da conexão muscular C1.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "99",
+      "toNumber": "90",
+      "kind": "anastomosis",
+      "note": "Extremidade vertebral da conexão muscular C1.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "104",
+      "toNumber": "103",
+      "kind": "anastomosis",
+      "note": "Extremidade cervical ascendente da rede anastomótica.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "104",
+      "toNumber": "90",
+      "kind": "anastomosis",
+      "note": "Extremidade vertebral da rede anastomótica cervical.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "94",
+      "toNumber": "91",
+      "kind": "anastomosis",
+      "note": "Vasocorona e sistema espinal anterior.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "94",
+      "toNumber": "93",
+      "kind": "anastomosis",
+      "note": "Vasocorona e sistema espinal posterior/lateral.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "108",
+      "toNumber": "1",
+      "kind": "variant-connection",
+      "note": "Conexão embrionária persistente carotídeo-vertebrobasilar; não obrigatória.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "108",
+      "toNumber": "117",
+      "kind": "variant-connection",
+      "note": "A conexão pode envolver basilar ou território cerebelar; não impor padrão único.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "109",
+      "toNumber": "110",
+      "kind": "variant-connection",
+      "note": "Origem ACA/A1 ou ACI supraclinoidea, conforme a variante.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "109",
+      "toNumber": "5",
+      "kind": "variant-connection",
+      "note": "Conexão persistente com o sistema oftálmico intraorbitário.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "8",
+      "toNumber": "66",
+      "kind": "group-member",
+      "note": "Etmoidal posterior é membro do grupo, não um vaso extra.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    },
+    {
+      "fromNumber": "8",
+      "toNumber": "67",
+      "kind": "group-member",
+      "note": "Etmoidal anterior é membro do grupo, não um vaso extra.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/ethmoidal-arteries/",
+      "geometryStatus": "not-validated",
+      "flowModel": false
+    }
+  ]
+}
