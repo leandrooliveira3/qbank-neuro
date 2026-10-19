@@ -2,9 +2,9 @@
   "reviewedAt": "2026-10-19",
   "sourceUrl": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
   "counts": {
-    "imported": 46,
+    "imported": 45,
     "reconstructed": 5,
-    "partial": 11,
+    "partial": 12,
     "missing": 73,
     "unresolved": 7
   },
@@ -2082,20 +2082,26 @@
       "label": "Artéria alveolar inferior",
       "portuguese": "Artéria alveolar inferior",
       "targets": [
-        "inferior_alveolar_artery"
+        "inferior_alveolar_artery",
+        "mental_branch_of_inferior_alveolar_artery",
+        "mylohyoid_branch_of_inferior_alveolar_artery"
       ],
       "parent": "55",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
+      "note": "Artéria alveolar inferior e ramos mentual e milo-hióideo bilaterais identificados pelos rótulos da fonte. Cobertura parcial da árvore, sem homologação da continuidade ou do trajeto pelo canal mandibular. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
       "ids": [
         "inferior_alveolar_artery_l",
-        "inferior_alveolar_artery_r"
+        "inferior_alveolar_artery_r",
+        "mental_branch_of_inferior_alveolar_artery_l",
+        "mental_branch_of_inferior_alveolar_artery_r",
+        "mylohyoid_branch_of_inferior_alveolar_artery_l",
+        "mylohyoid_branch_of_inferior_alveolar_artery_r"
       ],
       "candidateIds": [],
-      "status": "imported",
+      "status": "partial",
       "geometryKinds": [
         "imported"
       ],

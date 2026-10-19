@@ -2,13 +2,15 @@
 
 ## Revisão vigente: reconciliação dos diagramas
 
-O índice atual tem 142 entradas: 130 da legenda, seis apenas nas figuras e seis referências adicionais. São 46 com malhas identificadas, cinco com reconstruções didáticas, 11 parciais, 73 sem geometria e sete com identidade a reconciliar. Não são vasos únicos.
+O índice atual tem 142 entradas: 130 da legenda, seis apenas nas figuras e seis referências adicionais. São 45 com malhas identificadas, cinco com reconstruções didáticas, 12 parciais, 73 sem geometria e sete com identidade a reconciliar. Não são vasos únicos.
 
 A lista atual completa está em [neuro3d-diagram-review.md](neuro3d-diagram-review.md). Os totais de 130 entradas/65 pendências abaixo pertencem ao checkpoint anterior, antes de corrigir duplicatas, omissões e a identidade de 109.
 
 A recuperação posterior de nós omitidos pelo manifesto acrescentou 28 malhas reais da fonte, elevando o atlas a 1114 estruturas importadas. O item 118 agora referencia 34 malhas. Detalhes em [neuro3d-unindexed-vessels.md](neuro3d-unindexed-vessels.md).
 
 A revisão de 19/10 corrigiu o item 57 para a alveolar superior posterior e incluiu 12 associações adicionais aos sistemas ACA/basilar. Os itens 110 e 117 passaram a parciais; nenhuma malha foi retirada. Na continuação, corrigiu-se o nome do item 58 para alveolar superior média e acrescentaram-se seis associações ao item 114 (ACP), também parcial. Estado atual e pendências são gerados do mesmo inventário do aplicativo.
+
+Os controles foram revistos para seleção sem rotação automática, ocultação efetiva e exclusão de contexto na seleção vascular. A angiografia 2D/3D compartilha pose/campo. O item 72 inclui ramos mentual e milo-hióideo já importados. Ver [controles e integração](neuro3d-interaction-and-linked-angiography.md) e [avaliação VMTK](neuro3d-vmtk4aneurysms.md).
 
 ## Checkpoint anterior
 

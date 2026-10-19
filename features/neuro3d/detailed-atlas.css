@@ -64,3 +64,9 @@
 .nda-diagram-index summary {cursor:pointer;font-size:12px;color:#91c9c0}
 .nda-diagram-index article {content-visibility:auto;contain-intrinsic-size:auto 250px}
 .nda-diagram-index a {font-size:12px;overflow-wrap:anywhere}
+
+.nda-interaction {display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px;background:#142633;border:1px solid #304453;border-radius:8px;margin-bottom:10px}
+.nda-interaction [role=group] {display:flex;gap:4px}.nda-interaction button {min-height:40px;padding:8px 12px}.nda-interaction button[aria-pressed=true] {background:#205750;border-color:#70d0bc;color:#d6fff3}.nda-interaction label {font-size:12px;display:flex;align-items:center;gap:6px}.nda-interaction p {flex-basis:100%;font-size:12px;color:#b9cbd7;margin:2px 0;line-height:1.5}
+.nda-canvas canvas {touch-action:none}
+
+.nda-angiography>p {pointer-events:none}

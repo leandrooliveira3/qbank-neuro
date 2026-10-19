@@ -1,8 +1,11 @@
 import React, { useEffect, useMemo } from "react";
 import { BufferGeometry, Float32BufferAttribute, Plane, Vector3 } from "three";
 import { reconstructedArteries } from "./reconstructedArteries";
+import { structureVisible, visibleAtlasRaycast, type AtlasTool, type PickScope } from "./atlasInteraction";
 
-export default function ReconstructedSurfaces({ opacity, selected, isolate, cut, onSelect, angiographic = false }: {
+const noHiddenStructures: ReadonlySet<string> = new Set();
+export default function ReconstructedSurfaces({ opacity, selected, isolate, cut, onSelect, angiographic = false, hidden = noHiddenStructures, tool = "select", pickScope = "arterial" }: {
+  hidden?: ReadonlySet<string>; tool?: AtlasTool; pickScope?: PickScope;
   angiographic?: boolean; opacity: Record<string, number>; selected: string | null; isolate: boolean;
   cut: { axis: string; offset: number }; onSelect: (id: string) => void;
 }) {
@@ -16,11 +19,11 @@ export default function ReconstructedSurfaces({ opacity, selected, isolate, cut,
     cut.axis === "sagittal" ? -1 : 0, cut.axis === "axial" ? -1 : 0, cut.axis === "coronal" ? -1 : 0), cut.offset)], [cut]);
   useEffect(() => () => meshes.forEach(({ geometry }) => geometry.dispose()), [meshes]);
   return <group>{meshes.map(({ item, geometry }) => <mesh key={item.id} geometry={geometry}
-    visible={((opacity.arterial ?? 1) > 0 || selected === item.id) && (!isolate || !selected || selected === item.id)}
+    visible={structureVisible(item.id, "arterial", opacity, selected, isolate, hidden)} raycast={visibleAtlasRaycast} userData={{ atlasPickable: tool === "select" && pickScope !== "venous" }}
     onAfterRender={(renderer) => { renderer.domElement.dataset.detailedAtlasRendered = "true"; }}
-    onClick={(event) => { event.stopPropagation(); if (event.delta <= 3) onSelect(item.id); }}>
+    onClick={(event) => { event.stopPropagation(); if (tool === "select" && event.button === 0 && event.object.visible && event.delta <= 3) onSelect(item.id); }}>
     <meshStandardMaterial color={selected === item.id ? "#ffe4a5" : angiographic ? "#c0ccd5" : "#dc985e"} roughness={0.6}
-      opacity={selected === item.id ? 1 : opacity.arterial ?? 1} transparent={selected !== item.id && (opacity.arterial ?? 1) < 1}
-      depthWrite={selected === item.id || (opacity.arterial ?? 1) === 1} clippingPlanes={planes} />
+      opacity={opacity.arterial ?? 1} transparent={(opacity.arterial ?? 1) < 1}
+      depthWrite={(opacity.arterial ?? 1) === 1} clippingPlanes={planes} />
   </mesh>)}</group>;
 }

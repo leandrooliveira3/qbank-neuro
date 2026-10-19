@@ -12,9 +12,9 @@ Recuperação de 28 malhas adicionais: [neuro3d-unindexed-vessels.md](neuro3d-un
 
 | Estado | Entradas |
 |---|---:|
-| Malha importada | 46 |
+| Malha importada | 45 |
 | Reconstrução didática | 5 |
-| Representação parcial | 11 |
+| Representação parcial | 12 |
 | Pendente | 73 |
 | Identidade a reconciliar | 7 |
 
@@ -39,6 +39,8 @@ Esses totais usam outro recorte que o índice anterior de 130 linhas/65 pendênc
 
 - **114:** oito malhas da ACP e de seus ramos occipitais já importados passam a ser acessíveis pelo número. A artéria occipital da ACE, os ramos temporo-occipitais da ACM, as coroideas posteriores (113) e o rótulo sem definição 114a não são usados como substitutos. Cobertura parcial, sem declarar árvore completa.
 
+- **72:** acesso a seis malhas, incluindo os ramos mentual e milo-hióideo bilaterais já importados. A árvore e o trajeto pelo canal mandibular continuam parcialmente representados e não homologados.
+
 ## Rede e navegação no aplicativo
 
 O Inventário permite busca exata pelo número, busca textual, filtros de cobertura, seleção das malhas existentes e consulta às origens e relações descritas. A seleção mostra os números correspondentes em qualquer representação do atlas. A busca de estruturas também reconhece os números e os nomes em português.
@@ -51,9 +53,9 @@ A figura craniocervical foi inspecionada na região dos rótulos 56–59. A revi
 
 Os ramos da ACA e da basilar foram associados por identidade explícita nos rótulos da fonte. Referências: [ACA](https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/) e [basilar](https://neuroangio.org/anatomy-and-variants/basilar-artery/). O item 114 foi ampliado com seis associações adicionais de malhas existentes, conforme os rótulos da fonte; a referência é a [ACP](https://neuroangio.org/anatomy-and-variants/posterior-cerebral-artery/). Isso não homologa a origem individual de cada ramo ou suas conexões. Não foram alterados buffers, coordenadas, calibres, licenças ou grafos de fluxo.
 
-A tentativa de inspeção do preview remoto encontrou o login da Vercel; o conector retornou 403 ao solicitar acesso autorizado ao projeto/time. A autenticação no navegador não foi concluída. Deployment Protection foi preservada. Os testes locais anteriores não são descritos como inspeção autenticada do preview.
+Após a liberação da sessão pelo usuário, o preview remoto abriu autenticado. O navegador de inspeção informou WebGL desativado, limitando a conferência 3D nessa sessão. A validação 3D foi realizada separadamente com Chromium/SwiftShader local. Deployment Protection foi preservada. Detalhes e resultados desta revisão em [controles e integração](neuro3d-interaction-and-linked-angiography.md).
 
-Verificação desta revisão: TypeScript, 78 testes unitários em 16 arquivos e build de produção aprovados. Inclui regressões para impedir que o item 57 selecione temporais profundas e para conferir os ramos acessíveis por 110/117, a identidade alveolar do item 58 e a separação entre ACP, occipital da ACE e ramos da ACM. O build conserva o aviso de chunks maiores que 500 kB. Os oito testes de navegador descritos abaixo pertencem ao checkpoint anterior; não foram repetidos nesta revisão.
+Verificação desta revisão: TypeScript, 82 testes unitários em 18 arquivos e build de produção aprovados. Inclui regressões para impedir que o item 57 selecione temporais profundas e para conferir os ramos acessíveis por 110/117, a identidade alveolar do item 58 e a separação entre ACP, occipital da ACE e ramos da ACM. O build conserva o aviso de chunks maiores que 500 kB. Os oito testes de navegador descritos abaixo pertencem ao checkpoint anterior; não foram repetidos nesta revisão.
 
 ## Validação e limites
 
@@ -146,7 +148,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 69 | Artéria palatina menor | Pendente | — |
 | 70 | Artéria lingual | Pendente | — |
 | 71 | Artéria submentoniana | Malha importada | submental_artery_l, submental_artery_r |
-| 72 | Artéria alveolar inferior | Malha importada | inferior_alveolar_artery_l, inferior_alveolar_artery_r |
+| 72 | Artéria alveolar inferior | Representação parcial | inferior_alveolar_artery_l, inferior_alveolar_artery_r, mental_branch_of_inferior_alveolar_artery_l, mental_branch_of_inferior_alveolar_artery_r, mylohyoid_branch_of_inferior_alveolar_artery_l, mylohyoid_branch_of_inferior_alveolar_artery_r |
 | 73 | Artéria facial | Malha importada | facial_artery_l, facial_artery_r |
 | 73a | Ramo arterial submandibular | Pendente | — |
 | 74 | Artéria palatina ascendente | Pendente | — |
@@ -268,6 +270,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **65 — Sistema septal nasal anterior**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **69 — Artéria palatina menor**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **70 — Artéria lingual**: Sem malha individual identificada; reconstrução e revisão pendentes.
+- **72 — Artéria alveolar inferior**: Artéria alveolar inferior e ramos mentual e milo-hióideo bilaterais identificados pelos rótulos da fonte. Cobertura parcial da árvore, sem homologação da continuidade ou do trajeto pelo canal mandibular. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **73a — Ramo arterial submandibular**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **74 — Artéria palatina ascendente**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **78 — Artéria nasal superficial**: Sem malha individual identificada; reconstrução e revisão pendentes.

@@ -178,7 +178,16 @@ test('clicking an angiographic vessel pins its identity and an empty click keeps
     const samples: number[] = [];
     for (let i = 0; i < data.length; i += 4) if (data[i] > data[i + 2] + 20 && data[i + 1] > data[i + 2] + 10) samples.push(i / 4);
     if (!samples.length) throw new Error('Selected source surface did not receive a projected outline');
-    const pixel = samples[Math.floor(samples.length / 2)];
+    // Pick the interior, rather than an antialiased outline pixel just outside the mesh.
+    const gold = new Set(samples);
+    const pixel = samples.reduce((best, candidate) => {
+      const score = (p: number) => {
+        let count = 0;
+        for (let y = -3; y <= 3; y++) for (let x = -3; x <= 3; x++) if (gold.has(p + y * node.width + x)) count++;
+        return count;
+      };
+      return score(candidate) > score(best) ? candidate : best;
+    });
     const rect = node.getBoundingClientRect(), scale = Math.min(rect.width / node.width, rect.height / node.height);
     return { x: (rect.width - node.width * scale) / 2 + (pixel % node.width + .5) * scale,
       y: (rect.height - node.height * scale) / 2 + (Math.floor(pixel / node.width) + .5) * scale };
@@ -189,8 +198,24 @@ test('clicking an angiographic vessel pins its identity and an empty click keeps
   const selection = page.getByTestId('atlas-selection');
   await expect(selection).toBeVisible();
   const id = await selection.getAttribute('data-selected-id');
-  const box = await canvas.boundingBox();
-  await canvas.click({ position: { x: box!.width / 2, y: 16 } });
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false');
+  const empty = await canvas.evaluate((node: HTMLCanvasElement) => {
+    const pixels = node.getContext('2d')!.getImageData(0, 0, node.width, node.height).data;
+    for (let y = 10; y < node.height - 10; y += 10) for (let x = 10; x < node.width - 10; x += 10) {
+      let clear = true;
+      for (let dy = -5; dy <= 5; dy++) for (let dx = -5; dx <= 5; dx++) {
+        const i = ((y + dy) * node.width + x + dx) * 4;
+        if (pixels[i] !== 228 || pixels[i + 1] !== 228 || pixels[i + 2] !== 228) clear = false;
+      }
+      if (clear) {
+        const rect = node.getBoundingClientRect(), scale = Math.min(rect.width / node.width, rect.height / node.height);
+        return { x: (rect.width - node.width * scale) / 2 + x * scale,
+          y: (rect.height - node.height * scale) / 2 + y * scale };
+      }
+    }
+    throw new Error('No empty detector patch found');
+  });
+  await canvas.click({ position: empty });
   await expect(selection).toHaveAttribute('data-selected-id', id!);
 });
 
@@ -202,9 +227,11 @@ test('supra-aortic source anatomy is framed in 3D and angiography, with picking 
   const selection = page.getByTestId('atlas-selection');
   await expect(selection).toHaveAttribute('data-selected-id', 'aortic_arch');
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered', 'true');
+  const pose = (await page.locator('canvas').getAttribute('data-atlas-camera-pose'))!.split(',').map(Number).slice(3);
   await page.getByRole('button', { name: 'Angiografia', exact: true }).click();
   const canvas = page.getByTestId('atlas-angiography');
-  await expect(canvas).toHaveAttribute('data-field-center', '0,-18,0');
+  const center = (await canvas.getAttribute('data-field-center'))!.split(',').map(Number);
+  center.forEach((value, i) => expect(value).toBeCloseTo(pose[i], 4));
   await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy', 'false', {timeout: 30000});
   await page.getByRole('button', {name: 'Focar seleção', exact: true}).click();
   await expect(canvas).not.toHaveAttribute('data-field-center', '0,-18,0');
@@ -242,6 +269,7 @@ test('angiography 3D rotates source meshes and retains selection across 2D and a
   await expect(stage).toHaveAttribute('data-representation', 'angiography-3d');
   const canvas = stage.locator('canvas');
   await expect(canvas).toHaveAttribute('data-angiography3d-rendered', 'true');
+  await page.getByRole('button', {name: 'Girar', exact: true}).click();
   const before = await canvas.screenshot();
   const box = await canvas.boundingBox();
   await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);

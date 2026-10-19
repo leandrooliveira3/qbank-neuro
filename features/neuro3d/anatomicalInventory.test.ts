@@ -89,6 +89,14 @@ describe("Neuroangio numbered anatomical correspondence", () => {
     for (const number of ["12a", "14b", "15", "94", "96", "116a", "116b"])
       expect(anatomicalInventory.find(row => row.number === number)?.ids).toEqual([]);
   });
+  it("includes source-labelled mental and mylohyoid arterial branches under 72", () => {
+    const row = anatomicalInventory.find(item => item.number === "72")!;
+    expect(row.status).toBe("partial"); expect(row.ids).toHaveLength(6);
+    for (const side of ["l", "r"]) {
+      expect(row.ids).toContain(`mental_branch_of_inferior_alveolar_artery_${side}`);
+      expect(row.ids).toContain(`mylohyoid_branch_of_inferior_alveolar_artery_${side}`);
+    }
+  });
   it("keeps referenced network relations separate from the simulation flow graph", () => {
     const numbers = new Set(anatomicalInventory.map(row => row.number));
     for (const relation of diagramRegistry.relations) {

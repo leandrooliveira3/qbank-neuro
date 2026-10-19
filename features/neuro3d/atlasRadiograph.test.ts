@@ -14,13 +14,13 @@ describe("worker-safe source atlas projection", () => {
       const surface = {...base, layer};
       const unselected = renderAtlasRadiograph([surface], {...request, layers: {[layer]: 1}});
       expect(unselected.every((value, i) => value === empty[i])).toBe(true);
-      const annotated = renderAtlasRadiograph([surface], {...request, selected: "context"});
+      const annotated = renderAtlasRadiograph([surface], {...request, selected: "context", layers: {[layer]: 1}});
       const center = (HEIGHT / 2 * WIDTH + WIDTH / 2) * 4;
       expect(annotated[center]).toBeGreaterThan(annotated[center + 2]);
     }
     cube.dispose();
   });
-  it("separates arterial/venous signal and keeps hidden selected landmarks as gold annotations", () => {
+  it("separates arterial/venous signal and does not resurrect hidden selected landmarks", () => {
     const cube = new BoxGeometry(1, 1, 1);
     const surface = {id: "artery", layer: "arterial", positions: new Float32Array(cube.attributes.position.array), indices: new Uint32Array(cube.index!.array)};
     const vein = {...surface, id: "vein", layer: "venous", positions: surface.positions.map((v, i) => i % 3 === 0 ? v + 4 : v)};
@@ -31,7 +31,10 @@ describe("worker-safe source atlas projection", () => {
     expect(arterial[at(0)]).toBeLessThan(venous[at(0)]);
     expect(venous[at(4)]).toBeLessThan(arterial[at(4)]);
     const annotated = renderAtlasRadiograph([surface, vein], {...request, contrastLayer: "venous", selected: "artery", layers: {arterial: 0, venous: 1}});
-    expect(annotated[at(0)]).toBeGreaterThan(annotated[at(0) + 2]);
+    expect(annotated.every((value, i) => value === venous[i])).toBe(true);
+    const hidden = renderAtlasRadiograph([surface, vein], {...request, selected: "artery", hidden: ["artery"]});
+    const without = renderAtlasRadiograph([vein], request);
+    expect(hidden.every((value, i) => value === without[i])).toBe(true);
     expect(annotated.slice(at(4), at(4) + 4)).toEqual(venous.slice(at(4), at(4) + 4));
     cube.dispose();
   });
