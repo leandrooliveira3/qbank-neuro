@@ -61,6 +61,28 @@ describe("Neuroangio numbered anatomical correspondence", () => {
       expect(basilar.ids).not.toContain(`anterior_inferior_cerebellar_artery_${side}`);
     }
   });
+  it("keeps 57–59 in the superior alveolar system without inventing missing geometry", () => {
+    const middle = anatomicalInventory.find(item => item.number === "58")!;
+    const anterior = anatomicalInventory.find(item => item.number === "59")!;
+    expect(middle.portuguese).toBe("Artéria alveolar superior média");
+    for (const row of [middle, anterior]) {
+      expect(row.ids).toEqual([]);
+      expect(row.status).toBe("missing");
+      expect(row.portuguese).not.toContain("temporal");
+    }
+  });
+  it("keeps PCA occipital branches separate from the ECA occipital and choroidal systems", () => {
+    const pca = anatomicalInventory.find(item => item.number === "114")!;
+    expect(pca.status).toBe("partial"); expect(pca.ids).toHaveLength(8);
+    for (const side of ["l", "r"]) {
+      for (const branch of ["posterior_cerebral_artery", "medial_occipital_artery", "lateral_occipital_artery", "parieto_occipital_artery"])
+        expect(pca.ids).toContain(`${branch}_${side}`);
+      expect(pca.ids).not.toContain(`occipital_artery_${side}`);
+      expect(pca.ids).not.toContain(`temporo_occipital_branch_of_mca_${side}`);
+    }
+    expect(anatomicalInventory.find(item => item.number === "113")?.ids).toEqual([]);
+    expect(anatomicalInventory.find(item => item.number === "114a")?.status).toBe("unresolved");
+  });
   it("maps only arterial geometry, never nerves, venous sinuses or glands", () => {
     const structures = new Map([...openAnatomy.structures, ...reconstructedArteries].map(item => [item.id, item]));
     for (const row of anatomicalInventory) for (const id of row.ids) expect(structures.get(id)?.layer, id).toBe("arterial");

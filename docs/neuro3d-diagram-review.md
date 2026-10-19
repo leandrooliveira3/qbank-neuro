@@ -12,9 +12,9 @@ Recuperação de 28 malhas adicionais: [neuro3d-unindexed-vessels.md](neuro3d-un
 
 | Estado | Entradas |
 |---|---:|
-| Malha importada | 47 |
+| Malha importada | 46 |
 | Reconstrução didática | 5 |
-| Representação parcial | 10 |
+| Representação parcial | 11 |
 | Pendente | 73 |
 | Identidade a reconciliar | 7 |
 
@@ -25,7 +25,7 @@ Esses totais usam outro recorte que o índice anterior de 130 linhas/65 pendênc
 - **109:** variante oftálmica ventral persistente, sem malha correspondente. Retirado o mapeamento incorreto para o conjunto ACA, PCom, coroidea anterior, ACP, SCA, AICA, basilar e ACM.
 - **8, 63, 64, 66 e 67:** o grupo etmoidal deixa de ter linha duplicada. A contribuição septal esfenopalatina é distinta das origens etmoidais; suas conexões são relações de rede.
 - **17, 18, 36 e 37:** reconstruções de ramos passam a cobertura parcial, sem declarar a arcada/anastomose inteira presente.
-- **57–59:** alveolares superiores posterior, média e anterior. O item 57 foi corrigido para as malhas alveolares superiores posteriores; a temporal profunda posterior deixa de ser identificada como 57. Conferência da legenda em conjunto com a posição do rótulo no compartimento maxilar da figura craniocervical.
+- **57–59:** alveolares superiores posterior, média e anterior. O item 57 foi corrigido para as malhas alveolares superiores posteriores; a temporal profunda posterior deixa de ser identificada como 57. O rótulo 58 também foi corrigido de temporal profunda média para alveolar superior média; continua sem malha individual. Conferência da legenda em conjunto com a posição do rótulo no compartimento maxilar da figura craniocervical.
 - **42 e 43:** arcada clinoide-tentorial e ramo posterior do ILT, conforme a legenda atual.
 - **12a, 14a, 14b, 26a, 37a, 116a e 116b:** subitens antes omitidos acrescentados. Labiríntica e subarqueada são distintas.
 - **15, 94 e 96:** conexão arterial intercavernosa não equivale ao seio venoso; coronárias medulares não são coronárias cardíacas; ramo arterial para o hipoglosso não é a malha do nervo.
@@ -37,6 +37,8 @@ Esses totais usam outro recorte que o índice anterior de 130 linhas/65 pendênc
 
 - **110 e 117:** a busca numérica inclui dez malhas da ACA (troncos e ramos disponíveis) e cinco da basilar (tronco e ramos pontinos disponíveis). São 12 associações adicionais de malhas já importadas. Ambos ficam como parciais: não houve aquisição de novas malhas ou validação das árvores completas.
 
+- **114:** oito malhas da ACP e de seus ramos occipitais já importados passam a ser acessíveis pelo número. A artéria occipital da ACE, os ramos temporo-occipitais da ACM, as coroideas posteriores (113) e o rótulo sem definição 114a não são usados como substitutos. Cobertura parcial, sem declarar árvore completa.
+
 ## Rede e navegação no aplicativo
 
 O Inventário permite busca exata pelo número, busca textual, filtros de cobertura, seleção das malhas existentes e consulta às origens e relações descritas. A seleção mostra os números correspondentes em qualquer representação do atlas. A busca de estruturas também reconhece os números e os nomes em português.
@@ -45,13 +47,13 @@ Foram documentadas 34 relações conceituais com fontes: clivais, MHT–ILT, orb
 
 ## Revisão adicional de 19/10/2026
 
-A figura craniocervical foi inspecionada na região dos rótulos 56–59. O 57 está no sistema alveolar superior posterior; a interpretação anterior como temporal profunda posterior estava incorreta. Fontes: [figura original](https://www.neuroangio.org/wp-content/uploads/Diagrams-figures/neuroangio-craniocervical-vessel-diagram-00.png), [legenda](https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/), [região infraorbital e alveolar](https://neuroangio.org/anatomy-and-variants/infraorbital-artery/).
+A figura craniocervical foi inspecionada na região dos rótulos 56–59. A revisão subsequente corrigiu também o item 58: a tabela anterior ainda o chamava de temporal profunda média, apesar de descrever o grupo 57–59 como alveolar superior. Essa divergência foi removida, mantendo o 58 sem geometria individual. O 57 está no sistema alveolar superior posterior; a interpretação anterior como temporal profunda posterior estava incorreta. Fontes: [figura original](https://www.neuroangio.org/wp-content/uploads/Diagrams-figures/neuroangio-craniocervical-vessel-diagram-00.png), [legenda](https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/), [região infraorbital e alveolar](https://neuroangio.org/anatomy-and-variants/infraorbital-artery/).
 
-Os ramos da ACA e da basilar foram associados por identidade explícita nos rótulos da fonte. Referências: [ACA](https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/) e [basilar](https://neuroangio.org/anatomy-and-variants/basilar-artery/). Não foram alterados buffers, coordenadas, calibres, licenças ou grafos de fluxo.
+Os ramos da ACA e da basilar foram associados por identidade explícita nos rótulos da fonte. Referências: [ACA](https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/) e [basilar](https://neuroangio.org/anatomy-and-variants/basilar-artery/). O item 114 foi ampliado com seis associações adicionais de malhas existentes, conforme os rótulos da fonte; a referência é a [ACP](https://neuroangio.org/anatomy-and-variants/posterior-cerebral-artery/). Isso não homologa a origem individual de cada ramo ou suas conexões. Não foram alterados buffers, coordenadas, calibres, licenças ou grafos de fluxo.
 
 A tentativa de inspeção do preview remoto encontrou o login da Vercel; o conector retornou 403 ao solicitar acesso autorizado ao projeto/time. A autenticação no navegador não foi concluída. Deployment Protection foi preservada. Os testes locais anteriores não são descritos como inspeção autenticada do preview.
 
-Verificação desta revisão: TypeScript, 76 testes unitários em 16 arquivos e build de produção aprovados. Inclui regressões para impedir que o item 57 selecione temporais profundas e para conferir os ramos acessíveis por 110/117. O build conserva o aviso de chunks maiores que 500 kB. Os oito testes de navegador descritos abaixo pertencem ao checkpoint anterior; não foram repetidos nesta revisão.
+Verificação desta revisão: TypeScript, 78 testes unitários em 16 arquivos e build de produção aprovados. Inclui regressões para impedir que o item 57 selecione temporais profundas e para conferir os ramos acessíveis por 110/117, a identidade alveolar do item 58 e a separação entre ACP, occipital da ACE e ramos da ACM. O build conserva o aviso de chunks maiores que 500 kB. Os oito testes de navegador descritos abaixo pertencem ao checkpoint anterior; não foram repetidos nesta revisão.
 
 ## Validação e limites
 
@@ -128,7 +130,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 55 | Artéria maxilar | Representação parcial | maxillary_artery_l, maxillary_artery_r |
 | 56 | Artéria temporal profunda anterior | Malha importada | anterior_deep_temporal_artery_l, anterior_deep_temporal_artery_r |
 | 57 | Artéria alveolar superior posterior | Malha importada | posterior_superior_alveolar_artery_l, posterior_superior_alveolar_artery_r |
-| 58 | Artéria temporal profunda média | Pendente | — |
+| 58 | Artéria alveolar superior média | Pendente | — |
 | 59 | Artéria alveolar superior anterior | Pendente | — |
 | 60 | Ramos nasais laterais da esfenopalatina | Malha importada | posterior_lateral_nasal_branches_of_sphenopalatine_artery_l, posterior_lateral_nasal_branches_of_sphenopalatine_artery_r |
 | 61 | Ramos para a concha nasal inferior | Pendente | — |
@@ -188,7 +190,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 111 | Artéria comunicante posterior | Malha importada | posterior_communicating_artery_l, posterior_communicating_artery_r |
 | 112 | Artéria coroidea anterior | Reconstrução didática | anterior_choroidal_artery_l, anterior_choroidal_artery_r |
 | 113 | Artérias coroideas posteriores, medial e lateral | Pendente | — |
-| 114 | Artéria cerebral posterior | Malha importada | posterior_cerebral_artery_l, posterior_cerebral_artery_r |
+| 114 | Artéria cerebral posterior | Representação parcial | posterior_cerebral_artery_l, posterior_cerebral_artery_r, lateral_occipital_artery_l, lateral_occipital_artery_r, medial_occipital_artery_l, medial_occipital_artery_r, parieto_occipital_artery_l, parieto_occipital_artery_r |
 | 115 | Artéria cerebelar superior | Malha importada | superior_cerebellar_artery_l, superior_cerebellar_artery_r |
 | 116 | Artéria cerebelar anteroinferior, AICA | Malha importada | anterior_inferior_cerebellar_artery_l, anterior_inferior_cerebellar_artery_r |
 | 116a | Artéria labiríntica | Pendente | — |
@@ -256,7 +258,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **53a — Artéria meníngea acessória**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **54 — Ramo cutâneo ou tubário da meníngea acessória**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **55 — Artéria maxilar**: A malha maxilar está presente, mas suas subdivisões angiográficas precisam de conferência. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
-- **58 — Artéria temporal profunda média**: Sem malha individual identificada; reconstrução e revisão pendentes.
+- **58 — Artéria alveolar superior média**: O item 58 integra o grupo alveolar superior 57–59 da legenda e da figura craniocervical; não é uma artéria temporal profunda. Sem malha individual identificada. O campo de contexto 55 indica o sistema maxilar, sem afirmar um óstio específico. Sem malha individual identificada; reconstrução e revisão pendentes.
 - **59 — Artéria alveolar superior anterior**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **61 — Ramos para a concha nasal inferior**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **62 — Ramos para a concha nasal média**: Sem malha individual identificada; reconstrução e revisão pendentes.
@@ -290,6 +292,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **109 — Artéria oftálmica ventral persistente**: Variante oftálmica ventral: conexão ACA/A1 ou ACI supraclinoidea–órbita. Não representa o conjunto de artérias intracranianas 110–118. Sem malha individual identificada; reconstrução e revisão pendentes.
 - **110 — Artéria cerebral anterior**: Troncos da ACA e malhas pericalosas, calosomarginais, frontais da calosomarginal e orbitofrontais bilaterais disponíveis. O conjunto não representa toda a árvore da ACA nem certifica segmentos, óstios ou continuidade. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **113 — Artérias coroideas posteriores, medial e lateral**: Grupo medial e lateral. A presença da ACP não preenche essas artérias. Sem malha individual identificada; reconstrução e revisão pendentes.
+- **114 — Artéria cerebral posterior**: Troncos da ACP e malhas occipitais mediais, laterais e parieto-occipitais bilaterais disponíveis pelos rótulos da fonte. Não inclui automaticamente coroideas posteriores, perfurantes ou conexões piodurais. Segmentação, óstios, calibres e continuidade não homologados. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **116a — Artéria labiríntica**: Ramo labiríntico para o canal acústico interno e ouvido interno, distinto de 116b. Sem malha individual identificada; reconstrução e revisão pendentes.
 - **116b — Artéria subarqueada**: Ramo osteodural subarqueado no canal subarqueado/petromastóideo, distinto da labiríntica. Sem malha individual identificada; reconstrução e revisão pendentes.
 - **117 — Artéria basilar**: Tronco basilar e ramos pontinos mediais e laterais bilaterais disponíveis. Cobertura parcial dos ramos; não representa todas as perfurantes nem confirma sua continuidade. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.

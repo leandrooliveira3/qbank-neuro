@@ -2,9 +2,9 @@
   "reviewedAt": "2026-10-19",
   "sourceUrl": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
   "counts": {
-    "imported": 47,
+    "imported": 46,
     "reconstructed": 5,
-    "partial": 10,
+    "partial": 11,
     "missing": 73,
     "unresolved": 7
   },
@@ -1669,14 +1669,14 @@
     {
       "key": "na-58",
       "number": "58",
-      "label": "Artéria temporal profunda média",
-      "portuguese": "Artéria temporal profunda média",
+      "label": "Middle superior alveolar artery",
+      "portuguese": "Artéria alveolar superior média",
       "targets": [],
       "parent": "55",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "O item 58 integra o grupo alveolar superior 57–59 da legenda e da figura craniocervical; não é uma artéria temporal profunda. Sem malha individual identificada. O campo de contexto 55 indica o sistema maxilar, sem afirmar um óstio específico. Sem malha individual identificada; reconstrução e revisão pendentes.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
       "ids": [],
       "candidateIds": [],
@@ -3264,20 +3264,29 @@
       "label": "Artéria cerebral posterior",
       "portuguese": "Artéria cerebral posterior",
       "targets": [
-        "posterior_cerebral_artery"
+        "posterior_cerebral_artery",
+        "medial_occipital_artery",
+        "lateral_occipital_artery",
+        "parieto_occipital_artery"
       ],
       "parent": "117",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
-      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "note": "Troncos da ACP e malhas occipitais mediais, laterais e parieto-occipitais bilaterais disponíveis pelos rótulos da fonte. Não inclui automaticamente coroideas posteriores, perfurantes ou conexões piodurais. Segmentação, óstios, calibres e continuidade não homologados. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/posterior-cerebral-artery/",
       "ids": [
         "posterior_cerebral_artery_l",
-        "posterior_cerebral_artery_r"
+        "posterior_cerebral_artery_r",
+        "lateral_occipital_artery_l",
+        "lateral_occipital_artery_r",
+        "medial_occipital_artery_l",
+        "medial_occipital_artery_r",
+        "parieto_occipital_artery_l",
+        "parieto_occipital_artery_r"
       ],
       "candidateIds": [],
-      "status": "imported",
+      "status": "partial",
       "geometryKinds": [
         "imported"
       ],

@@ -108,5 +108,5 @@ Os testes de navegador leem os manifestos como arquivos, evitando carregar
 módulos Vite com imports JSON pelo carregador ESM do Node.
 
 Essa validação verifica funcionamento e integridade, não homologa a anatomia
-ou a continuidade vascular. Na revisão de 19/10, permanecem 73 entradas sem geometria, dez parciais
+ou a continuidade vascular. Na revisão de 19/10, permanecem 73 entradas sem geometria, 11 parciais
 e sete identidades a reconciliar, listadas em neuro3d-diagram-review.md.
