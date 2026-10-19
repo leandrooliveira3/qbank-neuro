@@ -40,6 +40,27 @@ describe("Neuroangio numbered anatomical correspondence", () => {
     expect(anatomicalInventory.find(row => row.number === "118")?.status).toBe("partial");
     expect(anatomicalInventory.find(row => row.number === "57")?.status).toBe("imported");
   });
+  it("identifies diagram 57 as posterior superior alveolar, distinct from deep temporal", () => {
+    const row = anatomicalInventory.find(item => item.number === "57")!;
+    expect(row.ids).toEqual(["posterior_superior_alveolar_artery_l", "posterior_superior_alveolar_artery_r"]);
+    expect(row.parent).toBe("55");
+    expect(row.ids.some(id => id.includes("temporal"))).toBe(false);
+  });
+  it("includes available ACA and pontine branches without claiming complete trees", () => {
+    const aca = anatomicalInventory.find(item => item.number === "110")!;
+    const basilar = anatomicalInventory.find(item => item.number === "117")!;
+    expect(aca.status).toBe("partial"); expect(aca.ids).toHaveLength(10);
+    expect(basilar.status).toBe("partial"); expect(basilar.ids).toHaveLength(5);
+    for (const side of ["l", "r"]) {
+      expect(aca.ids).toContain(`pericallosal_artery_${side}`);
+      expect(aca.ids).toContain(`callosomarginal_artery_${side}`);
+      expect(aca.ids).toContain(`frontal_branches_of_callosomarginal_artery_${side}`);
+      expect(aca.ids).toContain(`orbitofrontal_branches_of_anterior_cerebral_artery_${side}`);
+      expect(basilar.ids).toContain(`lateral_pontine_branches_of_basilar_artery_${side}`);
+      expect(basilar.ids).toContain(`medial_pontine_branches_of_basilar_artery_${side}`);
+      expect(basilar.ids).not.toContain(`anterior_inferior_cerebellar_artery_${side}`);
+    }
+  });
   it("maps only arterial geometry, never nerves, venous sinuses or glands", () => {
     const structures = new Map([...openAnatomy.structures, ...reconstructedArteries].map(item => [item.id, item]));
     for (const row of anatomicalInventory) for (const id of row.ids) expect(structures.get(id)?.layer, id).toBe("arterial");

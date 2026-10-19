@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "sourceUrl": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-  "reviewedAt": "2026-10-18",
+  "reviewedAt": "2026-10-19",
   "scope": "Identity and conceptual network review against the current legend and four diagrams, not geometric or clinical validation.",
   "imagePolicy": "Reference figures linked only; no artwork redistributed or traced as patient geometry.",
   "entries": [
@@ -857,16 +857,16 @@
     {
       "key": "na-57",
       "number": "57",
-      "label": "Artéria temporal profunda posterior",
-      "portuguese": "Artéria temporal profunda posterior",
+      "label": "Posterior superior alveolar artery",
+      "portuguese": "Artéria alveolar superior posterior",
       "targets": [
-        "posterior_deep_temporal_artery"
+        "posterior_superior_alveolar_artery"
       ],
       "parent": "55",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "O rótulo 57 na figura craniocervical corresponde à alveolar superior posterior; 58 e 59 são as alveolares superiores média e anterior. Não é a artéria temporal profunda posterior.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1659,14 +1659,18 @@
       "label": "Artéria cerebral anterior",
       "portuguese": "Artéria cerebral anterior",
       "targets": [
-        "anterior_cerebral_artery"
+        "anterior_cerebral_artery",
+        "pericallosal_artery",
+        "callosomarginal_artery",
+        "frontal_branches_of_callosomarginal_artery",
+        "orbitofrontal_branches_of_anterior_cerebral_artery"
       ],
       "parent": "1",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
-      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
+      "note": "Troncos da ACA e malhas pericalosas, calosomarginais, frontais da calosomarginal e orbitofrontais bilaterais disponíveis. O conjunto não representa toda a árvore da ACA nem certifica segmentos, óstios ou continuidade.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/"
     },
     {
       "key": "na-111",
@@ -1788,14 +1792,16 @@
       "label": "Artéria basilar",
       "portuguese": "Artéria basilar",
       "targets": [
-        "basilar_artery"
+        "basilar_artery",
+        "lateral_pontine_branches_of_basilar_artery",
+        "medial_pontine_branches_of_basilar_artery"
       ],
       "parent": "90",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
-      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
+      "note": "Tronco basilar e ramos pontinos mediais e laterais bilaterais disponíveis. Cobertura parcial dos ramos; não representa todas as perfurantes nem confirma sua continuidade.",
+      "reference": "https://neuroangio.org/anatomy-and-variants/basilar-artery/"
     },
     {
       "key": "na-118",

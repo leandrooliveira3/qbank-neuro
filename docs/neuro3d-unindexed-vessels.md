@@ -75,7 +75,7 @@ seletiva procedural já a opacifique corretamente.
 - Projeções ortogonais das superfícies originais foram inspecionadas
   internamente. Isso não substitui o teste interativo no navegador.
 
-O inventário de 142 entradas mantém 49 com malhas identificadas, cinco com
+Na recuperação de 18/10, o inventário de 142 entradas tinha 49 com malhas identificadas, cinco com
 reconstruções didáticas, oito parciais, 73 sem geometria e sete com identidade
 a reconciliar. Esta revisão amplia a cobertura dentro de entradas parciais;
 não preenche falsamente outros números da legenda.
@@ -108,5 +108,5 @@ Os testes de navegador leem os manifestos como arquivos, evitando carregar
 módulos Vite com imports JSON pelo carregador ESM do Node.
 
 Essa validação verifica funcionamento e integridade, não homologa a anatomia
-ou a continuidade vascular. Permanecem 73 entradas sem geometria, oito parciais
+ou a continuidade vascular. Na revisão de 19/10, permanecem 73 entradas sem geometria, dez parciais
 e sete identidades a reconciliar, listadas em neuro3d-diagram-review.md.
