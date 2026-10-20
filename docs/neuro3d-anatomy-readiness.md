@@ -2,7 +2,7 @@
 
 ## Revisão vigente: todo o sistema arterial e venoso
 
-O índice atual tem 142 entradas: 130 da legenda, seis apenas nas figuras e seis referências adicionais. São 44 com malhas identificadas, 12 com reconstruções didáticas, 15 parciais, 64 sem geometria e sete com identidade a reconciliar. Não são vasos únicos.
+O índice atual tem 142 entradas: 130 da legenda, seis apenas nas figuras e seis referências adicionais. São 43 com malhas identificadas, 12 com reconstruções didáticas, 16 parciais, 64 sem geometria e sete com identidade a reconciliar. Não são vasos únicos.
 
 O estado integral, as discrepâncias e as lacunas venosas estão em [neuro3d-whole-vascular-review.md](neuro3d-whole-vascular-review.md). Os arquivos preservam 1114 estruturas originais; 1112 estão ativas após retirar duas malhas contestadas. Há 52 reconstruções didáticas, ainda não homologadas.
 

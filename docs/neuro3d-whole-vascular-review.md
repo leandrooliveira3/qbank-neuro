@@ -1,4 +1,4 @@
-# Revisão integral arterial e venosa — 19/10/2026
+# Revisão integral arterial e venosa — 20/10/2026
 
 ## Escopo e estado real
 
@@ -6,7 +6,7 @@ O usuário exige confronto de todo o sistema vascular relevante à neurorradiolo
 
 **Nenhuma aprovação anatômica global foi realizada.** Todas as 241 malhas vasculares originais estão contabilizadas individualmente (178 arteriais, 63 venosas). Há 52 reconstruções didáticas: 18 anteriores da ACI e 34 novas da ACE. A auditoria reúne 293 registros com chaves de proveniência, incluindo originais retirados. Presença, integridade e correspondência de rótulo não significam trajeto correto.
 
-Os 1114 objetos originais continuam nos mesmos arquivos; dois foram excluídos da visualização de referência. O aplicativo tem 1112 estruturas importadas ativas e 52 reconstruções didáticas. O índice arterial Neuroangio de 142 entradas tem 44 importadas, 12 reconstruídas, 15 parciais, 64 ausentes e sete identidades não conciliadas. São entradas de legenda/grupos, não vasos únicos.
+Os 1114 objetos originais continuam nos mesmos arquivos; dois foram excluídos da visualização de referência. O aplicativo tem 1112 estruturas importadas ativas e 52 reconstruções didáticas. O índice arterial Neuroangio de 142 entradas tem 43 importadas, 12 reconstruídas, 16 parciais, 64 ausentes e sete identidades não conciliadas. São entradas de legenda/grupos, não vasos únicos.
 
 ## Material efetivamente consultado
 
@@ -87,3 +87,66 @@ selar/supra-aórtica. Foram inspecionadas capturas da árvore faríngea em
 3D; o enquadramento usa a extensão de todos os seus ramos visíveis quando
 a raiz da árvore isolada recebe foco. Esse conjunto verifica funcionamento
 e integridade; não valida anatomicamente cada trajeto ou anastomose.
+
+
+## Ampliação da matriz integral — 20/10/2026
+
+O painel “Vasos” abre agora uma matriz única de 273 identidades/grupos. Ela
+inclui todas as identidades vasculares da fonte (também as veias faciais,
+retromandibulares, jugulares, cervicais e de acesso), reconstruções, alvos
+explícitos do índice arterial, exigências venosas e ramos adicionais. São
+118 sem malha individual, zero com apenas parte dos IDs esperados e 155 com
+IDs presentes, ainda sem homologação. “Presente” conta identidade de
+geometria, não cobertura anatômica completa. Há 223 IDs individuais ausentes,
+com discriminação de lado quando aplicável.
+
+Foram explicitadas Heubner e perfurantes mediais, artéria subcalosa, ramos
+corticais da ACA, divisões da ACM, talamoperfurantes da ACoP/P1, coroideas
+posteriores medial/lateral, ramos temporais/calcarino/esplenial da ACP,
+perfurantes e divisões cerebelares, ramos meníngeos e famílias medulares.
+Nomes diferentes da fonte não são convertidos por semelhança: as superfícies
+occipitais, por exemplo, não homologam automaticamente uma calcarina.
+Origem, calibre e número de ramos permanecem variáveis; o índice não exige
+a coexistência de variantes em um único indivíduo. Os níveis medulares ainda
+precisam de detalhamento individual, além das famílias iniciais.
+
+As entradas da legenda sem alvos explícitos ou com conflito também permanecem
+visíveis em seção própria, sem serem somadas como novos vasos aos 273.
+A lista exata gerada está em `neuro3d-missing-vascular-identities.md`, e o
+JSON integral registra IDs esperados, presentes, ausentes, origem e referências.
+Filtros por sistema, família/região e cobertura permitem localizar cada lacuna.
+
+### Achado individual: meníngea média
+
+Foram inspecionadas projeções ortogonais dos buffers originais da meníngea
+média, seu ramo acessório rotulado, maxilar e ACI. A superfície denominada
+meníngea média tem limites craniocaudais de aproximadamente −3,405 a −1,008 cm
+no referencial do atlas (extensão 2,397 cm), bilateralmente. Não demonstra
+uma árvore dural frontal/parietal completa. O item 39 passa a **parcial**, e a
+limitação aparece ao selecionar o vaso, no painel de revisão e no relatório.
+Isso não homologa identidade, óstio ou passagem pelo forame espinhoso.
+O ramo acessório rotulado continua distinto da artéria meníngea acessória.
+Nenhuma superfície foi alongada, subdividida ou conectada por suposição.
+
+### Comparação bilateral de toda a fonte
+
+A auditoria numérica compara os 111 pares explicitamente lateralizados na
+fonte, por reflexão virtual em x=0, medindo distâncias entre vértices nos dois
+sentidos. Em 101 pares, a distância máxima fica abaixo de um micrômetro.
+É um achado de simetria geométrica do conjunto consultado; não prova simetria
+anatômica, origem em paciente ou identidade correta. Não foram usados
+espelhamento, deformação ou substituição de vasos no aplicativo. Os outros
+dez pares e todas as medidas constam no JSON, sem concluir que assimetria
+seja defeito.
+
+### Verificação desta ampliação
+
+92 testes unitários em 21 arquivos e TypeScript passaram. A matriz foi
+exercitada no navegador em desktop e celular: ausência bilateral de Heubner,
+veia facial da fonte visível, filtro de lacunas, Galeno ausente e distinção
+da meníngea acessória. O aviso da meníngea média passou no mesmo fluxo em desktop/celular (2/2).
+O primeiro ensaio desse aviso usava um nome de busca incompatível com o
+rótulo inglês da fonte; o teste passou a localizar pelo número 39 e pelo
+rótulo efetivamente exibido. O build final de produção também passou, com
+o aviso já conhecido de chunks maiores que 500 kB. Esses testes verificam o
+funcionamento dos registros e controles; não são aprovação anatômica.

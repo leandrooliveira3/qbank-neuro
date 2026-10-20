@@ -74,12 +74,30 @@ def main():
             va=np.asarray(surfaces[left]['positions']).reshape(-1,3);vb=np.asarray(surfaces[right]['positions']).reshape(-1,3)
             distance=float(cKDTree(va).query(vb)[0].min())
             links.append({'from':left,'to':right,'minimumSurfaceVertexDistanceCm':round(distance,6),'connectionVerified':False})
+    # Compare every explicitly sided homolog in the supplied source. Reflect x
+    # only for a numerical comparison, NEVER to create or replace a vessel.
+    # Symmetry is not proof of anatomy, patient origin or a shared lumen.
+    source_ids={item['id'] for item in source}
+    bilateral=[]
+    for item in source:
+        left=item['id']
+        right=left[:-2]+'_r' if left.endswith('_l') else 'right_'+left[5:] if left.startswith('left_') else None
+        if right not in source_ids:continue
+        va=np.asarray(surfaces[left]['positions']).reshape(-1,3).copy()
+        vb=np.asarray(surfaces[right]['positions']).reshape(-1,3)
+        va[:,0]*=-1
+        ab=cKDTree(vb).query(va)[0];ba=cKDTree(va).query(vb)[0]
+        bilateral.append({'left':left,'right':right,'layer':item['layer'],
+                          'comparisonPlane':'atlas x=0; virtual reflection only',
+                          'maximumBidirectionalVertexDistanceCm':round(float(max(ab.max(),ba.max())),8),
+                          'rmsBidirectionalVertexDistanceCm':round(float(np.sqrt((np.sum(ab**2)+np.sum(ba**2))/(len(ab)+len(ba)))),8),
+                          'leftVertices':len(va),'rightVertices':len(vb),'anatomicalSymmetryApproved':False})
     report={'method':'Original geometry only; no smoothing, capping, registration or anatomical correction',
             'decodedInputSHA256':hashlib.sha256(args.decoded.read_bytes()).hexdigest(),'verifiedOriginalAssets':verified_assets,
             'counts':{'arterial':sum(r['layer']=='arterial' for r in records),'venous':sum(r['layer']=='venous' for r in records),'anatomicallyApproved':0},
-            'meshes':records,'candidateJunctionDistances':links,
+            'meshes':records,'candidateJunctionDistances':links,'bilateralGeometryComparisons':bilateral,
             'interpretation':'Open boundaries may be original vessel cuts. Disconnected pieces can represent grouped branches. Neither is automatically an anatomical defect. Every flagged finding requires individual review.'}
     args.output.write_text(json.dumps(report,indent=2)+'\n')
-    print(json.dumps({'meshes':len(records),'invalidIndices':sum(not r['indicesValid'] for r in records),'nonFinite':sum(not r['finite'] for r in records),'openMeshes':sum(r.get('boundaryEdges',0)>0 for r in records),'multipleComponents':sum(r.get('usedVertexComponents',1)>1 for r in records)}))
+    print(json.dumps({'meshes':len(records),'invalidIndices':sum(not r['indicesValid'] for r in records),'nonFinite':sum(not r['finite'] for r in records),'openMeshes':sum(r.get('boundaryEdges',0)>0 for r in records),'multipleComponents':sum(r.get('usedVertexComponents',1)>1 for r in records),'bilateralPairs':len(bilateral),'pairsWithinOneMicron':sum(row['maximumBidirectionalVertexDistanceCm']<=0.0001 for row in bilateral)}))
 
 if __name__=='__main__':main()

@@ -2,6 +2,7 @@ import { sourceStructures, openAnatomy } from "./openAnatomy";
 import { reconstructedArteries } from "./reconstructedArteries";
 import { anatomicalInventory } from "./anatomicalInventory";
 import { vascularQuarantine } from "./vascularQuarantine";
+import {vascularFindings} from "./vascularFindings";
 
 const venousSource = "https://neuroangio.org/venous-brain-anatomy/";
 const arterialSource = "https://neuroangio.org/anatomy-and-variants/";
@@ -14,7 +15,7 @@ export const vascularMeshReview = [
   ...sourceStructures.filter(item=>item.layer === "arterial" || item.layer === "venous").map(item=>({
     key:`source:${item.id}`, id:item.id, name:item.name, layer:item.layer, kind:"imported", file:item.file,
     status:vascularQuarantine.has(item.id) ? "disputed" : "pending", selectable:!vascularQuarantine.has(item.id),
-    note:vascularQuarantine.get(item.id) ?? "Malha da fonte ainda sem verificação individual de origem, trajeto, ramos e conexões.",
+    note:vascularQuarantine.get(item.id) ?? vascularFindings.get(item.id) ?? "Malha da fonte ainda sem verificação individual de origem, trajeto, ramos e conexões.",
     boundsFinite:item.bounds.flat().every(Number.isFinite),
     reference:item.layer === "venous" ? venousSource : arterialSource,
   })),

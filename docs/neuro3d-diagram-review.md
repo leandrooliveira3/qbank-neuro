@@ -16,9 +16,9 @@ A prioridade agora abrange todo o sistema arterial e venoso, incluindo ramos, tr
 
 | Estado | Entradas |
 |---|---:|
-| Malha importada | 44 |
+| Malha importada | 43 |
 | Reconstrução didática | 12 |
-| Representação parcial | 15 |
+| Representação parcial | 16 |
 | Pendente | 64 |
 | Identidade a reconciliar | 7 |
 
@@ -118,7 +118,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 37 | Artéria do forame redondo, ILT–maxilar | Representação parcial | foramen_rotundum_branch_l, foramen_rotundum_branch_r |
 | 37a | Artéria da fissura orbital superior | Pendente | — |
 | 38 | Ramo anteromedial do ILT, remanescente oftálmico dorsal | Reconstrução didática | anteromedial_ilt_branch_l, anteromedial_ilt_branch_r |
-| 39 | Artéria meníngea média | Malha importada | middle_meningeal_artery_l, middle_meningeal_artery_r |
+| 39 | Artéria meníngea média | Representação parcial | middle_meningeal_artery_l, middle_meningeal_artery_r |
 | 40 | Ramo da crista esfenoidal | Pendente | — |
 | 41 | Ramo meníngeo recorrente profundo | Pendente | — |
 | 42 | Arcada tentorial clinoidea | Pendente | — |
@@ -247,6 +247,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **36 — Ramo do forame oval do ILT**: A reconstrução representa apenas a extremidade ILT. Falta a conexão com a meníngea acessória pelo oval. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **37 — Artéria do forame redondo, ILT–maxilar**: A reconstrução representa apenas a extremidade ILT. Faltam a contribuição maxilar e a conexão completa pelo redondo. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **37a — Artéria da fissura orbital superior**: Sem malha individual identificada; reconstrução e revisão pendentes.
+- **39 — Artéria meníngea média**: Superfícies originais com cerca de 2,40 cm de extensão craniocaudal; não demonstram a árvore dural frontal/parietal completa. Conferir origem, forame espinhoso, ramos e arcadas; não equiparar o ramo acessório da fonte à meníngea acessória. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **40 — Ramo da crista esfenoidal**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **41 — Ramo meníngeo recorrente profundo**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **42 — Arcada tentorial clinoidea**: A legenda atual especifica arcada clinoide-tentorial, corrigindo o índice antigo inespecífico. Sem malha individual identificada; reconstrução e revisão pendentes.

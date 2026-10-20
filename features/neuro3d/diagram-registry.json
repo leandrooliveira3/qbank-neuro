@@ -615,9 +615,9 @@
       ],
       "parent": "55",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": "Superfícies originais com cerca de 2,40 cm de extensão craniocaudal; não demonstram a árvore dural frontal/parietal completa. Conferir origem, forame espinhoso, ramos e arcadas; não equiparar o ramo acessório da fonte à meníngea acessória.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {

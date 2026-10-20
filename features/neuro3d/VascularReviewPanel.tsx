@@ -2,20 +2,22 @@ import React, {useMemo,useState} from "react";
 import { vascularMeshReview, venousCoverage, vascularChecklist, vascularReviewCounts } from "./vascularReview";
 import {maxillaryBranchReview} from "./maxillaryReview";
 import {normalize} from "./model";
+import VascularCompletenessPanel from "./VascularCompletenessPanel";
 
 export default function VascularReviewPanel({onSelect}:{onSelect:(id:string)=>void}) {
-  const [scope,setScope] = useState("meshes"), [system,setSystem] = useState("all"), [query,setQuery] = useState("");
+  const [scope,setScope] = useState("complete"), [system,setSystem] = useState("all"), [query,setQuery] = useState("");
   const rows = useMemo(()=>vascularMeshReview.filter(row=>(system === "all" || row.layer === system) && normalize(`${row.name} ${row.id} ${row.note}`).includes(normalize(query))),[system,query]);
   const veins = useMemo(()=>venousCoverage.filter(row=>normalize(`${row.name} ${row.group}`).includes(normalize(query))),[query]);
   const maxillary = useMemo(()=>maxillaryBranchReview.filter(row=>normalize(row.name).includes(normalize(query))),[query]);
   return <div className="nda-diagram-index" data-testid="vascular-review">
     <h3>Revisão vascular integral</h3>
     <p className="nda-help">{vascularReviewCounts.importedArterial} malhas arteriais + {vascularReviewCounts.importedVenous} venosas na fonte; {vascularReviewCounts.reconstructed} reconstruções didáticas. {vascularReviewCounts.disputed} originais retirados por discrepância. Nenhuma aprovação anatômica é inferida do nome ou da integridade do arquivo.</p>
-    <label>Lista<select aria-label="Escopo da revisão vascular" value={scope} onChange={e=>setScope(e.target.value)}><option value="meshes">Todas as malhas e reconstruções</option><option value="venous">Vasos venosos exigidos e ausências</option><option value="maxillary">Maxilar · ramos e origens</option></select></label>
+    <label>Lista<select aria-label="Escopo da revisão vascular" value={scope} onChange={e=>setScope(e.target.value)}><option value="complete">Matriz integral · exigências e ausências por lado</option><option value="meshes">Todas as malhas e reconstruções</option><option value="venous">Vasos venosos exigidos e ausências</option><option value="maxillary">Maxilar · ramos e origens</option></select></label>
     <label>Buscar vaso<input aria-label="Buscar na revisão vascular integral" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Galeno, faríngea, lingual…" /></label>
     {scope === "meshes" && <label>Sistema<select aria-label="Sistema da revisão vascular" value={system} onChange={e=>setSystem(e.target.value)}><option value="all">Arterial e venoso</option><option value="arterial">Arterial</option><option value="venous">Venoso</option></select></label>}
-    <p role="status">{scope === "meshes" ? rows.length : scope === "maxillary" ? maxillary.length : veins.length} registros. Verificação de cada estrutura e de suas conexões em andamento.</p>
+    {scope !== "complete" && <p role="status">{scope === "meshes" ? rows.length : scope === "maxillary" ? maxillary.length : veins.length} registros. Verificação de cada estrutura e de suas conexões em andamento.</p>}
     <details><summary>Critérios de conferência individual</summary>{vascularChecklist.map(label=><p key={label}>{label}: revisão pendente até registro específico.</p>)}</details>
+    {scope === "complete" && <VascularCompletenessPanel query={query} onSelect={onSelect} />}
     {scope === "maxillary" && maxillary.map(row=><article key={row.key} data-maxillary-branch={row.key}>
       <span className="nda-review-status">{row.status === "missing" ? "Malha individual ausente" : row.status === "partial" ? "Cobertura parcial" : "Presente · origem/curso pendentes"}</span>
       <h4>{row.name}</h4><small>Porção {row.segment.toLowerCase()}</small><p>{row.note}</p>

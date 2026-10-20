@@ -2,9 +2,9 @@
   "reviewedAt": "2026-10-19",
   "sourceUrl": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
   "counts": {
-    "imported": 44,
+    "imported": 43,
     "reconstructed": 12,
-    "partial": 15,
+    "partial": 16,
     "missing": 64,
     "unresolved": 7
   },
@@ -1205,16 +1205,16 @@
       ],
       "parent": "55",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
+      "note": "Superfícies originais com cerca de 2,40 cm de extensão craniocaudal; não demonstram a árvore dural frontal/parietal completa. Conferir origem, forame espinhoso, ramos e arcadas; não equiparar o ramo acessório da fonte à meníngea acessória. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
       "ids": [
         "middle_meningeal_artery_l",
         "middle_meningeal_artery_r"
       ],
       "candidateIds": [],
-      "status": "imported",
+      "status": "partial",
       "geometryKinds": [
         "imported"
       ],

@@ -12,6 +12,7 @@ import "./detailed-atlas.css";
 import { anatomicalInventory } from "./anatomicalInventory";
 import DiagramInventory from "./DiagramInventory";
 import VascularReviewPanel from "./VascularReviewPanel";
+import {vascularFindings} from "./vascularFindings";
 import ReconstructedSurfaces from "./ReconstructedSurfaces";
 import { reconstructedArteries } from "./reconstructedArteries";
 import type { P3 } from "./simulation/station/network";
@@ -277,7 +278,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         </div>
         {item && <article data-testid="detailed-structure"><h3>{item.name}</h3><p><i>{item.latin}</i></p><small>{item.path.join(" › ")}</small>
           <label className="nda-isolate"><input type="checkbox" checked={isolate} onChange={(event) => setIsolate(event.target.checked)} /> Isolar estrutura selecionada</label>
-          {"status" in item ? <><p className="nda-reconstruction-note">Reconstrução didática · não validada</p><small>{item.note}</small><a href={item.reference} target="_blank" rel="noreferrer">Referência anatômica · Neuroangio</a></> : <small>Rótulo de origem ainda em revisão anatômica.</small>}</article>}
+          {"status" in item ? <><p className="nda-reconstruction-note">Reconstrução didática · não validada</p><small>{item.note}</small><a href={item.reference} target="_blank" rel="noreferrer">Referência anatômica · Neuroangio</a></> : <><small>Rótulo de origem ainda em revisão anatômica.</small>{vascularFindings.has(item.id) && <p className="nda-reconstruction-note" data-testid="vascular-source-finding">{vascularFindings.get(item.id)}</p>}</>}</article>}
       </div>}
       {panel === "Inventário" && <div className="nda-review"><h3>Índice anatômico obrigatório</h3>
         <details><summary>Estruturas cranianas e cervicais recuperadas ({craniocervical.structures.length})</summary>
