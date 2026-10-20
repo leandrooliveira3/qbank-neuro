@@ -1,0 +1,5504 @@
+{
+  "version": 1,
+  "units": "cm",
+  "frame": "existing atlas: left +x, superior +y, anterior +z",
+  "license": "CC-BY-SA-4.0",
+  "method": "Original hand-authored illustrative controls; literature-informed topology, not measured patient anatomy",
+  "anatomicalApproval": false,
+  "proceduralEligible": false,
+  "templates": [
+    {
+      "id": "deep_auricular_artery",
+      "name": "Artéria auricular profunda",
+      "parent": "maxillary_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            3.7,
+            -4.2,
+            0.8
+          ],
+          [
+            4.1,
+            -3.6,
+            0.2
+          ],
+          [
+            4.4,
+            -3.2,
+            -0.1
+          ]
+        ]
+      ],
+      "group": "Maxilar · mandibular e pterigóidea",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_tympanic_artery",
+      "name": "Artéria timpânica anterior",
+      "parent": "maxillary_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            3.7,
+            -4.2,
+            0.8
+          ],
+          [
+            3.5,
+            -3.7,
+            0.45
+          ],
+          [
+            3.35,
+            -3.2,
+            0.2
+          ]
+        ]
+      ],
+      "group": "Maxilar · mandibular e pterigóidea",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "accessory_meningeal_artery",
+      "name": "Artéria meníngea acessória",
+      "parent": "maxillary_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            3.6,
+            -4.2,
+            1.2
+          ],
+          [
+            3.05,
+            -3.7,
+            1.05
+          ],
+          [
+            2.7,
+            -3.1,
+            0.85
+          ],
+          [
+            2.3,
+            -2.5,
+            0.8
+          ]
+        ]
+      ],
+      "group": "Maxilar · mandibular e pterigóidea",
+      "reference": "https://neuroangio.org/anatomy-and-variants/accessory-meningeal-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "masseteric_artery",
+      "name": "Artéria massetérica",
+      "parent": "maxillary_artery",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            3.9,
+            -4.1,
+            2.1
+          ],
+          [
+            4.8,
+            -4,
+            2.3
+          ],
+          [
+            5.2,
+            -4.5,
+            2.6
+          ],
+          [
+            5.1,
+            -5.4,
+            3
+          ]
+        ]
+      ],
+      "group": "Maxilar · mandibular e pterigóidea",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "pterygoid_branches_of_maxillary_artery",
+      "name": "Ramos pterigóideos da maxilar",
+      "parent": "maxillary_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            3.5,
+            -4.1,
+            2
+          ],
+          [
+            3,
+            -4.5,
+            2.4
+          ],
+          [
+            2.8,
+            -5.3,
+            2.6
+          ]
+        ],
+        [
+          [
+            3.5,
+            -4.1,
+            2
+          ],
+          [
+            3.9,
+            -3.6,
+            2.3
+          ],
+          [
+            4,
+            -3,
+            2.6
+          ]
+        ]
+      ],
+      "group": "Maxilar · mandibular e pterigóidea",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_superior_alveolar_artery",
+      "name": "Artéria alveolar superior anterior",
+      "parent": "infra_orbital_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            2.8,
+            -3.2,
+            5.7
+          ],
+          [
+            2.3,
+            -3.9,
+            6.4
+          ],
+          [
+            1.6,
+            -4.7,
+            6.8
+          ],
+          [
+            0.8,
+            -5.5,
+            6.9
+          ]
+        ]
+      ],
+      "group": "Maxilar · pterigopalatina",
+      "reference": "https://neuroangio.org/anatomy-and-variants/infraorbital-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "middle_superior_alveolar_artery",
+      "name": "Artéria alveolar superior média · variável",
+      "parent": "infra_orbital_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            3.1,
+            -3.4,
+            5.4
+          ],
+          [
+            3.1,
+            -4.3,
+            5.8
+          ],
+          [
+            2.8,
+            -5.2,
+            6.1
+          ]
+        ]
+      ],
+      "group": "Maxilar · pterigopalatina",
+      "reference": "https://neuroangio.org/anatomy-and-variants/infraorbital-artery/",
+      "paired": true,
+      "variant": true
+    },
+    {
+      "id": "lesser_palatine_artery",
+      "name": "Artéria palatina menor",
+      "parent": "descending_palatine_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            1.8,
+            -4.8,
+            4
+          ],
+          [
+            1.5,
+            -5.8,
+            3.8
+          ],
+          [
+            1.1,
+            -6.1,
+            3.1
+          ]
+        ]
+      ],
+      "group": "Maxilar · pterigopalatina",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "pterygovaginal_artery",
+      "name": "Artéria pterigovaginal",
+      "parent": "maxillary_artery",
+      "radius": 0.023,
+      "paths": [
+        [
+          [
+            2.8,
+            -3.8,
+            3.6
+          ],
+          [
+            2.1,
+            -3.7,
+            2.9
+          ],
+          [
+            1.6,
+            -3.6,
+            2.2
+          ]
+        ]
+      ],
+      "group": "Maxilar · pterigopalatina",
+      "reference": "https://neuroangio.org/anatomy-and-variants/pterygovaginal-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "artery_of_foramen_rotundum_from_maxillary",
+      "name": "Artéria do forame redondo · contribuição maxilar",
+      "parent": "maxillary_artery",
+      "radius": 0.022,
+      "paths": [
+        [
+          [
+            2.8,
+            -3.5,
+            3.5
+          ],
+          [
+            2.7,
+            -3.1,
+            2.5
+          ],
+          [
+            2.6,
+            -2.7,
+            1.9
+          ]
+        ]
+      ],
+      "group": "Maxilar · pterigopalatina",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "sphenopalatine_artery",
+      "name": "Artéria esfenopalatina",
+      "parent": "maxillary_artery",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            2.8,
+            -3.7,
+            3.8
+          ],
+          [
+            2.1,
+            -3.8,
+            4
+          ],
+          [
+            1.4,
+            -3.8,
+            4.1
+          ],
+          [
+            0.9,
+            -3.9,
+            4.3
+          ]
+        ]
+      ],
+      "group": "Maxilar · pterigopalatina",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "recurrent_artery_of_heubner",
+      "name": "Artéria recorrente de Heubner",
+      "parent": "anterior_cerebral_artery",
+      "radius": 0.022,
+      "paths": [
+        [
+          [
+            0.6,
+            1.2,
+            3.1
+          ],
+          [
+            1.1,
+            1.15,
+            2.8
+          ],
+          [
+            1.6,
+            1.1,
+            2.5
+          ],
+          [
+            1.9,
+            1.8,
+            2.4
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "medial_lenticulostriate_arteries",
+      "name": "Artérias lenticuloestriadas mediais",
+      "parent": "anterior_cerebral_artery",
+      "radius": 0.016,
+      "paths": [
+        [
+          [
+            0.9,
+            0.8,
+            2.6
+          ],
+          [
+            1,
+            1.7,
+            2.4
+          ],
+          [
+            1.1,
+            2.3,
+            2.1
+          ]
+        ],
+        [
+          [
+            1.1,
+            0.8,
+            2.5
+          ],
+          [
+            1.3,
+            1.7,
+            2.1
+          ],
+          [
+            1.4,
+            2.2,
+            1.9
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "frontopolar_artery",
+      "name": "Artéria frontopolar",
+      "parent": "pericallosal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.5,
+            2.2,
+            4
+          ],
+          [
+            0.5,
+            3.3,
+            5.8
+          ],
+          [
+            0.6,
+            4.2,
+            7.6
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_internal_frontal_artery",
+      "name": "Artéria frontal interna anterior",
+      "parent": "pericallosal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.4,
+            4.6,
+            3.5
+          ],
+          [
+            0.5,
+            5.7,
+            4.5
+          ],
+          [
+            0.5,
+            7.3,
+            5.1
+          ],
+          [
+            0.6,
+            8.2,
+            4.8
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "middle_internal_frontal_artery",
+      "name": "Artéria frontal interna média",
+      "parent": "pericallosal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.4,
+            5.2,
+            1.8
+          ],
+          [
+            0.4,
+            6.6,
+            2.4
+          ],
+          [
+            0.5,
+            8.2,
+            2.7
+          ],
+          [
+            0.5,
+            9,
+            2.5
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_internal_frontal_artery",
+      "name": "Artéria frontal interna posterior",
+      "parent": "pericallosal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.4,
+            5.2,
+            0.2
+          ],
+          [
+            0.4,
+            6.7,
+            0.5
+          ],
+          [
+            0.5,
+            8.5,
+            0.6
+          ],
+          [
+            0.6,
+            9.5,
+            0.2
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "paracentral_artery",
+      "name": "Artéria paracentral",
+      "parent": "pericallosal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.4,
+            5,
+            -1
+          ],
+          [
+            0.5,
+            6.5,
+            -1.4
+          ],
+          [
+            0.5,
+            8.5,
+            -1.7
+          ],
+          [
+            0.6,
+            9.6,
+            -2.1
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_internal_parietal_artery",
+      "name": "Artéria parietal interna superior",
+      "parent": "pericallosal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.4,
+            4.6,
+            -2.7
+          ],
+          [
+            0.5,
+            5.9,
+            -3.5
+          ],
+          [
+            0.6,
+            7.2,
+            -4.3
+          ],
+          [
+            0.7,
+            8.3,
+            -4.8
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "inferior_internal_parietal_artery",
+      "name": "Artéria parietal interna inferior",
+      "parent": "pericallosal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.4,
+            4,
+            -3.6
+          ],
+          [
+            0.5,
+            4.5,
+            -5.1
+          ],
+          [
+            0.6,
+            5.1,
+            -6.7
+          ],
+          [
+            0.7,
+            5.5,
+            -7.5
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "subcallosal_artery",
+      "name": "Artéria subcalosa",
+      "parent": "anterior_communicating_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            0,
+            1.2,
+            3.1
+          ],
+          [
+            0,
+            1.8,
+            2.7
+          ],
+          [
+            0,
+            2.7,
+            2.8
+          ],
+          [
+            0,
+            3.2,
+            3.3
+          ]
+        ]
+      ],
+      "group": "ACA · córtex e perfurantes",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "middle_cerebral_artery_m2_superior_division",
+      "name": "ACM · divisão superior M2",
+      "parent": "middle_cerebral_artery_m1_segment",
+      "radius": 0.085,
+      "paths": [
+        [
+          [
+            3.7,
+            1.6,
+            2
+          ],
+          [
+            4.2,
+            2.3,
+            2
+          ],
+          [
+            4.7,
+            3.1,
+            2.2
+          ],
+          [
+            4.9,
+            3.5,
+            2.5
+          ]
+        ]
+      ],
+      "group": "ACM · divisões e córtex",
+      "reference": "https://neuroangio.org/anatomy-and-variants/middle-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "middle_cerebral_artery_m2_inferior_division",
+      "name": "ACM · divisão inferior M2",
+      "parent": "middle_cerebral_artery_m1_segment",
+      "radius": 0.08,
+      "paths": [
+        [
+          [
+            3.7,
+            1.6,
+            2
+          ],
+          [
+            4.4,
+            1.9,
+            1.1
+          ],
+          [
+            4.8,
+            2.2,
+            -0.3
+          ],
+          [
+            5,
+            2.5,
+            -1.5
+          ]
+        ]
+      ],
+      "group": "ACM · divisões e córtex",
+      "reference": "https://neuroangio.org/anatomy-and-variants/middle-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "middle_cerebral_artery_m4_cortical_branches",
+      "name": "ACM · exemplos de ramos M4",
+      "parent": "middle_cerebral_artery_m2_superior_division",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            4.9,
+            3.5,
+            2.5
+          ],
+          [
+            5.6,
+            4.1,
+            2.8
+          ],
+          [
+            6,
+            5.5,
+            2.5
+          ],
+          [
+            5.5,
+            7,
+            2
+          ]
+        ],
+        [
+          [
+            5,
+            2.5,
+            -1.5
+          ],
+          [
+            6,
+            3.1,
+            -2.1
+          ],
+          [
+            6.5,
+            4.3,
+            -3.6
+          ],
+          [
+            6,
+            5.6,
+            -4.6
+          ]
+        ]
+      ],
+      "group": "ACM · divisões e córtex",
+      "reference": "https://neuroangio.org/anatomy-and-variants/middle-cerebral-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_thalamoperforating_arteries",
+      "name": "Artérias talamoperfurantes anteriores",
+      "parent": "posterior_communicating_artery",
+      "radius": 0.016,
+      "paths": [
+        [
+          [
+            1.2,
+            0.3,
+            0.7
+          ],
+          [
+            0.9,
+            1.1,
+            0.3
+          ],
+          [
+            0.8,
+            2.1,
+            -0.2
+          ]
+        ],
+        [
+          [
+            1.2,
+            0.2,
+            0.4
+          ],
+          [
+            1.1,
+            1.2,
+            -0.1
+          ],
+          [
+            1.2,
+            2.2,
+            -0.5
+          ]
+        ]
+      ],
+      "group": "ACoP e ACP · perfurantes e coroideas",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_thalamoperforating_arteries",
+      "name": "Artérias talamoperfurantes posteriores · P1",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            0.6,
+            -0.2,
+            0.3
+          ],
+          [
+            0.5,
+            0.8,
+            -0.2
+          ],
+          [
+            0.5,
+            1.8,
+            -0.7
+          ],
+          [
+            0.7,
+            2.5,
+            -1.1
+          ]
+        ],
+        [
+          [
+            0.8,
+            -0.2,
+            0.1
+          ],
+          [
+            1,
+            0.9,
+            -0.4
+          ],
+          [
+            1.2,
+            1.9,
+            -0.8
+          ]
+        ]
+      ],
+      "group": "ACoP e ACP · perfurantes e coroideas",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "thalamogeniculate_arteries",
+      "name": "Artérias talamogeniculadas",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.1,
+            -0.3,
+            -1.5
+          ],
+          [
+            2.3,
+            0.5,
+            -1.3
+          ],
+          [
+            2.1,
+            1.4,
+            -1.2
+          ]
+        ],
+        [
+          [
+            2.2,
+            -0.3,
+            -1.7
+          ],
+          [
+            2.5,
+            0.6,
+            -1.8
+          ],
+          [
+            2.3,
+            1.4,
+            -2
+          ]
+        ]
+      ],
+      "group": "ACoP e ACP · perfurantes e coroideas",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "medial_posterior_choroidal_artery",
+      "name": "Artéria coroidea posterior medial",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            1.1,
+            -0.4,
+            -0.8
+          ],
+          [
+            0.9,
+            0.4,
+            -1.7
+          ],
+          [
+            0.7,
+            1,
+            -2.8
+          ],
+          [
+            0.4,
+            1.6,
+            -3.3
+          ],
+          [
+            0.4,
+            2,
+            -2.4
+          ]
+        ]
+      ],
+      "group": "ACoP e ACP · perfurantes e coroideas",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "lateral_posterior_choroidal_artery",
+      "name": "Artéria coroidea posterior lateral",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            2,
+            -0.3,
+            -2
+          ],
+          [
+            2.3,
+            0.3,
+            -2.8
+          ],
+          [
+            2.4,
+            1.1,
+            -3.7
+          ],
+          [
+            2.1,
+            2.3,
+            -3.9
+          ],
+          [
+            1.7,
+            2.7,
+            -3.2
+          ]
+        ]
+      ],
+      "group": "ACoP e ACP · perfurantes e coroideas",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_temporal_branch_of_pca",
+      "name": "Ramo temporal anterior da ACP",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            2,
+            -0.4,
+            -1.4
+          ],
+          [
+            2.8,
+            -0.8,
+            -0.9
+          ],
+          [
+            3.7,
+            -1,
+            0.2
+          ],
+          [
+            4.4,
+            -0.8,
+            0.8
+          ]
+        ]
+      ],
+      "group": "ACP · córtex",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "middle_temporal_branches_of_pca",
+      "name": "Ramos temporais médios da ACP",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            2.5,
+            -0.2,
+            -2.7
+          ],
+          [
+            3.4,
+            -0.7,
+            -2.4
+          ],
+          [
+            4.4,
+            -1,
+            -1.8
+          ],
+          [
+            5,
+            -0.8,
+            -1.2
+          ]
+        ]
+      ],
+      "group": "ACP · córtex",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_temporal_branch_of_pca",
+      "name": "Ramo temporal posterior da ACP",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            2.7,
+            0.5,
+            -4
+          ],
+          [
+            3.7,
+            0.1,
+            -4.5
+          ],
+          [
+            4.7,
+            -0.3,
+            -5
+          ],
+          [
+            5.3,
+            0,
+            -5.5
+          ]
+        ]
+      ],
+      "group": "ACP · córtex",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "calcarine_artery",
+      "name": "Artéria calcarina",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            1,
+            1,
+            -4.4
+          ],
+          [
+            0.8,
+            1.7,
+            -5.5
+          ],
+          [
+            0.6,
+            2.3,
+            -7
+          ],
+          [
+            0.6,
+            2.3,
+            -8.7
+          ]
+        ]
+      ],
+      "group": "ACP · córtex",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_pericallosal_artery",
+      "name": "Artéria pericalosa posterior · esplenial",
+      "parent": "posterior_cerebral_artery",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            1.2,
+            1,
+            -3.6
+          ],
+          [
+            0.7,
+            2,
+            -3.9
+          ],
+          [
+            0.4,
+            3,
+            -3.6
+          ],
+          [
+            0.4,
+            3.8,
+            -2.9
+          ]
+        ]
+      ],
+      "group": "ACP · córtex",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_hypophyseal_arteries",
+      "name": "Artérias hipofisárias superiores",
+      "parent": "internal_carotid_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            1.2,
+            0.1,
+            2.4
+          ],
+          [
+            0.8,
+            0.1,
+            2
+          ],
+          [
+            0.4,
+            -0.1,
+            1.8
+          ]
+        ],
+        [
+          [
+            1.2,
+            0.1,
+            2.4
+          ],
+          [
+            0.7,
+            0.5,
+            2.2
+          ],
+          [
+            0.3,
+            0.6,
+            2
+          ]
+        ]
+      ],
+      "group": "ACI · sela e coroidea anterior",
+      "reference": "https://neuroangio.org/anatomy-and-variants/superior-hypophyseal-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "capsular_artery_of_mcconnell",
+      "name": "Artéria capsular de McConnell",
+      "parent": "internal_carotid_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            1.6,
+            -1.6,
+            1
+          ],
+          [
+            1,
+            -1.5,
+            1.1
+          ],
+          [
+            0.5,
+            -1.2,
+            1.2
+          ]
+        ]
+      ],
+      "group": "ACI · sela e coroidea anterior",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_choroidal_artery_plexal_branches",
+      "name": "Coroidea anterior · ramos plexais",
+      "parent": "anterior_choroidal_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            2.9,
+            1.2,
+            -3.4
+          ],
+          [
+            2.8,
+            1.7,
+            -3
+          ],
+          [
+            2.6,
+            1.6,
+            -2.3
+          ],
+          [
+            2.5,
+            1.1,
+            -1.6
+          ]
+        ]
+      ],
+      "group": "ACI · sela e coroidea anterior",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-choroidal-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_choroidal_artery_cisternal_perforators",
+      "name": "Coroidea anterior · perfurantes cisternais",
+      "parent": "anterior_choroidal_artery",
+      "radius": 0.015,
+      "paths": [
+        [
+          [
+            1.9,
+            -0.2,
+            0.5
+          ],
+          [
+            2,
+            0.6,
+            0.6
+          ],
+          [
+            2,
+            1.4,
+            0.3
+          ]
+        ],
+        [
+          [
+            2,
+            -0.3,
+            -0.7
+          ],
+          [
+            2.2,
+            0.5,
+            -0.6
+          ],
+          [
+            2.3,
+            1.2,
+            -0.8
+          ]
+        ]
+      ],
+      "group": "ACI · sela e coroidea anterior",
+      "reference": "https://neuroangio.org/anatomy-and-variants/anterior-choroidal-artery/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "medial_branch_of_pica",
+      "name": "PICA · divisão medial/vermiana",
+      "parent": "posterior_inferior_cerebellar_artery",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            2,
+            -3.3,
+            -4.4
+          ],
+          [
+            1.2,
+            -3.1,
+            -5.6
+          ],
+          [
+            0.5,
+            -2.9,
+            -6.2
+          ],
+          [
+            0.3,
+            -2.4,
+            -7
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "lateral_branch_of_pica",
+      "name": "PICA · divisão lateral/hemisférica",
+      "parent": "posterior_inferior_cerebellar_artery",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            2,
+            -3.3,
+            -4.4
+          ],
+          [
+            3,
+            -3.4,
+            -5.4
+          ],
+          [
+            4,
+            -2.9,
+            -6.3
+          ],
+          [
+            4.7,
+            -2.3,
+            -6.5
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "perforating_branches_of_pica",
+      "name": "PICA · perfurantes bulbares",
+      "parent": "posterior_inferior_cerebellar_artery",
+      "radius": 0.016,
+      "paths": [
+        [
+          [
+            1.3,
+            -3,
+            -2
+          ],
+          [
+            0.9,
+            -2.7,
+            -1.8
+          ],
+          [
+            0.5,
+            -2.5,
+            -1.6
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "choroidal_branches_of_pica",
+      "name": "PICA · ramos coroideos",
+      "parent": "posterior_inferior_cerebellar_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            1.5,
+            -2.8,
+            -4.8
+          ],
+          [
+            1,
+            -2.1,
+            -4.3
+          ],
+          [
+            0.6,
+            -1.7,
+            -3.7
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "labyrinthine_artery",
+      "name": "Artéria labiríntica · origem AICA ilustrada",
+      "parent": "anterior_inferior_cerebellar_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2,
+            -1.8,
+            -1.3
+          ],
+          [
+            2.7,
+            -1.9,
+            -1.2
+          ],
+          [
+            3.4,
+            -2.1,
+            -0.9
+          ],
+          [
+            3.9,
+            -2.2,
+            -0.7
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "subarcuate_artery",
+      "name": "Artéria subarqueada",
+      "parent": "anterior_inferior_cerebellar_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.4,
+            -1.8,
+            -1.5
+          ],
+          [
+            3.2,
+            -1.8,
+            -1.8
+          ],
+          [
+            3.8,
+            -2,
+            -2.1
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "perforating_branches_of_aica",
+      "name": "AICA · perfurantes",
+      "parent": "anterior_inferior_cerebellar_artery",
+      "radius": 0.015,
+      "paths": [
+        [
+          [
+            0.9,
+            -1.8,
+            -0.9
+          ],
+          [
+            0.7,
+            -1.3,
+            -1.2
+          ],
+          [
+            0.5,
+            -1,
+            -1.5
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "cortical_branches_of_aica",
+      "name": "AICA · exemplos de ramos corticais",
+      "parent": "anterior_inferior_cerebellar_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            3,
+            -1.9,
+            -1.7
+          ],
+          [
+            4,
+            -2,
+            -2.8
+          ],
+          [
+            4.8,
+            -2,
+            -4
+          ],
+          [
+            5,
+            -1.5,
+            -5
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "vermian_branch_of_superior_cerebellar_artery",
+      "name": "ACS · ramo vermiano",
+      "parent": "superior_cerebellar_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            2,
+            0.3,
+            -4
+          ],
+          [
+            1.3,
+            0.6,
+            -4.9
+          ],
+          [
+            0.6,
+            0.5,
+            -5.7
+          ],
+          [
+            0.3,
+            0.1,
+            -6.4
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "hemispheric_branch_of_superior_cerebellar_artery",
+      "name": "ACS · ramo hemisférico",
+      "parent": "superior_cerebellar_artery",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            2,
+            0.3,
+            -4
+          ],
+          [
+            3.2,
+            0.7,
+            -4.6
+          ],
+          [
+            4.3,
+            0.6,
+            -5.3
+          ],
+          [
+            5,
+            0.1,
+            -5.9
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "perforating_branches_of_superior_cerebellar_artery",
+      "name": "ACS · perfurantes",
+      "parent": "superior_cerebellar_artery",
+      "radius": 0.016,
+      "paths": [
+        [
+          [
+            0.8,
+            -0.4,
+            -0.6
+          ],
+          [
+            0.6,
+            0.1,
+            -1
+          ],
+          [
+            0.5,
+            0.6,
+            -1.4
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_meningeal_branch_of_vertebral_artery",
+      "name": "Vertebral · ramo meníngeo anterior",
+      "parent": "vertebral_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            1.2,
+            -5,
+            -2.4
+          ],
+          [
+            0.8,
+            -4.5,
+            -2.1
+          ],
+          [
+            0.5,
+            -3.8,
+            -1.7
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_meningeal_artery",
+      "name": "Artéria meníngea posterior · origem vertebral ilustrada",
+      "parent": "vertebral_artery",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            1.4,
+            -4.5,
+            -2.7
+          ],
+          [
+            1.5,
+            -3.9,
+            -3.8
+          ],
+          [
+            1.3,
+            -3.1,
+            -5.3
+          ],
+          [
+            1,
+            -2.2,
+            -6.6
+          ]
+        ]
+      ],
+      "group": "Cerebelo e tronco · ramos",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_thyroid_artery",
+      "name": "Artéria tireoidiana superior",
+      "parent": "external_carotid_artery",
+      "radius": 0.07,
+      "paths": [
+        [
+          [
+            3.3,
+            -10,
+            0.3
+          ],
+          [
+            2.6,
+            -10.6,
+            1.4
+          ],
+          [
+            2,
+            -12,
+            2.2
+          ],
+          [
+            1.4,
+            -13.2,
+            2.4
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "ascending_cervical_artery",
+      "name": "Artéria cervical ascendente",
+      "parent": "inferior_thyroid_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            2.2,
+            -14,
+            0.1
+          ],
+          [
+            2.5,
+            -12.5,
+            -0.6
+          ],
+          [
+            2.6,
+            -10.5,
+            -0.9
+          ],
+          [
+            2.6,
+            -8.5,
+            -1.3
+          ],
+          [
+            2.4,
+            -6.5,
+            -1.5
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_spinal_artery",
+      "name": "Artéria espinal posterior · segmento cervical",
+      "parent": "vertebral_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            1,
+            -4.5,
+            -2.8
+          ],
+          [
+            0.4,
+            -5.7,
+            -3.8
+          ],
+          [
+            0.35,
+            -8,
+            -4
+          ],
+          [
+            0.35,
+            -11,
+            -4.1
+          ],
+          [
+            0.35,
+            -14,
+            -4.2
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "lateral_spinal_artery",
+      "name": "Artéria espinal lateral · segmento cervical",
+      "parent": "vertebral_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            1.2,
+            -4.7,
+            -2.7
+          ],
+          [
+            0.8,
+            -5.5,
+            -3.1
+          ],
+          [
+            0.7,
+            -7,
+            -3.2
+          ],
+          [
+            0.65,
+            -8.5,
+            -3.3
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "segmental_spinal_arteries",
+      "name": "Artérias segmentares espinais · exemplos cervicais",
+      "parent": "deep_cervical_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            2.5,
+            -9,
+            -4
+          ],
+          [
+            1.8,
+            -9.1,
+            -3.7
+          ],
+          [
+            1.2,
+            -9.1,
+            -3.5
+          ]
+        ],
+        [
+          [
+            2.5,
+            -11,
+            -4
+          ],
+          [
+            1.8,
+            -11.1,
+            -3.7
+          ],
+          [
+            1.2,
+            -11.1,
+            -3.5
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "radiculomedullary_arteries",
+      "name": "Artérias radiculomedulares · exemplos cervicais",
+      "parent": "segmental_spinal_arteries",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            1.2,
+            -9.1,
+            -3.5
+          ],
+          [
+            0.7,
+            -9.2,
+            -3
+          ],
+          [
+            0.2,
+            -9.3,
+            -2.8
+          ],
+          [
+            0,
+            -9.3,
+            -2.8
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "radiculopial_arteries",
+      "name": "Artérias radiculopiais · exemplos cervicais",
+      "parent": "segmental_spinal_arteries",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            1.2,
+            -11.1,
+            -3.5
+          ],
+          [
+            0.8,
+            -11.2,
+            -3.8
+          ],
+          [
+            0.4,
+            -11.3,
+            -4
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "radiculomeningeal_arteries",
+      "name": "Artérias radiculomeníngeas · exemplos cervicais",
+      "parent": "segmental_spinal_arteries",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            1.2,
+            -9.1,
+            -3.5
+          ],
+          [
+            1,
+            -9.3,
+            -4.2
+          ],
+          [
+            0.6,
+            -9.5,
+            -4.6
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "sulcocommissural_arteries",
+      "name": "Artérias sulcocomissurais · exemplos cervicais",
+      "parent": "anterior_spinal_artery",
+      "radius": 0.012,
+      "paths": [
+        [
+          [
+            0.08,
+            -7,
+            -2.9
+          ],
+          [
+            0.08,
+            -7,
+            -3.2
+          ],
+          [
+            0.2,
+            -7,
+            -3.5
+          ]
+        ],
+        [
+          [
+            0.08,
+            -8.5,
+            -2.9
+          ],
+          [
+            0.08,
+            -8.5,
+            -3.2
+          ],
+          [
+            0.2,
+            -8.5,
+            -3.5
+          ]
+        ],
+        [
+          [
+            0.08,
+            -10,
+            -2.9
+          ],
+          [
+            0.08,
+            -10,
+            -3.2
+          ],
+          [
+            0.2,
+            -10,
+            -3.5
+          ]
+        ]
+      ],
+      "group": "Cervical e medular · C1–C7 ilustrados",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_auricular_artery",
+      "name": "Artéria auricular posterior",
+      "parent": "external_carotid_artery",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            3.7,
+            -5.4,
+            0.1
+          ],
+          [
+            4.3,
+            -4.6,
+            -0.4
+          ],
+          [
+            4.8,
+            -3.3,
+            -0.9
+          ],
+          [
+            5,
+            -1.5,
+            -1.1
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "ascending_palatine_artery",
+      "name": "Artéria palatina ascendente",
+      "parent": "facial_artery",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            3.1,
+            -8.3,
+            1.4
+          ],
+          [
+            2.2,
+            -7.3,
+            1.9
+          ],
+          [
+            1.7,
+            -6.1,
+            2.4
+          ],
+          [
+            1.3,
+            -5.5,
+            3
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "tonsillar_branch_of_facial_artery",
+      "name": "Ramo tonsilar da facial",
+      "parent": "facial_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            3.1,
+            -8.3,
+            1.4
+          ],
+          [
+            2.3,
+            -7.7,
+            2
+          ],
+          [
+            1.7,
+            -6.8,
+            2.5
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "parietal_branch_of_superficial_temporal_artery",
+      "name": "Ramo parietal da temporal superficial",
+      "parent": "superficial_temporal_artery",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            5.2,
+            1.5,
+            0.3
+          ],
+          [
+            6,
+            2.8,
+            -0.3
+          ],
+          [
+            6.6,
+            4.5,
+            -1.2
+          ],
+          [
+            6.1,
+            6.3,
+            -2
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "petrosal_branch_of_middle_meningeal_artery",
+      "name": "Ramo petroso da meníngea média",
+      "parent": "middle_meningeal_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.7,
+            -2.7,
+            0.9
+          ],
+          [
+            3,
+            -2.6,
+            0.4
+          ],
+          [
+            3.4,
+            -2.7,
+            -0.1
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "frontal_branch_of_middle_meningeal_artery",
+      "name": "Ramo frontal da meníngea média",
+      "parent": "middle_meningeal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            3.3,
+            -1.4,
+            0.9
+          ],
+          [
+            4.5,
+            0.3,
+            2
+          ],
+          [
+            5.5,
+            2.7,
+            3
+          ],
+          [
+            5.3,
+            5.3,
+            3.3
+          ],
+          [
+            4.1,
+            7.4,
+            3
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "parietal_branch_of_middle_meningeal_artery",
+      "name": "Ramo parietal da meníngea média",
+      "parent": "middle_meningeal_artery",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            3.3,
+            -1.4,
+            0.9
+          ],
+          [
+            4.9,
+            0.4,
+            -0.2
+          ],
+          [
+            6,
+            2.3,
+            -1.7
+          ],
+          [
+            6.2,
+            4.8,
+            -3
+          ],
+          [
+            5.3,
+            7,
+            -3.9
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "petrosquamosal_branch_of_middle_meningeal_artery",
+      "name": "Ramo petrosquamoso da meníngea média",
+      "parent": "middle_meningeal_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            3.3,
+            -1.4,
+            0.9
+          ],
+          [
+            4,
+            -1.5,
+            -0.4
+          ],
+          [
+            4.8,
+            -1.4,
+            -2
+          ],
+          [
+            5.3,
+            -1.1,
+            -3.6
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "stylomastoid_artery",
+      "name": "Artéria estilomastóidea · origem auricular posterior ilustrada",
+      "parent": "posterior_auricular_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            4.3,
+            -4.6,
+            -0.4
+          ],
+          [
+            3.8,
+            -3.9,
+            -0.5
+          ],
+          [
+            3.5,
+            -3.2,
+            -0.3
+          ],
+          [
+            3.4,
+            -2.7,
+            0
+          ]
+        ]
+      ],
+      "group": "ACE · ramos durais e cervicofaciais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "great_cerebral_vein",
+      "name": "Veia cerebral magna · Galeno",
+      "parent": "straight_sinus",
+      "radius": 0.16,
+      "paths": [
+        [
+          [
+            0,
+            1.3,
+            -4.7
+          ],
+          [
+            0,
+            1.4,
+            -4.1
+          ],
+          [
+            0,
+            1.5,
+            -3.5
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "internal_cerebral_vein",
+      "name": "Veia cerebral interna",
+      "parent": "great_cerebral_vein",
+      "radius": 0.085,
+      "paths": [
+        [
+          [
+            0.25,
+            1.5,
+            -3.5
+          ],
+          [
+            0.35,
+            1.9,
+            -2.9
+          ],
+          [
+            0.4,
+            2.1,
+            -1.4
+          ],
+          [
+            0.4,
+            2.1,
+            0.2
+          ],
+          [
+            0.6,
+            2,
+            1.6
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "basal_vein_of_rosenthal",
+      "name": "Veia basal · Rosenthal",
+      "parent": "great_cerebral_vein",
+      "radius": 0.075,
+      "paths": [
+        [
+          [
+            0.35,
+            1.5,
+            -3.6
+          ],
+          [
+            1.5,
+            1.1,
+            -3.1
+          ],
+          [
+            2.3,
+            0.5,
+            -2
+          ],
+          [
+            2.1,
+            0.1,
+            -0.7
+          ],
+          [
+            1.9,
+            0.2,
+            0.6
+          ],
+          [
+            2.4,
+            0.5,
+            1.6
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/basal-vein-of-rosenthal/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "thalamostriate_vein",
+      "name": "Veia talamoestriada",
+      "parent": "internal_cerebral_vein",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            0.6,
+            2,
+            1.6
+          ],
+          [
+            1.3,
+            2.1,
+            1.2
+          ],
+          [
+            1.6,
+            2.4,
+            0.1
+          ],
+          [
+            1.9,
+            2.5,
+            -1.5
+          ],
+          [
+            2.1,
+            2.5,
+            -2.8
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_septal_vein",
+      "name": "Veia septal anterior",
+      "parent": "internal_cerebral_vein",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.6,
+            2,
+            1.6
+          ],
+          [
+            0.35,
+            2.6,
+            2.1
+          ],
+          [
+            0.3,
+            3.3,
+            2.7
+          ],
+          [
+            0.35,
+            3.7,
+            3.3
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_septal_vein",
+      "name": "Veia septal posterior",
+      "parent": "internal_cerebral_vein",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            0.35,
+            1.9,
+            -2.9
+          ],
+          [
+            0.3,
+            2.6,
+            -2.4
+          ],
+          [
+            0.25,
+            3,
+            -1.7
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "direct_lateral_vein",
+      "name": "Veia lateral direta · via alternativa",
+      "parent": "internal_cerebral_vein",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            0.4,
+            2.1,
+            -1.4
+          ],
+          [
+            1.2,
+            2.4,
+            -1.4
+          ],
+          [
+            1.9,
+            2.5,
+            -1.5
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": true
+    },
+    {
+      "id": "anterior_caudate_vein",
+      "name": "Veia caudada anterior",
+      "parent": "thalamostriate_vein",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            1.3,
+            2.1,
+            1.2
+          ],
+          [
+            1.7,
+            2.8,
+            1.7
+          ],
+          [
+            1.9,
+            3.1,
+            2.5
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "longitudinal_caudate_vein",
+      "name": "Veia caudada longitudinal",
+      "parent": "thalamostriate_vein",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            1.3,
+            2.1,
+            1.2
+          ],
+          [
+            1.7,
+            3.2,
+            1.2
+          ],
+          [
+            2,
+            3.4,
+            -0.5
+          ],
+          [
+            2.3,
+            3.1,
+            -2.4
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_choroidal_vein",
+      "name": "Veia coroidea superior",
+      "parent": "internal_cerebral_vein",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            0.4,
+            2.1,
+            0.2
+          ],
+          [
+            0.8,
+            2,
+            -0.8
+          ],
+          [
+            1.1,
+            2.1,
+            -2
+          ],
+          [
+            1.7,
+            2.6,
+            -3.5
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "inferior_ventricular_vein",
+      "name": "Veia ventricular inferior",
+      "parent": "basal_vein_of_rosenthal",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            2.3,
+            0.5,
+            -2
+          ],
+          [
+            2.7,
+            1,
+            -2.4
+          ],
+          [
+            2.9,
+            1.6,
+            -3.1
+          ],
+          [
+            2.5,
+            2.1,
+            -4
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "deep_middle_cerebral_vein",
+      "name": "Veia cerebral média profunda",
+      "parent": "basal_vein_of_rosenthal",
+      "radius": 0.05,
+      "paths": [
+        [
+          [
+            2.4,
+            0.5,
+            1.6
+          ],
+          [
+            3.1,
+            0.8,
+            1.7
+          ],
+          [
+            3.8,
+            1.4,
+            1.5
+          ],
+          [
+            4.4,
+            2.1,
+            1.2
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "inferior_striate_veins",
+      "name": "Veias estriadas inferiores",
+      "parent": "deep_middle_cerebral_vein",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            3.1,
+            0.8,
+            1.7
+          ],
+          [
+            2.6,
+            1.4,
+            1.6
+          ],
+          [
+            2.3,
+            2,
+            1.3
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "uncal_vein",
+      "name": "Veia uncal",
+      "parent": "basal_vein_of_rosenthal",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            1.9,
+            0.2,
+            0.6
+          ],
+          [
+            2.4,
+            -0.1,
+            0.8
+          ],
+          [
+            2.8,
+            -0.3,
+            1.1
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superficial_middle_cerebral_vein",
+      "name": "Veia cerebral média superficial · silviana",
+      "parent": "cavernous_sinus",
+      "radius": 0.07,
+      "paths": [
+        [
+          [
+            1.8,
+            -0.2,
+            1.9
+          ],
+          [
+            3.4,
+            0.2,
+            2.8
+          ],
+          [
+            5.2,
+            1.6,
+            3
+          ],
+          [
+            6.4,
+            2.8,
+            1.8
+          ],
+          [
+            6.9,
+            3.1,
+            0.1
+          ]
+        ]
+      ],
+      "group": "Venoso superficial",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_anastomotic_vein",
+      "name": "Veia anastomótica superior · Trolard",
+      "parent": "superior_sagittal_sinus",
+      "radius": 0.07,
+      "paths": [
+        [
+          [
+            0.2,
+            9.5,
+            0.2
+          ],
+          [
+            2.5,
+            9,
+            0.4
+          ],
+          [
+            4.7,
+            7.2,
+            0.7
+          ],
+          [
+            6,
+            5,
+            0.9
+          ],
+          [
+            6.4,
+            2.8,
+            1.8
+          ]
+        ]
+      ],
+      "group": "Venoso superficial",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "inferior_anastomotic_vein",
+      "name": "Veia anastomótica inferior · Labbé",
+      "parent": "transverse_sinus",
+      "radius": 0.07,
+      "paths": [
+        [
+          [
+            5.4,
+            -1,
+            -4.4
+          ],
+          [
+            6.2,
+            -0.3,
+            -3.7
+          ],
+          [
+            6.7,
+            0.6,
+            -2.4
+          ],
+          [
+            6.8,
+            1.6,
+            -0.9
+          ],
+          [
+            6.4,
+            2.8,
+            1.8
+          ]
+        ]
+      ],
+      "group": "Venoso superficial",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_cerebral_veins",
+      "name": "Veias cerebrais superiores · exemplos de pontes",
+      "parent": "superior_sagittal_sinus",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            0.2,
+            8,
+            4
+          ],
+          [
+            2,
+            7.7,
+            4.5
+          ],
+          [
+            3.9,
+            6.6,
+            5.3
+          ],
+          [
+            5.1,
+            4.8,
+            5
+          ]
+        ],
+        [
+          [
+            0.2,
+            8,
+            -4
+          ],
+          [
+            2.2,
+            7.5,
+            -4.7
+          ],
+          [
+            4,
+            6,
+            -5.4
+          ],
+          [
+            5.2,
+            4.3,
+            -6
+          ]
+        ]
+      ],
+      "group": "Venoso superficial",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "inferior_cerebral_veins",
+      "name": "Veias cerebrais inferiores · exemplos",
+      "parent": "transverse_sinus",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            4.7,
+            -1.3,
+            -5.6
+          ],
+          [
+            5.3,
+            -1.1,
+            -4.4
+          ],
+          [
+            5.5,
+            -0.9,
+            -2.9
+          ],
+          [
+            5.6,
+            -0.7,
+            -1.4
+          ]
+        ]
+      ],
+      "group": "Venoso superficial",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "medullary_veins",
+      "name": "Veias medulares cerebrais · exemplos",
+      "parent": "thalamostriate_vein",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            1.8,
+            2.5,
+            -1.3
+          ],
+          [
+            2.5,
+            3.3,
+            -1.2
+          ],
+          [
+            3.4,
+            4.2,
+            -1
+          ],
+          [
+            4.4,
+            5,
+            -0.8
+          ]
+        ],
+        [
+          [
+            1.6,
+            2.4,
+            0.1
+          ],
+          [
+            2.4,
+            3.3,
+            0.8
+          ],
+          [
+            3.3,
+            4.2,
+            1.4
+          ],
+          [
+            4.2,
+            5.2,
+            1.9
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "transcerebral_veins",
+      "name": "Veias transcerebrais · exemplos variáveis",
+      "parent": "superior_cerebral_veins",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            3.9,
+            6.6,
+            5.3
+          ],
+          [
+            3.2,
+            5.5,
+            4.4
+          ],
+          [
+            2.2,
+            4.1,
+            3
+          ],
+          [
+            1.3,
+            2.1,
+            1.2
+          ]
+        ]
+      ],
+      "group": "Venoso profundo",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/",
+      "paired": true,
+      "variant": true
+    },
+    {
+      "id": "precentral_cerebellar_vein",
+      "name": "Veia pré-central cerebelar",
+      "parent": "great_cerebral_vein",
+      "radius": 0.06,
+      "paths": [
+        [
+          [
+            0,
+            1.4,
+            -4.1
+          ],
+          [
+            0,
+            0.8,
+            -4.5
+          ],
+          [
+            0,
+            0,
+            -4.4
+          ],
+          [
+            0,
+            -0.7,
+            -4
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "superior_vermian_vein",
+      "name": "Veia vermiana superior",
+      "parent": "great_cerebral_vein",
+      "radius": 0.055,
+      "paths": [
+        [
+          [
+            0,
+            1.3,
+            -4.5
+          ],
+          [
+            0,
+            0.9,
+            -5.4
+          ],
+          [
+            0,
+            0.1,
+            -6.4
+          ],
+          [
+            0,
+            -0.6,
+            -7.1
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "inferior_vermian_veins",
+      "name": "Veias vermianas inferiores",
+      "parent": "confluence_of_sinuses",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            0.3,
+            -1.5,
+            -7.9
+          ],
+          [
+            0.5,
+            -2.3,
+            -7.1
+          ],
+          [
+            0.6,
+            -3,
+            -6
+          ],
+          [
+            0.5,
+            -3.3,
+            -4.8
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "petrosal_vein",
+      "name": "Veia petrosa · coletor",
+      "parent": "superior_petrosal_sinus",
+      "radius": 0.07,
+      "paths": [
+        [
+          [
+            3.5,
+            -1.3,
+            -2.3
+          ],
+          [
+            2.8,
+            -1.2,
+            -2.6
+          ],
+          [
+            2.1,
+            -1.1,
+            -2.9
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "lateral_mesencephalic_vein",
+      "name": "Veia mesencefálica lateral",
+      "parent": "petrosal_vein",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            2.1,
+            -1.1,
+            -2.9
+          ],
+          [
+            1.9,
+            -0.3,
+            -2.7
+          ],
+          [
+            1.7,
+            0.3,
+            -2.5
+          ],
+          [
+            1.6,
+            0.9,
+            -2.8
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "lateral_medullary_vein",
+      "name": "Veia bulbar lateral",
+      "parent": "petrosal_vein",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            2.1,
+            -1.1,
+            -2.9
+          ],
+          [
+            1.5,
+            -2,
+            -2.8
+          ],
+          [
+            1,
+            -3,
+            -2.6
+          ],
+          [
+            0.8,
+            -4,
+            -2.9
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "cerebellopontine_fissure_vein",
+      "name": "Veia da fissura cerebelopontina",
+      "parent": "petrosal_vein",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            2.8,
+            -1.2,
+            -2.6
+          ],
+          [
+            2.4,
+            -1.7,
+            -3.5
+          ],
+          [
+            2.1,
+            -2.5,
+            -4.1
+          ],
+          [
+            1.5,
+            -2.8,
+            -4.3
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_hemispheric_cerebellar_veins",
+      "name": "Veias cerebelares hemisféricas superiores · exemplos",
+      "parent": "petrosal_vein",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            2.8,
+            -1.2,
+            -2.6
+          ],
+          [
+            3.5,
+            -0.7,
+            -3.7
+          ],
+          [
+            4,
+            0.1,
+            -5
+          ],
+          [
+            3.4,
+            0.4,
+            -6.3
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "inferior_hemispheric_cerebellar_veins",
+      "name": "Veias cerebelares hemisféricas inferiores · exemplos",
+      "parent": "transverse_sinus",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            4.8,
+            -1.3,
+            -5.8
+          ],
+          [
+            4.2,
+            -2,
+            -6.7
+          ],
+          [
+            3.2,
+            -2.8,
+            -6.7
+          ],
+          [
+            2.4,
+            -3.3,
+            -5.7
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_pontomesencephalic_vein",
+      "name": "Veia pontomesencefálica anterior",
+      "parent": "petrosal_vein_l",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            2.1,
+            -1.1,
+            -2.9
+          ],
+          [
+            0.8,
+            -1.2,
+            -0.9
+          ],
+          [
+            0,
+            -0.9,
+            -0.5
+          ],
+          [
+            0,
+            0.1,
+            -0.5
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "anterior_pontomedullary_vein",
+      "name": "Veia pontobulbar anterior",
+      "parent": "anterior_pontomesencephalic_vein",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0,
+            -0.9,
+            -0.5
+          ],
+          [
+            0,
+            -2,
+            -1
+          ],
+          [
+            0,
+            -3.2,
+            -1.8
+          ],
+          [
+            0,
+            -4.1,
+            -2.6
+          ]
+        ]
+      ],
+      "group": "Venoso · fossa posterior",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "confluence_of_sinuses",
+      "name": "Confluência dos seios · torcular",
+      "parent": "superior_sagittal_sinus",
+      "radius": 0.18,
+      "paths": [
+        [
+          [
+            0,
+            -1.5,
+            -8
+          ],
+          [
+            0.2,
+            -1.5,
+            -7.7
+          ],
+          [
+            0.6,
+            -1.5,
+            -7.6
+          ]
+        ],
+        [
+          [
+            0,
+            -1.5,
+            -8
+          ],
+          [
+            -0.3,
+            -1.5,
+            -7.8
+          ],
+          [
+            -0.6,
+            -1.5,
+            -7.6
+          ]
+        ]
+      ],
+      "group": "Venoso · seios e base do crânio",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "marginal_sinus",
+      "name": "Seio marginal · anel perimagno",
+      "parent": "occipital_sinus",
+      "radius": 0.07,
+      "paths": [
+        [
+          [
+            0,
+            -4,
+            -2.9
+          ],
+          [
+            1.3,
+            -4,
+            -3.3
+          ],
+          [
+            1.7,
+            -4,
+            -4.3
+          ],
+          [
+            0,
+            -4,
+            -5.1
+          ],
+          [
+            -1.7,
+            -4,
+            -4.3
+          ],
+          [
+            -1.3,
+            -4,
+            -3.3
+          ],
+          [
+            0,
+            -4,
+            -2.9
+          ]
+        ]
+      ],
+      "group": "Venoso · seios e base do crânio",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "falcine_sinus",
+      "name": "Seio falcino persistente · variante",
+      "parent": "superior_sagittal_sinus",
+      "radius": 0.07,
+      "paths": [
+        [
+          [
+            0,
+            8,
+            -4.5
+          ],
+          [
+            0,
+            6,
+            -4.3
+          ],
+          [
+            0,
+            4,
+            -4
+          ],
+          [
+            0,
+            1.5,
+            -3.8
+          ]
+        ]
+      ],
+      "group": "Venoso · seios e base do crânio",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": false,
+      "variant": true
+    },
+    {
+      "id": "sphenoparietal_sinus",
+      "name": "Seio esfenoparietal · representação convencional",
+      "parent": "cavernous_sinus",
+      "radius": 0.055,
+      "paths": [
+        [
+          [
+            1.6,
+            -0.2,
+            2
+          ],
+          [
+            2.7,
+            0,
+            2.7
+          ],
+          [
+            3.9,
+            0.2,
+            3.1
+          ],
+          [
+            4.6,
+            0.5,
+            3.2
+          ]
+        ]
+      ],
+      "group": "Venoso · seios e base do crânio",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/cavernous-sinus/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "sphenobasal_sinus",
+      "name": "Seio esfenobasal · variante",
+      "parent": "pterygoid_venous_plexus",
+      "radius": 0.055,
+      "paths": [
+        [
+          [
+            2.5,
+            -4,
+            2
+          ],
+          [
+            2.8,
+            -3.1,
+            2.1
+          ],
+          [
+            3,
+            -1.8,
+            2.4
+          ],
+          [
+            3.4,
+            0.2,
+            2.8
+          ]
+        ]
+      ],
+      "group": "Venoso · seios e base do crânio",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": true
+    },
+    {
+      "id": "sphenopetrosal_sinus",
+      "name": "Seio esfenopetroso · variante",
+      "parent": "transverse_sinus",
+      "radius": 0.055,
+      "paths": [
+        [
+          [
+            5.5,
+            -1.2,
+            -4.3
+          ],
+          [
+            4.7,
+            -0.9,
+            -3
+          ],
+          [
+            3.9,
+            -0.5,
+            -1.2
+          ],
+          [
+            3.4,
+            0.2,
+            2.8
+          ]
+        ]
+      ],
+      "group": "Venoso · seios e base do crânio",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": true
+    },
+    {
+      "id": "pterygoid_venous_plexus",
+      "name": "Plexo venoso pterigóideo · malha ilustrativa",
+      "parent": "maxillary_veins",
+      "radius": 0.04,
+      "paths": [
+        [
+          [
+            3.4,
+            -5,
+            1.8
+          ],
+          [
+            2.8,
+            -4.4,
+            2.6
+          ],
+          [
+            3.2,
+            -3.6,
+            3.4
+          ],
+          [
+            4,
+            -3.8,
+            3
+          ],
+          [
+            4.3,
+            -4.6,
+            2.3
+          ],
+          [
+            3.4,
+            -5,
+            1.8
+          ]
+        ],
+        [
+          [
+            3.4,
+            -5,
+            1.8
+          ],
+          [
+            3.5,
+            -4.2,
+            2.7
+          ],
+          [
+            3.2,
+            -3.6,
+            3.4
+          ]
+        ],
+        [
+          [
+            2.8,
+            -4.4,
+            2.6
+          ],
+          [
+            3.5,
+            -4.2,
+            2.7
+          ],
+          [
+            4.3,
+            -4.6,
+            2.3
+          ]
+        ]
+      ],
+      "group": "Venoso · emissárias e plexos",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/cavernous-sinus/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "diploic_veins",
+      "name": "Veias diploicas · exemplos",
+      "parent": "superior_sagittal_sinus",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            0.2,
+            8.2,
+            3.8
+          ],
+          [
+            2.7,
+            7.6,
+            4.5
+          ],
+          [
+            4.9,
+            5.8,
+            4.5
+          ],
+          [
+            5.7,
+            3.7,
+            4
+          ]
+        ],
+        [
+          [
+            2.7,
+            7.6,
+            4.5
+          ],
+          [
+            3.4,
+            7.2,
+            2.6
+          ],
+          [
+            4.7,
+            5.9,
+            1.4
+          ]
+        ]
+      ],
+      "group": "Venoso · emissárias e plexos",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "mastoid_emissary_vein",
+      "name": "Veia emissária mastoidea",
+      "parent": "sigmoid_sinus",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            5,
+            -2,
+            -3.6
+          ],
+          [
+            5.5,
+            -2.1,
+            -3.8
+          ],
+          [
+            5.9,
+            -2.2,
+            -4.1
+          ]
+        ]
+      ],
+      "group": "Venoso · emissárias e plexos",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "condylar_emissary_veins",
+      "name": "Veias emissárias condilares · exemplos",
+      "parent": "internal_jugular_vein",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            3,
+            -4.1,
+            -1.4
+          ],
+          [
+            2.2,
+            -4.3,
+            -2.2
+          ],
+          [
+            1.6,
+            -4.5,
+            -3.4
+          ]
+        ]
+      ],
+      "group": "Venoso · emissárias e plexos",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "parietal_emissary_vein",
+      "name": "Veia emissária parietal",
+      "parent": "superior_sagittal_sinus",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0.2,
+            8.6,
+            -3.5
+          ],
+          [
+            0.9,
+            8.7,
+            -3.6
+          ],
+          [
+            1.6,
+            8.8,
+            -3.7
+          ]
+        ]
+      ],
+      "group": "Venoso · emissárias e plexos",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_spinal_vein",
+      "name": "Veia espinal anterior · segmento cervical",
+      "parent": "anterior_pontomedullary_vein",
+      "radius": 0.035,
+      "paths": [
+        [
+          [
+            0,
+            -4.1,
+            -2.6
+          ],
+          [
+            0,
+            -7,
+            -2.8
+          ],
+          [
+            0,
+            -10,
+            -2.9
+          ],
+          [
+            0,
+            -14,
+            -3
+          ]
+        ]
+      ],
+      "group": "Venoso · segmento cervical medular",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "posterior_spinal_veins",
+      "name": "Veias espinais posteriores · segmentos cervicais",
+      "parent": "marginal_sinus",
+      "radius": 0.03,
+      "paths": [
+        [
+          [
+            0.4,
+            -4.4,
+            -4
+          ],
+          [
+            0.4,
+            -7,
+            -4
+          ],
+          [
+            0.4,
+            -10,
+            -4.1
+          ],
+          [
+            0.4,
+            -14,
+            -4.2
+          ]
+        ]
+      ],
+      "group": "Venoso · segmento cervical medular",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "radiculomedullary_veins",
+      "name": "Veias radiculomedulares · exemplos cervicais",
+      "parent": "anterior_spinal_vein",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            0,
+            -9.3,
+            -2.9
+          ],
+          [
+            0.5,
+            -9.3,
+            -3
+          ],
+          [
+            1,
+            -9.2,
+            -3.4
+          ],
+          [
+            1.5,
+            -9.1,
+            -3.6
+          ]
+        ]
+      ],
+      "group": "Venoso · segmento cervical medular",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "perimedullary_venous_plexus",
+      "name": "Rede venosa perimedular · exemplos cervicais",
+      "parent": "anterior_spinal_vein",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            0,
+            -8,
+            -2.8
+          ],
+          [
+            0.6,
+            -8.2,
+            -3.1
+          ],
+          [
+            0.7,
+            -8.3,
+            -3.6
+          ],
+          [
+            0.4,
+            -8.4,
+            -4
+          ],
+          [
+            0,
+            -8.4,
+            -4.1
+          ],
+          [
+            -0.6,
+            -8.2,
+            -3.6
+          ],
+          [
+            0,
+            -8,
+            -2.8
+          ]
+        ]
+      ],
+      "group": "Venoso · segmento cervical medular",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "internal_vertebral_venous_plexus",
+      "name": "Plexo venoso vertebral interno · exemplos cervicais",
+      "parent": "marginal_sinus",
+      "radius": 0.055,
+      "paths": [
+        [
+          [
+            0.9,
+            -4.4,
+            -3
+          ],
+          [
+            1,
+            -7,
+            -3
+          ],
+          [
+            1,
+            -10,
+            -3.1
+          ],
+          [
+            1,
+            -14,
+            -3.2
+          ]
+        ],
+        [
+          [
+            -0.9,
+            -4.4,
+            -3
+          ],
+          [
+            -1,
+            -7,
+            -3
+          ],
+          [
+            -1,
+            -10,
+            -3.1
+          ],
+          [
+            -1,
+            -14,
+            -3.2
+          ]
+        ],
+        [
+          [
+            1,
+            -9,
+            -3.1
+          ],
+          [
+            0.5,
+            -9,
+            -2.8
+          ],
+          [
+            -0.5,
+            -9,
+            -2.8
+          ],
+          [
+            -1,
+            -9,
+            -3.1
+          ]
+        ]
+      ],
+      "group": "Venoso · segmento cervical medular",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "external_vertebral_venous_plexus",
+      "name": "Plexo venoso vertebral externo · exemplos cervicais",
+      "parent": "condylar_emissary_veins_l",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            1.6,
+            -4.5,
+            -3.4
+          ],
+          [
+            2.1,
+            -7,
+            -5
+          ],
+          [
+            2.2,
+            -10,
+            -5.1
+          ],
+          [
+            2.3,
+            -14,
+            -5.2
+          ]
+        ],
+        [
+          [
+            -1.6,
+            -4.5,
+            -3.4
+          ],
+          [
+            -2.1,
+            -7,
+            -5
+          ],
+          [
+            -2.2,
+            -10,
+            -5.1
+          ],
+          [
+            -2.3,
+            -14,
+            -5.2
+          ]
+        ]
+      ],
+      "group": "Venoso · segmento cervical medular",
+      "reference": "https://neuroangio.org/venous-brain-anatomy/",
+      "paired": false,
+      "variant": false
+    },
+    {
+      "id": "anterior_falcine_artery",
+      "name": "Artéria falcina anterior",
+      "parent": "anterior_ethmoidal_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            0.8,
+            1.6,
+            4.5
+          ],
+          [
+            0.3,
+            2.4,
+            5.1
+          ],
+          [
+            0.15,
+            3.6,
+            5.3
+          ],
+          [
+            0.15,
+            4.5,
+            4.8
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "collateral_branches_to_optic_nerve",
+      "name": "Ramos colaterais arteriais para o nervo óptico",
+      "parent": "ophthalmic_artery",
+      "radius": 0.012,
+      "paths": [
+        [
+          [
+            1.9,
+            0.8,
+            4.1
+          ],
+          [
+            1.8,
+            1,
+            4.5
+          ],
+          [
+            1.7,
+            1.1,
+            4.9
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "intercavernous_arterial_connections",
+      "name": "Conexões arteriais intercavernosas · esquema",
+      "parent": "inferior_hypophyseal_artery",
+      "radius": 0.012,
+      "paths": [
+        [
+          [
+            0.4,
+            -1.6,
+            0.4
+          ],
+          [
+            0.2,
+            -1.5,
+            0.5
+          ],
+          [
+            0,
+            -1.4,
+            0.6
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "lateral_tentorial_arterial_arcade",
+      "name": "Arcada tentorial lateral · esquema",
+      "parent": "posterior_branch_of_ilt",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.5,
+            -1.6,
+            0.4
+          ],
+          [
+            3,
+            -1.5,
+            -0.8
+          ],
+          [
+            3.5,
+            -1.3,
+            -2.2
+          ],
+          [
+            4.2,
+            -1,
+            -3.5
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "lateral_clival_arterial_arcade",
+      "name": "Arcada clival lateral · esquema",
+      "parent": "jugular_division_of_ascending_pharyngeal_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.7,
+            -3.5,
+            -1.1
+          ],
+          [
+            2.2,
+            -2.8,
+            -0.9
+          ],
+          [
+            1.9,
+            -2,
+            -0.6
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "hypoglossal_branch_to_odontoid_arcade",
+      "name": "Ramo hipoglosso para a arcada odontoidea",
+      "parent": "hypoglossal_division_of_ascending_pharyngeal_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            1.6,
+            -4,
+            -1.6
+          ],
+          [
+            1.2,
+            -4.8,
+            -1.6
+          ],
+          [
+            0.7,
+            -5.5,
+            -1.7
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "odontoid_arterial_arcade",
+      "name": "Arcada odontoidea epidural ventral · esquema",
+      "parent": "hypoglossal_branch_to_odontoid_arcade",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            0.7,
+            -5.5,
+            -1.7
+          ],
+          [
+            0.4,
+            -5.7,
+            -1.6
+          ],
+          [
+            0,
+            -5.7,
+            -1.55
+          ],
+          [
+            -0.4,
+            -5.7,
+            -1.6
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "jugular_branch_of_occipital_artery",
+      "name": "Ramo jugular da occipital",
+      "parent": "occipital_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            3.5,
+            -4.4,
+            -0.4
+          ],
+          [
+            3.2,
+            -3.8,
+            -0.9
+          ],
+          [
+            3,
+            -3.4,
+            -1.3
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "sigmoid_sinus_arterial_arcade",
+      "name": "Arcada arterial do seio sigmoide · esquema",
+      "parent": "posterior_meningeal_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2,
+            -3.2,
+            -5.1
+          ],
+          [
+            3.2,
+            -2.7,
+            -4.6
+          ],
+          [
+            4.3,
+            -2.3,
+            -4
+          ],
+          [
+            4.9,
+            -1.8,
+            -3.7
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "transverse_sinus_arterial_arcade",
+      "name": "Arcada arterial do seio transverso · esquema",
+      "parent": "posterior_meningeal_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            1,
+            -2.2,
+            -6.6
+          ],
+          [
+            2.2,
+            -1.8,
+            -7
+          ],
+          [
+            3.5,
+            -1.5,
+            -6.5
+          ],
+          [
+            4.8,
+            -1.2,
+            -5.5
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "straight_sinus_artery",
+      "name": "Artéria do seio reto · esquema",
+      "parent": "marginal_tentorial_artery",
+      "radius": 0.016,
+      "paths": [
+        [
+          [
+            0.7,
+            0.5,
+            -5
+          ],
+          [
+            0.3,
+            1,
+            -4.5
+          ],
+          [
+            0.15,
+            1.4,
+            -3.8
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_sagittal_sinus_arterial_arcade",
+      "name": "Arcada arterial do seio sagital superior · esquema",
+      "parent": "frontal_branch_of_middle_meningeal_artery",
+      "radius": 0.016,
+      "paths": [
+        [
+          [
+            4.1,
+            7.4,
+            3
+          ],
+          [
+            2.8,
+            8.5,
+            2.8
+          ],
+          [
+            1.4,
+            9.3,
+            2.4
+          ],
+          [
+            0.3,
+            9.5,
+            1.8
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "transmastoid_branch_of_occipital_artery",
+      "name": "Ramo transmastóideo da occipital",
+      "parent": "occipital_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            4.6,
+            -2.6,
+            -3.7
+          ],
+          [
+            4.5,
+            -2.2,
+            -3.2
+          ],
+          [
+            4.4,
+            -1.8,
+            -2.8
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "caroticotympanic_artery",
+      "name": "Artéria caroticotimpânica",
+      "parent": "internal_carotid_artery",
+      "radius": 0.012,
+      "paths": [
+        [
+          [
+            2.2,
+            -3.3,
+            0.7
+          ],
+          [
+            2.7,
+            -3.2,
+            0.5
+          ],
+          [
+            3.1,
+            -3.1,
+            0.2
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "cavernous_branch_of_middle_meningeal_artery",
+      "name": "Conexão cavernosa AMM–ILT · lado espinhoso",
+      "parent": "middle_meningeal_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.7,
+            -2.7,
+            0.9
+          ],
+          [
+            2.3,
+            -2.6,
+            1
+          ],
+          [
+            2,
+            -2.3,
+            1.2
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_orbital_fissure_artery",
+      "name": "Artéria da fissura orbital superior",
+      "parent": "maxillary_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.8,
+            -3.3,
+            3.5
+          ],
+          [
+            2.5,
+            -2.4,
+            3
+          ],
+          [
+            2.2,
+            -1.5,
+            2.8
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "sphenoid_ridge_branch",
+      "name": "Ramo da crista esfenoidal",
+      "parent": "middle_meningeal_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            3.4,
+            -1.3,
+            0.9
+          ],
+          [
+            3.5,
+            -0.3,
+            2
+          ],
+          [
+            3.6,
+            0.3,
+            3
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "deep_recurrent_meningeal_branch",
+      "name": "Ramo meníngeo recorrente profundo",
+      "parent": "ophthalmic_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.1,
+            0.4,
+            3.6
+          ],
+          [
+            2,
+            -0.1,
+            3
+          ],
+          [
+            2.2,
+            -0.6,
+            2.4
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "clinoid_tentorial_arterial_arcade",
+      "name": "Arcada tentorial clinoidea · esquema",
+      "parent": "inferolateral_trunk",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.2,
+            -2,
+            1.4
+          ],
+          [
+            1.9,
+            -1.2,
+            1.9
+          ],
+          [
+            1.6,
+            -0.6,
+            1.5
+          ],
+          [
+            1.8,
+            -0.5,
+            0.4
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "posterior_branch_of_ilt",
+      "name": "Ramo posterior do ILT",
+      "parent": "inferolateral_trunk",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.35,
+            -2.4,
+            1.35
+          ],
+          [
+            2.5,
+            -2,
+            0.7
+          ],
+          [
+            2.5,
+            -1.6,
+            0.4
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "eustachian_branch_of_accessory_meningeal_artery",
+      "name": "Ramo tubário da meníngea acessória",
+      "parent": "accessory_meningeal_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            3.05,
+            -3.7,
+            1.05
+          ],
+          [
+            2.7,
+            -3.9,
+            1.5
+          ],
+          [
+            2.2,
+            -4,
+            1.7
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "inferior_turbinate_arterial_branches",
+      "name": "Ramos arteriais da concha nasal inferior",
+      "parent": "sphenopalatine_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            0.9,
+            -3.9,
+            4.3
+          ],
+          [
+            1,
+            -4.3,
+            5
+          ],
+          [
+            1.1,
+            -4.7,
+            5.8
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "middle_turbinate_arterial_branches",
+      "name": "Ramos arteriais da concha nasal média",
+      "parent": "sphenopalatine_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            0.9,
+            -3.9,
+            4.3
+          ],
+          [
+            0.9,
+            -3.4,
+            4.8
+          ],
+          [
+            0.9,
+            -3.1,
+            5.5
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superior_turbinate_arterial_branches",
+      "name": "Ramos arteriais da concha nasal superior",
+      "parent": "sphenopalatine_artery",
+      "radius": 0.014,
+      "paths": [
+        [
+          [
+            0.9,
+            -3.9,
+            4.3
+          ],
+          [
+            0.8,
+            -2.8,
+            4.5
+          ],
+          [
+            0.7,
+            -2.2,
+            4.9
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "anterior_nasal_septal_arterial_system",
+      "name": "Sistema septal nasal anterior · esquema",
+      "parent": "sphenopalatine_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            0.9,
+            -3.9,
+            4.3
+          ],
+          [
+            0.3,
+            -3.8,
+            4.9
+          ],
+          [
+            0.2,
+            -4.5,
+            6
+          ],
+          [
+            0.2,
+            -5,
+            6.7
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "submandibular_branch_of_facial_artery",
+      "name": "Ramo submandibular da facial",
+      "parent": "facial_artery",
+      "radius": 0.025,
+      "paths": [
+        [
+          [
+            3.1,
+            -8.3,
+            1.4
+          ],
+          [
+            2.8,
+            -8.5,
+            2.6
+          ],
+          [
+            2.5,
+            -8.4,
+            3.3
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "superficial_nasal_artery",
+      "name": "Artéria nasal superficial",
+      "parent": "facial_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            3.4,
+            -5.3,
+            6.4
+          ],
+          [
+            2.4,
+            -4.8,
+            7
+          ],
+          [
+            1.5,
+            -4.2,
+            7.5
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "dorsal_nasal_artery",
+      "name": "Artéria nasal dorsal",
+      "parent": "ophthalmic_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            1.5,
+            0.6,
+            6.4
+          ],
+          [
+            1.1,
+            0.1,
+            7
+          ],
+          [
+            0.8,
+            -0.6,
+            7.5
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "sta_mma_anastomotic_pathway",
+      "name": "Via temporal superficial–meníngea média · esquema",
+      "parent": "parietal_branch_of_superficial_temporal_artery",
+      "radius": 0.014,
+      "paths": [
+        [
+          [
+            6.1,
+            6.3,
+            -2
+          ],
+          [
+            5.8,
+            6.7,
+            -2.4
+          ],
+          [
+            5.5,
+            6.9,
+            -2.8
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "oa_mma_anastomotic_pathway",
+      "name": "Via occipital–meníngea média · esquema",
+      "parent": "occipital_artery",
+      "radius": 0.014,
+      "paths": [
+        [
+          [
+            5.5,
+            4,
+            -5.5
+          ],
+          [
+            5.8,
+            4.5,
+            -4.7
+          ],
+          [
+            6,
+            4.8,
+            -4
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "vasocorona",
+      "name": "Vasocorona · exemplos cervicais",
+      "parent": "anterior_spinal_artery",
+      "radius": 0.012,
+      "paths": [
+        [
+          [
+            0.08,
+            -8,
+            -2.9
+          ],
+          [
+            0.5,
+            -8,
+            -3.1
+          ],
+          [
+            0.65,
+            -8,
+            -3.6
+          ],
+          [
+            0.4,
+            -8,
+            -4
+          ],
+          [
+            0,
+            -8,
+            -4.1
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "arterial_branch_to_hypoglossal_nerve",
+      "name": "Ramo arterial para o nervo hipoglosso",
+      "parent": "hypoglossal_division_of_ascending_pharyngeal_artery",
+      "radius": 0.012,
+      "paths": [
+        [
+          [
+            1.6,
+            -3.95,
+            -1.65
+          ],
+          [
+            1.5,
+            -3.9,
+            -1.8
+          ],
+          [
+            1.4,
+            -3.8,
+            -1.9
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "occipital_c1_root_branch",
+      "name": "Ramo occipital para a raiz C1",
+      "parent": "occipital_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            3.6,
+            -5.5,
+            -2.2
+          ],
+          [
+            2.8,
+            -5.5,
+            -2.8
+          ],
+          [
+            1.8,
+            -5.4,
+            -3.2
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "occipital_vertebral_c1_pathway",
+      "name": "Via muscular occipital–vertebral em C1 · esquema",
+      "parent": "occipital_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            3.6,
+            -5.5,
+            -2.2
+          ],
+          [
+            2.9,
+            -5.6,
+            -2.6
+          ],
+          [
+            2.2,
+            -5.7,
+            -3
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "c2_muscular_arterial_branch",
+      "name": "Ramo muscular em C2",
+      "parent": "vertebral_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            2.3,
+            -6.9,
+            -2
+          ],
+          [
+            2.9,
+            -6.9,
+            -2.8
+          ],
+          [
+            3.4,
+            -6.9,
+            -3.8
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "segmental_muscular_arterial_branches",
+      "name": "Ramos musculares segmentares · exemplos cervicais",
+      "parent": "vertebral_artery",
+      "radius": 0.02,
+      "paths": [
+        [
+          [
+            2.5,
+            -9.1,
+            -1.4
+          ],
+          [
+            3.1,
+            -9.3,
+            -2.5
+          ],
+          [
+            3.7,
+            -9.5,
+            -3.4
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "ascending_cervical_vertebral_pathway",
+      "name": "Via cervical ascendente–vertebral · esquema",
+      "parent": "ascending_cervical_artery",
+      "radius": 0.018,
+      "paths": [
+        [
+          [
+            2.6,
+            -8.5,
+            -1.3
+          ],
+          [
+            2.4,
+            -8.5,
+            -1.7
+          ],
+          [
+            2.2,
+            -8.5,
+            -2.2
+          ]
+        ]
+      ],
+      "group": "Neuroangio · redes orbitárias e durais",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": false
+    },
+    {
+      "id": "persistent_trigeminal_artery",
+      "name": "Artéria trigeminal persistente · variante",
+      "parent": "internal_carotid_artery",
+      "radius": 0.08,
+      "paths": [
+        [
+          [
+            1.8,
+            -1.7,
+            0.6
+          ],
+          [
+            1.3,
+            -1.4,
+            -0.2
+          ],
+          [
+            0.7,
+            -1.2,
+            -0.7
+          ],
+          [
+            0,
+            -1,
+            -0.8
+          ]
+        ]
+      ],
+      "group": "Variante embrionária",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": true
+    },
+    {
+      "id": "persistent_ventral_ophthalmic_artery",
+      "name": "Artéria oftálmica ventral persistente · variante",
+      "parent": "anterior_cerebral_artery",
+      "radius": 0.045,
+      "paths": [
+        [
+          [
+            0.8,
+            0.9,
+            2.8
+          ],
+          [
+            1.2,
+            0.7,
+            3.3
+          ],
+          [
+            1.7,
+            0.8,
+            4
+          ],
+          [
+            2,
+            0.9,
+            4.6
+          ]
+        ]
+      ],
+      "group": "Variante embrionária",
+      "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+      "paired": true,
+      "variant": true
+    }
+  ]
+}

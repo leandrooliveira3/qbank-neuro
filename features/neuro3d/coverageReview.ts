@@ -1,4 +1,4 @@
-import { reconstructedArteries } from "./reconstructedArteries";
+import { reconstructedVessels } from "./reconstructedVessels";
 import { openAnatomy } from "./openAnatomy";
 
 export interface CoverageItem {
@@ -19,6 +19,6 @@ const items: { name: string; ids: string[]; note: string; reference: string; par
   { name: "Circulação medular", ids: [], note: "O recorte atual é de cabeça/pescoço. A matriz medular exige um conjunto próprio de malhas e conexões.", reference: "Krings, casos 39–43" },
 ];
 export const coverageReview: CoverageItem[] = items.map((item) => ({ ...item,
-  status: item.ids.length && item.ids.every((id) => reconstructedArteries.some((branch) => branch.id === id)) ? "reconstructed" : !item.ids.length ? "missing" : item.partial || item.ids.some((id) => !openAnatomy.structures.some((structure) => structure.id === id)) ? "partial" : "present",
+  status: item.ids.length && item.ids.every((id) => reconstructedVessels.some((branch) => branch.id === id)) ? "reconstructed" : !item.ids.length ? "missing" : item.partial || item.ids.some((id) => !openAnatomy.structures.some((structure) => structure.id === id)) ? "partial" : "present",
 }));
 export const coverageStatus = { present: "Malha identificada", partial: "Cobertura parcial", missing: "Ainda ausente", reconstructed: "Reconstrução didática · não validada" };

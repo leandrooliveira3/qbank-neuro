@@ -70,12 +70,14 @@
       "number": "6",
       "label": "Alça intraorbitária da oftálmica",
       "portuguese": "Alça intraorbitária da oftálmica",
-      "targets": [],
+      "targets": [
+        "ophthalmic_artery"
+      ],
       "parent": "5",
       "kind": "segment",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " O segmento permanece agrupado na malha oftálmica; não foi criado um tubo sobreposto para simular sua individualização.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -83,12 +85,14 @@
       "number": "7",
       "label": "Oftálmica intraorbitária distal",
       "portuguese": "Oftálmica intraorbitária distal",
-      "targets": [],
+      "targets": [
+        "ophthalmic_artery"
+      ],
       "parent": "5",
       "kind": "segment",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " O segmento permanece agrupado na malha oftálmica; não foi criado um tubo sobreposto para simular sua individualização.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -112,12 +116,14 @@
       "number": "9",
       "label": "Meníngea anterior e falcina anterior",
       "portuguese": "Meníngea anterior e falcina anterior",
-      "targets": [],
+      "targets": [
+        "anterior_falcine_artery"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -170,12 +176,14 @@
       "number": "12a",
       "label": "Ramos colaterais para o nervo óptico",
       "portuguese": "Ramos colaterais para o nervo óptico",
-      "targets": [],
+      "targets": [
+        "collateral_branches_to_optic_nerve"
+      ],
       "parent": "5",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Ramos ARTERIAIS para o nervo óptico; não são a malha do nervo nem a artéria central da retina.",
+      "note": "Ramos ARTERIAIS para o nervo óptico; não são a malha do nervo nem a artéria central da retina. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -213,12 +221,14 @@
       "number": "14a",
       "label": "Artérias hipofisárias superiores",
       "portuguese": "Artérias hipofisárias superiores",
-      "targets": [],
+      "targets": [
+        "superior_hypophyseal_arteries"
+      ],
       "parent": "1",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -226,12 +236,14 @@
       "number": "14b",
       "label": "Artérias capsulares de McConnell",
       "portuguese": "Artérias capsulares de McConnell",
-      "targets": [],
+      "targets": [
+        "capsular_artery_of_mcconnell"
+      ],
       "parent": "1",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Grupo capsular selar distinto das hipofisárias; hipófise não equivale a malha arterial.",
+      "note": "Grupo capsular selar distinto das hipofisárias; hipófise não equivale a malha arterial. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -239,12 +251,14 @@
       "number": "15",
       "label": "Conexões arteriais intercavernosas",
       "portuguese": "Conexões arteriais intercavernosas",
-      "targets": [],
+      "targets": [
+        "intercavernous_arterial_connections"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Conexão ARTERIAL intercavernosa, não o seio intercavernoso venoso.",
+      "note": "Conexão ARTERIAL intercavernosa, não o seio intercavernoso venoso. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/"
     },
     {
@@ -252,12 +266,14 @@
       "number": "16",
       "label": "Arcada tentorial lateral, borda petrosa",
       "portuguese": "Arcada tentorial lateral, borda petrosa",
-      "targets": [],
+      "targets": [
+        "lateral_tentorial_arterial_arcade"
+      ],
       "parent": "2",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Arcada arterial petrosa distinta da tentorial marginal e do seio petroso superior.",
+      "note": "Arcada arterial petrosa distinta da tentorial marginal e do seio petroso superior. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/"
     },
     {
@@ -295,12 +311,14 @@
       "number": "19",
       "label": "Arcada clival lateral",
       "portuguese": "Arcada clival lateral",
-      "targets": [],
+      "targets": [
+        "lateral_clival_arterial_arcade"
+      ],
       "parent": "2",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/"
     },
     {
@@ -308,12 +326,14 @@
       "number": "20",
       "label": "Ramo hipoglossal para a arcada odontoidea",
       "portuguese": "Ramo hipoglossal para a arcada odontoidea",
-      "targets": [],
+      "targets": [
+        "hypoglossal_branch_to_odontoid_arcade"
+      ],
       "parent": "22",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -321,12 +341,14 @@
       "number": "21",
       "label": "Arcada odontoidea epidural ventral",
       "portuguese": "Arcada odontoidea epidural ventral",
-      "targets": [],
+      "targets": [
+        "odontoid_arterial_arcade"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -364,12 +386,14 @@
       "number": "23b",
       "label": "Ramo jugular da occipital",
       "portuguese": "Ramo jugular da occipital",
-      "targets": [],
+      "targets": [
+        "jugular_branch_of_occipital_artery"
+      ],
       "parent": "29",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -377,12 +401,14 @@
       "number": "24",
       "label": "Meníngea posterior e ramos tentoriais",
       "portuguese": "Meníngea posterior e ramos tentoriais",
-      "targets": [],
+      "targets": [
+        "posterior_meningeal_artery"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -390,12 +416,14 @@
       "number": "25",
       "label": "Arcada arterial do seio sigmoide",
       "portuguese": "Arcada arterial do seio sigmoide",
-      "targets": [],
+      "targets": [
+        "sigmoid_sinus_arterial_arcade"
+      ],
       "parent": "24",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -403,12 +431,14 @@
       "number": "26",
       "label": "Arcada arterial do seio transverso",
       "portuguese": "Arcada arterial do seio transverso",
-      "targets": [],
+      "targets": [
+        "transverse_sinus_arterial_arcade"
+      ],
       "parent": "24",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -416,12 +446,14 @@
       "number": "26a",
       "label": "Artéria do seio reto",
       "portuguese": "Artéria do seio reto",
-      "targets": [],
+      "targets": [
+        "straight_sinus_artery"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -429,12 +461,14 @@
       "number": "27",
       "label": "Arcada arterial do seio sagital superior",
       "portuguese": "Arcada arterial do seio sagital superior",
-      "targets": [],
+      "targets": [
+        "superior_sagittal_sinus_arterial_arcade"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -442,12 +476,14 @@
       "number": "28",
       "label": "Ramo transmastóideo da occipital",
       "portuguese": "Ramo transmastóideo da occipital",
-      "targets": [],
+      "targets": [
+        "transmastoid_branch_of_occipital_artery"
+      ],
       "parent": "29",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -485,12 +521,14 @@
       "number": "31",
       "label": "Ramo caroticotimpânico",
       "portuguese": "Ramo caroticotimpânico",
-      "targets": [],
+      "targets": [
+        "caroticotympanic_artery"
+      ],
       "parent": "1",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -498,12 +536,14 @@
       "number": "32",
       "label": "Artéria estilomastóidea",
       "portuguese": "Artéria estilomastóidea",
-      "targets": [],
+      "targets": [
+        "stylomastoid_artery"
+      ],
       "parent": "",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Origem variável occipital ou auricular posterior; integra a arcada facial com 33.",
+      "note": "Origem variável occipital ou auricular posterior; integra a arcada facial com 33. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -511,12 +551,14 @@
       "number": "33",
       "label": "Ramo petroso da meníngea média",
       "portuguese": "Ramo petroso da meníngea média",
-      "targets": [],
+      "targets": [
+        "petrosal_branch_of_middle_meningeal_artery"
+      ],
       "parent": "39",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -539,12 +581,14 @@
       "number": "35",
       "label": "Conexão cavernosa AMM–ILT pelo forame espinhoso",
       "portuguese": "Conexão cavernosa AMM–ILT pelo forame espinhoso",
-      "targets": [],
+      "targets": [
+        "cavernous_branch_of_middle_meningeal_artery"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Cavernoso da AMM e espinhoso do ILT nomeiam extremidades da mesma conexão, não redes independentes.",
+      "note": "Cavernoso da AMM e espinhoso do ILT nomeiam extremidades da mesma conexão, não redes independentes. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/"
     },
     {
@@ -582,12 +626,14 @@
       "number": "37a",
       "label": "Artéria da fissura orbital superior",
       "portuguese": "Artéria da fissura orbital superior",
-      "targets": [],
+      "targets": [
+        "superior_orbital_fissure_artery"
+      ],
       "parent": "",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -625,12 +671,14 @@
       "number": "40",
       "label": "Ramo da crista esfenoidal",
       "portuguese": "Ramo da crista esfenoidal",
-      "targets": [],
+      "targets": [
+        "sphenoid_ridge_branch"
+      ],
       "parent": "39",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -638,12 +686,14 @@
       "number": "41",
       "label": "Ramo meníngeo recorrente profundo",
       "portuguese": "Ramo meníngeo recorrente profundo",
-      "targets": [],
+      "targets": [
+        "deep_recurrent_meningeal_branch"
+      ],
       "parent": "5",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -651,12 +701,14 @@
       "number": "42",
       "label": "Arcada tentorial clinoidea",
       "portuguese": "Arcada tentorial clinoidea",
-      "targets": [],
+      "targets": [
+        "clinoid_tentorial_arterial_arcade"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "A legenda atual especifica arcada clinoide-tentorial, corrigindo o índice antigo inespecífico.",
+      "note": "A legenda atual especifica arcada clinoide-tentorial, corrigindo o índice antigo inespecífico. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -664,12 +716,14 @@
       "number": "43",
       "label": "Ramo posterior do ILT",
       "portuguese": "Ramo posterior do ILT",
-      "targets": [],
+      "targets": [
+        "posterior_branch_of_ilt"
+      ],
       "parent": "3",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramo posterior do ILT na legenda atual; a descrição antiga de ramo clival foi corrigida.",
+      "note": "Ramo posterior do ILT na legenda atual; a descrição antiga de ramo clival foi corrigida. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/"
     },
     {
@@ -677,12 +731,14 @@
       "number": "44",
       "label": "Ramo frontal ou anterior da meníngea média",
       "portuguese": "Ramo frontal ou anterior da meníngea média",
-      "targets": [],
+      "targets": [
+        "frontal_branch_of_middle_meningeal_artery"
+      ],
       "parent": "39",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -690,12 +746,14 @@
       "number": "45",
       "label": "Ramo parietal ou posterior da meníngea média",
       "portuguese": "Ramo parietal ou posterior da meníngea média",
-      "targets": [],
+      "targets": [
+        "parietal_branch_of_middle_meningeal_artery"
+      ],
       "parent": "39",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -703,12 +761,14 @@
       "number": "46",
       "label": "Ramo petrosquamoso da meníngea média",
       "portuguese": "Ramo petrosquamoso da meníngea média",
-      "targets": [],
+      "targets": [
+        "petrosquamosal_branch_of_middle_meningeal_artery"
+      ],
       "parent": "39",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -806,12 +866,14 @@
       "number": "53",
       "label": "Artéria pterigovaginal",
       "portuguese": "Artéria pterigovaginal",
-      "targets": [],
+      "targets": [
+        "pterygovaginal_artery"
+      ],
       "parent": "55",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -819,12 +881,14 @@
       "number": "53a",
       "label": "Artéria meníngea acessória",
       "portuguese": "Artéria meníngea acessória",
-      "targets": [],
+      "targets": [
+        "accessory_meningeal_artery"
+      ],
       "parent": "55",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -832,12 +896,14 @@
       "number": "54",
       "label": "Ramo cutâneo ou tubário da meníngea acessória",
       "portuguese": "Ramo cutâneo ou tubário da meníngea acessória",
-      "targets": [],
+      "targets": [
+        "eustachian_branch_of_accessory_meningeal_artery"
+      ],
       "parent": "53a",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -890,12 +956,14 @@
       "number": "58",
       "label": "Middle superior alveolar artery",
       "portuguese": "Artéria alveolar superior média",
-      "targets": [],
+      "targets": [
+        "middle_superior_alveolar_artery"
+      ],
       "parent": "55",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "O item 58 integra o grupo alveolar superior 57–59 da legenda e da figura craniocervical; não é uma artéria temporal profunda. Sem malha individual identificada. O campo de contexto 55 indica o sistema maxilar, sem afirmar um óstio específico.",
+      "note": "O item 58 integra o grupo alveolar superior 57–59 da legenda e da figura craniocervical; não é uma artéria temporal profunda. Sem malha individual identificada. O campo de contexto 55 indica o sistema maxilar, sem afirmar um óstio específico. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -903,12 +971,14 @@
       "number": "59",
       "label": "Artéria alveolar superior anterior",
       "portuguese": "Artéria alveolar superior anterior",
-      "targets": [],
+      "targets": [
+        "anterior_superior_alveolar_artery"
+      ],
       "parent": "81",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -931,12 +1001,14 @@
       "number": "61",
       "label": "Ramos para a concha nasal inferior",
       "portuguese": "Ramos para a concha nasal inferior",
-      "targets": [],
+      "targets": [
+        "inferior_turbinate_arterial_branches"
+      ],
       "parent": "60",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -944,12 +1016,14 @@
       "number": "62",
       "label": "Ramos para a concha nasal média",
       "portuguese": "Ramos para a concha nasal média",
-      "targets": [],
+      "targets": [
+        "middle_turbinate_arterial_branches"
+      ],
       "parent": "60",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -957,12 +1031,14 @@
       "number": "62a",
       "label": "Ramos para a concha nasal superior",
       "portuguese": "Ramos para a concha nasal superior",
-      "targets": [],
+      "targets": [
+        "superior_turbinate_arterial_branches"
+      ],
       "parent": "60",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1000,12 +1076,14 @@
       "number": "65",
       "label": "Sistema septal nasal anterior",
       "portuguese": "Sistema septal nasal anterior",
-      "targets": [],
+      "targets": [
+        "anterior_nasal_septal_arterial_system"
+      ],
       "parent": "",
       "kind": "territory",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1073,12 +1151,14 @@
       "number": "69",
       "label": "Artéria palatina menor",
       "portuguese": "Artéria palatina menor",
-      "targets": [],
+      "targets": [
+        "lesser_palatine_artery"
+      ],
       "parent": "68",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1152,12 +1232,14 @@
       "number": "73a",
       "label": "Ramo arterial submandibular",
       "portuguese": "Ramo arterial submandibular",
-      "targets": [],
+      "targets": [
+        "submandibular_branch_of_facial_artery"
+      ],
       "parent": "73",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1165,12 +1247,14 @@
       "number": "74",
       "label": "Artéria palatina ascendente",
       "portuguese": "Artéria palatina ascendente",
-      "targets": [],
+      "targets": [
+        "ascending_palatine_artery"
+      ],
       "parent": "73",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1223,12 +1307,14 @@
       "number": "78",
       "label": "Artéria nasal superficial",
       "portuguese": "Artéria nasal superficial",
-      "targets": [],
+      "targets": [
+        "superficial_nasal_artery"
+      ],
       "parent": "73",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1281,12 +1367,14 @@
       "number": "82",
       "label": "Artéria nasal dorsal",
       "portuguese": "Artéria nasal dorsal",
-      "targets": [],
+      "targets": [
+        "dorsal_nasal_artery"
+      ],
       "parent": "5",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1354,12 +1442,14 @@
       "number": "87",
       "label": "Ramo parietal da temporal superficial",
       "portuguese": "Ramo parietal da temporal superficial",
-      "targets": [],
+      "targets": [
+        "parietal_branch_of_superficial_temporal_artery"
+      ],
       "parent": "85",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1367,12 +1457,14 @@
       "number": "88",
       "label": "Anastomose temporal superficial–meníngea média",
       "portuguese": "Anastomose temporal superficial–meníngea média",
-      "targets": [],
+      "targets": [
+        "sta_mma_anastomotic_pathway"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1380,12 +1472,14 @@
       "number": "89",
       "label": "Anastomose occipital–meníngea média",
       "portuguese": "Anastomose occipital–meníngea média",
-      "targets": [],
+      "targets": [
+        "oa_mma_anastomotic_pathway"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1438,12 +1532,15 @@
       "number": "93",
       "label": "Sistema espinal lateral ou posterior",
       "portuguese": "Sistema espinal lateral ou posterior",
-      "targets": [],
+      "targets": [
+        "lateral_spinal_artery",
+        "posterior_spinal_artery"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1451,12 +1548,14 @@
       "number": "94",
       "label": "Vasocorona e artérias circunferenciais medulares",
       "portuguese": "Vasocorona e artérias circunferenciais medulares",
-      "targets": [],
+      "targets": [
+        "vasocorona"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Rede pial circunferencial da medula, não artérias coronárias cardíacas.",
+      "note": "Rede pial circunferencial da medula, não artérias coronárias cardíacas. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1464,12 +1563,14 @@
       "number": "95",
       "label": "Artérias sulcocomissurais",
       "portuguese": "Artérias sulcocomissurais",
-      "targets": [],
+      "targets": [
+        "sulcocommissural_arteries"
+      ],
       "parent": "91",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1477,12 +1578,14 @@
       "number": "96",
       "label": "Ramo arterial para o nervo hipoglosso",
       "portuguese": "Ramo arterial para o nervo hipoglosso",
-      "targets": [],
+      "targets": [
+        "arterial_branch_to_hypoglossal_nerve"
+      ],
       "parent": "",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramo ARTERIAL para o XII par, não a malha do nervo hipoglosso.",
+      "note": "Ramo ARTERIAL para o XII par, não a malha do nervo hipoglosso. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1490,12 +1593,14 @@
       "number": "97",
       "label": "Ramo musculoespinal com conexões C1–C2",
       "portuguese": "Ramo musculoespinal com conexões C1–C2",
-      "targets": [],
+      "targets": [
+        "musculospinal_branch_of_ascending_pharyngeal_artery"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1503,12 +1608,14 @@
       "number": "98",
       "label": "Ramo occipital para a raiz C1",
       "portuguese": "Ramo occipital para a raiz C1",
-      "targets": [],
+      "targets": [
+        "occipital_c1_root_branch"
+      ],
       "parent": "29",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1516,12 +1623,14 @@
       "number": "99",
       "label": "Conexão muscular occipital–vertebral em C1",
       "portuguese": "Conexão muscular occipital–vertebral em C1",
-      "targets": [],
+      "targets": [
+        "occipital_vertebral_c1_pathway"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1529,12 +1638,14 @@
       "number": "100",
       "label": "Ramo muscular em C2",
       "portuguese": "Ramo muscular em C2",
-      "targets": [],
+      "targets": [
+        "c2_muscular_arterial_branch"
+      ],
       "parent": "",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1542,12 +1653,14 @@
       "number": "101",
       "label": "Ramos musculares segmentares",
       "portuguese": "Ramos musculares segmentares",
-      "targets": [],
+      "targets": [
+        "segmental_muscular_arterial_branches"
+      ],
       "parent": "",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1570,12 +1683,14 @@
       "number": "103",
       "label": "Artéria cervical ascendente",
       "portuguese": "Artéria cervical ascendente",
-      "targets": [],
+      "targets": [
+        "ascending_cervical_artery"
+      ],
       "parent": "",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Tronco cervical ascendente distinto das anastomoses 104.",
+      "note": "Tronco cervical ascendente distinto das anastomoses 104. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1583,12 +1698,14 @@
       "number": "104",
       "label": "Anastomoses cervical ascendente–vertebral",
       "portuguese": "Anastomoses cervical ascendente–vertebral",
-      "targets": [],
+      "targets": [
+        "ascending_cervical_vertebral_pathway"
+      ],
       "parent": "",
       "kind": "arterial-network",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1656,12 +1773,14 @@
       "number": "108",
       "label": "Artéria trigeminal persistente",
       "portuguese": "Artéria trigeminal persistente",
-      "targets": [],
+      "targets": [
+        "persistent_trigeminal_artery"
+      ],
       "parent": "",
       "kind": "variant",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Conexão embrionária persistente, não obrigatória em todo adulto.",
+      "note": "Conexão embrionária persistente, não obrigatória em todo adulto. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1669,12 +1788,14 @@
       "number": "109",
       "label": "Artéria oftálmica ventral persistente",
       "portuguese": "Artéria oftálmica ventral persistente",
-      "targets": [],
+      "targets": [
+        "persistent_ventral_ophthalmic_artery"
+      ],
       "parent": "",
       "kind": "variant",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Variante oftálmica ventral: conexão ACA/A1 ou ACI supraclinoidea–órbita. Não representa o conjunto de artérias intracranianas 110–118.",
+      "note": "Variante oftálmica ventral: conexão ACA/A1 ou ACI supraclinoidea–órbita. Não representa o conjunto de artérias intracranianas 110–118. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/"
     },
     {
@@ -1731,12 +1852,15 @@
       "number": "113",
       "label": "Artérias coroideas posteriores, medial e lateral",
       "portuguese": "Artérias coroideas posteriores, medial e lateral",
-      "targets": [],
+      "targets": [
+        "medial_posterior_choroidal_artery",
+        "lateral_posterior_choroidal_artery"
+      ],
       "parent": "114",
       "kind": "group",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Grupo medial e lateral. A presença da ACP não preenche essas artérias.",
+      "note": "Grupo medial e lateral. A presença da ACP não preenche essas artérias. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1792,12 +1916,14 @@
       "number": "116a",
       "label": "Artéria labiríntica",
       "portuguese": "Artéria labiríntica",
-      "targets": [],
+      "targets": [
+        "labyrinthine_artery"
+      ],
       "parent": "116",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramo labiríntico para o canal acústico interno e ouvido interno, distinto de 116b.",
+      "note": "Ramo labiríntico para o canal acústico interno e ouvido interno, distinto de 116b. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/labyrinthine-artery/"
     },
     {
@@ -1805,12 +1931,14 @@
       "number": "116b",
       "label": "Artéria subarqueada",
       "portuguese": "Artéria subarqueada",
-      "targets": [],
+      "targets": [
+        "subarcuate_artery"
+      ],
       "parent": "116",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Ramo osteodural subarqueado no canal subarqueado/petromastóideo, distinto da labiríntica.",
+      "note": "Ramo osteodural subarqueado no canal subarqueado/petromastóideo, distinto da labiríntica. Correspondência de identidade com trajeto ilustrativo original; coordenadas, canais, variantes e continuidade não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/subarcuate-artery/"
     },
     {

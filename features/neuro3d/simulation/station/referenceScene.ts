@@ -1,3 +1,4 @@
+import {educationalVesselIds} from "../../educationalVessels";
 import { reconstructedArteries } from "../../reconstructedArteries";
 import { caseFor, networkFor, StationState } from "./engine";
 import { sourceFraction } from "./referenceNetwork";
@@ -26,6 +27,6 @@ export function referenceContrast(s: StationState, geometry: ReferenceGeometry, 
     }
     if (!(s.clot && definition.target === id)) for (const branch of route.visualBranches ?? []) additional.add(branch);
   }
-  for (const id of additional) { const surface = geometry.get(id); if (surface) result.push(surface); }
+  for (const id of additional) { if(educationalVesselIds.has(id)) continue; const surface = geometry.get(id); if (surface) result.push(surface); }
   return result;
 }

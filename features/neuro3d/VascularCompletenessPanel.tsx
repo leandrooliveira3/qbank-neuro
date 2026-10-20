@@ -12,6 +12,7 @@ export default function VascularCompletenessPanel({query,onSelect}:{query:string
   const unmapped=unmappedVascularDiagramEntries.filter(row=>normalize(`${row.label} ${row.number}`).includes(normalize(query)));
   return <section aria-label="Matriz de completude vascular">
     <p>{vascularCompletenessCounts.requirements} identidades/grupos: {vascularCompletenessCounts.missing} sem malha individual, {vascularCompletenessCounts.partial} parciais e {vascularCompletenessCounts.presentUnverified} presentes sem homologação anatômica. As {vascularCompletenessCounts.missingIndividualIds} identidades geométricas ausentes incluem a discriminação por lado.</p>
+    <p>{vascularCompletenessCounts.illustratedIndividualIds} IDs contam somente com os novos trajetos ilustrativos. {vascularCompletenessCounts.referenceMissingIndividualIds} IDs não têm malha importada ativa; ter uma ilustração não resolve a ausência de anatomia de referência.</p>
     <label>Sistema<select aria-label="Sistema da matriz vascular" value={system} onChange={e=>setSystem(e.target.value)}><option value="all">Arterial e venoso</option><option value="arterial">Arterial</option><option value="venous">Venoso</option></select></label>
     <label>Região ou família<select aria-label="Região da matriz vascular" value={group} onChange={e=>setGroup(e.target.value)}><option value="all">Todas as regiões e famílias</option>{groups.map(value=><option key={value} value={value}>{value}</option>)}</select></label>
     <label>Cobertura<select aria-label="Cobertura da matriz vascular" value={status} onChange={e=>setStatus(e.target.value)}><option value="all">Todas</option><option value="gaps">Qualquer ausência individual</option><option value="missing">Sem malha individual</option><option value="partial">Parcial</option><option value="present-unverified">Presente · anatomia pendente</option></select></label>
@@ -22,6 +23,7 @@ export default function VascularCompletenessPanel({query,onSelect}:{query:string
     </details>}
     {rows.map(row=><article key={`${row.layer}:${row.id}`} data-vascular-requirement={`${row.layer}:${row.id}`}>
       <span className="nda-review-status">{row.status === "missing" ? "Malha individual ausente" : row.status === "partial" ? "Cobertura parcial" : "Presente · anatomia pendente"}</span>
+      {!!row.illustratedIds.length && <p className="nda-reconstruction-note">{row.illustratedIds.length} trajetos ilustrativos, sem coordenadas homologadas ou segmentação radiológica.</p>}
       <h4>{row.name}</h4><small>{row.layer === "arterial" ? "Arterial" : "Venoso"} · {row.group}</small>
       <p>{row.note}</p>
       {row.findings.map(finding=><p className="nda-reconstruction-note" key={finding}>{finding}</p>)}

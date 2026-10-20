@@ -1,5 +1,6 @@
+import {educationalVesselIds} from "./educationalVessels";
 import {sourceStructures, openAnatomy} from "./openAnatomy";
-import {reconstructedArteries} from "./reconstructedArteries";
+import {reconstructedVessels} from "./reconstructedVessels";
 import {diagramRegistry} from "./anatomicalInventory";
 import {venousCoverage} from "./vascularReview";
 import {maxillaryBranchReview} from "./maxillaryReview";
@@ -25,7 +26,7 @@ function add(row:Requirement) {
 
 // Begin with EVERY supplied vascular identity. Unclassified records stay visible;
 // a diagram omission must never erase a source vessel from the completeness review.
-for (const item of [...sourceStructures,...reconstructedArteries]) {
+for (const item of [...sourceStructures,...reconstructedVessels]) {
   if (item.layer !== "arterial" && item.layer !== "venous") continue;
   const id=keyOf(item.id);
   add({id,name:item.name.replace(/\s+(esquerda|direita|esquerdo|direito)$/i,""),layer:item.layer,
@@ -130,9 +131,9 @@ branches("ACE · ramos ainda sem identidade individual",arterial,[
   ["stylomastoid_artery","Artéria estilomastóidea · origem variável"],
 ],"Um ramo pode estar incluído em uma malha agrupada sem identificação individual; examinar a fonte antes de reconstruir ou duplicar. " + variability);
 
-const effective = new Map([...openAnatomy.structures,...reconstructedArteries].map(row=>[row.id,row]));
+const effective = new Map([...openAnatomy.structures,...reconstructedVessels].map(row=>[row.id,row]));
 const source = new Map(sourceStructures.map(row=>[row.id,row]));
-const rebuilt = new Set(reconstructedArteries.map(row=>row.id));
+const rebuilt = new Set(reconstructedVessels.map(row=>row.id));
 // Keep every diagram entry that cannot be mapped explicitly. These overlap
 // named requirements and are NOT added to the unique vessel totals.
 export const unmappedVascularDiagramEntries=diagramRegistry.entries.filter(row=>!row.targets.length || row.kind === "figure-label" || row.kind === "source-conflict");
@@ -146,6 +147,8 @@ export const vascularCompleteness = [...requirements.values()].map(row=>({
   ...resolveVascularRequirement(row,effective),
   sourceIds:row.expectedIds.filter(id=>source.get(id)?.layer === row.layer),
   reconstructedIds:row.expectedIds.filter(id=>rebuilt.has(id)),
+  illustratedIds:row.expectedIds.filter(id=>educationalVesselIds.has(id)),
+  referenceMissingIds:row.expectedIds.filter(id=>!openAnatomy.structures.some(item=>item.id === id && item.layer === row.layer)),
   findings:[...new Set(row.expectedIds.flatMap(id=>vascularFindings.has(id) ? [vascularFindings.get(id)!] : []))],
   anatomicalApproval:false,
 }));
@@ -154,5 +157,8 @@ export const vascularCompletenessCounts = {
   missing:vascularCompleteness.filter(row=>row.status === "missing").length,
   partial:vascularCompleteness.filter(row=>row.status === "partial").length,
   presentUnverified:vascularCompleteness.filter(row=>row.status === "present-unverified").length,
+  illustratedOnly:vascularCompleteness.filter(row=>row.ids.length>0 && row.ids.every(id=>educationalVesselIds.has(id))).length,
+  illustratedIndividualIds:new Set(vascularCompleteness.flatMap(row=>row.illustratedIds)).size,
+  referenceMissingIndividualIds:new Set(vascularCompleteness.flatMap(row=>row.referenceMissingIds)).size,
   missingIndividualIds:vascularCompleteness.reduce((sum,row)=>sum+row.missingIds.length,0),
 };

@@ -6,6 +6,7 @@ export default function VascularStudySummary({id,onSelect}:{id:string;onSelect:(
   if(!family.hasBranches) return null;
   return <details className="nda-study-family" data-testid="vascular-study-family"><summary>Ramos e vias de estudo · {family.ids.size} malhas presentes · {family.missingIds.length} IDs ausentes</summary>
     <p>{family.relationNote}</p>
+    {!!family.rows.flatMap(row=>row.illustratedIds).length && <p className="nda-reconstruction-note">Este conjunto inclui trajetos ilustrativos adicionais. A presença de todas as identidades não significa anatomia completa, coordenadas verificadas ou conexões abertas.</p>}
     <p>Isolar ramos de estudo mostra as malhas presentes e seu contexto vascular imediato. Ausências permanecem listadas; não são preenchidas pelo tronco. Osso, músculos e outros contextos não vasculares ficam ocultos durante o isolamento.</p>
     {family.rows.filter(row=>!row.root).map(row=><div key={`${row.layer}:${row.id}`} data-study-member={row.id}>
       <strong>{row.name}</strong>

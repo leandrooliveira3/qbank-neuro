@@ -1,4 +1,4 @@
-import { reconstructedArteries } from "../../reconstructedArteries";
+import { reconstructedVessels } from "../../reconstructedVessels";
 import { useEffect, useState, useMemo } from "react";
 import supraAortic from "../../reference-supra-aortic.json";
 import landmarks from "../../reference-landmarks.json";
@@ -52,7 +52,7 @@ export function loadReferenceGeometry() {
     for (const item of distalSurfaces) result.set(item.id, {
       id: item.id, layer: item.layer, positions: new Float32Array(item.positions), indices: new Uint32Array(item.indices),
     });
-    for (const item of reconstructedArteries) result.set(item.id, {
+    for (const item of reconstructedVessels) result.set(item.id, {
       id: item.id, layer: item.layer, positions: new Float32Array(item.surface.positions), indices: new Uint32Array(item.surface.indices),
     });
     // Match each shared source vertex to the same oriented source axis used by access routes.

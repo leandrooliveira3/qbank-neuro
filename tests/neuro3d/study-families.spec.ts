@@ -45,9 +45,9 @@ test('a venous collector exposes absent deep tributaries and switches the isolat
   await expect(page.getByLabel('Estruturas selecionáveis')).toHaveValue('venous');
   await page.getByTestId('vascular-study-family').locator('summary').click();
   const galen=page.locator('[data-study-member="great_cerebral_vein"]');
-  await expect(galen).toContainText('Sem malha individual: great_cerebral_vein');
-  await expect(galen.getByRole('button')).toHaveCount(0);
-  await expect(page.locator('[data-study-member="internal_cerebral_vein"]')).toContainText('internal_cerebral_vein_l, internal_cerebral_vein_r');
+  await expect(galen).toContainText('great_cerebral_vein · didático não validado');
+  await expect(galen.getByRole('button')).toHaveCount(1);
+  await expect(page.locator('[data-study-member="internal_cerebral_vein"]')).toContainText('internal_cerebral_vein_l · didático não validado');
   await page.getByRole('button',{name:'Angiografia',exact:true}).click();
   await page.getByRole('button',{name:'Focar seleção',exact:true}).click();
   await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy','false',{timeout:30000});

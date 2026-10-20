@@ -14,7 +14,7 @@ import {
 } from "./model";
 import "./neuro3d.css";
 import { openAnatomy } from "./openAnatomy";
-import { reconstructedArteries } from "./reconstructedArteries";
+import { reconstructedVessels } from "./reconstructedVessels";
 const SimulationLab = lazy(
   () => import("./simulation/station/ProcedureStation"),
 );
@@ -156,7 +156,7 @@ export default function Neuro3DAtlas() {
         </div>
         <div className="n3-metrics">
           <span>
-            <b>{surfaceAtlas ? String(openAnatomy.structures.length + reconstructedArteries.length) : "12"}</b>{surfaceAtlas ? "estruturas" : "cenas"}
+            <b>{surfaceAtlas ? String(openAnatomy.structures.length + reconstructedVessels.length) : "12"}</b>{surfaceAtlas ? "estruturas" : "cenas"}
           </span>
           <span>
             <b>126</b>registros

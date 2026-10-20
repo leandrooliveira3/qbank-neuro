@@ -1,203 +1,58 @@
 # Revisão integral arterial e venosa — 20/10/2026
 
-## Escopo e estado real
+## Estado atual
 
-O usuário exige confronto de todo o sistema vascular relevante à neurorradiologia intervencionista: artérias, seus ramos/perfurantes, arcadas, anastomoses e variantes; veias, tributárias, seios, plexos e vias de drenagem cerebral, craniana, cervical e medular. Os exemplos faríngea ascendente, lingual e maxilar não limitam o escopo.
+Foram adicionadas **301 estruturas ilustrativas originais**: 215 arteriais e 86 venosas. Elas representam todos os **223 IDs individuais anteriormente ausentes** em 118 identidades/grupos, mais 78 representações para os demais alvos nomeados do diagrama. São 157 modelos de identidade, com lateralidade explícita ou posição mediana. O snapshot anterior está em `educational-coverage-baseline.json`; a prova de cobertura usa os IDs exatos e o sistema vascular.
 
-**Nenhuma aprovação anatômica global foi realizada.** Todas as 241 malhas vasculares originais estão contabilizadas individualmente (178 arteriais, 63 venosas). Há 52 reconstruções didáticas: 18 anteriores da ACI e 34 novas da ACE. A auditoria reúne 293 registros com chaves de proveniência, incluindo originais retirados. Presença, integridade e correspondência de rótulo não significam trajeto correto.
+**Não foram recuperadas 301 malhas de repositórios.** As fontes já indexadas não confirmaram geometrias nomeadas utilizáveis para essas identidades. Os novos trajetos são desenhos originais, com pontos e raios arbitrados para estudo no referencial existente. Identidade e relações usam o inventário e as referências Neuroangio. Não houve triangulação calibrada, segmentação de paciente ou registro osteovascular desses trajetos. Nenhuma anatomia foi homologada.
 
-Os 1114 objetos originais continuam nos mesmos arquivos; dois foram excluídos da visualização de referência. O aplicativo tem 1112 estruturas importadas ativas e 52 reconstruções didáticas. O índice arterial Neuroangio de 142 entradas tem 43 importadas, 12 reconstruídas, 16 parciais, 64 ausentes e sete identidades não conciliadas. São entradas de legenda/grupos, não vasos únicos.
+O atlas tem 1112 estruturas importadas ativas e 353 reconstruções (52 anteriores + 301 novas), totalizando 1465 representações. Os 1114 objetos originais permanecem nos arquivos; duas faríngeas ascendentes contestadas continuam preservadas em auditoria e fora da visualização de referência. A licença, os buffers e as transformações originais não foram modificados.
 
-## Material efetivamente consultado
+O painel Vasos reúne 594 registros com proveniência: 241 malhas originais (178 arteriais, 63 venosas) e 353 reconstruções. A matriz de 312 identidades/grupos tem representação para seus IDs, mas **301 IDs existem apenas como novas ilustrações, e 353 não têm malha importada ativa**. Os campos `illustratedIds` e `referenceMissingIds` conservam essa distinção. Contagem nominal não mede cobertura de todos os ramos ou precisão anatômica.
 
-- Borden, *3D Angiographic Atlas of Neurovascular Anatomy and Pathology*: figuras 2.1–2.4, páginas impressas 15–18 (PDF 27–30). Inspeção visual dos painéis lateral/frontal de ACE/maxilar; arquivo fornecido pelo usuário.
-- Krings, *Neurovascular Anatomy in Interventional Neuroradiology* (2015): caso 30, páginas impressas 150–153 (PDF 164–167), e discussão dos casos 25–27 sobre conexões perigosas. Texto e imagens do caso 30 consultados no arquivo fornecido.
-- [Neuroangio — faríngea ascendente](https://neuroangio.org/anatomy-and-variants/ascending-pharyngeal-artery/), incluindo imagens transversais e divisão intracraniana.
-- [Neuroangio — lingual](https://neuroangio.org/anatomy-and-variants/lingual-artery/).
-- [Neuroangio — mandibulovidiana](https://neuroangio.org/anatomy-and-variants/mandibulovidian-artery/), [meníngea média](https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/) e [oftálmica](https://neuroangio.org/anatomy-and-variants/ophthalmic-artery/).
-- [Neuroangio — sistema venoso](https://neuroangio.org/venous-brain-anatomy/), [sistema profundo](https://neuroangio.org/venous-brain-anatomy/deep-venous-system/) e [fossa posterior](https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/).
+O índice Neuroangio mantém 142 entradas: 43 importadas, 45 reconstruídas, 47 parciais e sete não conciliadas. Zero entradas “sem representação” não equivale a completude anatômica: redes e grupos têm exemplos de trajetos; segmentos oftálmicos 6/7 permanecem agrupados. As sete identidades não conciliadas não receberam geometrias inventadas.
 
-Os demais PDFs fornecidos foram recuperados para o trabalho, mas não se afirma revisão integral de cada página. Os livros/figuras privados não foram redistribuídos no aplicativo ou repositório.
+## Acesso e interação
 
-## Originais contestados e reconstruções da ACE
+As novas identidades estão em Estruturas, Inventário, Vasos e conjuntos de estudo. Selecionar revela o trajeto sem mover a câmera. Isolar revela seu conjunto, preserva ocultações manuais e esconde contextos não vasculares. Focar é uma ação separada. Os trajetos adicionais ficam desligados inicialmente; habilitá-los mostra o conjunto, com variantes separadas por padrão. Uma variante selecionada individualmente pode ser examinada sem habilitar todas.
 
-As malhas originais `ascending_pharyngeal_artery_l/r` têm extensão limitada inferior à base do crânio e grande projeção anterior. A identidade/representatividade do trajeto é contestada à luz da observação do usuário e das referências. Não foram renomeadas como lingual. Elas permanecem intactas nos GLB e na auditoria, mas o atlas ativo passa a usar reconstruções didáticas explicitamente identificadas.
+As mesmas superfícies fechadas são usadas no atlas 3D, angiografia de superfície 3D e projeção sintética 2D. Artérias e veias conservam camadas e filtros distintos. Opacidade zero e ocultação manual retiram também a capacidade de receber cliques. A nota de ilustração permanece visível ao selecionar um novo trajeto.
 
-A nova árvore da faríngea inclui tronco faríngeo, ramos inferior/médio/superior, tronco neuromeníngeo, divisões hipoglossa/jugular, timpânica inferior, ramo do lacerado, musculoespinal e clival ascendente. A árvore lingual inclui tronco, profunda da língua, sublingual, dorsais e supra-hióideo. São 17 estruturas por lado, 34 superfícies novas. Os inícios usam o eixo da ACE do próprio lado; cada ramo começa em um ponto do seu pai. A divisão hipoglossa é medial à jugular no modelo.
+**Nenhuma adição amplia o grafo procedural de instrumentos ou a injeção seletiva da estação.** A identidade pai/filho dos desenhos é uma relação de estudo, sem inferência de luz contínua, óstio, direção de fluxo, comunicação patente ou coexistência de variantes. Há exclusão explícita das novas identidades no contraste procedural.
 
-**Limite essencial:** os pontos intermediários e raios são uma reconstrução de estudo original. Não vieram de segmentação de paciente nem de triangulação de angiogramas calibrados. A anatomia fina dos canais/forames, variantes, calibres e continuidade das anastomoses requer registro osteovascular e revisão multiprojeção. Esses modelos não devem ser apresentados como reconstruções radiológicas reais ou caminhos homologados de cateter. O botão “Isolar árvore didática” mostra seus ramos e mantém ACI/ACE do lado como contexto, em 2D/3D.
+## Catálogo, fontes e reprodução
 
-## Maxilar e conexões perigosas
+O [catálogo integral](neuro3d-educational-additions.md) lista as 301 identidades adicionais, famílias e referências. `tools/neuro3d/build_educational_vessels.py` conserva os controles e gera `educational-vascular-paths.json`. O construtor usa curvas Catmull–Rom centrípetas e superfícies por quadros transportados; não faz snapping, união booleana ou preenchimento de intervalos de malhas originais.
 
-Há uma matriz explícita dos ramos das três porções da maxilar: mandibular, pterigóidea e pterigopalatina. A matriz diferencia presença de tronco, presença apenas de terminais e ausência de malha individual. A meníngea acessória não é preenchida por equivalência automática com um rótulo “accessory branch of middle meningeal artery”. A contribuição maxilar do forame redondo não é substituída pelo ramo do ILT. A artéria vidiana precisa de origem discriminada entre maxilar e carótida.
+Fontes de anatomia/topologia:
 
-Continuam em revisão: origem e trajeto do tronco maxilar; ramos auricular profunda, timpânica anterior, meníngea acessória, massetérica e pterigóideos; alveolares superiores anterior/média; palatinas menores; pterigovaginal; contribuição maxilar do forame redondo; tronco esfenopalatino e relações dos terminais existentes. Não se declara a árvore completa reconstruída.
+- [Neuroangio — diagramas e legenda](https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/).
+- [Meníngea acessória](https://neuroangio.org/anatomy-and-variants/accessory-meningeal-artery/), [pterigovaginal](https://neuroangio.org/anatomy-and-variants/pterygovaginal-artery/), [infraorbitária](https://neuroangio.org/anatomy-and-variants/infraorbital-artery/) e páginas arteriais referidas por identidade no catálogo.
+- [Veia cerebral interna](https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/), [basal de Rosenthal](https://neuroangio.org/venous-brain-anatomy/basal-vein-of-rosenthal/), [veias da fossa posterior](https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/) e [sistema venoso](https://neuroangio.org/venous-brain-anatomy/).
 
-As 34 relações bibliográficas do índice arterial continuam sem equivalência automática a luz vascular contínua. A revisão das conexões orbitárias, petrocavernosas, clivais, timpânicas, cervicovértebro-basilares e redes vasa nervorum deve conferir as duas extremidades, marcos ósseos, variantes e visibilidade nas projeções. A proximidade de malhas não abre uma comunicação no simulador.
+Na revisão anterior, foram consultados Borden (figuras 2.1–2.4, páginas impressas 15–18), Krings (caso 30 e discussão 25–27), além das páginas da faríngea ascendente, lingual, MHT, ILT e coroidea anterior. Os livros e imagens privados não foram redistribuídos. As novas curvas são originais CC BY-SA 4.0; as referências não concedem licença para copiar suas figuras.
 
-## Sistema venoso
+O repositório Anatria3D permanece na revisão de origem `6320bd64df8db2fcfed358a27c85d1fcc1c5913c`. A recuperação anterior de 28 nós não indexados continua discriminada em [neuro3d-unindexed-vessels.md](neuro3d-unindexed-vessels.md). O SPL/NAC consultado (`bec24db25aad5f7600e2df3becfb1f883e61ff56`) não confirmou malhas venosas profundas nomeadas para este lote. Não se afirma que todas as versões desses projetos estejam esgotadas.
 
-O novo painel “Vasos” registra as 63 malhas venosas existentes, sem marcar nenhuma como anatomicamente aprovada. A matriz inicial de 66 estruturas/grupos venosos explicita 49 ausências individuais, incluindo Galeno, cerebrais internas, basais, principais tributárias profundas, Trolard/Labbé, redes corticais, parte da fossa posterior, emissárias/plexos e drenagem medular. O JSON contém a lista exata com os IDs esperados.
+## Auditoria das fontes e limitações preservadas
 
-A matriz inclui destinos usuais/alternativos de drenagem e comunicações para as principais vias profundas, superficiais, seios e órbita, sem criar conexões geométricas ou presumir coexistência das variantes.
+A auditoria numérica original continua inalterada: 241 malhas, 701 componentes de vértices, zero índices inválidos e zero posições não finitas; 240 malhas abertas e 95 multicomponentes. Não houve fechamento ou união automática. Nove componentes da maxilar por lado não foram renomeados como ramos por suposição. A MMA original tem extensão aproximada de 2,40 cm; as novas ilustrações durais não validam nem corrigem a superfície original.
 
-As variantes não são obrigatórias em todo indivíduo. Tampouco a não opacificação numa injeção implica ausência anatômica. A matriz é expansível e precisa ser confrontada com o conjunto de referências e variantes; não se declara que ela já contenha toda a nomenclatura possível. Presença de um seio não substitui suas veias tributárias.
+A distância mínima entre vértices na junção sigmoide–jugular, cerca de 0,68 cm, e a divergência máxima de limites dos estriados laterais distais, 0,255 cm, continuam sendo achados para conferência, sem preenchimento automático. Ver [revisão da maxilar](neuro3d-maxillary-source-review.md), `neuro3d-vascular-geometry-audit.json` e `neuro3d-diagram-audit.json`.
 
-## Conferência numérica integral
+VENAT, TopBrain, NIH CNS Venography, CTA, Mendeley e DSCA conservam exatamente os estados descritos em [fontes por imagem](neuro3d-dataset-sources.md). Nenhum novo volume ou ativo desses conjuntos foi importado neste lote. O mapa médio VENAT não foi convertido em veias individualmente nomeadas.
 
-`audit_vascular_meshes.py` verificou todas as 241 malhas originais decodificadas no referencial preservado. Não encontrou índices inválidos ou posições não finitas. Encontrou 240 malhas com bordas abertas e 95 com múltiplos componentes de vértices. Esses achados não são automaticamente defeitos: cortes de vasos e grupos de ramos podem produzir essas características. Precisam de exame individual, e não de fechamento, união ou suavização automáticos.
+## O que permanece pendente
 
-A auditoria registra limites, área, componentes, degenerações e distâncias entre superfícies de oito junções declaradas. Na junção sigmoide–jugular bilateral, a distância mínima entre vértices é cerca de 0,68 cm; isso sinaliza conferência do bulbo/junção, sem declarar defeito ou preencher o intervalo automaticamente. A maior diferença entre limites decodificados e metadados é 0,255 cm nos ramos estriados laterais distais; também precisa de revisão antes de usar os limites como marcos finos. Distância pequena não prova luz contínua, origem comum ou sentido de fluxo. Nenhuma malha original foi deformada pela auditoria.
+1. Identidade das entradas 107, 4, 26b, 70a, 74a, 114a e 115a do diagrama; os seis últimos são números apenas nas figuras.
+2. Segmentação individual dos segmentos oftálmicos 6/7; cobertura completa das redes e grupos, incluindo todos os ramos de perfurantes, veias corticais, plexos e vasa nervorum. Uma curva representativa não significa todos os elementos desse grupo.
+3. Circulação torácica, lombar e sacral da medula; os novos desenhos medulares cobrem exemplos cervicais, não a medula inteira.
+4. Malhas de referência para os 353 IDs sem importação ativa, incluindo os 301 novos desenhos; registro de origem/drenagem, trajeto e relação osteovascular de cada estrutura.
+5. Revisão multiprojeção e por imagem seccional de todas as malhas originais e reconstruídas; correção de canais/forames, lateralidade anatômica individual, calibres, variantes e conexões perigosas. Nenhuma aprovação anatômica está registrada.
+6. Aquisição/reconstrução rotacional volumétrica verdadeira, aneurismas registrados e reprodução específica do vídeo Mentice.
 
-Arquivos rastreáveis: `neuro3d-whole-vascular-review.json`, `neuro3d-vascular-geometry-audit.json`, `neuro3d-diagram-audit.json`. Os dois primeiros derivam dos mesmos objetos usados pelo aplicativo e dos buffers originais decodificados, respectivamente.
+A [lista exata de ausências de referência](neuro3d-missing-vascular-identities.md) e o JSON integral são gerados da mesma matriz do aplicativo. Nada desta lista é eliminado pela mera presença de uma ilustração.
 
-## Continuação necessária
+## Verificação funcional
 
-1. Confrontar individualmente todas as 178 malhas arteriais e 63 venosas com o material multiprojeção; registrar cada conclusão de identidade, origem/drenagem, trajeto, ramos/tributárias, conexões/variantes e marcos.
-2. Refinar as reconstruções da ACE pelo registro osteovascular, incluindo passagem pelos canais/forames. Concluir a maxilar e a rede de anastomoses sem criar comunicações fictícias.
-3. Reconstruir/segmentar os vasos venosos ausentes com variantes explícitas; incorporar o restante das redes cerebrais e medulares/perfurantes.
-4. Conferir cada lote na anatomia 3D e nas projeções AP, lateral e oblíquas, com licenças e origem dos dados preservadas.
-5. A aquisição rotacional/reconstrução volumétrica real, a integração validada de aneurismas e a reprodução exata do vídeo Mentice continuam pendentes.
-
-## Fonte adicional examinada
-
-O repositório público SPL/NAC Brain Atlas foi inspecionado na revisão
-`bec24db25aad5f7600e2df3becfb1f883e61ff56`, incluindo a árvore de arquivos e
-`labelinfo/brain-atlas-labels-with-metadata.tsv`. Esse conjunto consultado não
-confirmou as malhas venosas profundas necessárias; não houve importação.
-Isso não é uma afirmação sobre todas as versões do atlas SPL. Referência:
-https://www.openanatomy.org/atlas-pages/atlas-spl-nac-brain.html . A licença da
-página e a licença de cada dado devem ser preservadas se outra revisão vier
-a ser utilizada. Não se presume registro com o atlas atual.
-
-## Verificação funcional deste lote
-
-TypeScript, 88 testes unitários em 20 arquivos e build de produção passaram.
-A execução ampla de navegador teve 23/28 casos aprovados. Depois foram
-corrigidos a contagem esperada (que ainda fixava 18 reconstruções), o seletor
-de nome da faríngea e a captura de roadmap com RX pausado. Os seis fluxos
-afetados passaram na repetição em desktop/celular. Assim, os 28 casos
-individuais têm execução aprovada nas verificações ampla/focadas; não se
-afirma uma nova execução única dos 28 após as correções finais.
-
-Também passaram os testes de arraste/ampliação 2D com persistência de campo
-na volta de 3D, bloqueio de injeção antes de carregar a geometria, projeção
-biplanar com remoção óssea, identidade das malhas recuperadas e navegação
-selar/supra-aórtica. Foram inspecionadas capturas da árvore faríngea em
-3D; o enquadramento usa a extensão de todos os seus ramos visíveis quando
-a raiz da árvore isolada recebe foco. Esse conjunto verifica funcionamento
-e integridade; não valida anatomicamente cada trajeto ou anastomose.
-
-
-## Ampliação da matriz integral — 20/10/2026
-
-O painel “Vasos” abre agora uma matriz única de 273 identidades/grupos. Ela
-inclui todas as identidades vasculares da fonte (também as veias faciais,
-retromandibulares, jugulares, cervicais e de acesso), reconstruções, alvos
-explícitos do índice arterial, exigências venosas e ramos adicionais. São
-118 sem malha individual, zero com apenas parte dos IDs esperados e 155 com
-IDs presentes, ainda sem homologação. “Presente” conta identidade de
-geometria, não cobertura anatômica completa. Há 223 IDs individuais ausentes,
-com discriminação de lado quando aplicável.
-
-Foram explicitadas Heubner e perfurantes mediais, artéria subcalosa, ramos
-corticais da ACA, divisões da ACM, talamoperfurantes da ACoP/P1, coroideas
-posteriores medial/lateral, ramos temporais/calcarino/esplenial da ACP,
-perfurantes e divisões cerebelares, ramos meníngeos e famílias medulares.
-Nomes diferentes da fonte não são convertidos por semelhança: as superfícies
-occipitais, por exemplo, não homologam automaticamente uma calcarina.
-Origem, calibre e número de ramos permanecem variáveis; o índice não exige
-a coexistência de variantes em um único indivíduo. Os níveis medulares ainda
-precisam de detalhamento individual, além das famílias iniciais.
-
-As entradas da legenda sem alvos explícitos ou com conflito também permanecem
-visíveis em seção própria, sem serem somadas como novos vasos aos 273.
-A lista exata gerada está em `neuro3d-missing-vascular-identities.md`, e o
-JSON integral registra IDs esperados, presentes, ausentes, origem e referências.
-Filtros por sistema, família/região e cobertura permitem localizar cada lacuna.
-
-### Achado individual: meníngea média
-
-Foram inspecionadas projeções ortogonais dos buffers originais da meníngea
-média, seu ramo acessório rotulado, maxilar e ACI. A superfície denominada
-meníngea média tem limites craniocaudais de aproximadamente −3,405 a −1,008 cm
-no referencial do atlas (extensão 2,397 cm), bilateralmente. Não demonstra
-uma árvore dural frontal/parietal completa. O item 39 passa a **parcial**, e a
-limitação aparece ao selecionar o vaso, no painel de revisão e no relatório.
-Isso não homologa identidade, óstio ou passagem pelo forame espinhoso.
-O ramo acessório rotulado continua distinto da artéria meníngea acessória.
-Nenhuma superfície foi alongada, subdividida ou conectada por suposição.
-
-### Comparação bilateral de toda a fonte
-
-A auditoria numérica compara os 111 pares explicitamente lateralizados na
-fonte, por reflexão virtual em x=0, medindo distâncias entre vértices nos dois
-sentidos. Em 101 pares, a distância máxima fica abaixo de um micrômetro.
-É um achado de simetria geométrica do conjunto consultado; não prova simetria
-anatômica, origem em paciente ou identidade correta. Não foram usados
-espelhamento, deformação ou substituição de vasos no aplicativo. Os outros
-dez pares e todas as medidas constam no JSON, sem concluir que assimetria
-seja defeito.
-
-### Verificação desta ampliação
-
-92 testes unitários em 21 arquivos e TypeScript passaram. A matriz foi
-exercitada no navegador em desktop e celular: ausência bilateral de Heubner,
-veia facial da fonte visível, filtro de lacunas, Galeno ausente e distinção
-da meníngea acessória. O aviso da meníngea média passou no mesmo fluxo em desktop/celular (2/2).
-O primeiro ensaio desse aviso usava um nome de busca incompatível com o
-rótulo inglês da fonte; o teste passou a localizar pelo número 39 e pelo
-rótulo efetivamente exibido. O build final de produção também passou, com
-o aviso já conhecido de chunks maiores que 500 kB. Esses testes verificam o
-funcionamento dos registros e controles; não são aprovação anatômica.
-
-
-## Continuação: conjuntos de estudo e auditoria dos fragmentos
-
-As árvores de estudo agora incluem vasos originais e reconstruções, além de
-suas exigências ainda ausentes: carótidas, ACE, maxilar e ramos distais,
-oftálmica, ACA/ACM/ACP, vertebral/basilar, cerebelares, ramos cervicais e
-coletores/tributárias venosos. O agrupamento preserva o lado selecionado;
-raízes medianas podem mostrar ambos os lados. A lista de estudo não certifica
-origens, coexistência de variantes, continuidade do lúmen ou direção de fluxo.
-O JSON integral registra as relações de estudo com
-`geometryConnectionVerified: false`; elas não alteram o grafo procedural.
-
-“Isolar ramos de estudo” oculta também ossos, músculos e demais contextos não
-vasculares, mantendo as malhas presentes e o contexto vascular imediato. As
-ocultações manuais são conservadas, e encerrar o isolamento restaura o
-contexto conforme as configurações anteriores. Para um coletor venoso, a
-camada contrastada e o filtro de seleção mudam para venoso. A seleção por
-clique continua sem mover a câmera. A raiz do conjunto pode ser selecionada
-novamente após inspecionar um ramo.
-
-“Focar seleção” em 2D passou a calcular centro e ampliação a partir dos oito
-cantos do volume envolvente da seleção/conjunto e da projeção corrente, com
-margem no detector. Não altera coordenadas das malhas. Os testes verificam
-AP, lateral e oblíquas e a conservação de centro/ampliação ao alternar 2D/3D.
-
-A auditoria de componentes cobre as 241 malhas originais: todos os 701
-componentes de vértices ficam discriminados com limites, área e número de
-triângulos, sem nomes anatômicos inventados. Todos os triângulos e vértices
-usados são contabilizados. A maxilar tem nove componentes por lado sob um
-único rótulo; isso detalha a cobertura já classificada como parcial, sem
-transformar separações dos índices em diagnóstico de desconexão anatômica.
-Há nove novas relações candidatas por lado na auditoria de vizinhança da
-maxilar; distâncias entre vértices não homologam óstios ou comunicações.
-O confronto e a tabela estão em `neuro3d-maxillary-source-review.md`.
-
-As fontes VENAT/TopBrain/NIH foram avaliadas com estados de acesso e licenças
-registrados em `neuro3d-dataset-sources.md`. A média probabilística do VENAT
-não foi incorporada como árvore individual nem usada para preencher as
-veias faltantes. Não houve adição de vasos, mudança de posição das malhas ou
-fechamento automático de intervalos neste lote. Permanecem 118
-identidades/grupos sem malha individual na matriz integral e 49 exigências
-venosas sem representação individual na matriz venosa inicial.
-
-99 testes unitários em 22 arquivos, TypeScript e build de produção passaram.
-Os 12 fluxos focados de navegador passaram em desktop/celular; os dois
-venosos foram repetidos com aprovação após o ajuste final do filtro de
-seleção. Capturas da maxilar em 2D e do coletor venoso no celular foram
-inspecionadas. A exibição dos ângulos foi arredondada apenas na interface,
-conservando a precisão interna. O build mantém o aviso já conhecido de
-chunks maiores que 500 kB. Estes checks não aprovam anatomicamente as malhas.
+104 testes unitários em 23 arquivos, TypeScript e build de produção aprovados. Dezesseis casos de navegador passaram em desktop/Pixel 7: seleção sem rotação, camadas ocultas sem seleção, persistência de campo 2D/3D, maxilar, árvore faríngea, inventário, novas veias e variantes opcionais. Capturas de veias profundas e conjuntos arteriais foram inspecionadas. A verificação de superfícies 3D local usa Chromium/SwiftShader; não equivale a validação anatômica. O aviso de chunks acima de 500 kB permanece.

@@ -1,6 +1,6 @@
 import registry from "./diagram-registry.json";
 import { openAnatomy } from "./openAnatomy";
-import { reconstructedArteries } from "./reconstructedArteries";
+import { reconstructedVessels } from "./reconstructedVessels";
 
 /** Exact identity, never substring similarity or territorial proximity.
  * Conceptual relations do not modify procedural contrast/navigation graphs.
@@ -9,7 +9,7 @@ export const diagramRegistry = registry;
 export const anatomicalInventory = registry.entries.map((entry) => {
   const matches = (id: string) => entry.targets.some((target) => id === target || id === `${target}_l` || id === `${target}_r`);
   const imported = openAnatomy.structures.filter((structure) => matches(structure.id));
-  const rebuilt = reconstructedArteries.filter((structure) => matches(structure.id));
+  const rebuilt = reconstructedVessels.filter((structure) => matches(structure.id));
   const structures = [...imported, ...rebuilt];
   const unrepresentedTarget = entry.targets.some((target) => !structures.some((structure) => structure.id === target || structure.id === `${target}_l` || structure.id === `${target}_r`));
   const unresolved = entry.kind === "figure-label" || entry.kind === "source-conflict";

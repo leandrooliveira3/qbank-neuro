@@ -74,3 +74,8 @@
 .nda-angiography canvas { touch-action: none; }
 
 .nda-study-family {border:1px solid #304453;border-radius:8px;padding:10px;margin-top:12px}.nda-study-family summary {cursor:pointer;color:#a8e9db}.nda-study-family [data-study-member] {border-top:1px solid #304453;padding-top:10px;margin-top:10px}.nda-study-family strong,.nda-study-family button {display:block}.nda-study-family button {font-size:11px;margin-top:6px;text-align:left;overflow-wrap:anywhere;max-width:100%}
+
+.nda-educational-controls { margin: .8rem 0; padding: .75rem; border: 1px solid #b48742; border-radius: .65rem; background: #bc87420e; }
+.nda-educational-controls label { display: inline-flex; align-items: center; gap: .5rem; margin: .2rem 1.2rem .2rem 0; font-size: .85rem; }
+.nda-educational-controls input { width: 1.1rem; height: 1.1rem; accent-color: #d3a35d; }
+.nda-educational-controls p { margin: .4rem 0 0; font-size: .78rem; line-height: 1.5; color: #bfcbd0; }

@@ -4,6 +4,7 @@ import {sourceStructures,openAnatomy} from "./openAnatomy";
 import {vascularMeshReview,venousCoverage,vascularReviewCounts} from "./vascularReview";
 import {vascularQuarantine} from "./vascularQuarantine";
 import {reconstructedArteries} from "./reconstructedArteries";
+import {educationalVesselIds} from "./educationalVessels";
 import axes from "./reference-access-network.json";
 import geometryAudit from "../../docs/neuro3d-vascular-geometry-audit.json";
 
@@ -18,9 +19,9 @@ describe("whole vascular review and traceable ECA corrections",()=>{
     for(const side of ["l","r"]) expect(geometryAudit.meshes.find(row=>row.id === `maxillary_artery_${side}`)?.components).toHaveLength(9);
   });
   it("keeps the maxillary side of skull-base connections distinct from ICA branches and ambiguous source labels",()=>{
-    expect(maxillaryBranchReview.find(row=>row.key === "accessory-meningeal")?.status).toBe("missing");
-    expect(maxillaryBranchReview.find(row=>row.key === "foramen-rotundum-imax")?.status).toBe("missing");
-    expect(maxillaryBranchReview.find(row=>row.key === "sphenopalatine")?.status).toBe("partial");
+    expect(maxillaryBranchReview.find(row=>row.key === "accessory-meningeal")?.status).toBe("present-unverified");
+    expect(maxillaryBranchReview.find(row=>row.key === "foramen-rotundum-imax")?.status).toBe("present-unverified");
+    expect(maxillaryBranchReview.find(row=>row.key === "sphenopalatine")?.status).toBe("present-unverified");
     expect(maxillaryBranchReview.find(row=>row.key === "infraorbital")?.ids).toContain("infra_orbital_artery_l");
   });
   it("accounts for every original arterial and venous mesh, including rejected originals",()=>{
@@ -39,7 +40,10 @@ describe("whole vascular review and traceable ECA corrections",()=>{
   });
   it("does not replace absent deep or superficial veins with existing sinuses",()=>{
     for (const id of ["great_cerebral_vein","internal_cerebral_vein","basal_vein_of_rosenthal","superior_anastomotic_vein","inferior_anastomotic_vein","anterior_spinal_vein"]) {
-      expect(venousCoverage.find(row=>row.id === id)?.status).toBe("missing");
+      const row=venousCoverage.find(row=>row.id === id)!;
+      expect(row.status).toBe("present-unverified");
+      expect(row.ids.length).toBeGreaterThan(0);
+      expect(row.ids.every(id=>educationalVesselIds.has(id))).toBe(true);
     }
     expect(venousCoverage.find(row=>row.id === "straight_sinus")?.status).toBe("present-unverified");
     expect(venousCoverage.find(row=>row.id === "internal_cerebral_vein")?.drainageTargets).toContain("great_cerebral_vein");

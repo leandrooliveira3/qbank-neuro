@@ -1,7 +1,7 @@
 import {vascularCompleteness} from "./vascularCompleteness";
 import {venousCoverage} from "./vascularReview";
 import {maxillaryBranchReview} from "./maxillaryReview";
-import {reconstructedArteries} from "./reconstructedArteries";
+import {reconstructedVessels} from "./reconstructedVessels";
 
 /** Study membership only: a named branch/territory or upstream venous pathway.
  * These relations NEVER modify the navigation/contrast graph or join surfaces.
@@ -53,7 +53,7 @@ branches.maxillary_artery=maxillaryBranchReview.flatMap(row=>row.targets).filter
 branches.middle_cerebral_artery_m1_segment=vascularCompleteness.filter(row=>row.layer === "arterial" &&
   (row.group === "ACM · divisões e ramos" || ["middle_cerebral_artery_m3_segment","insular_branches_of_middle_cerebral_artery_m2","parietal_branches_of_middle_cerebral_artery","temporal_branches_of_middle_cerebral_artery","postcentral_arterial_branch","anterior_temporal_branch_of_mca","artery_of_central_sulcus","artery_of_precentral_sulcus","arterial_branch_to_angular_gyrus","distal_lateral_striate_branches","lateral_frontobasal_artery","posterior_parietal_artery","posterior_temporal_branch_of_mca","prefrontal_artery","proximal_lateral_striate_branches","temporo_occipital_branch_of_mca"].includes(row.id))).map(row=>row.id);
 const append=(parent:string,child:string)=>{ branches[parent] ??=[]; if(!branches[parent].includes(child)) branches[parent].push(child); };
-for(const row of reconstructedArteries) append(vascularBaseId(row.parentId),vascularBaseId(row.id));
+for(const row of reconstructedVessels) append(vascularBaseId(row.parentId),vascularBaseId(row.id));
 // Collectors point to reference upstream pathways for visual study, including alternatives.
 for(const row of venousCoverage) for(const target of row.drainageTargets) append(target,row.id);
 
@@ -74,7 +74,7 @@ export function vascularStudyFamily(selectedId:string) {
   const ids=new Set(rows.flatMap(row=>row.ids));
   const contextIds=new Set<string>();
   // Existing didactic branches retain the ipsilateral carotid context.
-  const reconstructed=reconstructedArteries.find(row=>row.id === selectedId);
+  const reconstructed=reconstructedVessels.find(row=>row.id === selectedId);
   if(reconstructed) {contextIds.add(reconstructed.rootId);if(reconstructed.rootId.startsWith("external_")) contextIds.add(reconstructed.rootId.replace("external_","internal_"));}
   for(const [parent,children] of Object.entries(branches)) if(children.includes(root)) {
     const row=byBase.get(parent);

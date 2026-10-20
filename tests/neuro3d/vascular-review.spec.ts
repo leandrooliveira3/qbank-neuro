@@ -26,8 +26,8 @@ test('revised APA tree retains its identity across 3D and 2D and the whole revie
   await expect(page.getByLabel('Escopo da revisão vascular')).toHaveValue('complete');
   await page.getByLabel('Buscar na revisão vascular integral').fill('Heubner');
   const heubner=page.locator('[data-vascular-requirement="arterial:recurrent_artery_of_heubner"]');
-  await expect(heubner).toContainText('Malha individual ausente');
-  await expect(heubner).toContainText('recurrent_artery_of_heubner_l, recurrent_artery_of_heubner_r');
+  await expect(heubner).toContainText('2 trajetos ilustrativos');
+  await expect(heubner.getByRole('button')).toHaveCount(2);
   await page.getByLabel('Sistema da matriz vascular').selectOption('venous');
   await page.getByLabel('Buscar na revisão vascular integral').fill('facial_vein');
   await expect(page.locator('[data-vascular-requirement="venous:facial_vein"]')).toContainText('facial_vein_l');
@@ -35,10 +35,10 @@ test('revised APA tree retains its identity across 3D and 2D and the whole revie
   await expect(page.locator('[data-vascular-requirement="venous:facial_vein"]')).toHaveCount(0);
   await page.getByLabel('Escopo da revisão vascular').selectOption('venous');
   await page.getByLabel('Buscar na revisão vascular integral').fill('Galeno');
-  await expect(page.locator('[data-venous-requirement="great_cerebral_vein"]')).toContainText('Malha individual ausente');
+  await expect(page.locator('[data-venous-requirement="great_cerebral_vein"]')).toContainText('Inclui trajetos ilustrativos adicionais');
   await page.getByLabel('Escopo da revisão vascular').selectOption('maxillary');
   await page.getByLabel('Buscar na revisão vascular integral').fill('meníngea acessória');
-  await expect(page.locator('[data-maxillary-branch="accessory-meningeal"]')).toContainText('Malha individual ausente');
+  await expect(page.locator('[data-maxillary-branch="accessory-meningeal"]')).toContainText('Inclui trajetos ilustrativos adicionais');
   await page.getByRole('button',{name:'Estruturas',exact:true}).click();
   await page.getByLabel('Buscar no atlas detalhado').fill('39');
   await page.locator('.nda-list button').filter({hasText:'Middle meningeal artery (left)'}).click();

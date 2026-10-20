@@ -1,5 +1,6 @@
+import {educationalVesselIds} from "./educationalVessels";
 import { sourceStructures, openAnatomy } from "./openAnatomy";
-import { reconstructedArteries } from "./reconstructedArteries";
+import { reconstructedVessels } from "./reconstructedVessels";
 import { anatomicalInventory } from "./anatomicalInventory";
 import { vascularQuarantine } from "./vascularQuarantine";
 import {vascularFindings} from "./vascularFindings";
@@ -19,7 +20,7 @@ export const vascularMeshReview = [
     boundsFinite:item.bounds.flat().every(Number.isFinite),
     reference:item.layer === "venous" ? venousSource : arterialSource,
   })),
-  ...reconstructedArteries.map(item=>({key:`reconstruction:${item.id}`,id:item.id,name:item.name,layer:item.layer,kind:"reconstructed",file:"geometria didática original",
+  ...reconstructedVessels.map(item=>({key:`reconstruction:${item.id}`,id:item.id,name:item.name,layer:item.layer,kind:"reconstructed",file:"geometria didática original",
     status:"pending",selectable:true,note:item.note,boundsFinite:item.bounds.flat().every(Number.isFinite),reference:item.reference})),
 ];
 
@@ -108,17 +109,17 @@ const venousDrainage:Record<string,string[]> = {
   superior_ophthalmic_vein:["cavernous_sinus"],inferior_ophthalmic_vein:["cavernous_sinus","pterygoid_venous_plexus"],
   basilar_venous_plexus:["cavernous_sinus","inferior_petrosal_sinus","internal_vertebral_venous_plexus"],
 };
-const effective = [...openAnatomy.structures,...reconstructedArteries];
+const effective = [...openAnatomy.structures,...reconstructedVessels];
 export const venousCoverage = venousRequirements.map(row=>{
   const expected = row.paired ? [`${row.id}_l`,`${row.id}_r`] : [row.id];
   const ids = expected.filter(id=>effective.some(item=>item.id === id && item.layer === "venous"));
-  return {...row,ids,drainageTargets:venousDrainage[row.id] ?? [],drainageGeometryVerified:false,status:ids.length === expected.length ? "present-unverified" : ids.length ? "partial" : "missing"};
+  return {...row,ids,illustratedIds:ids.filter(id=>educationalVesselIds.has(id)),drainageTargets:venousDrainage[row.id] ?? [],drainageGeometryVerified:false,status:ids.length === expected.length ? "present-unverified" : ids.length ? "partial" : "missing"};
 });
 export const arterialCoverage = anatomicalInventory;
 export const vascularReviewCounts = {
   importedArterial:sourceStructures.filter(row=>row.layer === "arterial").length,
   importedVenous:sourceStructures.filter(row=>row.layer === "venous").length,
-  reconstructed:reconstructedArteries.length,
+  reconstructed:reconstructedVessels.length,
   disputed:vascularQuarantine.size,
   anatomicallyApproved:0,
 };

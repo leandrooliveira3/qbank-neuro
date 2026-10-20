@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { anatomicalInventory, diagramRegistry } from "./anatomicalInventory";
 import { openAnatomy } from "./openAnatomy";
-import { reconstructedArteries } from "./reconstructedArteries";
+import { reconstructedVessels } from "./reconstructedVessels";
 
 describe("Neuroangio numbered anatomical correspondence", () => {
   it("retains atomic legend entries and source ambiguities", () => {
@@ -20,7 +20,7 @@ describe("Neuroangio numbered anatomical correspondence", () => {
   });
   it("does not substitute ordinary intracranial arteries for the ventral ophthalmic variant", () => {
     const variant = anatomicalInventory.find(row => row.number === "109")!;
-    expect(variant.kind).toBe("variant"); expect(variant.ids).toEqual([]);
+    expect(variant.kind).toBe("variant"); expect(variant.ids).toEqual(["persistent_ventral_ophthalmic_artery_l","persistent_ventral_ophthalmic_artery_r"]); expect(variant.status).toBe("reconstructed");
     for (const number of ["110", "111", "112", "114", "115", "116", "117", "118"])
       expect(anatomicalInventory.find(row => row.number === number)?.ids.length).toBeGreaterThan(0);
   });
@@ -61,13 +61,13 @@ describe("Neuroangio numbered anatomical correspondence", () => {
       expect(basilar.ids).not.toContain(`anterior_inferior_cerebellar_artery_${side}`);
     }
   });
-  it("keeps 57–59 in the superior alveolar system without inventing missing geometry", () => {
+  it("keeps 57–59 in the superior alveolar system with explicitly illustrative geometry", () => {
     const middle = anatomicalInventory.find(item => item.number === "58")!;
     const anterior = anatomicalInventory.find(item => item.number === "59")!;
     expect(middle.portuguese).toBe("Artéria alveolar superior média");
     for (const row of [middle, anterior]) {
-      expect(row.ids).toEqual([]);
-      expect(row.status).toBe("missing");
+      expect(row.ids).toHaveLength(2);
+      expect(row.geometryKinds).toEqual(["reconstructed"]);
       expect(row.portuguese).not.toContain("temporal");
     }
   });
@@ -80,14 +80,14 @@ describe("Neuroangio numbered anatomical correspondence", () => {
       expect(pca.ids).not.toContain(`occipital_artery_${side}`);
       expect(pca.ids).not.toContain(`temporo_occipital_branch_of_mca_${side}`);
     }
-    expect(anatomicalInventory.find(item => item.number === "113")?.ids).toEqual([]);
+    expect(anatomicalInventory.find(item => item.number === "113")?.ids).toHaveLength(4);
     expect(anatomicalInventory.find(item => item.number === "114a")?.status).toBe("unresolved");
   });
   it("maps only arterial geometry, never nerves, venous sinuses or glands", () => {
-    const structures = new Map([...openAnatomy.structures, ...reconstructedArteries].map(item => [item.id, item]));
+    const structures = new Map([...openAnatomy.structures, ...reconstructedVessels].map(item => [item.id, item]));
     for (const row of anatomicalInventory) for (const id of row.ids) expect(structures.get(id)?.layer, id).toBe("arterial");
     for (const number of ["12a", "14b", "15", "94", "96", "116a", "116b"])
-      expect(anatomicalInventory.find(row => row.number === number)?.ids).toEqual([]);
+      expect(anatomicalInventory.find(row => row.number === number)?.geometryKinds).toEqual(["reconstructed"]);
   });
   it("includes source-labelled mental and mylohyoid arterial branches under 72", () => {
     const row = anatomicalInventory.find(item => item.number === "72")!;

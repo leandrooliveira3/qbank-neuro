@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from "react";
 import { anatomicalInventory, diagramRegistry, inventoryStatus } from "./anatomicalInventory";
 import { openAnatomy } from "./openAnatomy";
-import { reconstructedArteries } from "./reconstructedArteries";
+import { reconstructedVessels } from "./reconstructedVessels";
 import { normalize } from "./model";
 
-const structureNames = new Map([...openAnatomy.structures, ...reconstructedArteries].map((structure) => [structure.id, structure.name]));
+const structureNames = new Map([...openAnatomy.structures, ...reconstructedVessels].map((structure) => [structure.id, structure.name]));
 const relationNames: Record<string, string> = { anastomosis: "Anastomose descrita", "variant-connection": "Conexão de variante", "group-member": "Membro do grupo" };
 
 export default function DiagramInventory({ onSelect }: { onSelect: (id: string) => void }) {

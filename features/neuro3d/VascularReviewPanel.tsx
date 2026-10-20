@@ -20,6 +20,7 @@ export default function VascularReviewPanel({onSelect}:{onSelect:(id:string)=>vo
     {scope === "complete" && <VascularCompletenessPanel query={query} onSelect={onSelect} />}
     {scope === "maxillary" && maxillary.map(row=><article key={row.key} data-maxillary-branch={row.key}>
       <span className="nda-review-status">{row.status === "missing" ? "Malha individual ausente" : row.status === "partial" ? "Cobertura parcial" : "Presente · origem/curso pendentes"}</span>
+      {!!row.illustratedIds.length && <p className="nda-reconstruction-note">Inclui trajetos ilustrativos adicionais; anatomia e coordenadas não validadas.</p>}
       <h4>{row.name}</h4><small>Porção {row.segment.toLowerCase()}</small><p>{row.note}</p>
       {row.missing.length > 0 && <p>Sem geometria individual: {row.missing.join(", ")}</p>}
       {row.ids.map(id=><button key={id} onClick={()=>onSelect(id)}>{id}</button>)}<small>{row.reference}</small>
@@ -31,6 +32,7 @@ export default function VascularReviewPanel({onSelect}:{onSelect:(id:string)=>vo
       <a href={row.reference} target="_blank" rel="noreferrer">Referência do sistema</a>
     </article>) : scope === "venous" && veins.map(row=><article key={row.id} data-venous-requirement={row.id}>
       <span className="nda-review-status">{row.status === "missing" ? "Malha individual ausente" : row.status === "partial" ? "Cobertura parcial" : "Presente · anatomia pendente"}</span>
+      {!!row.illustratedIds.length && <p className="nda-reconstruction-note">Inclui trajetos ilustrativos adicionais; anatomia e coordenadas não validadas.</p>}
       <h4>{row.name}</h4><small>{row.group}</small>
       {!!row.drainageTargets.length && <p>Drenagem/comunicações de referência: {row.drainageTargets.map(id=>venousCoverage.find(candidate=>candidate.id === id)?.name ?? id).join("; ")}. São destinos usuais ou alternativos; não se presume que coexistam nem que estejam conectados geometricamente.</p>}
       <p>Conferir trajeto, tributárias, drenagem, comunicações e variantes. Um coletor presente não substitui os seus afluentes. Uma variante não é obrigatória em todos os indivíduos.</p>

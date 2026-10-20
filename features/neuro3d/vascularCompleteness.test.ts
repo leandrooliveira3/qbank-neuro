@@ -1,6 +1,6 @@
 import {describe,it,expect} from "vitest";
 import {sourceStructures} from "./openAnatomy";
-import {reconstructedArteries} from "./reconstructedArteries";
+import {reconstructedVessels} from "./reconstructedVessels";
 import {resolveVascularRequirement,vascularCompleteness,unmappedVascularDiagramEntries} from "./vascularCompleteness";
 import {diagramRegistry} from "./anatomicalInventory";
 import audit from "../../docs/neuro3d-vascular-geometry-audit.json";
@@ -9,7 +9,7 @@ describe("whole vascular completeness without parent or contralateral substituti
   it("accounts for every source and reconstructed vessel, including extracranial veins and access vessels",()=>{
     const keys=new Set(vascularCompleteness.map(row=>`${row.layer}:${row.id}`));
     expect(keys.size).toBe(vascularCompleteness.length);
-    for (const item of [...sourceStructures,...reconstructedArteries].filter(row=>["arterial","venous"].includes(row.layer))) {
+    for (const item of [...sourceStructures,...reconstructedVessels].filter(row=>["arterial","venous"].includes(row.layer))) {
       expect(vascularCompleteness.some(row=>row.layer === item.layer && row.expectedIds.includes(item.id))).toBe(true);
     }
     expect(vascularCompleteness.find(row=>row.id === "facial_vein")?.ids).toEqual(expect.arrayContaining(["facial_vein_l","facial_vein_r"]));
@@ -29,14 +29,16 @@ describe("whole vascular completeness without parent or contralateral substituti
   it("exposes named perforators, choroidals and tributaries instead of filling them with existing trunks",()=>{
     for (const id of ["recurrent_artery_of_heubner","medial_lenticulostriate_arteries","posterior_thalamoperforating_arteries","medial_posterior_choroidal_artery","lateral_posterior_choroidal_artery","perforating_branches_of_pica","radiculomedullary_arteries","internal_cerebral_vein"]) {
       const row=vascularCompleteness.find(candidate=>candidate.id === id)!;
-      expect(row.status).toBe("missing");
-      expect(row.missingIds).toEqual([`${id}_l`,`${id}_r`]);
+      expect(row.status).toBe("present-unverified");
+      expect(row.missingIds).toEqual([]);
+      expect(row.illustratedIds).toEqual([`${id}_l`,`${id}_r`]);
+      expect(row.referenceMissingIds).toEqual([`${id}_l`,`${id}_r`]);
     }
-    expect(vascularCompleteness.find(row=>row.id === "subcallosal_artery")?.missingIds).toEqual(["subcallosal_artery"]);
+    expect(vascularCompleteness.find(row=>row.id === "subcallosal_artery")?.referenceMissingIds).toEqual(["subcallosal_artery"]);
     expect(vascularCompleteness.find(row=>row.id === "middle_meningeal_artery")?.status).toBe("present-unverified");
-    expect(vascularCompleteness.find(row=>row.id === "accessory_meningeal_artery")?.status).toBe("missing");
+    expect(vascularCompleteness.find(row=>row.id === "accessory_meningeal_artery")?.status).toBe("present-unverified");
     expect(vascularCompleteness.find(row=>row.id === "foramen_rotundum_branch")?.status).toBe("present-unverified");
-    expect(vascularCompleteness.find(row=>row.id === "artery_of_foramen_rotundum_from_maxillary")?.status).toBe("missing");
+    expect(vascularCompleteness.find(row=>row.id === "artery_of_foramen_rotundum_from_maxillary")?.status).toBe("present-unverified");
   });
   it("keeps the source MMA extent warning tied to measured original buffers",()=>{
     for (const side of ["l","r"]) {

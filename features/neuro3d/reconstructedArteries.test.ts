@@ -46,15 +46,15 @@ describe("reconstructed educational arterial surfaces", () => {
     expect(rows).toHaveLength(2);
     expect(rows.find((row) => row.label === "inferior thyroid")?.ids.sort()).toEqual(["inferior_thyroid_artery_l", "inferior_thyroid_artery_r"]);
     expect(rows.find((row) => row.label === "supreme intercostal")?.ids.sort()).toEqual(["supreme_intercostal_artery_l", "supreme_intercostal_artery_r"]);
-    expect(anatomicalInventory.find((row) => row.number === "106")?.status).toBe("missing");
+    expect(anatomicalInventory.find((row) => row.number === "106")?.status).toBe("reconstructed");
     expect(anatomicalInventory.find((row) => row.number === "arch")?.ids).toEqual(["aortic_arch"]);
   });
   it("retains the full source index and never equates grouped or absent structures with complete geometry", () => {
     expect(anatomicalInventory).toHaveLength(142);
     expect(anatomicalInventory.find((row) => row.number === "2")?.status).toBe("reconstructed");
-    expect(anatomicalInventory.find((row) => row.number === "109")?.status).toBe("missing");
-    expect(anatomicalInventory.find((row) => row.number === "19")?.status).toBe("missing");
-    expect(anatomicalInventory.find((row) => row.number === "95")?.status).toBe("missing");
+    expect(anatomicalInventory.find((row) => row.number === "109")?.status).toBe("reconstructed");
+    expect(anatomicalInventory.find((row) => row.number === "19")?.status).toBe("partial");
+    expect(anatomicalInventory.find((row) => row.number === "95")?.status).toBe("partial");
   });
   it("anchors each root branch to its own carotid and preserves parent-child endpoints", () => {
     for (const branch of reconstructedArteries) {
