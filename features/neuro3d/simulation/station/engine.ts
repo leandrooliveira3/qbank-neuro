@@ -108,7 +108,7 @@ export type StationAction =
   | { type: "view"; patch: Partial<View> }
   | { type: "mode"; mode: StationState["mode"] }
   | { type: "inject" }
-  | { type: "mask" }
+  | { type: "mask"; frame?: StationState }
   | { type: "catalogue-add"; choice: CatalogueChoice }
   | { type: "catalogue-kit"; id: string }
   | { type: "load"; family: Family; catalogueChoice?: CatalogueChoice }
@@ -511,7 +511,10 @@ export function stationReducer(
       );
     }
     case "mask": {
-      const edges = opacifiedEdges(s, n);
+      const captured = a.frame ?? s;
+      if (captured.caseId !== s.caseId || captured.geometry !== s.geometry || captured.referenceEntry !== s.referenceEntry || captured.archProfile !== s.archProfile)
+        return note(s, "A imagem exibida não pertence ao caso e à geometria atuais.", true);
+      const edges = opacifiedEdges(captured, networkFor(captured));
       if (!edges.length)
         return note(
           s,
@@ -522,12 +525,12 @@ export function stationReducer(
         {
           ...s,
           mask: {
-            contrastAge: s.contrast ? s.clock - s.contrast.at : 0,
-            contrastOrigin: s.contrast ? { edge: s.contrast.edge, originT: s.contrast.originT } : undefined,
-            view: { ...s.view },
+            contrastAge: captured.contrast ? captured.clock - captured.contrast.at : 0,
+            contrastOrigin: captured.contrast ? { edge: captured.contrast.edge, originT: captured.contrast.originT } : undefined,
+            view: { ...captured.view },
             edges,
-            clot: s.clot,
-            dilation: s.dilation,
+            clot: captured.clot,
+            dilation: captured.dilation,
           },
           mode: "roadmap",
         },

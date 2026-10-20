@@ -1,4 +1,5 @@
 import { CatmullRomCurve3, Vector3 } from "three";
+import { ecaReconstructedArteries } from "./ecaReconstructedArteries";
 import axes from "./reference-network.json";
 import accessAxes from "./reference-access-network.json";
 import { vesselSurface } from "./simulation/station/surfaces";
@@ -33,7 +34,7 @@ const templates: Template[] = [
   { id: "anterior_choroidal_artery", name: "Artéria coroidea anterior", parent: "internal_carotid_artery", anchor: 153, radius: 0.055,
     points: [source[153], [1.65, -0.05, 1.7], [1.9, -0.2, 0.5], [2, -0.3, -0.7], [2.35, -0.05, -1.8], [2.7, 0.6, -2.7], [2.9, 1.2, -3.4]], reference: achSource },
 ];
-export const reconstructedArteries = (["l", "r"] as const).flatMap((side) => templates.map((template) => {
+const icaReconstructedArteries = (["l", "r"] as const).flatMap((side) => templates.map((template) => {
   const sign = side === "l" ? 1 : -1;
   const sideAxis = (side === "l" ? axes.originalAxes.internal_carotid_artery_l.points : accessAxes.originalAxes.internal_carotid_artery_r.points) as P3[];
   const sourceAnchor = sideAxis[template.anchor];
@@ -58,3 +59,5 @@ export const reconstructedArteries = (["l", "r"] as const).flatMap((side) => tem
     note: "Trajeto e calibre ilustrativos, com âncora numérica na ACI de cada lado. Modelo de ramo espelhado e transladado à âncora; relações finas, óstios e arcadas completas não validados. Não navegável por instrumentos.",
   };
 }));
+
+export const reconstructedArteries = [...icaReconstructedArteries, ...ecaReconstructedArteries];

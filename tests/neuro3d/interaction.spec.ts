@@ -45,3 +45,34 @@ test('angiographic 2D pose and field are retained in the orthographic 3D view', 
   await expect.poll(async()=>Number(await detector.getAttribute('data-pitch'))).toBeCloseTo(25,4);
   await expect.poll(async()=>Number(await detector.getAttribute('data-zoom'))).toBeCloseTo(1.7,4);
 });
+
+
+test('2D dragging and cursor zoom update only the field and survive a 3D round trip', async ({page}) => {
+  await page.goto('/#/tools/neuro3d');
+  await page.getByRole('button',{name:'Angiografia',exact:true}).click();
+  const detector = page.getByTestId('atlas-angiography');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy','false',{timeout:30000});
+  const before = await detector.getAttribute('data-field-center');
+  await page.getByRole('button',{name:'Mover',exact:true}).click();
+  await detector.scrollIntoViewIfNeeded();
+  const box = await detector.boundingBox();
+  await page.mouse.move(box!.x+box!.width/2,box!.y+box!.height/2);
+  await page.mouse.down();
+  await page.mouse.move(box!.x+box!.width/2+40,box!.y+box!.height/2+25,{steps:4});
+  await page.mouse.up();
+  await expect(detector).not.toHaveAttribute('data-field-center',before!);
+  await expect(page.getByTestId('atlas-selection')).toHaveCount(0);
+  const initialZoom = Number(await detector.getAttribute('data-zoom'));
+  await page.mouse.wheel(0,-180);
+  await expect.poll(async()=>Number(await detector.getAttribute('data-zoom'))).toBeGreaterThan(initialZoom);
+  const center = await detector.getAttribute('data-field-center');
+  const zoom = Number(await detector.getAttribute('data-zoom'));
+  await page.getByRole('button',{name:'Angiografia 3D',exact:true}).click();
+  await expect(page.locator('canvas')).toHaveAttribute('data-angiography3d-rendered','true',{timeout:45000});
+  await page.getByRole('button',{name:'Angiografia',exact:true}).click();
+  const actual = (await detector.getAttribute('data-field-center'))!.split(',').map(Number);
+  center!.split(',').map(Number).forEach((value,i)=>expect(actual[i]).toBeCloseTo(value,5));
+  await expect.poll(async()=>Number(await detector.getAttribute('data-zoom'))).toBeCloseTo(zoom,5);
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy','false',{timeout:30000});
+  await page.screenshot({path:`test-results/linked-detector-pan-${test.info().project.name}.png`,fullPage:true});
+});

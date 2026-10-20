@@ -1,5 +1,7 @@
 # Controles e angiografia vinculada — 19/10/2026
 
+Atualização subsequente: [revisão vascular integral](neuro3d-whole-vascular-review.md). A árvore da ACE, a matriz venosa e a captura da última imagem de roadmap foram acrescentadas após o checkpoint descrito abaixo. O registro de duas falhas procedurais ao final é histórico; as correções subsequentes passaram em desktop/celular.
+
 ## Problemas corrigidos
 
 A seleção alterava automaticamente posição, orientação e distância da câmera.
@@ -91,3 +93,22 @@ não apareceu no prazo esperado, em desktop e celular. A estação procedural
 não foi alterada nesta revisão. Não se declara a suíte procedural aprovada.
 A reprodução fiel do layout Mentice aguarda os quadros do vídeo, conforme
 `neuro3d-dataset-sources.md`.
+
+### Atualização: campo 2D e aquisição
+
+A representação 2D permite Mover + arraste e ampliação pela roda ancorada
+no ponto sob o cursor, preservando orientação/profundidade da anatomia.
+A posição do campo persiste ao alternar para a vista 3D. O modo Mover
+não seleciona um vaso ao terminar o arraste.
+
+A estação informa o carregamento das superfícies e bloqueia a injeção pelo
+botão/atalho enquanto elas não estão prontas. Os pixels de contraste agora
+são desenhados diretamente, sem compressão PNG a cada pulso. O relógio
+considera intervalos até 0,5 s (mesmo limite do motor) e reinicia o intervalo
+ao mudar a visibilidade da página. Não se trata de CFD ou calibração de
+fluxo sanguíneo.
+
+A máscara de roadmap é capturada do quadro efetivamente exibido, incluindo
+idade do contraste, projeção e geometria. A exibição recebe a nova máscara
+mesmo com RX pausado, e uma nova injeção não altera a máscara já capturada.
+Não é aceita uma imagem de outro caso/entrada/perfil anatômico.

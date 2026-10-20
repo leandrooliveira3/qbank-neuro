@@ -2,25 +2,31 @@
 
 Fonte principal desta revisão: https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/
 
-Foram confrontadas as 130 entradas da legenda atual e inspecionadas as quatro figuras vinculadas. Foram mantidos seis números visíveis apenas nas figuras e seis elementos supra-aórticos de contexto. O índice tem 142 entradas, não 142 vasos únicos. O atlas mantém 1114 estruturas importadas e 18 reconstruções didáticas.
+Foram confrontadas as 130 entradas da legenda atual e inspecionadas as quatro figuras vinculadas. Foram mantidos seis números visíveis apenas nas figuras e seis elementos supra-aórticos de contexto. O índice tem 142 entradas, não 142 vasos únicos. O atlas mantém 1114 estruturas nos arquivos originais; duas malhas rotuladas como faríngea ascendente foram retiradas da visualização de referência. São 1112 estruturas importadas ativas e 52 reconstruções didáticas, sem homologação anatômica.
 
 **A compatibilidade geométrica integral ainda não foi atingida.** Os diagramas documentam redes e variantes; não fornecem coordenadas 3D ou calibres medidos. Esta revisão corrige identidade, cobertura e relações bibliográficas, sem apresentar uma correspondência nominal como validação anatômica.
 
 Recuperação de 28 malhas adicionais: [neuro3d-unindexed-vessels.md](neuro3d-unindexed-vessels.md).
 
+## Revisão vascular integral em andamento
+
+A prioridade agora abrange todo o sistema arterial e venoso, incluindo ramos, tributárias, anastomoses e drenagem. Ver [estado integral e fontes](neuro3d-whole-vascular-review.md). O novo painel Vasos registra cada uma das 241 malhas vasculares originais e as 52 reconstruções, preservando os originais contestados no registro. A matriz venosa inicial tem 66 estruturas/grupos, com 49 sem malha individual; não é uma lista fechada de todas as variantes.
+
 ## Cobertura
 
 | Estado | Entradas |
 |---|---:|
-| Malha importada | 45 |
-| Reconstrução didática | 5 |
-| Representação parcial | 12 |
-| Pendente | 73 |
+| Malha importada | 44 |
+| Reconstrução didática | 12 |
+| Representação parcial | 15 |
+| Pendente | 64 |
 | Identidade a reconciliar | 7 |
 
 Esses totais usam outro recorte que o índice anterior de 130 linhas/65 pendências. O antigo índice tinha duplicatas e subitens omitidos. O aumento de pendências reflete a correção do inventário; não representa perda de malhas.
 
 ## Correções
+
+- **47–51, 22, 23a, 30, 34 e 70:** novas árvores didáticas da faríngea ascendente e lingual, ancoradas em cada ACE. Os originais da faríngea foram preservados fora da visualização ativa. Não se declara que as coordenadas intermediárias, canais, forames, calibres ou anastomoses tenham sido homologados.
 
 - **109:** variante oftálmica ventral persistente, sem malha correspondente. Retirado o mapeamento incorreto para o conjunto ACA, PCom, coroidea anterior, ACP, SCA, AICA, basilar e ACM.
 - **8, 63, 64, 66 e 67:** o grupo etmoidal deixa de ter linha duplicada. A contribuição septal esfenopalatina é distinta das origens etmoidais; suas conexões são relações de rede.
@@ -92,8 +98,8 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 19 | Arcada clival lateral | Pendente | — |
 | 20 | Ramo hipoglossal para a arcada odontoidea | Pendente | — |
 | 21 | Arcada odontoidea epidural ventral | Pendente | — |
-| 22 | Divisão hipoglossal da faríngea ascendente | Pendente | — |
-| 23a | Divisão jugular da faríngea ascendente | Pendente | — |
+| 22 | Divisão hipoglossal da faríngea ascendente | Reconstrução didática | hypoglossal_division_of_ascending_pharyngeal_artery_l, hypoglossal_division_of_ascending_pharyngeal_artery_r |
+| 23a | Divisão jugular da faríngea ascendente | Reconstrução didática | jugular_division_of_ascending_pharyngeal_artery_l, jugular_division_of_ascending_pharyngeal_artery_r |
 | 23b | Ramo jugular da occipital | Pendente | — |
 | 24 | Meníngea posterior e ramos tentoriais | Pendente | — |
 | 25 | Arcada arterial do seio sigmoide | Pendente | — |
@@ -102,11 +108,11 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 27 | Arcada arterial do seio sagital superior | Pendente | — |
 | 28 | Ramo transmastóideo da occipital | Pendente | — |
 | 29 | Artéria occipital | Malha importada | occipital_artery_l, occipital_artery_r |
-| 30 | Timpânica inferior da faríngea ascendente | Pendente | — |
+| 30 | Timpânica inferior da faríngea ascendente | Reconstrução didática | inferior_tympanic_artery_l, inferior_tympanic_artery_r |
 | 31 | Ramo caroticotimpânico | Pendente | — |
 | 32 | Artéria estilomastóidea | Pendente | — |
 | 33 | Ramo petroso da meníngea média | Pendente | — |
-| 34 | Ramo do forame lacerado da faríngea ascendente | Pendente | — |
+| 34 | Ramo do forame lacerado da faríngea ascendente | Reconstrução didática | lacerum_branch_of_ascending_pharyngeal_artery_l, lacerum_branch_of_ascending_pharyngeal_artery_r |
 | 35 | Conexão cavernosa AMM–ILT pelo forame espinhoso | Pendente | — |
 | 36 | Ramo do forame oval do ILT | Representação parcial | foramen_ovale_branch_l, foramen_ovale_branch_r |
 | 37 | Artéria do forame redondo, ILT–maxilar | Representação parcial | foramen_rotundum_branch_l, foramen_rotundum_branch_r |
@@ -120,11 +126,11 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 44 | Ramo frontal ou anterior da meníngea média | Pendente | — |
 | 45 | Ramo parietal ou posterior da meníngea média | Pendente | — |
 | 46 | Ramo petrosquamoso da meníngea média | Pendente | — |
-| 47 | Artéria faríngea ascendente | Malha importada | ascending_pharyngeal_artery_l, ascending_pharyngeal_artery_r |
-| 48 | Tronco faríngeo da faríngea ascendente | Pendente | — |
-| 49 | Divisão inferior do tronco faríngeo | Pendente | — |
-| 50 | Divisão média do tronco faríngeo | Pendente | — |
-| 51 | Divisão superior do tronco faríngeo | Pendente | — |
+| 47 | Artéria faríngea ascendente | Representação parcial | ascending_pharyngeal_artery_l, ascending_pharyngeal_artery_r |
+| 48 | Tronco faríngeo da faríngea ascendente | Representação parcial | pharyngeal_trunk_of_ascending_pharyngeal_artery_l, pharyngeal_trunk_of_ascending_pharyngeal_artery_r |
+| 49 | Divisão inferior do tronco faríngeo | Reconstrução didática | inferior_pharyngeal_branch_l, inferior_pharyngeal_branch_r |
+| 50 | Divisão média do tronco faríngeo | Reconstrução didática | middle_pharyngeal_branch_l, middle_pharyngeal_branch_r |
+| 51 | Divisão superior do tronco faríngeo | Reconstrução didática | superior_pharyngeal_branch_l, superior_pharyngeal_branch_r |
 | 52 | Artéria vidiana e canal pterigoideo | Malha importada | artery_of_pterygoid_canal_l, artery_of_pterygoid_canal_r |
 | 53 | Artéria pterigovaginal | Pendente | — |
 | 53a | Artéria meníngea acessória | Pendente | — |
@@ -146,7 +152,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 | 68 | Artéria palatina descendente | Malha importada | descending_palatine_artery_l, descending_palatine_artery_r |
 | 68a | Artéria palatina maior | Malha importada | greater_palatine_artery_l, greater_palatine_artery_r |
 | 69 | Artéria palatina menor | Pendente | — |
-| 70 | Artéria lingual | Pendente | — |
+| 70 | Artéria lingual | Representação parcial | lingual_artery_l, deep_lingual_artery_l, sublingual_artery_l, dorsal_lingual_branches_l, suprahyoid_branch_of_lingual_artery_l, lingual_artery_r, deep_lingual_artery_r, sublingual_artery_r, dorsal_lingual_branches_r, suprahyoid_branch_of_lingual_artery_r |
 | 71 | Artéria submentoniana | Malha importada | submental_artery_l, submental_artery_r |
 | 72 | Artéria alveolar inferior | Representação parcial | inferior_alveolar_artery_l, inferior_alveolar_artery_r, mental_branch_of_inferior_alveolar_artery_l, mental_branch_of_inferior_alveolar_artery_r, mylohyoid_branch_of_inferior_alveolar_artery_l, mylohyoid_branch_of_inferior_alveolar_artery_r |
 | 73 | Artéria facial | Malha importada | facial_artery_l, facial_artery_r |
@@ -227,8 +233,6 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **19 — Arcada clival lateral**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **20 — Ramo hipoglossal para a arcada odontoidea**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **21 — Arcada odontoidea epidural ventral**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **22 — Divisão hipoglossal da faríngea ascendente**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **23a — Divisão jugular da faríngea ascendente**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **23b — Ramo jugular da occipital**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **24 — Meníngea posterior e ramos tentoriais**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **25 — Arcada arterial do seio sigmoide**: Sem malha individual identificada; reconstrução e revisão pendentes.
@@ -236,11 +240,9 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **26a — Artéria do seio reto**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **27 — Arcada arterial do seio sagital superior**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **28 — Ramo transmastóideo da occipital**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **30 — Timpânica inferior da faríngea ascendente**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **31 — Ramo caroticotimpânico**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **32 — Artéria estilomastóidea**: Origem variável occipital ou auricular posterior; integra a arcada facial com 33. Sem malha individual identificada; reconstrução e revisão pendentes.
 - **33 — Ramo petroso da meníngea média**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **34 — Ramo do forame lacerado da faríngea ascendente**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **35 — Conexão cavernosa AMM–ILT pelo forame espinhoso**: Cavernoso da AMM e espinhoso do ILT nomeiam extremidades da mesma conexão, não redes independentes. Sem malha individual identificada; reconstrução e revisão pendentes.
 - **36 — Ramo do forame oval do ILT**: A reconstrução representa apenas a extremidade ILT. Falta a conexão com a meníngea acessória pelo oval. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **37 — Artéria do forame redondo, ILT–maxilar**: A reconstrução representa apenas a extremidade ILT. Faltam a contribuição maxilar e a conexão completa pelo redondo. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
@@ -252,10 +254,8 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **44 — Ramo frontal ou anterior da meníngea média**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **45 — Ramo parietal ou posterior da meníngea média**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **46 — Ramo petrosquamoso da meníngea média**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **48 — Tronco faríngeo da faríngea ascendente**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **49 — Divisão inferior do tronco faríngeo**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **50 — Divisão média do tronco faríngeo**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **51 — Divisão superior do tronco faríngeo**: Sem malha individual identificada; reconstrução e revisão pendentes.
+- **47 — Artéria faríngea ascendente**: Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
+- **48 — Tronco faríngeo da faríngea ascendente**: Reconstrução didática orientada por referências; trajeto e calibre não homologados. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **53 — Artéria pterigovaginal**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **53a — Artéria meníngea acessória**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **54 — Ramo cutâneo ou tubário da meníngea acessória**: Sem malha individual identificada; reconstrução e revisão pendentes.
@@ -269,7 +269,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **64 — Sistema septal nasal posterior**: Uma malha de ramo septal não representa todo o sistema septal posterior. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **65 — Sistema septal nasal anterior**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **69 — Artéria palatina menor**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **70 — Artéria lingual**: Sem malha individual identificada; reconstrução e revisão pendentes.
+- **70 — Artéria lingual**: Reconstrução didática orientada por referências; trajeto e calibre não homologados. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **72 — Artéria alveolar inferior**: Artéria alveolar inferior e ramos mentual e milo-hióideo bilaterais identificados pelos rótulos da fonte. Cobertura parcial da árvore, sem homologação da continuidade ou do trajeto pelo canal mandibular. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **73a — Ramo arterial submandibular**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **74 — Artéria palatina ascendente**: Sem malha individual identificada; reconstrução e revisão pendentes.

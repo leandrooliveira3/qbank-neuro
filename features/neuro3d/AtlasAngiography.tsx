@@ -4,17 +4,19 @@ import { useReferenceGeometry } from "./simulation/station/referenceGeometry";
 import { WIDTH, HEIGHT } from "./simulation/station/projectionMath";
 import type { AtlasProjectionRequest } from "./atlasRadiograph";
 import type { P3 } from "./simulation/station/network";
-import { atlasProjection, unprojectAtlasPixel } from "./atlasProjection";
+import { atlasProjection, unprojectAtlasPixel, panAtlasField, zoomAtlasField } from "./atlasProjection";
 
 /** Projects the atlas source surfaces, without centerline/SVG substitutes. */
 const noHiddenStructures: ReadonlySet<string> = new Set();
-export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, selected, isolate, layers, contrastLayer, onSelect, center, hidden = noHiddenStructures }: {
+export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, selected, isolate, layers, contrastLayer, onSelect, center, hidden = noHiddenStructures, tool = "select", onFieldChange }: {
+  tool?: "select" | "rotate" | "pan"; onFieldChange?: (center: P3, zoom: number) => void;
   hidden?: ReadonlySet<string>;
   center: P3; yaw: number; pitch: number; zoom: number; boneOpacity: number;
   onSelect: (id: string) => void; contrastLayer: string; selected: string | null; isolate: boolean; layers: Record<string, number>;
 }) {
   const { geometry, error } = useReferenceGeometry();
   const canvas = useRef<HTMLCanvasElement>(null);
+  const drag = useRef<{ id: number; x: number; y: number; scale: number; center: P3; view: ReturnType<typeof atlasProjection> }>(null);
   const [busy, setBusy] = useState(true);
   const [renderError, setRenderError] = useState<string>();
   const generation = useRef(0);
@@ -35,9 +37,39 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
     });
   }, [geometry]);
   useEffect(() => () => { pickMeshes.forEach((mesh) => mesh.geometry.dispose()); pickMeshes[0]?.material.dispose(); }, [pickMeshes]);
+  const fieldRef = useRef({center, zoom, view, onFieldChange}); fieldRef.current = {center, zoom, view, onFieldChange};
+  useEffect(() => {
+    const element = canvas.current; if (!element) return;
+    const wheel = (event: WheelEvent) => {
+      const rect = element.getBoundingClientRect(), scale = Math.min(rect.width/WIDTH, rect.height/HEIGHT);
+      const px = (event.clientX-rect.left-(rect.width-WIDTH*scale)/2)/scale;
+      const py = (event.clientY-rect.top-(rect.height-HEIGHT*scale)/2)/scale;
+      const field = fieldRef.current;
+      if (!field.onFieldChange || px < 0 || py < 0 || px > WIDTH || py > HEIGHT) return;
+      event.preventDefault();
+      const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? rect.height : 1);
+      const next = Math.max(.1,Math.min(12,field.zoom*Math.exp(-delta*.001)));
+      field.onFieldChange(zoomAtlasField(field.center,field.view,next,px,py),next);
+    };
+    element.addEventListener("wheel",wheel,{passive:false});
+    return () => element.removeEventListener("wheel",wheel);
+  }, []);
+  function startPan(event: React.PointerEvent<HTMLCanvasElement>) {
+    if (tool !== "pan" || event.button !== 0 || !onFieldChange) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    drag.current = {id:event.pointerId,x:event.clientX,y:event.clientY,scale:Math.min(rect.width/WIDTH,rect.height/HEIGHT),center,view};
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+  function movePan(event: React.PointerEvent<HTMLCanvasElement>) {
+    const start = drag.current;
+    if (!start || start.id !== event.pointerId) return;
+    onFieldChange?.(panAtlasField(start.center,start.view,(event.clientX-start.x)/start.scale,(event.clientY-start.y)/start.scale),start.view.zoom);
+  }
+  function endPan(event: React.PointerEvent<HTMLCanvasElement>) { if (drag.current?.id === event.pointerId) drag.current = null; }
+
   function pick(event: React.MouseEvent<HTMLCanvasElement>) {
     // An image awaiting a newer pose must not be picked using that newer pose.
-    if (renderedFrameKey.current !== frameKey || error || renderError) return;
+    if (tool !== "select" || renderedFrameKey.current !== frameKey || error || renderError) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const scale = Math.min(rect.width / WIDTH, rect.height / HEIGHT);
     const px = (event.clientX - rect.left - (rect.width - WIDTH * scale) / 2) / scale;
@@ -89,7 +121,7 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
     else { state.inFlight = true; state.worker.postMessage({kind: "render", request}); }
   }, [geometry, view, boneOpacity, selected, isolate, layers, contrastLayer, hidden]);
   return <div className="nda-angiography" aria-busy={busy && !error && !renderError}>
-    <canvas ref={canvas} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} data-field-center={center.join(",")} data-yaw={yaw} data-pitch={pitch} data-zoom={zoom} onClick={pick}
+    <canvas ref={canvas} style={{cursor:tool === "pan" ? "grab" : "crosshair"}} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} data-field-center={center.join(",")} data-yaw={yaw} data-pitch={pitch} data-zoom={zoom} onClick={pick} onPointerDown={startPan} onPointerMove={movePan} onPointerUp={endPan} onPointerCancel={endPan} onLostPointerCapture={endPan}
       role="img" aria-label="Projeção angiográfica sintética das superfícies do atlas" />
     {error || renderError ? <p role="alert">{error || renderError}</p> : busy && <p role="status">Calculando projeção das superfícies…</p>}
     <span className="nda-projection-label">{boneOpacity > 0 ? "ANGIOGRAFIA COM OSSO" : "DSA SINTÉTICA"} · {yaw}° / {pitch}°{selected && " · dourado: marcação da seleção"}</span>

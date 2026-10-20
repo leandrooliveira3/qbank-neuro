@@ -6,7 +6,7 @@ import bodyPack from "./reference-body-access.json";
 import contextPack from "./reference-craniocervical.json";
 import context from "./craniocervical.json";
 import { initialOpacity, openLayerNames } from "./openAnatomy";
-import { openAnatomy, worldPoint } from "./openAnatomy";
+import { sourceStructures, openAnatomy, worldPoint } from "./openAnatomy";
 
 describe("imported open anatomical assets", () => {
   it("preserves head/neck context identity, layer semantics and projection coordinates", () => {
@@ -63,7 +63,7 @@ describe("imported open anatomical assets", () => {
       const length = bytes.readUInt32LE(12);
       const glb = JSON.parse(bytes.subarray(20, 20 + length).toString());
       const nodes = glb.nodes as { extras: { qbankAnatomyId: string } }[];
-      const rows = openAnatomy.structures.filter((o) => o.file === asset.file);
+      const rows = sourceStructures.filter((o) => o.file === asset.file);
       expect(nodes.length).toBe(rows.length);
       for (const row of rows) {
         expect(ids.has(row.id)).toBe(false); ids.add(row.id);

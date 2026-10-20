@@ -1,3 +1,4 @@
+import { vascularQuarantine } from "./vascularQuarantine";
 import raw from "./open-anatomy.json";
 
 import landmarks from "./landmarks.json";
@@ -6,7 +7,8 @@ import supraAortic from "./supra-aortic.json";
 import craniocervical from "./craniocervical.json";
 import unindexed from "./unindexed-vessels.json";
 
-export const openAnatomy = { ...raw, structures: [...raw.structures, ...landmarks.structures, ...supraAortic.structures, ...bodyAccess.structures, ...craniocervical.structures, ...unindexed.structures], assets: [...raw.assets, ...landmarks.assets, ...supraAortic.assets, ...bodyAccess.assets, ...craniocervical.assets, ...unindexed.assets] };
+export const sourceStructures = [...raw.structures, ...landmarks.structures, ...supraAortic.structures, ...bodyAccess.structures, ...craniocervical.structures, ...unindexed.structures];
+export const openAnatomy = { ...raw, structures: sourceStructures.filter(item => !vascularQuarantine.has(item.id)), assets: [...raw.assets, ...landmarks.assets, ...supraAortic.assets, ...bodyAccess.assets, ...craniocervical.assets, ...unindexed.assets] };
 export type OpenStructure = typeof openAnatomy.structures[number];
 export const openLayerNames: Record<string, string> = {
   arterial: "Artérias", venous: "Veias e seios", bone: "Crânio e coluna cervical",

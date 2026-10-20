@@ -70,3 +70,5 @@
 .nda-canvas canvas {touch-action:none}
 
 .nda-angiography>p {pointer-events:none}
+
+.nda-angiography canvas { touch-action: none; }

@@ -16,3 +16,18 @@ export function unprojectAtlasPixel(px: number, py: number, depth: number, view:
   const wz = -y * Math.sin(pitch) + depth * Math.cos(pitch);
   return [x * Math.cos(yaw) + wz * Math.sin(yaw), wy, -x * Math.sin(yaw) + wz * Math.cos(yaw)];
 }
+
+/** Shift only the detector field; source coordinates and viewing depth stay unchanged. */
+export function panAtlasField(center: P3, view: View, dx: number, dy: number): P3 {
+  const before = unprojectAtlasPixel(WIDTH / 2, HEIGHT / 2, 0, view);
+  const after = unprojectAtlasPixel(WIDTH / 2 - dx, HEIGHT / 2 - dy, 0, view);
+  return center.map((value, k) => value + after[k] - before[k]) as P3;
+}
+
+/** Keep the world point under the cursor stationary while changing magnification. */
+export function zoomAtlasField(center: P3, view: View, zoom: number, px: number, py: number): P3 {
+  const before = unprojectAtlasPixel(px, py, 0, view);
+  const next = atlasProjection(view.yaw, view.pitch, zoom, center);
+  const after = unprojectAtlasPixel(px, py, 0, next);
+  return center.map((value, k) => value + before[k] - after[k]) as P3;
+}

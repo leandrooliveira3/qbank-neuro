@@ -1,8 +1,10 @@
-# Estado de revisão da anatomia e angiografia — 18/10/2026
+# Estado de revisão da anatomia e angiografia — 19/10/2026
 
-## Revisão vigente: reconciliação dos diagramas
+## Revisão vigente: todo o sistema arterial e venoso
 
-O índice atual tem 142 entradas: 130 da legenda, seis apenas nas figuras e seis referências adicionais. São 45 com malhas identificadas, cinco com reconstruções didáticas, 12 parciais, 73 sem geometria e sete com identidade a reconciliar. Não são vasos únicos.
+O índice atual tem 142 entradas: 130 da legenda, seis apenas nas figuras e seis referências adicionais. São 44 com malhas identificadas, 12 com reconstruções didáticas, 15 parciais, 64 sem geometria e sete com identidade a reconciliar. Não são vasos únicos.
+
+O estado integral, as discrepâncias e as lacunas venosas estão em [neuro3d-whole-vascular-review.md](neuro3d-whole-vascular-review.md). Os arquivos preservam 1114 estruturas originais; 1112 estão ativas após retirar duas malhas contestadas. Há 52 reconstruções didáticas, ainda não homologadas.
 
 A lista atual completa está em [neuro3d-diagram-review.md](neuro3d-diagram-review.md). Os totais de 130 entradas/65 pendências abaixo pertencem ao checkpoint anterior, antes de corrigir duplicatas, omissões e a identidade de 109.
 

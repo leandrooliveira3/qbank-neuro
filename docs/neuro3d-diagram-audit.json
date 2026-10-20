@@ -2,10 +2,10 @@
   "reviewedAt": "2026-10-19",
   "sourceUrl": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
   "counts": {
-    "imported": 45,
-    "reconstructed": 5,
-    "partial": 12,
-    "missing": 73,
+    "imported": 44,
+    "reconstructed": 12,
+    "partial": 15,
+    "missing": 64,
     "unresolved": 7
   },
   "relationCount": 34,
@@ -656,17 +656,24 @@
       "number": "22",
       "label": "Divisão hipoglossal da faríngea ascendente",
       "portuguese": "Divisão hipoglossal da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "hypoglossal_division_of_ascending_pharyngeal_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "hypoglossal_division_of_ascending_pharyngeal_artery_l",
+        "hypoglossal_division_of_ascending_pharyngeal_artery_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "reconstructed",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": [
         {
           "fromNumber": "18",
@@ -684,17 +691,24 @@
       "number": "23a",
       "label": "Divisão jugular da faríngea ascendente",
       "portuguese": "Divisão jugular da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "jugular_division_of_ascending_pharyngeal_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "jugular_division_of_ascending_pharyngeal_artery_l",
+        "jugular_division_of_ascending_pharyngeal_artery_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "reconstructed",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": [
         {
           "fromNumber": "19",
@@ -882,17 +896,24 @@
       "number": "30",
       "label": "Timpânica inferior da faríngea ascendente",
       "portuguese": "Timpânica inferior da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "inferior_tympanic_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "inferior_tympanic_artery_l",
+        "inferior_tympanic_artery_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "reconstructed",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": [
         {
           "fromNumber": "30",
@@ -994,17 +1015,24 @@
       "number": "34",
       "label": "Ramo do forame lacerado da faríngea ascendente",
       "portuguese": "Ramo do forame lacerado da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "lacerum_branch_of_ascending_pharyngeal_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "lacerum_branch_of_ascending_pharyngeal_artery_l",
+        "lacerum_branch_of_ascending_pharyngeal_artery_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "reconstructed",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": []
     },
     {
@@ -1395,18 +1423,18 @@
       ],
       "parent": "",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Malha identificada; trajeto, óstio e relações não homologados.",
+      "note": "Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
       "ids": [
         "ascending_pharyngeal_artery_l",
         "ascending_pharyngeal_artery_r"
       ],
       "candidateIds": [],
-      "status": "imported",
+      "status": "partial",
       "geometryKinds": [
-        "imported"
+        "reconstructed"
       ],
       "relations": []
     },
@@ -1415,17 +1443,24 @@
       "number": "48",
       "label": "Tronco faríngeo da faríngea ascendente",
       "portuguese": "Tronco faríngeo da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery_l",
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "partial",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": []
     },
     {
@@ -1433,17 +1468,24 @@
       "number": "49",
       "label": "Divisão inferior do tronco faríngeo",
       "portuguese": "Divisão inferior do tronco faríngeo",
-      "targets": [],
+      "targets": [
+        "inferior_pharyngeal_branch"
+      ],
       "parent": "48",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "inferior_pharyngeal_branch_l",
+        "inferior_pharyngeal_branch_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "reconstructed",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": []
     },
     {
@@ -1451,17 +1493,24 @@
       "number": "50",
       "label": "Divisão média do tronco faríngeo",
       "portuguese": "Divisão média do tronco faríngeo",
-      "targets": [],
+      "targets": [
+        "middle_pharyngeal_branch"
+      ],
       "parent": "48",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "middle_pharyngeal_branch_l",
+        "middle_pharyngeal_branch_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "reconstructed",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": []
     },
     {
@@ -1469,17 +1518,24 @@
       "number": "51",
       "label": "Divisão superior do tronco faríngeo",
       "portuguese": "Divisão superior do tronco faríngeo",
-      "targets": [],
+      "targets": [
+        "superior_pharyngeal_branch"
+      ],
       "parent": "48",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Superfície didática; geometria e calibre não validados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "superior_pharyngeal_branch_l",
+        "superior_pharyngeal_branch_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "reconstructed",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": []
     },
     {
@@ -2038,17 +2094,36 @@
       "number": "70",
       "label": "Artéria lingual",
       "portuguese": "Artéria lingual",
-      "targets": [],
+      "targets": [
+        "lingual_artery",
+        "deep_lingual_artery",
+        "sublingual_artery",
+        "dorsal_lingual_branches",
+        "suprahyoid_branch_of_lingual_artery"
+      ],
       "parent": "",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "Sem malha individual identificada; reconstrução e revisão pendentes.",
+      "note": "Reconstrução didática orientada por referências; trajeto e calibre não homologados. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-      "ids": [],
+      "ids": [
+        "lingual_artery_l",
+        "deep_lingual_artery_l",
+        "sublingual_artery_l",
+        "dorsal_lingual_branches_l",
+        "suprahyoid_branch_of_lingual_artery_l",
+        "lingual_artery_r",
+        "deep_lingual_artery_r",
+        "sublingual_artery_r",
+        "dorsal_lingual_branches_r",
+        "suprahyoid_branch_of_lingual_artery_r"
+      ],
       "candidateIds": [],
-      "status": "missing",
-      "geometryKinds": [],
+      "status": "partial",
+      "geometryKinds": [
+        "reconstructed"
+      ],
       "relations": []
     },
     {

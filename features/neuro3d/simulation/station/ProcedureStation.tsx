@@ -26,6 +26,7 @@ import {
 } from "./engine";
 import { locate } from "./network";
 import Fluoro from "./Fluoro";
+import { useReferenceGeometry } from "./referenceGeometry";
 import { contactEstimate } from "./mechanics";
 import "./station.css";
 const AnatomyScene = lazy(() => import("./AnatomyScene"));
@@ -44,6 +45,10 @@ export default function ProcedureStation({
     createStation(undefined, "reference"),
   );
   const [frame, setFrame] = useState<StationState>(s);
+  const frameRef = useRef(frame); frameRef.current = frame;
+  const { geometry: referenceGeometry, error: geometryError } = useReferenceGeometry(s.archProfile);
+  const geometryReady = s.geometry !== "reference" || !!referenceGeometry;
+  const geometryReadyRef = useRef(geometryReady); geometryReadyRef.current = geometryReady;
   const [biplane, setBiplane] = useState(true),
     [anatomy, setAnatomy] = useState(true),
     [assist, setAssist] = useState(true),
@@ -67,14 +72,17 @@ export default function ProcedureStation({
       id = 0;
     const tick = (now: number) => {
       if (now - last >= 32) {
-        dispatch({ type: "tick", dt: Math.min(0.1, (now - last) / 1000) });
+        dispatch({ type: "tick", dt: Math.min(0.5, (now - last) / 1000) });
         last = now;
       }
       id = requestAnimationFrame(tick);
     };
+    const resetTime = () => { last = performance.now(); };
+    document.addEventListener("visibilitychange", resetTime);
     id = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(id);
+    return () => { cancelAnimationFrame(id); document.removeEventListener("visibilitychange", resetTime); };
   }, []);
+  useEffect(() => { setFrame(previous=>({...previous,mask:s.mask,mode:s.mode})); },[s.mask,s.mode]);
   useEffect(() => {
     if (
       (s.pedal || s.acquiring > 0) &&
@@ -106,7 +114,7 @@ export default function ProcedureStation({
       if (["ArrowRight", "KeyD"].includes(e.code))
         action = { type: "rotate", delta: 15 };
       if (e.code === "KeyI") action = { type: "inject" };
-      if (e.code === "KeyR") action = { type: "mask" };
+      if (e.code === "KeyR") action = { type: "mask", frame: frameRef.current };
       if (["Digit1", "Digit2", "Digit3", "Digit4"].includes(e.code))
         action = {
           type: "tool",
@@ -116,12 +124,13 @@ export default function ProcedureStation({
         };
       if (action) {
         e.preventDefault();
+        if (action.type === "inject" && !geometryReadyRef.current) return;
         dispatch(action);
       }
     };
     const keyup = (e: KeyboardEvent) => {
-      if (e.code === "Space" && !(e.target as HTMLElement).closest("button,summary,a")) {
-        e.preventDefault();
+      if (e.code === "Space") {
+        if (!(e.target as HTMLElement).closest("button,summary,a,input,select,textarea")) e.preventDefault();
         dispatch({ type: "pedal", on: false });
       }
     };
@@ -308,6 +317,9 @@ export default function ProcedureStation({
           </button>
         </div>
       </div>
+      {s.geometry === "reference" && (!geometryReady || geometryError) && <p className="nvs-hint" role={geometryError ? "alert" : "status"} data-testid="station-geometry-status">
+        {geometryError ? `Geometria indisponível: ${geometryError}` : "Preparando as superfícies anatômicas. A injeção será liberada quando a geometria estiver carregada."}
+      </p>}
       <div className="nvs-layout">
         <section className="nvs-main">
           <div className="nvs-imagingbar">
@@ -370,10 +382,10 @@ export default function ProcedureStation({
             >
               ◉ Manter RX <kbd>Espaço</kbd>
             </button>
-            <button onClick={() => dispatch({ type: "inject" })}>
+            <button disabled={!geometryReady} onClick={() => dispatch({ type: "inject" })}>
               Injetar contraste virtual <kbd>I</kbd>
             </button>
-            <button onClick={() => dispatch({ type: "mask" })}>
+            <button onClick={() => dispatch({ type: "mask", frame })}>
               Capturar roadmap <kbd>R</kbd>
             </button>
             <label>

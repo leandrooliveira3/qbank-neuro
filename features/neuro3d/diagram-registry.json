@@ -334,12 +334,14 @@
       "number": "22",
       "label": "Divisão hipoglossal da faríngea ascendente",
       "portuguese": "Divisão hipoglossal da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "hypoglossal_division_of_ascending_pharyngeal_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -347,12 +349,14 @@
       "number": "23a",
       "label": "Divisão jugular da faríngea ascendente",
       "portuguese": "Divisão jugular da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "jugular_division_of_ascending_pharyngeal_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -466,12 +470,14 @@
       "number": "30",
       "label": "Timpânica inferior da faríngea ascendente",
       "portuguese": "Timpânica inferior da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "inferior_tympanic_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -518,12 +524,14 @@
       "number": "34",
       "label": "Ramo do forame lacerado da faríngea ascendente",
       "portuguese": "Ramo do forame lacerado da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "lacerum_branch_of_ascending_pharyngeal_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -713,7 +721,7 @@
       ],
       "parent": "",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
       "note": "",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
@@ -723,12 +731,14 @@
       "number": "48",
       "label": "Tronco faríngeo da faríngea ascendente",
       "portuguese": "Tronco faríngeo da faríngea ascendente",
-      "targets": [],
+      "targets": [
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery"
+      ],
       "parent": "47",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -736,12 +746,14 @@
       "number": "49",
       "label": "Divisão inferior do tronco faríngeo",
       "portuguese": "Divisão inferior do tronco faríngeo",
-      "targets": [],
+      "targets": [
+        "inferior_pharyngeal_branch"
+      ],
       "parent": "48",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -749,12 +761,14 @@
       "number": "50",
       "label": "Divisão média do tronco faríngeo",
       "portuguese": "Divisão média do tronco faríngeo",
-      "targets": [],
+      "targets": [
+        "middle_pharyngeal_branch"
+      ],
       "parent": "48",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -762,12 +776,14 @@
       "number": "51",
       "label": "Divisão superior do tronco faríngeo",
       "portuguese": "Divisão superior do tronco faríngeo",
-      "targets": [],
+      "targets": [
+        "superior_pharyngeal_branch"
+      ],
       "parent": "48",
       "kind": "vessel",
       "partial": false,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {
@@ -1070,12 +1086,18 @@
       "number": "70",
       "label": "Artéria lingual",
       "portuguese": "Artéria lingual",
-      "targets": [],
+      "targets": [
+        "lingual_artery",
+        "deep_lingual_artery",
+        "sublingual_artery",
+        "dorsal_lingual_branches",
+        "suprahyoid_branch_of_lingual_artery"
+      ],
       "parent": "",
       "kind": "vessel",
-      "partial": false,
+      "partial": true,
       "sourceEvidence": "legend",
-      "note": "",
+      "note": " Reconstrução didática orientada por referências; trajeto e calibre não homologados.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {

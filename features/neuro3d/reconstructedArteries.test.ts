@@ -11,7 +11,8 @@ import type { ReferenceGeometry } from "./simulation/station/referenceGeometry";
 
 describe("reconstructed educational arterial surfaces", () => {
   it("keeps meshes closed, bounds finite and mirrored sides consistently wound", () => {
-    expect(new Set(reconstructedArteries.map((row) => row.id)).size).toBe(18);
+    expect(new Set(reconstructedArteries.map((row) => row.id)).size).toBe(reconstructedArteries.length);
+    expect(reconstructedArteries.some(row=>row.id === "lingual_artery_l")).toBe(true);
     for (const row of reconstructedArteries) {
       expect(row.surface.positions.every(Number.isFinite)).toBe(true);
       expect(row.bounds.flat().every(Number.isFinite)).toBe(true);
@@ -36,7 +37,7 @@ describe("reconstructed educational arterial surfaces", () => {
     for (const row of reconstructedArteries) geometry.set(row.id, { id: row.id, layer: "arterial", positions: new Float32Array(row.surface.positions), indices: new Uint32Array(row.surface.indices) });
     const state = { ...createStation("diagnostic", "reference"), contrast: { edge: "ref-ICA-L", at: 0 } };
     const surfaces = referenceContrast(state, geometry, opacifiedEdges(state, networkFor(state)));
-    for (const row of reconstructedArteries) expect(surfaces.includes(geometry.get(row.id)!)).toBe(row.id.endsWith("_l"));
+    for (const row of reconstructedArteries) expect(surfaces.includes(geometry.get(row.id)!)).toBe(row.rootId === "internal_carotid_artery_l");
     const proximal = referenceContrast(state, geometry, ["access"]);
     for (const row of reconstructedArteries) expect(proximal.includes(geometry.get(row.id)!)).toBe(false);
   });
@@ -60,9 +61,12 @@ describe("reconstructed educational arterial surfaces", () => {
       if (branch.parentId.startsWith("internal_carotid")) {
         const axis = branch.id.endsWith("_l") ? sourceAxes.originalAxes.internal_carotid_artery_l.points : accessAxes.originalAxes.internal_carotid_artery_r.points;
         expect(branch.points[0]).toEqual(axis[branch.anchorIndex]);
+      } else if (branch.parentId.startsWith("external_carotid")) {
+        const axis = branch.id.endsWith("_l") ? accessAxes.originalAxes.external_carotid_artery_l.points : accessAxes.originalAxes.external_carotid_artery_r.points;
+        expect(branch.points[0]).toEqual(axis[branch.anchorIndex]);
       } else {
         const parent = reconstructedArteries.find(row => row.id === branch.parentId)!;
-        expect(branch.points[0]).toEqual(parent.points.at(-1));
+        expect(branch.points[0]).toEqual("parentAnchorIndex" in branch ? parent.points[Number(branch.parentAnchorIndex)] : parent.points.at(-1));
       }
     }
   });

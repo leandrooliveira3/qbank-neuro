@@ -6,7 +6,9 @@ import { readFileSync } from 'node:fs';
 const readManifest = (name: string) => JSON.parse(readFileSync(new URL(`../../features/neuro3d/${name}.json`, import.meta.url), 'utf8'));
 const importedStructureCount = ['open-anatomy', 'landmarks', 'supra-aortic', 'body-access', 'craniocervical', 'unindexed-vessels']
   .reduce((count, name) => count + readManifest(name).structures.length, 0);
-const didacticStructureCount = 18;
+const vascularAudit = JSON.parse(readFileSync(new URL('../../docs/neuro3d-whole-vascular-review.json', import.meta.url), 'utf8'));
+const didacticStructureCount = vascularAudit.counts.reconstructed;
+const quarantinedStructureCount = vascularAudit.counts.disputed;
 const diagramEntryCount = readManifest('diagram-registry').entries.length;
 test('loads open meshes, selects basilar artery, isolates and clips the same aligned anatomy', async ({page}) => {
   const errors: string[] = [];
@@ -15,7 +17,7 @@ test('loads open meshes, selects basilar artery, isolates and clips the same ali
   await expect(page.getByRole('heading', {name:'Anatomia neurovascular', exact:true})).toBeVisible();
   await expect(page.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
   await page.getByRole("button", {name:"Estruturas",exact:true}).click();
-  await expect(page.locator('.nda-list button')).toHaveCount(importedStructureCount + didacticStructureCount);
+  await expect(page.locator('.nda-list button')).toHaveCount(importedStructureCount - quarantinedStructureCount + didacticStructureCount);
   await page.getByLabel('Buscar no atlas detalhado').fill('Basilar artery');
   await page.getByRole('button',{name:'Basilar artery Artérias',exact:true}).click();
   await expect(page.getByTestId('detailed-structure')).toContainText('Basilar artery');
@@ -114,20 +116,23 @@ test('contrast passage changes the detector image and roadmap keeps its capture 
   await page.getByRole('button',{name:'DSA',exact:true}).click();
   await page.getByRole('button',{name:/Injetar contraste virtual/}).click();
   const live = page.getByTestId('reference-angiogram').first();
-  await expect(live).toBeVisible();
-  const first = await live.getAttribute('href');
-  await expect.poll(() => live.getAttribute('href')).not.toBe(first);
+  await expect(live).toBeVisible({timeout:30000});
+  const imageOf = (node: import('@playwright/test').Locator) => node.evaluate((canvas: HTMLCanvasElement) => canvas.toDataURL());
+  const first = await imageOf(live);
+  await expect.poll(() => imageOf(live)).not.toBe(first);
   await expect.poll(async () => Number(await live.getAttribute('data-contrast-age'))).toBeGreaterThan(.6);
   await expect.poll(async () => Number(await live.getAttribute('data-contrast-age'))).toBeGreaterThan(2.2);
+  // Capturing the last image must also work after the acquisition has stopped.
+  await expect(page.locator('.nvs-rx')).toContainText('RX PAUSADO',{timeout:15000});
   await page.getByRole('button',{name:/Capturar roadmap/}).click();
   const roadmap = page.getByTestId('reference-roadmap').first();
-  await expect(roadmap).toBeVisible();
+  await expect(roadmap).toBeVisible({timeout:15000});
   const age = await roadmap.getAttribute('data-contrast-age');
-  const image = await roadmap.getAttribute('href');
+  const image = await imageOf(roadmap);
   await page.getByRole('button',{name:/Injetar contraste virtual/}).click();
   await expect.poll(async () => Number(await live.getAttribute('data-contrast-age'))).toBeGreaterThan(.3);
   await expect(roadmap).toHaveAttribute('data-contrast-age',age!);
-  await expect(roadmap).toHaveAttribute('href',image!);
+  expect(await imageOf(roadmap)).toBe(image);
   await page.screenshot({path:`test-results/angiographic-acquisition-${test.info().project.name}.png`,fullPage:true});
   expect(errors).toEqual([]);
 });
