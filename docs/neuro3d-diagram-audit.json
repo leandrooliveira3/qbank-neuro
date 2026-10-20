@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-10-19",
+  "reviewedAt": "2026-10-20",
   "sourceUrl": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
   "counts": {
     "imported": 43,
@@ -1639,7 +1639,7 @@
       "kind": "vessel",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "A malha maxilar está presente, mas suas subdivisões angiográficas precisam de conferência. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
+      "note": "A superfície da fonte reúne nove componentes desconectados por lado; cada fragmento, o trajeto pelas três porções e as origens dos ramos permanecem sem homologação. Não unir nem renomear por proximidade. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
       "ids": [
         "maxillary_artery_l",

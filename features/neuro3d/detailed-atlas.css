@@ -58,8 +58,8 @@
 .nda-controls>label { display:block; font-size:12px; margin:14px 0; }
 .nda-controls>label select { display:block; width:100%; margin-top:8px; }
 
-.nda-diagram-index>label {display:block;font-size:12px;margin:14px 0}
-.nda-diagram-index>label select {display:block;width:100%;margin-top:7px}
+.nda-diagram-index label {display:block;font-size:12px;margin:14px 0}
+.nda-diagram-index label select {display:block;width:100%;margin-top:7px}
 .nda-diagram-index details {margin:10px 0;padding:8px;border:1px solid #304453;border-radius:6px}
 .nda-diagram-index summary {cursor:pointer;font-size:12px;color:#91c9c0}
 .nda-diagram-index article {content-visibility:auto;contain-intrinsic-size:auto 250px}
@@ -72,3 +72,5 @@
 .nda-angiography>p {pointer-events:none}
 
 .nda-angiography canvas { touch-action: none; }
+
+.nda-study-family {border:1px solid #304453;border-radius:8px;padding:10px;margin-top:12px}.nda-study-family summary {cursor:pointer;color:#a8e9db}.nda-study-family [data-study-member] {border-top:1px solid #304453;padding-top:10px;margin-top:10px}.nda-study-family strong,.nda-study-family button {display:block}.nda-study-family button {font-size:11px;margin-top:6px;text-align:left;overflow-wrap:anywhere;max-width:100%}

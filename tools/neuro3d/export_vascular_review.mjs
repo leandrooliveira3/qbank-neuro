@@ -7,10 +7,11 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 const dir=await fs.mkdtemp(path.join(os.tmpdir(),'vascular-review-'));
 try {
   const file=path.join(dir,'review.mjs');
-  await build({stdin:{contents:`export * from ${JSON.stringify(path.join(root,'features/neuro3d/vascularReview.ts'))}; export * from ${JSON.stringify(path.join(root,'features/neuro3d/vascularCompleteness.ts'))};`,resolveDir:root},bundle:true,platform:'node',format:'esm',outfile:file,define:{'import.meta.env.BASE_URL':'"/"'},logLevel:'silent'});
+  await build({stdin:{contents:`export * from ${JSON.stringify(path.join(root,'features/neuro3d/vascularReview.ts'))}; export * from ${JSON.stringify(path.join(root,'features/neuro3d/vascularCompleteness.ts'))}; export * from ${JSON.stringify(path.join(root,'features/neuro3d/vascularStudyFamilies.ts'))};`,resolveDir:root},bundle:true,platform:'node',format:'esm',outfile:file,define:{'import.meta.env.BASE_URL':'"/"'},logLevel:'silent'});
   const {vascularMeshReview,venousCoverage,vascularReviewCounts,vascularChecklist,maxillaryBranchReview}=await import(pathToFileURL(file).href);
   const {vascularCompleteness,vascularCompletenessCounts,unmappedVascularDiagramEntries}=await import(pathToFileURL(file).href);
-  const report={scope:'All source arterial and venous meshes plus explicit reconstructions and expandable individual requirements; no anatomical approvals or exhaustive variants inferred',counts:vascularReviewCounts,checklist:vascularChecklist,meshes:vascularMeshReview,venousRequirements:venousCoverage,maxillaryRequirements:maxillaryBranchReview,completenessCounts:vascularCompletenessCounts,completeness:vascularCompleteness,unmappedDiagramEntries:unmappedVascularDiagramEntries};
+  const {vascularStudyRelations}=await import(pathToFileURL(file).href);
+  const report={scope:'All source arterial and venous meshes plus explicit reconstructions and expandable individual requirements; no anatomical approvals or exhaustive variants inferred',counts:vascularReviewCounts,checklist:vascularChecklist,meshes:vascularMeshReview,venousRequirements:venousCoverage,maxillaryRequirements:maxillaryBranchReview,completenessCounts:vascularCompletenessCounts,completeness:vascularCompleteness,unmappedDiagramEntries:unmappedVascularDiagramEntries,studyRelations:vascularStudyRelations,studyRelationsAreNavigationGraph:false};
   await fs.writeFile(path.join(root,'docs/neuro3d-whole-vascular-review.json'),JSON.stringify(report,null,2)+'\n');
   const escape=value=>value.replace(/\|/g,'\\|').replace(/\n/g,' ');
   const lines=['# Ausências individuais e correspondências pendentes','',

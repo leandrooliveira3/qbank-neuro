@@ -1,9 +1,25 @@
 import { describe, expect, it } from "vitest";
-import { atlasProjection, unprojectAtlasPixel, panAtlasField, zoomAtlasField } from "./atlasProjection";
+import { atlasProjection, unprojectAtlasPixel, panAtlasField, zoomAtlasField, fitAtlasField } from "./atlasProjection";
 import { projectSpatial, WIDTH, HEIGHT } from "./simulation/station/imaging";
 import type { P3 } from "./simulation/station/network";
 
 describe("atlas detector framing", () => {
+  it("fits the whole requested bounding volume with a border at orthogonal and oblique angles",()=>{
+    const bounds=[[-5,-14,-7],[7,9,11]],padding=32;
+    const original=JSON.stringify(bounds);
+    for(const yaw of [-120,0,31,90]) for(const pitch of [-40,0,55]) {
+      const fitted=fitAtlasField(bounds,yaw,pitch,padding);
+      const view=atlasProjection(yaw,pitch,fitted.zoom,fitted.center);
+      for(const x of [bounds[0][0],bounds[1][0]]) for(const y of [bounds[0][1],bounds[1][1]]) for(const z of [bounds[0][2],bounds[1][2]]) {
+        const [px,py]=projectSpatial([x,y,z],view);
+        expect(px).toBeGreaterThanOrEqual(padding-1e-6);expect(px).toBeLessThanOrEqual(WIDTH-padding+1e-6);
+        expect(py).toBeGreaterThanOrEqual(padding-1e-6);expect(py).toBeLessThanOrEqual(HEIGHT-padding+1e-6);
+      }
+    }
+    expect(JSON.stringify(bounds)).toBe(original);
+    expect(()=>fitAtlasField([[0,0,0],[1,NaN,2]],0,0)).toThrow();
+    expect(()=>fitAtlasField([[1,0,0],[0,1,2]],0,0)).toThrow();
+  });
   it("pans in detector axes at oblique angles and zooms around the cursor without moving anatomy", () => {
     const center: P3 = [3, -8, 2], point: P3 = [1, -5, 4];
     for (const yaw of [-120, 0, 45, 90]) for (const pitch of [-35, 0, 40]) {

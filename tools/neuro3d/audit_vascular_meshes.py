@@ -29,13 +29,22 @@ def audit_mesh(item, surface):
     used=np.unique(faces)
     graph=coo_matrix((np.ones(len(unique)*2),(np.r_[unique[:,0],unique[:,1]],np.r_[unique[:,1],unique[:,0]])),shape=(len(vertices),len(vertices))).tocsr()
     components,labels=connected_components(graph[used][:,used],directed=False)
+    source_labels=np.full(len(vertices),-1,dtype=int);source_labels[used]=labels
+    component_records=[]
+    for component in range(components):
+        points=vertices[used[labels==component]]
+        selected=source_labels[faces[:,0]]==component
+        component_records.append({'ordinal':component+1,'vertices':len(points),'triangles':int(selected.sum()),
+                                  'boundsCm':[points.min(axis=0).tolist(),points.max(axis=0).tolist()],
+                                  'surfaceAreaCm2':round(float(areas[selected].sum()),5),
+                                  'anatomicalIdentityAssigned':False})
     expected=np.asarray(item['bounds'])*100;expected[:,1]-=160
     low,high=vertices.min(axis=0),vertices.max(axis=0)
     result.update(usedVertexComponents=int(components),unusedVertices=int(len(vertices)-len(used)),
                   boundaryEdges=int((counts==1).sum()),nonManifoldEdges=int((counts>2).sum()),
                   degenerateTriangles=int((areas<1e-10).sum()),surfaceAreaCm2=round(float(areas.sum()),5),
                   boundsCm=[low.tolist(),high.tolist()],centroidCm=vertices.mean(axis=0).tolist(),
-                  maxBoundsDifferenceCm=round(float(np.abs(np.vstack([low,high])-expected).max()),6))
+                  maxBoundsDifferenceCm=round(float(np.abs(np.vstack([low,high])-expected).max()),6),components=component_records)
     return result
 
 
@@ -69,11 +78,13 @@ def main():
     # not prove a patent lumen, flow direction, shared origin or normal variant.
     links=[]
     for side in ['l','r']:
-        for a,b in [('external_carotid_artery','maxillary_artery'),('external_carotid_artery','ascending_pharyngeal_artery'),('transverse_sinus','sigmoid_sinus'),('sigmoid_sinus','internal_jugular_vein')]:
+        for a,b in [('external_carotid_artery','maxillary_artery'),('external_carotid_artery','ascending_pharyngeal_artery'),('transverse_sinus','sigmoid_sinus'),('sigmoid_sinus','internal_jugular_vein')]+[
+                ('maxillary_artery',branch) for branch in ['middle_meningeal_artery','inferior_alveolar_artery','infra_orbital_artery','anterior_deep_temporal_artery','posterior_deep_temporal_artery','posterior_superior_alveolar_artery','buccal_artery','descending_palatine_artery','artery_of_pterygoid_canal']]:
             left,right=f'{a}_{side}',f'{b}_{side}'
             va=np.asarray(surfaces[left]['positions']).reshape(-1,3);vb=np.asarray(surfaces[right]['positions']).reshape(-1,3)
             distance=float(cKDTree(va).query(vb)[0].min())
-            links.append({'from':left,'to':right,'minimumSurfaceVertexDistanceCm':round(distance,6),'connectionVerified':False})
+            links.append({'from':left,'to':right,'minimumSurfaceVertexDistanceCm':round(distance,6),'connectionVerified':False,
+                          'interpretation':'Candidate named relationship only; origins can vary, especially vidian. No lumen/flow/side-branch identity inferred from proximity.'})
     # Compare every explicitly sided homolog in the supplied source. Reflect x
     # only for a numerical comparison, NEVER to create or replace a vessel.
     # Symmetry is not proof of anatomy, patient origin or a shared lumen.

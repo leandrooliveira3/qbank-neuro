@@ -5,8 +5,18 @@ import {vascularMeshReview,venousCoverage,vascularReviewCounts} from "./vascular
 import {vascularQuarantine} from "./vascularQuarantine";
 import {reconstructedArteries} from "./reconstructedArteries";
 import axes from "./reference-access-network.json";
+import geometryAudit from "../../docs/neuro3d-vascular-geometry-audit.json";
 
 describe("whole vascular review and traceable ECA corrections",()=>{
+  it("retains every original triangle and used vertex in the component audit, without assigning branch identities",()=>{
+    for(const mesh of geometryAudit.meshes) {
+      expect(mesh.components.length).toBe(mesh.usedVertexComponents);
+      expect(mesh.components.reduce((sum,component)=>sum+component.triangles,0)).toBe(mesh.triangles);
+      expect(mesh.components.reduce((sum,component)=>sum+component.vertices,0)).toBe(mesh.vertices-mesh.unusedVertices);
+      expect(mesh.components.every(component=>component.anatomicalIdentityAssigned === false)).toBe(true);
+    }
+    for(const side of ["l","r"]) expect(geometryAudit.meshes.find(row=>row.id === `maxillary_artery_${side}`)?.components).toHaveLength(9);
+  });
   it("keeps the maxillary side of skull-base connections distinct from ICA branches and ambiguous source labels",()=>{
     expect(maxillaryBranchReview.find(row=>row.key === "accessory-meningeal")?.status).toBe("missing");
     expect(maxillaryBranchReview.find(row=>row.key === "foramen-rotundum-imax")?.status).toBe("missing");

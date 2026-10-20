@@ -150,3 +150,54 @@ rótulo inglês da fonte; o teste passou a localizar pelo número 39 e pelo
 rótulo efetivamente exibido. O build final de produção também passou, com
 o aviso já conhecido de chunks maiores que 500 kB. Esses testes verificam o
 funcionamento dos registros e controles; não são aprovação anatômica.
+
+
+## Continuação: conjuntos de estudo e auditoria dos fragmentos
+
+As árvores de estudo agora incluem vasos originais e reconstruções, além de
+suas exigências ainda ausentes: carótidas, ACE, maxilar e ramos distais,
+oftálmica, ACA/ACM/ACP, vertebral/basilar, cerebelares, ramos cervicais e
+coletores/tributárias venosos. O agrupamento preserva o lado selecionado;
+raízes medianas podem mostrar ambos os lados. A lista de estudo não certifica
+origens, coexistência de variantes, continuidade do lúmen ou direção de fluxo.
+O JSON integral registra as relações de estudo com
+`geometryConnectionVerified: false`; elas não alteram o grafo procedural.
+
+“Isolar ramos de estudo” oculta também ossos, músculos e demais contextos não
+vasculares, mantendo as malhas presentes e o contexto vascular imediato. As
+ocultações manuais são conservadas, e encerrar o isolamento restaura o
+contexto conforme as configurações anteriores. Para um coletor venoso, a
+camada contrastada e o filtro de seleção mudam para venoso. A seleção por
+clique continua sem mover a câmera. A raiz do conjunto pode ser selecionada
+novamente após inspecionar um ramo.
+
+“Focar seleção” em 2D passou a calcular centro e ampliação a partir dos oito
+cantos do volume envolvente da seleção/conjunto e da projeção corrente, com
+margem no detector. Não altera coordenadas das malhas. Os testes verificam
+AP, lateral e oblíquas e a conservação de centro/ampliação ao alternar 2D/3D.
+
+A auditoria de componentes cobre as 241 malhas originais: todos os 701
+componentes de vértices ficam discriminados com limites, área e número de
+triângulos, sem nomes anatômicos inventados. Todos os triângulos e vértices
+usados são contabilizados. A maxilar tem nove componentes por lado sob um
+único rótulo; isso detalha a cobertura já classificada como parcial, sem
+transformar separações dos índices em diagnóstico de desconexão anatômica.
+Há nove novas relações candidatas por lado na auditoria de vizinhança da
+maxilar; distâncias entre vértices não homologam óstios ou comunicações.
+O confronto e a tabela estão em `neuro3d-maxillary-source-review.md`.
+
+As fontes VENAT/TopBrain/NIH foram avaliadas com estados de acesso e licenças
+registrados em `neuro3d-dataset-sources.md`. A média probabilística do VENAT
+não foi incorporada como árvore individual nem usada para preencher as
+veias faltantes. Não houve adição de vasos, mudança de posição das malhas ou
+fechamento automático de intervalos neste lote. Permanecem 118
+identidades/grupos sem malha individual na matriz integral e 49 exigências
+venosas sem representação individual na matriz venosa inicial.
+
+99 testes unitários em 22 arquivos, TypeScript e build de produção passaram.
+Os 12 fluxos focados de navegador passaram em desktop/celular; os dois
+venosos foram repetidos com aprovação após o ajuste final do filtro de
+seleção. Capturas da maxilar em 2D e do coletor venoso no celular foram
+inspecionadas. A exibição dos ângulos foi arredondada apenas na interface,
+conservando a precisão interna. O build mantém o aviso já conhecido de
+chunks maiores que 500 kB. Estes checks não aprovam anatomicamente as malhas.

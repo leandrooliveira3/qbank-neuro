@@ -124,6 +124,6 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
     <canvas ref={canvas} style={{cursor:tool === "pan" ? "grab" : "crosshair"}} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} data-field-center={center.join(",")} data-yaw={yaw} data-pitch={pitch} data-zoom={zoom} onClick={pick} onPointerDown={startPan} onPointerMove={movePan} onPointerUp={endPan} onPointerCancel={endPan} onLostPointerCapture={endPan}
       role="img" aria-label="Projeção angiográfica sintética das superfícies do atlas" />
     {error || renderError ? <p role="alert">{error || renderError}</p> : busy && <p role="status">Calculando projeção das superfícies…</p>}
-    <span className="nda-projection-label">{boneOpacity > 0 ? "ANGIOGRAFIA COM OSSO" : "DSA SINTÉTICA"} · {yaw}° / {pitch}°{selected && " · dourado: marcação da seleção"}</span>
+    <span className="nda-projection-label">{boneOpacity > 0 ? "ANGIOGRAFIA COM OSSO" : "DSA SINTÉTICA"} · {Math.round(yaw*10)/10}° / {Math.round(pitch*10)/10}°{selected && " · dourado: marcação da seleção"}</span>
   </div>;
 }

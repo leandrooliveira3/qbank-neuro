@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "sourceUrl": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
-  "reviewedAt": "2026-10-19",
+  "reviewedAt": "2026-10-20",
   "scope": "Identity and conceptual network review against the current legend and four diagrams, not geometric or clinical validation.",
   "imagePolicy": "Reference figures linked only; no artwork redistributed or traced as patient geometry.",
   "entries": [
@@ -852,7 +852,7 @@
       "kind": "vessel",
       "partial": true,
       "sourceEvidence": "legend",
-      "note": "A malha maxilar está presente, mas suas subdivisões angiográficas precisam de conferência.",
+      "note": "A superfície da fonte reúne nove componentes desconectados por lado; cada fragmento, o trajeto pelas três porções e as origens dos ramos permanecem sem homologação. Não unir nem renomear por proximidade.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     },
     {

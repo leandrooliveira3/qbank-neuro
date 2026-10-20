@@ -260,7 +260,7 @@ As figuras de referência foram consultadas, não redistribuídas. A atribuiçã
 - **53 — Artéria pterigovaginal**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **53a — Artéria meníngea acessória**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **54 — Ramo cutâneo ou tubário da meníngea acessória**: Sem malha individual identificada; reconstrução e revisão pendentes.
-- **55 — Artéria maxilar**: A malha maxilar está presente, mas suas subdivisões angiográficas precisam de conferência. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
+- **55 — Artéria maxilar**: A superfície da fonte reúne nove componentes desconectados por lado; cada fragmento, o trajeto pelas três porções e as origens dos ramos permanecem sem homologação. Não unir nem renomear por proximidade. Apenas parte da estrutura/rede tem representação. A conexão completa permanece pendente.
 - **58 — Artéria alveolar superior média**: O item 58 integra o grupo alveolar superior 57–59 da legenda e da figura craniocervical; não é uma artéria temporal profunda. Sem malha individual identificada. O campo de contexto 55 indica o sistema maxilar, sem afirmar um óstio específico. Sem malha individual identificada; reconstrução e revisão pendentes.
 - **59 — Artéria alveolar superior anterior**: Sem malha individual identificada; reconstrução e revisão pendentes.
 - **61 — Ramos para a concha nasal inferior**: Sem malha individual identificada; reconstrução e revisão pendentes.

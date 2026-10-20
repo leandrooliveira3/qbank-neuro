@@ -31,3 +31,15 @@ export function zoomAtlasField(center: P3, view: View, zoom: number, px: number,
   const after = unprojectAtlasPixel(px, py, 0, next);
   return center.map((value, k) => value + before[k] - after[k]) as P3;
 }
+
+/** Fit all eight source-world bounding corners in the detector at the current angles. */
+export function fitAtlasField(bounds:readonly number[][],yaw:number,pitch:number,padding=32) {
+  if(bounds.length !== 2 || bounds.some(row=>row.length !== 3 || row.some(value=>!Number.isFinite(value))) || bounds[0].some((value,k)=>value>bounds[1][k]) || !Number.isFinite(padding) || padding<0 || 2*padding>=Math.min(WIDTH,HEIGHT)) throw new RangeError("Invalid source bounds or detector padding");
+  const center=bounds[0].map((value,k)=>(value+bounds[1][k])/2) as P3;
+  const view=atlasProjection(yaw,pitch,1,center);
+  const corners=bounds.flatMap((_,x)=>bounds.flatMap((_,y)=>bounds.map((_,z)=>projectSpatial([bounds[x][0],bounds[y][1],bounds[z][2]],view))));
+  const width=Math.max(...corners.map(p=>p[0]))-Math.min(...corners.map(p=>p[0]));
+  const height=Math.max(...corners.map(p=>p[1]))-Math.min(...corners.map(p=>p[1]));
+  const zoom=Math.max(.1,Math.min(12,(WIDTH-2*padding)/Math.max(width,1e-8),(HEIGHT-2*padding)/Math.max(height,1e-8)));
+  return {center,zoom};
+}

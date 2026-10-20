@@ -4,6 +4,8 @@
  */
 export const vascularFindings = new Map<string,string>();
 for (const side of ["l","r"]) {
+  vascularFindings.set(`maxillary_artery_${side}`,
+    "Cobertura agrupada da fonte: a malha rotulada como maxilar contém nove componentes de vértices desconectados por lado. O rótulo não identifica cada fragmento nem demonstra por si as três porções e a continuidade dos ramos. Conferir origem, mandíbula, pterigóideos e fossa pterigopalatina. Os fragmentos não foram unidos nem renomeados automaticamente.");
   vascularFindings.set(`middle_meningeal_artery_${side}`,
     "Cobertura limitada da fonte: esta superfície tem cerca de 2,40 cm de extensão craniocaudal no referencial do atlas. A inspeção das projeções originais não demonstra uma árvore dural frontal/parietal completa. Não representa a totalidade da meníngea média; origem, passagem pelo forame espinhoso e ramos exigem conferência osteovascular.");
   vascularFindings.set(`accessory_branch_of_middle_meningeal_artery_${side}`,

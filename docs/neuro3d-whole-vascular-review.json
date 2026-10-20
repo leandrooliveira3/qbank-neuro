@@ -636,7 +636,7 @@
       "file": "cardiovascular_head.glb",
       "status": "pending",
       "selectable": true,
-      "note": "Malha da fonte ainda sem verificação individual de origem, trajeto, ramos e conexões.",
+      "note": "Cobertura agrupada da fonte: a malha rotulada como maxilar contém nove componentes de vértices desconectados por lado. O rótulo não identifica cada fragmento nem demonstra por si as três porções e a continuidade dos ramos. Conferir origem, mandíbula, pterigóideos e fossa pterigopalatina. Os fragmentos não foram unidos nem renomeados automaticamente.",
       "boundsFinite": true,
       "reference": "https://neuroangio.org/anatomy-and-variants/"
     },
@@ -649,7 +649,7 @@
       "file": "cardiovascular_head.glb",
       "status": "pending",
       "selectable": true,
-      "note": "Malha da fonte ainda sem verificação individual de origem, trajeto, ramos e conexões.",
+      "note": "Cobertura agrupada da fonte: a malha rotulada como maxilar contém nove componentes de vértices desconectados por lado. O rótulo não identifica cada fragmento nem demonstra por si as três porções e a continuidade dos ramos. Conferir origem, mandíbula, pterigóideos e fossa pterigopalatina. Os fragmentos não foram unidos nem renomeados automaticamente.",
       "boundsFinite": true,
       "reference": "https://neuroangio.org/anatomy-and-variants/"
     },
@@ -5630,7 +5630,7 @@
       "references": [
         "https://neuroangio.org/anatomy-and-variants/"
       ],
-      "note": "Legenda 55. A malha maxilar está presente, mas suas subdivisões angiográficas precisam de conferência. Presença do tronco não comprova cobertura dos ramos.",
+      "note": "Legenda 55. A superfície da fonte reúne nove componentes desconectados por lado; cada fragmento, o trajeto pelas três porções e as origens dos ramos permanecem sem homologação. Não unir nem renomear por proximidade. Presença do tronco não comprova cobertura dos ramos.",
       "ids": [
         "maxillary_artery_l",
         "maxillary_artery_r"
@@ -5642,7 +5642,9 @@
         "maxillary_artery_r"
       ],
       "reconstructedIds": [],
-      "findings": [],
+      "findings": [
+        "Cobertura agrupada da fonte: a malha rotulada como maxilar contém nove componentes de vértices desconectados por lado. O rótulo não identifica cada fragmento nem demonstra por si as três porções e a continuidade dos ramos. Conferir origem, mandíbula, pterigóideos e fossa pterigopalatina. Os fragmentos não foram unidos nem renomeados automaticamente."
+      ],
       "anatomicalApproval": false
     },
     {
@@ -12815,5 +12817,1088 @@
       "note": "Sem definição explícita na legenda textual. Identidade pendente; não atribuir automaticamente a uma malha.",
       "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/"
     }
-  ]
+  ],
+  "studyRelations": [
+    {
+      "parent": "common_carotid_artery",
+      "child": "internal_carotid_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "common_carotid_artery",
+      "child": "external_carotid_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_carotid_artery",
+      "child": "superior_thyroid_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_carotid_artery",
+      "child": "ascending_pharyngeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_carotid_artery",
+      "child": "lingual_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_carotid_artery",
+      "child": "facial_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_carotid_artery",
+      "child": "occipital_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_carotid_artery",
+      "child": "posterior_auricular_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_carotid_artery",
+      "child": "maxillary_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_carotid_artery",
+      "child": "superficial_temporal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "meningohypophyseal_trunk",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "inferolateral_trunk",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "superior_hypophyseal_arteries",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "capsular_artery_of_mcconnell",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "ophthalmic_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "anterior_choroidal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "posterior_communicating_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "anterior_cerebral_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_carotid_artery",
+      "child": "middle_cerebral_artery_m1_segment",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "inferior_alveolar_artery",
+      "child": "mental_branch_of_inferior_alveolar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "inferior_alveolar_artery",
+      "child": "mylohyoid_branch_of_inferior_alveolar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "infra_orbital_artery",
+      "child": "anterior_superior_alveolar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "infra_orbital_artery",
+      "child": "middle_superior_alveolar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "descending_palatine_artery",
+      "child": "greater_palatine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "descending_palatine_artery",
+      "child": "lesser_palatine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "sphenopalatine_artery",
+      "child": "posterior_septal_branches_of_sphenopalatine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "sphenopalatine_artery",
+      "child": "posterior_lateral_nasal_branches_of_sphenopalatine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_meningeal_artery",
+      "child": "frontal_branch_of_middle_meningeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_meningeal_artery",
+      "child": "parietal_branch_of_middle_meningeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_meningeal_artery",
+      "child": "petrosal_branch_of_middle_meningeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_meningeal_artery",
+      "child": "petrosquamosal_branch_of_middle_meningeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_artery",
+      "child": "ascending_palatine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_artery",
+      "child": "tonsillar_branch_of_facial_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_artery",
+      "child": "submental_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_artery",
+      "child": "angular_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_artery",
+      "child": "inferior_labial_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_artery",
+      "child": "superior_labial_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superficial_temporal_artery",
+      "child": "frontal_branch_of_superficial_temporal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superficial_temporal_artery",
+      "child": "parietal_branch_of_superficial_temporal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superficial_temporal_artery",
+      "child": "transverse_facial_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ophthalmic_artery",
+      "child": "central_retinal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ophthalmic_artery",
+      "child": "short_posterior_ciliary_arteries",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ophthalmic_artery",
+      "child": "long_posterior_ciliary_arteries",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ophthalmic_artery",
+      "child": "lacrimal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ophthalmic_artery",
+      "child": "anterior_ethmoidal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ophthalmic_artery",
+      "child": "posterior_ethmoidal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ophthalmic_artery",
+      "child": "supra_orbital_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ophthalmic_artery",
+      "child": "supratrochlear_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_ethmoidal_artery",
+      "child": "anterior_septal_branches_of_anterior_ethmoidal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_ethmoidal_artery",
+      "child": "septal_branches_of_posterior_ethmoidal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "pericallosal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "callosomarginal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "orbitofrontal_branches_of_anterior_cerebral_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "recurrent_artery_of_heubner",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "medial_lenticulostriate_arteries",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "frontopolar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "anterior_internal_frontal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "middle_internal_frontal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "posterior_internal_frontal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "paracentral_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "superior_internal_parietal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_cerebral_artery",
+      "child": "inferior_internal_parietal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "callosomarginal_artery",
+      "child": "frontal_branches_of_callosomarginal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_communicating_artery",
+      "child": "subcallosal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_communicating_artery",
+      "child": "anterior_thalamoperforating_arteries",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_choroidal_artery",
+      "child": "anterior_choroidal_artery_plexal_branches",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_choroidal_artery",
+      "child": "anterior_choroidal_artery_cisternal_perforators",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "medial_occipital_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "lateral_occipital_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "parieto_occipital_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "posterior_thalamoperforating_arteries",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "thalamogeniculate_arteries",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "medial_posterior_choroidal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "lateral_posterior_choroidal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "anterior_temporal_branch_of_pca",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "middle_temporal_branches_of_pca",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "posterior_temporal_branch_of_pca",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "calcarine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_cerebral_artery",
+      "child": "posterior_pericallosal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "vertebral_artery",
+      "child": "posterior_inferior_cerebellar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "vertebral_artery",
+      "child": "anterior_spinal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "vertebral_artery",
+      "child": "posterior_spinal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "vertebral_artery",
+      "child": "lateral_spinal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "vertebral_artery",
+      "child": "anterior_meningeal_branch_of_vertebral_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "vertebral_artery",
+      "child": "posterior_meningeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "basilar_artery",
+      "child": "posterior_cerebral_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "basilar_artery",
+      "child": "superior_cerebellar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "basilar_artery",
+      "child": "anterior_inferior_cerebellar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "basilar_artery",
+      "child": "lateral_pontine_branches_of_basilar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "basilar_artery",
+      "child": "medial_pontine_branches_of_basilar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_inferior_cerebellar_artery",
+      "child": "medial_branch_of_pica",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_inferior_cerebellar_artery",
+      "child": "lateral_branch_of_pica",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_inferior_cerebellar_artery",
+      "child": "perforating_branches_of_pica",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_inferior_cerebellar_artery",
+      "child": "choroidal_branches_of_pica",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_inferior_cerebellar_artery",
+      "child": "labyrinthine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_inferior_cerebellar_artery",
+      "child": "subarcuate_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_inferior_cerebellar_artery",
+      "child": "perforating_branches_of_aica",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_inferior_cerebellar_artery",
+      "child": "cortical_branches_of_aica",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superior_cerebellar_artery",
+      "child": "vermian_branch_of_superior_cerebellar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superior_cerebellar_artery",
+      "child": "hemispheric_branch_of_superior_cerebellar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superior_cerebellar_artery",
+      "child": "perforating_branches_of_superior_cerebellar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "subclavian_artery",
+      "child": "vertebral_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "subclavian_artery",
+      "child": "thyrocervical_trunk",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "subclavian_artery",
+      "child": "costocervical_trunk",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "thyrocervical_trunk",
+      "child": "inferior_thyroid_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "thyrocervical_trunk",
+      "child": "ascending_cervical_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "thyrocervical_trunk",
+      "child": "transverse_cervical_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "costocervical_trunk",
+      "child": "deep_cervical_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "costocervical_trunk",
+      "child": "supreme_intercostal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_spinal_artery",
+      "child": "sulcocommissural_arteries",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "transverse_cervical_artery",
+      "child": "deep_branch_of_transverse_cervical_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "transverse_cervical_artery",
+      "child": "superficial_branch_of_transverse_cervical_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_jugular_vein",
+      "child": "common_facial_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_jugular_vein",
+      "child": "lingual_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_jugular_vein",
+      "child": "superior_thyroid_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_jugular_vein",
+      "child": "sigmoid_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_jugular_vein",
+      "child": "inferior_petrosal_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "common_facial_vein",
+      "child": "facial_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "common_facial_vein",
+      "child": "anterior_division_of_retromandibular_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_vein",
+      "child": "angular_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_vein",
+      "child": "superior_labial_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_vein",
+      "child": "inferior_labial_veins",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "facial_vein",
+      "child": "submental_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_jugular_vein",
+      "child": "posterior_division_of_retromandibular_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "external_jugular_vein",
+      "child": "posterior_auricular_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "retromandibular_vein",
+      "child": "maxillary_veins",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "retromandibular_vein",
+      "child": "superficial_temporal_veins",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "anterior_division_of_retromandibular_vein",
+      "child": "retromandibular_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "posterior_division_of_retromandibular_vein",
+      "child": "retromandibular_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "deep_auricular_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "anterior_tympanic_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "middle_meningeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "accessory_meningeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "inferior_alveolar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "anterior_deep_temporal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "posterior_deep_temporal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "masseteric_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "pterygoid_branches_of_maxillary_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "buccal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "posterior_superior_alveolar_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "infra_orbital_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "descending_palatine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "artery_of_pterygoid_canal",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "pterygovaginal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "artery_of_foramen_rotundum_from_maxillary",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "maxillary_artery",
+      "child": "sphenopalatine_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "middle_cerebral_artery_m3_segment",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "insular_branches_of_middle_cerebral_artery_m2",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "parietal_branches_of_middle_cerebral_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "temporal_branches_of_middle_cerebral_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "postcentral_arterial_branch",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "anterior_temporal_branch_of_mca",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "artery_of_central_sulcus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "artery_of_precentral_sulcus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "arterial_branch_to_angular_gyrus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "distal_lateral_striate_branches",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "lateral_frontobasal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "posterior_parietal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "posterior_temporal_branch_of_mca",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "prefrontal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "proximal_lateral_striate_branches",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "temporo_occipital_branch_of_mca",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "middle_cerebral_artery_m2_superior_division",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "middle_cerebral_artery_m2_inferior_division",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "middle_cerebral_artery_m1_segment",
+      "child": "middle_cerebral_artery_m4_cortical_branches",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "meningohypophyseal_trunk",
+      "child": "inferior_hypophyseal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "meningohypophyseal_trunk",
+      "child": "medial_clival_branch",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "meningohypophyseal_trunk",
+      "child": "marginal_tentorial_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "inferolateral_trunk",
+      "child": "foramen_rotundum_branch",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "inferolateral_trunk",
+      "child": "foramen_ovale_branch",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "inferolateral_trunk",
+      "child": "anteromedial_ilt_branch",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ascending_pharyngeal_artery",
+      "child": "pharyngeal_trunk_of_ascending_pharyngeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ascending_pharyngeal_artery",
+      "child": "neuromeningeal_trunk",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "ascending_pharyngeal_artery",
+      "child": "musculospinal_branch_of_ascending_pharyngeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "pharyngeal_trunk_of_ascending_pharyngeal_artery",
+      "child": "inferior_pharyngeal_branch",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "pharyngeal_trunk_of_ascending_pharyngeal_artery",
+      "child": "middle_pharyngeal_branch",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "pharyngeal_trunk_of_ascending_pharyngeal_artery",
+      "child": "superior_pharyngeal_branch",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "pharyngeal_trunk_of_ascending_pharyngeal_artery",
+      "child": "lacerum_branch_of_ascending_pharyngeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "neuromeningeal_trunk",
+      "child": "hypoglossal_division_of_ascending_pharyngeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "neuromeningeal_trunk",
+      "child": "jugular_division_of_ascending_pharyngeal_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "neuromeningeal_trunk",
+      "child": "inferior_tympanic_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "hypoglossal_division_of_ascending_pharyngeal_artery",
+      "child": "ascending_clival_branch_of_hypoglossal_division",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "lingual_artery",
+      "child": "deep_lingual_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "lingual_artery",
+      "child": "sublingual_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "lingual_artery",
+      "child": "dorsal_lingual_branches",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "lingual_artery",
+      "child": "suprahyoid_branch_of_lingual_artery",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "straight_sinus",
+      "child": "great_cerebral_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "straight_sinus",
+      "child": "inferior_sagittal_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "great_cerebral_vein",
+      "child": "internal_cerebral_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "great_cerebral_vein",
+      "child": "basal_vein_of_rosenthal",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "great_cerebral_vein",
+      "child": "precentral_cerebellar_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "cavernous_sinus",
+      "child": "basal_vein_of_rosenthal",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "cavernous_sinus",
+      "child": "superficial_middle_cerebral_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "cavernous_sinus",
+      "child": "basilar_venous_plexus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "cavernous_sinus",
+      "child": "superior_ophthalmic_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "cavernous_sinus",
+      "child": "inferior_ophthalmic_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superior_petrosal_sinus",
+      "child": "basal_vein_of_rosenthal",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superior_petrosal_sinus",
+      "child": "petrosal_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superior_petrosal_sinus",
+      "child": "cavernous_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_cerebral_vein",
+      "child": "thalamostriate_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_cerebral_vein",
+      "child": "anterior_septal_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "sphenobasal_sinus",
+      "child": "superficial_middle_cerebral_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "sphenopetrosal_sinus",
+      "child": "superficial_middle_cerebral_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "superior_sagittal_sinus",
+      "child": "superior_anastomotic_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "transverse_sinus",
+      "child": "inferior_anastomotic_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "transverse_sinus",
+      "child": "confluence_of_sinuses",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "transverse_sinus",
+      "child": "superior_petrosal_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "confluence_of_sinuses",
+      "child": "superior_sagittal_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "confluence_of_sinuses",
+      "child": "straight_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "sigmoid_sinus",
+      "child": "transverse_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "sigmoid_sinus",
+      "child": "superior_petrosal_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "inferior_petrosal_sinus",
+      "child": "cavernous_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "inferior_petrosal_sinus",
+      "child": "basilar_venous_plexus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "pterygoid_venous_plexus",
+      "child": "cavernous_sinus",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "pterygoid_venous_plexus",
+      "child": "inferior_ophthalmic_vein",
+      "geometryConnectionVerified": false
+    },
+    {
+      "parent": "internal_vertebral_venous_plexus",
+      "child": "basilar_venous_plexus",
+      "geometryConnectionVerified": false
+    }
+  ],
+  "studyRelationsAreNavigationGraph": false
 }
