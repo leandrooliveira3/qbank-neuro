@@ -1,5 +1,6 @@
 import {openAnatomy} from './openAnatomy';
 import {reconstructedVessels} from './reconstructedVessels';
+import {neuroangioAdditionalRequirements} from './neuroangioRequirements';
 const root='https://neuroangio.org/venous-brain-anatomy/';
 /** Directed text review only. These are study sets, not mandatory flow chains. */
 export const venousStudyReviews=[
@@ -18,5 +19,5 @@ export const venousStudyReviews=[
 ];
 const all=new Map([...openAnatomy.structures,...reconstructedVessels].map(row=>[row.id,row]));
 export function resolveVenousReview(row:typeof venousStudyReviews[number],side:'l'|'r'){
-  return row.ids.map(base=>{const id=all.has(`${base}_${side}`)?`${base}_${side}`:base,item=all.get(id);return {id,item,missing:!item,origin:item?('status'in item?'illustrative':'imported'):'missing'};});
+  return row.ids.map(base=>{const planned=neuroangioAdditionalRequirements.find(r=>r.id===base);const id=all.has(`${base}_${side}`)?`${base}_${side}`:all.has(base)?base:planned?.expectedIds.find(id=>id.endsWith(`_${side}`))??base,item=all.get(id);return {id,item,missing:!item,origin:item?('status'in item?'illustrative':'imported'):'missing'};});
 }

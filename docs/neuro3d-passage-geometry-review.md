@@ -56,3 +56,7 @@ TypeScript,136unitários/34arquivos e build aprovados. Auditor direcionado execu
 PróximoP0: usar os cortes e os testemunhos para conferir marcos ósseos/neurovasculares multiprojeção e a extensão real das quatro vias. Investigar a proveniência do trajeto vidiano e do ramo esfenoidal antes de qualquer correção; procurar fonte rotulada/licenciada quando a atual não resolver. Não refazer amostragem como se fosse distância global exata. Não fechar lacunas por proximidade. Galeno e sete identidades preservados. GS-CAvisor/VOI, Paciente3D, Doppler, Mentice/VascularTwin e REA/Ankyras continuam mantidos.
 
 Reprodução offline: compilar tools/neuro3d/audit_passage_geometry.ts com esbuild para Node/ESM, BASE_URL definido como "/", e executar na raiz. Draco3d é ferramenta temporária de desenvolvimento já instalada, não nova dependência de produção. Saída versionada em features/neuro3d/passage-geometry-audit.json. npm run lint, npm run test:neuro3d, npm run build e tests/neuro3d/passage-geometry.spec.ts verificam os contratos pertinentes.
+
+## Continuidade após testemunhos ósseos
+
+Quatro bordas V2 com contenção seccional e proveniência dos modelos foram entregues; ler neuro3d-skull-landmarks-review.md e ai-context/NEXT_SESSION.md. Não repetir o inspetor ou essa auditoria sem nova evidência. Nomes de forames/túneis continuam não certificados; próximo foco é continuidade3D/contexto motor do oval.20/373/Galeno/seteIDs e todas as frentes mantidos.

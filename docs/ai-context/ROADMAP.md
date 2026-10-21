@@ -48,3 +48,7 @@ GS-CA: auditoria dos dez casos concluída anteriormente; visor local/VOI/RAD con
 ## PróximoP0 após inspeção física das vias
 
 Entregues cortes/planos físicos do atlas para8contextos/26elos, hashes por superfície e três conjuntos venosos por lado. P0 não homologado: limites inferiores positivos demonstram separações vidiana–ACI e esfenoidal–lacrimal, não a correção necessária. Próximo lote deve comprovar marcos ósseos nos cortes originais e confrontar a proveniência/extensão dessas vias com Neuroangio/Lasjaunias/fontes rotuladas, sem alterar malhas para zerar distâncias. Revisar os termos venosos não reconciliados e imagens dirigidas quando úteis. Não refazer o inspetor, auditoria592ou42cortes sem evidência nova.20ausências/373lacunas/Galeno/seteIDs e todas as frentes preservadas.
+
+## PróximoP0 após bordas seccionais V2
+
+Entregues quatro bordas reais e contenção de perfis V2 nos cortes; proveniência dos modelos e sete termos venosos explicitados. PróximoP0: continuidade3D e correspondência anatômica V2; raiz motora trigeminal original como contexto adicional do oval, sem confundir com tronco sensitivoV3. Procurar componentes rotulados/licenciados para ICAvidiana e meningo-lacrimal se a fonte não os individualizar. Não refazer testemunhos nem mover ramos ilustrativos22mm para forçar coincidência.20/373/Galeno/seteIDs e demaisfrentes preservados.

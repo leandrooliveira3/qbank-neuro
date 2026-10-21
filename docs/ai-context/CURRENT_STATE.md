@@ -1,31 +1,33 @@
-# Estado verificável — vias físicas e revisão venosa
+# Estado verificável — testemunhos ósseos e proveniência
 
-Atualizado21/10/2026. Base publicada f62c3673dc3f0e010fba08157797e0a83c4a56e3, árvore8548b9dd20e0c804bbb7f08d46d90aa8216145a0, feature/neuro3d-atlas, PR2rascunho, VercelSUCCESS reconfirmado. Local continuation/passage-geometry criado do remoto. Novo checkpoint identificado pelo Git que contém este documento; confirmar hash/árvore/status ao fechar. Checkout original e cinco arquivos não rastreados preservados.
+Atualizado21/10/2026. Base cc947c3e181816be6d91169ac0fcf616fe89dad5, árvore95dc5b46ea03853cf0df456cdeab90787e4bd23b, feature/neuro3d-atlas/PR2rascunho, VercelSUCCESS reconfirmado. Branchlocal continuation/skull-landmarks criada do remoto. O commit que contém este documento identifica o novo checkpoint; confirmar hash/árvore/deployment no fechamento. Original e cinco arquivos não rastreados preservados.
 
 ## Prioridade e autorização
 
-Maior prioridade: completude vascular Neuroangio no atlas/angiografia, por identidade/lado, ramos, curso, anastomoses e forames. Auditoria própria explicitamente autorizada; autorização não equivale a aprovação anatômica. Lote longo atual prioriza quatro vias; GS-CAvisor/VOI continua pendente como apoio, sem cancelamento.
+Completude vascular Neuroangio é P0máximo: identidade/lado, ramos, trajeto, anastomoses e forames. Auditoria própria autorizada; evidência técnica não equivale a homologação anatômica. GS-CA/VOI preservado como apoio, sem cancelar demaisfrentes.
 
-## Entrega deste lote
+## Entrega atual
 
-- Inspetor físico das vias redondo–ILT, oval/AMA–ILT, vidiana–ACIpetrosa e AMM–lacrimal/oftálmica, bilateral. Cortes de triângulos originais nos três eixos, contexto ósseo/neural, ilustrações distintas, controle de plano e exportação de evidência.
-- Plano de60×60mm nominais no mesmo referencial da vista3D, sem escala dupla, sem marcar ponto de forame ou alterar malhas. Sobreposição explicitamente visível através das superfícies, removível.
-- Auditor direcionado:8contextos/26elos/31superfícies (19originais,12ilustrativas),3GLBSHA e31hashes canônicos individuais;24conjuntos centrais de cortes offline. Distância amostrada é limite superior; distância entre caixas é limite inferior. Não se repetiu a auditoria592vasos.
-- Quatro separações comprovadas do modelo: vidiana–ACI bilateral com limite inferior4,578mm nominais; ramo esfenoidal–lacrimal bilateral com3,788mm. Não indicam qual identidade está errada nem autorizam pontes. Demais22elos continuam inconclusivos; zero não comprova contato/lúmen.
-- Três capítulos venosos recuperados por HTTP público direto após falha web; leitura textual dirigida, não revisão integral de figuras/vídeos. Índice oferece conjuntos por lado e seleção exata de tributárias. URL correta da fossa posterior: veins-posterior-fossa/. Termos adicionais sem identidade estabelecida ficam explícitos.
+- Quatro testemunhos reais da borda do esfenoide, dois cortes Z29/30mm por lado, com triângulo/baricêntricas/hash/coordenadas. Contorno ósseo contém todo o perfil V2 nesses planos, sem cruzamento de arestas. Ponto da borda, não centro do nervo renomeado como forame. Nome do forame/túnel3D/passagem arterial seguem não certificados.
+- Inspetor existente permite abrir esses pontos, campo60/20/10mm, mostrar perfis nativos e ponto de revisão no mesmo plano3D, exportar evidência. Não move malhas ou registra datasets. Destaque seccional somente no plano para o qual foi comprovado.
+- Proveniência dirigida: seis nós vasculares (vidiana, lacrimal, meníngea média bilaterais) têm payload/transformações iguais à fonte fixa. Objetos são CURVE no vendor, não prova de segmentação clínica. Ramo esfenoidal tem três controles ilustrativos locais, não anastomose derivada de imagem.
+- Foramen rotundum.j/ovale.j/spinosum.j/Pterygoid canal.j constam como MESH na auditoria, mas são skipped no relatório de exportação e não possuem nó no GLB esquelético. Startup.blend não executado. Nome/tipo de objeto não provam malha utilizável.
+- Sete termos venosos mantidos sem correspondência geométrica, com substituições rejeitadas, motivos/fontes e exportação. Ausências bilaterais mostram agora o ID do lado correto. Não criadas geometrias ou identidades para zerar lacunas.
 
-Relatório principal: [vias físicas](../neuro3d-passage-geometry-review.md); dados: ../../features/neuro3d/passage-geometry-audit.json. Relatório anterior [auditoria592](../neuro3d-neuroangio-priority-review.md) é histórico, não reexecutado neste lote.
+Ler [relatório atual](../neuro3d-skull-landmarks-review.md), [auditoria de fonte](../neuro3d-skull-source-audit.json) e ../../features/neuro3d/skull-landmark-evidence.json. Não refazer essas provas sem mudança/evidência nova.
 
-## Cobertura e incertezas preservadas
+## Entregas acumuladas e achados mantidos
 
-322exigências,612IDs esperados,592representados sem homologação;20sem geometria e373sem referência importada ativa.1114importações originais/1112ativas,353reconstruções mantidas. As20ausências não esgotam os termos ainda não reconciliados das páginas. Galeno–seio reto e sete rótulos107,4,26b,70a,74a,114a,115a permanecem sem comprovação. Nenhuma identidade resolvida, forame certificado ou conexão luminal criada.28faces degeneradas retinais e oito representações embrionárias adicionais históricas continuam pendentes.
+Inspetor8contextos/26elos/31superfícies e plano3D entregues antes. Cortes originais/ilustrativos separados, GLBSHA e hashes canônicos conferidos; erro/retry/exportação mantidos. Limites inferiores: vidiana–ACI4,578mm e esfenoidal–lacrimal3,788mm nominais, bilaterais. Novos pontos V2 estão a aproximadamente22–23mm das superfícies ilustrativas dos ramos redondos; distância ponto→todas as faces, sem certificar que o ponto é o forame. Nenhuma ponte/deslocamento/renomeação realizada.
 
-## Frentes preservadas
+322exigências/612IDs esperados/592representados sem homologação,20sem geometria/373sem referência.1114importações originais/1112ativas,353reconstruções mantidas. Sete termos venosos adicionais não certificam exaustividade nem alteraram essas contagens. Galeno–seio reto e sete rótulos107,4,26b,70a,74a,114a,115a seguem sem comprovação.28faces degeneradas retinais e oito representações embrionárias adicionais históricas continuam pendentes.
 
-42cortes BRAVE/VENAT e vínculos físicos anteriores, comparador e Anatria→Qbank mantidos; referenciais independentes, sem registro implícito. GS-CA: dez casos auditados; leitor/visor MHD/RAW/RAD, VOI/ROI pendentes. Dados locais restritos não redistribuídos. CTA complementar, limites JPEGsemperdas/memória mantidos.
+## Próxima prova necessária
 
-Paciente3D: DICOM reconstruído local LPSmm, testes sintéticos, sem reconstruçãoXA/3DRA real homologada. Doppler analítico didático, Mentice/VascularTwin, REA/Ankyras e acessos/dispositivos mantidos. Sem FFTreal, recuperação de corpos IL2CPP ou recomendação clínica automática.
+Continuidade3D e correspondência anatômica do contexto V2, antes de nomear o forame. V3: divisões mandibulares não provam todo o tronco pré-foraminal. Raiz motora do trigêmeo individual existe no manifesto; investigar como contexto adicional do oval, sem equiparar ao tronco sensitivoV3. Componentes ICAvidiana e meningo-lacrimal/recorrente ainda não individualizados de forma certificada. Não aproximar ramos ilustrativos da borda para eliminar medidas.
 
-## Validação
+## Frentes preservadas e validação
 
-136unitários/34arquivos, TypeScript/build aprovados; auditor direcionado executado. 36 casos únicos de navegador aprovados, em10arquivos/desktop e Pixel7. As quatro vias foram abertas nos dois lados, com hashes de31superfícies, cortes nos3eixos, plano3D, exportação e recuperação de corrupção. Também passaram angiografia original, anastomoses, famílias, vínculosBRAVE/VENAT, Paciente3D, Doppler e roteiroMentice. Capturas de redondo/vidiana desktop, oval/meningolacrimal mobile e plano3D desktop/mobile inspecionadas visualmente. Sem teste remoto de navegador. Aviso de chunks>500kB permanece. Publicação autorizada de preview, sem merge/force; conferir commit exato.
+42cortes/comparadorBRAVE-VENAT, vínculo físico e Anatria→Qbank do seio reto mantidos, espaços independentes. GS-CA dezcasos auditados; visorMHD/RAW/RAD/VOI pendente, dados locais restritos não redistribuídos. CTA complementar, limitescompressão/memória mantidos. Paciente3D DICOMreconstruído LPSmm, Doppler analítico, Mentice/VascularTwin, REA/Ankyras, embriologia/acessos/dispositivos mantidos; sem reconstruçãoXA ou recomendação clínica automática.
+
+TypeScript,142unitários/36arquivos e build aprovados; auditorias dirigidas executadas, sem repetir592vasos. 40 casos únicos de navegador aprovados em11arquivos, desktop e Pixel7: rodada ampla38mais dois casos novos de reconciliação/exportação venosa. Repetições dirigidas não somadas. A versão final dos testes ósseos também confere o alvo da câmera no ponto de origem. Capturas nativas das bordas V2 e plano/ponto3D desktop/mobile inspecionadas; em primeira inspeção o ponto era pequeno na visão geral, e o foco da câmera foi ajustado sem mover anatomia. Não houve teste remoto de navegador. Aviso de chunks>500kB permanece. Preview autorizado sem merge/force, confirmar commit exato.

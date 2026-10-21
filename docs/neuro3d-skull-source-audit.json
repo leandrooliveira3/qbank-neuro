@@ -1,0 +1,427 @@
+{
+  "schema": 1,
+  "baseCommit": "cc947c3e181816be6d91169ac0fcf616fe89dad5",
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS â†’ Z-Anatomy â†’ Anatria3D â†’ QBank-Neuro head/neck subset",
+  "sourceFiles": [
+    {
+      "file": "cardiovascular_male.glb",
+      "sha256": "05f373a294ab809b9a628bc1474a66028642997330fddc553a33d4ac6409b757"
+    },
+    {
+      "file": "vendor-audit.json",
+      "sha256": "f057a5b1f002d97da7d165d00cffc4f7ba3591f789a08a52a193106bd224588d"
+    },
+    {
+      "file": "vendor-reports-cardiovascular.json",
+      "sha256": "e16d572a10811093ade4326c78a47d41a45c9a335f1b0856b5e5e5d4847dc0db"
+    },
+    {
+      "file": "skeletal_male.glb",
+      "sha256": "b49d71788bfa0b4a3188e2954d59728a699b08ec280e70df1c2a95e13d4b81f8"
+    },
+    {
+      "file": "vendor-reports-skeletal.json",
+      "sha256": "6d848dbf791f996ade98af2cc7a935011111e04a71f2ecae9af700867c2cfd70"
+    },
+    {
+      "file": "educational-vascular-paths.json",
+      "sha256": "0934e9d8f542c862e5d86cbf927fdc090a174ff8fce2bf7487c2ad6c3b8e8e11"
+    },
+    {
+      "file": "build_educational_vessels.py",
+      "sha256": "ba5ffff1a1a9882d0b28777b292c5f672c3b2e2b5021e93c4b592b64a52b0e17"
+    }
+  ],
+  "vascularNodes": [
+    {
+      "id": "artery_of_pterygoid_canal_l",
+      "node": "Artery of pterygoid canal.l",
+      "sourceObject": {
+        "type": "CURVE",
+        "cols": [
+          "5: Cardiovascular system",
+          "Aorta",
+          "Common carotid artery",
+          "Head",
+          "Systemic arteries"
+        ]
+      },
+      "exportReport": {
+        "name": "Artery of pterygoid canal.l",
+        "polygons": 720,
+        "path": [
+          "Systemic arteries",
+          "Aorta"
+        ]
+      },
+      "primitiveAndTransformExactlyEqual": true,
+      "primitive": {
+        "nodeName": "Artery of pterygoid canal.l",
+        "translation": [
+          0.009349146857857704,
+          1.5619171857833862,
+          0.05642225220799446
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": null,
+        "parents": [],
+        "primitives": 1,
+        "vertices": 732,
+        "indexCount": 4320,
+        "dracoSHA256": "1f781e445ffcdc63db45704e448381744a0623fac218350af87fc8295c333c17",
+        "dracoBytes": 3142,
+        "dracoAttributes": {
+          "POSITION": 0,
+          "NORMAL": 1
+        }
+      },
+      "anatomicalIdentityApproved": false
+    },
+    {
+      "id": "artery_of_pterygoid_canal_r",
+      "node": "Artery of pterygoid canal.r",
+      "sourceObject": {
+        "type": "CURVE",
+        "cols": [
+          "5: Cardiovascular system",
+          "Aorta",
+          "Common carotid artery",
+          "Head",
+          "Systemic arteries"
+        ]
+      },
+      "exportReport": {
+        "name": "Artery of pterygoid canal.r",
+        "polygons": 720,
+        "path": [
+          "Systemic arteries",
+          "Aorta"
+        ]
+      },
+      "primitiveAndTransformExactlyEqual": true,
+      "primitive": {
+        "nodeName": "Artery of pterygoid canal.r",
+        "translation": [
+          -0.009349146857857704,
+          1.5619171857833862,
+          0.05642225220799446
+        ],
+        "rotation": [
+          1,
+          0,
+          0,
+          4.371138828673793e-08
+        ],
+        "scale": [
+          -1,
+          -1,
+          -1
+        ],
+        "matrix": null,
+        "parents": [],
+        "primitives": 1,
+        "vertices": 732,
+        "indexCount": 4320,
+        "dracoSHA256": "1f781e445ffcdc63db45704e448381744a0623fac218350af87fc8295c333c17",
+        "dracoBytes": 3142,
+        "dracoAttributes": {
+          "POSITION": 0,
+          "NORMAL": 1
+        }
+      },
+      "anatomicalIdentityApproved": false
+    },
+    {
+      "id": "lacrimal_artery_l",
+      "node": "Lacrimal artery.l",
+      "sourceObject": {
+        "type": "CURVE",
+        "cols": [
+          "5: Cardiovascular system",
+          "Aorta",
+          "Common carotid artery",
+          "Head",
+          "Systemic arteries"
+        ]
+      },
+      "exportReport": {
+        "name": "Lacrimal artery.l",
+        "polygons": 2160,
+        "path": [
+          "Systemic arteries",
+          "Aorta"
+        ]
+      },
+      "primitiveAndTransformExactlyEqual": true,
+      "primitive": {
+        "nodeName": "Lacrimal artery.l",
+        "translation": [
+          0.035695116966962814,
+          1.6035065650939941,
+          0.05499740689992905
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": null,
+        "parents": [],
+        "primitives": 1,
+        "vertices": 2196,
+        "indexCount": 12960,
+        "dracoSHA256": "9d1c597fc7e3a0d0800c3d5ca776dc90da8a59516301d43d19ec98fdf81103ea",
+        "dracoBytes": 7749,
+        "dracoAttributes": {
+          "POSITION": 0,
+          "NORMAL": 1
+        }
+      },
+      "anatomicalIdentityApproved": false
+    },
+    {
+      "id": "lacrimal_artery_r",
+      "node": "Lacrimal artery.r",
+      "sourceObject": {
+        "type": "CURVE",
+        "cols": [
+          "5: Cardiovascular system",
+          "Aorta",
+          "Common carotid artery",
+          "Head",
+          "Systemic arteries"
+        ]
+      },
+      "exportReport": {
+        "name": "Lacrimal artery.r",
+        "polygons": 2160,
+        "path": [
+          "Systemic arteries",
+          "Aorta"
+        ]
+      },
+      "primitiveAndTransformExactlyEqual": true,
+      "primitive": {
+        "nodeName": "Lacrimal artery.r",
+        "translation": [
+          -0.035695116966962814,
+          1.6035065650939941,
+          0.05499740689992905
+        ],
+        "rotation": [
+          1,
+          0,
+          0,
+          4.371138828673793e-08
+        ],
+        "scale": [
+          -1,
+          -1,
+          -1
+        ],
+        "matrix": null,
+        "parents": [],
+        "primitives": 1,
+        "vertices": 2196,
+        "indexCount": 12960,
+        "dracoSHA256": "9d1c597fc7e3a0d0800c3d5ca776dc90da8a59516301d43d19ec98fdf81103ea",
+        "dracoBytes": 7749,
+        "dracoAttributes": {
+          "POSITION": 0,
+          "NORMAL": 1
+        }
+      },
+      "anatomicalIdentityApproved": false
+    },
+    {
+      "id": "middle_meningeal_artery_l",
+      "node": "Middle meningeal artery.l",
+      "sourceObject": {
+        "type": "CURVE",
+        "cols": [
+          "5: Cardiovascular system",
+          "Aorta",
+          "Common carotid artery",
+          "Head",
+          "Systemic arteries"
+        ]
+      },
+      "exportReport": {
+        "name": "Middle meningeal artery.l",
+        "polygons": 720,
+        "path": [
+          "Systemic arteries",
+          "Aorta"
+        ]
+      },
+      "primitiveAndTransformExactlyEqual": true,
+      "primitive": {
+        "nodeName": "Middle meningeal artery.l",
+        "translation": [
+          0.029624992981553078,
+          1.5747408866882324,
+          0.009006008505821228
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ],
+        "matrix": null,
+        "parents": [],
+        "primitives": 1,
+        "vertices": 732,
+        "indexCount": 4320,
+        "dracoSHA256": "f0b33c01aa5c095c18f5b3f5b263c68d2bca8e2c383c606dd2c278eeeedf10d3",
+        "dracoBytes": 3157,
+        "dracoAttributes": {
+          "POSITION": 0,
+          "NORMAL": 1
+        }
+      },
+      "anatomicalIdentityApproved": false
+    },
+    {
+      "id": "middle_meningeal_artery_r",
+      "node": "Middle meningeal artery.r",
+      "sourceObject": {
+        "type": "CURVE",
+        "cols": [
+          "5: Cardiovascular system",
+          "Aorta",
+          "Common carotid artery",
+          "Head",
+          "Systemic arteries"
+        ]
+      },
+      "exportReport": {
+        "name": "Middle meningeal artery.r",
+        "polygons": 720,
+        "path": [
+          "Systemic arteries",
+          "Aorta"
+        ]
+      },
+      "primitiveAndTransformExactlyEqual": true,
+      "primitive": {
+        "nodeName": "Middle meningeal artery.r",
+        "translation": [
+          -0.029624992981553078,
+          1.5747408866882324,
+          0.009006008505821228
+        ],
+        "rotation": [
+          1,
+          0,
+          0,
+          4.371138828673793e-08
+        ],
+        "scale": [
+          -1,
+          -1,
+          -1
+        ],
+        "matrix": null,
+        "parents": [],
+        "primitives": 1,
+        "vertices": 732,
+        "indexCount": 4320,
+        "dracoSHA256": "f0b33c01aa5c095c18f5b3f5b263c68d2bca8e2c383c606dd2c278eeeedf10d3",
+        "dracoBytes": 3157,
+        "dracoAttributes": {
+          "POSITION": 0,
+          "NORMAL": 1
+        }
+      },
+      "anatomicalIdentityApproved": false
+    }
+  ],
+  "foramenLabels": [
+    {
+      "name": "Foramen rotundum.j",
+      "vendorType": "MESH",
+      "listedAsSkipped": true,
+      "exportedReportObject": false,
+      "hasGLBNode": false,
+      "interpretation": "Vendor MESH type alone does not establish usable evaluated geometry; exporter skips objects with zero evaluated polygons."
+    },
+    {
+      "name": "Foramen ovale.j",
+      "vendorType": "MESH",
+      "listedAsSkipped": true,
+      "exportedReportObject": false,
+      "hasGLBNode": false,
+      "interpretation": "Vendor MESH type alone does not establish usable evaluated geometry; exporter skips objects with zero evaluated polygons."
+    },
+    {
+      "name": "Foramen spinosum.j",
+      "vendorType": "MESH",
+      "listedAsSkipped": true,
+      "exportedReportObject": false,
+      "hasGLBNode": false,
+      "interpretation": "Vendor MESH type alone does not establish usable evaluated geometry; exporter skips objects with zero evaluated polygons."
+    },
+    {
+      "name": "Pterygoid canal.j",
+      "vendorType": "MESH",
+      "listedAsSkipped": true,
+      "exportedReportObject": false,
+      "hasGLBNode": false,
+      "interpretation": "Vendor MESH type alone does not establish usable evaluated geometry; exporter skips objects with zero evaluated polygons."
+    }
+  ],
+  "sphenoidRidgeIllustration": {
+    "id": "sphenoid_ridge_branch",
+    "name": "Ramo da crista esfenoidal",
+    "parent": "middle_meningeal_artery",
+    "radius": 0.018,
+    "paths": [
+      [
+        [
+          3.4,
+          -1.3,
+          0.9
+        ],
+        [
+          3.5,
+          -0.3,
+          2
+        ],
+        [
+          3.6,
+          0.3,
+          3
+        ]
+      ]
+    ],
+    "group": "Neuroangio Â· redes orbitÃ¡rias e durais",
+    "reference": "https://neuroangio.org/anatomy-and-variants/diagrams-and-drawings/",
+    "paired": true,
+    "variant": false
+  },
+  "limits": "No original Startup.blend execution, no BodyParts3D/FMA per-object mapping, no new geometry imported. Unchanged upstream primitives do not certify anatomy. Hand-authored sphenoid controls are not an imaged anastomosis. ICA-origin vidian component and meningo-lacrimal/recurrent component remain unrepresented or unverified as distinct roles."
+}

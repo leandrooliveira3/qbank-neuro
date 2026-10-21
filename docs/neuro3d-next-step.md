@@ -66,3 +66,7 @@ Completude vascular clicável, ramos, curso, anastomoses e forames são agora pr
 ## Continuidade após cortes físicos das vias
 
 A etapa seguinte já entregou o inspetor físico e plano3D coincidente para as quatro vias/lado e recuperou texto dirigido dos três capítulos venosos. Ler neuro3d-passage-geometry-review.md e ai-context/NEXT_SESSION.md. Não repetir essa implementação. Mantidas20ausências/373lacunas e identidades anteriores; quatro separações geométricas demonstradas não autorizam pontes.
+
+## Continuidade após testemunhos ósseos
+
+Quatro bordas V2 com contenção seccional e proveniência dos modelos foram entregues; ler neuro3d-skull-landmarks-review.md e ai-context/NEXT_SESSION.md. Não repetir o inspetor ou essa auditoria sem nova evidência. Nomes de forames/túneis continuam não certificados; próximo foco é continuidade3D/contexto motor do oval.20/373/Galeno/seteIDs e todas as frentes mantidos.

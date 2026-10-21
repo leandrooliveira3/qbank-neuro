@@ -7,6 +7,7 @@ import {reconstructedVessels} from './reconstructedVessels';
 import {neurovascularPassages,resolvePassage,passageBookEvidence} from './neurovascularPassages';
 import VenousStudyReviewPanel from './VenousStudyReviewPanel';
 import {venousStudyReviews} from './venousStudyReview';
+import {venousTermReconciliation} from './venousTermReconciliation';
 const names=new Map([...openAnatomy.structures,...reconstructedVessels].map(row=>[row.id,row.name]));
 export default function NeuroangioCoveragePanel({onExplore}:{onExplore:(id:string)=>void}){
   const [query,setQuery]=useState(''),[system,setSystem]=useState('all'),[coverage,setCoverage]=useState('all');
@@ -15,7 +16,7 @@ export default function NeuroangioCoveragePanel({onExplore}:{onExplore:(id:strin
     normalize(`${row.id} ${row.name} ${row.group} ${row.expectedIds.join(' ')}`).includes(normalize(query))),[system,coverage,query]);
   function exportAudit(){
     const report={schema:1,scope:'Current explicit inventory; not exhaustive certification of all Neuroangio chapters/images',
-      sourceReviews:neuroangioReviewSources,venousStudyReviews,counts:vascularCompletenessCounts,requirements:vascularCompleteness,
+      sourceReviews:neuroangioReviewSources,venousStudyReviews,venousTermReconciliation,counts:vascularCompletenessCounts,requirements:vascularCompleteness,
       unresolvedDiagram:unmappedVascularDiagramEntries,anatomicalApproval:false,atlasComplete:false,
       passageBookEvidence,passages:neurovascularPassages.flatMap(row=>(['l','r'] as const).map(side=>resolvePassage(row,side))),
       datasetEvidence:[{source:'BRAVE-NET pat_1',use:'Independent manual-label surface/sections',namedVesselCorrespondence:false},

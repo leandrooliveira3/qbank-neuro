@@ -53,3 +53,7 @@ Usuário elevou completude arterial/venosa clicável no atlas3D/angiografia à p
 ## Vias físicas e consulta venosa recuperada
 
 Inspetor dirigido das quatro vias prioritárias, bilateral, com cortes de malhas originais, plano3D coincidente e evidência exportável.31superfícies/26elos auditados; quatro separações comprovadas no modelo não foram corrigidas artificialmente. Três capítulos venosos com texto dirigido recuperado e seleção por lado. Forames, ramos/curso/lúmen e atlas completo ainda não certificados. Ler ../neuro3d-passage-geometry-review.md.
+
+## Bordas do esfenoide, origem dos modelos e termos venosos
+
+Quatro pontos reais em triângulos do esfenoide e contenção do perfil V2 em quatro planos, com evidência exportável e campo de detalhe. Não certificados nomes de forames/túneis3D. Proveniência de seis vasos conferida; quatro rótulos ósseos são skipped na fonte e ramo esfenoidal é ilustrativo. Sete termos venosos sem correspondência foram explicitados. Relatório:../neuro3d-skull-landmarks-review.md. P0 anatômico e todas as frentes mantidos.

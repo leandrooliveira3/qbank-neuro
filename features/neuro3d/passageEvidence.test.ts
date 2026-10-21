@@ -40,6 +40,6 @@ it('maps venous review by exact side while preserving absent tributaries and dis
   }
   const deep=resolveVenousReview(venousStudyReviews[0],'r');
   expect(deep.find(r=>r.id==='direct_lateral_vein_r')?.origin).toBe('illustrative');
-  expect(deep.find(r=>r.id==='posterior_caudate_veins')?.missing).toBe(true);
+  expect(deep.find(r=>r.id==='posterior_caudate_veins_r')?.missing).toBe(true);
   expect(venousStudyReviews[2].url).toContain('/veins-posterior-fossa/');
 });

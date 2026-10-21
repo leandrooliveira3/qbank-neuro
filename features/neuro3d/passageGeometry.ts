@@ -1,8 +1,8 @@
 import {Triangle,Vector3} from 'three';
 export type Point3=[number,number,number];
-export interface PassageInspectionPlane {passageId:string;side:'l'|'r';axis:'x'|'y'|'z';offsetCm:number;centerCm:Point3}
+export interface PassageInspectionPlane {passageId:string;side:'l'|'r';axis:'x'|'y'|'z';offsetCm:number;centerCm:Point3;spanCm?:number;reviewWitness?:{id:string;pointCm:Point3;sourceTriangle:number}}
 export interface PassageSurface {id:string;layer:string;origin:'imported'|'illustrative';positions:ArrayLike<number>;indices:ArrayLike<number>}
-export interface SurfaceSection {id:string;layer:string;origin:string;segments:[Point3,Point3][];coplanarTriangles:number}
+export interface SurfaceSection {id:string;layer:string;origin:string;segments:[Point3,Point3][];coplanarTriangles:number;triangleIds:number[]}
 export const sectionAxes={x:{normal:0,u:2,v:1,label:'X constante · Z/Y'},y:{normal:1,u:0,v:2,label:'Y constante · X/Z'},z:{normal:2,u:0,v:1,label:'Z constante · X/Y'}} as const;
 export function inspectionPlanePose(plane:PassageInspectionPlane){
   const position=[...plane.centerCm] as Point3;position[sectionAxes[plane.axis].normal]=plane.offsetCm;
@@ -20,7 +20,7 @@ export function surfaceEvidenceBytes(s:PassageSurface){
 }
 export function sectionSurface(surface:PassageSurface,axis:number,offset:number):SurfaceSection{
   if(![0,1,2].includes(axis)||!Number.isFinite(offset))throw Error('Plano inválido');
-  const result:SurfaceSection={id:surface.id,layer:surface.layer,origin:surface.origin,segments:[],coplanarTriangles:0};
+  const result:SurfaceSection={id:surface.id,layer:surface.layer,origin:surface.origin,segments:[],coplanarTriangles:0,triangleIds:[]};
   const eps=1e-8;
   for(let i=0;i<surface.indices.length;i+=3){
     const points=[0,1,2].map(k=>Array.from({length:3},(_,j)=>surface.positions[surface.indices[i+k]*3+j]) as Point3);
@@ -33,7 +33,7 @@ export function sectionSurface(surface:PassageSurface,axis:number,offset:number)
       if(Math.abs(d[j])<=eps)add([...points[j]]);
       if(d[j]*d[k]<0){const t=d[j]/(d[j]-d[k]);add(points[j].map((v,n)=>v+t*(points[k][n]-v)) as Point3);}
     }
-    if(hits.length===2)result.segments.push([hits[0],hits[1]]);
+    if(hits.length===2){result.segments.push([hits[0],hits[1]]);result.triangleIds.push(i/3);}
   }
   return result;
 }

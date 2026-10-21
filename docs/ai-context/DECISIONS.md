@@ -68,3 +68,11 @@ Decisão: comparar superfícies das quatro vias sem alterar coordenadas. Distân
 Decisão: o centro inicial dos cortes segue o ramo apenas para inspeção. Não é forame validado. Cortes e quadrado3D compartilham o mesmo referencial/offset em cm, fora do grupo de escala dos GLBs. Sobreposição explícita e removível não é canal, fluxo ou registro entre fontes.
 
 Decisão: recuperar texto venoso por HTTP público após falha da ferramenta web, registrando método/URL correta/SHA e alcance dirigido. Não declarar figuras/vídeos revisados nem assimilar termos ausentes a canais próximos. Inventário20/373 continua explícito e não exaustivo.
+
+## 21/10/2026 — testemunho ósseo não é centro do forame
+
+Decisão: usar pontos reais na borda de triângulos originais, com baricêntricas/hash, e comprovar contenção integral do perfil neural em planos selecionados. Não exportar centroide do nervo como forame. Rejeitar componentes abertos/ramificados, auto-interseção e não coplanaridade; testar arestas além dos vértices. Impacto: evidência seccional verdadeira, nome anatômico/túnel3D/passagem arterial ainda não certificados.
+
+Decisão: manter geometria dos seis vasos cuja primitiva/TRS coincide com a fonte. Rótulos .j de forames constam como MESH mas skipped e ausentes do GLB; não fabricar superfícies. Ramo esfenoidal tem controles autorais, não segmentação. Componentes específicos permanecem papéis não certificados, sem criar identidades para zerar lacunas.
+
+Decisão: sete termos venosos sem correspondência explícita; rejeitar homônimos do braço, artéria tonsilar facial e substituições transverso→longitudinal. IDs ausentes já previstos são exibidos lateralizados sem alterar o inventário20/373.

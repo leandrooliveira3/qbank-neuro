@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {venousStudyReviews,resolveVenousReview} from './venousStudyReview';
+import {venousTermReconciliation} from './venousTermReconciliation';
 export default function VenousStudyReviewPanel({onExplore}:{onExplore:(id:string)=>void}){
   const [side,setSide]=useState<'l'|'r'>('l');
   return <details className="nda-venous-review" data-testid="venous-directed-review"><summary>Revisão venosa · tributárias, trajetos e alternativas</summary>
@@ -10,5 +11,6 @@ export default function VenousStudyReviewPanel({onExplore}:{onExplore:(id:string
       {row.unresolvedTerms.map(text=><p key={text}>{text}</p>)}<a href={row.url} target="_blank" rel="noreferrer">Capítulo Neuroangio consultado</a>
     </article>)}
     <p>Galeno–seio reto permanece discordante. Os termos adicionais pendentes não foram convertidos em identidades por proximidade. O inventário atual continua com20IDs sem geometria e373sem referência; esta revisão não o certifica como exaustivo.</p>
+    <details data-testid="venous-terms"><summary>Termos reconciliados · correspondência ainda pendente</summary>{venousTermReconciliation.map(row=><article key={row.sourceTerm}><h4>{row.term}</h4><p>{row.reason}</p><p>Identidade sem correspondência geométrica confirmada. Substituições rejeitadas: {row.rejected.join(', ')}.</p><a href={row.reference} target="_blank" rel="noreferrer">Termo na fonte Neuroangio</a></article>)}</details>
   </details>;
 }

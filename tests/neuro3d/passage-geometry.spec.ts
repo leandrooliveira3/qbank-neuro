@@ -49,7 +49,7 @@ test('source integrity errors recover, and venous review reveals an exact latera
   await page.getByRole('button',{name:'Neuroangio',exact:true}).click();
   const review=page.getByTestId('venous-directed-review');await review.getByText('Revisão venosa · tributárias, trajetos e alternativas',{exact:true}).click();
   await review.getByLabel('Lado da revisão venosa',{exact:true}).selectOption('r');
-  await expect(review.locator('[data-venous-missing="posterior_caudate_veins"]')).toBeVisible();
+  await expect(review.locator('[data-venous-missing="posterior_caudate_veins_r"]')).toBeVisible();
   await review.locator('button[data-venous-id="direct_lateral_vein_r"]').click();
   await expect(page.getByTestId('atlas-selection')).toHaveAttribute('data-selected-id','direct_lateral_vein_r');
   await expect(page.getByTestId('detailed-atlas-canvas')).toHaveAttribute('data-illustrative-visible','direct_lateral_vein_r');

@@ -61,3 +61,11 @@ PassageGeometryInspector é lazy e usa passage-geometry-audit.json. loadOriginal
 passageSection.worker recebe superfícies uma vez por abertura, calcula interseção triangular no plano e responde por sequência. Mudanças de plano descartam resposta velha; fechamento cancela fetch/encerra worker. Erro bloqueia SVG/exportação e oferece retry. SVG distingue original/ilustrativo e círculo projetado fora do plano; não desenha ponte. Plano3D renderizado por DetailedAtlas no espaço cm global, sem raycast e sem escala dupla; mesma posição/normal, material explícito de sobreposição.
 
 venousStudyReview resolve IDs por lado ou identidade mediana exata; VenousStudyReviewPanel expõe conjuntos/ausências/termos ainda não reconciliados, sem novas arestas procedurais ou geometrias. Exportação Neuroangio inclui revisão dirigida atualizada.
+
+## Testemunhos ósseos e revisão de componentes
+
+sectionContours deriva loops dos segmentos nativos, soldando extremos em1e−6cm sem fechar componentes abertos. Segmentos de sectionSurface conservam triangleIds. Loops auto-intersectantes/degenerados são rejeitados; strictlyEncloses exige coplanaridade, vértices interiores e ausência de cruzamento de arestas. Ferramenta offline audit_skull_landmarks gera quatro bordas V2 com triângulo/baricêntricas/hash, perfis e medidas ponto→ramos.
+
+PassageGeometryInspector mantém estado de centro do campo, testemunho e extensão60/20/10mm. Confere hashes do testemunho contra superfícies do contexto; destaca contornos somente no plano exato e exporta evidência e proveniência. PassageInspectionPlane inclui spanCm e reviewWitness; DetailedAtlas renderiza plano e ponto de revisão no espaço globalcm, sem raycast e sem mover malhas. Rótulos deixam explícito que o ponto não é centro do forame.
+
+passageComponentReview expõe papéis existentes/pendentes e usa auditoria dirigida de seis nós vasculares/quatro rótulos ósseos. venousTermReconciliation registra sete termos, referências e substituições rejeitadas, sem aliases geométricos ou arestas procedurais; exportação Neuroangio os inclui. Resolver venoso lateraliza ausências já planejadas.

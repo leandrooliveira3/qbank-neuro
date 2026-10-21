@@ -80,3 +80,11 @@ Planilha database_info.xls dos anexosGS-CA foi lida localmente com xlrd2.0.2 em 
 - ILT Neuroangio reaberto pela ferramenta web; textos privados de Lasjaunias PDF322/437/475 reconsultados, mesmos trechos dirigidos da etapa anterior, sem nova leitura integral/redistribuição.
 - https://neuroangio.org/venous-brain-anatomy/venous-sinuses/ e /internal-cerebral-vein/ recuperados por HTTP público/Python após falha web; /veins-posterior-fossa/ é a URL correta do índice. Revisão textual dirigida; hashes e método em ../neuro3d-passage-geometry-review.md e neuroangioRequirements.ts. Não assistidos vídeos ou todas as figuras.
 - Ferramentas realmente executadas: sourceSurfaceReader/Draco, audit_passage_geometry próprio, interseção/medidas próprias, worker do navegador, Vitest/TypeScript/Vite/Playwright. Não executados VMTK, MEX/MGP, IAsegmentação, REA novo ou reconstrução3DRA neste lote. Datasets independentes e livro preservados.
+
+## Fontes conferidas neste lote de bordas/proveniência
+
+Original Anatria6320bd64df8db2fcfed358a27c85d1fcc1c5913c: skeletal_male.glb e vendor/reports/skeletal.json recuperados por HTTP fixo, SHA/tamanho conferidos contra o upstream já usado. Cardinalidade MESH no vendor não significa geometria: quatro rótulos de forames estão skipped/sem nó GLB. Cardiovascular original/cache confrontado com seis nós do recorte: payload/TRS/pais/atributos iguais, CURVE→mesh segundo fonte. Startup.blend não executado. Hashes em ../neuro3d-skull-source-audit.json.
+
+Neuroangio mandibulovidian-artery e ophthalmic-artery-old efetivamente abertos; texto Lasjaunias PDF322/p302 reconsultado e referências dirigidas anteriores mantidas. Sem figuras/trechos extensos redistribuídos. Textos venosos em cache sustentam os sete termos; manifesto Anatria consultado para rejeitar homônimos braquiais/antebraquiais do membro superior. Não transferiu rótulos de datasets ou executou reconstrução/IA/REA novo.
+
+Ferramentas realmente executadas: read_source_surface/Draco, audit_skull_source.py, audit_skull_landmarks.ts próprios, scan exploratório de contornos no cache privado, Vitest/TypeScript/Vite/Playwright.31superfícies/26elos e auditoria592não refeitos. Recursos ósseos do atlas CC-BY-SA, coord/hashes/atribuição preservados; nenhum asset clínico restrito adicionado.
