@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
         }
       },
       optimizeDeps: {
-        include: ['sql.js'],
+        include: ['sql.js', 'dicom-parser', 'three/examples/jsm/objects/MarchingCubes.js'],
       },
     };
 });

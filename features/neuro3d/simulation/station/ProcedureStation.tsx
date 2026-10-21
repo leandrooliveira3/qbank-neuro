@@ -1,4 +1,6 @@
 import DeviceCatalogue from "./DeviceCataloguePanel";
+import VideoWorkflowGuide from "./VideoWorkflowGuide";
+import { primaryVideoSources } from "./videoWorkflows";
 import { archProfileNames, archProfileData, type ArchProfile } from "./archMorphology";
 import React, {
   lazy,
@@ -49,12 +51,13 @@ export default function ProcedureStation({
   const { geometry: referenceGeometry, error: geometryError } = useReferenceGeometry(s.archProfile);
   const geometryReady = s.geometry !== "reference" || !!referenceGeometry;
   const geometryReadyRef = useRef(geometryReady); geometryReadyRef.current = geometryReady;
-  const [biplane, setBiplane] = useState(true),
+  const [biplane, setBiplane] = useState(false),
     [anatomy, setAnatomy] = useState(true),
     [assist, setAssist] = useState(true),
     [family, setFamily] = useState<Family>("coil"),
     [notice, setNotice] = useState("");
   const [step, setStep] = useState(0.4);
+  const [guideReset, setGuideReset] = useState(0);
   const lastPulse = useRef(0),
     shaft = useRef<{ x: number; y: number } | null>(null),
     pad = useRef<HTMLDivElement>(null);
@@ -160,6 +163,7 @@ export default function ProcedureStation({
     return () => el.removeEventListener("wheel", wheel);
   }, [step]);
   function newCase(id: string, geometry = s.geometry, referenceEntry = s.referenceEntry, archProfile = s.archProfile) {
+    setGuideReset(value => value + 1);
     const next = createStation(id, geometry, referenceEntry, archProfile);
     dispatch({ type: "new", caseId: id, geometry, referenceEntry, archProfile });
     setFrame(next);
@@ -171,6 +175,7 @@ export default function ProcedureStation({
     dispatch({ type: "finish" });
     const report = {
       version: 2,
+      primaryVideoReferences: primaryVideoSources.map(({ id, sha256 }) => ({ id, sha256 })),
       caseId: s.caseId,
       referenceEntry: s.referenceEntry,
       archProfile: s.archProfile,
@@ -204,7 +209,7 @@ export default function ProcedureStation({
     const blob = new Blob(
         [
           JSON.stringify(
-            { case: c, state: s, validation: "not-clinically-validated" },
+            { case: c, state: s, primaryVideoReferences: primaryVideoSources, validation: "not-clinically-validated" },
             null,
             2,
           ),
@@ -596,6 +601,7 @@ export default function ProcedureStation({
           </div>
         </section>
         <aside className="nvs-console">
+          <VideoWorkflowGuide key={`${s.caseId}:${guideReset}`} kind={c.kind} />
           <h3>Console da hemodinâmica</h3>
           <details open className="nvs-machine">
             <summary>Arco C · plano A</summary>

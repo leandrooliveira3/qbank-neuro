@@ -35,7 +35,7 @@ export const educationalVessels=catalogue.templates.flatMap(template=>(template.
     bounds:bounds.map(p=>[p[0]/100,(p[1]+160)/100,p[2]/100]),surface,points:paths[0],paths,
     parentId,rootId:`educational:${id}`,anchorIndex:-1,rootFraction:-1,
     reference:template.reference,status:"reconstructed-unvalidated" as const,
-    illustrative:true as const,variant:template.variant,proceduralEligible:false as const,
+    illustrative:true as const,variant:template.variant,embryonic:template.group === "Variante embrionária",proceduralEligible:false as const,
     coordinateBasis:"original-hand-authored-controls" as const,
     note:`Trajeto ilustrativo original, NÃO segmentado de exame nem recuperado como malha nomeada de repositório. ${groupNote}${template.variant ? "Variante opcional; não se presume coexistência com as outras vias. " : ""}Identidade e relações orientadas pelas referências; coordenadas e calibres arbitrados para estudo, sem homologação anatômica. A relação com o vaso pai não certifica óstio, drenagem ou luz contínua. Não navegável por instrumentos.`,
   };

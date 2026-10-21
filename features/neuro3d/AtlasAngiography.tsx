@@ -23,7 +23,9 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
   const workerState = useRef<{worker: Worker; inFlight: boolean; pending?: AtlasProjectionRequest}>(null);
   const view = useMemo(() => atlasProjection(yaw, pitch, zoom, center), [yaw, pitch, zoom, center]);
   const frameKey = JSON.stringify([view, layers, contrastLayer, boneOpacity, [...hidden].sort(), isolate ? selected : null]);
-  const frameKeyRef = useRef(frameKey); frameKeyRef.current = frameKey;
+  const visibilityKey=JSON.stringify([layers,contrastLayer,boneOpacity,[...hidden].sort(),isolate?selected:null]);
+  const renderedVisibilityKey=useRef<string|null>(null);
+  const requestKeys=useRef(new Map<number,{frame:string;visibility:string}>());
   const renderedFrameKey = useRef<string>(null);
   const pickMeshes = useMemo(() => {
     if (!geometry) return [];
@@ -99,11 +101,13 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
         else if (event.data.pixels) {
           canvas.current?.getContext("2d")?.putImageData(new ImageData(event.data.pixels, WIDTH, HEIGHT), 0, 0);
           if (canvas.current) canvas.current.dataset.projectionReady = "true";
-          renderedFrameKey.current = frameKeyRef.current;
+          const keys=requestKeys.current.get(event.data.id);
+          renderedFrameKey.current=keys?.frame??null;renderedVisibilityKey.current=keys?.visibility??null;
           setRenderError(undefined);
         }
         setBusy(false);
       }
+      requestKeys.current.delete(event.data.id);
       if (state.pending) { const request = state.pending; state.pending = undefined; state.inFlight = true; worker.postMessage({kind: "render", request}); }
     };
     worker.onerror = () => { state.inFlight = false; state.pending = undefined; setRenderError("Falha ao calcular a projeção. Recarregue para tentar novamente."); setBusy(false); };
@@ -116,12 +120,14 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
     setBusy(true);
     if (canvas.current) canvas.current.dataset.projectionReady = "false";
     const request = {id: ++generation.current, view, boneOpacity, selected, isolate, layers, contrastLayer, hidden: [...hidden]};
+    requestKeys.current.set(request.id,{frame:frameKey,visibility:visibilityKey});
+    if(state.pending)requestKeys.current.delete(state.pending.id);
     // Retain only the newest queued pose while the worker computes the current one.
     if (state.inFlight) state.pending = request;
     else { state.inFlight = true; state.worker.postMessage({kind: "render", request}); }
   }, [geometry, view, boneOpacity, selected, isolate, layers, contrastLayer, hidden]);
   return <div className="nda-angiography" aria-busy={busy && !error && !renderError}>
-    <canvas ref={canvas} style={{cursor:tool === "pan" ? "grab" : "crosshair"}} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} data-field-center={center.join(",")} data-yaw={yaw} data-pitch={pitch} data-zoom={zoom} onClick={pick} onPointerDown={startPan} onPointerMove={movePan} onPointerUp={endPan} onPointerCancel={endPan} onLostPointerCapture={endPan}
+    <canvas ref={canvas} style={{visibility:!error&&!renderError&&renderedVisibilityKey.current===visibilityKey?"visible":"hidden",cursor:tool === "pan" ? "grab" : "crosshair"}} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} data-field-center={center.join(",")} data-yaw={yaw} data-pitch={pitch} data-zoom={zoom} onClick={pick} onPointerDown={startPan} onPointerMove={movePan} onPointerUp={endPan} onPointerCancel={endPan} onLostPointerCapture={endPan}
       role="img" aria-label="Projeção angiográfica sintética das superfícies do atlas" />
     {error || renderError ? <p role="alert">{error || renderError}</p> : busy && <p role="status">Calculando projeção das superfícies…</p>}
     <span className="nda-projection-label">{boneOpacity > 0 ? "ANGIOGRAFIA COM OSSO" : "DSA SINTÉTICA"} · {Math.round(yaw*10)/10}° / {Math.round(pitch*10)/10}°{selected && " · dourado: marcação da seleção"}</span>

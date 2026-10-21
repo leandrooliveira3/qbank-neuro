@@ -17,6 +17,7 @@
     "@react-three/fiber": "^9.8.2",
     "@supabase/supabase-js": "^2.89.0",
     "@tailwindcss/typography": "^0.5.19",
+    "dicom-parser": "^1.8.21",
     "downloadjs": "^1.4.7",
     "fzstd": "^0.1.1",
     "json5": "^2.2.3",

@@ -4,6 +4,24 @@
   --mint: #72d6bf;
   color: #e9f1f6;
 }
+.nvs-video-guide {
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+}
+.nvs-video-guide p, .nvs-video-guide small, .nvs-guide-heading span {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #bdcbd5;
+}
+.nvs-video-guide nav { display: grid; gap: 5px; margin: 10px 0; }
+.nvs-video-guide nav button { text-align: left; white-space: normal; overflow-wrap: anywhere; }
+.nvs-video-guide button[aria-current="step"] { border-color: var(--mint); color: var(--mint); }
+.nvs-video-guide h4 { font-size: 12px; margin-top: 12px; }
+.nvs-guide-actions { display: flex; gap: 6px; margin-top: 12px; }
+.nvs-guide-actions button { flex: 1; white-space: normal; }
 .nvs-heading {
   display: flex;
   justify-content: space-between;

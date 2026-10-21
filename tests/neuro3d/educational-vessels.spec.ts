@@ -6,7 +6,7 @@ test('illustrative veins are discoverable, explicitly labeled and shared between
   const stage=page.getByTestId('detailed-atlas-canvas');
   const canvas=stage.locator('canvas');
   await expect(canvas).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
-  await expect(page.getByLabel('Trajetos ilustrativos adicionais (301)')).not.toBeChecked();
+  await expect(page.getByLabel(/Trajetos ilustrativos adicionais/)).not.toBeChecked();
   await expect(stage).toHaveAttribute('data-illustrative-visible','');
   const pose=await canvas.getAttribute('data-atlas-camera-pose');
   await page.getByRole('button',{name:'Estruturas',exact:true}).click();
@@ -39,9 +39,11 @@ test('variants remain optional and manual hiding overrides illustrative visibili
   await page.goto('/#/tools/neuro3d');
   const stage=page.getByTestId('detailed-atlas-canvas');
   await expect(stage.locator('canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
-  await page.getByLabel('Trajetos ilustrativos adicionais (301)').check();
+  await page.getByLabel(/Trajetos ilustrativos adicionais/).check();
   await expect(stage).not.toHaveAttribute('data-illustrative-visible',/persistent_trigeminal/);
   await page.getByLabel('Incluir variantes ilustrativas').check();
+  await expect(stage).not.toHaveAttribute('data-illustrative-visible',/persistent_trigeminal/);
+  await page.getByLabel('Artérias embrionárias',{exact:true}).check();
   await expect(stage).toHaveAttribute('data-illustrative-visible',/persistent_trigeminal_artery_l/);
   await page.getByRole('button',{name:'Estruturas',exact:true}).click();
   await page.getByLabel('Buscar no atlas detalhado').fill('Artéria trigeminal persistente');
@@ -51,7 +53,7 @@ test('variants remain optional and manual hiding overrides illustrative visibili
   await expect(stage).not.toHaveAttribute('data-illustrative-visible',/persistent_trigeminal_artery_l/);
   await expect(stage).toHaveAttribute('data-illustrative-visible',/persistent_trigeminal_artery_r/);
   await page.getByRole('button',{name:'Restaurar visão',exact:true}).click();
-  await expect(page.getByLabel('Trajetos ilustrativos adicionais (301)')).not.toBeChecked();
+  await expect(page.getByLabel(/Trajetos ilustrativos adicionais/)).not.toBeChecked();
   await expect(page.getByLabel('Incluir variantes ilustrativas')).not.toBeChecked();
   await expect(stage).toHaveAttribute('data-illustrative-visible','');
 });

@@ -112,6 +112,7 @@ test('source arch entry reaches the left ICA and supports an interactive angiogr
   await page.getByLabel('Entrada da simulação', {exact: true}).selectOption('arch');
   const tip = page.getByTestId('station-tip');
   await expect(tip).toHaveAttribute('data-edge', 'access');
+  await page.getByText('Anatomia 3D e assistência', {exact:true}).click();
   await page.getByLabel('Representação 3D da estação', {exact: true}).selectOption('angiographic');
   await expect(page.getByTestId('station-3d')).toHaveAttribute('data-representation', 'angiography-3d');
   await expect(page.getByTestId('station-3d').locator('canvas')).toHaveAttribute('data-station3d-rendered', 'true');
@@ -135,6 +136,7 @@ test('body entries and didactic arch profiles render with a bounded device catal
   const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
   await page.goto(route);
   await page.getByRole('button', {name: 'Simulação', exact: true}).click();
+  await page.getByText('Anatomia 3D e assistência', {exact:true}).click();
   for (const entry of ['femoral', 'radial']) {
     await page.getByLabel('Entrada da simulação', {exact: true}).selectOption(entry);
     await page.getByLabel('Perfil do arco', {exact: true}).selectOption('III');
