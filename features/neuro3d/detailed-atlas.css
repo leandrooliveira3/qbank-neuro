@@ -90,3 +90,9 @@
 .nda-educational-controls label { display: inline-flex; align-items: center; gap: .5rem; margin: .2rem 1.2rem .2rem 0; font-size: .85rem; }
 .nda-educational-controls input { width: 1.1rem; height: 1.1rem; accent-color: #d3a35d; }
 .nda-educational-controls p { margin: .4rem 0 0; font-size: .78rem; line-height: 1.5; color: #bfcbd0; }
+.nda-passage-inspector{border:1px solid #52717d;border-radius:10px;margin:12px 0;padding:12px;background:#10212c;min-width:0}
+.nda-passage-inspector svg{display:block;width:min(100%,470px);height:auto;aspect-ratio:1;background:#08131b;border:1px solid #49616d;margin:10px auto}
+.nda-passage-inspector.nda-passage-expanded{position:fixed;inset:12px;z-index:1100;overflow:auto;padding:20px;margin:0}
+.nda-passage-inspector label{display:block;margin:10px 0}
+.nda-passage-inspector select,.nda-passage-inspector input{width:100%;min-width:0;max-width:100%}
+.nda-passage-inspector p{overflow-wrap:anywhere}

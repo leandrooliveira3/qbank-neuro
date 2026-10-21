@@ -60,3 +60,11 @@ Decisão: não certificar anatomia pelo teste de existência, raycast ou menor d
 Decisão: malha original completa somente na seleção importada isolada2D, por ação explícita, com verificaçãoSHA e tratamento de falha. Geral/procedural mantidos. Justificativa: perdas mensuradas na projeção simplificada não devem ser apresentadas como detalhe original.
 
 Decisão: identificar forames como registros bibliográficos/contexto enquanto não houver ponto/superfície própria comprovada. Não colocar marcador no centro de um nervo como se fosse forame. Registrar Vesálio como alternativa, C2/C4 separados, sem criar cadeia obrigatória entre variantes. Livro original consultado de forma dirigida, privado.
+
+## 21/10/2026 — limites geométricos e cortes físicos das vias
+
+Decisão: comparar superfícies das quatro vias sem alterar coordenadas. Distância amostrada é limite superior; caixas envolventes oferecem limite inferior. Quatro limites inferiores positivos comprovam separação do modelo, sem decidir qual identidade/canal é incorreto. Nenhuma ponte ou snap autorizado por esses números.
+
+Decisão: o centro inicial dos cortes segue o ramo apenas para inspeção. Não é forame validado. Cortes e quadrado3D compartilham o mesmo referencial/offset em cm, fora do grupo de escala dos GLBs. Sobreposição explícita e removível não é canal, fluxo ou registro entre fontes.
+
+Decisão: recuperar texto venoso por HTTP público após falha da ferramenta web, registrando método/URL correta/SHA e alcance dirigido. Não declarar figuras/vídeos revisados nem assimilar termos ausentes a canais próximos. Inventário20/373 continua explícito e não exaustivo.

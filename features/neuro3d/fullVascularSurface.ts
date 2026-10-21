@@ -23,7 +23,19 @@ export function surfaceFromScene(scene:Object3D,id:string,layer:string):Referenc
 export async function loadFullVascularSurface(id:string,signal:AbortSignal){
   const item=openAnatomy.structures.find(row=>row.id===id),asset=item&&openAnatomy.assets.find(row=>row.file===item.file);
   if(!item||!asset||!['arterial','venous'].includes(item.layer))throw Error('Seleção sem malha vascular importada.');
-  const response=await fetch(openAssetUrl(item.file),{signal});if(!response.ok)throw Error('Falha ao abrir a malha original.');
+  return (await loadOriginalAtlasSurfaces([id],signal))[0];
+}
+/** Group by file: bone, nerves and arteries share original source transforms.
+ * No representative projection packs or named-foramen coordinates are used. */
+export async function loadOriginalAtlasSurfaces(ids:string[],signal:AbortSignal){
+  const groups=new Map<string,typeof openAnatomy.structures>();
+  for(const id of new Set(ids)){
+    const item=openAnatomy.structures.find(row=>row.id===id);if(!item)throw Error('Identidade de origem ausente: '+id);
+    groups.set(item.file,[...(groups.get(item.file)??[]),item]);
+  }
+  return (await Promise.all([...groups].map(async([file,items])=>{
+  const asset=openAnatomy.assets.find(row=>row.file===file)!;
+  const response=await fetch(openAssetUrl(file),{signal});if(!response.ok)throw Error('Falha ao abrir a malha original.');
   const bytes=await response.arrayBuffer();
   if(bytes.byteLength!==asset.size||await sha256(bytes)!==asset.sha256)throw Error('Integridade da malha original não confirmada.');
   if(signal.aborted)throw new DOMException('Aborted','AbortError');
@@ -33,9 +45,10 @@ export async function loadFullVascularSurface(id:string,signal:AbortSignal){
   try{
     const gltf=await loader.parseAsync(bytes,'');scene=gltf.scene;
     if(signal.aborted)throw new DOMException('Aborted','AbortError');
-    return surfaceFromScene(scene,id,item.layer);
+    return items.map(item=>surfaceFromScene(scene!,item.id,item.layer));
   }finally{
     scene?.traverse(node=>{if(node instanceof Mesh){node.geometry.dispose();for(const m of Array.isArray(node.material)?node.material:[node.material])m.dispose();}});
     draco.dispose();
   }
+  }))).flat();
 }

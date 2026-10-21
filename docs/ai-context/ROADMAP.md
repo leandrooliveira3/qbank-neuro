@@ -44,3 +44,7 @@ Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente 
 PróximoP0: estabelecer marcos físicos dos forames e comprovar ramos/conexões prioritários com fontes rotuladas/licenciadas, começando AMM–lacrimal/oftálmica, redondo/ILT, oval/AMA/ILT e vidiana/ACIpetrosa. Revisão venosa incompleta dos capítulos que falharam deve prosseguir. VinteIDs sem geometria e373sem referência não podem ser escondidos por ilustrações. Preservar sete identidades/Galeno e distinguir variantes.
 
 GS-CA: auditoria dos dez casos concluída anteriormente; visor local/VOI/RAD continua pendente como apoio geométrico, após repriorização expressa. BRAVE/VENAT permanecem independentes. P1/P2 de Paciente3D, Doppler, Mentice, dispositivos e REA mantidos; não alegar cancelamento ou conclusão clínica.
+
+## PróximoP0 após inspeção física das vias
+
+Entregues cortes/planos físicos do atlas para8contextos/26elos, hashes por superfície e três conjuntos venosos por lado. P0 não homologado: limites inferiores positivos demonstram separações vidiana–ACI e esfenoidal–lacrimal, não a correção necessária. Próximo lote deve comprovar marcos ósseos nos cortes originais e confrontar a proveniência/extensão dessas vias com Neuroangio/Lasjaunias/fontes rotuladas, sem alterar malhas para zerar distâncias. Revisar os termos venosos não reconciliados e imagens dirigidas quando úteis. Não refazer o inspetor, auditoria592ou42cortes sem evidência nova.20ausências/373lacunas/Galeno/seteIDs e todas as frentes preservadas.

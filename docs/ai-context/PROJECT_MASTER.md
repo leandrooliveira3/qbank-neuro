@@ -49,3 +49,7 @@ Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente 
 ## Prioridade expressa vigente — completude Neuroangio
 
 Usuário elevou completude arterial/venosa clicável no atlas3D/angiografia à prioridade máxima, autorizou auditoria própria e exigiu conferir ramos, curso, anastomoses e forames com Neuroangio/Lasjaunias. O visorGS-CA continua preservado como apoio, após essa prioridade. Novo lote entregou índice/revelação, original2Disolada, auditoria592vasos e nove passagens bibliográficas com contexto. Atlas não declarado completo;20IDs sem geometria e373sem referência, além das identidades anteriores. Relatório:../neuro3d-neuroangio-priority-review.md.
+
+## Vias físicas e consulta venosa recuperada
+
+Inspetor dirigido das quatro vias prioritárias, bilateral, com cortes de malhas originais, plano3D coincidente e evidência exportável.31superfícies/26elos auditados; quatro separações comprovadas no modelo não foram corrigidas artificialmente. Três capítulos venosos com texto dirigido recuperado e seleção por lado. Forames, ramos/curso/lúmen e atlas completo ainda não certificados. Ler ../neuro3d-passage-geometry-review.md.

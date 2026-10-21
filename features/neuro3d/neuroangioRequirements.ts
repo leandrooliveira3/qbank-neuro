@@ -22,7 +22,7 @@ export const neuroangioReviewSources=[
   {url:superficial,status:'consulted',scope:'Canais superficiais nomeados; revisão dirigida, sem declarar levantamento exaustivo de todas as imagens'},
   {url:'https://neuroangio.org/venous-brain-anatomy/deep-venous-system/',status:'consulted',scope:'Índice profundo; tributárias exigem revisão nas páginas específicas'},
   {url:basal,status:'consulted',scope:'Rosenthal e alternativas de drenagem; nomenclatura não identifica superfícies dos datasets'},
-  {url:'https://neuroangio.org/venous-brain-anatomy/venous-sinuses/',status:'fetch-failed-this-session',scope:'Revisão atual do capítulo pendente'},
-  {url:'https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/',status:'fetch-failed-this-session',scope:'Revisão atual completa das tributárias pendente'},
-  {url:'https://neuroangio.org/venous-brain-anatomy/posterior-fossa-veins/',status:'fetch-failed-this-session',scope:'Revisão atual do capítulo pendente'},
+  {url:'https://neuroangio.org/venous-brain-anatomy/venous-sinuses/',status:'consulted-directed-text',scope:'21/10/2026: HTML público obtido por HTTP direto após falha do navegador; revisão dirigida de tributárias, emissárias e variabilidade, sem conferir todas as figuras',sha256:'3d06b02141b9b629de4559719949db52b67115d6c3de7f673cf644d2bef2fed9'},
+  {url:'https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/',status:'consulted-directed-text',scope:'21/10/2026: texto dirigido de grupos subependimários, anéis e alternativas pela veia ventricular inferior; revisão integral de imagens pendente',sha256:'1b96ac4a1aa278935bce33366d08522f2ad11c251481dfafc46a3c0858194020'},
+  {url:'https://neuroangio.org/venous-brain-anatomy/veins-posterior-fossa/',status:'consulted-directed-text',scope:'21/10/2026: URL correta obtida pelo índice; texto dirigido de superfícies cerebelares, canais longitudinais e drenagem petrosa; sem assistir vídeos ou revisar todas as imagens',sha256:'f31a0db3712c8e697e0f38a4eeffedea3be206f35d2cfb23a36acb1e24ec844d'},
 ];

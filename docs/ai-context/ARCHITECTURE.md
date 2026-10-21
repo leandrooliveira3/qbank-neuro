@@ -53,3 +53,11 @@ NeuroangioCoveragePanel usa vascularCompleteness e neuroangioRequirements; expor
 fullVascularSurface confere GLBSHA/tamanho, GLTFLoader/Draco aplica hierarquia completa, converte pela transformação comum do atlas e descarta recursos. AtlasAngiography substitui apenas a superfície importada selecionada quando isolada e opção ativa; render/raycast usam a mesma versão. Chave de quadro/visibilidade inclui o ID original; carregamento oculta quadro antigo e bloqueia picking. Abort/cleanup impedem resultado atrasado, falhas não viram fallback silencioso. Malha geral e grafo procedural permanecem iguais.
 
 neurovascularPassages resolve IDs/lado e elos bibliográficos, separado de fluxo/navegação. NeurovascularPassagesPanel mostra conteúdo, contexto e fontes; DetailedAtlas isola o conjunto de vasos/ossos/nervos e fichas oferecem retorno. Nenhum ponto do forame é inventado. audit_atlas_vessels.ts é ferramenta offline própria, Draco apenas desenvolvimento, sem nova dependência de produção. JSON registra as592identidades, métricas e pendências por ramo/curso/conexão.
+
+## Inspetor de vias e plano físico
+
+PassageGeometryInspector é lazy e usa passage-geometry-audit.json. loadOriginalAtlasSurfaces agrupa IDs por arquivo, confere tamanho/SHA, decodifica uma vez por arquivo e extrai matrizes completas; libera Three/Draco. loadFullVascularSurface conserva restrição vascular anterior. Hashes canônicos float32/uint32 little-endian de todos os originais/ilustrativos do contexto conferidos antes de iniciar worker.
+
+passageSection.worker recebe superfícies uma vez por abertura, calcula interseção triangular no plano e responde por sequência. Mudanças de plano descartam resposta velha; fechamento cancela fetch/encerra worker. Erro bloqueia SVG/exportação e oferece retry. SVG distingue original/ilustrativo e círculo projetado fora do plano; não desenha ponte. Plano3D renderizado por DetailedAtlas no espaço cm global, sem raycast e sem escala dupla; mesma posição/normal, material explícito de sobreposição.
+
+venousStudyReview resolve IDs por lado ou identidade mediana exata; VenousStudyReviewPanel expõe conjuntos/ausências/termos ainda não reconciliados, sem novas arestas procedurais ou geometrias. Exportação Neuroangio inclui revisão dirigida atualizada.

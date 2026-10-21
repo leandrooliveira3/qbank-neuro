@@ -73,3 +73,10 @@ Livro local original Lasjaunias/Berenstein/terBrugge2001,789páginas PDF, SHA421
 Executado: auditor próprio592vasos com GLBsDraco/12SHA, superfícies de projeção,353comparações a pais e3552raycasts isolados. Original2Disolada usa o mesmo GLB no navegador. Não executou MGP/Matlab, IA dos sete repositórios ou transferência de rótulos BRAVE/VENAT/GS-CA ao atlas. Fontes continuam sem registro entre referenciais.
 
 Planilha database_info.xls dos anexosGS-CA foi lida localmente com xlrd2.0.2 em ambiente temporário, sem dependência do site. VOI/ROI são índiceszero; regiões não redistribuídas. Leitura não equivale à implementação do visor ou validação visual de dadosGS-CA.
+
+## Fontes efetivamente reconsultadas no lote de vias
+
+- Três GLBs locais CC-BY-SA-4.0 foram efetivamente decodificados e conferidos: cardiovascular_head.glb, landmarks_bone.glb, nervous_head.glb.31superfícies/26elos, sem novos dados restritos. Fonte Anatria fixa6320bd64df8db2fcfed358a27c85d1fcc1c5913c e atribuição BodyParts3D/DBCLS→Z-Anatomy→Anatria→Qbank preservadas. Hashes completos em ../../features/neuro3d/passage-geometry-audit.json.
+- ILT Neuroangio reaberto pela ferramenta web; textos privados de Lasjaunias PDF322/437/475 reconsultados, mesmos trechos dirigidos da etapa anterior, sem nova leitura integral/redistribuição.
+- https://neuroangio.org/venous-brain-anatomy/venous-sinuses/ e /internal-cerebral-vein/ recuperados por HTTP público/Python após falha web; /veins-posterior-fossa/ é a URL correta do índice. Revisão textual dirigida; hashes e método em ../neuro3d-passage-geometry-review.md e neuroangioRequirements.ts. Não assistidos vídeos ou todas as figuras.
+- Ferramentas realmente executadas: sourceSurfaceReader/Draco, audit_passage_geometry próprio, interseção/medidas próprias, worker do navegador, Vitest/TypeScript/Vite/Playwright. Não executados VMTK, MEX/MGP, IAsegmentação, REA novo ou reconstrução3DRA neste lote. Datasets independentes e livro preservados.

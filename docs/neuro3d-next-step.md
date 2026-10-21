@@ -62,3 +62,7 @@ Leia ai-context/NEXT_SESSION.md e neuro3d-linked-reference-lineage.md. Auditoria
 ## Prioridade atual Neuroangio
 
 Completude vascular clicável, ramos, curso, anastomoses e forames são agora prioridade máxima expressa; auditoria própria autorizada. Índice/revelação, original2Disolada, auditoria592vasos e nove registros de passagens entregues. VinteIDs sem geometria e373sem referência; não homologar por presença. Ler ai-context/NEXT_SESSION.md e neuro3d-neuroangio-priority-review.md. VisorGS-CA pendente, preservado como apoio.
+
+## Continuidade após cortes físicos das vias
+
+A etapa seguinte já entregou o inspetor físico e plano3D coincidente para as quatro vias/lado e recuperou texto dirigido dos três capítulos venosos. Ler neuro3d-passage-geometry-review.md e ai-context/NEXT_SESSION.md. Não repetir essa implementação. Mantidas20ausências/373lacunas e identidades anteriores; quatro separações geométricas demonstradas não autorizam pontes.

@@ -5,6 +5,8 @@ import {normalize} from './model';
 import {openAnatomy} from './openAnatomy';
 import {reconstructedVessels} from './reconstructedVessels';
 import {neurovascularPassages,resolvePassage,passageBookEvidence} from './neurovascularPassages';
+import VenousStudyReviewPanel from './VenousStudyReviewPanel';
+import {venousStudyReviews} from './venousStudyReview';
 const names=new Map([...openAnatomy.structures,...reconstructedVessels].map(row=>[row.id,row.name]));
 export default function NeuroangioCoveragePanel({onExplore}:{onExplore:(id:string)=>void}){
   const [query,setQuery]=useState(''),[system,setSystem]=useState('all'),[coverage,setCoverage]=useState('all');
@@ -13,7 +15,7 @@ export default function NeuroangioCoveragePanel({onExplore}:{onExplore:(id:strin
     normalize(`${row.id} ${row.name} ${row.group} ${row.expectedIds.join(' ')}`).includes(normalize(query))),[system,coverage,query]);
   function exportAudit(){
     const report={schema:1,scope:'Current explicit inventory; not exhaustive certification of all Neuroangio chapters/images',
-      sourceReviews:neuroangioReviewSources,counts:vascularCompletenessCounts,requirements:vascularCompleteness,
+      sourceReviews:neuroangioReviewSources,venousStudyReviews,counts:vascularCompletenessCounts,requirements:vascularCompleteness,
       unresolvedDiagram:unmappedVascularDiagramEntries,anatomicalApproval:false,atlasComplete:false,
       passageBookEvidence,passages:neurovascularPassages.flatMap(row=>(['l','r'] as const).map(side=>resolvePassage(row,side))),
       datasetEvidence:[{source:'BRAVE-NET pat_1',use:'Independent manual-label surface/sections',namedVesselCorrespondence:false},
@@ -32,6 +34,7 @@ export default function NeuroangioCoveragePanel({onExplore}:{onExplore:(id:strin
     <label>Evidência<select aria-label="Evidência Neuroangio" value={coverage} onChange={e=>setCoverage(e.target.value)}><option value="all">Todas</option><option value="reference-gap">Referência importada ausente</option><option value="missing">Geometria individual ausente</option></select></label>
     <p role="status">{rows.length} identidades ou grupos encontrados.</p><button onClick={exportAudit}>Exportar auditoria Neuroangio</button>
     <details><summary>Como os datasets apoiam a revisão</summary><p>BRAVE e VENAT fornecem superfícies e cortes independentes; GS-CA fornece geometria 3D–2D local calibrada. Essas fontes ajudam a confrontar o atlas, mas não rotulam automaticamente cada ramo ou veia. Nenhum registro espacial ou identidade individual foi presumido.</p><p>As variantes não coexistem obrigatoriamente no mesmo indivíduo. Revelar uma artéria embrionária ativa seu controle explícito.</p></details>
+    <VenousStudyReviewPanel onExplore={onExplore}/>
     {rows.map(row=><article key={`${row.layer}:${row.id}`} data-neuroangio-id={row.id}>
       <h4>{row.name}</h4><small>{row.group}</small>
       <p>{row.missingIds.length?'Geometria individual pendente':row.referenceMissingIds.length?'Inclui reconstrução ilustrativa · referência individual pendente':'Fonte importada · revisão anatômica pendente'}</p>
