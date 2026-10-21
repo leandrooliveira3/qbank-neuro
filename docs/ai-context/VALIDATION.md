@@ -47,3 +47,17 @@ Este resultado é funcional/local em Chrome/SwiftShader; não comprova alinhamen
 ## Lote seccional — 21/10/2026
 
 Nesta etapa: TypeScript/build e 122 unitários/28 arquivos aprovados; três testes Python de interior/aresta/vértice/degeneração aprovados. Verificador offline comparou todos os 5.357.072 valores dos 42 planos com os NIfTI: igualdade exata float32 e affine. Execução ampla de navegador: 22 casos únicos desktop/Pixel 7 (sections, comparison, study-families, vascular-review, patient, tcd, video-workflow). Repetição final de quatro casos seccionais verifica conservação ao fechar painel, não somar como novos. Capturas inspecionadas; sem homologação clínica/anatômica. Geometria completa verificada pelos hashes GLB e contagens/accessors/ausência de pai na primitiva do seio reto. Permanece aviso de chunks >500 kB. Vercel: 403 ao time mesmo com plugin adicionado; GitHub sem sucesso da base; CLI indisponível.
+
+## Lote de linhagem e vínculo físico — resultado atual
+
+TypeScript e build aprovados no código final; 124 unitários/29 arquivos. Audit_sinus_lineage.py executado contra arquivos do commit Anatria fixo: primitiva/transformações exatamente iguais. Novos testes: affine refletida/anisotrópica com resultado calculado independentemente e integridade da primitiva do seio reto.
+
+Playwright em produção: linked-reference+sections+comparison =12 aprovados; linked-reference+vascular-review+patient+tcd+video-workflow =14 aprovados. Quatro linked-reference repetidos, portanto **22 casos únicos** desktop/Pixel7. Segunda execução verifica linkedVisible exportado; clique real na esfera retorna ao corte, RAS preservado. Capturas VENAT desktop/BRAVE móvel inspecionadas. Aviso chunks>500kB permanece; nenhuma validação clínica/anatômica.
+
+Correção da pendência anterior: screenshot do usuário confirma Ready/Preview de 81f6799, branch correspondente, evidência e hash persistidos. Não se declarou navegador remoto ou consulta Vercel bem-sucedida. 403 não nega deploy. Novo checkpoint não herda esse status.
+
+## Prioridade nova — 3D-2D-GS-CA para geometria
+
+Usuário indicou explicitamente os onze ZIPs 3D-2D-GS-CA como referência geométrica preferencial. **Próximo lote geométrico deve começar por essa fonte**, antes de ampliar navegação BRAVE/VENAT; CTA é complementar. Auditoria offline dos10casos/20vistas e60coleções MGP concluída, hashes/CRC/bytes/finitude e projeção algébrica conferidos; três testes Python próprios aprovados. Não executou Matlab/MEX/MGP ou importação na UI. Volumes MHD/RAW e detector RAD/RAW estão em Sv/Sw mm, não DICOMLPS/RAS implícito. Report ../neuro3d-geometry-dataset-review.md; resultados ../neuro3d-gs-ca-geometry-audit.json.
+
+Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente não estabelecido. Dados/calibrações/pontos/código de fornecedor permanecem locais, sem redistribuição; preservar essa condição. Próxima etapa: leitor/visor local, VOI/ROI e contrato voxel→mm→detector verificável, sem sobrepor atlas ou reivindicar registro validado. Database_info.xls/ROIs e convenções visuais ainda precisam de verificação. CTA foi reconferido e3cortes reais foram rejeitados pelo leitor por JPEGsemperdas; série184 excede32milhões de voxels. Ver os dois novos relatórios CTA; não declarar integração.

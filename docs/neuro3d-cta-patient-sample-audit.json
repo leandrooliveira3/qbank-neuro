@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "source": "https://zenodo.org/records/15697196",
+  "license": "CC-BY-4.0",
+  "method": "dicom-parser headers plus actual parsePatientDicom on three original slices; no decoder/conversion",
+  "samples": [
+    {
+      "file": "Studies_184_0.dcm",
+      "bytes": 237548,
+      "sha256": "f2b64292d089dd133cb3be6ad28976f67b10981e173e4c3d0a04f6efb8749c98",
+      "modality": "CT",
+      "sopClass": "1.2.840.10008.5.1.4.1.1.2",
+      "transferSyntax": "1.2.840.10008.1.2.4.70",
+      "rows": 512,
+      "columns": 512,
+      "pixelSpacingMm": [
+        0.517578125,
+        0.517578125
+      ],
+      "orientationLPS": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "positionLPSmm": [
+        -135.2412109375,
+        -302.7412109375,
+        -417.5
+      ],
+      "bitsAllocated": 16,
+      "encapsulatedPixelData": true,
+      "reader": {
+        "accepted": false,
+        "reason": "Compressão DICOM ainda não suportada. Exporte uma cópia sem compressão para esta versão."
+      }
+    },
+    {
+      "file": "Studies_184_1.dcm",
+      "bytes": 236464,
+      "sha256": "2a69d193b6c7852845842a98cbeb0e5fc134cee57370c4942c78f32913f1c9ee",
+      "modality": "CT",
+      "sopClass": "1.2.840.10008.5.1.4.1.1.2",
+      "transferSyntax": "1.2.840.10008.1.2.4.70",
+      "rows": 512,
+      "columns": 512,
+      "pixelSpacingMm": [
+        0.517578125,
+        0.517578125
+      ],
+      "orientationLPS": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "positionLPSmm": [
+        -135.2412109375,
+        -302.7412109375,
+        -416.8
+      ],
+      "bitsAllocated": 16,
+      "encapsulatedPixelData": true,
+      "reader": {
+        "accepted": false,
+        "reason": "Compressão DICOM ainda não suportada. Exporte uma cópia sem compressão para esta versão."
+      }
+    },
+    {
+      "file": "Studies_184_559.dcm",
+      "bytes": 129840,
+      "sha256": "c438792e55f8998e5e65eacab9d164a5f2d14fc733a81be7f4716c58f459b205",
+      "modality": "CT",
+      "sopClass": "1.2.840.10008.5.1.4.1.1.2",
+      "transferSyntax": "1.2.840.10008.1.2.4.70",
+      "rows": 512,
+      "columns": 512,
+      "pixelSpacingMm": [
+        0.517578125,
+        0.517578125
+      ],
+      "orientationLPS": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "positionLPSmm": [
+        -135.2412109375,
+        -302.7412109375,
+        -26.2
+      ],
+      "bitsAllocated": 16,
+      "encapsulatedPixelData": true,
+      "reader": {
+        "accepted": false,
+        "reason": "Compressão DICOM ainda não suportada. Exporte uma cópia sem compressão para esta versão."
+      }
+    }
+  ],
+  "fullSeriesValidated": false,
+  "annotationRegistered": false,
+  "rotationalAngiographyValidated": false,
+  "limitations": "Three slices only; no volume assembly or STL-to-DICOM transform established. Raw data and identity fields are not included."
+}

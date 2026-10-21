@@ -35,3 +35,13 @@ Comparador independente BRAVE-NET/VENAT implementado em aba própria. São super
 ## Lote seccional — 21/10/2026
 
 Inspeção seccional acrescentada ao comparador existente: 42 planos nativos BRAVE/VENAT e marcos manuais em RAS/mm, sem registro ao atlas ou aprovação automática.
+
+## Vínculos físicos e evidência de origem
+
+Mesma fonte: corte/marco/superfície compartilham affine e transformação; clique 3D retorna ao plano, exportação conserva estado e visibilidade. Linhagem Anatria→Qbank do seio reto tem primitiva/transformações idênticas; vendor registra CURVE antes de mesh. Identidade por objeto em BodyParts3D/FMA e relação com Galeno continuam sem comprovação. Preview 81f6799 Ready comprovado por screenshot, sem depender da consulta Vercel 403. Relatório: ../neuro3d-linked-reference-lineage.md.
+
+## Prioridade nova — 3D-2D-GS-CA para geometria
+
+Usuário indicou explicitamente os onze ZIPs 3D-2D-GS-CA como referência geométrica preferencial. **Próximo lote geométrico deve começar por essa fonte**, antes de ampliar navegação BRAVE/VENAT; CTA é complementar. Auditoria offline dos10casos/20vistas e60coleções MGP concluída, hashes/CRC/bytes/finitude e projeção algébrica conferidos; três testes Python próprios aprovados. Não executou Matlab/MEX/MGP ou importação na UI. Volumes MHD/RAW e detector RAD/RAW estão em Sv/Sw mm, não DICOMLPS/RAS implícito. Report ../neuro3d-geometry-dataset-review.md; resultados ../neuro3d-gs-ca-geometry-audit.json.
+
+Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente não estabelecido. Dados/calibrações/pontos/código de fornecedor permanecem locais, sem redistribuição; preservar essa condição. Próxima etapa: leitor/visor local, VOI/ROI e contrato voxel→mm→detector verificável, sem sobrepor atlas ou reivindicar registro validado. Database_info.xls/ROIs e convenções visuais ainda precisam de verificação. CTA foi reconferido e3cortes reais foram rejeitados pelo leitor por JPEGsemperdas; série184 excede32milhões de voxels. Ver os dois novos relatórios CTA; não declarar integração.

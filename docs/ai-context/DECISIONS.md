@@ -36,3 +36,17 @@ Decisão: vistas exportadas exigem registro manual e incluem pose; carregar uma 
 ## Lote seccional — 21/10/2026
 
 Contexto: continuar de 2cd11d7 sem refazer comparador. Decisão: disponibilizar cortes selecionados completos em vez de interpolar/registrar volumes; manter float32 e contexto físico. Justificativa: validar cada valor nativo e evitar misturar máscara/PVF com intensidade radiológica. Impacto: sete planos por eixo, marcos manuais sem identidade homologada. Decisão: auditar todas as faces originais do seio reto e seus marcos de origem, sem aproximar Galeno; discrepância persiste e exige rastrear a linhagem da fonte. Decisão: conexão Vercel adicionada não substitui autorização ao time; não alterar permissões globais nem bloquear tarefas locais por erro 403.
+
+## 21/10/2026 — fonte exata, vínculo físico e preview
+
+Decisão: preservar a geometria do seio reto. A comparação executada confirma bytes da primitiva e TRS idênticos Anatria→Qbank; o desacordo não autoriza deformação. CURVE/TA2 são evidências de representação/nomenclatura, sem aprovação anatômica ou vínculo FMA presumido. Impacto: Galeno e sete identidades continuam abertos.
+
+Decisão: corte/marcos/3D usam mesma affine e mesmo centro por fonte; sem snapping ou registro entre fontes. Sobreposição dourada continua visível sob oclusão com aviso explícito. Registro de vistas inclui linkedVisible, plano e marcos para interpretação reprodutível.
+
+Decisão: aceitar screenshot Ready do usuário como evidência do preview 81f6799, sem declarar teste remoto executado. 403 é limitação de consulta ao time, não falha do deploy automático. Não reinstalar plugin/alterar permissões; deployment de cada novo hash deve ser verificado separadamente.
+
+## Prioridade nova — 3D-2D-GS-CA para geometria
+
+Usuário indicou explicitamente os onze ZIPs 3D-2D-GS-CA como referência geométrica preferencial. **Próximo lote geométrico deve começar por essa fonte**, antes de ampliar navegação BRAVE/VENAT; CTA é complementar. Auditoria offline dos10casos/20vistas e60coleções MGP concluída, hashes/CRC/bytes/finitude e projeção algébrica conferidos; três testes Python próprios aprovados. Não executou Matlab/MEX/MGP ou importação na UI. Volumes MHD/RAW e detector RAD/RAW estão em Sv/Sw mm, não DICOMLPS/RAS implícito. Report ../neuro3d-geometry-dataset-review.md; resultados ../neuro3d-gs-ca-geometry-audit.json.
+
+Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente não estabelecido. Dados/calibrações/pontos/código de fornecedor permanecem locais, sem redistribuição; preservar essa condição. Próxima etapa: leitor/visor local, VOI/ROI e contrato voxel→mm→detector verificável, sem sobrepor atlas ou reivindicar registro validado. Database_info.xls/ROIs e convenções visuais ainda precisam de verificação. CTA foi reconferido e3cortes reais foram rejeitados pelo leitor por JPEGsemperdas; série184 excede32milhões de voxels. Ver os dois novos relatórios CTA; não declarar integração.

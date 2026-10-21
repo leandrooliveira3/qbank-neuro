@@ -4,7 +4,8 @@ import {OrbitControls} from '@react-three/drei/core/OrbitControls';
 import {BufferGeometry,Float32BufferAttribute,DoubleSide,Vector3} from 'three';
 import type {OrbitControls as OrbitControlsImpl} from 'three-stdlib';
 import manifest from './manifest.json';
-import {decodeReferenceGeometry,displayPoint,sha256} from './geometry';
+import {decodeReferenceGeometry,centeredReferencePoint,sha256} from './geometry';
+import {planeCorners,type LinkedPlane,type ReferenceMark} from './sectionGeometry';
 import './comparison.css';
 
 type Surface=typeof manifest.surfaces[number];
@@ -17,14 +18,23 @@ class SceneBoundary extends Component<{children:React.ReactNode},{failed:boolean
   state={failed:false};static getDerivedStateFromError(){return {failed:true};}
   render(){return this.state.failed?<p role="alert">Não foi possível exibir a superfície 3D. A proveniência continua disponível.</p>:this.props.children;}
 }
-function Scene({geometry,view,reset,onPose}:{geometry:Geometry;view:View;reset:number;onPose:(pose:Pose)=>void}){
+function LinkedOverlay({marks,plane,centerRAS,radius,onMarkFocus}:{marks:ReferenceMark[];plane?:LinkedPlane;centerRAS:number[];radius:number;onMarkFocus:(mark:ReferenceMark)=>void}){
+  const outline=useMemo(()=>{
+    if(!plane)return;
+    const g=new BufferGeometry();g.setFromPoints(planeCorners(plane).map(p=>new Vector3(...centeredReferencePoint(p,centerRAS))));return g;
+  },[plane,centerRAS]);
+  useEffect(()=>()=>outline?.dispose(),[outline]);
+  return <>{outline&&<lineLoop geometry={outline} renderOrder={2}><lineBasicMaterial color="#ffc45a" depthTest={false}/></lineLoop>}{marks.map((mark,i)=><mesh key={i} position={centeredReferencePoint(mark.ras,centerRAS) as [number,number,number]} renderOrder={3} onClick={e=>{e.stopPropagation();onMarkFocus(mark);}}><sphereGeometry args={[radius*.012,12,8]}/><meshBasicMaterial color="#ffb94c" depthTest={false}/></mesh>)}</>;
+}
+function Scene({geometry,view,reset,onPose,marks,plane,bounds,onMarkFocus}:{geometry:Geometry;view:View;reset:number;onPose:(pose:Pose)=>void;marks:ReferenceMark[];plane?:LinkedPlane;bounds:number[][];onMarkFocus:(mark:ReferenceMark)=>void}){
   const {camera}=useThree();
   const controls=useRef<OrbitControlsImpl>(null);
+  const centerRAS=useMemo(()=>bounds[0].map((v,k)=>(v+bounds[1][k])/2),[bounds]);
   const mesh=useMemo(()=>{
     const points=new Float32Array(geometry.positions.length);
-    for(let i=0;i<points.length;i+=3)points.set(displayPoint(Array.from(geometry.positions.subarray(i,i+3))),i);
-    const g=new BufferGeometry();g.setAttribute('position',new Float32BufferAttribute(points,3));g.setIndex(Array.from(geometry.indices));g.computeVertexNormals();g.computeBoundingBox();g.center();g.computeBoundingSphere();return g;
-  },[geometry]);
+    for(let i=0;i<points.length;i+=3)points.set(centeredReferencePoint(Array.from(geometry.positions.subarray(i,i+3)),centerRAS),i);
+    const g=new BufferGeometry();g.setAttribute('position',new Float32BufferAttribute(points,3));g.setIndex(Array.from(geometry.indices));g.computeVertexNormals();g.computeBoundingBox();g.computeBoundingSphere();return g;
+  },[geometry,centerRAS]);
   useEffect(()=>()=>mesh.dispose(),[mesh]);
   useEffect(()=>{
     const r=mesh.boundingSphere!.radius;
@@ -32,10 +42,13 @@ function Scene({geometry,view,reset,onPose}:{geometry:Geometry;view:View;reset:n
     camera.position.copy(new Vector3(...direction).normalize().multiplyScalar(r*3));camera.up.set(0,1,0);camera.lookAt(0,0,0);
     if('isOrthographicCamera' in camera){camera.zoom=120/r;camera.updateProjectionMatrix();}
   },[camera,mesh,view,reset]);
-  return <><ambientLight intensity={1.2}/><directionalLight position={[100,200,300]} intensity={2}/><mesh geometry={mesh}><meshStandardMaterial color="#8dd8eb" side={DoubleSide} roughness={.65}/></mesh><OrbitControls ref={controls} key={`${view}-${reset}`} makeDefault target={[0,0,0]} enablePan enableZoom onChange={()=>onPose({position:camera.position.toArray(),up:camera.up.toArray(),target:controls.current?.target.toArray()??[0,0,0],zoom:camera.zoom})}/></>;
+  return <><ambientLight intensity={1.2}/><directionalLight position={[100,200,300]} intensity={2}/><mesh geometry={mesh}><meshStandardMaterial color="#8dd8eb" side={DoubleSide} roughness={.65}/></mesh><LinkedOverlay marks={marks} plane={plane} centerRAS={centerRAS} radius={mesh.boundingSphere!.radius} onMarkFocus={onMarkFocus}/><OrbitControls ref={controls} key={`${view}-${reset}`} makeDefault target={[0,0,0]} enablePan enableZoom onChange={()=>onPose({position:camera.position.toArray(),up:camera.up.toArray(),target:controls.current?.target.toArray()??[0,0,0],zoom:camera.zoom})}/></>;
 }
-function ReferenceCard({kind,onInspection}:{kind:'brave'|'venat';onInspection:(key:string,view:View,pose:Pose)=>void}){
+function ReferenceCard({kind,onInspection}:{kind:'brave'|'venat';onInspection:(key:string,view:View,pose:Pose,marks:ReferenceMark[],linkedVisible:boolean,plane?:LinkedPlane)=>void}){
   const [sections,setSections]=useState(false),[sectionsOpened,setSectionsOpened]=useState(false);
+  const [marks,setMarks]=useState<ReferenceMark[]>([]),[linkedPlane,setLinkedPlane]=useState<LinkedPlane>(),[showLinked,setShowLinked]=useState(true);
+  const [focusRequest,setFocusRequest]=useState<{mark:ReferenceMark;revision:number}>();
+  function focusMark(mark:ReferenceMark){setSections(true);setFocusRequest(old=>({mark,revision:(old?.revision??0)+1}));}
   const options=manifest.surfaces.filter(row=>row.kind===kind);
   const [key,setKey]=useState(options[0]?.key??''),[view,setView]=useState<View>('AP'),[reset,setReset]=useState(0),[attempt,setAttempt]=useState(0);
   const surface=options.find(row=>row.key===key),source=sources[kind];
@@ -68,17 +81,18 @@ function ReferenceCard({kind,onInspection}:{kind:'brave'|'venat';onInspection:(k
     {kind==='venat'&&<label>Fração média para a superfície<select aria-label="Limiar VENAT" value={key} onChange={e=>setKey(e.target.value)}>{options.map(row=><option key={row.key} value={row.key}>{row.threshold.toFixed(2)}</option>)}</select></label>}
     <div className="reference-actions">{(['AP','Lateral esquerda','Oblíqua'] as View[]).map(v=><button key={v} aria-label={`${source.name} · ${v}`} aria-pressed={view===v} onClick={()=>{setView(v);setReset(n=>n+1);}}>{v}</button>)}<button onClick={()=>setReset(n=>n+1)}>Restaurar enquadramento</button></div>
     <div className="reference-scene" data-testid={`${kind}-reference-view`} data-state={current?.geometry?'ready':current?.error?'error':'loading'} data-view={view}>
-      {current?.geometry?<SceneBoundary key={key}><Canvas orthographic camera={{position:[0,0,300],near:.1,far:3000}}><Scene geometry={current.geometry} view={view} reset={reset} onPose={value=>{pose.current=value;}}/></Canvas></SceneBoundary>:current?.error?<><p role="alert">{current.error}</p><button onClick={()=>setAttempt(n=>n+1)}>Tentar novamente</button></>:<p role="status">Conferindo e carregando a superfície…</p>}
+      {current?.geometry&&surface?<SceneBoundary key={key}><Canvas orthographic camera={{position:[0,0,300],near:.1,far:3000}}><Scene geometry={current.geometry} view={view} reset={reset} bounds={surface.boundsRASmm} onMarkFocus={focusMark} marks={showLinked?marks.filter(m=>m.sourceSHA256===surface.sourceSHA256):[]} plane={showLinked&&linkedPlane?.sourceSHA256===surface.sourceSHA256?linkedPlane:undefined} onPose={value=>{pose.current=value;}}/></Canvas></SceneBoundary>:current?.error?<><p role="alert">{current.error}</p><button onClick={()=>setAttempt(n=>n+1)}>Tentar novamente</button></>:<p role="status">Conferindo e carregando a superfície…</p>}
     </div>
     <p>Vista {view} da superfície · superior para cima. AP: observador anterior; lateral: observador à esquerda do indivíduo. Arraste para girar; use zoom para inspecionar. Não é DSA ou MIP.</p>
     <button aria-expanded={sections} onClick={()=>{setSectionsOpened(true);setSections(v=>!v);}}>{sections?'Fechar cortes':'Inspecionar cortes e marcos'}</button>
-    {sectionsOpened&&<div hidden={!sections}><Suspense fallback={<p role="status">Abrindo inspeção seccional…</p>}><SectionInspector kind={kind}/></Suspense></div>}
-    {surface&&<><p>{surface.triangles.toLocaleString('pt-BR')} triângulos · {surface.components} componentes geométricos · superfície simplificada. Detalhes finos podem ter sido perdidos.</p><button disabled={!current?.geometry} onClick={()=>{if(pose.current)onInspection(surface.key,view,pose.current);}}>Adicionar vista ao registro</button><details><summary>Origem, coordenadas e processamento</summary><p>{source.credit} · {source.license}</p><a href={source.url} target="_blank" rel="noreferrer">Registro original e licença</a><p>Coordenadas: RAS em mm, affine do NIfTI. Centralização apenas visual, com enquadramento independente. Sem transformação para o atlas ou entre as duas fontes.</p><p>Componentes antes/depois: {surface.original.components}/{surface.components}. Conservação dessa contagem não comprova topologia ou anatomia. Limiar: {surface.threshold}.</p><p className="reference-hash">SHA-256 do volume: {surface.sourceSHA256}</p><pre>{JSON.stringify(surface.voxelToRASmm,null,2)}</pre></details></>}
+    {sectionsOpened&&<><label><input type="checkbox" aria-label={`Mostrar vínculos físicos ${kind}`} checked={showLinked} onChange={e=>setShowLinked(e.target.checked)}/>Mostrar contorno do corte e marcos no 3D</label><p data-testid={`linked-${kind}`} data-plane={linkedPlane?.key??''} data-marks={marks.length}>Contorno e pontos dourados: posições físicas da mesma fonte, desenhados sobre a superfície para permanecerem visíveis mesmo quando ocluídos. A superfície é simplificada; um pixel positivo pode não coincidir com sua parede. Nenhum ponto é ajustado ao vaso. Clique em um marcador 3D para voltar ao seu corte; a lista de marcos oferece a mesma ação pelo teclado.</p></>}
+    {sectionsOpened&&<div hidden={!sections}><Suspense fallback={<p role="status">Abrindo inspeção seccional…</p>}><SectionInspector kind={kind} marks={marks} setMarks={setMarks} onPlaneChange={setLinkedPlane} focusRequest={focusRequest}/></Suspense></div>}
+    {surface&&<><p>{surface.triangles.toLocaleString('pt-BR')} triângulos · {surface.components} componentes geométricos · superfície simplificada. Detalhes finos podem ter sido perdidos.</p><button disabled={!current?.geometry} onClick={()=>{if(pose.current)onInspection(surface.key,view,pose.current,marks,showLinked,linkedPlane);}}>Adicionar vista ao registro</button><details><summary>Origem, coordenadas e processamento</summary><p>{source.credit} · {source.license}</p><a href={source.url} target="_blank" rel="noreferrer">Registro original e licença</a><p>Coordenadas: RAS em mm, affine do NIfTI. Centralização apenas visual, com enquadramento independente. Sem transformação para o atlas ou entre as duas fontes.</p><p>Componentes antes/depois: {surface.original.components}/{surface.components}. Conservação dessa contagem não comprova topologia ou anatomia. Limiar: {surface.threshold}.</p><p className="reference-hash">SHA-256 do volume: {surface.sourceSHA256}</p><pre>{JSON.stringify(surface.voxelToRASmm,null,2)}</pre></details></>}
   </article>;
 }
 export default function ReferenceComparator(){
-  const [inspections,setInspections]=useState<{key:string;view:View;pose:Pose}[]>([]);
-  function record(key:string,view:View,pose:Pose){setInspections(old=>[...old.filter(row=>row.key!==key||row.view!==view),{key,view,pose}]);}
+  const [inspections,setInspections]=useState<{key:string;view:View;pose:Pose;marks:ReferenceMark[];linkedVisible:boolean;plane?:LinkedPlane}[]>([]);
+  function record(key:string,view:View,pose:Pose,marks:ReferenceMark[],linkedVisible:boolean,plane?:LinkedPlane){setInspections(old=>[...old.filter(row=>row.key!==key||row.view!==view),{key,view,pose,marks,linkedVisible,plane}]);}
   function exportReport(){
     const report={schema:1,sourceRecords:manifest.sources,toolVersions:manifest.toolVersions,sources:manifest.surfaces,recordedViews:inspections,displayTransform:'native RAS mm -> [-R,S,A] mm, minus transformed surface bounds centre; orthographic camera in display mm. View names are presets; pose records manual adjustments.',interpretation:'User-recorded views only; not anatomical approval',atlasRegistration:null,interSourceRegistration:null,clinicalValidation:false};
     const url=URL.createObjectURL(new Blob([JSON.stringify(report,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='referencias-vasculares-proveniencia.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);

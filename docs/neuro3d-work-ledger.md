@@ -25,3 +25,12 @@ BRAVE-NET/VENAT agora têm superfícies verificadas na aba Referências vascular
 ## Lote seccional concluído
 
 42 planos nativos BRAVE/VENAT, marcos RAS/mm e auditoria dos 2304 triângulos originais do seio reto. Discrepância Galeno e sete identidades preservadas. Próximo: rastrear linhagem da identidade/transformações e vincular cortes/3D da mesma fonte. Ver ai-context/NEXT_SESSION.md e neuro3d-sectional-review.md.
+
+
+## Continuidade atual — vínculos físicos e linhagem
+
+Leia ai-context/NEXT_SESSION.md e neuro3d-linked-reference-lineage.md. Auditoria Anatria→Qbank e vínculo corte/marco/3D concluídos; não refazer. Galeno e sete identidades permanecem abertos. Preview81f6799 Ready confirmado por imagem do usuário apesar do403 de consulta ao time.
+
+## Direção mais recente do usuário
+
+3D-2D-GS-CA passa a referência preferencial de geometria, conforme neuro3d-geometry-dataset-review.md. Dez casos auditados localmente, três testes Python próprios aprovados; próximo lote deve começar pelo visor local e contrato físico, mantendo dados/licenças em espaço próprio. CTA fica complementar. Esse direcionamento supera a ordem de próxima tarefa anterior.

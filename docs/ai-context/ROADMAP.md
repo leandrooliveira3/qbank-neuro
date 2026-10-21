@@ -26,3 +26,13 @@ Acrescentar inspeção seccional dos volumes de referência e marcos auditáveis
 ## Lote seccional — 21/10/2026
 
 P0.2: cortes nativos selecionados e marcações físicas entregues; não é navegação por todos os cortes nem validação anatômica. P0.1: seio reto original completo auditado e contexto inspecionável; identidade/junção Galeno continuam pendentes. Próximo P0: rastrear a atribuição/transformações na linhagem BodyParts3D/Z-Anatomy/Anatria e vincular cortes/3D da MESMA fonte por coordenadas físicas, sem registro entre fontes. Preservar sete identidades e todas as frentes de paciente/Doppler/Mentice/Ankyras.
+
+## Estado que supera os próximos lotes anteriores
+
+42 planos e auditoria original entregues em 81f6799; agora a comparação exata Anatria→Qbank e vinculação física corte/marcos/3D também estão entregues. P0.2: marcos/cortes vinculados funcionalmente, revisão anatômica ainda pendente. Próximo lote: navegação ortogonal vinculada da mesma fonte, sem sugerir acesso a cortes que não estão no conjunto selecionado; qualquer expansão exige derivação/hash/affine verificados. P0.1: buscar ID por objeto em Z-Anatomy/BodyParts3D somente com fonte nova; não refazer auditoria de bytes já concluída. Nenhuma identidade foi resolvida. CTA15697196 deve apoiar ensaios independentes físicos de paciente, condicionado à aquisição/verificação, sem substituir 3DRA. Preview 81f6799 Ready por imagem do usuário; 403 não impede os trabalhos.
+
+## Prioridade nova — 3D-2D-GS-CA para geometria
+
+Usuário indicou explicitamente os onze ZIPs 3D-2D-GS-CA como referência geométrica preferencial. **Próximo lote geométrico deve começar por essa fonte**, antes de ampliar navegação BRAVE/VENAT; CTA é complementar. Auditoria offline dos10casos/20vistas e60coleções MGP concluída, hashes/CRC/bytes/finitude e projeção algébrica conferidos; três testes Python próprios aprovados. Não executou Matlab/MEX/MGP ou importação na UI. Volumes MHD/RAW e detector RAD/RAW estão em Sv/Sw mm, não DICOMLPS/RAS implícito. Report ../neuro3d-geometry-dataset-review.md; resultados ../neuro3d-gs-ca-geometry-audit.json.
+
+Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente não estabelecido. Dados/calibrações/pontos/código de fornecedor permanecem locais, sem redistribuição; preservar essa condição. Próxima etapa: leitor/visor local, VOI/ROI e contrato voxel→mm→detector verificável, sem sobrepor atlas ou reivindicar registro validado. Database_info.xls/ROIs e convenções visuais ainda precisam de verificação. CTA foi reconferido e3cortes reais foram rejeitados pelo leitor por JPEGsemperdas; série184 excede32milhões de voxels. Ver os dois novos relatórios CTA; não declarar integração.

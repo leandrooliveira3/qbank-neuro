@@ -1,0 +1,22 @@
+import {it,expect} from 'vitest';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import evidence from '../../docs/neuro3d-sinus-lineage-audit.json';
+it('preserves the traced source primitive and transform without treating nomenclature or a Blender curve as anatomical approval',()=>{
+  const raw=readFileSync('public/neuro3d/open-anatomy/cardiovascular_head.glb');
+  expect(createHash('sha256').update(raw).digest('hex')).toBe(evidence.qbankSubsetSHA256);
+  const size=raw.readUInt32LE(12),doc=JSON.parse(raw.subarray(20,20+size).toString()),bin=raw.subarray(28+size);
+  const node=doc.nodes.find((n:{name:string})=>n.name==='Straight sinus'),p=doc.meshes[node.mesh].primitives[0];
+  const view=doc.bufferViews[p.extensions.KHR_draco_mesh_compression.bufferView],start=view.byteOffset??0;
+  expect(createHash('sha256').update(bin.subarray(start,start+view.byteLength)).digest('hex')).toBe(evidence.sourceAndSubsetPrimitive.dracoSHA256);
+  expect(node.translation).toEqual(evidence.sourceAndSubsetPrimitive.translation);
+  expect(node.rotation??[0,0,0,1]).toEqual(evidence.sourceAndSubsetPrimitive.rotation);
+  expect(node.scale??[1,1,1]).toEqual(evidence.sourceAndSubsetPrimitive.scale);
+  expect(node.matrix??null).toEqual(evidence.sourceAndSubsetPrimitive.matrix);
+  const index=doc.nodes.indexOf(node);
+  expect(doc.nodes.filter((n:{children?:number[]})=>n.children?.includes(index)).map((n:{name:string})=>n.name)).toEqual(evidence.sourceAndSubsetPrimitive.parents);
+  expect(doc.accessors[p.attributes.POSITION].count).toBe(evidence.sourceAndSubsetPrimitive.vertices);
+  expect(doc.accessors[p.indices].count).toBe(evidence.sourceAndSubsetPrimitive.indexCount);
+  expect(evidence.originalObjectAudit.type).toBe('CURVE');expect(evidence.primitiveAndTransformsExactlyEqual).toBe(true);
+  expect(evidence.scientificStatus.anatomicalIdentityApproved).toBe(false);expect(evidence.scientificStatus.connectionToGalenVerified).toBe(false);
+});

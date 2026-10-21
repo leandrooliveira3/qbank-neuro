@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "source": "https://zenodo.org/records/15697196",
+  "doi": "10.5281/zenodo.15697196",
+  "license": "cc-by-4.0",
+  "creators": [
+    "Blagosklonova, Evgenia",
+    "Dolotova, Daria",
+    "Polunina, Natalia",
+    "Grigorieva, Elena",
+    "Pakhomov, Denis",
+    "Krylov, Vladimir",
+    "Gavrilov, Andrey"
+  ],
+  "archiveSize": 25578845008,
+  "archiveChecksum": "md5:264ff9ee868c022d108b7c7aa7396d32",
+  "archiveChecksumVerified": false,
+  "stlCount": 122,
+  "studyCount": 172,
+  "directoryEntryCount": 149452,
+  "indexBytesFetched": 11207323,
+  "case184": {
+    "dicomEntries": 560,
+    "uncompressedBytes": 109991172,
+    "estimatedVoxelsFromSampleDimensions": 146800640,
+    "geometryAcrossFullSeriesValidated": false
+  },
+  "sampleDownloads": [
+    {
+      "entry": "Metadata.csv",
+      "bytes": 16458,
+      "sha256": "407cd3c35307b491d714c5a7c05a0a9e26ef92faa54d43259a704516bf2bc7f4",
+      "crc32": "299b855b",
+      "crcVerified": true
+    },
+    {
+      "entry": "Annotations/an_184.stl",
+      "bytes": 21743,
+      "sha256": "1a98fcc60dfa69aba81619af03f7127c42300b6bfc5d5c2f32c92af5e9d0beeb",
+      "crc32": "1317d481",
+      "crcVerified": true
+    },
+    {
+      "entry": "Studies/184/0.dcm",
+      "bytes": 237548,
+      "sha256": "f2b64292d089dd133cb3be6ad28976f67b10981e173e4c3d0a04f6efb8749c98",
+      "crc32": "38d385a7",
+      "crcVerified": true
+    },
+    {
+      "entry": "Studies/184/1.dcm",
+      "bytes": 236464,
+      "sha256": "2a69d193b6c7852845842a98cbeb0e5fc134cee57370c4942c78f32913f1c9ee",
+      "crc32": "8e1c3765",
+      "crcVerified": true
+    },
+    {
+      "entry": "Studies/184/559.dcm",
+      "bytes": 129840,
+      "sha256": "c438792e55f8998e5e65eacab9d164a5f2d14fc733a81be7f4716c58f459b205",
+      "crc32": "72affbd6",
+      "crcVerified": true
+    }
+  ],
+  "appDatasetIntegrated": false,
+  "status": "Current direct API and bounded ZIP ranges succeeded; three compressed original DICOM samples tested with actual reader and rejected for unsupported compression. No global checksum, full-volume or STL registration validation."
+}

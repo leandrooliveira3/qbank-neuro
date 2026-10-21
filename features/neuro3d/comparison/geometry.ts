@@ -12,3 +12,4 @@ export function decodeReferenceGeometry(buffer:ArrayBuffer,expected:{vertices:nu
 }
 export async function sha256(buffer:ArrayBuffer){return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',buffer)),value=>value.toString(16).padStart(2,'0')).join('');}
 export function displayPoint(p:number[]){return [-p[0],p[2],p[1]];}
+export function centeredReferencePoint(ras:number[],centerRAS:number[]){return displayPoint(ras.map((v,k)=>v-centerRAS[k]));}

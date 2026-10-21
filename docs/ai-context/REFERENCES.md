@@ -51,3 +51,15 @@ A auditoria inicial acima descrevia a base ad5515d. Agora BRAVE-NET e VENAT est�
 ## Lote seccional — 21/10/2026
 
 BRAVE e VENAT: agora também 21 planos originais selecionados por fonte, sem reamostragem/quantização, com hash por corte e affine em `comparison/sections.json`. Licenças/atribuição/modificações preservadas no NOTICE existente. Não houve nova aquisição de dados nem inferência de IA. Seio reto e contexto vêm dos GLBs originais da linhagem aberta já importada, com hashes conferidos; não foram substituídos por geometria próxima.
+
+## Linhagem consultada e auditor executado neste lote
+
+Anatria-3D fixado em6320bd64df8db2fcfed358a27c85d1fcc1c5913c: manifesto, GLB cardiovascular, NOTICE, pipeline, vendor audit/report e TA2 consultados. URLs/tamanhos/SHA em ../neuro3d-sinus-lineage-audit.json. Ferramenta própria audit_sinus_lineage.py efetivamente executada: primitiva/transformações iguais ao recorte Qbank. Pipeline Blender/exportador upstream foi somente lido; Blender/Startup.blend não executado/inspecionado. CC BY-SA 4.0 preservada; NOTICE atribui Z-Anatomy/BodyParts3D, mas não foi estabelecido ID FMA por objeto. CURVE na auditoria, nome TA2 e hash não aprovam identidade anatômica.
+
+BRAVE/VENAT continuam efetivamente em uso como dados, agora com vínculos físicos da mesma fonte; modelos de IA continuam não executados. Demais sete motores e fontes CTA não passam automaticamente a integrados.
+
+## Prioridade nova — 3D-2D-GS-CA para geometria
+
+Usuário indicou explicitamente os onze ZIPs 3D-2D-GS-CA como referência geométrica preferencial. **Próximo lote geométrico deve começar por essa fonte**, antes de ampliar navegação BRAVE/VENAT; CTA é complementar. Auditoria offline dos10casos/20vistas e60coleções MGP concluída, hashes/CRC/bytes/finitude e projeção algébrica conferidos; três testes Python próprios aprovados. Não executou Matlab/MEX/MGP ou importação na UI. Volumes MHD/RAW e detector RAD/RAW estão em Sv/Sw mm, não DICOMLPS/RAS implícito. Report ../neuro3d-geometry-dataset-review.md; resultados ../neuro3d-gs-ca-geometry-audit.json.
+
+Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente não estabelecido. Dados/calibrações/pontos/código de fornecedor permanecem locais, sem redistribuição; preservar essa condição. Próxima etapa: leitor/visor local, VOI/ROI e contrato voxel→mm→detector verificável, sem sobrepor atlas ou reivindicar registro validado. Database_info.xls/ROIs e convenções visuais ainda precisam de verificação. CTA foi reconferido e3cortes reais foram rejeitados pelo leitor por JPEGsemperdas; série184 excede32milhões de voxels. Ver os dois novos relatórios CTA; não declarar integração.
