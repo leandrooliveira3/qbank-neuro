@@ -33,3 +33,7 @@ Acrescentar registros; não apagar os anteriores. Hashes publicados devem ser co
 - Pendências: registro/marcos/cortes, sete identidades, conexão Galeno–seio reto, oito representações embrionárias adicionais e demais frentes preservadas.
 - O commit que contém este registro é identificável pelo Git; confirmar hash remoto e árvore ao fechar e informá-los no relatório. Resultados detalhados em VALIDATION e no relatório do comparador.
 - Fechamento funcional: TypeScript, 120 unitários/27 arquivos e build aprovados; 18 casos únicos de navegador nesta etapa (execuções de 10 e 12, com quatro repetições), capturas inspecionadas e diff conferido. Nenhuma aprovação anatômica/clinica acrescentada.
+
+## Lote seccional — 21/10/2026
+
+Checkpoint anterior 2cd11d7b528b3d519dcf92776d10b0b8a2022215 confirmado; branch local continuation/sectional-review criada da remota preservando as anteriores. Entrega: 42 planos, marcos físicos, contexto original, auditoria integral do seio reto e documentos. Nenhuma geometria/nomenclatura corrigida por proximidade. Código e dados derivados a publicar em feature/neuro3d-atlas/PR 2 rascunho; conferir hash e árvore no fechamento. Deployment independente ainda depende de acesso ao time; não confundir persistência Git com Vercel pronto.

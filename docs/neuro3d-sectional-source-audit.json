@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "kind": "brave",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "planes": 21,
+      "voxelsCompared": 2207744,
+      "allValuesExactlyEqual": true,
+      "nativeAffineEqual": true,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "kind": "venat",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "planes": 21,
+      "voxelsCompared": 3149328,
+      "allValuesExactlyEqual": true,
+      "nativeAffineEqual": true,
+      "resampled": false,
+      "quantized": false
+    }
+  ],
+  "totalPlanes": 42,
+  "anatomicalApproval": false,
+  "atlasRegistration": null
+}

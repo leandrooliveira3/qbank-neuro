@@ -1,0 +1,2190 @@
+{
+  "schema": 1,
+  "method": "Seven original voxel planes per native axis; float32, no resampling. Top row is largest v index. Native voxel indices are zero-based.",
+  "sections": [
+    {
+      "key": "brave-0-0",
+      "kind": "brave",
+      "axis": 0,
+      "index": 0,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-0-0.json",
+      "assetSHA256": "4f1dd4f278e7a8043617b1efc2922a9d20d606e9028b3cc6dbf3c7e040946e8e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-0-74",
+      "kind": "brave",
+      "axis": 0,
+      "index": 74,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-0-74.json",
+      "assetSHA256": "4f1dd4f278e7a8043617b1efc2922a9d20d606e9028b3cc6dbf3c7e040946e8e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-0-149",
+      "kind": "brave",
+      "axis": 0,
+      "index": 149,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-0-149.json",
+      "assetSHA256": "ba5dbf1c71fec32b07eed065a6238e69dce5f384a960dc23e883730c7f099e5e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-0-224",
+      "kind": "brave",
+      "axis": 0,
+      "index": 224,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-0-224.json",
+      "assetSHA256": "92df51c503aa516cdcf6928a6cf1fd9fd7aa1d30b43cf5216bb61069026aeed1",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-0-298",
+      "kind": "brave",
+      "axis": 0,
+      "index": 298,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-0-298.json",
+      "assetSHA256": "b3c6907fed360e15bf471cb3de77e0843bb52fbe5bf1306747120de7c925b452",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-0-372",
+      "kind": "brave",
+      "axis": 0,
+      "index": 372,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-0-372.json",
+      "assetSHA256": "4f1dd4f278e7a8043617b1efc2922a9d20d606e9028b3cc6dbf3c7e040946e8e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-0-447",
+      "kind": "brave",
+      "axis": 0,
+      "index": 447,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-0-447.json",
+      "assetSHA256": "4f1dd4f278e7a8043617b1efc2922a9d20d606e9028b3cc6dbf3c7e040946e8e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-1-0",
+      "kind": "brave",
+      "axis": 1,
+      "index": 0,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-1-0.json",
+      "assetSHA256": "4f1dd4f278e7a8043617b1efc2922a9d20d606e9028b3cc6dbf3c7e040946e8e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-1-74",
+      "kind": "brave",
+      "axis": 1,
+      "index": 74,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-1-74.json",
+      "assetSHA256": "4f1dd4f278e7a8043617b1efc2922a9d20d606e9028b3cc6dbf3c7e040946e8e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-1-149",
+      "kind": "brave",
+      "axis": 1,
+      "index": 149,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-1-149.json",
+      "assetSHA256": "fda1646d0a3a3d245ac4e3f80139f979c194db35b38105781344e1438a863696",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-1-224",
+      "kind": "brave",
+      "axis": 1,
+      "index": 224,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-1-224.json",
+      "assetSHA256": "a10ea3bb84e6cff7481a680641857b745c10fe3663fdf67f803730e4e718d0ff",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-1-298",
+      "kind": "brave",
+      "axis": 1,
+      "index": 298,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-1-298.json",
+      "assetSHA256": "e4d39b6610744c5ffdf4e7c556fe0a2e492b30c2083925c36fbe8465cf0a394a",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-1-372",
+      "kind": "brave",
+      "axis": 1,
+      "index": 372,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-1-372.json",
+      "assetSHA256": "4f1dd4f278e7a8043617b1efc2922a9d20d606e9028b3cc6dbf3c7e040946e8e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-1-447",
+      "kind": "brave",
+      "axis": 1,
+      "index": 447,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 448,
+      "height": 128,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-1-447.json",
+      "assetSHA256": "4f1dd4f278e7a8043617b1efc2922a9d20d606e9028b3cc6dbf3c7e040946e8e",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.8000010251998901
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-2-0",
+      "kind": "brave",
+      "axis": 2,
+      "index": 0,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 448,
+      "height": 448,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-2-0.json",
+      "assetSHA256": "5897a8b30b2f83cfe63f1703e5b5d7c02fc0d7d4a7c377a1e0d1615cc6eee455",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.513392984867096
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-2-21",
+      "kind": "brave",
+      "axis": 2,
+      "index": 21,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 448,
+      "height": 448,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-2-21.json",
+      "assetSHA256": "731ae48711a18fe4755905718866d965b8f2320a18297cda03d72b2573c6f3e3",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.513392984867096
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-2-42",
+      "kind": "brave",
+      "axis": 2,
+      "index": 42,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 448,
+      "height": 448,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-2-42.json",
+      "assetSHA256": "c908a944f91743a73301b3851516524cc3e6a384f85de239ba358e7d3840257c",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.513392984867096
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-2-64",
+      "kind": "brave",
+      "axis": 2,
+      "index": 64,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 448,
+      "height": 448,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-2-64.json",
+      "assetSHA256": "22c4316bffb3732ec4b884c65f6b3d7d9f02a560ba46f026ba27265d92e7f08f",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.513392984867096
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-2-85",
+      "kind": "brave",
+      "axis": 2,
+      "index": 85,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 448,
+      "height": 448,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-2-85.json",
+      "assetSHA256": "9df1a605f83c0c0a4387267564af1369be08689907433de3d46b92ab8c1e2b90",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.513392984867096
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-2-106",
+      "kind": "brave",
+      "axis": 2,
+      "index": 106,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 448,
+      "height": 448,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-2-106.json",
+      "assetSHA256": "c2fcd3646d88b3852ab48d4093fd3dbe7e35bc8317a5334548386b5e15ee37f1",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.513392984867096
+      ],
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "brave-2-127",
+      "kind": "brave",
+      "axis": 2,
+      "index": 127,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 448,
+      "height": 448,
+      "shape": [
+        448,
+        448,
+        128
+      ],
+      "file": "brave-2-127.json",
+      "assetSHA256": "d5a109f7f96de0421312b25907190570f7b11796a2c473689842bd34152efc99",
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.513392984867096,
+        0.513392984867096
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-0-0",
+      "kind": "venat",
+      "axis": 0,
+      "index": 0,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 436,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-0-0.json",
+      "assetSHA256": "c7b78bb6eb207cf1fba42aca487542c6e39c5bfb542d75f417606b114d3766ac",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-0-60",
+      "kind": "venat",
+      "axis": 0,
+      "index": 60,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 436,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-0-60.json",
+      "assetSHA256": "565adba0c95f58eafa2f80c6e3fe4440524eaa54befc3d7d132f262d3ebbac3c",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.17623624205589294,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-0-121",
+      "kind": "venat",
+      "axis": 0,
+      "index": 121,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 436,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-0-121.json",
+      "assetSHA256": "e086a88cc838065eb1ba6fe5853a49e39fc30a0817ce6778b819d3229473da2d",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.5077329277992249,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-0-182",
+      "kind": "venat",
+      "axis": 0,
+      "index": 182,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 436,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-0-182.json",
+      "assetSHA256": "bbec03f23a2eff5f322d2a86877021136d1fff528c5eea8334f90179ce74d4d3",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.6948709487915039,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-0-242",
+      "kind": "venat",
+      "axis": 0,
+      "index": 242,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 436,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-0-242.json",
+      "assetSHA256": "775e3bc164c4d7961f7d369c45197331ab13584ec02ffaf6592174f7c1ca4b2d",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.4918304979801178,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-0-302",
+      "kind": "venat",
+      "axis": 0,
+      "index": 302,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 436,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-0-302.json",
+      "assetSHA256": "44a1b3c32e25c709e211065aaac20b2832728e569f9295420e906306324503ce",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.10650505125522614,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-0-363",
+      "kind": "venat",
+      "axis": 0,
+      "index": 363,
+      "uAxis": 1,
+      "vAxis": 2,
+      "width": 436,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-0-363.json",
+      "assetSHA256": "c7b78bb6eb207cf1fba42aca487542c6e39c5bfb542d75f417606b114d3766ac",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-1-0",
+      "kind": "venat",
+      "axis": 1,
+      "index": 0,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 364,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-1-0.json",
+      "assetSHA256": "e192d08d6119e1c477b1c645641e174eff09c61d4cb11095ca1aaecd97d4b81e",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-1-72",
+      "kind": "venat",
+      "axis": 1,
+      "index": 72,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 364,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-1-72.json",
+      "assetSHA256": "893559df34e3321ee9aaf9a15b3c07d3fb499356f008b50fb5653b6c0a164a4a",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.4584428071975708,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-1-145",
+      "kind": "venat",
+      "axis": 1,
+      "index": 145,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 364,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-1-145.json",
+      "assetSHA256": "137afbb896fba9fb7deee8d589878e480537a9a66b4c3ce169b86b99c7447c1a",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.5861215591430664,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-1-218",
+      "kind": "venat",
+      "axis": 1,
+      "index": 218,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 364,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-1-218.json",
+      "assetSHA256": "b58b10a02b0f0ed39658cd950e800ccf8e3bc038d479140eeec84ab4089b2742",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.7766834497451782,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-1-290",
+      "kind": "venat",
+      "axis": 1,
+      "index": 290,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 364,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-1-290.json",
+      "assetSHA256": "24523da416872ddc64d8110fdf5cecf40f82440223a27976ee3f5b04378c8410",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.3513253331184387,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-1-362",
+      "kind": "venat",
+      "axis": 1,
+      "index": 362,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 364,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-1-362.json",
+      "assetSHA256": "dd0edb92b249f8b90e33d723785d38233afbde04a12d9e699ac8253ea2e2c9ec",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.28774166107177734,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-1-435",
+      "kind": "venat",
+      "axis": 1,
+      "index": 435,
+      "uAxis": 0,
+      "vAxis": 2,
+      "width": 364,
+      "height": 364,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-1-435.json",
+      "assetSHA256": "e192d08d6119e1c477b1c645641e174eff09c61d4cb11095ca1aaecd97d4b81e",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-2-0",
+      "kind": "venat",
+      "axis": 2,
+      "index": 0,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 364,
+      "height": 436,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-2-0.json",
+      "assetSHA256": "85f3e18fdb4b9fd09800df396039d725638611032a502738c090fc8e53e09579",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0001131220706156455,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-2-60",
+      "kind": "venat",
+      "axis": 2,
+      "index": 60,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 364,
+      "height": 436,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-2-60.json",
+      "assetSHA256": "6f62c0f95964b7a5fffd181b023659f2bfbe39657a35e8af706c481812749cfe",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.2779584228992462,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-2-121",
+      "kind": "venat",
+      "axis": 2,
+      "index": 121,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 364,
+      "height": 436,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-2-121.json",
+      "assetSHA256": "1eeadfc987e598a6b4c514787398bafed349a5552b2bc500054952797ff3d8a2",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.5830093622207642,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-2-182",
+      "kind": "venat",
+      "axis": 2,
+      "index": 182,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 364,
+      "height": 436,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-2-182.json",
+      "assetSHA256": "a942a3be1d87030ae22eea7a53fb2f46c422ee1ae96d196b4e03f0519b4051cf",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.5073134899139404,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-2-242",
+      "kind": "venat",
+      "axis": 2,
+      "index": 242,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 364,
+      "height": 436,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-2-242.json",
+      "assetSHA256": "501adbdc683c8576c886776e9c90cd4f88a2201ac2fa12a02a6d1bfc657b94a0",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.3439248204231262,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-2-302",
+      "kind": "venat",
+      "axis": 2,
+      "index": 302,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 364,
+      "height": 436,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-2-302.json",
+      "assetSHA256": "df342c39310b1457860feb1da572b4ce54f77fcb016856a335e90028e8580721",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0002801113005261868,
+      "resampled": false,
+      "quantized": false
+    },
+    {
+      "key": "venat-2-363",
+      "kind": "venat",
+      "axis": 2,
+      "index": 363,
+      "uAxis": 0,
+      "vAxis": 1,
+      "width": 364,
+      "height": 436,
+      "shape": [
+        364,
+        436,
+        364
+      ],
+      "file": "venat-2-363.json",
+      "assetSHA256": "76f63ccad7f206767cc45a1268beccaa6660f1e0fae5554e7edd8812534d4a39",
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "pixelSpacingMm": [
+        0.5,
+        0.5
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0,
+      "resampled": false,
+      "quantized": false
+    }
+  ]
+}

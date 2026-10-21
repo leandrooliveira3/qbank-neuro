@@ -43,3 +43,7 @@ Pendências de Galeno–seio reto, ramos, sete identidades e inventários perman
 - Revisão React: carregamento sob demanda, geometria memorizada e descartada, fetch cancelável por geração, sem resultado obsoleto, erro recuperável, controles rotulados, registro explícito e sem transmissão de exame do paciente.
 
 Este resultado é funcional/local em Chrome/SwiftShader; não comprova alinhamento entre fontes, identificação dos ramos, reconstrução XA, validação anatômica ou clínica. Publicação/árvore remota devem ser conferidas ao fechar; status do deployment não equivale a teste de navegador remoto.
+
+## Lote seccional — 21/10/2026
+
+Nesta etapa: TypeScript/build e 122 unitários/28 arquivos aprovados; três testes Python de interior/aresta/vértice/degeneração aprovados. Verificador offline comparou todos os 5.357.072 valores dos 42 planos com os NIfTI: igualdade exata float32 e affine. Execução ampla de navegador: 22 casos únicos desktop/Pixel 7 (sections, comparison, study-families, vascular-review, patient, tcd, video-workflow). Repetição final de quatro casos seccionais verifica conservação ao fechar painel, não somar como novos. Capturas inspecionadas; sem homologação clínica/anatômica. Geometria completa verificada pelos hashes GLB e contagens/accessors/ausência de pai na primitiva do seio reto. Permanece aviso de chunks >500 kB. Vercel: 403 ao time mesmo com plugin adicionado; GitHub sem sucesso da base; CLI indisponível.

@@ -45,3 +45,7 @@ Continue o Qbank-neuro 3D lendo primeiro TASK_LEDGER.md, PROJECT_STATUS.md e doc
 ## Atualização do lote de comparador
 
 BRAVE-NET/VENAT agora têm superfícies verificadas na aba Referências vasculares, em espaços independentes. Inventário recalculado e pendência Galeno–seio reto mantida. Ver ai-context/NEXT_SESSION.md e neuro3d-independent-comparison.md; a próxima tarefa é inspeção seccional/marcos e revisão da geometria original, não recuperação do comparador já entregue.
+
+## Lote seccional concluído
+
+42 planos nativos BRAVE/VENAT, marcos RAS/mm e auditoria dos 2304 triângulos originais do seio reto. Discrepância Galeno e sete identidades preservadas. Próximo: rastrear linhagem da identidade/transformações e vincular cortes/3D da mesma fonte. Ver ai-context/NEXT_SESSION.md e neuro3d-sectional-review.md.

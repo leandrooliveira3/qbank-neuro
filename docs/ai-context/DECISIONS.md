@@ -32,3 +32,7 @@ Decisão: simplificar cada componente separadamente e conferir contagem antes/de
 Decisão: registrar discrepância Galeno–seio reto por método explícito, sem corrigir coordenadas. Justificativa: eixo arbitrado e vértices de projeção simplificada não validam identidade/lúmen. Impacto: nota visível e pendência preservada. Sete rótulos de diagrama permanecem sem identificação comprovada.
 
 Decisão: vistas exportadas exigem registro manual e incluem pose; carregar uma superfície não marca aprovação. Justificativa: inspeção de interface não equivale a validação anatômica.
+
+## Lote seccional — 21/10/2026
+
+Contexto: continuar de 2cd11d7 sem refazer comparador. Decisão: disponibilizar cortes selecionados completos em vez de interpolar/registrar volumes; manter float32 e contexto físico. Justificativa: validar cada valor nativo e evitar misturar máscara/PVF com intensidade radiológica. Impacto: sete planos por eixo, marcos manuais sem identidade homologada. Decisão: auditar todas as faces originais do seio reto e seus marcos de origem, sem aproximar Galeno; discrepância persiste e exige rastrear a linhagem da fonte. Decisão: conexão Vercel adicionada não substitui autorização ao time; não alterar permissões globais nem bloquear tarefas locais por erro 403.

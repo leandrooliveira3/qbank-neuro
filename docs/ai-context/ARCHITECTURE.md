@@ -31,3 +31,7 @@ Não existe serviço clínico de reconstrução de projeções XA, segmentação
 ## Comparador independente
 
 `features/neuro3d/comparison/ReferenceComparator.tsx` é carregado sob demanda pela aba Referências vasculares. Fetch de JSON local em `public/neuro3d/comparison/` → SHA do arquivo → envelope gzip/base64 → SHA da geometria comprimida → decoder binário com dimensões/índices/finitude → cena Three. Cada requisição tem AbortController e geração; trocar limiar oculta a superfície anterior. Coordenadas persistem em RAS/mm; centralização de exibição independente. Exportação conserva fontes, affines, hashes e pose da câmera, sem registro entre fontes/atlas. Geradores offline: `build_comparison_reference.py` e `reconcile_vascular_inventory.ts`; ambiente Python fora das dependências do portal.
+
+## Lote seccional — 21/10/2026
+
+`comparison/SectionInspector.tsx` carrega sob demanda planos de `public/neuro3d/comparison/sections/`, confere SHA e usa `sectionGeometry.ts` para valores float32 e mapeamento pixel → voxel → RAS/mm. Sete cortes por eixo/fonte, sem reamostragem. Geração/cancelamento impedem corte antigo. Painel ocultável preserva marcos enquanto montado; exportação local antes de sair da aba. `DetailedAtlas.tsx` acrescenta conjunto de contexto Galeno/seio reto usando os GLBs originais existentes; projeção 2D continua simplificada. Ferramentas offline de extração/verificação e auditoria por triângulos versionadas.

@@ -47,3 +47,7 @@ Priorizar P0 do ROADMAP: comparadores arteriais/venosos independentes e inventá
 ## Atualização executada — comparador independente
 
 A auditoria inicial acima descrevia a base ad5515d. Agora BRAVE-NET e VENAT estão efetivamente em uso como dados geométricos derivados na nova aba, sem integrar seus modelos de IA. Estados dos sete motores e dos três datasets CTA/DSCA/Mendeley não mudaram. Manifesto em `features/neuro3d/comparison/manifest.json`; licenças/atribuição em `public/neuro3d/comparison/NOTICE.md`; método e limitações em [relatório do lote](../neuro3d-independent-comparison.md). O download VENAT confere o SHA anterior, mas não houve nova leitura bem-sucedida da API de licença.
+
+## Lote seccional — 21/10/2026
+
+BRAVE e VENAT: agora também 21 planos originais selecionados por fonte, sem reamostragem/quantização, com hash por corte e affine em `comparison/sections.json`. Licenças/atribuição/modificações preservadas no NOTICE existente. Não houve nova aquisição de dados nem inferência de IA. Seio reto e contexto vêm dos GLBs originais da linhagem aberta já importada, com hashes conferidos; não foram substituídos por geometria próxima.

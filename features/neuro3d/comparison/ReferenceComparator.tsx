@@ -1,4 +1,4 @@
-import React,{Component,useEffect,useMemo,useRef,useState} from 'react';
+import React,{Component,lazy,Suspense,useEffect,useMemo,useRef,useState} from 'react';
 import {Canvas,useThree} from '@react-three/fiber';
 import {OrbitControls} from '@react-three/drei/core/OrbitControls';
 import {BufferGeometry,Float32BufferAttribute,DoubleSide,Vector3} from 'three';
@@ -8,6 +8,7 @@ import {decodeReferenceGeometry,displayPoint,sha256} from './geometry';
 import './comparison.css';
 
 type Surface=typeof manifest.surfaces[number];
+const SectionInspector=lazy(()=>import('./SectionInspector'));
 type Geometry=ReturnType<typeof decodeReferenceGeometry>;
 type View='AP'|'Lateral esquerda'|'Oblíqua';
 type Pose={position:number[];up:number[];target:number[];zoom:number};
@@ -34,6 +35,7 @@ function Scene({geometry,view,reset,onPose}:{geometry:Geometry;view:View;reset:n
   return <><ambientLight intensity={1.2}/><directionalLight position={[100,200,300]} intensity={2}/><mesh geometry={mesh}><meshStandardMaterial color="#8dd8eb" side={DoubleSide} roughness={.65}/></mesh><OrbitControls ref={controls} key={`${view}-${reset}`} makeDefault target={[0,0,0]} enablePan enableZoom onChange={()=>onPose({position:camera.position.toArray(),up:camera.up.toArray(),target:controls.current?.target.toArray()??[0,0,0],zoom:camera.zoom})}/></>;
 }
 function ReferenceCard({kind,onInspection}:{kind:'brave'|'venat';onInspection:(key:string,view:View,pose:Pose)=>void}){
+  const [sections,setSections]=useState(false),[sectionsOpened,setSectionsOpened]=useState(false);
   const options=manifest.surfaces.filter(row=>row.kind===kind);
   const [key,setKey]=useState(options[0]?.key??''),[view,setView]=useState<View>('AP'),[reset,setReset]=useState(0),[attempt,setAttempt]=useState(0);
   const surface=options.find(row=>row.key===key),source=sources[kind];
@@ -69,6 +71,8 @@ function ReferenceCard({kind,onInspection}:{kind:'brave'|'venat';onInspection:(k
       {current?.geometry?<SceneBoundary key={key}><Canvas orthographic camera={{position:[0,0,300],near:.1,far:3000}}><Scene geometry={current.geometry} view={view} reset={reset} onPose={value=>{pose.current=value;}}/></Canvas></SceneBoundary>:current?.error?<><p role="alert">{current.error}</p><button onClick={()=>setAttempt(n=>n+1)}>Tentar novamente</button></>:<p role="status">Conferindo e carregando a superfície…</p>}
     </div>
     <p>Vista {view} da superfície · superior para cima. AP: observador anterior; lateral: observador à esquerda do indivíduo. Arraste para girar; use zoom para inspecionar. Não é DSA ou MIP.</p>
+    <button aria-expanded={sections} onClick={()=>{setSectionsOpened(true);setSections(v=>!v);}}>{sections?'Fechar cortes':'Inspecionar cortes e marcos'}</button>
+    {sectionsOpened&&<div hidden={!sections}><Suspense fallback={<p role="status">Abrindo inspeção seccional…</p>}><SectionInspector kind={kind}/></Suspense></div>}
     {surface&&<><p>{surface.triangles.toLocaleString('pt-BR')} triângulos · {surface.components} componentes geométricos · superfície simplificada. Detalhes finos podem ter sido perdidos.</p><button disabled={!current?.geometry} onClick={()=>{if(pose.current)onInspection(surface.key,view,pose.current);}}>Adicionar vista ao registro</button><details><summary>Origem, coordenadas e processamento</summary><p>{source.credit} · {source.license}</p><a href={source.url} target="_blank" rel="noreferrer">Registro original e licença</a><p>Coordenadas: RAS em mm, affine do NIfTI. Centralização apenas visual, com enquadramento independente. Sem transformação para o atlas ou entre as duas fontes.</p><p>Componentes antes/depois: {surface.original.components}/{surface.components}. Conservação dessa contagem não comprova topologia ou anatomia. Limiar: {surface.threshold}.</p><p className="reference-hash">SHA-256 do volume: {surface.sourceSHA256}</p><pre>{JSON.stringify(surface.voxelToRASmm,null,2)}</pre></details></>}
   </article>;
 }

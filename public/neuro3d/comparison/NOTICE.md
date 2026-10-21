@@ -50,3 +50,12 @@ Original and derived hashes, affines, counts and tool versions are stored in
 features/neuro3d/comparison/manifest.json. These derived files retain their
 respective source licenses. No atlas registration or anatomical approval is
 implied. Fine branches, calibres and topology may be altered by simplification.
+
+Sectional extension (21 October 2026): seven selected original voxel planes
+per native axis, each source, retaining original float32 label/PVF values,
+without resampling or quantization. Display brightness alone maps [0,1] to
+8-bit gray; exported values remain float32. Source licenses above also apply
+to the section files. Indices, spacing, native affine and SHA256 are recorded
+in features/neuro3d/comparison/sections.json. These are selected planes, not
+all slices or the underlying MR intensity images. Manual landmarks are user
+annotations without anatomical approval or registration to the atlas.

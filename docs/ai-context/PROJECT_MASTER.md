@@ -31,3 +31,7 @@ Complete Anatomy, IMAIOS, Mentice e Ankyras são referências de estudo; não pr
 ## Progresso de fontes reais
 
 Comparador independente BRAVE-NET/VENAT implementado em aba própria. São superfícies derivadas com proveniência e coordenadas nativas, não inferência de IA nem registro paciente/atlas. A revisão anatômica continua requisito de conclusão.
+
+## Lote seccional — 21/10/2026
+
+Inspeção seccional acrescentada ao comparador existente: 42 planos nativos BRAVE/VENAT e marcos manuais em RAS/mm, sem registro ao atlas ou aprovação automática.

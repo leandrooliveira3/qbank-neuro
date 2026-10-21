@@ -22,3 +22,7 @@ Pendências transversais: oito representações embrionárias adicionais perdida
 ### Próximo lote P0 após o comparador
 
 Acrescentar inspeção seccional dos volumes de referência e marcos auditáveis para revisão de identidade/curso, sem sobreposição automática ao atlas. Reexaminar o seio reto na geometria original completa e marcos osteoencefálicos; não ajustar a curva de Galeno apenas para zerar distância. Manter as sete identidades do diagrama em aberto até evidência suficiente. Aceitação: coordenadas/affines conservados, evidência multiprojeção, testes e capturas, sem transformar registros de vista em aprovação.
+
+## Lote seccional — 21/10/2026
+
+P0.2: cortes nativos selecionados e marcações físicas entregues; não é navegação por todos os cortes nem validação anatômica. P0.1: seio reto original completo auditado e contexto inspecionável; identidade/junção Galeno continuam pendentes. Próximo P0: rastrear a atribuição/transformações na linhagem BodyParts3D/Z-Anatomy/Anatria e vincular cortes/3D da MESMA fonte por coordenadas físicas, sem registro entre fontes. Preservar sete identidades e todas as frentes de paciente/Doppler/Mentice/Ankyras.
