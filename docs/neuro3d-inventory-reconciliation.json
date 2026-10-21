@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "baseCommit": "ad5515dc53067689d5bdf54e514b0caa0d6a572e",
+  "baseCommit": "353d149586290e97670711ce02e0175fcae5a79d",
   "coordinateSystem": "atlas display centimetres; source world x100, Y-160",
   "sourceStructures": 1114,
   "activeImported": 1112,
@@ -13,14 +13,14 @@
     "anatomicallyApproved": 0
   },
   "coverageCounts": {
-    "requirements": 312,
-    "missing": 0,
+    "requirements": 322,
+    "missing": 10,
     "partial": 0,
     "presentUnverified": 312,
     "illustratedOnly": 157,
     "illustratedIndividualIds": 301,
-    "referenceMissingIndividualIds": 353,
-    "missingIndividualIds": 0
+    "referenceMissingIndividualIds": 373,
+    "missingIndividualIds": 20
   },
   "bySystem": [
     {
@@ -32,9 +32,9 @@
     },
     {
       "layer": "venous",
-      "requirements": 84,
-      "expectedIndividualIds": 149,
-      "missingReferenceIds": 86,
+      "requirements": 94,
+      "expectedIndividualIds": 169,
+      "missingReferenceIds": 106,
       "anatomicalApprovals": 0
     }
   ],
@@ -6079,6 +6079,166 @@
         "persistent_ventral_ophthalmic_artery_r"
       ],
       "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_cerebral_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_cerebral_vein_l",
+        "anterior_cerebral_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "anterior_cerebral_vein_l",
+        "anterior_cerebral_vein_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_temporal_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_temporal_vein_l",
+        "inferior_temporal_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "inferior_temporal_vein_l",
+        "inferior_temporal_vein_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "vein_of_rolando",
+      "layer": "venous",
+      "expectedIds": [
+        "vein_of_rolando_l",
+        "vein_of_rolando_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "vein_of_rolando_l",
+        "vein_of_rolando_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "temporooccipital_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "temporooccipital_vein_l",
+        "temporooccipital_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "temporooccipital_vein_l",
+        "temporooccipital_vein_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_frontal_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_frontal_veins_l",
+        "anterior_frontal_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "anterior_frontal_veins_l",
+        "anterior_frontal_veins_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_parietal_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_parietal_vein_l",
+        "inferior_parietal_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "inferior_parietal_vein_l",
+        "inferior_parietal_vein_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_caudate_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "posterior_caudate_veins_l",
+        "posterior_caudate_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "posterior_caudate_veins_l",
+        "posterior_caudate_veins_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_atrial_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "lateral_atrial_veins_l",
+        "lateral_atrial_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "lateral_atrial_veins_l",
+        "lateral_atrial_veins_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "paracavernous_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "paracavernous_sinus_l",
+        "paracavernous_sinus_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "paracavernous_sinus_l",
+        "paracavernous_sinus_r"
+      ],
+      "status": "missing",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "tentorial_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "tentorial_sinus_l",
+        "tentorial_sinus_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [],
+      "referenceMissingIds": [
+        "tentorial_sinus_l",
+        "tentorial_sinus_r"
+      ],
+      "status": "missing",
       "anatomicalApproval": false
     }
   ]

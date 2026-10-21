@@ -22,7 +22,7 @@ const controlDistances=controls.map((p,index)=>{
   const aabb=Math.hypot(...p.map((v,k)=>Math.max(bounds[0][k]-v,0,v-bounds[1][k])));
   return {index,pointAtlasCm:p,minimumDistanceToProjectionVerticesCm:minimum,distanceToSourceAABBCm:aabb};
 });
-const report={schema:1,baseCommit:'ad5515dc53067689d5bdf54e514b0caa0d6a572e',coordinateSystem:'atlas display centimetres; source world x100, Y-160',
+const report={schema:1,baseCommit:'353d149586290e97670711ce02e0175fcae5a79d',coordinateSystem:'atlas display centimetres; source world x100, Y-160',
   sourceStructures:sourceStructures.length,activeImported:openAnatomy.structures.length,reconstructed:reconstructedVessels.length,
   meshCounts:vascularReviewCounts,coverageCounts:vascularCompletenessCounts,
   bySystem:['arterial','venous'].map(layer=>({layer,requirements:vascularCompleteness.filter(row=>row.layer===layer).length,

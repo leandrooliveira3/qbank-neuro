@@ -5,16 +5,35 @@ import { WIDTH, HEIGHT } from "./simulation/station/projectionMath";
 import type { AtlasProjectionRequest } from "./atlasRadiograph";
 import type { P3 } from "./simulation/station/network";
 import { atlasProjection, unprojectAtlasPixel, panAtlasField, zoomAtlasField } from "./atlasProjection";
+import {loadFullVascularSurface} from './fullVascularSurface';
+import {openAnatomy} from './openAnatomy';
+import type {ReferenceSurface} from './simulation/station/referenceGeometry';
 
 /** Projects the atlas source surfaces, without centerline/SVG substitutes. */
 const noHiddenStructures: ReadonlySet<string> = new Set();
-export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, selected, isolate, layers, contrastLayer, onSelect, center, hidden = noHiddenStructures, tool = "select", onFieldChange }: {
+export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, selected, isolate, layers, contrastLayer, onSelect, center, hidden = noHiddenStructures, tool = "select", onFieldChange,fullSource=false }: {
+  fullSource?:boolean;
   tool?: "select" | "rotate" | "pan"; onFieldChange?: (center: P3, zoom: number) => void;
   hidden?: ReadonlySet<string>;
   center: P3; yaw: number; pitch: number; zoom: number; boneOpacity: number;
   onSelect: (id: string) => void; contrastLayer: string; selected: string | null; isolate: boolean; layers: Record<string, number>;
 }) {
-  const { geometry, error } = useReferenceGeometry();
+  const { geometry:baseGeometry, error:baseError } = useReferenceGeometry();
+  const originalId=fullSource&&isolate&&selected&&openAnatomy.structures.some(row=>row.id===selected&&['arterial','venous'].includes(row.layer))?selected:null;
+  const [original,setOriginal]=useState<{id:string;surface?:ReferenceSurface;error?:string}>(),[attempt,setAttempt]=useState(0);
+  useEffect(()=>{
+    if(!originalId)return;
+    const controller=new AbortController();setOriginal({id:originalId});
+    loadFullVascularSurface(originalId,controller.signal).then(surface=>{if(!controller.signal.aborted)setOriginal({id:originalId,surface});},error=>{if(!controller.signal.aborted)setOriginal({id:originalId,error:String(error.message)});});
+    return ()=>controller.abort();
+  },[originalId,attempt]);
+  const currentOriginal=original?.id===originalId?original:undefined;
+  const geometry=useMemo(()=>{
+    if(!baseGeometry||originalId&&!currentOriginal?.surface)return undefined;
+    if(!originalId)return baseGeometry;
+    const result=new Map(baseGeometry);result.set(originalId,currentOriginal!.surface!);return result;
+  },[baseGeometry,originalId,currentOriginal]);
+  const error=baseError??(originalId?currentOriginal?.error:undefined);
   const canvas = useRef<HTMLCanvasElement>(null);
   const drag = useRef<{ id: number; x: number; y: number; scale: number; center: P3; view: ReturnType<typeof atlasProjection> }>(null);
   const [busy, setBusy] = useState(true);
@@ -22,8 +41,8 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
   const generation = useRef(0);
   const workerState = useRef<{worker: Worker; inFlight: boolean; pending?: AtlasProjectionRequest}>(null);
   const view = useMemo(() => atlasProjection(yaw, pitch, zoom, center), [yaw, pitch, zoom, center]);
-  const frameKey = JSON.stringify([view, layers, contrastLayer, boneOpacity, [...hidden].sort(), isolate ? selected : null]);
-  const visibilityKey=JSON.stringify([layers,contrastLayer,boneOpacity,[...hidden].sort(),isolate?selected:null]);
+  const frameKey = JSON.stringify([view, layers, contrastLayer, boneOpacity, [...hidden].sort(), isolate ? selected : null,originalId]);
+  const visibilityKey=JSON.stringify([layers,contrastLayer,boneOpacity,[...hidden].sort(),isolate?selected:null,originalId]);
   const renderedVisibilityKey=useRef<string|null>(null);
   const requestKeys=useRef(new Map<number,{frame:string;visibility:string}>());
   const renderedFrameKey = useRef<string>(null);
@@ -71,7 +90,7 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
 
   function pick(event: React.MouseEvent<HTMLCanvasElement>) {
     // An image awaiting a newer pose must not be picked using that newer pose.
-    if (tool !== "select" || renderedFrameKey.current !== frameKey || error || renderError) return;
+    if (tool !== "select" || !geometry || renderedFrameKey.current !== frameKey || error || renderError) return;
     const rect = event.currentTarget.getBoundingClientRect();
     const scale = Math.min(rect.width / WIDTH, rect.height / HEIGHT);
     const px = (event.clientX - rect.left - (rect.width - WIDTH * scale) / 2) / scale;
@@ -126,10 +145,12 @@ export default function AtlasAngiography({ yaw, pitch, zoom, boneOpacity, select
     if (state.inFlight) state.pending = request;
     else { state.inFlight = true; state.worker.postMessage({kind: "render", request}); }
   }, [geometry, view, boneOpacity, selected, isolate, layers, contrastLayer, hidden]);
-  return <div className="nda-angiography" aria-busy={busy && !error && !renderError}>
-    <canvas ref={canvas} style={{visibility:!error&&!renderError&&renderedVisibilityKey.current===visibilityKey?"visible":"hidden",cursor:tool === "pan" ? "grab" : "crosshair"}} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-selected-structure={selected ?? ""} data-field-center={center.join(",")} data-yaw={yaw} data-pitch={pitch} data-zoom={zoom} onClick={pick} onPointerDown={startPan} onPointerMove={movePan} onPointerUp={endPan} onPointerCancel={endPan} onLostPointerCapture={endPan}
+  const loadingOriginal=Boolean(originalId&&!currentOriginal?.surface&&!error);
+  return <div className="nda-angiography" aria-busy={(busy||loadingOriginal) && !error && !renderError}>
+    <canvas ref={canvas} style={{visibility:!error&&!renderError&&!loadingOriginal&&renderedVisibilityKey.current===visibilityKey?"visible":"hidden",cursor:tool === "pan" ? "grab" : "crosshair"}} width={WIDTH} height={HEIGHT} data-testid="atlas-angiography" data-geometry-detail={originalId?'original':'simplified'} data-source-triangles={currentOriginal?.surface?.indices.length?currentOriginal.surface.indices.length/3:undefined} data-selected-structure={selected ?? ""} data-field-center={center.join(",")} data-yaw={yaw} data-pitch={pitch} data-zoom={zoom} onClick={pick} onPointerDown={startPan} onPointerMove={movePan} onPointerUp={endPan} onPointerCancel={endPan} onLostPointerCapture={endPan}
       role="img" aria-label="Projeção angiográfica sintética das superfícies do atlas" />
-    {error || renderError ? <p role="alert">{error || renderError}</p> : busy && <p role="status">Calculando projeção das superfícies…</p>}
+    {error || renderError ? <p role="alert">{error || renderError}{currentOriginal?.error&&<button onClick={()=>setAttempt(n=>n+1)}>Reabrir malha original</button>}</p> : (busy||loadingOriginal) && <p role="status">{loadingOriginal?'Conferindo malha original da seleção…':'Calculando projeção das superfícies…'}</p>}
+    {originalId&&<p className="nda-original-note">Seleção isolada: malha original completa. A rede geral continua simplificada; identidade anatômica em revisão.</p>}
     <span className="nda-projection-label">{boneOpacity > 0 ? "ANGIOGRAFIA COM OSSO" : "DSA SINTÉTICA"} · {Math.round(yaw*10)/10}° / {Math.round(pitch*10)/10}°{selected && " · dourado: marcação da seleção"}</span>
   </div>;
 }

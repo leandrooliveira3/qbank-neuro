@@ -70,6 +70,17 @@
 .nda-canvas canvas {touch-action:none}
 
 .nda-angiography>p {pointer-events:none}
+.nda-angiography>p button {pointer-events:auto;display:block;margin-top:8px}
+.nda-angiography p.nda-original-note {top:auto;bottom:65px;left:12px;right:12px;font-size:10px;padding:6px;max-width:360px;color:#c7d7df}
+.nda-neuroangio label {display:block;font-size:12px;margin-top:12px}
+.nda-neuroangio input,.nda-neuroangio select {display:block;width:100%;margin-top:6px;box-sizing:border-box}
+.nda-neuroangio article,.nda-neuroangio button,.nda-neuroangio p {overflow-wrap:anywhere;max-width:100%}
+.nda-neuroangio details {margin-top:12px;font-size:12px}
+.nda-neuroangio details a {display:block}
+.nda-original-control {font-size:11px;padding:10px;display:flex;gap:8px;align-items:flex-start}
+.nda-actions {flex-wrap:wrap}
+.nda-passage-context {border:1px solid #6f9baf;background:#162e3e;padding:12px;border-radius:8px;margin:12px 0;font-size:12px;line-height:1.55}
+.nda-passage-context p {margin:6px 0 0;color:#bfd0dd}
 
 .nda-angiography canvas { touch-action: none; }
 

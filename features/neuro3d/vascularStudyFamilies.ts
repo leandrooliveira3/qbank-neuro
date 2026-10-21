@@ -17,7 +17,7 @@ const branches:Record<string,string[]>={
   infra_orbital_artery:["anterior_superior_alveolar_artery","middle_superior_alveolar_artery"],
   descending_palatine_artery:["greater_palatine_artery","lesser_palatine_artery"],
   sphenopalatine_artery:["posterior_septal_branches_of_sphenopalatine_artery","posterior_lateral_nasal_branches_of_sphenopalatine_artery"],
-  middle_meningeal_artery:["frontal_branch_of_middle_meningeal_artery","parietal_branch_of_middle_meningeal_artery","petrosal_branch_of_middle_meningeal_artery","petrosquamosal_branch_of_middle_meningeal_artery"],
+  middle_meningeal_artery:["frontal_branch_of_middle_meningeal_artery","parietal_branch_of_middle_meningeal_artery","petrosal_branch_of_middle_meningeal_artery","petrosquamosal_branch_of_middle_meningeal_artery","cavernous_branch_of_middle_meningeal_artery","sphenoid_ridge_branch"],
   facial_artery:["ascending_palatine_artery","tonsillar_branch_of_facial_artery","submental_artery","angular_artery","inferior_labial_artery","superior_labial_artery"],
   superficial_temporal_artery:["frontal_branch_of_superficial_temporal_artery","parietal_branch_of_superficial_temporal_artery","transverse_facial_artery"],
   ophthalmic_artery:["central_retinal_artery","short_posterior_ciliary_arteries","long_posterior_ciliary_arteries","lacrimal_artery","anterior_ethmoidal_artery","posterior_ethmoidal_artery","supra_orbital_artery","supratrochlear_artery"],

@@ -58,3 +58,7 @@ Leia ai-context/NEXT_SESSION.md e neuro3d-linked-reference-lineage.md. Auditoria
 ## Direção mais recente do usuário
 
 3D-2D-GS-CA passa a referência preferencial de geometria, conforme neuro3d-geometry-dataset-review.md. Dez casos auditados localmente, três testes Python próprios aprovados; próximo lote deve começar pelo visor local e contrato físico, mantendo dados/licenças em espaço próprio. CTA fica complementar. Esse direcionamento supera a ordem de próxima tarefa anterior.
+
+## Prioridade atual Neuroangio
+
+Completude vascular clicável, ramos, curso, anastomoses e forames são agora prioridade máxima expressa; auditoria própria autorizada. Índice/revelação, original2Disolada, auditoria592vasos e nove registros de passagens entregues. VinteIDs sem geometria e373sem referência; não homologar por presença. Ler ai-context/NEXT_SESSION.md e neuro3d-neuroangio-priority-review.md. VisorGS-CA pendente, preservado como apoio.

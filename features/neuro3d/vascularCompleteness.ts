@@ -5,6 +5,7 @@ import {diagramRegistry} from "./anatomicalInventory";
 import {venousCoverage} from "./vascularReview";
 import {maxillaryBranchReview} from "./maxillaryReview";
 import {vascularFindings} from "./vascularFindings";
+import {neuroangioAdditionalRequirements} from "./neuroangioRequirements";
 
 type Layer = "arterial" | "venous";
 interface Requirement {
@@ -132,6 +133,7 @@ branches("ACE · ramos ainda sem identidade individual",arterial,[
 ],"Um ramo pode estar incluído em uma malha agrupada sem identificação individual; examinar a fonte antes de reconstruir ou duplicar. " + variability);
 
 const effective = new Map([...openAnatomy.structures,...reconstructedVessels].map(row=>[row.id,row]));
+for(const row of neuroangioAdditionalRequirements)add(row);
 const source = new Map(sourceStructures.map(row=>[row.id,row]));
 const rebuilt = new Set(reconstructedVessels.map(row=>row.id));
 // Keep every diagram entry that cannot be mapped explicitly. These overlap

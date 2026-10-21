@@ -26,6 +26,10 @@ import AtlasAngiography from "./AtlasAngiography";
 import { coverageReview, coverageStatus } from "./coverageReview";
 import craniocervical from "./craniocervical.json";
 import contextAudit from "../../docs/neuro3d-craniocervical-audit.json";
+import NeuroangioCoveragePanel from './NeuroangioCoveragePanel';
+import {vascularExploration} from './vascularExploration';
+import NeurovascularPassagesPanel from './NeurovascularPassagesPanel';
+import {neurovascularPassages,resolvePassage,passagesForVessel} from './neurovascularPassages';
 
 const landmarkShortcuts = [["aortic_arch", "Arco aórtico"], ["brachiocephalic_trunk", "Tronco braquiocefálico"], ["left_subclavian_artery", "Subclávia esquerda"], ["right_subclavian_artery", "Subclávia direita"], ["inferior_thyroid_artery_l", "Tireoidiana inferior esquerda"], ["inferior_thyroid_artery_r", "Tireoidiana inferior direita"], ["sphenoid_bone", "Esfenoide"], ["temporal_bone_l", "Temporal esquerdo"], ["adenohypophysis", "Adeno-hipófise"], ["neurohypophysis", "Neuro-hipófise"], ["cavernous_sinus_l", "Seio cavernoso esquerdo"], ["cavernous_sinus_r", "Seio cavernoso direito"], ["optic_chiasm_l", "Quiasma óptico"], ["falx_cerebri", "Foice cerebral"], ["tentorium_cerebelli_l", "Tentório esquerdo"]];
 const landmarkAliases: Record<string, string> = Object.fromEntries(landmarkShortcuts);
@@ -171,6 +175,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
   const [contrastLayer, setContrastLayer] = useState("arterial");
   const [imageMode, setImageMode] = useState(false);
   const [angiographic3D, setAngiographic3D] = useState(false);
+  const [fullSource,setFullSource]=useState(false);
   const [yaw, setYaw] = useState(0);
   const [pitch, setPitch] = useState(0);
   const [imageZoom, setImageZoom] = useState(1);
@@ -187,6 +192,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
   const [reset, setReset] = useState(0);
   const [cut, setCut] = useState({ axis: "none", offset: 0 });
   const item = atlasStructures.find((o) => o.id === selected);
+  const activePassage=connection?.key.startsWith('passage:')?neurovascularPassages.find(row=>row.id===connection.key.split(':')[1]):undefined;
   const studyFamily=useMemo(()=>item ? vascularStudyFamily(item.id) : null,[item]);
   const focusItem = useMemo(()=>{
     if (!item || (!connection && item.id !== treeRoot)) return item;
@@ -228,14 +234,33 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     });
   }, [search]);
   function restore() {
+    setFullSource(false);
     setShowIllustrations(false);setShowVariants(false);setShowEmbryonic(false);setConnection(null);setHidden(new Set()); setTreeRoot(null); setView("Oblíqua"); setTool("select"); setPickScope("arterial"); setIsolate(false); setOpacity(initialOpacity); setPresentation("vascular");
     setImageMode(false); setAngiographic3D(false); setContrastLayer("arterial"); setYaw(0); setPitch(0); setImageZoom(1); setImageBone(0); setImageField("cranial"); poseRef.current = {yaw:31,pitch:10,zoom:1,center:[0,-3,0]};
     setCut({ axis: "none", offset: 0 }); setReset((n) => n + 1);
   }
+  function exploreVessel(id:string){
+    const plan=vascularExploration(id,hidden,opacity);if(!plan)return;
+    setSelected(id);setHidden(plan.hidden);setOpacity(plan.opacity);setContrastLayer(plan.layer);setPickScope(plan.layer);
+    setConnection(null);setTreeRoot(null);setIsolate(true);setTool('select');setCut({axis:'none',offset:0});
+    if(plan.embryonic)setShowEmbryonic(true);
+    setFullSource(openAnatomy.structures.some(row=>row.id===id));
+    setPresentation('custom');setPanel('Estruturas');setFocus(n=>n+1);
+    const fitted=fitAtlasField(plan.item.bounds.map(worldPoint),yaw,pitch);
+    setLinkedCenter(fitted.center);setImageZoom(fitted.zoom);setImageField('linked');
+  }
+  function explorePassage(id:string,side:'l'|'r'){
+    const row=neurovascularPassages.find(p=>p.id===id);if(!row)return;
+    const resolved=resolvePassage(row,side),ids=[...resolved.vesselIds,...resolved.contextIds];
+    const nextHidden=new Set(hidden);ids.forEach(id=>nextHidden.delete(id));setHidden(nextHidden);
+    setConnection({key:`passage:${id}:${side}`,ids:new Set(ids)});setTreeRoot(null);setIsolate(false);setCut({axis:'none',offset:0});
+    setSelected(resolved.vesselIds[0]??null);setFullSource(false);setPickScope('vascular');setContrastLayer('arterial');setImageBone(.15);
+    setOpacity(old=>({...old,arterial:1,bone:.15,nerve:.7}));setTool('select');setFocus(n=>n+1);setPanel('Forames');
+  }
   return <section className={`nda ${expanded ? "nda-expanded" : ""}`} aria-label="Atlas anatômico de superfícies">
     <header><div><span className="n3-eyebrow">EXPLORAR · CABEÇA E PESCOÇO</span>
       <h2>Anatomia neurovascular</h2><p>{openAnatomy.structures.length} estruturas importadas + {reconstructedVessels.length} reconstruções didáticas</p></div>
-      <div className="nda-actions"><button onClick={restore}>Restaurar visão</button>
+      <div className="nda-actions"><button onClick={()=>setPanel('Neuroangio')}>Explorar índice Neuroangio</button><button onClick={restore}>Restaurar visão</button>
       <button aria-pressed={expanded} onClick={() => setExpanded((value) => !value)}>{expanded ? "Reduzir área 3D" : "Ampliar área 3D"}</button></div>
     </header>
     <div className="nda-educational-controls" data-testid="educational-controls">
@@ -245,6 +270,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
       <p>Curvas originais de estudo, sem segmentação radiológica ou coordenadas homologadas. Selecionar revela um trajeto; isolar revela seu conjunto. Grupos e plexos mostram exemplos, e os vasos medulares cobrem apenas o segmento cervical. Variantes não representam coexistência no mesmo indivíduo.</p>
     </div>
     {selected && educationalVesselIds.has(selected) && <p role="status" className="nda-reconstruction-note" data-testid="illustrative-selection">TRAJETO ILUSTRATIVO · coordenadas e calibre não validados · sem uso procedural</p>}
+    {activePassage&&<aside className="nda-passage-context" data-testid="passage-context"><strong>{activePassage.name}</strong><p>{activePassage.structures} {activePassage.segment}. Contexto osteoneural e vasos da via destacados; forame sem posição ou superfície individual verificada. Elos bibliográficos não demonstram continuidade luminal.</p></aside>}
     {item && <div className="nda-selection" data-testid="atlas-selection" data-selected-id={item.id} role="status"><div><strong>{item.name}</strong>{(effectiveHidden.has(item.id) || opacity[item.layer] === 0) && <small>Estrutura oculta. Use Revelar seleção para mostrá-la.</small>}<small>{openLayerNames[item.layer]} · seleção mantida até escolher outra estrutura ou limpar</small>
       {anatomicalInventory.some((row) => row.ids.includes(item.id)) && <small data-testid="selected-diagram-numbers">Neuroangio: {anatomicalInventory.filter((row) => row.ids.includes(item.id)).map((row) => `${row.number} (${row.status === "partial" ? "parcial" : "identificado"})`).join(" · ")}</small>}</div><button onClick={focusSelection}>Focar seleção</button><button aria-pressed={isolate} onClick={() => setIsolate((value) => !value)}>Isolar seleção</button>{studyFamily?.hasBranches && <button aria-pressed={treeRoot === item.id} onClick={isolateStudyFamily}>{"status" in item ? "Isolar árvore didática" : "Isolar ramos de estudo"}</button>}<button onClick={() => { if (selected) setHidden(old => new Set([...old, selected])); setSelected(null); setIsolate(false); }}>Ocultar estrutura</button><button onClick={() => { if (item) { setHidden(old => { const next = new Set(old); next.delete(item.id); return next; }); setOpacity(old => ({ ...old, [item.layer]: 1 })); } }}>Revelar seleção</button><button onClick={() => { setSelected(null); setIsolate(false); }}>Limpar seleção</button></div>}
     <div className="nda-workspace">
@@ -275,7 +301,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         <p>{tool === "select" ? (imageMode ? "Clique ou toque para identificar sem deslocar a imagem." : "Clique ou toque para identificar sem mover a câmera. Botão direito + arraste para girar.") : tool === "rotate" ? "Arraste para girar. Volte a Selecionar para identificar uma estrutura." : "Arraste para deslocar. Volte a Selecionar para identificar uma estrutura."} {imageMode ? "Na imagem 2D, use Mover para arrastar o campo e a roda para ampliar ao redor do cursor. O campo é mantido ao voltar à vista 3D." : "Roda para zoom; dois dedos para mover e ampliar. Focar seleção é uma ação separada."}</p>
       </div>
       <div className="nda-canvas" data-testid="detailed-atlas-canvas" data-dangerous-connection={connection?.key ?? ""} data-study-root={treeRoot ?? ""} data-illustrative-visible={educationalVessels.filter(row=>structureVisible(row.id,row.layer,opacity,selected,isolate,effectiveHidden,imageMode || angiographic3D,contrastLayer)).map(row=>row.id).join(",")} data-representation={imageMode ? "angiography-2d" : angiographic3D ? "angiography-3d" : "anatomy-3d"}><Boundary key={imageMode ? "2d" : angiographic3D ? "angio3d" : "anatomy3d"}>
-        {imageMode ? <AtlasAngiography tool={tool} onFieldChange={(center, zoom) => { setLinkedCenter(center); setImageField("linked"); setImageZoom(zoom); }} hidden={effectiveHidden} center={imageCenter} yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas key={angiographic3D ? "angiographic" : "anatomic"} orthographic={angiographic3D} frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 600, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
+        {imageMode ? <AtlasAngiography fullSource={fullSource} tool={tool} onFieldChange={(center, zoom) => { setLinkedCenter(center); setImageField("linked"); setImageZoom(zoom); }} hidden={effectiveHidden} center={imageCenter} yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas key={angiographic3D ? "angiographic" : "anatomic"} orthographic={angiographic3D} frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 600, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
           fallback={<p>WebGL indisponível neste navegador. Explore a lista de estruturas.</p>}>
           <color attach="background" args={[angiographic3D ? "#05090d" : "#101b25"]} /><ambientLight intensity={1.1} />
           <directionalLight position={[15, 25, 35]} intensity={2.4} /><directionalLight position={[-20, 10, -15]} intensity={1.2} />
@@ -286,8 +312,11 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         <div className="nda-canvas-caption">{item ? item.name : "Selecione uma estrutura para explorar"}<small>{imageMode ? "Projeção das mesmas superfícies · ajuste os ângulos no painel" : angiographic3D ? "Vista vascular 3D vinculada à projeção 2D · selecione Girar para rotacionar" : "Escolha Selecionar, Girar ou Mover nos controles acima"}</small></div>
       </div></div>
       <aside className="nda-sidebar"><nav aria-label="Painel do atlas detalhado">
-        {["Camadas", "Estruturas", "Revisão", "Inventário", "Vasos", "Anastomoses"].map((name) => <button key={name} aria-pressed={panel === name} onClick={() => setPanel(name)}>{name}</button>)}
+        {["Neuroangio", "Forames", "Camadas", "Estruturas", "Revisão", "Inventário", "Vasos", "Anastomoses"].map((name) => <button key={name} aria-pressed={panel === name} onClick={() => setPanel(name)}>{name}</button>)}
       </nav>
+      {panel==='Neuroangio'&&<div className="nda-review"><NeuroangioCoveragePanel onExplore={exploreVessel}/></div>}
+      {panel==='Forames'&&<div className="nda-review"><NeurovascularPassagesPanel onExplore={explorePassage} onSelect={id=>{setSelected(id);setFocus(n=>n+1);setPanel('Estruturas');}}/></div>}
+      {imageMode&&<label className="nda-original-control"><input type="checkbox" checked={fullSource} onChange={e=>setFullSource(e.target.checked)}/>Usar malha original na seleção importada isolada</label>}
       {panel === "Camadas" && <div className="nda-controls" key={reset}>{(imageMode || angiographic3D) && <label>Camada contrastada<select aria-label="Camada vascular na angiografia" value={contrastLayer} onChange={(e) => setContrastLayer(e.target.value)}><option value="arterial">Artérias</option><option value="venous">Veias e seios</option><option value="both">Artérias e veias</option></select></label>}{angiographic3D && <><h3>Vista angiográfica 3D</h3><p className="nda-help">Vista vascular ortográfica vinculada à angiografia 2D: orientação, centro, ampliação, seleção e ocultações são compartilhados ao alternar. Use Girar para explorar e Selecionar para identificar. Esta etapa usa superfícies do atlas; a aquisição rotacional e reconstrução volumétrica ainda não estão implementadas.</p></>}{imageMode && <div className="nda-projection-controls">
         <h3>Imagem angiográfica</h3><p className="nda-help">Projeção sintética do atlas. Todos os vasos visíveis são opacificados; não é uma injeção seletiva. Use a estação para cateterização.</p>
         <label>Campo angiográfico<select aria-label="Campo angiográfico" value={imageField} onChange={(event) => setImageField(event.target.value)}><option value="linked">Mesmo campo da vista 3D</option><option value="cranial">Cabeça</option><option value="supraaortic">Cervicotorácico</option><option value="selection" disabled={!item}>Centrado na seleção</option></select></label>
@@ -312,7 +341,8 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         </div>
         {item && <article data-testid="detailed-structure"><h3>{item.name}</h3><p><i>{item.latin}</i></p><small>{item.path.join(" › ")}</small>
           <label className="nda-isolate"><input type="checkbox" checked={isolate} onChange={(event) => setIsolate(event.target.checked)} /> Isolar estrutura selecionada</label>
-          {"status" in item ? <><p className="nda-reconstruction-note">Reconstrução didática · não validada</p><small>{item.note}</small><a href={item.reference} target="_blank" rel="noreferrer">Referência anatômica · Neuroangio</a></> : <><small>Rótulo de origem ainda em revisão anatômica.</small>{vascularFindings.has(item.id) && <p className="nda-reconstruction-note" data-testid="vascular-source-finding">{vascularFindings.get(item.id)}</p>}</>}{"embryonic" in item && item.embryonic && !showEmbryonic && <p>Marque Artérias embrionárias para exibir este trajeto.</p>}<VascularStudySummary id={item.id} onSelect={setSelected} /></article>}
+          {"status" in item ? <><p className="nda-reconstruction-note">Reconstrução didática · não validada</p><small>{item.note}</small><a href={item.reference} target="_blank" rel="noreferrer">Referência anatômica · Neuroangio</a></> : <><small>Rótulo de origem ainda em revisão anatômica.</small>{vascularFindings.has(item.id) && <p className="nda-reconstruction-note" data-testid="vascular-source-finding">{vascularFindings.get(item.id)}</p>}</>}{"embryonic" in item && item.embryonic && !showEmbryonic && <p>Marque Artérias embrionárias para exibir este trajeto.</p>}<VascularStudySummary id={item.id} onSelect={setSelected} />
+          {!!passagesForVessel(item.id).length&&<details data-testid="selected-passage-links"><summary>Forames e conexões desta estrutura</summary>{passagesForVessel(item.id).map(row=><button key={row.id} onClick={()=>explorePassage(row.id,item.id.endsWith('_r')?'r':'l')}>{row.name}</button>)}</details>}</article>}
       </div>}
       {panel === "Inventário" && <div className="nda-review"><h3>Índice anatômico obrigatório</h3>
         <details><summary>Estruturas cranianas e cervicais recuperadas ({craniocervical.structures.length})</summary>
@@ -323,10 +353,10 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
           })}
           <details><summary>Elementos sem superfície utilizável na fonte</summary>{contextAudit.excludedCandidates.filter((row) => !["meso_appendix", "mesocolon", "greater_omentum", "lesser_omentum"].includes(row.id)).map((row) => <p key={row.id}>{row.id}: {row.reason === "source-node-missing" ? "rótulo sem nó correspondente no arquivo de origem" : "superfície degenerada na origem"}</p>)}</details>
         </details>
-        <DiagramInventory onSelect={(id) => { setSelected(id); setPanel("Estruturas"); }} />
+        <DiagramInventory onSelect={exploreVessel} />
       </div>}
       {panel === "Anastomoses" && <div className="nda-review"><DangerousAnastomosesPanel onExplore={(key,ids)=>{setConnection({key,ids:new Set(ids)});setTreeRoot(null);setIsolate(false);setContrastLayer("arterial");setPickScope("arterial");setOpacity(old=>({...old,arterial:1}));setSelected(ids[0]??null);}} /></div>}
-      {panel === "Vasos" && <div className="nda-review"><VascularReviewPanel onSelect={id=>{setSelected(id);setPanel("Estruturas");}} /></div>}
+      {panel === "Vasos" && <div className="nda-review"><VascularReviewPanel onSelect={exploreVessel} /></div>}
       {panel === "Revisão" && <div className="nda-review"><h3>Pequenos ramos e relações finas</h3><p className="nda-help">Inventário dirigido. Presença de uma malha não equivale a validação anatômica.</p>
         {coverageReview.map((review) => <article key={review.name}><span className={`nda-review-status ${review.status}`}>{coverageStatus[review.status]}</span><h4>{review.name}</h4><p>{review.note}</p><small>{review.reference}</small>
           {!!review.ids.length && <button onClick={() => { setSelected(review.ids[0]); setPanel("Estruturas"); }}>Inspecionar no modelo</button>}</article>)}

@@ -50,3 +50,13 @@ Decisão: aceitar screenshot Ready do usuário como evidência do preview 81f679
 Usuário indicou explicitamente os onze ZIPs 3D-2D-GS-CA como referência geométrica preferencial. **Próximo lote geométrico deve começar por essa fonte**, antes de ampliar navegação BRAVE/VENAT; CTA é complementar. Auditoria offline dos10casos/20vistas e60coleções MGP concluída, hashes/CRC/bytes/finitude e projeção algébrica conferidos; três testes Python próprios aprovados. Não executou Matlab/MEX/MGP ou importação na UI. Volumes MHD/RAW e detector RAD/RAW estão em Sv/Sw mm, não DICOMLPS/RAS implícito. Report ../neuro3d-geometry-dataset-review.md; resultados ../neuro3d-gs-ca-geometry-audit.json.
 
 Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente não estabelecido. Dados/calibrações/pontos/código de fornecedor permanecem locais, sem redistribuição; preservar essa condição. Próxima etapa: leitor/visor local, VOI/ROI e contrato voxel→mm→detector verificável, sem sobrepor atlas ou reivindicar registro validado. Database_info.xls/ROIs e convenções visuais ainda precisam de verificação. CTA foi reconferido e3cortes reais foram rejeitados pelo leitor por JPEGsemperdas; série184 excede32milhões de voxels. Ver os dois novos relatórios CTA; não declarar integração.
+
+## 21/10/2026 — completude máxima e auditoria própria autorizada
+
+Decisão expressa do usuário: priorizar todas as artérias/veias Neuroangio e sua seleção vinculada, acima do visorGS-CA. Autorizou auditoria própria dos modelos criados e confronto com atlas. Incluiu ramos, curso, anastomoses e forames. Impacto: este lote executa auditoria por identidade; GS-CA não cancelado, mas visor ficou pendente por repriorização.
+
+Decisão: não certificar anatomia pelo teste de existência, raycast ou menor distância. Registrar ramo/curso/anastomose separadamente e expor novas ausências. Justificativa: callbacks, topologia por índice e pais de estudo não provam patência nem correspondência individual em datasets não rotulados.
+
+Decisão: malha original completa somente na seleção importada isolada2D, por ação explícita, com verificaçãoSHA e tratamento de falha. Geral/procedural mantidos. Justificativa: perdas mensuradas na projeção simplificada não devem ser apresentadas como detalhe original.
+
+Decisão: identificar forames como registros bibliográficos/contexto enquanto não houver ponto/superfície própria comprovada. Não colocar marcador no centro de um nervo como se fosse forame. Registrar Vesálio como alternativa, C2/C4 separados, sem criar cadeia obrigatória entre variantes. Livro original consultado de forma dirigida, privado.

@@ -1,34 +1,31 @@
-# Estado verificável — 21/10/2026
+# Estado verificável — prioridade máxima Neuroangio
 
-Base remota desta etapa: `81f679985dc448670ad13f30b0989fa598ac7ac2`, branch feature/neuro3d-atlas, PR 2 rascunho. O checkpoint novo é identificável pelo Git que contém este arquivo; conferir hash/árvore no fechamento. Original e alterações locais alheias preservados. Históricos anteriores em CHECKPOINT_HISTORY e VALIDATION.
+Atualizado21/10/2026. Base desta etapa353d149586290e97670711ce02e0175fcae5a79d, feature/neuro3d-atlas, PR2rascunho, Vercel SUCCESS confirmado. Novo checkpoint identificável pelo Git que contém este arquivo; hash/árvore/deployment a conferir ao fechar. Local continuation/neuroangio-priority; original/alterações alheias preservados.
 
-## Entregue e verificado funcionalmente
+## Prioridade e autorização vigentes
 
-- Atlas detalhado/conceitual, angiografia vinculada, anastomoses, famílias e controle embrionário preservados. Quatro representações embrionárias e 25 vias de estudo não comprovam completude/continuidade luminal.
-- Estação com fases manuais guiadas por vídeos Mentice; interação não equivale a mecânica certificada. Vascular Twin orienta Paciente 3D.
-- Paciente 3D: DICOM local reconstruído, geometria LPS/mm, cortes/limiar/isosuperfície/exportação; testes sintéticos. Sem reconstrução XA bruta ou segmentação clínica validada.
-- Doppler: modelo analítico sintético, espectro/M-mode/controles/exportação; sem FFT real ou diagnóstico.
-- REA TCD/Ankyras: avaliação estática; sem execução do software comercial ou corpos IL2CPP recuperados.
-- Referências BRAVE pat_1 e VENAT0,10/0,20 independentes com hashes/licenças/affines. Três superfícies e 42 planos nativos já derivados. Auditoria anterior conferiu 5.357.072 valores float32 sem reamostragem.
-- Lote atual: plano e marcos físicos no mesmo 3D da fonte; clique no ponto retorna ao corte; lista acessível; registro/exportação conserva câmera/plano/marcos/visibilidade. Sem ajuste do ponto ao vaso ou registro entre fontes/atlas.
-- Linhagem Anatria→Qbank: primitiva e transformações do seio reto exatamente preservadas, 1164 vértices/2304 triângulos. Vendor registra CURVE, avaliada em 1152 polígonos antes da triangulação. Não há vínculo por ID FMA/BodyParts3D estabelecido. Ver ../neuro3d-linked-reference-lineage.md.
+Usuário: maior prioridade é completar artérias e veias Neuroangio, clicáveis no atlas3D/angiografia, usando datasets como evidência. Auditoria própria explicitamente autorizada; inclui ramos, trajeto completo, anastomoses e identificação dos forames. A autorização permite executar e registrar validação, sem converter teste técnico em prova anatômica. Visor GS-CA permanece pendente e subordinado a essa prioridade.
 
-## Anatomia ainda parcial
+## Entrega deste lote
 
-1114 originais/1112 ativos, 353 reconstruções; 178 importadas arteriais/63 venosas; 312 identidades/grupos de requisitos. Permanecem **353 IDs sem malha importada ativa** (267 arteriais/86 venosos), sete rótulos sem identidade (107,4,26b,70a,74a,114a,115a) e discordância Galeno–seio reto. Zero aprovações anatômicas. Nenhuma ponte/renomeação/deformação foi aplicada. Oito representações embrionárias adicionais anunciadas anteriormente não recuperadas.
+- Índice Neuroangio pesquisável/exportável; ação revelar/isolar ajusta ocultações, filtros, camada, sistema e campo sem mover o vaso. Seleção comum mantém comportamento anterior.
+- Malha original importada completa disponível na seleção isolada2D, com SHA/hierarquia/transformação compartilhada do3D. Geral/procedural permanecem simplificados. Sem novos arquivos clínicos no site.
+- Auditoria própria592vasos (239importados ativos/353reconstruções),12arquivos de geometria conferidos,3552raycasts CPUsemfalha. Comparação dos353eixos com todas as faces dos respectivos pais;205importados/148reconstruídos. Relação com pai não é conexão luminal.
+- Nove registros de forames/passagens,18conjuntos laterais/46elos bibliográficos, com contexto ósseo/neural e seleção de vasos. Rotas redondo–ILT/C4, oval–AMA/ILT, vidiana–C2, espinhoso–AMM/ILT e AMM–lacrimal/oftálmica; Vesálio como alternativa. Forames ainda sem superfícies/coordenadas próprias verificadas; nervo vidiano individual ausente.
+- Revisão dirigida Neuroangio e Lasjaunias2001: seis páginas de texto, três também inspecionadas visualmente; livro/figuras privados. Ver ../neuro3d-neuroangio-priority-review.md e ../neuro3d-atlas-self-audit.json.
 
-## Validação atual
+## Cobertura real, sem equivalência entre presença e completude
 
-TypeScript/build e 124 testes unitários/29 arquivos aprovados. Auditor de linhagem executado contra commit fixo; 22 casos únicos de navegador em desktop/Pixel7, capturas inspecionadas. Paciente/Doppler/revisão vascular/roteiros incluídos. Aviso de chunks >500kB permanece. Sem homologação clínica ou exame 3DRA real validado.
+322identidades/grupos (228arteriais/94venosos);612IDs esperados,592representados sem homologação. Dez novas exigências venosas expõem20IDs sem geometria.373IDs sem referência importada ativa (267arteriais/106venosos), incluindo reconstruções existentes. 1114importações originais/1112ativas e353reconstruções não mudaram. Zero identidade geométrica aprovada globalmente.
 
-## Preview e continuidade
+Galeno–seio reto e sete rótulos107,4,26b,70a,74a,114a,115a continuam irresolvidos.28faces degeneradas nas retinais originais (14porlado); achado técnico sem reparo arbitrário. Completo inventário de todos os ramos/variantes, trajetos e anastomoses não foi comprovado. Oito representações embrionárias adicionais históricas não recuperadas.
 
-**81f6799 confirmado Ready/Preview** por screenshot do usuário, com branch e commit visíveis; evidência/hash em ../neuro3d-preview-81f6799-evidence.json. Isso supera a pendência anterior desse checkpoint. 403 do conector limita consulta ao time e não impediu deploy automático. Nenhum teste remoto de navegador declarado. O novo checkpoint exige evidência própria; não reinstalar plugin nem presumir autorização ao time.
+## Frentes preservadas
 
-P0 seguinte: navegação ortogonal da mesma fonte respeitando sete planos por eixo; origem por objeto anterior a Anatria ainda precisa de evidência. CTA Zenodo15697196 é candidato a ensaios independentes de Paciente3D, não preenche identidade do seio reto. P1 permanece ROI/máscara reversível/medidas e validação 3DRA real; depois estudo de dispositivos. P2 Doppler e mecânica avançada. Ver ROADMAP/REFERENCES.
+42cortes BRAVE/VENAT e vínculos físicos anteriores preservados sem reextração. Fontes independentes, sem registro ao atlas. GS-CA: dez casos auditados, visor local MHD/RAW/RAD e VOI/ROI ainda pendentes; dados locais/BY-NC-ND/guia preservados. Planilha gold-standard inspecionada com leitor XLS temporário; índiceszero, sem redistribuir ROI.
 
-## Prioridade nova — 3D-2D-GS-CA para geometria
+Paciente3D: DICOM local reconstruído/LPSmm, prévia por intensidade, testes sintéticos, sem reconstrução XA ou 3DRA real homologada. CTA: amostras JPEGsemperdas rejeitadas e série acima de32milhões de voxels. Doppler analítico, Mentice/VascularTwin e REA/Ankyras preservados. Sem FFTreal, corpo IL2CPP recuperado ou recomendação automática de dispositivo.
 
-Usuário indicou explicitamente os onze ZIPs 3D-2D-GS-CA como referência geométrica preferencial. **Próximo lote geométrico deve começar por essa fonte**, antes de ampliar navegação BRAVE/VENAT; CTA é complementar. Auditoria offline dos10casos/20vistas e60coleções MGP concluída, hashes/CRC/bytes/finitude e projeção algébrica conferidos; três testes Python próprios aprovados. Não executou Matlab/MEX/MGP ou importação na UI. Volumes MHD/RAW e detector RAD/RAW estão em Sv/Sw mm, não DICOMLPS/RAS implícito. Report ../neuro3d-geometry-dataset-review.md; resultados ../neuro3d-gs-ca-geometry-audit.json.
+## Validação
 
-Página BY-NC-ND e guia exige acordo/restringe distribuição; acordo existente não estabelecido. Dados/calibrações/pontos/código de fornecedor permanecem locais, sem redistribuição; preservar essa condição. Próxima etapa: leitor/visor local, VOI/ROI e contrato voxel→mm→detector verificável, sem sobrepor atlas ou reivindicar registro validado. Database_info.xls/ROIs e convenções visuais ainda precisam de verificação. CTA foi reconferido e3cortes reais foram rejeitados pelo leitor por JPEGsemperdas; série184 excede32milhões de voxels. Ver os dois novos relatórios CTA; não declarar integração.
+TypeScript/build e129unitários/32arquivos aprovados; auditoria geométrica completa executada. 32casos únicos de navegador desktop/Pixel7 aprovados; capturas pertinentes inspecionadas. Ler VALIDATION para escopo e falhas iniciais corrigidas. Aviso de chunks>500kB permanece. Publicar preview sem merge/force e confirmar novo hash/status.
