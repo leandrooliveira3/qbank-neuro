@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "upstreamSHA256": "b49d71788bfa0b4a3188e2954d59728a699b08ec280e70df1c2a95e13d4b81f8",
+  "subsetSHA256": "a31ac9367c374267898c65bae05eb10ea07d57d2184d099274a8642b579db1af",
+  "primitiveAndFullAncestryExactlyEqual": true,
+  "sourcePrimitive": {
+    "nodeName": "Sphenoid bone",
+    "translation": [
+      0,
+      1.5886090993881226,
+      0.027169296517968178
+    ],
+    "rotation": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "matrix": null,
+    "parents": [],
+    "primitives": 1,
+    "vertices": 3705,
+    "indexCount": 21924,
+    "dracoSHA256": "e9e49409d4a417162b494d5573035131675a74f56ddb87141bd8478657fe28a2",
+    "dracoBytes": 24759,
+    "dracoAttributes": {
+      "POSITION": 0,
+      "NORMAL": 1
+    }
+  },
+  "ancestry": [
+    {
+      "name": "Sphenoid bone",
+      "translation": [
+        0,
+        1.5886090993881226,
+        0.027169296517968178
+      ]
+    }
+  ],
+  "conclusion": "The identical compressed primitive and full ancestor transforms establish that source-mesh boundary defects were not introduced by the Qbank subset. This does not establish the anatomical identity or cause of each opening. No original Blender file executed, no repair or object renaming."
+}

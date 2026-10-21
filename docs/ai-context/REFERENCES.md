@@ -101,3 +101,8 @@ Sete termos venosos confrontados com7192rótulos ingleses TA2 da fonte fixa (blo
 PróximoP0: localizar32bordas abertas remanescentes e investigar transiçãoZ31,4→31,6 com contexto nativo/oblíquo e fonte óssea rotulada, sem reparar ou estender anatomia por inferência. Consultas bibliográficas não equivalem a ferramentas executadas. O commit que contém esta etapa identifica o novo checkpoint; confirmar hash/árvore/status remoto no fechamento.
 
 Neuroangio ILT efetivamente reaberto pela ferramenta web; fossa posterior expirou e consulta dirigida usou cache textual anterior. Lasjaunias437/p418 legenda5.25 reconsultada por texto privado, sem nova inspeção integral de imagens. CSV TA2 de tools/asset-pipeline/vendor/TA2.csv da fonte6320bd64, hashGit conferido; não equivale a executar o software Anatria. Executados os dois auditores novos, Draco/leitor, matemática própria e verificações locais; demais ferramentas/datasets permanecem preservados, não reexecutados.
+
+
+## Bordas do esfenoide
+
+FonteAnatria fixa6320bd64, skeletal_male.glb já recuperado/hashes do manifesto conferidos. Comparação dirigida Sphenoid bone: payload/atributos e ancestralidade inteira iguais ao landmarks_bone.glb. Relatório sphenoid-lineage-evidence.json; auditoria do seio reto não reexecutada (apenas helpers importados sem main). NeuroangioILT reaberto; Lasjaunias437/p418 legenda5.25 reconsultada por texto privado. Não são coordenadas anatômicas dos grafos. Ferramentas próprias executadas listadas no relatório, demais frentes somente preservadas.

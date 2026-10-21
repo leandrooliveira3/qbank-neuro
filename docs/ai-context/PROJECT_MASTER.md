@@ -70,3 +70,10 @@ Sete termos venosos confrontados com7192rótulos ingleses TA2 da fonte fixa (blo
 PróximoP0: localizar32bordas abertas remanescentes e investigar transiçãoZ31,4→31,6 com contexto nativo/oblíquo e fonte óssea rotulada, sem reparar ou estender anatomia por inferência. Consultas bibliográficas não equivalem a ferramentas executadas. O commit que contém esta etapa identifica o novo checkpoint; confirmar hash/árvore/status remoto no fechamento.
 
 Validação final desta etapa:146unitários/37arquivos,42casos únicos de navegador/12arquivos,TypeScript/build aprovados. Capturas desktop/mobile inspecionadas, origem/offset3D/exportação conferidos. Publicação será confirmada por hash/árvore/status exatos no fechamento e comprovante local. Sem validação clínica ou promoção de nomes anatômicos.
+
+
+## 21/10/2026 — bordas localizadas e cortes oblíquos no atlas
+
+Base97d2a9413bfdba1654d70fedcb02a10d84989580, continuation/skull-boundaries. Entrega e limites em ../neuro3d-skull-boundary-review.md; dados em features/neuro3d/skull-boundary-evidence.json e sphenoid-lineage-evidence.json.32arestas em2grupos16, origem/análise/exportação e sobreposição3D;4cortes oblíquos coincidentes; refinamento31,42→31,44mm. Esfenoide payload/ancestralidade iguais à fonte; defeitos não introduzidos pelo recorte. Não certifica forames/túneis; nenhuma geometria reparada ou vaso criado.
+
+P0seguinte: voltar à completude vascular e fluxos de estudo, buscar fonte individual utilizável para20ausências venosas,373referências e7termos. Não repetir bordas/cortes/auditoria592sem nova evidência. Cadência pedida pelo usuário: lotes integrados e documentação concisa, sem uma etapa por microachado. Galeno/seteIDs/componentes e todas as frentes preservados. Hash do novo checkpoint será confirmado ao publicar, sem merge/force.

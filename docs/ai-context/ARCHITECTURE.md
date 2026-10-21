@@ -76,3 +76,8 @@ passageComponentReview expõe papéis existentes/pendentes e usa auditoria dirig
 sectionHierarchy.ts separa ordem arbitrária do loop de orientação por faces; pais por contenção estrita. meshTopology verifica incidência/orientação e faces de área nula; seamTopology trabalha só em cópia diagnóstica, sem mutar índices. windingAt é diagnóstico, não classe de tecido. audit_contour_continuity produz relatório42planos e18cortes motores, com vínculos de triângulos entre níveis. Dados carregados no inspetor já lazy; plano3D existente preservado. Exportação limita relatório ao lado selecionado e conserva hashes/métodos/false de aprovação. Verificação runtime dos GLBs do relatório adicional contra manifesto.
 
 Audit_venous_nomenclature verifica blob fixo antes de pesquisar7192rótulos ingleses. venousTermReconciliation incorpora resultado lexical/fonte/limites na exportação atual; nenhuma equivalência geométrica automática.
+
+
+## Quadros oblíquos e arestas de revisão
+
+skullBoundary gera aliases exatos/linhagem de arestas e frame ortonormal reversível; sectionSurface opera em cópia de coordenadas de inspeção. SkullBoundaryReview, dentro do inspetor lazy, confere hashes contra manifesto, exibe dados de fonte/escala e exporta evidência. PassageInspectionPlane admite frame e reviewSegments; pose usa baseu/v/normal e matriz→Euler; renderer conserva plano/arestas no atlasglobal, sem dupla escala. Camera usa bounds de inspeção nos novos quadros, sem mover geometria. Quadros antigos por eixo permanecem compatíveis. SemAPI/DB/credencial nova.

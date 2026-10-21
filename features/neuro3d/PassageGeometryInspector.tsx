@@ -2,6 +2,7 @@ import React,{useEffect,useRef,useState} from 'react';
 import report from './passage-geometry-audit.json';
 import skullEvidence from './skull-landmark-evidence.json';
 import continuityEvidence from './contour-continuity-evidence.json';
+import SkullBoundaryReview from './SkullBoundaryReview';
 import {passageComponentReview,sourceAudit} from './passageComponentReview';
 import {openAnatomy} from './openAnatomy';
 import {reconstructedVessels} from './reconstructedVessels';
@@ -76,6 +77,7 @@ export default function PassageGeometryInspector({id,side,onSelect,onShowPlane}:
       {candidates.map(c=><button key={c.id} data-skull-witness={c.id} disabled={busy||!!error} aria-pressed={witnessId===c.id} onClick={()=>{setWitnessId(c.id);setCentre(c.pointCm as Point3);setSpanCm(1);setAxis('z');setOffset(c.offsetCm);}}>{c.name}</button>)}
       <button onClick={()=>{setWitnessId(null);setCentre(route.inspectionPoint as Point3);setSpanCm(6);setAxis('y');setOffset(route.inspectionPoint[1]);}}>Voltar ao campo inicial do ramo</button>
     </details>}
+    {id==='rotundum'&&<SkullBoundaryReview side={side} onShowPlane={onShowPlane}/>}
     {id==='rotundum'&&<details data-testid="contour-continuity"><summary>Hierarquia e continuidade amostrada de V2</summary>
       <p>21 cortes por lado, Z28–32 mm a cada 0,2 mm nominal. Em 18 níveis o perfil V2 está inteiramente contido; em 17 transições esses contornos compartilham faces originais. Nos níveis 31,6/31,8/32 mm não se demonstrou contenção integral.</p>
       <p>Os contornos internos têm orientação oposta ao contorno externo. Isso apoia a inspeção de uma cavidade, mas não certifica um forame. Bordas abertas por índices: {continuityEvidence.boneTopology.boundaryEdges}; após conferir costuras: {continuityEvidence.boneSeamDiagnostic.topology.boundaryEdges}. Não se fechou a malha; auto-interseções não foram verificadas.</p>

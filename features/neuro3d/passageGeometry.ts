@@ -1,10 +1,11 @@
-import {Triangle,Vector3} from 'three';
+import {Triangle,Vector3,Matrix4,Euler} from 'three';
 export type Point3=[number,number,number];
-export interface PassageInspectionPlane {passageId:string;side:'l'|'r';axis:'x'|'y'|'z';offsetCm:number;centerCm:Point3;spanCm?:number;reviewWitness?:{id:string;pointCm:Point3;sourceTriangle:number}}
+export interface PassageInspectionPlane {passageId:string;side:'l'|'r';axis:'x'|'y'|'z';offsetCm:number;centerCm:Point3;spanCm?:number;frame?:{originCm:Point3;u:Point3;v:Point3;normal:Point3};reviewSegments?:[Point3,Point3][];reviewWitness?:{id:string;pointCm:Point3;sourceTriangle:number}}
 export interface PassageSurface {id:string;layer:string;origin:'imported'|'illustrative';positions:ArrayLike<number>;indices:ArrayLike<number>}
 export interface SurfaceSection {id:string;layer:string;origin:string;segments:[Point3,Point3][];coplanarTriangles:number;triangleIds:number[]}
 export const sectionAxes={x:{normal:0,u:2,v:1,label:'X constante · Z/Y'},y:{normal:1,u:0,v:2,label:'Y constante · X/Z'},z:{normal:2,u:0,v:1,label:'Z constante · X/Y'}} as const;
 export function inspectionPlanePose(plane:PassageInspectionPlane){
+  if(plane.frame){const f=plane.frame,basis=new Matrix4().makeBasis(new Vector3(...f.u),new Vector3(...f.v),new Vector3(...f.normal)),e=new Euler().setFromRotationMatrix(basis);return {position:[...f.originCm] as Point3,rotation:[e.x,e.y,e.z] as Point3};}
   const position=[...plane.centerCm] as Point3;position[sectionAxes[plane.axis].normal]=plane.offsetCm;
   const rotation:Point3=plane.axis==='x'?[0,Math.PI/2,0]:plane.axis==='y'?[Math.PI/2,0,0]:[0,0,0];
   return {position,rotation};
