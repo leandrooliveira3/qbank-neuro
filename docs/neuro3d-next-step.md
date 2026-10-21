@@ -1,4 +1,6 @@
-# Continuação — Paciente 3D e simulador orientado por vídeo
+# Continuação — registro histórico do lote de laboratórios
+
+Atualização de 21/10/2026: o ponto de entrada vigente é [ai-context/NEXT_SESSION.md](ai-context/NEXT_SESSION.md). O prompt e a ordem de prioridades abaixo são históricos; a prioridade atual é anatomia e angiografia antes de procedimentos avançados, conforme [ROADMAP](ai-context/ROADMAP.md). Preservar todas as frentes descritas neste registro.
 
 ## Preferências confirmadas
 

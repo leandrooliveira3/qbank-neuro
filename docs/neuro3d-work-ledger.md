@@ -13,3 +13,7 @@ Preferência do usuário: etapas longas, execução até uma entrega verificáve
 Relatórios: `neuro3d-primary-video-references.md`, `neuro3d-patient-workspace.md`, `neuro3d-tcd-reference-review.md`, `neuro3d-ankyras-review.md`. Próximo prompt em `neuro3d-next-step.md`. Checkpoint detalhado local em `TASK_LEDGER.md` da pasta-mãe.
 
 Dados de paciente não são enviados ao backend. Modelos do atlas, exemplos Doppler e prévia do exame têm proveniências separadas. Nenhuma tarefa deste registro representa homologação clínica ou recomendação terapêutica automática.
+
+## Atualização — protocolo V2.0 e auditoria de fontes
+
+Ponto de recuperação vigente: [ai-context/NEXT_SESSION.md](ai-context/NEXT_SESSION.md). Auditoria dos sete links GitHub/três datasets em [REFERENCES](ai-context/REFERENCES.md): fontes consultadas não equivalem a motores integrados; VMTK tem adaptador offline não validado em morfometria real e CTA apenas amostra inspecionada. Anatomia/angiografia são a prioridade permanente antes de simulação avançada. Código do lote publicado em `025ef13cca20886cfe8bdc17b83a1957d152ace1`, deployment Vercel SUCCESS confirmado. Todas as frentes anteriores permanecem.
