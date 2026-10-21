@@ -52,3 +52,14 @@ Entregues cortes/planos físicos do atlas para8contextos/26elos, hashes por supe
 ## PróximoP0 após bordas seccionais V2
 
 Entregues quatro bordas reais e contenção de perfis V2 nos cortes; proveniência dos modelos e sete termos venosos explicitados. PróximoP0: continuidade3D e correspondência anatômica V2; raiz motora trigeminal original como contexto adicional do oval, sem confundir com tronco sensitivoV3. Procurar componentes rotulados/licenciados para ICAvidiana e meningo-lacrimal se a fonte não os individualizar. Não refazer testemunhos nem mover ramos ilustrativos22mm para forçar coincidência.20/373/Galeno/seteIDs e demaisfrentes preservados.
+
+
+## 21/10/2026 — hierarquia, continuidade amostrada e limite motor
+
+Base7b080470f0ca286700774110062a4d4d2a846a97, árvore5d81326afff7b6b6d289822f47506e1ee484fdce; remoto conferido, branchlocal continuation/contour-continuity. Fonte fixa e referenciais preservados. Ver ../neuro3d-contour-continuity-review.md e features/neuro3d/contour-continuity-evidence.json.
+
+42novas secções V2:18/21contidas porlado, hierarquia pai/filho e orientação original oposta;17transições com triângulos ósseos compartilhados. Últimos3níveis não demonstram contenção. Esfenoide tem162bordas poríndices após excluir4faces degeneradas;32bordas permanecem na cópia diagnóstica de costuras, deslocamento0. Não certifica sólido/vazio/túnel/forame ou continuidade entre amostras. Raízes motoras482vértices/960faces porlado, segmentos curtos separados do esfenoide por≥12,143mm nominais segundo caixas; não são V3 sensitivo nem curso completo do oval.
+
+Sete termos venosos confrontados com7192rótulos ingleses TA2 da fonte fixa (blob71bef934c23d207550ad1f318ec6edd8551cdba4): seis sem correspondência exata, braquial lexical rejeitado por território; grupo pontino genérico não individualiza canal transverso. IDs terminológicos não viram malhas. Zero novas geometrias/identidades aprovadas.20ausências/373lacunas, Galeno, sete rótulos e componentes ICAvidiana/meningo-lacrimal permanecem. Todas as frentesGS-CA/VOI/Paciente3D/Doppler/Mentice/VascularTwin/REA/Ankyras preservadas; dados restritos não redistribuídos.
+
+PróximoP0: localizar32bordas abertas remanescentes e investigar transiçãoZ31,4→31,6 com contexto nativo/oblíquo e fonte óssea rotulada, sem reparar ou estender anatomia por inferência. Consultas bibliográficas não equivalem a ferramentas executadas. O commit que contém esta etapa identifica o novo checkpoint; confirmar hash/árvore/status remoto no fechamento.

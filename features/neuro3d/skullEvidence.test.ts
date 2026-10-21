@@ -27,4 +27,6 @@ it('does not create venous identities from homonyms or transverse/longitudinal c
  expect(venousTermReconciliation.every(r=>r.confirmedAtlasId===null&&!r.geometryCreated)).toBe(true);
  expect(venousTermReconciliation.find(r=>r.sourceTerm==='brachial vein')?.rejected).toContain('brachial_veins_l');
  expect(venousTermReconciliation.find(r=>r.sourceTerm==='tonsillar veins')?.rejected).toContain('tonsillar_branch_of_facial_artery');
+ expect(venousTermReconciliation.every(r=>r.nomenclatureCheck.result?.confirmedAtlasId===null&&!r.nomenclatureCheck.result.geometryVerified)).toBe(true);
+ expect(venousTermReconciliation.find(r=>r.sourceTerm==='brachial vein')?.nomenclatureCheck.result?.lexicalMatches).toEqual([{sourceId:'4982',englishLabel:'Brachial veins'}]);
 });

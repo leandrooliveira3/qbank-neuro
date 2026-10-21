@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "sourceURL": "https://github.com/anatriacom/anatria/blob/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/vendor/TA2.csv",
+  "sourceBlobSHA1": "71bef934c23d207550ad1f318ec6edd8551cdba4",
+  "sourceSHA256": "0f9092a328b27dcd15d696d9f9a4087deb229a1aad21b75876657622de835974",
+  "englishRowsChecked": 7192,
+  "method": "English labels only, case-insensitive exact match after vein/veins normalization. No Latin/translation equivalence or geometry inferred. Source numeric IDs are terminology rows, NOT atlas mesh identities.",
+  "terms": [
+    {
+      "sourceTerm": "medial atrial vein",
+      "lexicalMatches": [],
+      "confirmedAtlasId": null,
+      "geometryVerified": false
+    },
+    {
+      "sourceTerm": "transverse caudate veins",
+      "lexicalMatches": [],
+      "confirmedAtlasId": null,
+      "geometryVerified": false
+    },
+    {
+      "sourceTerm": "interpeduncular vein",
+      "lexicalMatches": [],
+      "confirmedAtlasId": null,
+      "geometryVerified": false
+    },
+    {
+      "sourceTerm": "transverse pontine vein",
+      "lexicalMatches": [],
+      "confirmedAtlasId": null,
+      "geometryVerified": false
+    },
+    {
+      "sourceTerm": "pontomedullary sulcus vein",
+      "lexicalMatches": [],
+      "confirmedAtlasId": null,
+      "geometryVerified": false
+    },
+    {
+      "sourceTerm": "brachial vein",
+      "lexicalMatches": [
+        {
+          "sourceId": "4982",
+          "englishLabel": "Brachial veins"
+        }
+      ],
+      "confirmedAtlasId": null,
+      "geometryVerified": false
+    },
+    {
+      "sourceTerm": "tonsillar veins",
+      "lexicalMatches": [],
+      "confirmedAtlasId": null,
+      "geometryVerified": false
+    }
+  ],
+  "nearbyLabels": [
+    {
+      "sourceId": "4170",
+      "englishLabel": "Smallest right atrial veins"
+    },
+    {
+      "sourceId": "4172",
+      "englishLabel": "Smallest left atrial veins"
+    },
+    {
+      "sourceId": "4931",
+      "englishLabel": "Pontine veins"
+    },
+    {
+      "sourceId": "4981",
+      "englishLabel": "Median antebrachial vein"
+    },
+    {
+      "sourceId": "4982",
+      "englishLabel": "Brachial veins"
+    },
+    {
+      "sourceId": "5099",
+      "englishLabel": "Caudate branches of hepatic portal vein"
+    }
+  ],
+  "limits": "Brachial veins is an English lexical match only and remains rejected as posterior-fossa geometry: source meshes are upper-limb homonyms. Generic Pontine veins does not individualize a transverse vein. Atrial cardiac labels and hepatic caudate branches are not cerebral vessels. Missing exact label is not anatomical absence. Original CSV not redistributed; underlying nomenclature rights not reassigned."
+}

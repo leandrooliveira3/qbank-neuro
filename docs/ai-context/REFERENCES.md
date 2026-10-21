@@ -88,3 +88,16 @@ Original Anatria6320bd64df8db2fcfed358a27c85d1fcc1c5913c: skeletal_male.glb e ve
 Neuroangio mandibulovidian-artery e ophthalmic-artery-old efetivamente abertos; texto Lasjaunias PDF322/p302 reconsultado e referências dirigidas anteriores mantidas. Sem figuras/trechos extensos redistribuídos. Textos venosos em cache sustentam os sete termos; manifesto Anatria consultado para rejeitar homônimos braquiais/antebraquiais do membro superior. Não transferiu rótulos de datasets ou executou reconstrução/IA/REA novo.
 
 Ferramentas realmente executadas: read_source_surface/Draco, audit_skull_source.py, audit_skull_landmarks.ts próprios, scan exploratório de contornos no cache privado, Vitest/TypeScript/Vite/Playwright.31superfícies/26elos e auditoria592não refeitos. Recursos ósseos do atlas CC-BY-SA, coord/hashes/atribuição preservados; nenhum asset clínico restrito adicionado.
+
+
+## 21/10/2026 — hierarquia, continuidade amostrada e limite motor
+
+Base7b080470f0ca286700774110062a4d4d2a846a97, árvore5d81326afff7b6b6d289822f47506e1ee484fdce; remoto conferido, branchlocal continuation/contour-continuity. Fonte fixa e referenciais preservados. Ver ../neuro3d-contour-continuity-review.md e features/neuro3d/contour-continuity-evidence.json.
+
+42novas secções V2:18/21contidas porlado, hierarquia pai/filho e orientação original oposta;17transições com triângulos ósseos compartilhados. Últimos3níveis não demonstram contenção. Esfenoide tem162bordas poríndices após excluir4faces degeneradas;32bordas permanecem na cópia diagnóstica de costuras, deslocamento0. Não certifica sólido/vazio/túnel/forame ou continuidade entre amostras. Raízes motoras482vértices/960faces porlado, segmentos curtos separados do esfenoide por≥12,143mm nominais segundo caixas; não são V3 sensitivo nem curso completo do oval.
+
+Sete termos venosos confrontados com7192rótulos ingleses TA2 da fonte fixa (blob71bef934c23d207550ad1f318ec6edd8551cdba4): seis sem correspondência exata, braquial lexical rejeitado por território; grupo pontino genérico não individualiza canal transverso. IDs terminológicos não viram malhas. Zero novas geometrias/identidades aprovadas.20ausências/373lacunas, Galeno, sete rótulos e componentes ICAvidiana/meningo-lacrimal permanecem. Todas as frentesGS-CA/VOI/Paciente3D/Doppler/Mentice/VascularTwin/REA/Ankyras preservadas; dados restritos não redistribuídos.
+
+PróximoP0: localizar32bordas abertas remanescentes e investigar transiçãoZ31,4→31,6 com contexto nativo/oblíquo e fonte óssea rotulada, sem reparar ou estender anatomia por inferência. Consultas bibliográficas não equivalem a ferramentas executadas. O commit que contém esta etapa identifica o novo checkpoint; confirmar hash/árvore/status remoto no fechamento.
+
+Neuroangio ILT efetivamente reaberto pela ferramenta web; fossa posterior expirou e consulta dirigida usou cache textual anterior. Lasjaunias437/p418 legenda5.25 reconsultada por texto privado, sem nova inspeção integral de imagens. CSV TA2 de tools/asset-pipeline/vendor/TA2.csv da fonte6320bd64, hashGit conferido; não equivale a executar o software Anatria. Executados os dois auditores novos, Draco/leitor, matemática própria e verificações locais; demais ferramentas/datasets permanecem preservados, não reexecutados.

@@ -1,3 +1,7 @@
+# Estado atual — hierarquia V2 e contexto motor
+
+Última etapa: continuidade/limites descritos ao final deste documento e em ../neuro3d-contour-continuity-review.md. Base7b08047, continuation/contour-continuity. Conteúdo anterior abaixo permanece histórico, não estado de publicação deste lote.
+
 # Estado verificável — testemunhos ósseos e proveniência
 
 Atualizado21/10/2026. Base cc947c3e181816be6d91169ac0fcf616fe89dad5, árvore95dc5b46ea03853cf0df456cdeab90787e4bd23b, feature/neuro3d-atlas/PR2rascunho, VercelSUCCESS reconfirmado. Branchlocal continuation/skull-landmarks criada do remoto. O commit que contém este documento identifica o novo checkpoint; confirmar hash/árvore/deployment no fechamento. Original e cinco arquivos não rastreados preservados.
@@ -31,3 +35,16 @@ Continuidade3D e correspondência anatômica do contexto V2, antes de nomear o f
 42cortes/comparadorBRAVE-VENAT, vínculo físico e Anatria→Qbank do seio reto mantidos, espaços independentes. GS-CA dezcasos auditados; visorMHD/RAW/RAD/VOI pendente, dados locais restritos não redistribuídos. CTA complementar, limitescompressão/memória mantidos. Paciente3D DICOMreconstruído LPSmm, Doppler analítico, Mentice/VascularTwin, REA/Ankyras, embriologia/acessos/dispositivos mantidos; sem reconstruçãoXA ou recomendação clínica automática.
 
 TypeScript,142unitários/36arquivos e build aprovados; auditorias dirigidas executadas, sem repetir592vasos. 40 casos únicos de navegador aprovados em11arquivos, desktop e Pixel7: rodada ampla38mais dois casos novos de reconciliação/exportação venosa. Repetições dirigidas não somadas. A versão final dos testes ósseos também confere o alvo da câmera no ponto de origem. Capturas nativas das bordas V2 e plano/ponto3D desktop/mobile inspecionadas; em primeira inspeção o ponto era pequeno na visão geral, e o foco da câmera foi ajustado sem mover anatomia. Não houve teste remoto de navegador. Aviso de chunks>500kB permanece. Preview autorizado sem merge/force, confirmar commit exato.
+
+
+## 21/10/2026 — hierarquia, continuidade amostrada e limite motor
+
+Base7b080470f0ca286700774110062a4d4d2a846a97, árvore5d81326afff7b6b6d289822f47506e1ee484fdce; remoto conferido, branchlocal continuation/contour-continuity. Fonte fixa e referenciais preservados. Ver ../neuro3d-contour-continuity-review.md e features/neuro3d/contour-continuity-evidence.json.
+
+42novas secções V2:18/21contidas porlado, hierarquia pai/filho e orientação original oposta;17transições com triângulos ósseos compartilhados. Últimos3níveis não demonstram contenção. Esfenoide tem162bordas poríndices após excluir4faces degeneradas;32bordas permanecem na cópia diagnóstica de costuras, deslocamento0. Não certifica sólido/vazio/túnel/forame ou continuidade entre amostras. Raízes motoras482vértices/960faces porlado, segmentos curtos separados do esfenoide por≥12,143mm nominais segundo caixas; não são V3 sensitivo nem curso completo do oval.
+
+Sete termos venosos confrontados com7192rótulos ingleses TA2 da fonte fixa (blob71bef934c23d207550ad1f318ec6edd8551cdba4): seis sem correspondência exata, braquial lexical rejeitado por território; grupo pontino genérico não individualiza canal transverso. IDs terminológicos não viram malhas. Zero novas geometrias/identidades aprovadas.20ausências/373lacunas, Galeno, sete rótulos e componentes ICAvidiana/meningo-lacrimal permanecem. Todas as frentesGS-CA/VOI/Paciente3D/Doppler/Mentice/VascularTwin/REA/Ankyras preservadas; dados restritos não redistribuídos.
+
+PróximoP0: localizar32bordas abertas remanescentes e investigar transiçãoZ31,4→31,6 com contexto nativo/oblíquo e fonte óssea rotulada, sem reparar ou estender anatomia por inferência. Consultas bibliográficas não equivalem a ferramentas executadas. O commit que contém esta etapa identifica o novo checkpoint; confirmar hash/árvore/status remoto no fechamento.
+
+Validação final desta etapa:146unitários/37arquivos,42casos únicos de navegador/12arquivos,TypeScript/build aprovados. Capturas desktop/mobile inspecionadas, origem/offset3D/exportação conferidos. Publicação será confirmada por hash/árvore/status exatos no fechamento e comprovante local. Sem validação clínica ou promoção de nomes anatômicos.

@@ -1,3 +1,4 @@
+import nomenclature from './venous-nomenclature-audit.json';
 /** Source terms retained without inventing geometry or equating homonyms.
  * Rejected candidates are examples of invalid substitutions, not aliases. */
 export const venousTermReconciliation=[
@@ -8,4 +9,4 @@ export const venousTermReconciliation=[
  {term:'Veia do sulco pontomedular',sourceTerm:'pontomedullary sulcus vein',chapter:'veins-posterior-fossa',status:'unmapped',rejected:['anterior_pontomedullary_vein'],reason:'Sulco transversal e canal longitudinal anterior exigem identidades distintas.'},
  {term:'Veia braquial da fossa posterior',sourceTerm:'brachial vein',chapter:'veins-posterior-fossa',status:'unmapped',rejected:['brachial_veins_l','brachial_veins_r','median_antebrachial_vein_l','median_antebrachial_vein_r'],reason:'Os homônimos no manifesto Anatria pertencem ao membro superior, não à fossa posterior. Comparação textual do manifesto, sem executar anatomia por nome.'},
  {term:'Veias tonsilares cerebelares',sourceTerm:'tonsillar veins',chapter:'veins-posterior-fossa',status:'unmapped',rejected:['tonsillar_branch_of_facial_artery'],reason:'O ramo tonsilar da facial é arterial e extracraniano; não é uma veia cerebelar.'},
-].map(row=>({...row,reference:`https://neuroangio.org/venous-brain-anatomy/${row.chapter}/`,confirmedAtlasId:null,geometryCreated:false}));
+].map(row=>({...row,reference:`https://neuroangio.org/venous-brain-anatomy/${row.chapter}/`,confirmedAtlasId:null,geometryCreated:false,nomenclatureCheck:{sourceURL:nomenclature.sourceURL,sourceSHA256:nomenclature.sourceSHA256,method:nomenclature.method,result:nomenclature.terms.find(t=>t.sourceTerm===row.sourceTerm),limits:nomenclature.limits}}));

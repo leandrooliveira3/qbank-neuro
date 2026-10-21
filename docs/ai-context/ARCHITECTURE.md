@@ -69,3 +69,10 @@ sectionContours deriva loops dos segmentos nativos, soldando extremos em1e−6cm
 PassageGeometryInspector mantém estado de centro do campo, testemunho e extensão60/20/10mm. Confere hashes do testemunho contra superfícies do contexto; destaca contornos somente no plano exato e exporta evidência e proveniência. PassageInspectionPlane inclui spanCm e reviewWitness; DetailedAtlas renderiza plano e ponto de revisão no espaço globalcm, sem raycast e sem mover malhas. Rótulos deixam explícito que o ponto não é centro do forame.
 
 passageComponentReview expõe papéis existentes/pendentes e usa auditoria dirigida de seis nós vasculares/quatro rótulos ósseos. venousTermReconciliation registra sete termos, referências e substituições rejeitadas, sem aliases geométricos ou arestas procedurais; exportação Neuroangio os inclui. Resolver venoso lateraliza ausências já planejadas.
+
+
+## Hierarquia e diagnóstico de continuidade
+
+sectionHierarchy.ts separa ordem arbitrária do loop de orientação por faces; pais por contenção estrita. meshTopology verifica incidência/orientação e faces de área nula; seamTopology trabalha só em cópia diagnóstica, sem mutar índices. windingAt é diagnóstico, não classe de tecido. audit_contour_continuity produz relatório42planos e18cortes motores, com vínculos de triângulos entre níveis. Dados carregados no inspetor já lazy; plano3D existente preservado. Exportação limita relatório ao lado selecionado e conserva hashes/métodos/false de aprovação. Verificação runtime dos GLBs do relatório adicional contra manifesto.
+
+Audit_venous_nomenclature verifica blob fixo antes de pesquisar7192rótulos ingleses. venousTermReconciliation incorpora resultado lexical/fonte/limites na exportação atual; nenhuma equivalência geométrica automática.

@@ -1,6 +1,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 import report from './passage-geometry-audit.json';
 import skullEvidence from './skull-landmark-evidence.json';
+import continuityEvidence from './contour-continuity-evidence.json';
 import {passageComponentReview,sourceAudit} from './passageComponentReview';
 import {openAnatomy} from './openAnatomy';
 import {reconstructedVessels} from './reconstructedVessels';
@@ -14,6 +15,8 @@ export default function PassageGeometryInspector({id,side,onSelect,onShowPlane}:
   const [centre,setCentre]=useState<Point3>(route.inspectionPoint as Point3),[witnessId,setWitnessId]=useState<string|null>(null);
   const [spanCm,setSpanCm]=useState(6);
   const witness=candidates.find(c=>c.id===witnessId);
+  const continuity=continuityEvidence.v2.find(row=>row.side===side)!;
+  const motorRoot=continuityEvidence.motorRoots.find(row=>row.id.endsWith(`_${side}`))!;
   const [axis,setAxis]=useState<keyof typeof sectionAxes>('y'),[offset,setOffset]=useState(route.inspectionPoint[1]);
   const [edge,setEdge]=useState(0),[attempt,setAttempt]=useState(0),[error,setError]=useState(''),[busy,setBusy]=useState(true),[sections,setSections]=useState<SurfaceSection[]>([]);
   const [expanded,setExpanded]=useState(false);
@@ -30,6 +33,7 @@ export default function PassageGeometryInspector({id,side,onSelect,onShowPlane}:
       for(const candidate of candidates){
         if(route.surfaces.find(s=>s.id===candidate.boneId)?.sha256!==candidate.boneSurfaceSHA256||route.surfaces.find(s=>s.id===candidate.nerveId)?.sha256!==candidate.nerveSurfaceSHA256)throw Error('Evidência óssea incompatível com as superfícies atuais.');
       }
+      if(id==='rotundum'||id==='ovale')for(const source of continuityEvidence.sourceFiles)if(openAnatomy.assets.find(a=>a.file===source.file)?.sha256!==source.sha256)throw Error('Revisão de continuidade incompatível com a fonte atual.');
       const originals=await loadOriginalAtlasSurfaces(route.surfaces.filter(s=>s.origin==='imported').map(s=>s.id),abort.signal);
       const surfaces:PassageSurface[]=originals.map(s=>({...s,origin:'imported'}));
       for(const item of route.surfaces.filter(s=>s.origin==='illustrative')){
@@ -53,6 +57,7 @@ export default function PassageGeometryInspector({id,side,onSelect,onShowPlane}:
     const evidence={schema:1,scope:'Atlas model passage geometry, not patient registration',baseCommit:report.baseCommit,sourceCommit:report.sourceCommit,license:report.license,attribution:report.attribution,
       coordinateSystem:report.coordinateSystem,sourceFiles:report.sourceFiles,route,plane:{axis,normalAxis:a.normal,offsetCm:offset,offsetSourceMetres:sourceMetres([a.normal===0?offset:0,a.normal===1?offset:0,a.normal===2?offset:0] as Point3)[a.normal]},
       selectedLink:edge,inspectionCenterCm:centre,fieldSpanCm:spanCm,reviewWitness:witness??null,componentReview:passageComponentReview[id],sourceLineageAudit:sourceAudit,sectionCounts:sections.map(s=>({id:s.id,origin:s.origin,segments:s.segments.length,coplanarTriangles:s.coplanarTriangles})),method:report.method,limitations:report.limitations,
+      continuityReview:id==='rotundum'||id==='ovale'?{...continuityEvidence,v2:[continuity],motorRoots:[motorRoot]}:null,
       foramenPositionVerified:false,anastomosisLumenVerified:false};
     const url=URL.createObjectURL(new Blob([JSON.stringify(evidence,null,2)],{type:'application/json'}));
     const anchor=document.createElement('a');anchor.href=url;anchor.download=`via-${id}-${side}-evidencia.json`;anchor.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
@@ -70,6 +75,18 @@ export default function PassageGeometryInspector({id,side,onSelect,onShowPlane}:
     {!!candidates.length&&<details data-testid="skull-evidence-controls"><summary>Evidência óssea dirigida de V2</summary><p>Contornos fechados do osso envolvendo toda a secção do nervo de origem, em dois planos por lado. Os pontos são bordas de triângulos do esfenoide, não centros do forame redondo. Nome anatômico e túnel3D continuam em revisão.</p>
       {candidates.map(c=><button key={c.id} data-skull-witness={c.id} disabled={busy||!!error} aria-pressed={witnessId===c.id} onClick={()=>{setWitnessId(c.id);setCentre(c.pointCm as Point3);setSpanCm(1);setAxis('z');setOffset(c.offsetCm);}}>{c.name}</button>)}
       <button onClick={()=>{setWitnessId(null);setCentre(route.inspectionPoint as Point3);setSpanCm(6);setAxis('y');setOffset(route.inspectionPoint[1]);}}>Voltar ao campo inicial do ramo</button>
+    </details>}
+    {id==='rotundum'&&<details data-testid="contour-continuity"><summary>Hierarquia e continuidade amostrada de V2</summary>
+      <p>21 cortes por lado, Z28–32 mm a cada 0,2 mm nominal. Em 18 níveis o perfil V2 está inteiramente contido; em 17 transições esses contornos compartilham faces originais. Nos níveis 31,6/31,8/32 mm não se demonstrou contenção integral.</p>
+      <p>Os contornos internos têm orientação oposta ao contorno externo. Isso apoia a inspeção de uma cavidade, mas não certifica um forame. Bordas abertas por índices: {continuityEvidence.boneTopology.boundaryEdges}; após conferir costuras: {continuityEvidence.boneSeamDiagnostic.topology.boundaryEdges}. Não se fechou a malha; auto-interseções não foram verificadas.</p>
+      <p>Selecione uma secção para conferir as malhas no plano físico. O ponto branco existente continua sendo uma borda, sem centro novo.</p>
+      {continuity.sections.map(s=><button key={s.offsetCm} disabled={busy||!!error} data-continuity-level={s.offsetCm} aria-pressed={axis==='z'&&Math.abs(offset-s.offsetCm)<1e-7} onClick={()=>{const c=candidates[0];setWitnessId(c.id);setCentre(c.pointCm as Point3);setSpanCm(1);setAxis('z');setOffset(s.offsetCm);}}>{(s.offsetCm*10).toFixed(1)} mm · {s.matches.some(m=>m.containerIndex!==null)?'perfil contido':'contenção não demonstrada'}</button>)}
+      <p>Winding por ângulo sólido é diagnóstico em ponto de sondagem matemático, não centro anatômico ou certificação de espaço vazio. Túnel completo e passagem arterial continuam sem comprovação.</p>
+    </details>}
+    {id==='ovale'&&<details data-testid="motor-root-context"><summary>Raiz motora original · limite do contexto do oval</summary>
+      <p>Identidade de origem: {motorRoot.id}. {motorRoot.topology.vertices} vértices e {motorRoot.topology.faces} faces. Extensão Z de {(motorRoot.boundsCm[2][0]*10).toFixed(2)} a {(motorRoot.boundsCm[2][1]*10).toFixed(2)} mm nominais; não representa o percurso completo até o oval.</p>
+      <p>Separação garantida pelas caixas espaciais até o esfenoide: {(motorRoot.boneAabbLowerBoundCm*10).toFixed(3)} mm nominais. Nos nove cortes do segmento não há interseção com o esfenoide; não prova ausência do forame. Raiz motora, tronco sensitivo V3 e divisões mandibulares são contextos distintos; não foram assimilados ou conectados.</p>
+      <button onClick={()=>onSelect(motorRoot.id)}>Selecionar raiz motora de origem</button>
     </details>}
     {witness&&<div data-testid="skull-witness-status"><p>Borda óssea em revisão · triângulo {witness.sourceTriangle}. Contenção seccional comprovada; identidade do forame e passagem arterial não comprovadas. Cruz branca: ponto na borda, não centro do forame.</p><details><summary>Distância desta borda aos ramos ilustrativos</summary>{witness.relatedArterialDistances.map(d=><p key={d.id}>{names.get(d.id)}: {(d.pointToAllTrianglesDistanceCm*10).toFixed(2)} mm nominais do ponto a todas as faces do ramo. Não é medida de lúmen ou distância global entre superfícies.</p>)}</details></div>}
     <label>Plano de inspeção<select aria-label="Plano de inspeção" value={axis} onChange={e=>{const next=e.target.value as typeof axis;setAxis(next);setOffset(centre[sectionAxes[next].normal]);}}>{Object.entries(sectionAxes).map(([key,value])=><option value={key} key={key}>{value.label}</option>)}</select></label>
