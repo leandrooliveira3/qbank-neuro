@@ -1,0 +1,6085 @@
+{
+  "schema": 1,
+  "baseCommit": "ad5515dc53067689d5bdf54e514b0caa0d6a572e",
+  "coordinateSystem": "atlas display centimetres; source world x100, Y-160",
+  "sourceStructures": 1114,
+  "activeImported": 1112,
+  "reconstructed": 353,
+  "meshCounts": {
+    "importedArterial": 178,
+    "importedVenous": 63,
+    "reconstructed": 353,
+    "disputed": 2,
+    "anatomicallyApproved": 0
+  },
+  "coverageCounts": {
+    "requirements": 312,
+    "missing": 0,
+    "partial": 0,
+    "presentUnverified": 312,
+    "illustratedOnly": 157,
+    "illustratedIndividualIds": 301,
+    "referenceMissingIndividualIds": 353,
+    "missingIndividualIds": 0
+  },
+  "bySystem": [
+    {
+      "layer": "arterial",
+      "requirements": 228,
+      "expectedIndividualIds": 443,
+      "missingReferenceIds": 267,
+      "anatomicalApprovals": 0
+    },
+    {
+      "layer": "venous",
+      "requirements": 84,
+      "expectedIndividualIds": 149,
+      "missingReferenceIds": 86,
+      "anatomicalApprovals": 0
+    }
+  ],
+  "diagramStates": {
+    "imported": 43,
+    "reconstructed": 45,
+    "partial": 47,
+    "missing": 0,
+    "unresolved": 7
+  },
+  "unresolvedDiagram": [
+    {
+      "key": "na-107",
+      "number": "107",
+      "name": "Intercostal suprema: legenda repetida, figura discordante",
+      "kind": "source-conflict",
+      "targets": [
+        "supreme_intercostal_artery"
+      ]
+    },
+    {
+      "key": "na-figure-4",
+      "number": "4",
+      "name": "Rótulo 4 visível apenas na figura",
+      "kind": "figure-label",
+      "targets": []
+    },
+    {
+      "key": "na-figure-26b",
+      "number": "26b",
+      "name": "Rótulo 26b visível apenas na figura",
+      "kind": "figure-label",
+      "targets": []
+    },
+    {
+      "key": "na-figure-70a",
+      "number": "70a",
+      "name": "Rótulo 70a visível apenas na figura",
+      "kind": "figure-label",
+      "targets": []
+    },
+    {
+      "key": "na-figure-74a",
+      "number": "74a",
+      "name": "Rótulo 74a visível apenas na figura",
+      "kind": "figure-label",
+      "targets": []
+    },
+    {
+      "key": "na-figure-114a",
+      "number": "114a",
+      "name": "Rótulo 114a visível apenas na figura",
+      "kind": "figure-label",
+      "targets": []
+    },
+    {
+      "key": "na-figure-115a",
+      "number": "115a",
+      "name": "Rótulo 115a visível apenas na figura",
+      "kind": "figure-label",
+      "targets": []
+    }
+  ],
+  "galenStraight": {
+    "from": "great_cerebral_vein",
+    "to": "straight_sinus",
+    "fromKind": "hand-authored illustration",
+    "toKind": "imported source surface, label unreviewed",
+    "projectionGeometrySHA256": "692336ddca273953311e3d00d658b2c5e0dfc03ccd7bc9056279a8fe8143916c",
+    "projectionTriangles": 699,
+    "sourceBoundsAtlasCm": [
+      [
+        -0.1500000013038516,
+        -1.91339910030365,
+        -3.364123310893774
+      ],
+      [
+        0.1500000013038516,
+        1.375680472701788,
+        1.7185438424348831
+      ]
+    ],
+    "sampledAxisDistances": [
+      {
+        "index": 0,
+        "pointAtlasCm": [
+          0,
+          1.3,
+          -4.7
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.8535429942278894,
+        "distanceToSourceAABBCm": 1.3358766891062261
+      },
+      {
+        "index": 1,
+        "pointAtlasCm": [
+          0,
+          1.3041666666666667,
+          -4.675
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.8389924843097534,
+        "distanceToSourceAABBCm": 1.3108766891062258
+      },
+      {
+        "index": 2,
+        "pointAtlasCm": [
+          0,
+          1.3083333333333333,
+          -4.65
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.8245944406674894,
+        "distanceToSourceAABBCm": 1.2858766891062263
+      },
+      {
+        "index": 3,
+        "pointAtlasCm": [
+          0,
+          1.3125,
+          -4.625
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.8103512066562653,
+        "distanceToSourceAABBCm": 1.260876689106226
+      },
+      {
+        "index": 4,
+        "pointAtlasCm": [
+          0,
+          1.3166666666666667,
+          -4.6
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.7962651479216327,
+        "distanceToSourceAABBCm": 1.2358766891062256
+      },
+      {
+        "index": 5,
+        "pointAtlasCm": [
+          0,
+          1.3208333333333333,
+          -4.575
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.781280275535593,
+        "distanceToSourceAABBCm": 1.2108766891062261
+      },
+      {
+        "index": 6,
+        "pointAtlasCm": [
+          0,
+          1.325,
+          -4.55
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.7655899846585,
+        "distanceToSourceAABBCm": 1.1858766891062258
+      },
+      {
+        "index": 7,
+        "pointAtlasCm": [
+          0,
+          1.3291666666666666,
+          -4.525
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.750043759220148,
+        "distanceToSourceAABBCm": 1.1608766891062263
+      },
+      {
+        "index": 8,
+        "pointAtlasCm": [
+          0,
+          1.3333333333333333,
+          -4.5
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.734644056221976,
+        "distanceToSourceAABBCm": 1.135876689106226
+      },
+      {
+        "index": 9,
+        "pointAtlasCm": [
+          0,
+          1.3375,
+          -4.475
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.7193933648990356,
+        "distanceToSourceAABBCm": 1.1108766891062256
+      },
+      {
+        "index": 10,
+        "pointAtlasCm": [
+          0,
+          1.3416666666666663,
+          -4.45
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.7042942062774613,
+        "distanceToSourceAABBCm": 1.0858766891062261
+      },
+      {
+        "index": 11,
+        "pointAtlasCm": [
+          0,
+          1.345833333333333,
+          -4.425
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.6893491326670493,
+        "distanceToSourceAABBCm": 1.0608766891062258
+      },
+      {
+        "index": 12,
+        "pointAtlasCm": [
+          0,
+          1.3499999999999996,
+          -4.4
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.674560727085927,
+        "distanceToSourceAABBCm": 1.0358766891062263
+      },
+      {
+        "index": 13,
+        "pointAtlasCm": [
+          0,
+          1.3541666666666663,
+          -4.375
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.65993160261425,
+        "distanceToSourceAABBCm": 1.010876689106226
+      },
+      {
+        "index": 14,
+        "pointAtlasCm": [
+          0,
+          1.3583333333333332,
+          -4.35
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.6454644016738995,
+        "distanceToSourceAABBCm": 0.9858766891062256
+      },
+      {
+        "index": 15,
+        "pointAtlasCm": [
+          0,
+          1.3624999999999998,
+          -4.325
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.6311617952311295,
+        "distanceToSourceAABBCm": 0.9608766891062261
+      },
+      {
+        "index": 16,
+        "pointAtlasCm": [
+          0,
+          1.3666666666666663,
+          -4.299999999999999
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.6170264819191593,
+        "distanceToSourceAABBCm": 0.9358766891062249
+      },
+      {
+        "index": 17,
+        "pointAtlasCm": [
+          0,
+          1.370833333333333,
+          -4.274999999999999
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.6030611870777594,
+        "distanceToSourceAABBCm": 0.9108766891062245
+      },
+      {
+        "index": 18,
+        "pointAtlasCm": [
+          0,
+          1.3749999999999996,
+          -4.249999999999999
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.5892686617068916,
+        "distanceToSourceAABBCm": 0.8858766891062251
+      },
+      {
+        "index": 19,
+        "pointAtlasCm": [
+          0,
+          1.3791666666666662,
+          -4.224999999999999
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.575651681331608,
+        "distanceToSourceAABBCm": 0.8608837478979704
+      },
+      {
+        "index": 20,
+        "pointAtlasCm": [
+          0,
+          1.3833333333333329,
+          -4.199999999999998
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.5622130447754543,
+        "distanceToSourceAABBCm": 0.835911721216439
+      },
+      {
+        "index": 21,
+        "pointAtlasCm": [
+          0,
+          1.3874999999999993,
+          -4.174999999999999
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.548955572839765,
+        "distanceToSourceAABBCm": 0.8109628266211877
+      },
+      {
+        "index": 22,
+        "pointAtlasCm": [
+          0,
+          1.391666666666666,
+          -4.149999999999999
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.5358821068863793,
+        "distanceToSourceAABBCm": 0.7860392667532865
+      },
+      {
+        "index": 23,
+        "pointAtlasCm": [
+          0,
+          1.3958333333333326,
+          -4.124999999999999
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.522995507321473,
+        "distanceToSourceAABBCm": 0.761143530365256
+      },
+      {
+        "index": 24,
+        "pointAtlasCm": [
+          0,
+          1.4,
+          -4.1
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.5092881634001083,
+        "distanceToSourceAABBCm": 0.7362784398432084
+      },
+      {
+        "index": 25,
+        "pointAtlasCm": [
+          0,
+          1.4041666666666666,
+          -4.074999999999999
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.4946650765561813,
+        "distanceToSourceAABBCm": 0.7114472084148153
+      },
+      {
+        "index": 26,
+        "pointAtlasCm": [
+          0,
+          1.4083333333333332,
+          -4.05
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.4802147736880467,
+        "distanceToSourceAABBCm": 0.6866535093966545
+      },
+      {
+        "index": 27,
+        "pointAtlasCm": [
+          0,
+          1.4124999999999999,
+          -4.0249999999999995
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.465940292317326,
+        "distanceToSourceAABBCm": 0.661901560501613
+      },
+      {
+        "index": 28,
+        "pointAtlasCm": [
+          0,
+          1.4166666666666665,
+          -3.9999999999999996
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.451844703310121,
+        "distanceToSourceAABBCm": 0.6371962271109443
+      },
+      {
+        "index": 29,
+        "pointAtlasCm": [
+          0,
+          1.4208333333333332,
+          -3.9749999999999996
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.4379311096189644,
+        "distanceToSourceAABBCm": 0.6125431495956803
+      },
+      {
+        "index": 30,
+        "pointAtlasCm": [
+          0,
+          1.4249999999999998,
+          -3.9499999999999997
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.424202644905791,
+        "distanceToSourceAABBCm": 0.5879489013604772
+      },
+      {
+        "index": 31,
+        "pointAtlasCm": [
+          0,
+          1.4291666666666665,
+          -3.925
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.4106624720418113,
+        "distanceToSourceAABBCm": 0.5634211864383611
+      },
+      {
+        "index": 32,
+        "pointAtlasCm": [
+          0,
+          1.4333333333333331,
+          -3.8999999999999995
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.3973137814803174,
+        "distanceToSourceAABBCm": 0.5389690884145867
+      },
+      {
+        "index": 33,
+        "pointAtlasCm": [
+          0,
+          1.4375,
+          -3.8749999999999996
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.3841597894986832,
+        "distanceToSourceAABBCm": 0.5146033865293868
+      },
+      {
+        "index": 34,
+        "pointAtlasCm": [
+          0,
+          1.4416666666666669,
+          -3.8499999999999996
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.3712037363060086,
+        "distanceToSourceAABBCm": 0.4903369604779946
+      },
+      {
+        "index": 35,
+        "pointAtlasCm": [
+          0,
+          1.4458333333333335,
+          -3.8249999999999997
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.35844888401317,
+        "distanceToSourceAABBCm": 0.46618531338546654
+      },
+      {
+        "index": 36,
+        "pointAtlasCm": [
+          0,
+          1.4500000000000002,
+          -3.8
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.345898514462333,
+        "distanceToSourceAABBCm": 0.44216725369936105
+      },
+      {
+        "index": 37,
+        "pointAtlasCm": [
+          0,
+          1.4541666666666668,
+          -3.7749999999999995
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.333555926913348,
+        "distanceToSourceAABBCm": 0.41830579280472135
+      },
+      {
+        "index": 38,
+        "pointAtlasCm": [
+          0,
+          1.4583333333333335,
+          -3.75
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.3214244355848574,
+        "distanceToSourceAABBCm": 0.39462933819745416
+      },
+      {
+        "index": 39,
+        "pointAtlasCm": [
+          0,
+          1.4625000000000001,
+          -3.725
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.3095073670483828,
+        "distanceToSourceAABBCm": 0.3711732951877825
+      },
+      {
+        "index": 40,
+        "pointAtlasCm": [
+          0,
+          1.466666666666667,
+          -3.7
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.297808057474178,
+        "distanceToSourceAABBCm": 0.3479822377322944
+      },
+      {
+        "index": 41,
+        "pointAtlasCm": [
+          0,
+          1.4708333333333337,
+          -3.6750000000000003
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.286329849728158,
+        "distanceToSourceAABBCm": 0.32511287688434554
+      },
+      {
+        "index": 42,
+        "pointAtlasCm": [
+          0,
+          1.4750000000000003,
+          -3.65
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.2736330780187095,
+        "distanceToSourceAABBCm": 0.3026381500688208
+      },
+      {
+        "index": 43,
+        "pointAtlasCm": [
+          0,
+          1.479166666666667,
+          -3.625
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.2593696080478898,
+        "distanceToSourceAABBCm": 0.2806528803706868
+      },
+      {
+        "index": 44,
+        "pointAtlasCm": [
+          0,
+          1.4833333333333336,
+          -3.6
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.245301627911568,
+        "distanceToSourceAABBCm": 0.2592816053364955
+      },
+      {
+        "index": 45,
+        "pointAtlasCm": [
+          0,
+          1.4875000000000005,
+          -3.5749999999999997
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.23143283498662,
+        "distanceToSourceAABBCm": 0.2386893057797091
+      },
+      {
+        "index": 46,
+        "pointAtlasCm": [
+          0,
+          1.491666666666667,
+          -3.55
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.2177669661244246,
+        "distanceToSourceAABBCm": 0.21909573419752165
+      },
+      {
+        "index": 47,
+        "pointAtlasCm": [
+          0,
+          1.4958333333333336,
+          -3.5249999999999995
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.2043077954839396,
+        "distanceToSourceAABBCm": 0.20079347353867044
+      },
+      {
+        "index": 48,
+        "pointAtlasCm": [
+          0,
+          1.5000000000000002,
+          -3.4999999999999996
+        ],
+        "minimumDistanceToProjectionVerticesCm": 2.1910591321669117,
+        "distanceToSourceAABBCm": 0.18416791118466
+      }
+    ],
+    "connectionVerified": false,
+    "identityApproved": false,
+    "interpretation": "Distances compare illustrative axis samples with simplified projection vertices and a source bounding box. Not a continuous surface-to-surface distance, ostium, flow or diagnostic measurement. No snapping, bridge, relabelling or deformation performed."
+  },
+  "requirements": [
+    {
+      "id": "inferior_alveolar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferior_alveolar_artery_l",
+        "inferior_alveolar_artery_r"
+      ],
+      "sourceIds": [
+        "inferior_alveolar_artery_l",
+        "inferior_alveolar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_superior_alveolar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_superior_alveolar_artery_l",
+        "posterior_superior_alveolar_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_superior_alveolar_artery_l",
+        "posterior_superior_alveolar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "angular_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "angular_artery_l",
+        "angular_artery_r"
+      ],
+      "sourceIds": [
+        "angular_artery_l",
+        "angular_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "basilar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "basilar_artery"
+      ],
+      "sourceIds": [
+        "basilar_artery"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "buccal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "buccal_artery_l",
+        "buccal_artery_r"
+      ],
+      "sourceIds": [
+        "buccal_artery_l",
+        "buccal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "callosomarginal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "callosomarginal_artery_l",
+        "callosomarginal_artery_r"
+      ],
+      "sourceIds": [
+        "callosomarginal_artery_l",
+        "callosomarginal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "artery_of_pterygoid_canal",
+      "layer": "arterial",
+      "expectedIds": [
+        "artery_of_pterygoid_canal_l",
+        "artery_of_pterygoid_canal_r"
+      ],
+      "sourceIds": [
+        "artery_of_pterygoid_canal_l",
+        "artery_of_pterygoid_canal_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "central_retinal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "central_retinal_artery_l",
+        "central_retinal_artery_r"
+      ],
+      "sourceIds": [
+        "central_retinal_artery_l",
+        "central_retinal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_inferior_cerebellar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_inferior_cerebellar_artery_l",
+        "anterior_inferior_cerebellar_artery_r"
+      ],
+      "sourceIds": [
+        "anterior_inferior_cerebellar_artery_l",
+        "anterior_inferior_cerebellar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_inferior_cerebellar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_inferior_cerebellar_artery_l",
+        "posterior_inferior_cerebellar_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_inferior_cerebellar_artery_l",
+        "posterior_inferior_cerebellar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_cerebellar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_cerebellar_artery_l",
+        "superior_cerebellar_artery_r"
+      ],
+      "sourceIds": [
+        "superior_cerebellar_artery_l",
+        "superior_cerebellar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_cerebral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_cerebral_artery_l",
+        "anterior_cerebral_artery_r"
+      ],
+      "sourceIds": [
+        "anterior_cerebral_artery_l",
+        "anterior_cerebral_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_cerebral_artery_m1_segment",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_cerebral_artery_m1_segment_l",
+        "middle_cerebral_artery_m1_segment_r"
+      ],
+      "sourceIds": [
+        "middle_cerebral_artery_m1_segment_l",
+        "middle_cerebral_artery_m1_segment_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_cerebral_artery_m3_segment",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_cerebral_artery_m3_segment_r",
+        "middle_cerebral_artery_m3_segment_l"
+      ],
+      "sourceIds": [
+        "middle_cerebral_artery_m3_segment_r",
+        "middle_cerebral_artery_m3_segment_l"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_cerebral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_cerebral_artery_l",
+        "posterior_cerebral_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_cerebral_artery_l",
+        "posterior_cerebral_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "deep_cervical_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "deep_cervical_artery_l",
+        "deep_cervical_artery_r"
+      ],
+      "sourceIds": [
+        "deep_cervical_artery_l",
+        "deep_cervical_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_communicating_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_communicating_artery"
+      ],
+      "sourceIds": [
+        "anterior_communicating_artery"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_communicating_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_communicating_artery_l",
+        "posterior_communicating_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_communicating_artery_l",
+        "posterior_communicating_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_ethmoidal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_ethmoidal_artery_l",
+        "anterior_ethmoidal_artery_r"
+      ],
+      "sourceIds": [
+        "anterior_ethmoidal_artery_l",
+        "anterior_ethmoidal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_ethmoidal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_ethmoidal_artery_l",
+        "posterior_ethmoidal_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_ethmoidal_artery_l",
+        "posterior_ethmoidal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "facial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "facial_artery_l",
+        "facial_artery_r"
+      ],
+      "sourceIds": [
+        "facial_artery_l",
+        "facial_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "infra_orbital_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "infra_orbital_artery_l",
+        "infra_orbital_artery_r"
+      ],
+      "sourceIds": [
+        "infra_orbital_artery_l",
+        "infra_orbital_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_labial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferior_labial_artery_l",
+        "inferior_labial_artery_r"
+      ],
+      "sourceIds": [
+        "inferior_labial_artery_l",
+        "inferior_labial_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_labial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_labial_artery_l",
+        "superior_labial_artery_r"
+      ],
+      "sourceIds": [
+        "superior_labial_artery_l",
+        "superior_labial_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lacrimal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lacrimal_artery_l",
+        "lacrimal_artery_r"
+      ],
+      "sourceIds": [
+        "lacrimal_artery_l",
+        "lacrimal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "maxillary_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "maxillary_artery_l",
+        "maxillary_artery_r"
+      ],
+      "sourceIds": [
+        "maxillary_artery_l",
+        "maxillary_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_meningeal_artery_l",
+        "middle_meningeal_artery_r"
+      ],
+      "sourceIds": [
+        "middle_meningeal_artery_l",
+        "middle_meningeal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "occipital_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "occipital_artery_l",
+        "occipital_artery_r"
+      ],
+      "sourceIds": [
+        "occipital_artery_l",
+        "occipital_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_occipital_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lateral_occipital_artery_l",
+        "lateral_occipital_artery_r"
+      ],
+      "sourceIds": [
+        "lateral_occipital_artery_l",
+        "lateral_occipital_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "medial_occipital_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "medial_occipital_artery_l",
+        "medial_occipital_artery_r"
+      ],
+      "sourceIds": [
+        "medial_occipital_artery_l",
+        "medial_occipital_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "ophthalmic_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "ophthalmic_artery_l",
+        "ophthalmic_artery_r"
+      ],
+      "sourceIds": [
+        "ophthalmic_artery_l",
+        "ophthalmic_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "descending_palatine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "descending_palatine_artery_l",
+        "descending_palatine_artery_r"
+      ],
+      "sourceIds": [
+        "descending_palatine_artery_l",
+        "descending_palatine_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "greater_palatine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "greater_palatine_artery_l",
+        "greater_palatine_artery_r"
+      ],
+      "sourceIds": [
+        "greater_palatine_artery_l",
+        "greater_palatine_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "parieto_occipital_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "parieto_occipital_artery_l",
+        "parieto_occipital_artery_r"
+      ],
+      "sourceIds": [
+        "parieto_occipital_artery_l",
+        "parieto_occipital_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "pericallosal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "pericallosal_artery_l",
+        "pericallosal_artery_r"
+      ],
+      "sourceIds": [
+        "pericallosal_artery_l",
+        "pericallosal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "ascending_pharyngeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "ascending_pharyngeal_artery_l",
+        "ascending_pharyngeal_artery_r"
+      ],
+      "sourceIds": [
+        "ascending_pharyngeal_artery_l",
+        "ascending_pharyngeal_artery_r"
+      ],
+      "reconstructedIds": [
+        "ascending_pharyngeal_artery_l",
+        "ascending_pharyngeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "ascending_pharyngeal_artery_l",
+        "ascending_pharyngeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_spinal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_spinal_artery_l",
+        "anterior_spinal_artery_r"
+      ],
+      "sourceIds": [
+        "anterior_spinal_artery_l",
+        "anterior_spinal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "submental_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "submental_artery_l",
+        "submental_artery_r"
+      ],
+      "sourceIds": [
+        "submental_artery_l",
+        "submental_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "supra_orbital_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "supra_orbital_artery_l",
+        "supra_orbital_artery_r"
+      ],
+      "sourceIds": [
+        "supra_orbital_artery_l",
+        "supra_orbital_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "supratrochlear_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "supratrochlear_artery_l",
+        "supratrochlear_artery_r"
+      ],
+      "sourceIds": [
+        "supratrochlear_artery_l",
+        "supratrochlear_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_deep_temporal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_deep_temporal_artery_l",
+        "anterior_deep_temporal_artery_r"
+      ],
+      "sourceIds": [
+        "anterior_deep_temporal_artery_l",
+        "anterior_deep_temporal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_deep_temporal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_deep_temporal_artery_l",
+        "posterior_deep_temporal_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_deep_temporal_artery_l",
+        "posterior_deep_temporal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superficial_temporal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "superficial_temporal_artery_l",
+        "superficial_temporal_artery_r"
+      ],
+      "sourceIds": [
+        "superficial_temporal_artery_l",
+        "superficial_temporal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "transverse_facial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "transverse_facial_artery_l",
+        "transverse_facial_artery_r"
+      ],
+      "sourceIds": [
+        "transverse_facial_artery_l",
+        "transverse_facial_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "vertebral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "vertebral_artery_l",
+        "vertebral_artery_r"
+      ],
+      "sourceIds": [
+        "vertebral_artery_l",
+        "vertebral_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "short_posterior_ciliary_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "short_posterior_ciliary_arteries_l",
+        "short_posterior_ciliary_arteries_r"
+      ],
+      "sourceIds": [
+        "short_posterior_ciliary_arteries_l",
+        "short_posterior_ciliary_arteries_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "long_posterior_ciliary_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "long_posterior_ciliary_arteries_l",
+        "long_posterior_ciliary_arteries_r"
+      ],
+      "sourceIds": [
+        "long_posterior_ciliary_arteries_l",
+        "long_posterior_ciliary_arteries_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "common_carotid_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "right_common_carotid_artery",
+        "left_common_carotid_artery"
+      ],
+      "sourceIds": [
+        "right_common_carotid_artery",
+        "left_common_carotid_artery"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "external_carotid_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "external_carotid_artery_l",
+        "external_carotid_artery_r"
+      ],
+      "sourceIds": [
+        "external_carotid_artery_l",
+        "external_carotid_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "internal_carotid_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "internal_carotid_artery_l",
+        "internal_carotid_artery_r"
+      ],
+      "sourceIds": [
+        "internal_carotid_artery_l",
+        "internal_carotid_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_division_of_retromandibular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_division_of_retromandibular_vein_l",
+        "anterior_division_of_retromandibular_vein_r"
+      ],
+      "sourceIds": [
+        "anterior_division_of_retromandibular_vein_l",
+        "anterior_division_of_retromandibular_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_division_of_retromandibular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "posterior_division_of_retromandibular_vein_l",
+        "posterior_division_of_retromandibular_vein_r"
+      ],
+      "sourceIds": [
+        "posterior_division_of_retromandibular_vein_l",
+        "posterior_division_of_retromandibular_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "basilar_venous_plexus",
+      "layer": "venous",
+      "expectedIds": [
+        "basilar_venous_plexus"
+      ],
+      "sourceIds": [
+        "basilar_venous_plexus"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "frontal_branches_of_callosomarginal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "frontal_branches_of_callosomarginal_artery_l",
+        "frontal_branches_of_callosomarginal_artery_r"
+      ],
+      "sourceIds": [
+        "frontal_branches_of_callosomarginal_artery_l",
+        "frontal_branches_of_callosomarginal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "insular_branches_of_middle_cerebral_artery_m2",
+      "layer": "arterial",
+      "expectedIds": [
+        "insular_branches_of_middle_cerebral_artery_m2_r",
+        "insular_branches_of_middle_cerebral_artery_m2_l"
+      ],
+      "sourceIds": [
+        "insular_branches_of_middle_cerebral_artery_m2_r",
+        "insular_branches_of_middle_cerebral_artery_m2_l"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_pontine_branches_of_basilar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lateral_pontine_branches_of_basilar_artery_l",
+        "lateral_pontine_branches_of_basilar_artery_r"
+      ],
+      "sourceIds": [
+        "lateral_pontine_branches_of_basilar_artery_l",
+        "lateral_pontine_branches_of_basilar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "medial_pontine_branches_of_basilar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "medial_pontine_branches_of_basilar_artery_l",
+        "medial_pontine_branches_of_basilar_artery_r"
+      ],
+      "sourceIds": [
+        "medial_pontine_branches_of_basilar_artery_l",
+        "medial_pontine_branches_of_basilar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_lateral_nasal_branches_of_sphenopalatine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_lateral_nasal_branches_of_sphenopalatine_artery_l",
+        "posterior_lateral_nasal_branches_of_sphenopalatine_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_lateral_nasal_branches_of_sphenopalatine_artery_l",
+        "posterior_lateral_nasal_branches_of_sphenopalatine_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "orbitofrontal_branches_of_anterior_cerebral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "orbitofrontal_branches_of_anterior_cerebral_artery_l",
+        "orbitofrontal_branches_of_anterior_cerebral_artery_r"
+      ],
+      "sourceIds": [
+        "orbitofrontal_branches_of_anterior_cerebral_artery_l",
+        "orbitofrontal_branches_of_anterior_cerebral_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "parietal_branches_of_middle_cerebral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "parietal_branches_of_middle_cerebral_artery_l",
+        "parietal_branches_of_middle_cerebral_artery_r"
+      ],
+      "sourceIds": [
+        "parietal_branches_of_middle_cerebral_artery_l",
+        "parietal_branches_of_middle_cerebral_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_septal_branches_of_anterior_ethmoidal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_septal_branches_of_anterior_ethmoidal_artery_l",
+        "anterior_septal_branches_of_anterior_ethmoidal_artery_r"
+      ],
+      "sourceIds": [
+        "anterior_septal_branches_of_anterior_ethmoidal_artery_l",
+        "anterior_septal_branches_of_anterior_ethmoidal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "septal_branches_of_posterior_ethmoidal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "septal_branches_of_posterior_ethmoidal_artery_l",
+        "septal_branches_of_posterior_ethmoidal_artery_r"
+      ],
+      "sourceIds": [
+        "septal_branches_of_posterior_ethmoidal_artery_l",
+        "septal_branches_of_posterior_ethmoidal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_septal_branches_of_sphenopalatine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_septal_branches_of_sphenopalatine_artery_l",
+        "posterior_septal_branches_of_sphenopalatine_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_septal_branches_of_sphenopalatine_artery_l",
+        "posterior_septal_branches_of_sphenopalatine_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "temporal_branches_of_middle_cerebral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "temporal_branches_of_middle_cerebral_artery_l",
+        "temporal_branches_of_middle_cerebral_artery_r"
+      ],
+      "sourceIds": [
+        "temporal_branches_of_middle_cerebral_artery_l",
+        "temporal_branches_of_middle_cerebral_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "accessory_branch_of_middle_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "accessory_branch_of_middle_meningeal_artery_l",
+        "accessory_branch_of_middle_meningeal_artery_r"
+      ],
+      "sourceIds": [
+        "accessory_branch_of_middle_meningeal_artery_l",
+        "accessory_branch_of_middle_meningeal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "postcentral_arterial_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "postcentral_arterial_branch_l",
+        "postcentral_arterial_branch_r"
+      ],
+      "sourceIds": [
+        "postcentral_arterial_branch_l",
+        "postcentral_arterial_branch_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "frontal_branch_of_superficial_temporal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "frontal_branch_of_superficial_temporal_artery_l",
+        "frontal_branch_of_superficial_temporal_artery_r"
+      ],
+      "sourceIds": [
+        "frontal_branch_of_superficial_temporal_artery_l",
+        "frontal_branch_of_superficial_temporal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "mental_branch_of_inferior_alveolar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "mental_branch_of_inferior_alveolar_artery_l",
+        "mental_branch_of_inferior_alveolar_artery_r"
+      ],
+      "sourceIds": [
+        "mental_branch_of_inferior_alveolar_artery_l",
+        "mental_branch_of_inferior_alveolar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "mylohyoid_branch_of_inferior_alveolar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "mylohyoid_branch_of_inferior_alveolar_artery_l",
+        "mylohyoid_branch_of_inferior_alveolar_artery_r"
+      ],
+      "sourceIds": [
+        "mylohyoid_branch_of_inferior_alveolar_artery_l",
+        "mylohyoid_branch_of_inferior_alveolar_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "cavernous_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "cavernous_sinus_l",
+        "cavernous_sinus_r"
+      ],
+      "sourceIds": [
+        "cavernous_sinus_l",
+        "cavernous_sinus_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_intercavernous_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_intercavernous_sinus"
+      ],
+      "sourceIds": [
+        "anterior_intercavernous_sinus"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_intercavernous_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "posterior_intercavernous_sinus"
+      ],
+      "sourceIds": [
+        "posterior_intercavernous_sinus"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "occipital_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "occipital_sinus"
+      ],
+      "sourceIds": [
+        "occipital_sinus"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_petrosal_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_petrosal_sinus_l",
+        "inferior_petrosal_sinus_r"
+      ],
+      "sourceIds": [
+        "inferior_petrosal_sinus_l",
+        "inferior_petrosal_sinus_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_petrosal_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_petrosal_sinus_l",
+        "superior_petrosal_sinus_r"
+      ],
+      "sourceIds": [
+        "superior_petrosal_sinus_l",
+        "superior_petrosal_sinus_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "straight_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "straight_sinus"
+      ],
+      "sourceIds": [
+        "straight_sinus"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_sagittal_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_sagittal_sinus"
+      ],
+      "sourceIds": [
+        "inferior_sagittal_sinus"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_sagittal_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_sagittal_sinus"
+      ],
+      "sourceIds": [
+        "superior_sagittal_sinus"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sigmoid_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "sigmoid_sinus_l",
+        "sigmoid_sinus_r"
+      ],
+      "sourceIds": [
+        "sigmoid_sinus_l",
+        "sigmoid_sinus_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "transverse_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "transverse_sinus_l",
+        "transverse_sinus_r"
+      ],
+      "sourceIds": [
+        "transverse_sinus_l",
+        "transverse_sinus_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "angular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "angular_vein_l",
+        "angular_vein_r"
+      ],
+      "sourceIds": [
+        "angular_vein_l",
+        "angular_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_auricular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "posterior_auricular_vein_l",
+        "posterior_auricular_vein_r"
+      ],
+      "sourceIds": [
+        "posterior_auricular_vein_l",
+        "posterior_auricular_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "facial_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "facial_vein_l",
+        "facial_vein_r"
+      ],
+      "sourceIds": [
+        "facial_vein_l",
+        "facial_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "common_facial_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "common_facial_vein_l",
+        "common_facial_vein_r"
+      ],
+      "sourceIds": [
+        "common_facial_vein_l",
+        "common_facial_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "external_jugular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "external_jugular_vein_l",
+        "external_jugular_vein_r"
+      ],
+      "sourceIds": [
+        "external_jugular_vein_l",
+        "external_jugular_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "internal_jugular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "internal_jugular_vein_l",
+        "internal_jugular_vein_r"
+      ],
+      "sourceIds": [
+        "internal_jugular_vein_l",
+        "internal_jugular_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_labial_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_labial_vein_l",
+        "superior_labial_vein_r"
+      ],
+      "sourceIds": [
+        "superior_labial_vein_l",
+        "superior_labial_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lingual_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "lingual_vein_l",
+        "lingual_vein_r"
+      ],
+      "sourceIds": [
+        "lingual_vein_l",
+        "lingual_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "occipital_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "occipital_vein_l",
+        "occipital_vein_r"
+      ],
+      "sourceIds": [
+        "occipital_vein_l",
+        "occipital_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_ophthalmic_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_ophthalmic_vein_l",
+        "inferior_ophthalmic_vein_r"
+      ],
+      "sourceIds": [
+        "inferior_ophthalmic_vein_l",
+        "inferior_ophthalmic_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_ophthalmic_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_ophthalmic_vein_l",
+        "superior_ophthalmic_vein_r"
+      ],
+      "sourceIds": [
+        "superior_ophthalmic_vein_l",
+        "superior_ophthalmic_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "retromandibular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "retromandibular_vein_l",
+        "retromandibular_vein_r"
+      ],
+      "sourceIds": [
+        "retromandibular_vein_l",
+        "retromandibular_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "submental_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "submental_vein_l",
+        "submental_vein_r"
+      ],
+      "sourceIds": [
+        "submental_vein_l",
+        "submental_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_thyroid_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_thyroid_vein_l",
+        "superior_thyroid_vein_r"
+      ],
+      "sourceIds": [
+        "superior_thyroid_vein_l",
+        "superior_thyroid_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "vertebral_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "vertebral_vein_l",
+        "vertebral_vein_r"
+      ],
+      "sourceIds": [
+        "vertebral_vein_l",
+        "vertebral_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_labial_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_labial_veins_l",
+        "inferior_labial_veins_r"
+      ],
+      "sourceIds": [
+        "inferior_labial_veins_l",
+        "inferior_labial_veins_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "maxillary_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "maxillary_veins_l",
+        "maxillary_veins_r"
+      ],
+      "sourceIds": [
+        "maxillary_veins_l",
+        "maxillary_veins_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superficial_temporal_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "superficial_temporal_veins_l",
+        "superficial_temporal_veins_r"
+      ],
+      "sourceIds": [
+        "superficial_temporal_veins_l",
+        "superficial_temporal_veins_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "aortic_arch",
+      "layer": "arterial",
+      "expectedIds": [
+        "aortic_arch"
+      ],
+      "sourceIds": [
+        "aortic_arch"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "supreme_intercostal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "supreme_intercostal_artery_l",
+        "supreme_intercostal_artery_r"
+      ],
+      "sourceIds": [
+        "supreme_intercostal_artery_l",
+        "supreme_intercostal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "subclavian_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "right_subclavian_artery",
+        "left_subclavian_artery"
+      ],
+      "sourceIds": [
+        "right_subclavian_artery",
+        "left_subclavian_artery"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_thyroid_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferior_thyroid_artery_l",
+        "inferior_thyroid_artery_r"
+      ],
+      "sourceIds": [
+        "inferior_thyroid_artery_l",
+        "inferior_thyroid_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "transverse_cervical_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "transverse_cervical_artery_l",
+        "transverse_cervical_artery_r"
+      ],
+      "sourceIds": [
+        "transverse_cervical_artery_l",
+        "transverse_cervical_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "brachiocephalic_trunk",
+      "layer": "arterial",
+      "expectedIds": [
+        "brachiocephalic_trunk"
+      ],
+      "sourceIds": [
+        "brachiocephalic_trunk"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "costocervical_trunk",
+      "layer": "arterial",
+      "expectedIds": [
+        "costocervical_trunk_l",
+        "costocervical_trunk_r"
+      ],
+      "sourceIds": [
+        "costocervical_trunk_l",
+        "costocervical_trunk_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "thyrocervical_trunk",
+      "layer": "arterial",
+      "expectedIds": [
+        "thyrocervical_trunk_l",
+        "thyrocervical_trunk_r"
+      ],
+      "sourceIds": [
+        "thyrocervical_trunk_l",
+        "thyrocervical_trunk_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "abdominal_aorta",
+      "layer": "arterial",
+      "expectedIds": [
+        "abdominal_aorta"
+      ],
+      "sourceIds": [
+        "abdominal_aorta"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "thoracic_aorta",
+      "layer": "arterial",
+      "expectedIds": [
+        "thoracic_aorta"
+      ],
+      "sourceIds": [
+        "thoracic_aorta"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "axillary_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "axillary_artery_r"
+      ],
+      "sourceIds": [
+        "axillary_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "brachial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "brachial_artery_r"
+      ],
+      "sourceIds": [
+        "brachial_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "femoral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "femoral_artery_r"
+      ],
+      "sourceIds": [
+        "femoral_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "common_iliac_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "common_iliac_artery_r"
+      ],
+      "sourceIds": [
+        "common_iliac_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "external_iliac_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "external_iliac_artery_r"
+      ],
+      "sourceIds": [
+        "external_iliac_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "radial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "radial_artery_r"
+      ],
+      "sourceIds": [
+        "radial_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "brachiocephalic_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "right_brachiocephalic_vein",
+        "left_brachiocephalic_vein"
+      ],
+      "sourceIds": [
+        "right_brachiocephalic_vein",
+        "left_brachiocephalic_vein"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_jugular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_jugular_vein_l",
+        "anterior_jugular_vein_r"
+      ],
+      "sourceIds": [
+        "anterior_jugular_vein_l",
+        "anterior_jugular_vein_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "subclavian_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "right_subclavian_vein",
+        "left_subclavian_vein"
+      ],
+      "sourceIds": [
+        "right_subclavian_vein",
+        "left_subclavian_vein"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_temporal_branch_of_mca",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_temporal_branch_of_mca_l",
+        "anterior_temporal_branch_of_mca_r"
+      ],
+      "sourceIds": [
+        "anterior_temporal_branch_of_mca_l",
+        "anterior_temporal_branch_of_mca_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "artery_of_central_sulcus",
+      "layer": "arterial",
+      "expectedIds": [
+        "artery_of_central_sulcus_l",
+        "artery_of_central_sulcus_r"
+      ],
+      "sourceIds": [
+        "artery_of_central_sulcus_l",
+        "artery_of_central_sulcus_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "artery_of_precentral_sulcus",
+      "layer": "arterial",
+      "expectedIds": [
+        "artery_of_precentral_sulcus_l",
+        "artery_of_precentral_sulcus_r"
+      ],
+      "sourceIds": [
+        "artery_of_precentral_sulcus_l",
+        "artery_of_precentral_sulcus_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "arterial_branch_to_angular_gyrus",
+      "layer": "arterial",
+      "expectedIds": [
+        "arterial_branch_to_angular_gyrus_l",
+        "arterial_branch_to_angular_gyrus_r"
+      ],
+      "sourceIds": [
+        "arterial_branch_to_angular_gyrus_l",
+        "arterial_branch_to_angular_gyrus_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "distal_lateral_striate_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "distal_lateral_striate_branches_l",
+        "distal_lateral_striate_branches_r"
+      ],
+      "sourceIds": [
+        "distal_lateral_striate_branches_l",
+        "distal_lateral_striate_branches_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_frontobasal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lateral_frontobasal_artery_l",
+        "lateral_frontobasal_artery_r"
+      ],
+      "sourceIds": [
+        "lateral_frontobasal_artery_l",
+        "lateral_frontobasal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_parietal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_parietal_artery_l",
+        "posterior_parietal_artery_r"
+      ],
+      "sourceIds": [
+        "posterior_parietal_artery_l",
+        "posterior_parietal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_temporal_branch_of_mca",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_temporal_branch_of_mca_l",
+        "posterior_temporal_branch_of_mca_r"
+      ],
+      "sourceIds": [
+        "posterior_temporal_branch_of_mca_l",
+        "posterior_temporal_branch_of_mca_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "prefrontal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "prefrontal_artery_l",
+        "prefrontal_artery_r"
+      ],
+      "sourceIds": [
+        "prefrontal_artery_l",
+        "prefrontal_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "proximal_lateral_striate_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "proximal_lateral_striate_branches_l",
+        "proximal_lateral_striate_branches_r"
+      ],
+      "sourceIds": [
+        "proximal_lateral_striate_branches_l",
+        "proximal_lateral_striate_branches_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "temporo_occipital_branch_of_mca",
+      "layer": "arterial",
+      "expectedIds": [
+        "temporo_occipital_branch_of_mca_l",
+        "temporo_occipital_branch_of_mca_r"
+      ],
+      "sourceIds": [
+        "temporo_occipital_branch_of_mca_l",
+        "temporo_occipital_branch_of_mca_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "deep_branch_of_transverse_cervical_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "deep_branch_of_transverse_cervical_artery_l",
+        "deep_branch_of_transverse_cervical_artery_r"
+      ],
+      "sourceIds": [
+        "deep_branch_of_transverse_cervical_artery_l",
+        "deep_branch_of_transverse_cervical_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superficial_branch_of_transverse_cervical_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "superficial_branch_of_transverse_cervical_artery_l",
+        "superficial_branch_of_transverse_cervical_artery_r"
+      ],
+      "sourceIds": [
+        "superficial_branch_of_transverse_cervical_artery_l",
+        "superficial_branch_of_transverse_cervical_artery_r"
+      ],
+      "reconstructedIds": [],
+      "referenceMissingIds": [],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "meningohypophyseal_trunk",
+      "layer": "arterial",
+      "expectedIds": [
+        "meningohypophyseal_trunk_l",
+        "meningohypophyseal_trunk_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "meningohypophyseal_trunk_l",
+        "meningohypophyseal_trunk_r"
+      ],
+      "referenceMissingIds": [
+        "meningohypophyseal_trunk_l",
+        "meningohypophyseal_trunk_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_hypophyseal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferior_hypophyseal_artery_l",
+        "inferior_hypophyseal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_hypophyseal_artery_l",
+        "inferior_hypophyseal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_hypophyseal_artery_l",
+        "inferior_hypophyseal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "medial_clival_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "medial_clival_branch_l",
+        "medial_clival_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "medial_clival_branch_l",
+        "medial_clival_branch_r"
+      ],
+      "referenceMissingIds": [
+        "medial_clival_branch_l",
+        "medial_clival_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "marginal_tentorial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "marginal_tentorial_artery_l",
+        "marginal_tentorial_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "marginal_tentorial_artery_l",
+        "marginal_tentorial_artery_r"
+      ],
+      "referenceMissingIds": [
+        "marginal_tentorial_artery_l",
+        "marginal_tentorial_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferolateral_trunk",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferolateral_trunk_l",
+        "inferolateral_trunk_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferolateral_trunk_l",
+        "inferolateral_trunk_r"
+      ],
+      "referenceMissingIds": [
+        "inferolateral_trunk_l",
+        "inferolateral_trunk_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "foramen_rotundum_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "foramen_rotundum_branch_l",
+        "foramen_rotundum_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "foramen_rotundum_branch_l",
+        "foramen_rotundum_branch_r"
+      ],
+      "referenceMissingIds": [
+        "foramen_rotundum_branch_l",
+        "foramen_rotundum_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "foramen_ovale_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "foramen_ovale_branch_l",
+        "foramen_ovale_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "foramen_ovale_branch_l",
+        "foramen_ovale_branch_r"
+      ],
+      "referenceMissingIds": [
+        "foramen_ovale_branch_l",
+        "foramen_ovale_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anteromedial_ilt_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "anteromedial_ilt_branch_l",
+        "anteromedial_ilt_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anteromedial_ilt_branch_l",
+        "anteromedial_ilt_branch_r"
+      ],
+      "referenceMissingIds": [
+        "anteromedial_ilt_branch_l",
+        "anteromedial_ilt_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_choroidal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_choroidal_artery_l",
+        "anterior_choroidal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_choroidal_artery_l",
+        "anterior_choroidal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_choroidal_artery_l",
+        "anterior_choroidal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "pharyngeal_trunk_of_ascending_pharyngeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery_l",
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery_l",
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery_l",
+        "pharyngeal_trunk_of_ascending_pharyngeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_pharyngeal_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferior_pharyngeal_branch_l",
+        "inferior_pharyngeal_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_pharyngeal_branch_l",
+        "inferior_pharyngeal_branch_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_pharyngeal_branch_l",
+        "inferior_pharyngeal_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_pharyngeal_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_pharyngeal_branch_l",
+        "middle_pharyngeal_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "middle_pharyngeal_branch_l",
+        "middle_pharyngeal_branch_r"
+      ],
+      "referenceMissingIds": [
+        "middle_pharyngeal_branch_l",
+        "middle_pharyngeal_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_pharyngeal_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_pharyngeal_branch_l",
+        "superior_pharyngeal_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_pharyngeal_branch_l",
+        "superior_pharyngeal_branch_r"
+      ],
+      "referenceMissingIds": [
+        "superior_pharyngeal_branch_l",
+        "superior_pharyngeal_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "neuromeningeal_trunk",
+      "layer": "arterial",
+      "expectedIds": [
+        "neuromeningeal_trunk_l",
+        "neuromeningeal_trunk_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "neuromeningeal_trunk_l",
+        "neuromeningeal_trunk_r"
+      ],
+      "referenceMissingIds": [
+        "neuromeningeal_trunk_l",
+        "neuromeningeal_trunk_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "hypoglossal_division_of_ascending_pharyngeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "hypoglossal_division_of_ascending_pharyngeal_artery_l",
+        "hypoglossal_division_of_ascending_pharyngeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "hypoglossal_division_of_ascending_pharyngeal_artery_l",
+        "hypoglossal_division_of_ascending_pharyngeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "hypoglossal_division_of_ascending_pharyngeal_artery_l",
+        "hypoglossal_division_of_ascending_pharyngeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "jugular_division_of_ascending_pharyngeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "jugular_division_of_ascending_pharyngeal_artery_l",
+        "jugular_division_of_ascending_pharyngeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "jugular_division_of_ascending_pharyngeal_artery_l",
+        "jugular_division_of_ascending_pharyngeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "jugular_division_of_ascending_pharyngeal_artery_l",
+        "jugular_division_of_ascending_pharyngeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_tympanic_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferior_tympanic_artery_l",
+        "inferior_tympanic_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_tympanic_artery_l",
+        "inferior_tympanic_artery_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_tympanic_artery_l",
+        "inferior_tympanic_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lacerum_branch_of_ascending_pharyngeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lacerum_branch_of_ascending_pharyngeal_artery_l",
+        "lacerum_branch_of_ascending_pharyngeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lacerum_branch_of_ascending_pharyngeal_artery_l",
+        "lacerum_branch_of_ascending_pharyngeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "lacerum_branch_of_ascending_pharyngeal_artery_l",
+        "lacerum_branch_of_ascending_pharyngeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "musculospinal_branch_of_ascending_pharyngeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "musculospinal_branch_of_ascending_pharyngeal_artery_l",
+        "musculospinal_branch_of_ascending_pharyngeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "musculospinal_branch_of_ascending_pharyngeal_artery_l",
+        "musculospinal_branch_of_ascending_pharyngeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "musculospinal_branch_of_ascending_pharyngeal_artery_l",
+        "musculospinal_branch_of_ascending_pharyngeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "ascending_clival_branch_of_hypoglossal_division",
+      "layer": "arterial",
+      "expectedIds": [
+        "ascending_clival_branch_of_hypoglossal_division_l",
+        "ascending_clival_branch_of_hypoglossal_division_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "ascending_clival_branch_of_hypoglossal_division_l",
+        "ascending_clival_branch_of_hypoglossal_division_r"
+      ],
+      "referenceMissingIds": [
+        "ascending_clival_branch_of_hypoglossal_division_l",
+        "ascending_clival_branch_of_hypoglossal_division_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lingual_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lingual_artery_l",
+        "lingual_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lingual_artery_l",
+        "lingual_artery_r"
+      ],
+      "referenceMissingIds": [
+        "lingual_artery_l",
+        "lingual_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "deep_lingual_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "deep_lingual_artery_l",
+        "deep_lingual_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "deep_lingual_artery_l",
+        "deep_lingual_artery_r"
+      ],
+      "referenceMissingIds": [
+        "deep_lingual_artery_l",
+        "deep_lingual_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sublingual_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "sublingual_artery_l",
+        "sublingual_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sublingual_artery_l",
+        "sublingual_artery_r"
+      ],
+      "referenceMissingIds": [
+        "sublingual_artery_l",
+        "sublingual_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "dorsal_lingual_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "dorsal_lingual_branches_l",
+        "dorsal_lingual_branches_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "dorsal_lingual_branches_l",
+        "dorsal_lingual_branches_r"
+      ],
+      "referenceMissingIds": [
+        "dorsal_lingual_branches_l",
+        "dorsal_lingual_branches_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "suprahyoid_branch_of_lingual_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "suprahyoid_branch_of_lingual_artery_l",
+        "suprahyoid_branch_of_lingual_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "suprahyoid_branch_of_lingual_artery_l",
+        "suprahyoid_branch_of_lingual_artery_r"
+      ],
+      "referenceMissingIds": [
+        "suprahyoid_branch_of_lingual_artery_l",
+        "suprahyoid_branch_of_lingual_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "deep_auricular_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "deep_auricular_artery_l",
+        "deep_auricular_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "deep_auricular_artery_l",
+        "deep_auricular_artery_r"
+      ],
+      "referenceMissingIds": [
+        "deep_auricular_artery_l",
+        "deep_auricular_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_tympanic_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_tympanic_artery_l",
+        "anterior_tympanic_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_tympanic_artery_l",
+        "anterior_tympanic_artery_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_tympanic_artery_l",
+        "anterior_tympanic_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "accessory_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "accessory_meningeal_artery_l",
+        "accessory_meningeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "accessory_meningeal_artery_l",
+        "accessory_meningeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "accessory_meningeal_artery_l",
+        "accessory_meningeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "masseteric_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "masseteric_artery_l",
+        "masseteric_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "masseteric_artery_l",
+        "masseteric_artery_r"
+      ],
+      "referenceMissingIds": [
+        "masseteric_artery_l",
+        "masseteric_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "pterygoid_branches_of_maxillary_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "pterygoid_branches_of_maxillary_artery_l",
+        "pterygoid_branches_of_maxillary_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "pterygoid_branches_of_maxillary_artery_l",
+        "pterygoid_branches_of_maxillary_artery_r"
+      ],
+      "referenceMissingIds": [
+        "pterygoid_branches_of_maxillary_artery_l",
+        "pterygoid_branches_of_maxillary_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_superior_alveolar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_superior_alveolar_artery_l",
+        "anterior_superior_alveolar_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_superior_alveolar_artery_l",
+        "anterior_superior_alveolar_artery_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_superior_alveolar_artery_l",
+        "anterior_superior_alveolar_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_superior_alveolar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_superior_alveolar_artery_l",
+        "middle_superior_alveolar_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "middle_superior_alveolar_artery_l",
+        "middle_superior_alveolar_artery_r"
+      ],
+      "referenceMissingIds": [
+        "middle_superior_alveolar_artery_l",
+        "middle_superior_alveolar_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lesser_palatine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lesser_palatine_artery_l",
+        "lesser_palatine_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lesser_palatine_artery_l",
+        "lesser_palatine_artery_r"
+      ],
+      "referenceMissingIds": [
+        "lesser_palatine_artery_l",
+        "lesser_palatine_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "pterygovaginal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "pterygovaginal_artery_l",
+        "pterygovaginal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "pterygovaginal_artery_l",
+        "pterygovaginal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "pterygovaginal_artery_l",
+        "pterygovaginal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "artery_of_foramen_rotundum_from_maxillary",
+      "layer": "arterial",
+      "expectedIds": [
+        "artery_of_foramen_rotundum_from_maxillary_l",
+        "artery_of_foramen_rotundum_from_maxillary_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "artery_of_foramen_rotundum_from_maxillary_l",
+        "artery_of_foramen_rotundum_from_maxillary_r"
+      ],
+      "referenceMissingIds": [
+        "artery_of_foramen_rotundum_from_maxillary_l",
+        "artery_of_foramen_rotundum_from_maxillary_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sphenopalatine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "sphenopalatine_artery_l",
+        "sphenopalatine_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sphenopalatine_artery_l",
+        "sphenopalatine_artery_r"
+      ],
+      "referenceMissingIds": [
+        "sphenopalatine_artery_l",
+        "sphenopalatine_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "recurrent_artery_of_heubner",
+      "layer": "arterial",
+      "expectedIds": [
+        "recurrent_artery_of_heubner_l",
+        "recurrent_artery_of_heubner_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "recurrent_artery_of_heubner_l",
+        "recurrent_artery_of_heubner_r"
+      ],
+      "referenceMissingIds": [
+        "recurrent_artery_of_heubner_l",
+        "recurrent_artery_of_heubner_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "medial_lenticulostriate_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "medial_lenticulostriate_arteries_l",
+        "medial_lenticulostriate_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "medial_lenticulostriate_arteries_l",
+        "medial_lenticulostriate_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "medial_lenticulostriate_arteries_l",
+        "medial_lenticulostriate_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "frontopolar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "frontopolar_artery_l",
+        "frontopolar_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "frontopolar_artery_l",
+        "frontopolar_artery_r"
+      ],
+      "referenceMissingIds": [
+        "frontopolar_artery_l",
+        "frontopolar_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_internal_frontal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_internal_frontal_artery_l",
+        "anterior_internal_frontal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_internal_frontal_artery_l",
+        "anterior_internal_frontal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_internal_frontal_artery_l",
+        "anterior_internal_frontal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_internal_frontal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_internal_frontal_artery_l",
+        "middle_internal_frontal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "middle_internal_frontal_artery_l",
+        "middle_internal_frontal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "middle_internal_frontal_artery_l",
+        "middle_internal_frontal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_internal_frontal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_internal_frontal_artery_l",
+        "posterior_internal_frontal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_internal_frontal_artery_l",
+        "posterior_internal_frontal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_internal_frontal_artery_l",
+        "posterior_internal_frontal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "paracentral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "paracentral_artery_l",
+        "paracentral_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "paracentral_artery_l",
+        "paracentral_artery_r"
+      ],
+      "referenceMissingIds": [
+        "paracentral_artery_l",
+        "paracentral_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_internal_parietal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_internal_parietal_artery_l",
+        "superior_internal_parietal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_internal_parietal_artery_l",
+        "superior_internal_parietal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "superior_internal_parietal_artery_l",
+        "superior_internal_parietal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_internal_parietal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferior_internal_parietal_artery_l",
+        "inferior_internal_parietal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_internal_parietal_artery_l",
+        "inferior_internal_parietal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_internal_parietal_artery_l",
+        "inferior_internal_parietal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "subcallosal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "subcallosal_artery"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "subcallosal_artery"
+      ],
+      "referenceMissingIds": [
+        "subcallosal_artery"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_cerebral_artery_m2_superior_division",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_cerebral_artery_m2_superior_division_l",
+        "middle_cerebral_artery_m2_superior_division_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "middle_cerebral_artery_m2_superior_division_l",
+        "middle_cerebral_artery_m2_superior_division_r"
+      ],
+      "referenceMissingIds": [
+        "middle_cerebral_artery_m2_superior_division_l",
+        "middle_cerebral_artery_m2_superior_division_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_cerebral_artery_m2_inferior_division",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_cerebral_artery_m2_inferior_division_l",
+        "middle_cerebral_artery_m2_inferior_division_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "middle_cerebral_artery_m2_inferior_division_l",
+        "middle_cerebral_artery_m2_inferior_division_r"
+      ],
+      "referenceMissingIds": [
+        "middle_cerebral_artery_m2_inferior_division_l",
+        "middle_cerebral_artery_m2_inferior_division_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_cerebral_artery_m4_cortical_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_cerebral_artery_m4_cortical_branches_l",
+        "middle_cerebral_artery_m4_cortical_branches_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "middle_cerebral_artery_m4_cortical_branches_l",
+        "middle_cerebral_artery_m4_cortical_branches_r"
+      ],
+      "referenceMissingIds": [
+        "middle_cerebral_artery_m4_cortical_branches_l",
+        "middle_cerebral_artery_m4_cortical_branches_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_thalamoperforating_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_thalamoperforating_arteries_l",
+        "anterior_thalamoperforating_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_thalamoperforating_arteries_l",
+        "anterior_thalamoperforating_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_thalamoperforating_arteries_l",
+        "anterior_thalamoperforating_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_thalamoperforating_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_thalamoperforating_arteries_l",
+        "posterior_thalamoperforating_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_thalamoperforating_arteries_l",
+        "posterior_thalamoperforating_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_thalamoperforating_arteries_l",
+        "posterior_thalamoperforating_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "thalamogeniculate_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "thalamogeniculate_arteries_l",
+        "thalamogeniculate_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "thalamogeniculate_arteries_l",
+        "thalamogeniculate_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "thalamogeniculate_arteries_l",
+        "thalamogeniculate_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "medial_posterior_choroidal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "medial_posterior_choroidal_artery_l",
+        "medial_posterior_choroidal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "medial_posterior_choroidal_artery_l",
+        "medial_posterior_choroidal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "medial_posterior_choroidal_artery_l",
+        "medial_posterior_choroidal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_posterior_choroidal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lateral_posterior_choroidal_artery_l",
+        "lateral_posterior_choroidal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lateral_posterior_choroidal_artery_l",
+        "lateral_posterior_choroidal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "lateral_posterior_choroidal_artery_l",
+        "lateral_posterior_choroidal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_temporal_branch_of_pca",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_temporal_branch_of_pca_l",
+        "anterior_temporal_branch_of_pca_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_temporal_branch_of_pca_l",
+        "anterior_temporal_branch_of_pca_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_temporal_branch_of_pca_l",
+        "anterior_temporal_branch_of_pca_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_temporal_branches_of_pca",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_temporal_branches_of_pca_l",
+        "middle_temporal_branches_of_pca_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "middle_temporal_branches_of_pca_l",
+        "middle_temporal_branches_of_pca_r"
+      ],
+      "referenceMissingIds": [
+        "middle_temporal_branches_of_pca_l",
+        "middle_temporal_branches_of_pca_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_temporal_branch_of_pca",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_temporal_branch_of_pca_l",
+        "posterior_temporal_branch_of_pca_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_temporal_branch_of_pca_l",
+        "posterior_temporal_branch_of_pca_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_temporal_branch_of_pca_l",
+        "posterior_temporal_branch_of_pca_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "calcarine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "calcarine_artery_l",
+        "calcarine_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "calcarine_artery_l",
+        "calcarine_artery_r"
+      ],
+      "referenceMissingIds": [
+        "calcarine_artery_l",
+        "calcarine_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_pericallosal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_pericallosal_artery_l",
+        "posterior_pericallosal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_pericallosal_artery_l",
+        "posterior_pericallosal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_pericallosal_artery_l",
+        "posterior_pericallosal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_hypophyseal_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_hypophyseal_arteries_l",
+        "superior_hypophyseal_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_hypophyseal_arteries_l",
+        "superior_hypophyseal_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "superior_hypophyseal_arteries_l",
+        "superior_hypophyseal_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "capsular_artery_of_mcconnell",
+      "layer": "arterial",
+      "expectedIds": [
+        "capsular_artery_of_mcconnell_l",
+        "capsular_artery_of_mcconnell_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "capsular_artery_of_mcconnell_l",
+        "capsular_artery_of_mcconnell_r"
+      ],
+      "referenceMissingIds": [
+        "capsular_artery_of_mcconnell_l",
+        "capsular_artery_of_mcconnell_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_choroidal_artery_plexal_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_choroidal_artery_plexal_branches_l",
+        "anterior_choroidal_artery_plexal_branches_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_choroidal_artery_plexal_branches_l",
+        "anterior_choroidal_artery_plexal_branches_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_choroidal_artery_plexal_branches_l",
+        "anterior_choroidal_artery_plexal_branches_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_choroidal_artery_cisternal_perforators",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_choroidal_artery_cisternal_perforators_l",
+        "anterior_choroidal_artery_cisternal_perforators_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_choroidal_artery_cisternal_perforators_l",
+        "anterior_choroidal_artery_cisternal_perforators_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_choroidal_artery_cisternal_perforators_l",
+        "anterior_choroidal_artery_cisternal_perforators_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "medial_branch_of_pica",
+      "layer": "arterial",
+      "expectedIds": [
+        "medial_branch_of_pica_l",
+        "medial_branch_of_pica_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "medial_branch_of_pica_l",
+        "medial_branch_of_pica_r"
+      ],
+      "referenceMissingIds": [
+        "medial_branch_of_pica_l",
+        "medial_branch_of_pica_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_branch_of_pica",
+      "layer": "arterial",
+      "expectedIds": [
+        "lateral_branch_of_pica_l",
+        "lateral_branch_of_pica_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lateral_branch_of_pica_l",
+        "lateral_branch_of_pica_r"
+      ],
+      "referenceMissingIds": [
+        "lateral_branch_of_pica_l",
+        "lateral_branch_of_pica_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "perforating_branches_of_pica",
+      "layer": "arterial",
+      "expectedIds": [
+        "perforating_branches_of_pica_l",
+        "perforating_branches_of_pica_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "perforating_branches_of_pica_l",
+        "perforating_branches_of_pica_r"
+      ],
+      "referenceMissingIds": [
+        "perforating_branches_of_pica_l",
+        "perforating_branches_of_pica_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "choroidal_branches_of_pica",
+      "layer": "arterial",
+      "expectedIds": [
+        "choroidal_branches_of_pica_l",
+        "choroidal_branches_of_pica_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "choroidal_branches_of_pica_l",
+        "choroidal_branches_of_pica_r"
+      ],
+      "referenceMissingIds": [
+        "choroidal_branches_of_pica_l",
+        "choroidal_branches_of_pica_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "labyrinthine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "labyrinthine_artery_l",
+        "labyrinthine_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "labyrinthine_artery_l",
+        "labyrinthine_artery_r"
+      ],
+      "referenceMissingIds": [
+        "labyrinthine_artery_l",
+        "labyrinthine_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "subarcuate_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "subarcuate_artery_l",
+        "subarcuate_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "subarcuate_artery_l",
+        "subarcuate_artery_r"
+      ],
+      "referenceMissingIds": [
+        "subarcuate_artery_l",
+        "subarcuate_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "perforating_branches_of_aica",
+      "layer": "arterial",
+      "expectedIds": [
+        "perforating_branches_of_aica_l",
+        "perforating_branches_of_aica_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "perforating_branches_of_aica_l",
+        "perforating_branches_of_aica_r"
+      ],
+      "referenceMissingIds": [
+        "perforating_branches_of_aica_l",
+        "perforating_branches_of_aica_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "cortical_branches_of_aica",
+      "layer": "arterial",
+      "expectedIds": [
+        "cortical_branches_of_aica_l",
+        "cortical_branches_of_aica_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "cortical_branches_of_aica_l",
+        "cortical_branches_of_aica_r"
+      ],
+      "referenceMissingIds": [
+        "cortical_branches_of_aica_l",
+        "cortical_branches_of_aica_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "vermian_branch_of_superior_cerebellar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "vermian_branch_of_superior_cerebellar_artery_l",
+        "vermian_branch_of_superior_cerebellar_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "vermian_branch_of_superior_cerebellar_artery_l",
+        "vermian_branch_of_superior_cerebellar_artery_r"
+      ],
+      "referenceMissingIds": [
+        "vermian_branch_of_superior_cerebellar_artery_l",
+        "vermian_branch_of_superior_cerebellar_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "hemispheric_branch_of_superior_cerebellar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "hemispheric_branch_of_superior_cerebellar_artery_l",
+        "hemispheric_branch_of_superior_cerebellar_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "hemispheric_branch_of_superior_cerebellar_artery_l",
+        "hemispheric_branch_of_superior_cerebellar_artery_r"
+      ],
+      "referenceMissingIds": [
+        "hemispheric_branch_of_superior_cerebellar_artery_l",
+        "hemispheric_branch_of_superior_cerebellar_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "perforating_branches_of_superior_cerebellar_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "perforating_branches_of_superior_cerebellar_artery_l",
+        "perforating_branches_of_superior_cerebellar_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "perforating_branches_of_superior_cerebellar_artery_l",
+        "perforating_branches_of_superior_cerebellar_artery_r"
+      ],
+      "referenceMissingIds": [
+        "perforating_branches_of_superior_cerebellar_artery_l",
+        "perforating_branches_of_superior_cerebellar_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_meningeal_branch_of_vertebral_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_meningeal_branch_of_vertebral_artery_l",
+        "anterior_meningeal_branch_of_vertebral_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_meningeal_branch_of_vertebral_artery_l",
+        "anterior_meningeal_branch_of_vertebral_artery_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_meningeal_branch_of_vertebral_artery_l",
+        "anterior_meningeal_branch_of_vertebral_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_meningeal_artery_l",
+        "posterior_meningeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_meningeal_artery_l",
+        "posterior_meningeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_meningeal_artery_l",
+        "posterior_meningeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_thyroid_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_thyroid_artery_l",
+        "superior_thyroid_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_thyroid_artery_l",
+        "superior_thyroid_artery_r"
+      ],
+      "referenceMissingIds": [
+        "superior_thyroid_artery_l",
+        "superior_thyroid_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "ascending_cervical_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "ascending_cervical_artery_l",
+        "ascending_cervical_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "ascending_cervical_artery_l",
+        "ascending_cervical_artery_r"
+      ],
+      "referenceMissingIds": [
+        "ascending_cervical_artery_l",
+        "ascending_cervical_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_spinal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_spinal_artery_l",
+        "posterior_spinal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_spinal_artery_l",
+        "posterior_spinal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_spinal_artery_l",
+        "posterior_spinal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_spinal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "lateral_spinal_artery_l",
+        "lateral_spinal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lateral_spinal_artery_l",
+        "lateral_spinal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "lateral_spinal_artery_l",
+        "lateral_spinal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "segmental_spinal_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "segmental_spinal_arteries_l",
+        "segmental_spinal_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "segmental_spinal_arteries_l",
+        "segmental_spinal_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "segmental_spinal_arteries_l",
+        "segmental_spinal_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "radiculomedullary_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "radiculomedullary_arteries_l",
+        "radiculomedullary_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "radiculomedullary_arteries_l",
+        "radiculomedullary_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "radiculomedullary_arteries_l",
+        "radiculomedullary_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "radiculopial_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "radiculopial_arteries_l",
+        "radiculopial_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "radiculopial_arteries_l",
+        "radiculopial_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "radiculopial_arteries_l",
+        "radiculopial_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "radiculomeningeal_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "radiculomeningeal_arteries_l",
+        "radiculomeningeal_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "radiculomeningeal_arteries_l",
+        "radiculomeningeal_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "radiculomeningeal_arteries_l",
+        "radiculomeningeal_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sulcocommissural_arteries",
+      "layer": "arterial",
+      "expectedIds": [
+        "sulcocommissural_arteries_l",
+        "sulcocommissural_arteries_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sulcocommissural_arteries_l",
+        "sulcocommissural_arteries_r"
+      ],
+      "referenceMissingIds": [
+        "sulcocommissural_arteries_l",
+        "sulcocommissural_arteries_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_auricular_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_auricular_artery_l",
+        "posterior_auricular_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_auricular_artery_l",
+        "posterior_auricular_artery_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_auricular_artery_l",
+        "posterior_auricular_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "ascending_palatine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "ascending_palatine_artery_l",
+        "ascending_palatine_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "ascending_palatine_artery_l",
+        "ascending_palatine_artery_r"
+      ],
+      "referenceMissingIds": [
+        "ascending_palatine_artery_l",
+        "ascending_palatine_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "tonsillar_branch_of_facial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "tonsillar_branch_of_facial_artery_l",
+        "tonsillar_branch_of_facial_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "tonsillar_branch_of_facial_artery_l",
+        "tonsillar_branch_of_facial_artery_r"
+      ],
+      "referenceMissingIds": [
+        "tonsillar_branch_of_facial_artery_l",
+        "tonsillar_branch_of_facial_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "parietal_branch_of_superficial_temporal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "parietal_branch_of_superficial_temporal_artery_l",
+        "parietal_branch_of_superficial_temporal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "parietal_branch_of_superficial_temporal_artery_l",
+        "parietal_branch_of_superficial_temporal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "parietal_branch_of_superficial_temporal_artery_l",
+        "parietal_branch_of_superficial_temporal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "petrosal_branch_of_middle_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "petrosal_branch_of_middle_meningeal_artery_l",
+        "petrosal_branch_of_middle_meningeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "petrosal_branch_of_middle_meningeal_artery_l",
+        "petrosal_branch_of_middle_meningeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "petrosal_branch_of_middle_meningeal_artery_l",
+        "petrosal_branch_of_middle_meningeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "frontal_branch_of_middle_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "frontal_branch_of_middle_meningeal_artery_l",
+        "frontal_branch_of_middle_meningeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "frontal_branch_of_middle_meningeal_artery_l",
+        "frontal_branch_of_middle_meningeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "frontal_branch_of_middle_meningeal_artery_l",
+        "frontal_branch_of_middle_meningeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "parietal_branch_of_middle_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "parietal_branch_of_middle_meningeal_artery_l",
+        "parietal_branch_of_middle_meningeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "parietal_branch_of_middle_meningeal_artery_l",
+        "parietal_branch_of_middle_meningeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "parietal_branch_of_middle_meningeal_artery_l",
+        "parietal_branch_of_middle_meningeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "petrosquamosal_branch_of_middle_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "petrosquamosal_branch_of_middle_meningeal_artery_l",
+        "petrosquamosal_branch_of_middle_meningeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "petrosquamosal_branch_of_middle_meningeal_artery_l",
+        "petrosquamosal_branch_of_middle_meningeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "petrosquamosal_branch_of_middle_meningeal_artery_l",
+        "petrosquamosal_branch_of_middle_meningeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "stylomastoid_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "stylomastoid_artery_l",
+        "stylomastoid_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "stylomastoid_artery_l",
+        "stylomastoid_artery_r"
+      ],
+      "referenceMissingIds": [
+        "stylomastoid_artery_l",
+        "stylomastoid_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "great_cerebral_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "great_cerebral_vein"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "great_cerebral_vein"
+      ],
+      "referenceMissingIds": [
+        "great_cerebral_vein"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "internal_cerebral_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "internal_cerebral_vein_l",
+        "internal_cerebral_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "internal_cerebral_vein_l",
+        "internal_cerebral_vein_r"
+      ],
+      "referenceMissingIds": [
+        "internal_cerebral_vein_l",
+        "internal_cerebral_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "basal_vein_of_rosenthal",
+      "layer": "venous",
+      "expectedIds": [
+        "basal_vein_of_rosenthal_l",
+        "basal_vein_of_rosenthal_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "basal_vein_of_rosenthal_l",
+        "basal_vein_of_rosenthal_r"
+      ],
+      "referenceMissingIds": [
+        "basal_vein_of_rosenthal_l",
+        "basal_vein_of_rosenthal_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "thalamostriate_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "thalamostriate_vein_l",
+        "thalamostriate_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "thalamostriate_vein_l",
+        "thalamostriate_vein_r"
+      ],
+      "referenceMissingIds": [
+        "thalamostriate_vein_l",
+        "thalamostriate_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_septal_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_septal_vein_l",
+        "anterior_septal_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_septal_vein_l",
+        "anterior_septal_vein_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_septal_vein_l",
+        "anterior_septal_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_septal_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "posterior_septal_vein_l",
+        "posterior_septal_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_septal_vein_l",
+        "posterior_septal_vein_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_septal_vein_l",
+        "posterior_septal_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "direct_lateral_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "direct_lateral_vein_l",
+        "direct_lateral_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "direct_lateral_vein_l",
+        "direct_lateral_vein_r"
+      ],
+      "referenceMissingIds": [
+        "direct_lateral_vein_l",
+        "direct_lateral_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_caudate_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_caudate_vein_l",
+        "anterior_caudate_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_caudate_vein_l",
+        "anterior_caudate_vein_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_caudate_vein_l",
+        "anterior_caudate_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "longitudinal_caudate_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "longitudinal_caudate_vein_l",
+        "longitudinal_caudate_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "longitudinal_caudate_vein_l",
+        "longitudinal_caudate_vein_r"
+      ],
+      "referenceMissingIds": [
+        "longitudinal_caudate_vein_l",
+        "longitudinal_caudate_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_choroidal_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_choroidal_vein_l",
+        "superior_choroidal_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_choroidal_vein_l",
+        "superior_choroidal_vein_r"
+      ],
+      "referenceMissingIds": [
+        "superior_choroidal_vein_l",
+        "superior_choroidal_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_ventricular_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_ventricular_vein_l",
+        "inferior_ventricular_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_ventricular_vein_l",
+        "inferior_ventricular_vein_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_ventricular_vein_l",
+        "inferior_ventricular_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "deep_middle_cerebral_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "deep_middle_cerebral_vein_l",
+        "deep_middle_cerebral_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "deep_middle_cerebral_vein_l",
+        "deep_middle_cerebral_vein_r"
+      ],
+      "referenceMissingIds": [
+        "deep_middle_cerebral_vein_l",
+        "deep_middle_cerebral_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_striate_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_striate_veins_l",
+        "inferior_striate_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_striate_veins_l",
+        "inferior_striate_veins_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_striate_veins_l",
+        "inferior_striate_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "uncal_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "uncal_vein_l",
+        "uncal_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "uncal_vein_l",
+        "uncal_vein_r"
+      ],
+      "referenceMissingIds": [
+        "uncal_vein_l",
+        "uncal_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superficial_middle_cerebral_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "superficial_middle_cerebral_vein_l",
+        "superficial_middle_cerebral_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superficial_middle_cerebral_vein_l",
+        "superficial_middle_cerebral_vein_r"
+      ],
+      "referenceMissingIds": [
+        "superficial_middle_cerebral_vein_l",
+        "superficial_middle_cerebral_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_anastomotic_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_anastomotic_vein_l",
+        "superior_anastomotic_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_anastomotic_vein_l",
+        "superior_anastomotic_vein_r"
+      ],
+      "referenceMissingIds": [
+        "superior_anastomotic_vein_l",
+        "superior_anastomotic_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_anastomotic_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_anastomotic_vein_l",
+        "inferior_anastomotic_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_anastomotic_vein_l",
+        "inferior_anastomotic_vein_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_anastomotic_vein_l",
+        "inferior_anastomotic_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_cerebral_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_cerebral_veins_l",
+        "superior_cerebral_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_cerebral_veins_l",
+        "superior_cerebral_veins_r"
+      ],
+      "referenceMissingIds": [
+        "superior_cerebral_veins_l",
+        "superior_cerebral_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_cerebral_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_cerebral_veins_l",
+        "inferior_cerebral_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_cerebral_veins_l",
+        "inferior_cerebral_veins_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_cerebral_veins_l",
+        "inferior_cerebral_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "medullary_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "medullary_veins_l",
+        "medullary_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "medullary_veins_l",
+        "medullary_veins_r"
+      ],
+      "referenceMissingIds": [
+        "medullary_veins_l",
+        "medullary_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "transcerebral_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "transcerebral_veins_l",
+        "transcerebral_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "transcerebral_veins_l",
+        "transcerebral_veins_r"
+      ],
+      "referenceMissingIds": [
+        "transcerebral_veins_l",
+        "transcerebral_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "precentral_cerebellar_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "precentral_cerebellar_vein"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "precentral_cerebellar_vein"
+      ],
+      "referenceMissingIds": [
+        "precentral_cerebellar_vein"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_vermian_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_vermian_vein"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_vermian_vein"
+      ],
+      "referenceMissingIds": [
+        "superior_vermian_vein"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_vermian_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_vermian_veins_l",
+        "inferior_vermian_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_vermian_veins_l",
+        "inferior_vermian_veins_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_vermian_veins_l",
+        "inferior_vermian_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "petrosal_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "petrosal_vein_l",
+        "petrosal_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "petrosal_vein_l",
+        "petrosal_vein_r"
+      ],
+      "referenceMissingIds": [
+        "petrosal_vein_l",
+        "petrosal_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_mesencephalic_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "lateral_mesencephalic_vein_l",
+        "lateral_mesencephalic_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lateral_mesencephalic_vein_l",
+        "lateral_mesencephalic_vein_r"
+      ],
+      "referenceMissingIds": [
+        "lateral_mesencephalic_vein_l",
+        "lateral_mesencephalic_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_medullary_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "lateral_medullary_vein_l",
+        "lateral_medullary_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lateral_medullary_vein_l",
+        "lateral_medullary_vein_r"
+      ],
+      "referenceMissingIds": [
+        "lateral_medullary_vein_l",
+        "lateral_medullary_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "cerebellopontine_fissure_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "cerebellopontine_fissure_vein_l",
+        "cerebellopontine_fissure_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "cerebellopontine_fissure_vein_l",
+        "cerebellopontine_fissure_vein_r"
+      ],
+      "referenceMissingIds": [
+        "cerebellopontine_fissure_vein_l",
+        "cerebellopontine_fissure_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_hemispheric_cerebellar_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "superior_hemispheric_cerebellar_veins_l",
+        "superior_hemispheric_cerebellar_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_hemispheric_cerebellar_veins_l",
+        "superior_hemispheric_cerebellar_veins_r"
+      ],
+      "referenceMissingIds": [
+        "superior_hemispheric_cerebellar_veins_l",
+        "superior_hemispheric_cerebellar_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_hemispheric_cerebellar_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "inferior_hemispheric_cerebellar_veins_l",
+        "inferior_hemispheric_cerebellar_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_hemispheric_cerebellar_veins_l",
+        "inferior_hemispheric_cerebellar_veins_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_hemispheric_cerebellar_veins_l",
+        "inferior_hemispheric_cerebellar_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_pontomesencephalic_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_pontomesencephalic_vein"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_pontomesencephalic_vein"
+      ],
+      "referenceMissingIds": [
+        "anterior_pontomesencephalic_vein"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_pontomedullary_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_pontomedullary_vein"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_pontomedullary_vein"
+      ],
+      "referenceMissingIds": [
+        "anterior_pontomedullary_vein"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "confluence_of_sinuses",
+      "layer": "venous",
+      "expectedIds": [
+        "confluence_of_sinuses"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "confluence_of_sinuses"
+      ],
+      "referenceMissingIds": [
+        "confluence_of_sinuses"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "marginal_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "marginal_sinus"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "marginal_sinus"
+      ],
+      "referenceMissingIds": [
+        "marginal_sinus"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "falcine_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "falcine_sinus"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "falcine_sinus"
+      ],
+      "referenceMissingIds": [
+        "falcine_sinus"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sphenoparietal_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "sphenoparietal_sinus_l",
+        "sphenoparietal_sinus_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sphenoparietal_sinus_l",
+        "sphenoparietal_sinus_r"
+      ],
+      "referenceMissingIds": [
+        "sphenoparietal_sinus_l",
+        "sphenoparietal_sinus_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sphenobasal_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "sphenobasal_sinus_l",
+        "sphenobasal_sinus_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sphenobasal_sinus_l",
+        "sphenobasal_sinus_r"
+      ],
+      "referenceMissingIds": [
+        "sphenobasal_sinus_l",
+        "sphenobasal_sinus_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sphenopetrosal_sinus",
+      "layer": "venous",
+      "expectedIds": [
+        "sphenopetrosal_sinus_l",
+        "sphenopetrosal_sinus_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sphenopetrosal_sinus_l",
+        "sphenopetrosal_sinus_r"
+      ],
+      "referenceMissingIds": [
+        "sphenopetrosal_sinus_l",
+        "sphenopetrosal_sinus_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "pterygoid_venous_plexus",
+      "layer": "venous",
+      "expectedIds": [
+        "pterygoid_venous_plexus_l",
+        "pterygoid_venous_plexus_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "pterygoid_venous_plexus_l",
+        "pterygoid_venous_plexus_r"
+      ],
+      "referenceMissingIds": [
+        "pterygoid_venous_plexus_l",
+        "pterygoid_venous_plexus_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "diploic_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "diploic_veins_l",
+        "diploic_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "diploic_veins_l",
+        "diploic_veins_r"
+      ],
+      "referenceMissingIds": [
+        "diploic_veins_l",
+        "diploic_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "mastoid_emissary_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "mastoid_emissary_vein_l",
+        "mastoid_emissary_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "mastoid_emissary_vein_l",
+        "mastoid_emissary_vein_r"
+      ],
+      "referenceMissingIds": [
+        "mastoid_emissary_vein_l",
+        "mastoid_emissary_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "condylar_emissary_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "condylar_emissary_veins_l",
+        "condylar_emissary_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "condylar_emissary_veins_l",
+        "condylar_emissary_veins_r"
+      ],
+      "referenceMissingIds": [
+        "condylar_emissary_veins_l",
+        "condylar_emissary_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "parietal_emissary_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "parietal_emissary_vein_l",
+        "parietal_emissary_vein_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "parietal_emissary_vein_l",
+        "parietal_emissary_vein_r"
+      ],
+      "referenceMissingIds": [
+        "parietal_emissary_vein_l",
+        "parietal_emissary_vein_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_spinal_vein",
+      "layer": "venous",
+      "expectedIds": [
+        "anterior_spinal_vein"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_spinal_vein"
+      ],
+      "referenceMissingIds": [
+        "anterior_spinal_vein"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_spinal_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "posterior_spinal_veins_l",
+        "posterior_spinal_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_spinal_veins_l",
+        "posterior_spinal_veins_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_spinal_veins_l",
+        "posterior_spinal_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "radiculomedullary_veins",
+      "layer": "venous",
+      "expectedIds": [
+        "radiculomedullary_veins_l",
+        "radiculomedullary_veins_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "radiculomedullary_veins_l",
+        "radiculomedullary_veins_r"
+      ],
+      "referenceMissingIds": [
+        "radiculomedullary_veins_l",
+        "radiculomedullary_veins_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "perimedullary_venous_plexus",
+      "layer": "venous",
+      "expectedIds": [
+        "perimedullary_venous_plexus"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "perimedullary_venous_plexus"
+      ],
+      "referenceMissingIds": [
+        "perimedullary_venous_plexus"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "internal_vertebral_venous_plexus",
+      "layer": "venous",
+      "expectedIds": [
+        "internal_vertebral_venous_plexus"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "internal_vertebral_venous_plexus"
+      ],
+      "referenceMissingIds": [
+        "internal_vertebral_venous_plexus"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "external_vertebral_venous_plexus",
+      "layer": "venous",
+      "expectedIds": [
+        "external_vertebral_venous_plexus"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "external_vertebral_venous_plexus"
+      ],
+      "referenceMissingIds": [
+        "external_vertebral_venous_plexus"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_falcine_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_falcine_artery_l",
+        "anterior_falcine_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_falcine_artery_l",
+        "anterior_falcine_artery_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_falcine_artery_l",
+        "anterior_falcine_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "collateral_branches_to_optic_nerve",
+      "layer": "arterial",
+      "expectedIds": [
+        "collateral_branches_to_optic_nerve_l",
+        "collateral_branches_to_optic_nerve_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "collateral_branches_to_optic_nerve_l",
+        "collateral_branches_to_optic_nerve_r"
+      ],
+      "referenceMissingIds": [
+        "collateral_branches_to_optic_nerve_l",
+        "collateral_branches_to_optic_nerve_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "intercavernous_arterial_connections",
+      "layer": "arterial",
+      "expectedIds": [
+        "intercavernous_arterial_connections_l",
+        "intercavernous_arterial_connections_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "intercavernous_arterial_connections_l",
+        "intercavernous_arterial_connections_r"
+      ],
+      "referenceMissingIds": [
+        "intercavernous_arterial_connections_l",
+        "intercavernous_arterial_connections_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_tentorial_arterial_arcade",
+      "layer": "arterial",
+      "expectedIds": [
+        "lateral_tentorial_arterial_arcade_l",
+        "lateral_tentorial_arterial_arcade_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lateral_tentorial_arterial_arcade_l",
+        "lateral_tentorial_arterial_arcade_r"
+      ],
+      "referenceMissingIds": [
+        "lateral_tentorial_arterial_arcade_l",
+        "lateral_tentorial_arterial_arcade_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "lateral_clival_arterial_arcade",
+      "layer": "arterial",
+      "expectedIds": [
+        "lateral_clival_arterial_arcade_l",
+        "lateral_clival_arterial_arcade_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "lateral_clival_arterial_arcade_l",
+        "lateral_clival_arterial_arcade_r"
+      ],
+      "referenceMissingIds": [
+        "lateral_clival_arterial_arcade_l",
+        "lateral_clival_arterial_arcade_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "hypoglossal_branch_to_odontoid_arcade",
+      "layer": "arterial",
+      "expectedIds": [
+        "hypoglossal_branch_to_odontoid_arcade_l",
+        "hypoglossal_branch_to_odontoid_arcade_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "hypoglossal_branch_to_odontoid_arcade_l",
+        "hypoglossal_branch_to_odontoid_arcade_r"
+      ],
+      "referenceMissingIds": [
+        "hypoglossal_branch_to_odontoid_arcade_l",
+        "hypoglossal_branch_to_odontoid_arcade_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "odontoid_arterial_arcade",
+      "layer": "arterial",
+      "expectedIds": [
+        "odontoid_arterial_arcade_l",
+        "odontoid_arterial_arcade_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "odontoid_arterial_arcade_l",
+        "odontoid_arterial_arcade_r"
+      ],
+      "referenceMissingIds": [
+        "odontoid_arterial_arcade_l",
+        "odontoid_arterial_arcade_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "jugular_branch_of_occipital_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "jugular_branch_of_occipital_artery_l",
+        "jugular_branch_of_occipital_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "jugular_branch_of_occipital_artery_l",
+        "jugular_branch_of_occipital_artery_r"
+      ],
+      "referenceMissingIds": [
+        "jugular_branch_of_occipital_artery_l",
+        "jugular_branch_of_occipital_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sigmoid_sinus_arterial_arcade",
+      "layer": "arterial",
+      "expectedIds": [
+        "sigmoid_sinus_arterial_arcade_l",
+        "sigmoid_sinus_arterial_arcade_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sigmoid_sinus_arterial_arcade_l",
+        "sigmoid_sinus_arterial_arcade_r"
+      ],
+      "referenceMissingIds": [
+        "sigmoid_sinus_arterial_arcade_l",
+        "sigmoid_sinus_arterial_arcade_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "transverse_sinus_arterial_arcade",
+      "layer": "arterial",
+      "expectedIds": [
+        "transverse_sinus_arterial_arcade_l",
+        "transverse_sinus_arterial_arcade_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "transverse_sinus_arterial_arcade_l",
+        "transverse_sinus_arterial_arcade_r"
+      ],
+      "referenceMissingIds": [
+        "transverse_sinus_arterial_arcade_l",
+        "transverse_sinus_arterial_arcade_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "straight_sinus_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "straight_sinus_artery_l",
+        "straight_sinus_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "straight_sinus_artery_l",
+        "straight_sinus_artery_r"
+      ],
+      "referenceMissingIds": [
+        "straight_sinus_artery_l",
+        "straight_sinus_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_sagittal_sinus_arterial_arcade",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_sagittal_sinus_arterial_arcade_l",
+        "superior_sagittal_sinus_arterial_arcade_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_sagittal_sinus_arterial_arcade_l",
+        "superior_sagittal_sinus_arterial_arcade_r"
+      ],
+      "referenceMissingIds": [
+        "superior_sagittal_sinus_arterial_arcade_l",
+        "superior_sagittal_sinus_arterial_arcade_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "transmastoid_branch_of_occipital_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "transmastoid_branch_of_occipital_artery_l",
+        "transmastoid_branch_of_occipital_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "transmastoid_branch_of_occipital_artery_l",
+        "transmastoid_branch_of_occipital_artery_r"
+      ],
+      "referenceMissingIds": [
+        "transmastoid_branch_of_occipital_artery_l",
+        "transmastoid_branch_of_occipital_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "caroticotympanic_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "caroticotympanic_artery_l",
+        "caroticotympanic_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "caroticotympanic_artery_l",
+        "caroticotympanic_artery_r"
+      ],
+      "referenceMissingIds": [
+        "caroticotympanic_artery_l",
+        "caroticotympanic_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "cavernous_branch_of_middle_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "cavernous_branch_of_middle_meningeal_artery_l",
+        "cavernous_branch_of_middle_meningeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "cavernous_branch_of_middle_meningeal_artery_l",
+        "cavernous_branch_of_middle_meningeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "cavernous_branch_of_middle_meningeal_artery_l",
+        "cavernous_branch_of_middle_meningeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_orbital_fissure_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_orbital_fissure_artery_l",
+        "superior_orbital_fissure_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_orbital_fissure_artery_l",
+        "superior_orbital_fissure_artery_r"
+      ],
+      "referenceMissingIds": [
+        "superior_orbital_fissure_artery_l",
+        "superior_orbital_fissure_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sphenoid_ridge_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "sphenoid_ridge_branch_l",
+        "sphenoid_ridge_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sphenoid_ridge_branch_l",
+        "sphenoid_ridge_branch_r"
+      ],
+      "referenceMissingIds": [
+        "sphenoid_ridge_branch_l",
+        "sphenoid_ridge_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "deep_recurrent_meningeal_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "deep_recurrent_meningeal_branch_l",
+        "deep_recurrent_meningeal_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "deep_recurrent_meningeal_branch_l",
+        "deep_recurrent_meningeal_branch_r"
+      ],
+      "referenceMissingIds": [
+        "deep_recurrent_meningeal_branch_l",
+        "deep_recurrent_meningeal_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "clinoid_tentorial_arterial_arcade",
+      "layer": "arterial",
+      "expectedIds": [
+        "clinoid_tentorial_arterial_arcade_l",
+        "clinoid_tentorial_arterial_arcade_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "clinoid_tentorial_arterial_arcade_l",
+        "clinoid_tentorial_arterial_arcade_r"
+      ],
+      "referenceMissingIds": [
+        "clinoid_tentorial_arterial_arcade_l",
+        "clinoid_tentorial_arterial_arcade_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "posterior_branch_of_ilt",
+      "layer": "arterial",
+      "expectedIds": [
+        "posterior_branch_of_ilt_l",
+        "posterior_branch_of_ilt_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "posterior_branch_of_ilt_l",
+        "posterior_branch_of_ilt_r"
+      ],
+      "referenceMissingIds": [
+        "posterior_branch_of_ilt_l",
+        "posterior_branch_of_ilt_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "eustachian_branch_of_accessory_meningeal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "eustachian_branch_of_accessory_meningeal_artery_l",
+        "eustachian_branch_of_accessory_meningeal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "eustachian_branch_of_accessory_meningeal_artery_l",
+        "eustachian_branch_of_accessory_meningeal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "eustachian_branch_of_accessory_meningeal_artery_l",
+        "eustachian_branch_of_accessory_meningeal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "inferior_turbinate_arterial_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "inferior_turbinate_arterial_branches_l",
+        "inferior_turbinate_arterial_branches_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "inferior_turbinate_arterial_branches_l",
+        "inferior_turbinate_arterial_branches_r"
+      ],
+      "referenceMissingIds": [
+        "inferior_turbinate_arterial_branches_l",
+        "inferior_turbinate_arterial_branches_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "middle_turbinate_arterial_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "middle_turbinate_arterial_branches_l",
+        "middle_turbinate_arterial_branches_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "middle_turbinate_arterial_branches_l",
+        "middle_turbinate_arterial_branches_r"
+      ],
+      "referenceMissingIds": [
+        "middle_turbinate_arterial_branches_l",
+        "middle_turbinate_arterial_branches_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superior_turbinate_arterial_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "superior_turbinate_arterial_branches_l",
+        "superior_turbinate_arterial_branches_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superior_turbinate_arterial_branches_l",
+        "superior_turbinate_arterial_branches_r"
+      ],
+      "referenceMissingIds": [
+        "superior_turbinate_arterial_branches_l",
+        "superior_turbinate_arterial_branches_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "anterior_nasal_septal_arterial_system",
+      "layer": "arterial",
+      "expectedIds": [
+        "anterior_nasal_septal_arterial_system_l",
+        "anterior_nasal_septal_arterial_system_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "anterior_nasal_septal_arterial_system_l",
+        "anterior_nasal_septal_arterial_system_r"
+      ],
+      "referenceMissingIds": [
+        "anterior_nasal_septal_arterial_system_l",
+        "anterior_nasal_septal_arterial_system_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "submandibular_branch_of_facial_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "submandibular_branch_of_facial_artery_l",
+        "submandibular_branch_of_facial_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "submandibular_branch_of_facial_artery_l",
+        "submandibular_branch_of_facial_artery_r"
+      ],
+      "referenceMissingIds": [
+        "submandibular_branch_of_facial_artery_l",
+        "submandibular_branch_of_facial_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "superficial_nasal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "superficial_nasal_artery_l",
+        "superficial_nasal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "superficial_nasal_artery_l",
+        "superficial_nasal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "superficial_nasal_artery_l",
+        "superficial_nasal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "dorsal_nasal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "dorsal_nasal_artery_l",
+        "dorsal_nasal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "dorsal_nasal_artery_l",
+        "dorsal_nasal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "dorsal_nasal_artery_l",
+        "dorsal_nasal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "sta_mma_anastomotic_pathway",
+      "layer": "arterial",
+      "expectedIds": [
+        "sta_mma_anastomotic_pathway_l",
+        "sta_mma_anastomotic_pathway_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "sta_mma_anastomotic_pathway_l",
+        "sta_mma_anastomotic_pathway_r"
+      ],
+      "referenceMissingIds": [
+        "sta_mma_anastomotic_pathway_l",
+        "sta_mma_anastomotic_pathway_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "oa_mma_anastomotic_pathway",
+      "layer": "arterial",
+      "expectedIds": [
+        "oa_mma_anastomotic_pathway_l",
+        "oa_mma_anastomotic_pathway_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "oa_mma_anastomotic_pathway_l",
+        "oa_mma_anastomotic_pathway_r"
+      ],
+      "referenceMissingIds": [
+        "oa_mma_anastomotic_pathway_l",
+        "oa_mma_anastomotic_pathway_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "vasocorona",
+      "layer": "arterial",
+      "expectedIds": [
+        "vasocorona_l",
+        "vasocorona_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "vasocorona_l",
+        "vasocorona_r"
+      ],
+      "referenceMissingIds": [
+        "vasocorona_l",
+        "vasocorona_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "arterial_branch_to_hypoglossal_nerve",
+      "layer": "arterial",
+      "expectedIds": [
+        "arterial_branch_to_hypoglossal_nerve_l",
+        "arterial_branch_to_hypoglossal_nerve_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "arterial_branch_to_hypoglossal_nerve_l",
+        "arterial_branch_to_hypoglossal_nerve_r"
+      ],
+      "referenceMissingIds": [
+        "arterial_branch_to_hypoglossal_nerve_l",
+        "arterial_branch_to_hypoglossal_nerve_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "occipital_c1_root_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "occipital_c1_root_branch_l",
+        "occipital_c1_root_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "occipital_c1_root_branch_l",
+        "occipital_c1_root_branch_r"
+      ],
+      "referenceMissingIds": [
+        "occipital_c1_root_branch_l",
+        "occipital_c1_root_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "occipital_vertebral_c1_pathway",
+      "layer": "arterial",
+      "expectedIds": [
+        "occipital_vertebral_c1_pathway_l",
+        "occipital_vertebral_c1_pathway_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "occipital_vertebral_c1_pathway_l",
+        "occipital_vertebral_c1_pathway_r"
+      ],
+      "referenceMissingIds": [
+        "occipital_vertebral_c1_pathway_l",
+        "occipital_vertebral_c1_pathway_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "c2_muscular_arterial_branch",
+      "layer": "arterial",
+      "expectedIds": [
+        "c2_muscular_arterial_branch_l",
+        "c2_muscular_arterial_branch_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "c2_muscular_arterial_branch_l",
+        "c2_muscular_arterial_branch_r"
+      ],
+      "referenceMissingIds": [
+        "c2_muscular_arterial_branch_l",
+        "c2_muscular_arterial_branch_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "segmental_muscular_arterial_branches",
+      "layer": "arterial",
+      "expectedIds": [
+        "segmental_muscular_arterial_branches_l",
+        "segmental_muscular_arterial_branches_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "segmental_muscular_arterial_branches_l",
+        "segmental_muscular_arterial_branches_r"
+      ],
+      "referenceMissingIds": [
+        "segmental_muscular_arterial_branches_l",
+        "segmental_muscular_arterial_branches_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "ascending_cervical_vertebral_pathway",
+      "layer": "arterial",
+      "expectedIds": [
+        "ascending_cervical_vertebral_pathway_l",
+        "ascending_cervical_vertebral_pathway_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "ascending_cervical_vertebral_pathway_l",
+        "ascending_cervical_vertebral_pathway_r"
+      ],
+      "referenceMissingIds": [
+        "ascending_cervical_vertebral_pathway_l",
+        "ascending_cervical_vertebral_pathway_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "persistent_trigeminal_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "persistent_trigeminal_artery_l",
+        "persistent_trigeminal_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "persistent_trigeminal_artery_l",
+        "persistent_trigeminal_artery_r"
+      ],
+      "referenceMissingIds": [
+        "persistent_trigeminal_artery_l",
+        "persistent_trigeminal_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    },
+    {
+      "id": "persistent_ventral_ophthalmic_artery",
+      "layer": "arterial",
+      "expectedIds": [
+        "persistent_ventral_ophthalmic_artery_l",
+        "persistent_ventral_ophthalmic_artery_r"
+      ],
+      "sourceIds": [],
+      "reconstructedIds": [
+        "persistent_ventral_ophthalmic_artery_l",
+        "persistent_ventral_ophthalmic_artery_r"
+      ],
+      "referenceMissingIds": [
+        "persistent_ventral_ophthalmic_artery_l",
+        "persistent_ventral_ophthalmic_artery_r"
+      ],
+      "status": "present-unverified",
+      "anatomicalApproval": false
+    }
+  ]
+}

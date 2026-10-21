@@ -17,3 +17,7 @@ Dados de paciente não são enviados ao backend. Modelos do atlas, exemplos Dopp
 ## Atualização — protocolo V2.0 e auditoria de fontes
 
 Ponto de recuperação vigente: [ai-context/NEXT_SESSION.md](ai-context/NEXT_SESSION.md). Auditoria dos sete links GitHub/três datasets em [REFERENCES](ai-context/REFERENCES.md): fontes consultadas não equivalem a motores integrados; VMTK tem adaptador offline não validado em morfometria real e CTA apenas amostra inspecionada. Anatomia/angiografia são a prioridade permanente antes de simulação avançada. Código do lote publicado em `025ef13cca20886cfe8bdc17b83a1957d152ace1`, deployment Vercel SUCCESS confirmado. Todas as frentes anteriores permanecem.
+
+## Atualização do lote de comparador
+
+BRAVE-NET/VENAT agora têm superfícies verificadas na aba Referências vasculares, em espaços independentes. Inventário recalculado e pendência Galeno–seio reto mantida. Ver ai-context/NEXT_SESSION.md e neuro3d-independent-comparison.md; a próxima tarefa é inspeção seccional/marcos e revisão da geometria original, não recuperação do comparador já entregue.

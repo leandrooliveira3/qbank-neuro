@@ -27,3 +27,7 @@ React 19, TypeScript 5.8, Vite 6, Three.js/React Three Fiber/Drei, dicom-parser,
 Qualidade: coordenadas físicas e escalas explícitas, hashes/licenças/atribuição, erros recuperáveis, descarte de respostas assíncronas obsoletas, testes relevantes e inspeção visual. Separar superfície ilustrativa, malha importada e exame de paciente. Não completar dados ausentes com templates silenciosos. Validação funcional não equivale a validação anatômica, científica ou clínica.
 
 Complete Anatomy, IMAIOS, Mentice e Ankyras são referências de estudo; não presumir autorização para redistribuir seus recursos. Os materiais sincronizados em `sources/` permanecem somente leitura. Histórico técnico anterior permanece em `docs/neuro3d-*.md`.
+
+## Progresso de fontes reais
+
+Comparador independente BRAVE-NET/VENAT implementado em aba própria. São superfícies derivadas com proveniência e coordenadas nativas, não inferência de IA nem registro paciente/atlas. A revisão anatômica continua requisito de conclusão.

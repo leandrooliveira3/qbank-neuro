@@ -25,7 +25,7 @@ Base de código remoto: `025ef13cca20886cfe8bdc17b83a1957d152ace1`, branch `feat
 
 ## Planejado / dependências em aberto
 
-- P0: reconciliação do inventário arterial/venoso, relações espaciais e angiografia multiprojeção; comparação independente BRAVE-NET/VENAT em espaço próprio.
+- P0: reconciliação do inventário arterial/venoso, relações espaciais e angiografia multiprojeção; comparação independente BRAVE-NET/VENAT em espaço próprio (visor entregue neste lote; registro e revisão anatômica continuam pendentes).
 - P1: revisão de segmentação do paciente e máscaras físicas; depois linha central/marcos/medidas e estudo explícito de dispositivos.
 - P2: evolução da insonação/estimador Doppler e simulação avançada guiada pelos vídeos, após a base anatômica necessária.
 - Bloqueios de fontes: DSCA exige acesso acadêmico; IntrA e outros dados exigem conferência de licença específica. Não foram enviados pedidos em nome do usuário.
@@ -33,8 +33,16 @@ Base de código remoto: `025ef13cca20886cfe8bdc17b83a1957d152ace1`, branch `feat
 
 ## Recuperação e itens descontinuados
 
-O lote anunciado no chat anterior como 110 testes não chegou ao remoto; não foi recuperado integralmente. Oito representações embrionárias adicionais e comparador independente continuam pendentes. Nenhuma frente foi cancelada/descontinuada pelo usuário. Contagens antigas de testes permanecem como histórico, substituídas pelo resultado atual de 117/36.
+O lote anunciado no chat anterior como 110 testes não chegou ao remoto; não foi recuperado integralmente. Oito representações embrionárias adicionais continuam pendentes. O comparador independente foi implementado no lote posterior descrito abaixo. Nenhuma frente foi cancelada/descontinuada pelo usuário. Contagens antigas de testes permanecem como histórico, substituídas pelo resultado atual de 117/36.
 
 ## Última etapa documental
 
 Auditoria das dez fontes e instalação do protocolo `AGENTS.md` + nove documentos de continuidade. Uso real, fontes e restrições em REFERENCES. A persistência remota deste novo checkpoint deve ser confirmada por leitura da branch; o hash final pertence ao relatório de fechamento e ao próximo registro de histórico.
+
+## Lote mais recente — comparador e inventário
+
+Base remota ad5515dc53067689d5bdf54e514b0caa0d6a572e conferida; checkout limpo preservado e branch local continuation/vascular-comparator criada do remoto. Nova aba Referências vasculares com BRAVE pat_1 e VENAT 0,10/0,20, hashes conferidos no carregamento, vistas e exportação de proveniência/câmera. Referenciais nativos separados, sem registro ou aprovação clínica. Manifesto, NOTICE e gerador versionados.
+
+Inventário recalculado: 1114 originais/1112 ativos, 353 reconstruções; 178 malhas arteriais/63 venosas; 312 identidades/grupos (228 arteriais/84 venosos), 353 IDs sem malha importada ativa (267 arteriais/86 venosos). Diagrama 43 importadas/45 reconstruídas/47 parciais/7 identidades não conciliadas. Zero aprovação anatômica.
+
+Galeno–seio reto continua pendente; amostras do eixo ilustrativo e vértices da geometria de projeção têm distâncias não nulas, sem prova de óstio ou distância contínua entre superfícies. Notas explícitas na revisão vascular; nenhuma ponte/renomeação. Ver neuro3d-inventory-reconciliation.json e neuro3d-independent-comparison.md. Todas as frentes de paciente, Doppler, Mentice e Ankyras preservadas.

@@ -22,3 +22,13 @@ Decisão: `AGENTS.md` inicia sessões e `docs/ai-context/NEXT_SESSION.md` é a r
 Decisão: anatomia 3D e angiografia precedem procedimentos avançados; atualizar prioridade do próximo lote antigo. Justificativa: prioridade permanente expressa no prompt anexo. Impacto: Paciente 3D/Doppler/Mentice/Ankyras permanecem na fila, sem apagar entregas, com dependências anatômicas explícitas.
 
 Decisão: alinhar a nova branch local `continuation/ai-context` ao commit remoto `025ef13` antes deste lote documental. Justificativa: o commit local anterior `5a7171d` tem a mesma árvore do remoto, mas metadados diferentes por publicação via conector. Impacto: preservar ambas as branches, sem reescrever histórico; publicar apenas alterações documentais sobre o pai remoto confirmado.
+
+## 21/10/2026 — comparador, geometria e evidência
+
+Contexto: solicitação de avançar anatomia/angiografia a partir de ad5515d. Decisão: exibir BRAVE e VENAT em espaços nativos independentes, com fontes/affines/hashes e sem alinhamento visual implícito. Justificativa: dados de voluntário e média populacional não têm registro com o atlas. Impacto: referências auxiliam inspeção sem preencher identidades.
+
+Decisão: simplificar cada componente separadamente e conferir contagem antes/depois. Justificativa: primeira tentativa global perdeu componentes e foi descartada. Impacto: todos os componentes finais preservados em contagem, sem garantir topologia, ramos finos ou calibre. Não usar derivados simplificados para medidas clínicas.
+
+Decisão: registrar discrepância Galeno–seio reto por método explícito, sem corrigir coordenadas. Justificativa: eixo arbitrado e vértices de projeção simplificada não validam identidade/lúmen. Impacto: nota visível e pendência preservada. Sete rótulos de diagrama permanecem sem identificação comprovada.
+
+Decisão: vistas exportadas exigem registro manual e incluem pose; carregar uma superfície não marca aprovação. Justificativa: inspeção de interface não equivale a validação anatômica.

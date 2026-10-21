@@ -3,6 +3,9 @@
  * They never relabel, deform or connect a mesh automatically.
  */
 export const vascularFindings = new Map<string,string>();
+const galenReview='Junção Galeno–seio reto pendente: Galeno é um trajeto ilustrativo com controles arbitrados; o seio reto é uma malha importada com rótulo ainda não homologado. A relação nominal de drenagem não comprova encontro das superfícies, óstio ou luz contínua. A auditoria mede apenas amostras do eixo contra vértices da geometria de projeção simplificada. Não houve ponte, deslocamento ou renomeação para esconder a discrepância.';
+vascularFindings.set('great_cerebral_vein',galenReview);
+vascularFindings.set('straight_sinus',galenReview);
 for (const side of ["l","r"]) {
   vascularFindings.set(`maxillary_artery_${side}`,
     "Cobertura agrupada da fonte: a malha rotulada como maxilar contém nove componentes de vértices desconectados por lado. O rótulo não identifica cada fragmento nem demonstra por si as três porções e a continuidade dos ramos. Conferir origem, mandíbula, pterigóideos e fossa pterigopalatina. Os fragmentos não foram unidos nem renomeados automaticamente.");

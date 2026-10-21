@@ -69,3 +69,7 @@ A revisão bibliográfica incluiu a [página da cerebral interna do
 Neuroangio](https://neuroangio.org/venous-brain-anatomy/internal-cerebral-vein/):
 a topografia ventricular e as projeções complementares são parte da
 conferência de tributárias, não algo substituído por um coletor presente.
+
+## Atualização de uso real — 21/10/2026
+
+Este registro acima descreve inspeções anteriores. BRAVE-NET pat_1 e VENAT agora foram derivados e incorporados à aba independente Referências vasculares; não houve registro no atlas, atribuição de nomes individuais, inferência de IA ou aprovação anatômica. Contagens reconciliadas e método em neuro3d-independent-comparison.md.

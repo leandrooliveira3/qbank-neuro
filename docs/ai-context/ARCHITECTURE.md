@@ -27,3 +27,7 @@ Ferramentas Python de importação devem conservar affine, unidade, origem e pro
 `package.json` e lockfile fixam dependências do portal; REA tem pacote/lock separados de desenvolvimento. `vite.config.ts` prepara dependências do worker. Vitest cobre lógica; `tests/neuro3d/` e `playwright.config.ts` cobrem desktop/Pixel 7. Vercel publica previews da branch `feature/neuro3d-atlas`. Supabase/GenAI do portal não demonstram integração dos repositórios de pesquisa com o laboratório DICOM.
 
 Não existe serviço clínico de reconstrução de projeções XA, segmentação por IA desses sete repositórios ou solver validado de dispositivos neste checkpoint.
+
+## Comparador independente
+
+`features/neuro3d/comparison/ReferenceComparator.tsx` é carregado sob demanda pela aba Referências vasculares. Fetch de JSON local em `public/neuro3d/comparison/` → SHA do arquivo → envelope gzip/base64 → SHA da geometria comprimida → decoder binário com dimensões/índices/finitude → cena Three. Cada requisição tem AbortController e geração; trocar limiar oculta a superfície anterior. Coordenadas persistem em RAS/mm; centralização de exibição independente. Exportação conserva fontes, affines, hashes e pose da câmera, sem registro entre fontes/atlas. Geradores offline: `build_comparison_reference.py` e `reconcile_vascular_inventory.ts`; ambiente Python fora das dependências do portal.

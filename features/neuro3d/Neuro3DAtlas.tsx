@@ -21,6 +21,7 @@ const SimulationLab = lazy(
 const DetailedAtlas = lazy(() => import("./DetailedAtlas"));
 const PatientLab = lazy(() => import("./patient/PatientLab"));
 const TcdLab = lazy(() => import("./tcd/TcdLab"));
+const ReferenceComparator = lazy(() => import("./comparison/ReferenceComparator"));
 const Viewer = lazy(() => import("./Viewer"));
 const progressKey = "qbank_neuro3d_progress_v1";
 function download(name: string, value: unknown) {
@@ -169,7 +170,7 @@ export default function Neuro3DAtlas() {
         </div>
       </header>
       <aside className="n3-warning" role="note">
-        <strong>{tab === "Paciente 3D" ? "Prévia derivada do exame · revisão necessária." : tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : tab === "Atlas" && atlasMode === "surface" ? "Base anatômica de referência · revisão em andamento." : "Geometria esquemática · não homologada."}</strong> Uso
+        <strong>{tab === "Referências vasculares" ? "Referências derivadas de imagem · espaços independentes." : tab === "Paciente 3D" ? "Prévia derivada do exame · revisão necessária." : tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : tab === "Atlas" && atlasMode === "surface" ? "Base anatômica de referência · revisão em andamento." : "Geometria esquemática · não homologada."}</strong> Uso
         educacional. {tab === "Paciente 3D" ? "Coordenadas físicas preservadas; segmentação e medidas ainda precisam de revisão. Sem recomendação automática de dispositivo ou técnica." : "Sem escala clínica, planejamento de pacientes ou simulação hemodinâmica validada."}
       </aside>
       <div className="n3-topbar">
@@ -177,6 +178,7 @@ export default function Neuro3DAtlas() {
           {[
             "Anatomia detalhada",
             "Atlas",
+            "Referências vasculares",
             "Simulação",
             "Paciente 3D",
             "Doppler transcraniano",
@@ -655,6 +657,7 @@ export default function Neuro3DAtlas() {
         </section>
       )}
       {tab === "Paciente 3D" && <Suspense fallback={<p role="status">Carregando importação DICOM…</p>}><PatientLab /></Suspense>}
+      {tab === "Referências vasculares" && <Suspense fallback={<p role="status">Carregando referências independentes…</p>}><ReferenceComparator /></Suspense>}
       {tab === "Doppler transcraniano" && <Suspense fallback={<p role="status">Carregando Doppler…</p>}><TcdLab /></Suspense>}
       {tab === "Simulação" && (
         <Suspense fallback={<p role="status">Carregando laboratório…</p>}>

@@ -56,3 +56,7 @@ A [lista exata de ausências de referência](neuro3d-missing-vascular-identities
 ## Verificação funcional
 
 104 testes unitários em 23 arquivos, TypeScript e build de produção aprovados. Dezesseis casos de navegador passaram em desktop/Pixel 7: seleção sem rotação, camadas ocultas sem seleção, persistência de campo 2D/3D, maxilar, árvore faríngea, inventário, novas veias e variantes opcionais. Capturas de veias profundas e conjuntos arteriais foram inspecionadas. A verificação de superfícies 3D local usa Chromium/SwiftShader; não equivale a validação anatômica. O aviso de chunks acima de 500 kB permanece.
+
+## Atualização de uso real — 21/10/2026
+
+Este registro acima descreve inspeções anteriores. BRAVE-NET pat_1 e VENAT agora foram derivados e incorporados à aba independente Referências vasculares; não houve registro no atlas, atribuição de nomes individuais, inferência de IA ou aprovação anatômica. Contagens reconciliadas e método em neuro3d-independent-comparison.md.

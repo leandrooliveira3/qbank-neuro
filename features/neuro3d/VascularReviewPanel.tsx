@@ -3,6 +3,7 @@ import { vascularMeshReview, venousCoverage, vascularChecklist, vascularReviewCo
 import {maxillaryBranchReview} from "./maxillaryReview";
 import {normalize} from "./model";
 import VascularCompletenessPanel from "./VascularCompletenessPanel";
+import {vascularFindings} from './vascularFindings';
 
 export default function VascularReviewPanel({onSelect}:{onSelect:(id:string)=>void}) {
   const [scope,setScope] = useState("complete"), [system,setSystem] = useState("all"), [query,setQuery] = useState("");
@@ -34,6 +35,7 @@ export default function VascularReviewPanel({onSelect}:{onSelect:(id:string)=>vo
       <span className="nda-review-status">{row.status === "missing" ? "Malha individual ausente" : row.status === "partial" ? "Cobertura parcial" : "Presente · anatomia pendente"}</span>
       {!!row.illustratedIds.length && <p className="nda-reconstruction-note">Inclui trajetos ilustrativos adicionais; anatomia e coordenadas não validadas.</p>}
       <h4>{row.name}</h4><small>{row.group}</small>
+      {row.ids.map(id=>vascularFindings.has(id)?<p className="nda-reconstruction-note" key={`finding:${id}`}>{vascularFindings.get(id)}</p>:null)}
       {!!row.drainageTargets.length && <p>Drenagem/comunicações de referência: {row.drainageTargets.map(id=>venousCoverage.find(candidate=>candidate.id === id)?.name ?? id).join("; ")}. São destinos usuais ou alternativos; não se presume que coexistam nem que estejam conectados geometricamente.</p>}
       <p>Conferir trajeto, tributárias, drenagem, comunicações e variantes. Um coletor presente não substitui os seus afluentes. Uma variante não é obrigatória em todos os indivíduos.</p>
       {row.ids.map(id=><button key={id} onClick={()=>onSelect(id)}>{id}</button>)}

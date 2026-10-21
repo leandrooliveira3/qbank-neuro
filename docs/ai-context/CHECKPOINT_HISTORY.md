@@ -24,3 +24,12 @@ Acrescentar registros; não apagar os anteriores. Hashes publicados devem ser co
 - Prioridade: anatomia e angiografia antes de procedimentos avançados; preservar todas as frentes.
 - Validação de fechamento: dez documentos presentes, três links relativos válidos, dez fontes e doze itens de NEXT_SESSION conferidos, diff documental sem erros de whitespace. Hash remoto final deve ser confirmado e informado no relatório; na sessão seguinte registrar esse hash em novo checkpoint, preservando este registro.
 - Próximo ponto exato: P0 de inventário/relações e comparador independente descrito em NEXT_SESSION.
+
+## Comparador independente e reconciliação — 21/10/2026
+
+- Checkpoint anterior publicado confirmado: `ad5515dc53067689d5bdf54e514b0caa0d6a572e`, árvore `69d922983d2862b4ceda4ec200fd539a8c6a6915`; branch feature/neuro3d-atlas/PR 2 rascunho.
+- Nova branch local continuation/vascular-comparator criada dessa base, preservando original e branches anteriores.
+- Entregas: aba independente BRAVE-NET/VENAT, três derivados verificados/licenciados, decoder seguro, vistas/pose/proveniência, reconciliação atual por ID e nota Galeno–seio reto. Nenhuma geometria do atlas alterada.
+- Pendências: registro/marcos/cortes, sete identidades, conexão Galeno–seio reto, oito representações embrionárias adicionais e demais frentes preservadas.
+- O commit que contém este registro é identificável pelo Git; confirmar hash remoto e árvore ao fechar e informá-los no relatório. Resultados detalhados em VALIDATION e no relatório do comparador.
+- Fechamento funcional: TypeScript, 120 unitários/27 arquivos e build aprovados; 18 casos únicos de navegador nesta etapa (execuções de 10 e 12, com quatro repetições), capturas inspecionadas e diff conferido. Nenhuma aprovação anatômica/clinica acrescentada.
