@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "baseCommit": "f7a04e68f67b8e25f2155acadd554360ba2ec80e",
+  "clientDate": "2026-10-22",
+  "localCase": 1,
+  "volumeDimensions": [
+    512,
+    512,
+    391
+  ],
+  "volumeAndProjectionRawHashesMatchedPreviousAudit": 5,
+  "projectionsOpened": 4,
+  "sourceTargetsSelectedPerProjection": 2,
+  "orthogonalAxesOpened": 3,
+  "browserPageErrors": 0,
+  "nonGetRequests": 0,
+  "screenshotsInspectedPrivately": true,
+  "dataOrCalibrationRedistributed": false,
+  "registrationAccuracyValidated": false,
+  "limits": "Single real local case tested on desktop; this is not a repeat audit of ten cases, a registration algorithm, error benchmark, universal orientation certification or mobile memory validation. Native grid and projected crosses inspected on two initial source points in AP/LAT DSA/MAX. No measured mTRE/mRPD."
+}

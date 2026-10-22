@@ -81,3 +81,8 @@ Audit_venous_nomenclature verifica blob fixo antes de pesquisar7192rótulos ingl
 ## Quadros oblíquos e arestas de revisão
 
 skullBoundary gera aliases exatos/linhagem de arestas e frame ortonormal reversível; sectionSurface opera em cópia de coordenadas de inspeção. SkullBoundaryReview, dentro do inspetor lazy, confere hashes contra manifesto, exibe dados de fonte/escala e exporta evidência. PassageInspectionPlane admite frame e reviewSegments; pose usa baseu/v/normal e matriz→Euler; renderer conserva plano/arestas no atlasglobal, sem dupla escala. Camera usa bounds de inspeção nos novos quadros, sem mover geometria. Quadros antigos por eixo permanecem compatíveis. SemAPI/DB/credencial nova.
+
+
+## Geometria3D–2D local
+
+gsCa/geometry.ts contém contratosMHD/RAD, Sv/Sw, raios/plano, VOI/ROI e corte nativo. reader.ts valida arquivos/memória/tamanhos e calcula hashes; gsCa.worker mantémInt16/umFloat32 e transfere sóRGBA/metadados. GsCaLab é lazy poraba, termina worker aoremover/sair e usaidentidade+sequência+chave de pedido para ocultar frames obsoletos/exportação. Coordenadas decanvas descontambordasCSS e preservamstride/ROI/centrospixel. GsCaScene renderiza caixa/raio emSw comtranslação sódevisualização, sem malhavascular nem transformação de atlas. SemnovaAPI/DB/biblioteca ou dados embutidos; DICOM/Paciente3D permanece separado.

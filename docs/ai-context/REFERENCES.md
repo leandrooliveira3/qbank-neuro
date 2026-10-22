@@ -106,3 +106,8 @@ Neuroangio ILT efetivamente reaberto pela ferramenta web; fossa posterior expiro
 ## Bordas do esfenoide
 
 FonteAnatria fixa6320bd64, skeletal_male.glb já recuperado/hashes do manifesto conferidos. Comparação dirigida Sphenoid bone: payload/atributos e ancestralidade inteira iguais ao landmarks_bone.glb. Relatório sphenoid-lineage-evidence.json; auditoria do seio reto não reexecutada (apenas helpers importados sem main). NeuroangioILT reaberto; Lasjaunias437/p418 legenda5.25 reconsultada por texto privado. Não são coordenadas anatômicas dos grafos. Ferramentas próprias executadas listadas no relatório, demais frentes somente preservadas.
+
+
+## 22/10/2026 — GS-CA local/TopBrain
+
+PáginaGS-CA primária reaberta; arquivoslocais jáauditados utilizados pelaUIrealcaso1, não reauditados10casos. CódigoMatlab/MEX/C++/MGP dofornecedor não executado. Somente agregados novos e código próprio publicados; políticaBY-NC-ND/condiçõesdoguia mantida. TopBrainpágina primária viabuscaindexada, direta403: rótulosvenosos/termos consultados, nenhumdownload ou execução. Candidato não fornece correspondência para20IDs/7termos. Ver ../neuro3d-venous-source-candidates.json e ../neuro3d-gs-ca-viewer-validation.json. Pesquisa porcaudado/interpeduncular retornou também estruturas não vasculares, descartadas; não contarfontes irrelevantes como integração.

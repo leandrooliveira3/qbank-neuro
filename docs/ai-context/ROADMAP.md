@@ -70,3 +70,12 @@ PróximoP0: localizar32bordas abertas remanescentes e investigar transiçãoZ31,
 Base97d2a9413bfdba1654d70fedcb02a10d84989580, continuation/skull-boundaries. Entrega e limites em ../neuro3d-skull-boundary-review.md; dados em features/neuro3d/skull-boundary-evidence.json e sphenoid-lineage-evidence.json.32arestas em2grupos16, origem/análise/exportação e sobreposição3D;4cortes oblíquos coincidentes; refinamento31,42→31,44mm. Esfenoide payload/ancestralidade iguais à fonte; defeitos não introduzidos pelo recorte. Não certifica forames/túneis; nenhuma geometria reparada ou vaso criado.
 
 P0seguinte: voltar à completude vascular e fluxos de estudo, buscar fonte individual utilizável para20ausências venosas,373referências e7termos. Não repetir bordas/cortes/auditoria592sem nova evidência. Cadência pedida pelo usuário: lotes integrados e documentação concisa, sem uma etapa por microachado. Galeno/seteIDs/componentes e todas as frentes preservados. Hash do novo checkpoint será confirmado ao publicar, sem merge/force.
+
+
+## 22/10/2026 — visor GS-CA local e vínculo físico entregue
+
+Basef7a04e68f67b8e25f2155acadd554360ba2ec80e; continuation/gs-ca-workspace. AbaGeometria3D–2D comMHD/RAWsigned16, RAD/RAWfloat32, cortes3eixos/janelas, VOI/ROImanuais, alvosSvfracionários, projeçãoSw→detector e cliqueinverso nocorte, cena3Dcaixa/raio eexportação local. Sem envio/registro noatlas/segmentaçãoclínica. Leia ../neuro3d-gs-ca-viewer.md e agregado devalidação.
+
+153unitários/39arquivos,24casos únicos denavegador/7arquivos,TypeScript/build aprovados; ensaioUIrealcaso1:4projeções×2alvos/3eixos,5hashesRAW iguais à auditoriaanterior,0erros/0nãoGET. Capturas privadas. Precisãoderegistro permanecefalse; não refeitos10casos/592vasos/bordas. TopBrainapenasconsultado, rótulospublicados não individualizam20ausências ou7termos; nenhumdownload/execução/importação.20/373/Galeno/seteIDs/componentes e demaisfrentes mantidos.
+
+PróximoP0: geometria local útil para estudo vascular (VOI/ROI com metadados verificados, isosuperfície/segmentaçãoemSw ou conferência quantitativa de alvos observados). ZIP/XLS automáticos pendentes; não repetir auditoriasprontas. Checkpoint será confirmado porhash/árvore/deployment exatos, sem merge/force.

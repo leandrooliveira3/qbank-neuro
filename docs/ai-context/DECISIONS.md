@@ -94,3 +94,10 @@ PróximoP0: localizar32bordas abertas remanescentes e investigar transiçãoZ31,
 Base97d2a9413bfdba1654d70fedcb02a10d84989580, continuation/skull-boundaries. Entrega e limites em ../neuro3d-skull-boundary-review.md; dados em features/neuro3d/skull-boundary-evidence.json e sphenoid-lineage-evidence.json.32arestas em2grupos16, origem/análise/exportação e sobreposição3D;4cortes oblíquos coincidentes; refinamento31,42→31,44mm. Esfenoide payload/ancestralidade iguais à fonte; defeitos não introduzidos pelo recorte. Não certifica forames/túneis; nenhuma geometria reparada ou vaso criado.
 
 P0seguinte: voltar à completude vascular e fluxos de estudo, buscar fonte individual utilizável para20ausências venosas,373referências e7termos. Não repetir bordas/cortes/auditoria592sem nova evidência. Cadência pedida pelo usuário: lotes integrados e documentação concisa, sem uma etapa por microachado. Galeno/seteIDs/componentes e todas as frentes preservados. Hash do novo checkpoint será confirmado ao publicar, sem merge/force.
+
+
+## 22/10/2026 — memória, coordenadas e revisão localGS-CA
+
+Decisão: manter arraysgrandes emworker, umdetector porvez e limites explícitos, sem reduzir dimensões ou unidades silenciosamente. TransformaçõesSv/Sw completas, matrizes column-major exportadas; ponto-alvo fracionário distinto docorte inteiro mais próximo. Clique inverso só no plano atual, não profundidade reconstruída. VOI/ROI zero/inclusivos explícitos, XLSmanual nestaetapa. Revisão manual/diferença em pixels não altera flag de precisãofalse. Nenhum registroautomático noatlas nem nomeação emvolume não rotulado.
+
+Decisão: fontes venosas comrótulos apenasdecoletores existentes não preenchem as20ausências. TopBrain é candidato independentenãoimportado, termoscomerciais não assumidos. Publicar código próprio/agregados; imagens/pontos/calibrações/exames privados não entram norepo.

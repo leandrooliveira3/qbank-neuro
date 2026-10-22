@@ -103,3 +103,14 @@ Revisão React: relatório adicional dentro do inspetor lazy, conferência de ha
 Fluxo: relatório de malhas originais/hashes→seleção de grupo/arestas ou baseoblíqua→mesmo plano e foco no3D→exportação comfaces/aliases/base/limites. NenhumAPI/DB/credencial novo; relatório somente no inspetor lazy, incompatibilidade de manifesto bloqueia controles. Renderer overlay não participa do raycast e não move fonte. Recursos descartados ao desmontar; quadros por eixo antigos preservados.
 
 Auditores novos executados: audit_skull_boundaries.ts e audit_sphenoid_lineage.py. Comparação de payload/ancestralidade do esfenoide é dirigida, sem rodar o main do seio reto ou a auditoria592. Matéria antiga e dados restritos preservados. Sem aprovação clínica/anatômica por esses testes e sem navegador remoto.
+
+
+## 22/10/2026 — Geometria3D–2D/GS-CA local
+
+153unitários/39arquivos aprovados; quatro novos testes de leitor/projeção/corte reexecutados após reforçar invariância afim não ortogonal e contrato matricial. TypeScript/build aprovados (chunks>500kB histórico).24casos únicos de navegador em7arquivos, desktop/Pixel7:4GS-CA,4PacienteDICOM,4BRAVE/VENAT,6Neuroangio,2Doppler,2vídeos e2bordas. Reexecuções dirigidas dos4casosGS-CA após texto do referencial/atribuição, coordenadasdocanvas descontandobordas e exportação column-major aprovadas; não somar ao total24. Sem novo teste remoto.
+
+Caso real1, fora do contador de fixtures: UI512×512×391/4projeções/2alvosSv iniciais porvista/3eixos. Cinco hashesRAW conferidos contra a auditoria anterior;0erros de página/0requisiçõesnãoGET. Inspecionadas capturasAP/LATDSA/MAX e corteZ, com cruzes sobre regiões opacificadas nos exemplos; sem quantificação mTRE/mRPD, validação universal de convençãopixel ou precisão de registro. Mais1caso real não equivale a reaudar10casos. Somente agregado publicado; imagens, alvos e calibraçõesprivados não entram norepo.
+
+Fluxo novo: seleção local→validação de contrato/tamanho/memória→worker/Int16/hash→RGBAcorte/umFloat32detector→alvofracionário→Sv/Sw→projeção→raio intersectado nocorteinteiro→exportação comflagsfalse. VOI/ROIzero/inclusivos e janela; erro/reimportação; remoção/trocaaba e descarteworker; ausência dePOST verificadas. Fixtures numéricas testam magnificação, inversa completa, afimnãoortogonal, áreas fora do campo/RAW incompatível/duplicação, fontesparalelas e trêsorientações x-fastest semflip.
+
+Revisão React: nova aba lazy e processamento emworker; arraysgrandes não chegam aReact; carregamento de um detector porvez; buffersRGBA transferidos; workerterminado emclear/unmount; identidade+sequência+chave impedem framesobsoletos e exportaçãoenquanto recalcula. Controles rotulados e limitesexplícitos; cena3D protegida porboundary; semAPI/DB/dependência nova. Não executados MGP/Matlab/MEX/REA/Ankyras ou reconstruçãoa partir deprojeções. Não reauditados592vasos, bordas ou42cortes.

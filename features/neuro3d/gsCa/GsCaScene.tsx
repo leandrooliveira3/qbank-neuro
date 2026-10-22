@@ -1,0 +1,9 @@
+import React,{useMemo} from 'react';import {Canvas} from '@react-three/fiber';import {OrbitControls} from '@react-three/drei/core/OrbitControls';
+import {voxelToWorld,projectWorld,type P3,type Box3i,type VolumeHeader,type DetectorHeader} from './geometry';
+export default function GsCaScene({volume,voi,point,detector}:{volume:VolumeHeader;voi:Box3i;point:P3;detector?:DetectorHeader}){
+ const center=voxelToWorld(volume.dimensions.map(n=>(n-1)/2) as P3,volume),shift=(p:P3)=>p.map((n,k)=>n-center[k]) as P3;
+ const positions=useMemo(()=>{const corners=Array.from({length:8},(_,i)=>voxelToWorld([voi[(i&1)?1:0],voi[(i&2)?3:2],voi[(i&4)?5:4]],volume)),edges:number[]=[];for(let i=0;i<8;i++)for(const bit of [1,2,4])if(!(i&bit))edges.push(...shift(corners[i]),...shift(corners[i|bit]));return new Float32Array(edges);},[volume,voi]);
+ const world=voxelToWorld(point,volume),p=shift(world),span=Math.max(...volume.dimensions.map((n,k)=>n*volume.spacing[k]));
+ let beam:Float32Array|undefined;try{if(detector){const end=projectWorld(world,detector).detectorWorld;beam=new Float32Array([...shift(detector.sourceWorld),...shift(end)]);}}catch{}
+ return <div className="gsca-scene" aria-label="Geometria física 3D independente"><Canvas camera={{position:[span*1.6,span,span*1.8],near:.01,far:10000}}><lineSegments><bufferGeometry><bufferAttribute attach="attributes-position" args={[positions,3]}/></bufferGeometry><lineBasicMaterial color="#7ad9dd"/></lineSegments>{beam&&<lineSegments><bufferGeometry><bufferAttribute attach="attributes-position" args={[beam,3]}/></bufferGeometry><lineBasicMaterial color="#fbaf56"/></lineSegments>}<mesh position={p}><sphereGeometry args={[Math.max(...volume.spacing)*2,12,8]}/><meshBasicMaterial color="#ff79ba"/></mesh><OrbitControls makeDefault/></Canvas><p>Caixa da VOI e raio no espaço Sw da fonte; não é superfície segmentada. A translação visual centra a caixa, sem alterar as coordenadas exportadas.</p></div>;
+}

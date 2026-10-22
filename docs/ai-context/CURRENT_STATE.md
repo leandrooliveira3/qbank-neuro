@@ -1,3 +1,7 @@
+# Estado atual — visor GS-CA entregue
+
+Última etapa ao final e em ../neuro3d-gs-ca-viewer.md. Basef7a04e6; registros anteriores abaixo são históricos. Nenhum vaso novo;20ausências/373lacunas mantidas.
+
 # Estado atual — bordas e cortes oblíquos entregues
 
 Última etapa ao final; ver ../neuro3d-skull-boundary-review.md. Base97d2a94. Blocos anteriores abaixo são históricos. Nenhuma nova geometria vascular;20ausências/373lacunas preservadas.
@@ -61,3 +65,12 @@ Base97d2a9413bfdba1654d70fedcb02a10d84989580, continuation/skull-boundaries. Ent
 P0seguinte: voltar à completude vascular e fluxos de estudo, buscar fonte individual utilizável para20ausências venosas,373referências e7termos. Não repetir bordas/cortes/auditoria592sem nova evidência. Cadência pedida pelo usuário: lotes integrados e documentação concisa, sem uma etapa por microachado. Galeno/seteIDs/componentes e todas as frentes preservados. Hash do novo checkpoint será confirmado ao publicar, sem merge/force.
 
 Validação final:149unitários/38arquivos;24casos únicos de navegador/7arquivos aprovados, com10reexecuções dirigidas após ajustesvisuais. TypeScript/build e auditores dirigidos aprovados; capturas finais inspecionadas. Sem navegador remoto ou homologação anatômica.
+
+
+## 22/10/2026 — visor GS-CA local e vínculo físico entregue
+
+Basef7a04e68f67b8e25f2155acadd554360ba2ec80e; continuation/gs-ca-workspace. AbaGeometria3D–2D comMHD/RAWsigned16, RAD/RAWfloat32, cortes3eixos/janelas, VOI/ROImanuais, alvosSvfracionários, projeçãoSw→detector e cliqueinverso nocorte, cena3Dcaixa/raio eexportação local. Sem envio/registro noatlas/segmentaçãoclínica. Leia ../neuro3d-gs-ca-viewer.md e agregado devalidação.
+
+153unitários/39arquivos,24casos únicos denavegador/7arquivos,TypeScript/build aprovados; ensaioUIrealcaso1:4projeções×2alvos/3eixos,5hashesRAW iguais à auditoriaanterior,0erros/0nãoGET. Capturas privadas. Precisãoderegistro permanecefalse; não refeitos10casos/592vasos/bordas. TopBrainapenasconsultado, rótulospublicados não individualizam20ausências ou7termos; nenhumdownload/execução/importação.20/373/Galeno/seteIDs/componentes e demaisfrentes mantidos.
+
+PróximoP0: geometria local útil para estudo vascular (VOI/ROI com metadados verificados, isosuperfície/segmentaçãoemSw ou conferência quantitativa de alvos observados). ZIP/XLS automáticos pendentes; não repetir auditoriasprontas. Checkpoint será confirmado porhash/árvore/deployment exatos, sem merge/force.

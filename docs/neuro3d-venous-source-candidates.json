@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "date": "2026-10-22",
+  "candidate": "TopBrain 2025",
+  "source": "https://topbrain2025.grand-challenge.org/data/",
+  "access": "Primary page content retrieved through indexed web search; direct page open returned403. No dataset downloaded or algorithm executed.",
+  "declaredCtaVenousLabels": [
+    "Vein of Galen",
+    "Straight sinus",
+    "Internal cerebral veins",
+    "Right basal vein of Rosenthal",
+    "Left basal vein of Rosenthal",
+    "Superior sagittal sinus"
+  ],
+  "termsObserved": "Attribution required; noncommercial use; commercial use requires owner permission. File-level License.txt not inspected.",
+  "decision": "Published labels do not individually identify the ten missing bilateral channels or the seven extra unmapped terms. No geometry promoted, substituted or imported. Candidate for independent future comparison only; no Galen/straight-sinus reconciliation or atlas registration established.",
+  "missingGeometryUnchanged": 20,
+  "referenceGapsUnchanged": 373
+}

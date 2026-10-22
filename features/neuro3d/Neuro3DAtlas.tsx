@@ -19,6 +19,7 @@ const SimulationLab = lazy(
   () => import("./simulation/station/ProcedureStation"),
 );
 const DetailedAtlas = lazy(() => import("./DetailedAtlas"));
+const GsCaLab = lazy(() => import("./gsCa/GsCaLab"));
 const PatientLab = lazy(() => import("./patient/PatientLab"));
 const TcdLab = lazy(() => import("./tcd/TcdLab"));
 const ReferenceComparator = lazy(() => import("./comparison/ReferenceComparator"));
@@ -170,8 +171,8 @@ export default function Neuro3DAtlas() {
         </div>
       </header>
       <aside className="n3-warning" role="note">
-        <strong>{tab === "Referências vasculares" ? "Referências derivadas de imagem · espaços independentes." : tab === "Paciente 3D" ? "Prévia derivada do exame · revisão necessária." : tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : tab === "Atlas" && atlasMode === "surface" ? "Base anatômica de referência · revisão em andamento." : "Geometria esquemática · não homologada."}</strong> Uso
-        educacional. {tab === "Paciente 3D" ? "Coordenadas físicas preservadas; segmentação e medidas ainda precisam de revisão. Sem recomendação automática de dispositivo ou técnica." : "Sem escala clínica, planejamento de pacientes ou simulação hemodinâmica validada."}
+        <strong>{tab === "Geometria 3D–2D" ? "Geometria da fonte · espaço independente." : tab === "Referências vasculares" ? "Referências derivadas de imagem · espaços independentes." : tab === "Paciente 3D" ? "Prévia derivada do exame · revisão necessária." : tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : tab === "Atlas" && atlasMode === "surface" ? "Base anatômica de referência · revisão em andamento." : "Geometria esquemática · não homologada."}</strong> Uso
+        educacional. {tab === "Geometria 3D–2D" ? "Coordenadas da fonte em milímetros; precisão de registro ainda não validada. Nenhum vínculo espacial com o atlas presumido." : tab === "Paciente 3D" ? "Coordenadas físicas preservadas; segmentação e medidas ainda precisam de revisão. Sem recomendação automática de dispositivo ou técnica." : "Sem escala clínica, planejamento de pacientes ou simulação hemodinâmica validada."}
       </aside>
       <div className="n3-topbar">
         <nav aria-label="Seções do atlas">
@@ -181,6 +182,7 @@ export default function Neuro3DAtlas() {
             "Referências vasculares",
             "Simulação",
             "Paciente 3D",
+            "Geometria 3D–2D",
             "Doppler transcraniano",
             "Módulos",
             "Questões",
@@ -656,6 +658,7 @@ export default function Neuro3DAtlas() {
           </label>
         </section>
       )}
+      {tab === "Geometria 3D–2D" && <Suspense fallback={<p role="status">Carregando geometria local…</p>}><GsCaLab /></Suspense>}
       {tab === "Paciente 3D" && <Suspense fallback={<p role="status">Carregando importação DICOM…</p>}><PatientLab /></Suspense>}
       {tab === "Referências vasculares" && <Suspense fallback={<p role="status">Carregando referências independentes…</p>}><ReferenceComparator /></Suspense>}
       {tab === "Doppler transcraniano" && <Suspense fallback={<p role="status">Carregando Doppler…</p>}><TcdLab /></Suspense>}
