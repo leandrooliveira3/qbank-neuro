@@ -1,13 +1,17 @@
 import {extractSurface,surfacePlan} from './surface';
 import {surfaceHash} from './reviewNotes';
 import {readGeometryFiles} from './reader';
+import {inspectZip,extractZip,type ZipInventory} from './zip';
 import {renderSlice,validateRoi,type Box3i} from './geometry';
 let data:Awaited<ReturnType<typeof readGeometryFiles>>|undefined,image:{name:string;values:Float32Array;minimum:number;maximum:number;sha256:string}|undefined,detectorSequence=0;
 const send=(message:unknown,transfer:Transferable[]=[])=>self.postMessage(message,{transfer});
+let archive:File|undefined,inventory:ZipInventory|undefined,loading=false;
 self.onmessage=async(event:MessageEvent)=>{
  const q=event.data;
  try{
-  if(q.kind==='load'){data=await readGeometryFiles(q.files);send({kind:'ready',metadata:data.metadata});}
+  if(q.kind==='zipInspect'){archive=q.file;inventory=await inspectZip(q.file);send({kind:'zipInventory',inventory});}
+  else if(q.kind==='zipLoad'&&archive&&inventory&&!loading){loading=true;try{let last=0,previous=-1;const files=await extractZip(archive,inventory,(name,completed,total)=>{const now=performance.now();if(completed!==previous||now-last>150){send({kind:'zipProgress',name,completed,total});last=now;previous=completed;}});data=await readGeometryFiles(files);send({kind:'ready',metadata:data.metadata,zipInventory:inventory});archive=undefined;inventory=undefined;}finally{loading=false;}}
+  else if(q.kind==='load'){data=await readGeometryFiles(q.files);send({kind:'ready',metadata:data.metadata});}
   else if(q.kind==='vendorCrops'&&data){const {readVendorCrops}=await import('./vendorCrops');const crops=await readVendorCrops(q.file,data.metadata);send({kind:'vendorCrops',sequence:q.sequence,crops});}
   else if(q.kind==='surface'&&data){
    const plan=surfacePlan(data.metadata.volume,q.voi,q.detail);

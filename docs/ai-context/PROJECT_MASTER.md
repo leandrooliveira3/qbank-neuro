@@ -101,3 +101,8 @@ Entregues XLSoriginal porhash/caso, componentes geométricos selecionáveis e re
 ## 22/10/2026 — revisão pessoal e fontes
 
 Revisão pessoalGSCA comJSONvinculado a fonte/malha/parametrização entregue; fontes do novo anexo12avaliadas e catalogadas. Leia neuro3d-gs-ca-review-notes.md e neuro3d-additional-databases.md. Completude20/373/setetermos permanece sem geometria adicional comprovada.
+
+
+## 22/10/2026 — ZIP local e busca tentorial dirigida
+
+ZIP local GS-CA concluído em lote integrado; referência de implementação/validação em ../neuro3d-gs-ca-zip.md. Anatomia continua P0 com 20/373/sete sem redução. Suplemento tentorial humano concreto catalogado, porém sem licença/segmentações comprovadas. Outras frentes e referenciais preservados.

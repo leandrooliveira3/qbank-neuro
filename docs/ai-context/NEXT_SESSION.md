@@ -1,3 +1,27 @@
+# Próxima sessão — ZIP local e completude vascular
+
+Base `167705814d2166f4288de61e5bcaeb163d1fc0cd`, continuação local `continuation-gsca-zip-20261022`. ZIP local clássico com inventário sem descompressão, conferência local/central/descritores, caminhos e intervalos, limites de expansão/memória, extração seletiva sequencial no worker e CRC/tamanho reais. Prévia/cancelamento e exportação do inventário; arquivos originais preservados, nenhum envio ou execução do fornecedor. Novo limite estimado ZIP 768 MiB é distinto do trabalho de 512 MB do leitor; não é pico medido. Sem nova dependência de produção. Seleção repetida da projeção agora solicita imagem novamente mesmo com ROI original compartilhada.
+
+Busca nova encontrou suplemento DICOM tentorial AJNR2020: metadados públicos GIN 200, revisão 401 e árvore 404; licença e máscaras individuais não comprovadas, nenhum exame baixado. JNET2026 é revisão CC BY-NC, não malha. Estudo JCI experimental é murino; excluída equivalência com adulto humano. Catálogo passa a seis candidatos venosos, mantendo as 12 fontes anteriores. Zero geometria anatômica nova: 20 ausências, 373 lacunas e sete termos mantidos; Galeno, sete identidades, ICA-vidiana/meningo-lacrimal e todas as demais frentes preservados. Ver ../neuro3d-gs-ca-zip.md, ../neuro3d-gs-ca-zip-validation.json e ../neuro3d-tentorial-source-review.json.
+
+Deployment da base não confirmado: GitHub sem status; Vercel 403 no time conhecido. Nenhuma autorização de time, login, reinstalação ou mudança de segurança. Hash remoto e situação do novo checkpoint devem ser lidos no comprovante privado da publicação; não declarar sucesso por inferência.
+
+
+
+Validação do lote ZIP:168unitários/43arquivos,26casos únicos navegador/5arquivos desktop+Pixel7,TypeScript/build aprovados. Caso1 em ZIP recuperou notas/malha/ponto e hashes dos quatroRAWs de projeção;0erros/0nãoGET. Ver agregado específico.
+
+## Próximo lote
+
+Continue do último checkpoint remoto confirmado, branch feature/neuro3d-atlas. Leia AGENTS.md e NEXT_SESSION/CURRENT_STATE/ROADMAP/REFERENCES/VALIDATION; confira remoto e preserve os cinco não rastreados do original. Verifique primeiro deployment do hash exato sem repetir tentativas de autenticação: GitHub sem status e Vercel403 não comprovam falha nem sucesso. Não reinstale plugin nem presuma acesso ao time.
+
+ZIP local GS-CA já entregue: não refazer leitor/XLS/componentes/notas/ZIP nem auditorias592/42/bordas/dezcasos. Leia neuro3d-gs-ca-zip.md, seu agregado de validação e neuro3d-tentorial-source-review.json. Priorize fontes individuais rotuladas/licenciadas para20ausências venosas/373lacunas/setetermos. O suplemento tentorial AJNR2020 é candidato concreto, mas metadados200 não comprovam licença/mascaras: revisão401/árvore404. Não contornar autenticação; obtenha release/listagem/licença pública verificável antes de baixar/importar. JNET2026 dá classificação/referência, não geometria; camundongos não preenchem vasos humanos. Jülich/HCPex continuam contexto candidato sem transformação comprovada.
+
+Se não houver nova geometria comprovável, avance em lote funcional substancial na revisão vascular local, como traçado pessoal de ramos em múltiplos cortes com pontos Sv/Sw, medidas e exportação vinculada aos hashes, explicitamente hipótese e sem integrar ao atlas ou certificar continuidade luminal. Aproveite os controles/notas existentes; mantenha coordenadas fracionárias e matrizes4×4column-major. Não mistureSv/Sw,LPS e atlas. PreserveGaleno,seteIDs,ICAvidiana/meningolacrimal,Paciente3D,Doppler,Mentice/VascularTwin,REA/Ankyras. Sem pontes, deslocamentos, equivalência por proximidade, execução de fornecedor ou redistribuição restrita.
+
+Valide fluxos/vistas e dados locais pertinentes, atualize continuidade concisa, publique semmerge/force e entregue hash remoto, deployment efetivamente verificado, ganhos, pendências e próximo prompt.
+
+---
+
 # Próxima sessão — completude e contexto anatômico
 
 

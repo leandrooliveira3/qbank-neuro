@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "167705814d2166f4288de61e5bcaeb163d1fc0cd",
+  "scope": "New directed tentorial candidates; no repeat of 592-vessel or original mesh audits",
+  "candidates": [
+    {
+      "name": "Tentorial Venous Anatomy: Variation in the Healthy Population",
+      "doi": "10.3174/ajnr.A6775",
+      "article": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7661061/",
+      "access": "Primary indexed article text consulted; direct PubMed returned 429",
+      "finding": "Study of human tentorial venous variation links supplemental DICOM and transfer function, rather than named segmentation masks",
+      "repository": "https://gin.g-node.org/JaredRosenblum/Rosenblum_AJNR_2020_Supplemental_DICOM_Data_and_Transfer_Function",
+      "metadataEndpoint": "https://gin.g-node.org/api/v1/repos/JaredRosenblum/Rosenblum_AJNR_2020_Supplemental_DICOM_Data_and_Transfer_Function",
+      "publicMetadataStatus": 200,
+      "metadata": {"id": 1888, "private": false, "empty": false, "defaultBranch": "master", "updatedAt": "2020-08-27T00:30:18Z"},
+      "branchEndpointStatus": 401,
+      "treeEndpointStatus": 404,
+      "datasetLicenseVerified": false,
+      "releaseOrCommitPinned": false,
+      "individualMasksVerified": false,
+      "block": "Repository existence is confirmed, but no revision/file listing, data license, labeled side-specific channel or source transform verified. Article-level rights do not establish dataset rights. No authentication bypass or access change attempted.",
+      "dataDownloaded": false,
+      "softwareExecuted": false,
+      "geometryImported": false
+    },
+    {
+      "name": "Venous Anatomy and Embryology of the Tentorium",
+      "doi": "10.5797/jnet.ra.2025-0133",
+      "article": "https://www.jstage.jst.go.jp/article/jnet/20/1/20_ra.2025-0133/_article/-char/en",
+      "indexedPrimary": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12952924/",
+      "access": "Primary indexed text and publisher overview consulted; direct PMC browser challenge",
+      "articleLicense": "CC BY-NC 4.0, Japanese Society for Neuroendovascular Therapy, 2026",
+      "finding": "Distinguishes tentorial sinus categories by drainage and inflow, including bridging-vein channels and intrinsic small tentorial tissue veins. Variable branching/venous lakes are not one canonical path.",
+      "block": "Review/figures, not a labeled bilateral segmentation release. No transferable channel geometry, spatial transform or individual lumen proof obtained.",
+      "dataDownloaded": false,
+      "softwareExecuted": false,
+      "geometryImported": false
+    },
+    {
+      "name": "Tentorial venous anatomy of mice and humans",
+      "doi": "10.1172/jci.insight.151222",
+      "article": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8663545/",
+      "access": "Primary indexed text consulted",
+      "finding": "New experimental volumes described in this paper are murine micro-CT/MRI; human anatomy refers to prior human studies",
+      "block": "Mouse homology and developmental stages cannot fill missing adult human vessels. No mouse assets or software imported/executed. Dataset-level license not established here.",
+      "dataDownloaded": false,
+      "softwareExecuted": false,
+      "geometryImported": false
+    },
+    {
+      "name": "ColonVessels 2026",
+      "record": "https://zenodo.org/records/17407158",
+      "access": "Primary record consulted after generic vessel search",
+      "block": "Explicitly colon vessels, not neurovascular anatomy; excluded without file download. Search-result vascular terminology alone is insufficient."
+    }
+  ],
+  "newAnatomicalGeometries": 0,
+  "missingVenousGeometries": 20,
+  "referenceGaps": 373,
+  "unmappedVenousTerms": 7,
+  "galenResolved": false,
+  "uncertainIdentitiesResolved": 0,
+  "supplierCodeExecuted": false,
+  "restrictedDataPublished": false
+}

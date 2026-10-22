@@ -104,3 +104,8 @@ Base `cecfb4801ea7244f3bcee6c845d25ea64a233be0`, local `continuation/gs-ca-compo
 Base ea95218c3b420dcc082736c445ebc8ba71e6ce81; local continuation/vascular-review-notes. AnotaçõesGS-CA exportáveis/importáveis, hashes individuais/contexto/malha exata, ponto fracionário/corteinteiro, edição, remoção/desfazer, mesclagem sem sobrescrever conflitos e reabertura dos parâmetros/componentes somente após coincidência geométrica. Sempre hipótese/observação pessoal, flagsanatômica/registrofalse; semDB/envio.163unitários/42arquivos,22casos navegador/4arquivos desktop+Pixel7,TypeScript/build aprovados; caso real1 comJSONidêntico após round-trip ehash/componente/ponto recuperados,0erros/0nãoGET. Capturas privadas.
 
 Lista12fontes do novo anexo avaliada/catalogada emNeuroangio→Revisãovenosa; Jülich/HCPex candidatos de contexto, DSI/brainlife ferramentas nãoexecutadas; Radiopaedia402 eEmbryoCCBYNCND explícitos. Busca dirigida5candidatos não comprovou geometria individual reutilizável:20/373/setetermos inalterados. Galeno/seteIDs/componentesICAvidiana/meningolacrimal/demaisfrentes preservados. Ver ../neuro3d-gs-ca-review-notes.md, ../neuro3d-additional-databases.md e relatório de busca. Não repetidos592/42/bordas/10volumes. ZIPautomático pendente. Checkpoint é identificado pelo commit deste arquivo; remoto/deployment exatos no comprovante privado.
+
+
+## 22/10/2026 — ZIP local e busca tentorial dirigida
+
+ZIP clássico local entregue; ZIP64, senhas e formatos adicionais rejeitados deliberadamente. Próximo: comprovar fonte tentorial individual ou avançar revisão pessoal de ramos com medidas vinculadas, sem inventar geometria anatômica. P0 continua 20/373/sete; demais frentes intactas.

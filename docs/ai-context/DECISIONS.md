@@ -116,3 +116,8 @@ Guia primário comprova índiceszero/inclusivos; não aplicar+1 doMatlab. Aceita
 ## 22/10/2026 — revisão pessoal e fontes
 
 Anotações nunca promovem identidade anatômica. Componente exige hash da malha+parâmetros, não somente rank; case binding usa hashes/cabeçalho e Sv/Sw. Reabrir restaura parâmetros, sem gerar automaticamente ou alterar malha. Mesclagem conflituosa é atômica. Novas12fontes são catálogo de referência, não integrações; formatos/licenças/espaços individuais precisam de prova.
+
+
+## 22/10/2026 — ZIP local e busca tentorial dirigida
+
+ZIP é subconjunto clássico restrito, com preflight antes da extração e limites de saída durante fluxo. Extração nativa DEFLATE em worker; sem fallback sem limites. Recusar caso acima da estimativa de768MiB e orientar arquivos extraídos. Inventário/CRC não autenticam fonte; SHA dos arquivos e notas permanecem contratos próprios. Não promover classificação tentorial, DICOM bruto ou modelos murinos a vasos humanos rotulados.

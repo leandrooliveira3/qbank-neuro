@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "167705814d2166f4288de61e5bcaeb163d1fc0cd",
+  "unitTests": 168,
+  "unitFiles": 43,
+  "browserCases": 26,
+  "browserFiles": 5,
+  "browserProjects": [
+    "desktop",
+    "Pixel7 emulation"
+  ],
+  "repeatedRunsNotAddedToUniqueCount": true,
+  "typecheck": true,
+  "build": true,
+  "newProductionDependencies": 0,
+  "zipImport": true,
+  "zipLimits": {
+    "archiveBytes": 192000000,
+    "expandedBytes": 384000000,
+    "entries": 64,
+    "centralDirectoryBytes": 128000,
+    "entryExpansionRatio": 250,
+    "estimatedWorkingBytes": 805306368
+  },
+  "realCase": {
+    "case": 1,
+    "input": "original local ZIP, 89653374 bytes",
+    "crcVerifiedFiles": 11,
+    "allFourProjectionRawHashesMatched": true,
+    "zipManifestExported": true,
+    "notes": 1,
+    "sourceVolumeHashMatched": true,
+    "fractionalAnchorPreserved": true,
+    "exactMeshHashRestored": true,
+    "componentSelectionRestored": true,
+    "exportImportRoundTripEqual": true,
+    "axesInspected": [
+      0,
+      1,
+      2
+    ],
+    "errors": [],
+    "nonGetRequests": [],
+    "anatomicalIdentityVerified": false,
+    "registrationAccuracyValidated": false
+  },
+  "realZipSelectedBytes": 281204811,
+  "realZipEstimatedWorkingBytes": 788851401,
+  "memoryPeakMeasured": false,
+  "realCasesRunForThisFeature": [
+    1
+  ],
+  "allTenCasesReaudited": false,
+  "zipContainerSha256ComputedByViewer": false,
+  "sourceFileHashesPreserved": true,
+  "nativeFractionalCoordinatesPreserved": true,
+  "matrixLayout": "4x4 column-major",
+  "framesMixed": false,
+  "supplierCodeExecuted": false,
+  "restrictedDataPublished": false,
+  "newAnatomicalGeometries": 0,
+  "missingVenousGeometries": 20,
+  "referenceGaps": 373,
+  "unmappedVenousTerms": 7,
+  "registrationAccuracyValidated": false,
+  "clinicalValidation": false,
+  "remoteBrowserTested": false,
+  "regressionFoundAndFixed": "Re-selecting current detector after source XLS crops could clear the raster without a new request. ROI is now copied, causing the reader effect to run; real four-projection path rechecked.",
+  "prepublicationDeploymentBase": {
+    "sha": "167705814d2166f4288de61e5bcaeb163d1fc0cd",
+    "githubStatuses": [],
+    "vercelConnectorStatus": 403,
+    "confirmed": false
+  }
+}

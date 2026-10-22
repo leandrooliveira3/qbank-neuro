@@ -126,3 +126,8 @@ Guia GS-CA seção3.5pp8–9 reaberto e nota de índiceszero/inclusivos confirma
 ## 22/10/2026 — revisão pessoal e fontes
 
 Novo anexo12fontes lido e páginas primárias consultadas; HCPexREADME/catálogo e NNCCATTRIBUTION porconectorGitHub. AJNR2003/2018 consultados emtexto primário indexado (direto403/challenge); CommonsNevitCCBYSA3.0 conferido na página do autor, STL não baixado. Sem nova execução/importação de software/dataset. Ver relatórios adicionais. Ferramentas própriasGSCA/testes/browser efetivamente executados.
+
+
+## 22/10/2026 — ZIP local e busca tentorial dirigida
+
+Novas consultas: AJNR2020 DOI10.3174/ajnr.A6775 e suplemento GIN indicado no texto; JNET2026 DOI10.5797/jnet.ra.2025-0133, revisão CC BY-NC4.0; JCI DOI10.1172/jci.insight.151222, volumes experimentais murinos. Apenas metadados GIN públicos200; revisão401/árvore404. Sem dados importados. ColonVessels Zenodo17407158 excluído por anatomia colônica. Detalhes/rótulos/licenças/limites: ../neuro3d-tentorial-source-review.json. Técnicas ZIP: PKWARE APPNOTE6.3.10 https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT e Compression Standard https://compression.spec.whatwg.org/ consultados; implementação própria, não código do fornecedor GS-CA.
