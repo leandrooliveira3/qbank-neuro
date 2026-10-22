@@ -7,11 +7,12 @@ self.onmessage=async(event:MessageEvent)=>{
  const q=event.data;
  try{
   if(q.kind==='load'){data=await readGeometryFiles(q.files);send({kind:'ready',metadata:data.metadata});}
+  else if(q.kind==='vendorCrops'&&data){const {readVendorCrops}=await import('./vendorCrops');const crops=await readVendorCrops(q.file,data.metadata);send({kind:'vendorCrops',sequence:q.sequence,crops});}
   else if(q.kind==='surface'&&data){
    const plan=surfacePlan(data.metadata.volume,q.voi,q.detail);
    if(data.metadata.volume.bytes+Math.max(0,...data.metadata.detectors.map(d=>d.header.bytes))+plan.estimatedWorkingBytes>512_000_000)throw Error('Estimativa da superfície excede 512 MB com o volume e detector.');
    const r=extractSurface(data.values,data.metadata.volume,q.voi,q.threshold,q.detail,[data.metadata.minimum,data.metadata.maximum]);
-   send({kind:'surface',sequence:q.sequence,...r},[r.positions.buffer,r.voxels.buffer]);
+   send({kind:'surface',sequence:q.sequence,...r},[r.positions.buffer,r.voxels.buffer,r.componentIds.buffer]);
   }
   else if(q.kind==='slice'&&data){const r=renderSlice(data.values,data.metadata.volume,q.axis,q.index,q.voi as Box3i,q.window);send({kind:'slice',key:q.key,sequence:q.sequence,...r},[r.pixels.buffer]);}
   else if(q.kind==='detector'&&data){

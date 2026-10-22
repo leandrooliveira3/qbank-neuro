@@ -116,3 +116,8 @@ PáginaGS-CA primária reaberta; arquivoslocais jáauditados utilizados pelaUIre
 ## 22/10/2026 — estudo vascular local
 
 Lote22/10: fonte/guia GS-CA previamente consultados continuam referenciados em neuro3d-geometry-dataset-review.md; neste lote arquivos ZIP apenas inventariados e casos locais lidos por ferramenta própria. MarchingCubes do Three.js instalado foi inspecionado/executado sob MIT; sem nova dependência. Nenhum Matlab/MEX/C++ do fornecedor executado, nenhum novo dataset/atlas importado. Ver neuro3d-gs-ca-study.md.
+
+
+## 22/10/2026 — XLS e componentes
+
+Guia GS-CA seção3.5pp8–9 reaberto e nota de índiceszero/inclusivos confirmada; XLS original lido por xlrd privado e adapter SheetJS. Dez abas com limites iguais; hashes dos pequenos cabeçalhos originais adicionados ao contrato, volumes não reauditados. Documentação oficial SheetJS (instalaçãoNode/formulae) e Viteworker.format consultada; SheetJSCE0.20.3Apache2.0 fixado viaCDNoficial comintegridade no lockfile. Dois scriptsMatlab de resultados apenaslidos, jamaisexecutados. Nenhuma nova fonte venosa importada. Ver ../neuro3d-gs-ca-components.md.

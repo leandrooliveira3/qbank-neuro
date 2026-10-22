@@ -1,0 +1,29 @@
+# GS-CA: XLS original, componentes e inspeção nativa — 22/10/2026
+
+## Convenção comprovada e importação
+
+O [guia primário GS-CA](https://lit.fe.uni-lj.si/data/research/resources/3D-2D-GS-CA/3D-2D-GS-CA.pdf), seção3.5, páginas8–9, define mínimos/máximos da grade com índices começando emzero. O acréscimo de1 é para Matlab. As células A3/A4/A5 do XLS rotulam respectivamente VOI X/Y/Z, ROI LAT X/Y e ROI AP X/Y. B3:G3/B4:E4/B5:E5 contêm os limites. Portanto a ferramenta aplica **zero-based, limites inclusivos, índices voxel/pixel**, sem conversão para mm, troca de eixos, flip ou +1.
+
+Inspeção independente com xlrd2.0.2, somente no runtime privado:10abas Dataset1…10. O adaptador da aplicação reproduziu todos os recortes nas dez abas contra essa extração. Esse ensaio é somente de metadados; a auditoria dos dez volumes foi reutilizada, não repetida. Hash XLS conferido:98cdaac575222f745c65e3a5b5ebd7055773bcea85299a5ecad6a832e5348054. Os pequenos MHD/RAD originais foram lidos para hashes e dimensões; nenhum RAW adicional foi reauditado.
+
+`source-contracts.json` publica apenas hashes/dimensões dos casos, sem tabela de recortes, patologia, alvos, imagens ou calibrações. A interface aceita o XLS original até1MB. Primeiro verifica seu SHA-256; versões diferentes são rejeitadas antes do parser. Vincula basename/caso, dimensões/espaçamento, SHA do volume e MHD/RAD conhecidos. Seleciona a aba correspondente; extrai somente limites inteiros literais com rótulos esperados e valida dimensões. Células com fórmula são rejeitadas. Não utiliza patologia ou mTRE da planilha. Prévia e aplicação explícita; ROI acompanha AP/LAT em DSA/MAX quando os recortes da fonte estão ativos. Edições manuais são sinalizadas na exportação por `voiCurrentlyMatches`/`selectedRoiCurrentlyMatches`, não escondidas.
+
+SheetJS CE0.20.3 da distribuição oficial, versão/SHA512 fixados no lockfile, Apache2.0; licença/aviso em public/licenses. Leitura em worker, sem avaliar fórmulas, VBA ou links. Parser carregado sob demanda depois da conferência do hash. Workers Vite agora em formato ES, compatível com todos os quatro workers já inicializados como módulos. Erro inicial de build por padrão IIFE corrigido e fluxos de worker revalidados. A auditoria npm completou com22 alertas na árvore total e nenhum atribuído a xlsx; não foi aplicada atualização ampla/force. Não confundir ausência de alerta com garantia de segurança.
+
+## Componentes e inspeção local
+
+Componentes da malha conectados **por aresta exata compartilhada**, não por proximidade nem apenas um vértice. Sem tolerância de soldagem ou criação de ponte. Ordenação por número de triângulos, IDs locais àquela geração. Lista/índice e clique na malha isolam um componente; seleção acompanha os contornos da mesma malha nos cortes. Exporta regra, ID, quantidade e limites voxel do selecionado, sem nome anatômico. Não salva uma segmentação confirmada. Fragmentação pode decorrer de costuras numéricas, amostragem ou desconexão real; quantidade de componentes não é quantidade de vasos nem prova de anastomoses.
+
+Entorno do ponto contínuo: raio1…28voxels, recorte limitado à VOI atual. As duas resoluções resultam em passo1 nessa região (até57intervalos), preservando intensidades nativas na grade amostrada. Não arredonda o alvo. Permite restaurar a VOI anterior e descarta a superfície ao alterar recorte. Edição manual de VOI ou importação de recorte próprio descarta restauração antiga. O limiar ainda pode excluir ramos finos ou unir regiões; passo1 não certifica anatomia, lúmen ou precisão de registro.
+
+Estimativa adicional agora inclui margem para mapas de vértices/arestas, componentes e arrays filtrados, além do extrator/GPU. Orçamento conjunto continua512MB e teto150miltriângulos, rejeitando malha parcial. É estimativa, sem medição universal do pico nem ensaio em telefone físico. Sw/Sv, DICOM LPS e atlas continuam separados; matrizes4×4column-major e posições fracionárias mantidas.
+
+## Validação executada
+
+159 testes unitários em41arquivos;22casos únicos de navegador em4arquivos, desktop ePixel7emulado (GS-CA/Paciente3D/Neuroangio/passagens). Novos ensaios: componentes distintos sem soldar proximidade ou contato pontual; duas esferas próprias isoladas e restauradas; limites XLS/rótulos/inteiros/fórmulas e rejeição de versão desconhecida; inspeção local/retorno ao recorte. TypeScript/build aprovados, aviso histórico de chunks grandes permanece.
+
+Caso real1 no navegador: XLS original, VOI e quatro ROIs AP/LAT/DSA/MAX iguais ao leitor independente; alvo fracionário inalterado;3668triângulos/102componentes com passo6 na VOI da fonte. Maior componente selecionado com2036triângulos. Recorte local em passo1:12400triângulos/55componentes; três eixos/3D inspecionados; restauração da VOI confirmada; zero erros de página e zero requisições nãoGET. Capturas e exportações privadas. Os números mudam com recorte/amostragem; não medem melhora anatômica ou acurácia.
+
+Nenhum Matlab/MEX/C++/MGP do fornecedor executado. Dois scripts de resultados foram lidos como texto, sem copiar implementação. Guia/página fonte e documentação SheetJS/Vite consultados; xlrd/SheetJS e ferramentas próprias efetivamente executados. Dados GS-CA continuam privados sob os termos já registrados; não houve redistribuição de planilha, recortes próprios do fornecedor, imagens, pontos ou calibrações no repositório/site.
+
+Nenhum novo vaso nomeado, canal reconstruído ou registro no atlas.20ausências venosas,373lacunas,setetermos/Galeno/seteidentidades/ICA-vidiana/meningo-lacrimal e demais frentes preservados. Não repetidos592vasos/42cortes/bordas. ZIP automático ainda pendente; ferramenta não é certificação de mTRE/mRPD nem recomendação clínica. Próximo lote deve voltar à completude vascular com fontes individuais rotuladas/licenciadas e ampliar o estudo utilizável sem transformar componentes geométricos em identidades comprovadas.

@@ -91,3 +91,8 @@ PróximoP0: geometria local útil para estudo vascular (VOI/ROI com metadados ve
 ## 22/10/2026 — estudo vascular local
 
 Etapa seguinte à aba GS-CA: recortes JSON próprios conferidos, prévia Sw e contornos coincidentes entregues; leia neuro3d-gs-ca-study.md. XLS/ZIP originais e validação de segmentação/registro seguem pendentes; anatomia mantém20/373/setetermos/Galeno e demais restrições.
+
+
+## 22/10/2026 — XLS e componentes
+
+Entregues XLSoriginal porhash/caso, componentes geométricos selecionáveis e recorte nativo passo1 comrestauração; consulte neuro3d-gs-ca-components.md. ZIPautomático e completude anatômica seguempendentes; não repetir estes recursos no próximo lote.

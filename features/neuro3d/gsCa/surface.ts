@@ -1,11 +1,13 @@
 import {MarchingCubes} from 'three/examples/jsm/objects/MarchingCubes.js';
 import {MeshBasicMaterial} from 'three';
 import {validateBox,voxelToWorld,type VolumeHeader,type Box3i,type P3} from './geometry';
+import {meshComponents,type MeshComponent} from './components';
 
 export interface SurfacePreview {
  positions:Float32Array; voxels:Float32Array; threshold:number; stride:number;
  sampleDimensions:number[]; triangles:number; voi:Box3i; estimatedWorkingBytes:number;
  coordinateSystem:'GS-CA Sw mm';
+ components:MeshComponent[];componentIds:Uint32Array;
 }
 const maxTriangles=150_000;
 export function surfacePlan(h:VolumeHeader,voi:Box3i,detail:60|90){
@@ -16,7 +18,7 @@ export function surfacePlan(h:VolumeHeader,voi:Box3i,detail:60|90){
  const coordinates=[0,1,2].map(k=>Array.from({length:Math.ceil((voi[k*2+1]-voi[k*2])/stride)+1},(_,i)=>Math.min(voi[k*2+1],voi[k*2]+i*stride)));
  const sampleDimensions=coordinates.map(c=>c.length),resolution=Math.max(...sampleDimensions)+6;
  // Field + normal cache, marching buffers, output arrays, JS staging, transfer and GPU margin.
- const estimatedWorkingBytes=resolution**3*16+maxTriangles*9*4*8+8_000_000;
+ const estimatedWorkingBytes=resolution**3*16+maxTriangles*9*4*8+168_000_000;
  return {stride,coordinates,sampleDimensions,resolution,estimatedWorkingBytes};
 }
 export function extractSurface(values:Int16Array,h:VolumeHeader,voi:Box3i,threshold:number,detail:60|90,range:[number,number]):SurfacePreview{
@@ -39,7 +41,8 @@ export function extractSurface(values:Int16Array,h:VolumeHeader,voi:Box3i,thresh
    for(const p of triangle){const voxel=p.map((n,k)=>{const c=coordinates[k],a=Math.max(0,Math.min(c.length-1,n)),j=Math.floor(a);return c[j]+(c[Math.min(j+1,c.length-1)]-c[j])*(a-j);}) as P3;voxels.push(...voxel);world.push(...voxelToWorld(voxel,h));}
   }
   if(!world.length||!world.every(Number.isFinite))throw Error('Sem superfície válida nesta VOI e limiar.');
-  return {positions:new Float32Array(world),voxels:new Float32Array(voxels),threshold,stride:plan.stride,sampleDimensions,triangles:world.length/9,voi:[...voi],estimatedWorkingBytes:plan.estimatedWorkingBytes,coordinateSystem:'GS-CA Sw mm'};
+  const voxelArray=new Float32Array(voxels),components=meshComponents(voxelArray);
+  return {positions:new Float32Array(world),voxels:voxelArray,...components,threshold,stride:plan.stride,sampleDimensions,triangles:world.length/9,voi:[...voi],estimatedWorkingBytes:plan.estimatedWorkingBytes,coordinateSystem:'GS-CA Sw mm'};
  }finally{cubes.geometry.dispose();material.dispose();}
 }
 

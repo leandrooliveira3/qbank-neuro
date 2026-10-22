@@ -24,6 +24,6 @@ it('generates the analytic ramp plane in full affine Sw with crop endpoints and 
 });
 it('explicitly covers uneven sampling endpoints and rejects empty, thin or invalid preview requests',()=>{
  const large={...h,dimensions:[512,512,391] as [number,number,number]},p=surfacePlan(large,[5,510,2,511,3,390],60);
- expect(p.stride).toBe(9);expect(p.coordinates.map(c=>[c[0],c.at(-1)])).toEqual([[5,510],[2,511],[3,390]]);expect(Math.max(...p.sampleDimensions)).toBeLessThanOrEqual(61);expect(p.estimatedWorkingBytes).toBeLessThan(100_000_000);
+ expect(p.stride).toBe(9);expect(p.coordinates.map(c=>[c[0],c.at(-1)])).toEqual([[5,510],[2,511],[3,390]]);expect(Math.max(...p.sampleDimensions)).toBeLessThanOrEqual(61);expect(p.estimatedWorkingBytes).toBeLessThan(250_000_000);
  const values=new Int16Array(192);expect(()=>extractSurface(values,h,voi,NaN,60,[0,7])).toThrow();expect(()=>extractSurface(values,h,voi,3,60,[0,7])).toThrow('Sem superfície');expect(()=>surfacePlan(h,[1,1,0,5,0,3],60)).toThrow();
 });

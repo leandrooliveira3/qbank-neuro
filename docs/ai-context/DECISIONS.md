@@ -106,3 +106,8 @@ Decisão: fontes venosas comrótulos apenasdecoletores existentes não preenchem
 ## 22/10/2026 — estudo vascular local
 
 Formato próprio de recortes exige convenção explícita zero inclusiva e vínculo por hashes/cabeçalhos; sem adapter XLS até prova. Superfície usa Sw nativo, extremos de grade incluídos e descarte de padding, não PatientVolume LPS. Limites e contornos são revisão exploratória, nunca comprovação de identidade vascular.
+
+
+## 22/10/2026 — XLS e componentes
+
+Guia primário comprova índiceszero/inclusivos; não aplicar+1 doMatlab. Aceitar somente XLS original porhash, vinculado aos hashesvolume/cabeçalhos; extrair apenas recortes literais. Componentes usam arestas exatas sem soldagem; IDs são locais à geração e sem nomes anatômicos. Inspeção local até28voxels de raio garante passo1, não continuidade. Margem de memória ampliada para mapas e filtros. Workers ES para imports dinâmicos apósgatehash.
