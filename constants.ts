@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 
 export const MENU_ITEMS = [
+  { name: 'Atlas Neurovascular 3D', icon: Brain, path: '/tools/neuro3d' },
   { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
   { name: 'Prática', icon: Zap, path: '/practice' },
   { name: 'Gerar Questões IA', icon: Upload, path: '/import' },

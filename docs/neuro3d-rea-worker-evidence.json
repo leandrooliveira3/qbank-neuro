@@ -1,0 +1,32 @@
+{
+  "evidence_id": "ev_15f9c9157b99a86822ea53cbf81257857ad8677f0d22fd1a931087452aff89cb",
+  "provider": {
+    "id": "rea-artifact-graph",
+    "name": "REA safe artifact graph provider",
+    "version": "1"
+  },
+  "operation": "inspect_artifact",
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "limitations": [
+    "Artifact has no child container entries.",
+    "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics."
+  ],
+  "toolVersion": "6.5.0",
+  "subject": {
+    "name": "atlasProjection.worker-D3zCFYWO.js",
+    "sha256": "7cb6eb4763720fd9d45c1c8d455f9ef3fc378bf4b91fbb83fcdd250b9bf28604"
+  },
+  "manifest": {
+    "manifest_id": "agm_23ac55ee80acc74daf08f41bec35abe32bf56e9c1c9e3adc23a862d5c355c623",
+    "root_artifact_id": "art_a96519552133f6a4b4a5b595d0135e0d8926a50756e93836b3f2df434de67515",
+    "root_sha256": "7cb6eb4763720fd9d45c1c8d455f9ef3fc378bf4b91fbb83fcdd250b9bf28604",
+    "root_format": "javascript-bundle",
+    "graph_sha256": "b416169ae3a3100a500515ce8aae516678b694d3d34abb3944c84115b3b7f819",
+    "node_count": 1,
+    "occurrence_count": 1,
+    "edge_count": 0
+  },
+  "semanticAnalysisStatus": "blocked-process-ownership-procps-unavailable",
+  "interpretation": "Static bundle inventory only; semantic graph not recovered, no medical validation."
+}

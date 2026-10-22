@@ -1,0 +1,54 @@
+import {test,expect} from '@playwright/test';
+import {readFileSync} from 'node:fs';
+test('independent references verify source data, switch thresholds and preserve unresolved venous review',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');
+  await page.getByRole('button',{name:'Referências vasculares',exact:true}).click();
+  for(const kind of ['brave','venat']){
+    await expect(page.getByTestId(`${kind}-reference-view`)).toHaveAttribute('data-state','ready',{timeout:45000});
+    await expect(page.getByTestId(`${kind}-reference-view`).locator('canvas')).toBeVisible();
+  }
+  const section=page.getByRole('region',{name:'Referências vasculares independentes'});
+  await expect(section).toContainText('0 vista(s) registrada(s)');
+  await page.screenshot({path:`test-results/comparison-ap-${test.info().project.name}.png`,fullPage:true});
+  await page.getByRole('button',{name:'BRAVE-NET · arterial · Lateral esquerda',exact:true}).click();
+  await expect(page.getByTestId('brave-reference-view')).toHaveAttribute('data-view','Lateral esquerda');
+  await page.getByRole('article',{name:'BRAVE-NET · arterial'}).getByRole('button',{name:'Adicionar vista ao registro'}).click();
+  await page.getByLabel('Limiar VENAT').selectOption('venat-0.2');
+  await expect(page.getByTestId('venat-reference-view')).toHaveAttribute('data-state','ready',{timeout:45000});
+  await page.getByRole('button',{name:'VENAT · venoso · Oblíqua',exact:true}).click();
+  await page.getByRole('article',{name:'VENAT · venoso'}).getByRole('button',{name:'Adicionar vista ao registro'}).click();
+  const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Exportar proveniência e vistas'}).click();
+  const report=JSON.parse(readFileSync((await(await downloadPromise).path())!,'utf-8'));
+  expect(report.recordedViews).toHaveLength(2);expect(report.atlasRegistration).toBeNull();expect(report.clinicalValidation).toBe(false);
+  expect(report.recordedViews.every((row:{pose:{position:number[]}})=>row.pose.position.every(Number.isFinite))).toBe(true);
+  expect(report.sourceRecords.brave.license).toBe('MIT');
+  await page.screenshot({path:`test-results/comparison-oblique-${test.info().project.name}.png`,fullPage:true});
+  await page.getByRole('button',{name:'Anatomia detalhada',exact:true}).click();
+  await page.getByRole('button',{name:'Vasos',exact:true}).click();
+  await page.getByLabel('Buscar na revisão vascular integral').fill('Galeno');
+  await expect(page.locator('[data-vascular-requirement="venous:great_cerebral_vein"]')).toContainText('Junção Galeno–seio reto pendente');
+  await page.getByLabel('Escopo da revisão vascular').selectOption('venous');
+  await expect(page.locator('[data-venous-requirement="great_cerebral_vein"]')).toContainText('Não houve ponte');
+  expect(errors).toEqual([]);
+});
+test('failed or corrupted reference never shows a previous surface and can be retried',async({page})=>{
+  let corrupted=true;
+  await page.route('**/comparison/brave-0.5.mesh.json',async route=>{if(corrupted)await route.fulfill({body:'{}',contentType:'application/json'});else await route.continue();});
+  await page.goto('/#/tools/neuro3d');await page.getByRole('button',{name:'Referências vasculares',exact:true}).click();
+  const card=page.getByRole('article',{name:'BRAVE-NET · arterial'});
+  await expect(card.getByRole('alert')).toContainText('integridade');
+  await expect(card.locator('canvas')).toHaveCount(0);
+  await expect(card.getByRole('button',{name:'Adicionar vista ao registro'})).toBeDisabled();
+  corrupted=false;await card.getByRole('button',{name:'Tentar novamente'}).click();
+  await expect(page.getByTestId('brave-reference-view')).toHaveAttribute('data-state','ready',{timeout:45000});
+  await expect(page.getByTestId('venat-reference-view')).toHaveAttribute('data-state','ready',{timeout:45000});
+  await page.route('**/comparison/venat-0.2.mesh.json',route=>route.fulfill({body:'{}',contentType:'application/json'}));
+  await page.getByLabel('Limiar VENAT').selectOption('venat-0.2');
+  const venat=page.getByRole('article',{name:'VENAT · venoso'});
+  await expect(venat.getByRole('alert')).toContainText('integridade');
+  await expect(venat.locator('canvas')).toHaveCount(0);
+  await expect(venat.getByRole('button',{name:'Adicionar vista ao registro'})).toBeDisabled();
+  await page.getByLabel('Limiar VENAT').selectOption('venat-0.1');
+  await expect(page.getByTestId('venat-reference-view')).toHaveAttribute('data-state','ready',{timeout:45000});
+});

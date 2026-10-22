@@ -1,0 +1,110 @@
+{
+  "source": "https://figshare.com/articles/dataset/VENAT_Probability_map_nii_gz/7205960",
+  "metadataAPI": "https://api.figshare.com/v2/articles/7205960",
+  "title": "VENAT atlas",
+  "version": 4,
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sourceFile": "VENAT_PartialVolume.nii.gz",
+  "downloadURL": "https://ndownloader.figshare.com/files/13267316",
+  "inputBytes": 77294676,
+  "inputMD5": "2fcfec7e50e1d7c3f6f5e3e5be4e9d53",
+  "inputMD5Verified": true,
+  "inputSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+  "shapeXYZ": [
+    364,
+    436,
+    364
+  ],
+  "spacingMm": [
+    0.5,
+    0.5,
+    0.5
+  ],
+  "vtkPhysicalToRASmm": [
+    [
+      -1.0,
+      0.0,
+      0.0,
+      90.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      -126.0
+    ],
+    [
+      0.0,
+      0.0,
+      -1.0,
+      109.5
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "scalarRange": [
+    0.0,
+    0.8350831866264343
+  ],
+  "nonzeroVoxels": 19871598,
+  "allFinite": true,
+  "semantic": "Cohort-mean partial-volume fractions; not a categorical segmentation or an individual patient vascular tree",
+  "registrationToAtlas": null,
+  "individualAnatomicalNamesAssigned": false,
+  "navigationGraph": null,
+  "vtkVersion": "9.3.1",
+  "isosurfaceInspections": [
+    {
+      "meanPartialVolumeThreshold": 0.1,
+      "originalVertices": 426746,
+      "originalTriangles": 852780,
+      "vertices": 78700,
+      "triangles": 156688,
+      "boundsInspectionCm": [
+        [
+          -6.1874696731567385,
+          -5.643377685546875,
+          -10.019069862365724
+        ],
+        [
+          6.109951782226563,
+          7.246543121337891,
+          6.320991516113281
+        ]
+      ],
+      "method": "FlyingEdges; DecimatePro with topology preservation, no splitting, no boundary deletion, no smoothing or component pruning",
+      "anatomicalApproval": false,
+      "fileSHA256": "154e86a859582a1495195a31a139794a03dae57f79e550c405a995642e62464a"
+    },
+    {
+      "meanPartialVolumeThreshold": 0.2,
+      "originalVertices": 173632,
+      "originalTriangles": 346816,
+      "vertices": 45224,
+      "triangles": 90000,
+      "boundsInspectionCm": [
+        [
+          -5.908825683593751,
+          -4.920042419433594,
+          -9.832933998107912
+        ],
+        [
+          5.875172424316407,
+          7.167888641357422,
+          6.137422180175782
+        ]
+      ],
+      "method": "FlyingEdges; DecimatePro with topology preservation, no splitting, no boundary deletion, no smoothing or component pruning",
+      "anatomicalApproval": false,
+      "fileSHA256": "c7b8c48bd557201616707141aaa856f263c7e1fe4a9f10eb95ae18007d915704"
+    }
+  ]
+}

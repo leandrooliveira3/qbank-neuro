@@ -1,0 +1,22 @@
+import {test,expect} from '@playwright/test';
+import {readFile} from 'node:fs/promises';
+test('Doppler controls change signal and aliasing, freezing holds time, and export preserves model provenance',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');await page.getByRole('button',{name:'Doppler transcraniano',exact:true}).click();
+  const spectrum=page.getByTestId('tcd-spectrum');await expect(spectrum).toBeVisible();
+  await page.getByLabel('Profundidade (mm)',{exact:true}).fill('110');await expect(page.getByTestId('tcd-status')).toContainText('fora do alvo');
+  await page.getByLabel('Profundidade (mm)',{exact:true}).fill('55');await page.getByLabel('Padrão Doppler').selectOption('fast');
+  await page.getByRole('slider',{name:'PRF solicitada (Hz)',exact:true}).fill('1000');await expect(page.getByTestId('tcd-status')).toContainText('ALIASING');
+  await page.getByRole('button',{name:'Power M-mode didático',exact:true}).click();
+  await expect(page.getByLabel('M-mode sintético: selecione a profundidade')).toBeVisible();
+  await page.getByRole('button',{name:'Congelar Doppler',exact:true}).click();await expect(spectrum).toHaveAttribute('data-frozen','true');
+  const time=await spectrum.getAttribute('data-time');await expect(page.getByLabel('Profundidade (mm)',{exact:true})).toBeDisabled();
+  await page.getByLabel('Cursor do espectro congelado').fill('0.25');await expect(spectrum).toHaveAttribute('data-time',time!);
+  const pending=page.waitForEvent('download');await page.getByRole('button',{name:'Exportar estudo Doppler',exact:true}).click();
+  const report=JSON.parse(await readFile((await(await pending).path())!,'utf8'));
+  expect(report.model).toBe('original-analytic-doppler-teaching-v1');expect(report.referenceArchiveSHA256).toHaveLength(64);expect(report.clinicalValidation).toBe(false);expect(report.fftOfRecordedSignal).toBe(false);
+  await page.screenshot({path:`test-results/tcd-lab-${test.info().project.name}.png`,fullPage:true});
+  await page.getByRole('button',{name:'Retomar Doppler',exact:true}).click();await expect(spectrum).toHaveAttribute('data-frozen','false');
+  await page.getByLabel('Janela de insonação').selectOption('suboccipital');await expect(page.getByLabel('Vaso de estudo Doppler')).toHaveValue('basilar');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(errors).toEqual([]);
+});

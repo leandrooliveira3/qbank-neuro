@@ -1,0 +1,13 @@
+.n3-patient { padding: 22px; border: 1px solid var(--n3-border); border-radius: 14px; background: var(--n3-panel); }
+.patient-import { display:flex; align-items:center; flex-wrap:wrap; gap:18px; margin:20px 0; }
+.patient-import input { display:block; max-width:100%; margin-top:8px; }
+.patient-note,.patient-empty,.patient-review { padding:16px; background:#0a1926; border:1px solid var(--n3-border); border-radius:10px; margin:16px 0; }
+.patient-layout { display:grid; grid-template-columns:minmax(220px,320px) minmax(0,1fr); gap:20px; }
+.patient-controls,.patient-view { min-width:0; }
+.patient-controls label { display:block; margin:16px 0; }
+.patient-controls input { display:block; width:100%; }
+.patient-controls canvas { display:block; width:100%; max-height:300px; object-fit:contain; background:black; }
+.patient-view { min-height:480px; border:1px solid var(--n3-border); padding:12px; border-radius:12px; }
+.patient-view > div { height:420px!important; }
+.patient-controls p,.patient-note,.patient-review p { color:var(--n3-muted); font-size:12px; }
+@media(max-width:760px) { .patient-layout { grid-template-columns:1fr; } .n3-patient {padding:14px;} .patient-view {min-height:350px;} .patient-view > div {height:300px!important;} }

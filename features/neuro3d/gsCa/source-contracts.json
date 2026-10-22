@@ -1,0 +1,395 @@
+{
+  "xlsSha256": "98cdaac575222f745c65e3a5b5ebd7055773bcea85299a5ecad6a832e5348054",
+  "cases": [
+    {
+      "case": 1,
+      "dimensions": [
+        512,
+        512,
+        391
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "718f3fb56aac424f05e936fdecdcfe0a1697e06b8c84c5109647ebb3cdb46108",
+      "headers": {
+        "Dataset1_2D_DSA_AP.rad": "ce36f205d498f44300946fedf53439b3443d313680ebf710e088b5007f361ca1",
+        "Dataset1_2D_DSA_LAT.rad": "0f839b097ad6d32482899c31e58ef122f1c9a9aa34634caa46af2fd0d166ef2e",
+        "Dataset1_2D_MAX_AP.rad": "ce36f205d498f44300946fedf53439b3443d313680ebf710e088b5007f361ca1",
+        "Dataset1_2D_MAX_LAT.rad": "0f839b097ad6d32482899c31e58ef122f1c9a9aa34634caa46af2fd0d166ef2e",
+        "Dataset1_3D-DSA.mhd": "27791cfc5c2fc335861614e6fa3c245a8e319693abe4016baa25a89c734b0dd6"
+      },
+      "detectorDimensions": {
+        "Dataset1_2D_DSA_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset1_2D_DSA_LAT.rad": [
+          2480,
+          1920
+        ],
+        "Dataset1_2D_MAX_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset1_2D_MAX_LAT.rad": [
+          2480,
+          1920
+        ]
+      }
+    },
+    {
+      "case": 2,
+      "dimensions": [
+        512,
+        512,
+        391
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "a21e0634d8bb52b874019420efee1bab8597e037b5bd88c254fb27b3a1cdcc76",
+      "headers": {
+        "Dataset2_2D_DSA_AP.rad": "2ee463843f8437987a8a4975ada753d1a32a872a2fe26ecf61ebc229347ac46f",
+        "Dataset2_2D_DSA_LAT.rad": "7beebc1a25fbbf63b553352402a7874fd5ec92308074117cc62336cd94603ab2",
+        "Dataset2_2D_MAX_AP.rad": "2ee463843f8437987a8a4975ada753d1a32a872a2fe26ecf61ebc229347ac46f",
+        "Dataset2_2D_MAX_LAT.rad": "7beebc1a25fbbf63b553352402a7874fd5ec92308074117cc62336cd94603ab2",
+        "Dataset2_3D-DSA.mhd": "7caa825bc59bbb90fc107147b14424cc581cc95a590a80da9a6953ce7b507893"
+      },
+      "detectorDimensions": {
+        "Dataset2_2D_DSA_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset2_2D_DSA_LAT.rad": [
+          2480,
+          1920
+        ],
+        "Dataset2_2D_MAX_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset2_2D_MAX_LAT.rad": [
+          2480,
+          1920
+        ]
+      }
+    },
+    {
+      "case": 3,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "62a6cc5da6e1e800ce6a7877724c6240ad6a2f022df31b18fc3f7444a708f330",
+      "headers": {
+        "Dataset3_2D_DSA_AP.rad": "d50cb5f5475d68866abef86e962dda5269e08df71c514e989a22d202cfb37601",
+        "Dataset3_2D_DSA_LAT.rad": "bd6d30ee1ae755cfc08ae2567303dd5e0876d915c7d1e2a0dec93d854bd24bc5",
+        "Dataset3_2D_MAX_AP.rad": "d50cb5f5475d68866abef86e962dda5269e08df71c514e989a22d202cfb37601",
+        "Dataset3_2D_MAX_LAT.rad": "bd6d30ee1ae755cfc08ae2567303dd5e0876d915c7d1e2a0dec93d854bd24bc5",
+        "Dataset3_3D-DSA.mhd": "c8ec1f91f4bda8ba8c68903f219c07f2a12cb7e7f87613a46176cc9a721b02e6"
+      },
+      "detectorDimensions": {
+        "Dataset3_2D_DSA_AP.rad": [
+          1920,
+          2480
+        ],
+        "Dataset3_2D_DSA_LAT.rad": [
+          1920,
+          2480
+        ],
+        "Dataset3_2D_MAX_AP.rad": [
+          1920,
+          2480
+        ],
+        "Dataset3_2D_MAX_LAT.rad": [
+          1920,
+          2480
+        ]
+      }
+    },
+    {
+      "case": 4,
+      "dimensions": [
+        512,
+        512,
+        391
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "d95a5bdb8989c8204927c5aea250939ac3fa1f2c3b8905e753bb8c8797009219",
+      "headers": {
+        "Dataset4_2D_DSA_AP.rad": "e0e312692b2f05cca953c53ee90c4541f89313de44efd60d8e515933eb06fea3",
+        "Dataset4_2D_DSA_LAT.rad": "8048288cee56ce0fcecae4691138dff7f2892108c7a57d69e7efa44c41e0dd85",
+        "Dataset4_2D_MAX_AP.rad": "e0e312692b2f05cca953c53ee90c4541f89313de44efd60d8e515933eb06fea3",
+        "Dataset4_2D_MAX_LAT.rad": "8048288cee56ce0fcecae4691138dff7f2892108c7a57d69e7efa44c41e0dd85",
+        "Dataset4_3D-DSA.mhd": "ff26a080c5849040e63eaadbf49740a3d7bfa9874460862da1116483d7b3e578"
+      },
+      "detectorDimensions": {
+        "Dataset4_2D_DSA_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset4_2D_DSA_LAT.rad": [
+          1920,
+          1920
+        ],
+        "Dataset4_2D_MAX_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset4_2D_MAX_LAT.rad": [
+          1920,
+          1920
+        ]
+      }
+    },
+    {
+      "case": 5,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "fb21519f8d9f3ae8cb2c9577098790ef30de21d0d705e4c7c9691271839234a6",
+      "headers": {
+        "Dataset5_2D_DSA_AP.rad": "85834e25ebd1e11da821a990080fb83a764484586ad2dc76b6c08271a241e2b1",
+        "Dataset5_2D_DSA_LAT.rad": "ba9aa3d8a98ee75b7e32b64a0497e14558f79eff4705225894405548ded9c085",
+        "Dataset5_2D_MAX_AP.rad": "85834e25ebd1e11da821a990080fb83a764484586ad2dc76b6c08271a241e2b1",
+        "Dataset5_2D_MAX_LAT.rad": "ba9aa3d8a98ee75b7e32b64a0497e14558f79eff4705225894405548ded9c085",
+        "Dataset5_3D-DSA.mhd": "b4614cb736d55d7274bd7a9e64be310bb2cf1ffbc4b7de11282f1e66550ddceb"
+      },
+      "detectorDimensions": {
+        "Dataset5_2D_DSA_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset5_2D_DSA_LAT.rad": [
+          2480,
+          1920
+        ],
+        "Dataset5_2D_MAX_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset5_2D_MAX_LAT.rad": [
+          2480,
+          1920
+        ]
+      }
+    },
+    {
+      "case": 6,
+      "dimensions": [
+        512,
+        512,
+        396
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "6cd247a5dd01e463e3ac5c9769081fb8297fd77bddb7fe5e1cd6040ac64e6f00",
+      "headers": {
+        "Dataset6_2D_DSA_AP.rad": "7c67d1a721be799ee203375c276816e4723fbbd60381bccec340013e6588eb78",
+        "Dataset6_2D_DSA_LAT.rad": "75ef731309216a954f38762d929ca6ccf08aa204910ada71d884690a4d8e8d4c",
+        "Dataset6_2D_MAX_AP.rad": "7c67d1a721be799ee203375c276816e4723fbbd60381bccec340013e6588eb78",
+        "Dataset6_2D_MAX_LAT.rad": "75ef731309216a954f38762d929ca6ccf08aa204910ada71d884690a4d8e8d4c",
+        "Dataset6_3D-DSA.mhd": "12c94e2832ee038da86917e47a05d658b3544b2dc258d7769f3ed46056e7ffab"
+      },
+      "detectorDimensions": {
+        "Dataset6_2D_DSA_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset6_2D_DSA_LAT.rad": [
+          2480,
+          1920
+        ],
+        "Dataset6_2D_MAX_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset6_2D_MAX_LAT.rad": [
+          2480,
+          1920
+        ]
+      }
+    },
+    {
+      "case": 7,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "38eeb7eb868932734c26d32684faed887bc207c0f0e7f70aa6eb03e51c29c90b",
+      "headers": {
+        "Dataset7_2D_DSA_AP.rad": "0901600a6961ab43a22f5d15af83019339efd86209ba5157c4d1364e5bacffb7",
+        "Dataset7_2D_DSA_LAT.rad": "070ad924a405ea33ed64afc35f9bda8e74bf7c0732ebb20b4e110a63c31b53c6",
+        "Dataset7_2D_MAX_AP.rad": "0901600a6961ab43a22f5d15af83019339efd86209ba5157c4d1364e5bacffb7",
+        "Dataset7_2D_MAX_LAT.rad": "070ad924a405ea33ed64afc35f9bda8e74bf7c0732ebb20b4e110a63c31b53c6",
+        "Dataset7_3D-DSA.mhd": "271bc819b290b0bfd533c191133e53a567ae1b9783a470a7b51158da19353b36"
+      },
+      "detectorDimensions": {
+        "Dataset7_2D_DSA_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset7_2D_DSA_LAT.rad": [
+          2480,
+          1920
+        ],
+        "Dataset7_2D_MAX_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset7_2D_MAX_LAT.rad": [
+          2480,
+          1920
+        ]
+      }
+    },
+    {
+      "case": 8,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "b54d8ed276875882570893965f97431a3db7ec27bdfa871d03fa751faaef9f87",
+      "headers": {
+        "Dataset8_2D_DSA_AP.rad": "a707cc2c52802d154a56715233b6657708382a15d72375eb40864bd1cc1fd779",
+        "Dataset8_2D_DSA_LAT.rad": "90acf134f9e301c42f6810de06d9fd4b2359371847e6f8c894ec0f166353b5c4",
+        "Dataset8_2D_MAX_AP.rad": "a707cc2c52802d154a56715233b6657708382a15d72375eb40864bd1cc1fd779",
+        "Dataset8_2D_MAX_LAT.rad": "90acf134f9e301c42f6810de06d9fd4b2359371847e6f8c894ec0f166353b5c4",
+        "Dataset8_3D-DSA.mhd": "c36e2456f732bcd8ec3cd4063bcdc19b8d292cad99c17f5cb77b57e5cd857798"
+      },
+      "detectorDimensions": {
+        "Dataset8_2D_DSA_AP.rad": [
+          1920,
+          2480
+        ],
+        "Dataset8_2D_DSA_LAT.rad": [
+          1920,
+          2480
+        ],
+        "Dataset8_2D_MAX_AP.rad": [
+          1920,
+          2480
+        ],
+        "Dataset8_2D_MAX_LAT.rad": [
+          1920,
+          2480
+        ]
+      }
+    },
+    {
+      "case": 9,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "161945220c2d1531b3da50ad217900ecfc4b52af977dce0217991ff813893a58",
+      "headers": {
+        "Dataset9_2D_DSA_AP.rad": "f2be7f682e0df87a6d0737e43fcfe6e97597a55de2f4238ef7aef107faf36260",
+        "Dataset9_2D_DSA_LAT.rad": "cba0bec38a5de0fb4c2551e5dc16be88e41aaf427170850c84dfbede2aab8071",
+        "Dataset9_2D_MAX_AP.rad": "f2be7f682e0df87a6d0737e43fcfe6e97597a55de2f4238ef7aef107faf36260",
+        "Dataset9_2D_MAX_LAT.rad": "cba0bec38a5de0fb4c2551e5dc16be88e41aaf427170850c84dfbede2aab8071",
+        "Dataset9_3D-DSA.mhd": "65c933690380a4ef61f968c2a8d6b52c362d52f47a6a8bac7569cbc94cbb2052"
+      },
+      "detectorDimensions": {
+        "Dataset9_2D_DSA_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset9_2D_DSA_LAT.rad": [
+          1920,
+          1920
+        ],
+        "Dataset9_2D_MAX_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset9_2D_MAX_LAT.rad": [
+          1920,
+          1920
+        ]
+      }
+    },
+    {
+      "case": 10,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacing": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volumeSha256": "3399a67bc5e385b8f1ea836906697ac1b0fee448c6abe8d05f934d2ec012dc80",
+      "headers": {
+        "Dataset10_2D_DSA_AP.rad": "cbc01e9d5a9e2371af1d0c30ddaa0a23c3d8605570bab65ddae02c8fccb05059",
+        "Dataset10_2D_DSA_LAT.rad": "422aa65b079a0224f2a57f0a1ca2ad39e5e0d281db7b29fa4b5b1d2bb4faf178",
+        "Dataset10_2D_MAX_AP.rad": "cbc01e9d5a9e2371af1d0c30ddaa0a23c3d8605570bab65ddae02c8fccb05059",
+        "Dataset10_2D_MAX_LAT.rad": "422aa65b079a0224f2a57f0a1ca2ad39e5e0d281db7b29fa4b5b1d2bb4faf178",
+        "Dataset10_3D-DSA.mhd": "57a9d98effc5f7f57e46ce4a4befd8142bdf5c7ef253b8c4c75d8284620dbd21"
+      },
+      "detectorDimensions": {
+        "Dataset10_2D_DSA_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset10_2D_DSA_LAT.rad": [
+          1920,
+          1920
+        ],
+        "Dataset10_2D_MAX_AP.rad": [
+          2480,
+          1920
+        ],
+        "Dataset10_2D_MAX_LAT.rad": [
+          1920,
+          1920
+        ]
+      }
+    }
+  ]
+}

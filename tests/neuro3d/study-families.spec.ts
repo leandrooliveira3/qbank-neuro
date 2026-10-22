@@ -1,0 +1,58 @@
+import {test,expect} from '@playwright/test';
+
+test('source maxillary branches stay lateralized and the full study field fits in 2D without selecting rotating the camera',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.goto('/#/tools/neuro3d');
+  const stage=page.getByTestId('detailed-atlas-canvas'),canvas=stage.locator('canvas');
+  await expect(canvas).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
+  const before=await canvas.getAttribute('data-atlas-camera-pose');
+  await page.getByRole('button',{name:'Estruturas',exact:true}).click();
+  await page.getByLabel('Buscar no atlas detalhado').fill('55');
+  await page.locator('.nda-list button').filter({hasText:'Maxillary artery (left)'}).click();
+  await expect(canvas).toHaveAttribute('data-atlas-camera-pose',before!);
+  await expect(page.getByTestId('vascular-source-finding')).toContainText('nove componentes');
+  await page.getByRole('button',{name:'Isolar ramos de estudo',exact:true}).click();
+  await expect(stage).toHaveAttribute('data-study-root','maxillary_artery_l');
+  await expect(canvas).toHaveAttribute('data-atlas-camera-pose',before!);
+  await page.getByTestId('vascular-study-family').locator('summary').click();
+  await expect(page.locator('[data-study-member="accessory_meningeal_artery"]')).toContainText('accessory_meningeal_artery_l');
+  await expect(page.locator('[data-study-member="accessory_meningeal_artery"]')).not.toContainText('_r');
+  await page.getByRole('button',{name:'Angiografia',exact:true}).click();
+  await page.getByRole('button',{name:'Focar seleção',exact:true}).click();
+  const detector=page.getByTestId('atlas-angiography');
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy','false',{timeout:30000});
+  const zoom=Number(await detector.getAttribute('data-zoom'));
+  expect(zoom).toBeGreaterThan(1);
+  const center=await detector.getAttribute('data-field-center');
+  await page.screenshot({path:`test-results/maxillary-study-2d-${test.info().project.name}.png`,fullPage:true});
+  await page.getByRole('button',{name:'Angiografia 3D',exact:true}).click();
+  await expect(canvas).toHaveAttribute('data-angiography3d-rendered','true',{timeout:45000});
+  await page.getByRole('button',{name:'Angiografia',exact:true}).click();
+  await expect.poll(async()=>Number(await detector.getAttribute('data-zoom'))).toBeCloseTo(zoom,5);
+  const actual=(await detector.getAttribute('data-field-center'))!.split(',').map(Number);
+  center!.split(',').map(Number).forEach((value,k)=>expect(actual[k]).toBeCloseTo(value,5));
+  await page.getByRole('button',{name:'Mostrar rede vascular completa',exact:true}).click();
+  await expect(stage).toHaveAttribute('data-study-root','');
+  expect(errors).toEqual([]);
+});
+
+test('a venous collector exposes absent deep tributaries and switches the isolated projection to veins',async({page})=>{
+  await page.goto('/#/tools/neuro3d');
+  await page.getByRole('button',{name:'Estruturas',exact:true}).click();
+  await page.getByLabel('Buscar no atlas detalhado').fill('Straight sinus');
+  await page.locator('.nda-list button').filter({hasText:'Straight sinus'}).click();
+  await page.getByRole('button',{name:'Isolar ramos de estudo',exact:true}).click();
+  await expect(page.getByLabel('Estruturas selecionáveis')).toHaveValue('venous');
+  await page.getByTestId('vascular-study-family').locator('summary').click();
+  const galen=page.locator('[data-study-member="great_cerebral_vein"]');
+  await expect(galen).toContainText('great_cerebral_vein · didático não validado');
+  await expect(galen.getByRole('button')).toHaveCount(1);
+  await expect(page.locator('[data-study-member="internal_cerebral_vein"]')).toContainText('internal_cerebral_vein_l · didático não validado');
+  await page.getByRole('button',{name:'Angiografia',exact:true}).click();
+  await page.getByRole('button',{name:'Focar seleção',exact:true}).click();
+  await expect(page.locator('.nda-angiography')).toHaveAttribute('aria-busy','false',{timeout:30000});
+  await expect(page.getByTestId('detailed-atlas-canvas')).toHaveAttribute('data-study-root','straight_sinus');
+  await page.getByRole('button',{name:'Camadas',exact:true}).click();
+  await expect(page.getByLabel('Camada vascular na angiografia')).toHaveValue('venous');
+  await page.screenshot({path:`test-results/venous-study-${test.info().project.name}.png`,fullPage:true});
+});

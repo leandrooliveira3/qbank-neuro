@@ -1,0 +1,150 @@
+{
+  "method": "Nearest source vertices among same-side MCA candidate meshes, cm. Sampling distances are not lumen continuity, registration accuracy or anatomical validation. No bridge was generated.",
+  "meshCount": 34,
+  "rows": [
+    {
+      "id": "insular_branches_of_middle_cerebral_artery_m2_l",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_l",
+      "minimumVertexGapCm": 0.006067,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "middle_cerebral_artery_m3_segment_l",
+      "nearestSourceMesh": "temporo_occipital_branch_of_mca_l",
+      "minimumVertexGapCm": 0.001317,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "anterior_temporal_branch_of_mca_l",
+      "nearestSourceMesh": "insular_branches_of_middle_cerebral_artery_m2_l",
+      "minimumVertexGapCm": 0.019578,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "anterior_temporal_branch_of_mca_r",
+      "nearestSourceMesh": "insular_branches_of_middle_cerebral_artery_m2_r",
+      "minimumVertexGapCm": 0.019578,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "artery_of_central_sulcus_l",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_l",
+      "minimumVertexGapCm": 0.004498,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "artery_of_central_sulcus_r",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_r",
+      "minimumVertexGapCm": 0.004498,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "artery_of_precentral_sulcus_l",
+      "nearestSourceMesh": "prefrontal_artery_l",
+      "minimumVertexGapCm": 0.007397,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "artery_of_precentral_sulcus_r",
+      "nearestSourceMesh": "prefrontal_artery_r",
+      "minimumVertexGapCm": 0.007397,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "arterial_branch_to_angular_gyrus_l",
+      "nearestSourceMesh": "temporo_occipital_branch_of_mca_l",
+      "minimumVertexGapCm": 0.006622,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "arterial_branch_to_angular_gyrus_r",
+      "nearestSourceMesh": "temporo_occipital_branch_of_mca_r",
+      "minimumVertexGapCm": 0.006622,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "distal_lateral_striate_branches_l",
+      "nearestSourceMesh": "middle_cerebral_artery_m1_segment_l",
+      "minimumVertexGapCm": 0.021206,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "distal_lateral_striate_branches_r",
+      "nearestSourceMesh": "middle_cerebral_artery_m1_segment_r",
+      "minimumVertexGapCm": 0.021206,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "lateral_frontobasal_artery_l",
+      "nearestSourceMesh": "insular_branches_of_middle_cerebral_artery_m2_l",
+      "minimumVertexGapCm": 0.010296,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "lateral_frontobasal_artery_r",
+      "nearestSourceMesh": "insular_branches_of_middle_cerebral_artery_m2_r",
+      "minimumVertexGapCm": 0.010296,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "posterior_parietal_artery_l",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_l",
+      "minimumVertexGapCm": 0.004885,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "posterior_parietal_artery_r",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_r",
+      "minimumVertexGapCm": 0.004885,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "posterior_temporal_branch_of_mca_l",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_l",
+      "minimumVertexGapCm": 0.010414,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "posterior_temporal_branch_of_mca_r",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_r",
+      "minimumVertexGapCm": 0.010414,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "prefrontal_artery_l",
+      "nearestSourceMesh": "artery_of_precentral_sulcus_l",
+      "minimumVertexGapCm": 0.007397,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "prefrontal_artery_r",
+      "nearestSourceMesh": "artery_of_precentral_sulcus_r",
+      "minimumVertexGapCm": 0.007397,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "proximal_lateral_striate_branches_l",
+      "nearestSourceMesh": "middle_cerebral_artery_m1_segment_l",
+      "minimumVertexGapCm": 0.102111,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "proximal_lateral_striate_branches_r",
+      "nearestSourceMesh": "middle_cerebral_artery_m1_segment_r",
+      "minimumVertexGapCm": 0.102111,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "temporo_occipital_branch_of_mca_l",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_l",
+      "minimumVertexGapCm": 0.001317,
+      "nearDuplicateCandidates": []
+    },
+    {
+      "id": "temporo_occipital_branch_of_mca_r",
+      "nearestSourceMesh": "middle_cerebral_artery_m3_segment_r",
+      "minimumVertexGapCm": 0.001317,
+      "nearDuplicateCandidates": []
+    }
+  ]
+}

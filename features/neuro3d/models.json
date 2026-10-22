@@ -1,0 +1,253 @@
+{
+  "status": "geometry not homologated",
+  "models": [
+    {
+      "scene": "arch",
+      "configuration": "normal",
+      "file": "arch_normal.glb",
+      "objects": 10,
+      "bytes": 168704,
+      "approved": false
+    },
+    {
+      "scene": "arch",
+      "configuration": "common",
+      "file": "arch_common.glb",
+      "objects": 11,
+      "bytes": 186980,
+      "approved": false
+    },
+    {
+      "scene": "arch",
+      "configuration": "leftVA",
+      "file": "arch_leftVA.glb",
+      "objects": 10,
+      "bytes": 168736,
+      "approved": false
+    },
+    {
+      "scene": "arch",
+      "configuration": "aberrantR",
+      "file": "arch_aberrantR.glb",
+      "objects": 9,
+      "bytes": 168980,
+      "approved": false
+    },
+    {
+      "scene": "embryo",
+      "configuration": "etapa1",
+      "file": "embryo_etapa1.glb",
+      "objects": 14,
+      "bytes": 141132,
+      "approved": false
+    },
+    {
+      "scene": "embryo",
+      "configuration": "etapa2",
+      "file": "embryo_etapa2.glb",
+      "objects": 22,
+      "bytes": 220324,
+      "approved": false
+    },
+    {
+      "scene": "embryo",
+      "configuration": "etapa3",
+      "file": "embryo_etapa3.glb",
+      "objects": 23,
+      "bytes": 254500,
+      "approved": false
+    },
+    {
+      "scene": "embryo",
+      "configuration": "etapa4",
+      "file": "embryo_etapa4.glb",
+      "objects": 3,
+      "bytes": 76460,
+      "approved": false
+    },
+    {
+      "scene": "aci",
+      "configuration": "default",
+      "file": "aci.glb",
+      "objects": 12,
+      "bytes": 188312,
+      "approved": false
+    },
+    {
+      "scene": "paraclinoid",
+      "configuration": "default",
+      "file": "paraclinoid.glb",
+      "objects": 11,
+      "bytes": 214536,
+      "approved": false
+    },
+    {
+      "scene": "orbit",
+      "configuration": "normal",
+      "file": "orbit_normal.glb",
+      "objects": 10,
+      "bytes": 153616,
+      "approved": false
+    },
+    {
+      "scene": "orbit",
+      "configuration": "dorsal",
+      "file": "orbit_dorsal.glb",
+      "objects": 10,
+      "bytes": 151896,
+      "approved": false
+    },
+    {
+      "scene": "orbit",
+      "configuration": "meningo",
+      "file": "orbit_meningo.glb",
+      "objects": 10,
+      "bytes": 150228,
+      "approved": false
+    },
+    {
+      "scene": "craniocervical",
+      "configuration": "normal",
+      "file": "craniocervical_normal.glb",
+      "objects": 8,
+      "bytes": 151660,
+      "approved": false
+    },
+    {
+      "scene": "craniocervical",
+      "configuration": "pa1",
+      "file": "craniocervical_pa1.glb",
+      "objects": 9,
+      "bytes": 159152,
+      "approved": false
+    },
+    {
+      "scene": "craniocervical",
+      "configuration": "pa2",
+      "file": "craniocervical_pa2.glb",
+      "objects": 9,
+      "bytes": 159152,
+      "approved": false
+    },
+    {
+      "scene": "craniocervical",
+      "configuration": "hypo",
+      "file": "craniocervical_hypo.glb",
+      "objects": 9,
+      "bytes": 159144,
+      "approved": false
+    },
+    {
+      "scene": "circle",
+      "configuration": "default",
+      "file": "circle.glb",
+      "objects": 22,
+      "bytes": 178028,
+      "approved": false
+    },
+    {
+      "scene": "basilar",
+      "configuration": "cranial",
+      "file": "basilar_cranial.glb",
+      "objects": 7,
+      "bytes": 52992,
+      "approved": false
+    },
+    {
+      "scene": "basilar",
+      "configuration": "caudal",
+      "file": "basilar_caudal.glb",
+      "objects": 6,
+      "bytes": 47220,
+      "approved": false
+    },
+    {
+      "scene": "basilar",
+      "configuration": "assim",
+      "file": "basilar_assim.glb",
+      "objects": 7,
+      "bytes": 53004,
+      "approved": false
+    },
+    {
+      "scene": "venous",
+      "configuration": "balanced",
+      "file": "venous_balanced.glb",
+      "objects": 15,
+      "bytes": 162024,
+      "approved": false
+    },
+    {
+      "scene": "venous",
+      "configuration": "trolard",
+      "file": "venous_trolard.glb",
+      "objects": 13,
+      "bytes": 147044,
+      "approved": false
+    },
+    {
+      "scene": "venous",
+      "configuration": "labbe",
+      "file": "venous_labbe.glb",
+      "objects": 13,
+      "bytes": 147044,
+      "approved": false
+    },
+    {
+      "scene": "spinal",
+      "configuration": "default",
+      "file": "spinal.glb",
+      "objects": 11,
+      "bytes": 167716,
+      "approved": false
+    },
+    {
+      "scene": "disease",
+      "configuration": "aneur",
+      "file": "disease_aneur.glb",
+      "objects": 2,
+      "bytes": 76996,
+      "approved": false
+    },
+    {
+      "scene": "disease",
+      "configuration": "avm",
+      "file": "disease_avm.glb",
+      "objects": 4,
+      "bytes": 105176,
+      "approved": false
+    },
+    {
+      "scene": "disease",
+      "configuration": "davf",
+      "file": "disease_davf.glb",
+      "objects": 4,
+      "bytes": 82172,
+      "approved": false
+    },
+    {
+      "scene": "devices",
+      "configuration": "coil",
+      "file": "devices_coil.glb",
+      "objects": 3,
+      "bytes": 106664,
+      "approved": false
+    },
+    {
+      "scene": "devices",
+      "configuration": "stent",
+      "file": "devices_stent.glb",
+      "objects": 4,
+      "bytes": 83872,
+      "approved": false
+    },
+    {
+      "scene": "devices",
+      "configuration": "balloon",
+      "file": "devices_balloon.glb",
+      "objects": 3,
+      "bytes": 112428,
+      "approved": false
+    }
+  ]
+}

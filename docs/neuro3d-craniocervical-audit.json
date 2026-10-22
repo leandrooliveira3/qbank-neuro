@@ -1,0 +1,96 @@
+{
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "rule": "New male-atlas nodes: minY >= 1.32m, maxY >= 1.44m, absX < 0.18m, plus 4 named venous outlets. Original whole meshes and transforms preserved.",
+  "layers": {
+    "cartilage": 23,
+    "cavity": 8,
+    "bone": 3,
+    "ligament": 41,
+    "tissue": 1,
+    "nerve": 12,
+    "venous": 6,
+    "gland": 8,
+    "muscle": 165,
+    "attachment": 101,
+    "visceral": 9,
+    "lymphatic": 40,
+    "region": 103
+  },
+  "imported": 520,
+  "excludedCandidates": [
+    {
+      "id": "inferior_parathyroid_gland_l",
+      "system": "endocrine",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "inferior_parathyroid_gland_r",
+      "system": "endocrine",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "superior_parathyroid_gland_l",
+      "system": "endocrine",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "superior_parathyroid_gland_r",
+      "system": "endocrine",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "meso_appendix",
+      "system": "digestive",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "mesocolon",
+      "system": "digestive",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "greater_omentum",
+      "system": "digestive",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "lesser_omentum",
+      "system": "digestive",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "soft_palate",
+      "system": "digestive",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "pharynx_j",
+      "system": "digestive",
+      "reason": "degenerate-source-surface"
+    },
+    {
+      "id": "laryngopharynx",
+      "system": "respiratory",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "nasopharynx",
+      "system": "respiratory",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "oropharynx",
+      "system": "respiratory",
+      "reason": "source-node-missing"
+    },
+    {
+      "id": "mucosa_of_nasal_cavity",
+      "system": "respiratory",
+      "reason": "source-node-missing"
+    }
+  ],
+  "licenseFiles": [
+    "LICENSE",
+    "NOTICE"
+  ]
+}

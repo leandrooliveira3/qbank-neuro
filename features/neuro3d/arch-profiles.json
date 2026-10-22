@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "apexAnchor": [
+    1.7974015474319458,
+    -20.313501358032227,
+    -0.04826481640338898
+  ],
+  "brachiocephalicOriginProxy": [
+    0.96,
+    -21.12,
+    1.36
+  ],
+  "leftCCADiameterProxyCm": 0.8158,
+  "sigmaCm": 0.8411343228005571,
+  "baselineRatio": 0.9885984824316921,
+  "profiles": {
+    "I": {
+      "amplitudeCm": -0.28994627300133446,
+      "heightRatio": 0.7500000000000006,
+      "minimumVerticalJacobianBound": 0.9782540295248999
+    },
+    "II": {
+      "amplitudeCm": 0.490825127096736,
+      "heightRatio": 1.500000000000001,
+      "minimumVerticalJacobianBound": 0.9631881154677449
+    },
+    "III": {
+      "amplitudeCm": 1.4505898329790856,
+      "heightRatio": 2.499999999999996,
+      "minimumVerticalJacobianBound": 0.8912057625265686
+    }
+  },
+  "status": "illustrative-deformation-unvalidated",
+  "measurement": "Distance from synthetic outer arch apex to source-axis proximal brachiocephalic endpoint / median source-axis left CCA diameter; source endpoint is an educational ostium proxy, not a validated ostial measurement",
+  "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3035863/",
+  "limits": [
+    "Not patient anatomy or a validated catheterization difficulty score",
+    "All source meshes and device routes must receive the same coordinate transform",
+    "Branch origin variants such as bovine arch are a separate classification"
+  ]
+}

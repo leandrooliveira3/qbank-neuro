@@ -1,0 +1,757 @@
+{
+  "record": "https://zenodo.org/api/records/15697196",
+  "doi": "10.5281/zenodo.15697196",
+  "license": "CC-BY-4.0",
+  "archiveSize": 25578845008,
+  "archiveChecksum": "md5:264ff9ee868c022d108b7c7aa7396d32",
+  "archiveChecksumVerified": false,
+  "stlCount": 122,
+  "meshes": [
+    {
+      "entry": "Annotations/an_002.stl",
+      "size": 1249696,
+      "compressedSize": 68029,
+      "crc32": "21e4090d"
+    },
+    {
+      "entry": "Annotations/an_004.stl",
+      "size": 3492069,
+      "compressedSize": 209157,
+      "crc32": "34d0a41f"
+    },
+    {
+      "entry": "Annotations/an_006.stl",
+      "size": 1338841,
+      "compressedSize": 76853,
+      "crc32": "d8996a9f"
+    },
+    {
+      "entry": "Annotations/an_008_1.stl",
+      "size": 1548083,
+      "compressedSize": 85797,
+      "crc32": "5868cfe0"
+    },
+    {
+      "entry": "Annotations/an_008_2.stl",
+      "size": 364569,
+      "compressedSize": 17441,
+      "crc32": "a42394f2"
+    },
+    {
+      "entry": "Annotations/an_010.stl",
+      "size": 169353,
+      "compressedSize": 9244,
+      "crc32": "98789bfb"
+    },
+    {
+      "entry": "Annotations/an_011_1.stl",
+      "size": 39473,
+      "compressedSize": 2114,
+      "crc32": "55e6eaf0"
+    },
+    {
+      "entry": "Annotations/an_011_2.stl",
+      "size": 63697,
+      "compressedSize": 3654,
+      "crc32": "330824b4"
+    },
+    {
+      "entry": "Annotations/an_011_3.stl",
+      "size": 68396,
+      "compressedSize": 3461,
+      "crc32": "57b9195f"
+    },
+    {
+      "entry": "Annotations/an_012_1.stl",
+      "size": 88509,
+      "compressedSize": 4348,
+      "crc32": "17d458a9"
+    },
+    {
+      "entry": "Annotations/an_012_2.stl",
+      "size": 234175,
+      "compressedSize": 11857,
+      "crc32": "fdedd62c"
+    },
+    {
+      "entry": "Annotations/an_013.stl",
+      "size": 204141,
+      "compressedSize": 10126,
+      "crc32": "d3fb3b4d"
+    },
+    {
+      "entry": "Annotations/an_014.stl",
+      "size": 619779,
+      "compressedSize": 34159,
+      "crc32": "f3eab58d"
+    },
+    {
+      "entry": "Annotations/an_015.stl",
+      "size": 1231011,
+      "compressedSize": 63656,
+      "crc32": "c2f720d0"
+    },
+    {
+      "entry": "Annotations/an_016_1.stl",
+      "size": 662187,
+      "compressedSize": 32950,
+      "crc32": "9fe8e0e0"
+    },
+    {
+      "entry": "Annotations/an_016_2.stl",
+      "size": 630895,
+      "compressedSize": 28993,
+      "crc32": "f829027a"
+    },
+    {
+      "entry": "Annotations/an_017_1.stl",
+      "size": 533828,
+      "compressedSize": 28243,
+      "crc32": "09ef2502"
+    },
+    {
+      "entry": "Annotations/an_017_2.stl",
+      "size": 74152,
+      "compressedSize": 4036,
+      "crc32": "fd174a5b"
+    },
+    {
+      "entry": "Annotations/an_018.stl",
+      "size": 283120,
+      "compressedSize": 14843,
+      "crc32": "a2478189"
+    },
+    {
+      "entry": "Annotations/an_019.stl",
+      "size": 1679661,
+      "compressedSize": 84894,
+      "crc32": "ea6cdb56"
+    },
+    {
+      "entry": "Annotations/an_020.stl",
+      "size": 3754235,
+      "compressedSize": 209100,
+      "crc32": "814ce93e"
+    },
+    {
+      "entry": "Annotations/an_021.stl",
+      "size": 1609294,
+      "compressedSize": 89885,
+      "crc32": "60d9a30b"
+    },
+    {
+      "entry": "Annotations/an_022.stl",
+      "size": 585674,
+      "compressedSize": 32900,
+      "crc32": "798ab887"
+    },
+    {
+      "entry": "Annotations/an_023.stl",
+      "size": 2268688,
+      "compressedSize": 128772,
+      "crc32": "e7771623"
+    },
+    {
+      "entry": "Annotations/an_024.stl",
+      "size": 2121725,
+      "compressedSize": 125282,
+      "crc32": "9d60fd4b"
+    },
+    {
+      "entry": "Annotations/an_025.stl",
+      "size": 3022167,
+      "compressedSize": 161860,
+      "crc32": "07e7e29f"
+    },
+    {
+      "entry": "Annotations/an_026.stl",
+      "size": 5696003,
+      "compressedSize": 275883,
+      "crc32": "899d7c9f"
+    },
+    {
+      "entry": "Annotations/an_027.stl",
+      "size": 544360,
+      "compressedSize": 27845,
+      "crc32": "59beb681"
+    },
+    {
+      "entry": "Annotations/an_028.stl",
+      "size": 136162,
+      "compressedSize": 7110,
+      "crc32": "eafae836"
+    },
+    {
+      "entry": "Annotations/an_029_1.stl",
+      "size": 102400,
+      "compressedSize": 5224,
+      "crc32": "0c7db2fc"
+    },
+    {
+      "entry": "Annotations/an_029_2.stl",
+      "size": 188061,
+      "compressedSize": 9782,
+      "crc32": "dccf8f06"
+    },
+    {
+      "entry": "Annotations/an_030_1.stl",
+      "size": 2864675,
+      "compressedSize": 159931,
+      "crc32": "4d685953"
+    },
+    {
+      "entry": "Annotations/an_030_2.stl",
+      "size": 896015,
+      "compressedSize": 49671,
+      "crc32": "02b2f39c"
+    },
+    {
+      "entry": "Annotations/an_031.stl",
+      "size": 8097004,
+      "compressedSize": 472578,
+      "crc32": "d5a60406"
+    },
+    {
+      "entry": "Annotations/an_032.stl",
+      "size": 93790,
+      "compressedSize": 4880,
+      "crc32": "8ac348b1"
+    },
+    {
+      "entry": "Annotations/an_033_1.stl",
+      "size": 119617,
+      "compressedSize": 6304,
+      "crc32": "4640c06a"
+    },
+    {
+      "entry": "Annotations/an_033_2.stl",
+      "size": 844733,
+      "compressedSize": 47465,
+      "crc32": "1113b3e8"
+    },
+    {
+      "entry": "Annotations/an_034.stl",
+      "size": 52422,
+      "compressedSize": 3194,
+      "crc32": "5acb98e1"
+    },
+    {
+      "entry": "Annotations/an_035_1.stl",
+      "size": 2176551,
+      "compressedSize": 120477,
+      "crc32": "ed4afa05"
+    },
+    {
+      "entry": "Annotations/an_035_2.stl",
+      "size": 83126,
+      "compressedSize": 4493,
+      "crc32": "95eed489"
+    },
+    {
+      "entry": "Annotations/an_035_3.stl",
+      "size": 86387,
+      "compressedSize": 4536,
+      "crc32": "03a9f7e6"
+    },
+    {
+      "entry": "Annotations/an_035_4.stl",
+      "size": 78876,
+      "compressedSize": 4503,
+      "crc32": "407fe92d"
+    },
+    {
+      "entry": "Annotations/an_036.stl",
+      "size": 1557579,
+      "compressedSize": 81134,
+      "crc32": "c8a1581f"
+    },
+    {
+      "entry": "Annotations/an_037.stl",
+      "size": 3652268,
+      "compressedSize": 196293,
+      "crc32": "9e38f742"
+    },
+    {
+      "entry": "Annotations/an_038.stl",
+      "size": 1239233,
+      "compressedSize": 72775,
+      "crc32": "c3618682"
+    },
+    {
+      "entry": "Annotations/an_049.stl",
+      "size": 165886,
+      "compressedSize": 9255,
+      "crc32": "b16823db"
+    },
+    {
+      "entry": "Annotations/an_050_1.stl",
+      "size": 1249654,
+      "compressedSize": 65483,
+      "crc32": "a945b09f"
+    },
+    {
+      "entry": "Annotations/an_050_2.stl",
+      "size": 305098,
+      "compressedSize": 15959,
+      "crc32": "6b1c4646"
+    },
+    {
+      "entry": "Annotations/an_051.stl",
+      "size": 459992,
+      "compressedSize": 25537,
+      "crc32": "f2acefbe"
+    },
+    {
+      "entry": "Annotations/an_082_1.stl",
+      "size": 412548,
+      "compressedSize": 19092,
+      "crc32": "b15a5e2d"
+    },
+    {
+      "entry": "Annotations/an_082_2.stl",
+      "size": 180992,
+      "compressedSize": 8516,
+      "crc32": "286f5b98"
+    },
+    {
+      "entry": "Annotations/an_082_3.stl",
+      "size": 301778,
+      "compressedSize": 13744,
+      "crc32": "68df6fd2"
+    },
+    {
+      "entry": "Annotations/an_082_4.stl",
+      "size": 237212,
+      "compressedSize": 11770,
+      "crc32": "65f04331"
+    },
+    {
+      "entry": "Annotations/an_083.stl",
+      "size": 705901,
+      "compressedSize": 36911,
+      "crc32": "3eb24a7d"
+    },
+    {
+      "entry": "Annotations/an_084.stl",
+      "size": 2338110,
+      "compressedSize": 132819,
+      "crc32": "47a446ee"
+    },
+    {
+      "entry": "Annotations/an_085_1.stl",
+      "size": 152532,
+      "compressedSize": 7777,
+      "crc32": "b3315ffb"
+    },
+    {
+      "entry": "Annotations/an_085_2.stl",
+      "size": 278366,
+      "compressedSize": 14067,
+      "crc32": "b5ba1775"
+    },
+    {
+      "entry": "Annotations/an_085_3.stl",
+      "size": 146614,
+      "compressedSize": 7710,
+      "crc32": "25013b62"
+    },
+    {
+      "entry": "Annotations/an_086_1.stl",
+      "size": 4536248,
+      "compressedSize": 236606,
+      "crc32": "1bad5097"
+    },
+    {
+      "entry": "Annotations/an_086_2.stl",
+      "size": 95100,
+      "compressedSize": 5048,
+      "crc32": "d8c1b496"
+    },
+    {
+      "entry": "Annotations/an_087.stl",
+      "size": 348593,
+      "compressedSize": 17732,
+      "crc32": "e3dd3b68"
+    },
+    {
+      "entry": "Annotations/an_088_1.stl",
+      "size": 3626544,
+      "compressedSize": 218382,
+      "crc32": "7fa0a943"
+    },
+    {
+      "entry": "Annotations/an_088_2.stl",
+      "size": 88242,
+      "compressedSize": 5000,
+      "crc32": "8fb7208f"
+    },
+    {
+      "entry": "Annotations/an_089.stl",
+      "size": 416333,
+      "compressedSize": 22820,
+      "crc32": "27a0f11b"
+    },
+    {
+      "entry": "Annotations/an_090_1.stl",
+      "size": 585667,
+      "compressedSize": 29073,
+      "crc32": "7b238d9e"
+    },
+    {
+      "entry": "Annotations/an_090_2.stl",
+      "size": 107565,
+      "compressedSize": 5733,
+      "crc32": "a96021d5"
+    },
+    {
+      "entry": "Annotations/an_090_3.stl",
+      "size": 242338,
+      "compressedSize": 12539,
+      "crc32": "a67697ec"
+    },
+    {
+      "entry": "Annotations/an_090_4.stl",
+      "size": 89600,
+      "compressedSize": 5222,
+      "crc32": "d79d5d75"
+    },
+    {
+      "entry": "Annotations/an_090_5.stl",
+      "size": 487349,
+      "compressedSize": 26298,
+      "crc32": "646de2e6"
+    },
+    {
+      "entry": "Annotations/an_091.stl",
+      "size": 2986822,
+      "compressedSize": 162581,
+      "crc32": "482d2ce1"
+    },
+    {
+      "entry": "Annotations/an_092.stl",
+      "size": 129568,
+      "compressedSize": 6509,
+      "crc32": "29a44630"
+    },
+    {
+      "entry": "Annotations/an_093_1.stl",
+      "size": 1459242,
+      "compressedSize": 81782,
+      "crc32": "d3d16ebe"
+    },
+    {
+      "entry": "Annotations/an_093_2.stl",
+      "size": 970080,
+      "compressedSize": 52889,
+      "crc32": "aafde3b8"
+    },
+    {
+      "entry": "Annotations/an_093_3.stl",
+      "size": 874222,
+      "compressedSize": 48571,
+      "crc32": "d4bb4a66"
+    },
+    {
+      "entry": "Annotations/an_093_4.stl",
+      "size": 128875,
+      "compressedSize": 6496,
+      "crc32": "ec69d4c8"
+    },
+    {
+      "entry": "Annotations/an_093_5.stl",
+      "size": 110319,
+      "compressedSize": 5722,
+      "crc32": "edba36c1"
+    },
+    {
+      "entry": "Annotations/an_095.stl",
+      "size": 1272313,
+      "compressedSize": 72099,
+      "crc32": "2698f2bb"
+    },
+    {
+      "entry": "Annotations/an_096.stl",
+      "size": 2627541,
+      "compressedSize": 152577,
+      "crc32": "2870ef05"
+    },
+    {
+      "entry": "Annotations/an_097.stl",
+      "size": 73167,
+      "compressedSize": 3680,
+      "crc32": "8f33379c"
+    },
+    {
+      "entry": "Annotations/an_098.stl",
+      "size": 85294,
+      "compressedSize": 4509,
+      "crc32": "5ef5214b"
+    },
+    {
+      "entry": "Annotations/an_099_1.stl",
+      "size": 422273,
+      "compressedSize": 22416,
+      "crc32": "8e5bc6c8"
+    },
+    {
+      "entry": "Annotations/an_099_2.stl",
+      "size": 2138780,
+      "compressedSize": 125772,
+      "crc32": "d1715172"
+    },
+    {
+      "entry": "Annotations/an_099_3.stl",
+      "size": 168752,
+      "compressedSize": 8874,
+      "crc32": "83a0c6c0"
+    },
+    {
+      "entry": "Annotations/an_100.stl",
+      "size": 4452422,
+      "compressedSize": 252470,
+      "crc32": "c61a4993"
+    },
+    {
+      "entry": "Annotations/an_101.stl",
+      "size": 97624,
+      "compressedSize": 5037,
+      "crc32": "005f07f6"
+    },
+    {
+      "entry": "Annotations/an_102.stl",
+      "size": 4157133,
+      "compressedSize": 233568,
+      "crc32": "5d95e3c7"
+    },
+    {
+      "entry": "Annotations/an_103.stl",
+      "size": 3447898,
+      "compressedSize": 202551,
+      "crc32": "4e7d10cd"
+    },
+    {
+      "entry": "Annotations/an_104.stl",
+      "size": 481891,
+      "compressedSize": 24469,
+      "crc32": "57b01677"
+    },
+    {
+      "entry": "Annotations/an_105.stl",
+      "size": 6824084,
+      "compressedSize": 396907,
+      "crc32": "c9177440"
+    },
+    {
+      "entry": "Annotations/an_106_1.stl",
+      "size": 258705,
+      "compressedSize": 12559,
+      "crc32": "99b751b7"
+    },
+    {
+      "entry": "Annotations/an_106_2.stl",
+      "size": 242403,
+      "compressedSize": 11946,
+      "crc32": "5e3420eb"
+    },
+    {
+      "entry": "Annotations/an_107.stl",
+      "size": 99864,
+      "compressedSize": 5409,
+      "crc32": "f424bf04"
+    },
+    {
+      "entry": "Annotations/an_108.stl",
+      "size": 1475189,
+      "compressedSize": 83419,
+      "crc32": "90efdaee"
+    },
+    {
+      "entry": "Annotations/an_109_1.stl",
+      "size": 7061225,
+      "compressedSize": 404982,
+      "crc32": "6736ef2b"
+    },
+    {
+      "entry": "Annotations/an_109_2.stl",
+      "size": 141219,
+      "compressedSize": 7189,
+      "crc32": "4b41e5fa"
+    },
+    {
+      "entry": "Annotations/an_110.stl",
+      "size": 5753373,
+      "compressedSize": 357655,
+      "crc32": "c167d2cd"
+    },
+    {
+      "entry": "Annotations/an_111.stl",
+      "size": 265594,
+      "compressedSize": 13882,
+      "crc32": "c43dd5ff"
+    },
+    {
+      "entry": "Annotations/an_112.stl",
+      "size": 3213927,
+      "compressedSize": 185622,
+      "crc32": "a9abd29c"
+    },
+    {
+      "entry": "Annotations/an_113.stl",
+      "size": 124012,
+      "compressedSize": 7004,
+      "crc32": "770d4f74"
+    },
+    {
+      "entry": "Annotations/an_114.stl",
+      "size": 71286,
+      "compressedSize": 4115,
+      "crc32": "24573d4a"
+    },
+    {
+      "entry": "Annotations/an_115_1.stl",
+      "size": 825292,
+      "compressedSize": 41992,
+      "crc32": "30218c3f"
+    },
+    {
+      "entry": "Annotations/an_115_2.stl",
+      "size": 60690,
+      "compressedSize": 3643,
+      "crc32": "c6e3b317"
+    },
+    {
+      "entry": "Annotations/an_116_1.stl",
+      "size": 2570204,
+      "compressedSize": 136427,
+      "crc32": "d6d0ba30"
+    },
+    {
+      "entry": "Annotations/an_116_2.stl",
+      "size": 1251067,
+      "compressedSize": 70083,
+      "crc32": "fc093eb8"
+    },
+    {
+      "entry": "Annotations/an_116_3.stl",
+      "size": 1622211,
+      "compressedSize": 82276,
+      "crc32": "9c65dcb9"
+    },
+    {
+      "entry": "Annotations/an_116_4.stl",
+      "size": 1942501,
+      "compressedSize": 102461,
+      "crc32": "180326a4"
+    },
+    {
+      "entry": "Annotations/an_117_1.stl",
+      "size": 62867,
+      "compressedSize": 3594,
+      "crc32": "5622b566"
+    },
+    {
+      "entry": "Annotations/an_117_2.stl",
+      "size": 83136,
+      "compressedSize": 4985,
+      "crc32": "49ccf9fe"
+    },
+    {
+      "entry": "Annotations/an_118.stl",
+      "size": 177663,
+      "compressedSize": 9273,
+      "crc32": "86db6c4d"
+    },
+    {
+      "entry": "Annotations/an_120.stl",
+      "size": 178641,
+      "compressedSize": 9680,
+      "crc32": "ece1b29d"
+    },
+    {
+      "entry": "Annotations/an_121.stl",
+      "size": 3682695,
+      "compressedSize": 208282,
+      "crc32": "9a271cab"
+    },
+    {
+      "entry": "Annotations/an_126_1.stl",
+      "size": 419661,
+      "compressedSize": 19103,
+      "crc32": "29d46c97"
+    },
+    {
+      "entry": "Annotations/an_126_2.stl",
+      "size": 43698,
+      "compressedSize": 2556,
+      "crc32": "545ba8b0"
+    },
+    {
+      "entry": "Annotations/an_126_3.stl",
+      "size": 44396,
+      "compressedSize": 2552,
+      "crc32": "ec3d8b54"
+    },
+    {
+      "entry": "Annotations/an_130.stl",
+      "size": 3216825,
+      "compressedSize": 181892,
+      "crc32": "1aa892a9"
+    },
+    {
+      "entry": "Annotations/an_144.stl",
+      "size": 134033,
+      "compressedSize": 7147,
+      "crc32": "a62a55c9"
+    },
+    {
+      "entry": "Annotations/an_154_1.stl",
+      "size": 3825401,
+      "compressedSize": 228329,
+      "crc32": "ed0528d9"
+    },
+    {
+      "entry": "Annotations/an_154_2.stl",
+      "size": 115721,
+      "compressedSize": 6420,
+      "crc32": "6abcb55b"
+    },
+    {
+      "entry": "Annotations/an_161.stl",
+      "size": 2328214,
+      "compressedSize": 135667,
+      "crc32": "68916620"
+    },
+    {
+      "entry": "Annotations/an_163.stl",
+      "size": 54701,
+      "compressedSize": 2977,
+      "crc32": "f60f83b0"
+    },
+    {
+      "entry": "Annotations/an_184.stl",
+      "size": 21743,
+      "compressedSize": 1300,
+      "crc32": "1317d481"
+    },
+    {
+      "entry": "Annotations/an_185.stl",
+      "size": 106992,
+      "compressedSize": 5641,
+      "crc32": "0c5b2265"
+    }
+  ],
+  "downloaded": {
+    "entry": "Annotations/an_184.stl",
+    "sha256": "1a98fcc60dfa69aba81619af03f7127c42300b6bfc5d5c2f32c92af5e9d0beeb",
+    "crcVerified": true
+  },
+  "bytesFetched": 11208675,
+  "sampleInspection": {
+    "points": 56,
+    "triangles": 108,
+    "boundaryEdges": 0,
+    "registeredToAtlas": false,
+    "unitsVerified": false,
+    "nativeCoordinatesPreserved": true
+  }
+}

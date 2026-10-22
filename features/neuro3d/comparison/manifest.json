@@ -1,0 +1,235 @@
+{
+  "schema": 1,
+  "sources": {
+    "brave": {
+      "record": "https://zenodo.org/records/3968844",
+      "doi": "10.5281/zenodo.3968844",
+      "license": "MIT",
+      "licenseURL": "https://opensource.org/license/mit",
+      "attribution": "Hilbert, Madai, Akay, Aydin, Behland, Sobesky, Galinovic, Khalil, Taha, Wuerfel, Dusek, Niendorf, Fiebach, Frey, Livne (2020)",
+      "archive": "GroundTruth.zip",
+      "archiveMD5": "fdd563d92d0848d991b217289147cbfa",
+      "archiveSHA256": "b857d129527da9163b2716dd32f5ec73a7b3482174e9149653b274845225aa32",
+      "selected": "GroundTruth/pat_1/001_Vessel-Manual-Gold-int.nii.gz",
+      "space": "Native NIfTI header RAS/mm; no MNI registration inferred"
+    },
+    "venat": {
+      "record": "https://figshare.com/articles/dataset/VENAT_Probability_map_nii_gz/7205960",
+      "license": "CC-BY-4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Huck et al., VENAT; High resolution atlas of the venous brain vasculature from 7 T quantitative susceptibility maps (2019), DOI 10.1007/s00429-019-01919-4",
+      "file": "VENAT_PartialVolume.nii.gz",
+      "fileMD5": "2fcfec7e50e1d7c3f6f5e3e5be4e9d53",
+      "space": "MNI152; NIfTI header RAS/mm; cohort-mean partial volume, not a named categorical segmentation"
+    }
+  },
+  "toolVersions": {
+    "nibabel": "5.4.2",
+    "numpy": "2.5.4",
+    "scikit-image": "0.26.0",
+    "fast-simplification": "0.2.0"
+  },
+  "surfaces": [
+    {
+      "key": "brave-0.5",
+      "kind": "brave",
+      "file": "brave-0.5.mesh.json",
+      "threshold": 0.5,
+      "sourceSHA256": "662b162e982eaf51bc9e68e62b181ebc9c16b7e8675ae2caea38650616a7e86d",
+      "assetSHA256": "dd243f2eb3a3491c67cfda1a6ff8a323172b6afeff4a6fae341c2e1a1feeb6d9",
+      "compressedSHA256": "9f4e1e9d1301910a38deb20a38bc9dc575e8f652afa6ea2692d0b40c3f5222f4",
+      "vertices": 23238,
+      "triangles": 45218,
+      "components": 434,
+      "original": {
+        "vertices": 105169,
+        "triangles": 209460,
+        "components": 434
+      },
+      "sourceShape": [
+        448,
+        448,
+        128
+      ],
+      "voxelToRASmm": [
+        [
+          -0.513392984867096,
+          0.0,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.513392984867096,
+          0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.8000010251998901,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sformCode": 1,
+      "qformCode": 2,
+      "coordinateSystem": "NIfTI RAS mm; native file affine",
+      "boundsRASmm": [
+        [
+          -178.40406799316406,
+          -198.34471130371094,
+          0.0
+        ],
+        [
+          -54.14729690551758,
+          -39.44570541381836,
+          98.0164794921875
+        ]
+      ],
+      "method": "marching cubes full-resolution; independent per-component quadric simplification target about 45000 triangles, minimum 4 per component, border preservation; no smoothing, pruning, naming or atlas registration",
+      "topologyPreservationGuaranteed": false,
+      "registrationToAtlas": null,
+      "anatomicalApproval": false
+    },
+    {
+      "key": "venat-0.1",
+      "kind": "venat",
+      "file": "venat-0.1.mesh.json",
+      "threshold": 0.1,
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "assetSHA256": "3dad37d4ba48eb8f2264d3740393746060fd27593db740290bcc78d819a31432",
+      "compressedSHA256": "db01d0772b56ea1dc7e450d2dd4860733e0ccf618a53fb1d2a0a48a72921c437",
+      "vertices": 22803,
+      "triangles": 44906,
+      "components": 223,
+      "original": {
+        "vertices": 426747,
+        "triangles": 852818,
+        "components": 223
+      },
+      "sourceShape": [
+        364,
+        436,
+        364
+      ],
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sformCode": 0,
+      "qformCode": 1,
+      "coordinateSystem": "NIfTI RAS mm; native file affine",
+      "boundsRASmm": [
+        [
+          -61.08190155029297,
+          -100.39334869384766,
+          -56.176048278808594
+        ],
+        [
+          61.79524230957031,
+          63.29145812988281,
+          72.54753875732422
+        ]
+      ],
+      "method": "marching cubes full-resolution; independent per-component quadric simplification target about 45000 triangles, minimum 4 per component, border preservation; no smoothing, pruning, naming or atlas registration",
+      "topologyPreservationGuaranteed": false,
+      "registrationToAtlas": null,
+      "anatomicalApproval": false
+    },
+    {
+      "key": "venat-0.2",
+      "kind": "venat",
+      "file": "venat-0.2.mesh.json",
+      "threshold": 0.2,
+      "sourceSHA256": "af222f62aa94a1bfd873e2822fce0daf472ed632f2c9957b45ad26069be86c35",
+      "assetSHA256": "cb0d7e52686b00daa316e901746d60f5752edacfa43739456b0bd8396e971765",
+      "compressedSHA256": "41963db81d0d74e6009859e7808bf0d4d8da8779a93bf7d0db0c0040f44e0a42",
+      "vertices": 22676,
+      "triangles": 44924,
+      "components": 120,
+      "original": {
+        "vertices": 173634,
+        "triangles": 346844,
+        "components": 120
+      },
+      "sourceShape": [
+        364,
+        436,
+        364
+      ],
+      "voxelToRASmm": [
+        [
+          -0.5,
+          0.0,
+          0.0,
+          90.0
+        ],
+        [
+          0.0,
+          0.5,
+          0.0,
+          -126.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.5,
+          -72.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "sformCode": 0,
+      "qformCode": 1,
+      "coordinateSystem": "NIfTI RAS mm; native file affine",
+      "boundsRASmm": [
+        [
+          -58.59993362426758,
+          -98.31317138671875,
+          -49.19498825073242
+        ],
+        [
+          59.1320686340332,
+          61.28387451171875,
+          71.66288757324219
+        ]
+      ],
+      "method": "marching cubes full-resolution; independent per-component quadric simplification target about 45000 triangles, minimum 4 per component, border preservation; no smoothing, pruning, naming or atlas registration",
+      "topologyPreservationGuaranteed": false,
+      "registrationToAtlas": null,
+      "anatomicalApproval": false
+    }
+  ]
+}

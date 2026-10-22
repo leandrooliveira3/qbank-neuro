@@ -1,0 +1,23 @@
+import {test,expect} from '@playwright/test';
+test('foraminal study links retain side, named context and the distinction between C2/C4 and unverified continuity',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/#/tools/neuro3d');await page.getByRole('button',{name:'Forames',exact:true}).click();
+  await page.getByLabel('Lado dos forames').selectOption('r');
+  await page.getByRole('button',{name:'Explorar Forame redondo · V2',exact:true}).click();
+  await expect(page.getByTestId('passage-context')).toContainText('ACI cavernosa · C4');
+  await expect(page.getByTestId('passage-context')).toContainText('sem posição ou superfície individual verificada');
+  await expect(page.getByTestId('detailed-atlas-canvas')).toHaveAttribute('data-dangerous-connection','passage:rotundum:r');
+  await expect(page.getByTestId('atlas-selection')).toHaveAttribute('data-selected-id','maxillary_artery_r');
+  const row=page.locator('[data-passage="rotundum"]');await row.getByText('Vasos e elos da rede bibliográfica',{exact:true}).click();
+  await row.locator('button[data-vessel-id="foramen_rotundum_branch_r"]').click();
+  await expect(page.getByTestId('atlas-selection')).toHaveAttribute('data-selected-id','foramen_rotundum_branch_r');
+  await expect(page.getByTestId('detailed-atlas-canvas')).toHaveAttribute('data-dangerous-connection','passage:rotundum:r');
+  await page.getByRole('button',{name:'Forames',exact:true}).click();
+  await page.getByRole('button',{name:'Explorar Canal pterigóideo · vidiano',exact:true}).click();
+  await expect(page.getByTestId('passage-context')).toContainText('ACI petrosa · C2');
+  await page.getByRole('button',{name:'Explorar Forame meningo-orbitário · Hyrtl',exact:true}).click();
+  await expect(page.getByTestId('passage-context')).toContainText('Comunicação meningo-lacrimal');
+  await expect(page.locator('.nda-canvas canvas')).toHaveAttribute('data-detailed-atlas-rendered','true',{timeout:45000});
+  await page.locator('.nda-stage').screenshot({path:`test-results/foraminal-context-${test.info().project.name}.png`});
+  expect(errors).toEqual([]);
+});

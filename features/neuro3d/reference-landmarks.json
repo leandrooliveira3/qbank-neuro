@@ -1,0 +1,199 @@
+{
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS \u2192 Z-Anatomy \u2192 Anatria3D \u2192 QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "file": "reference-landmarks.bin",
+  "size": 1209874,
+  "uncompressedSize": 3268323,
+  "sha256": "dcb9a894d7f71aa357109b8a6c8449429b1dc3a5a5b190d82a7a8092b91cf782",
+  "structures": [
+    {
+      "id": "inferior_nasal_concha_bone_l",
+      "layer": "bone",
+      "originalFaces": 476,
+      "faces": 476
+    },
+    {
+      "id": "inferior_nasal_concha_bone_r",
+      "layer": "bone",
+      "originalFaces": 476,
+      "faces": 476
+    },
+    {
+      "id": "incus_l",
+      "layer": "bone",
+      "originalFaces": 2532,
+      "faces": 2532
+    },
+    {
+      "id": "incus_r",
+      "layer": "bone",
+      "originalFaces": 2532,
+      "faces": 2532
+    },
+    {
+      "id": "malleus_l",
+      "layer": "bone",
+      "originalFaces": 3982,
+      "faces": 3982
+    },
+    {
+      "id": "malleus_r",
+      "layer": "bone",
+      "originalFaces": 3982,
+      "faces": 3982
+    },
+    {
+      "id": "ethmoid_bone",
+      "layer": "bone",
+      "originalFaces": 10130,
+      "faces": 3999
+    },
+    {
+      "id": "frontal_bone",
+      "layer": "bone",
+      "originalFaces": 7776,
+      "faces": 4000
+    },
+    {
+      "id": "hyoid_bone",
+      "layer": "bone",
+      "originalFaces": 1324,
+      "faces": 1324
+    },
+    {
+      "id": "lacrimal_bone_l",
+      "layer": "bone",
+      "originalFaces": 588,
+      "faces": 588
+    },
+    {
+      "id": "lacrimal_bone_r",
+      "layer": "bone",
+      "originalFaces": 588,
+      "faces": 588
+    },
+    {
+      "id": "nasal_bone_l",
+      "layer": "bone",
+      "originalFaces": 292,
+      "faces": 292
+    },
+    {
+      "id": "nasal_bone_r",
+      "layer": "bone",
+      "originalFaces": 292,
+      "faces": 292
+    },
+    {
+      "id": "occipital_bone",
+      "layer": "bone",
+      "originalFaces": 7531,
+      "faces": 4000
+    },
+    {
+      "id": "palatine_bone_l",
+      "layer": "bone",
+      "originalFaces": 1460,
+      "faces": 1460
+    },
+    {
+      "id": "palatine_bone_r",
+      "layer": "bone",
+      "originalFaces": 1460,
+      "faces": 1460
+    },
+    {
+      "id": "parietal_bone_l",
+      "layer": "bone",
+      "originalFaces": 6886,
+      "faces": 4000
+    },
+    {
+      "id": "parietal_bone_r",
+      "layer": "bone",
+      "originalFaces": 6780,
+      "faces": 4000
+    },
+    {
+      "id": "sphenoid_bone",
+      "layer": "bone",
+      "originalFaces": 7308,
+      "faces": 3999
+    },
+    {
+      "id": "temporal_bone_l",
+      "layer": "bone",
+      "originalFaces": 14094,
+      "faces": 4000
+    },
+    {
+      "id": "temporal_bone_r",
+      "layer": "bone",
+      "originalFaces": 14094,
+      "faces": 4000
+    },
+    {
+      "id": "zygomatic_bone_l",
+      "layer": "bone",
+      "originalFaces": 1328,
+      "faces": 1328
+    },
+    {
+      "id": "zygomatic_bone_r",
+      "layer": "bone",
+      "originalFaces": 1328,
+      "faces": 1328
+    },
+    {
+      "id": "stapes_l",
+      "layer": "bone",
+      "originalFaces": 4342,
+      "faces": 4000
+    },
+    {
+      "id": "stapes_r",
+      "layer": "bone",
+      "originalFaces": 4342,
+      "faces": 4000
+    },
+    {
+      "id": "vomer",
+      "layer": "bone",
+      "originalFaces": 1022,
+      "faces": 1022
+    },
+    {
+      "id": "adenohypophysis",
+      "layer": "gland",
+      "originalFaces": 680,
+      "faces": 680
+    },
+    {
+      "id": "neurohypophysis",
+      "layer": "gland",
+      "originalFaces": 592,
+      "faces": 592
+    },
+    {
+      "id": "falx_cerebri",
+      "layer": "dura",
+      "originalFaces": 14724,
+      "faces": 3999
+    },
+    {
+      "id": "tentorium_cerebelli_l",
+      "layer": "dura",
+      "originalFaces": 4480,
+      "faces": 3999
+    },
+    {
+      "id": "tentorium_cerebelli_r",
+      "layer": "dura",
+      "originalFaces": 4480,
+      "faces": 3999
+    }
+  ],
+  "projectionCoordinates": "Source world cm; Y minus160, same as atlas. Up to 4000 faces per structure. Gland and dura are selection context only, never radiopaque signal."
+}

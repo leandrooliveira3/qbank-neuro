@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "cecfb4801ea7244f3bcee6c845d25ea64a233be0",
+  "unitTests": 159,
+  "unitFiles": 41,
+  "browserCases": 22,
+  "browserFiles": 4,
+  "browserProjects": [
+    "desktop",
+    "Pixel7 emulation"
+  ],
+  "typecheck": true,
+  "build": true,
+  "xlsConvention": {
+    "proof": "GS-CA primary guide section3.5 pp8–9 + original row labels",
+    "indexBase": 0,
+    "bounds": "inclusive",
+    "voiOrder": "xmin xmax ymin ymax zmin zmax",
+    "roiOrder": "xmin xmax ymin ymax",
+    "units": "voxel/pixel indices, not mm",
+    "sheetsComparedToIndependentXlrd": 10,
+    "tenVolumesReloaded": false,
+    "sourceHashAllowlistBeforeParse": true
+  },
+  "realCase": {
+    "case": 1,
+    "originalXlsImported": true,
+    "roiViewsVerified": 4,
+    "sourceVoiVerified": true,
+    "fractionalTargetPreserved": true,
+    "sourceCrop": {
+      "triangles": 3668,
+      "stride": 6,
+      "components": 102
+    },
+    "selectedComponentTriangles": 2036,
+    "localNative": {
+      "triangles": 12400,
+      "stride": 1,
+      "components": 55
+    },
+    "previousVoiRestored": true,
+    "axesInspected": [
+      0,
+      1,
+      2
+    ],
+    "errors": [],
+    "nonGetRequests": [],
+    "registrationAccuracyValidated": false
+  },
+  "newAnatomicalGeometries": 0,
+  "missingVenousGeometries": 20,
+  "referenceGaps": 373,
+  "unmappedVenousTerms": 7,
+  "supplierCodeExecuted": false,
+  "restrictedDataPublished": false,
+  "registrationAccuracyValidated": false,
+  "clinicalValidation": false,
+  "automaticZipImport": false,
+  "remoteBrowserTested": false
+}

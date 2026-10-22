@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "evidenceType": "user-provided Vercel deployment screenshot",
+  "sourceFile": "codex-clipboard-b780adee-d075-4ec5-ae67-116407ebeeba.png",
+  "sha256": "4d843f791d227541087d5248d4c1b947ef258ffa0dc09e269459be61de26362e",
+  "pixels": [
+    2181,
+    1137
+  ],
+  "observedStatus": "Ready",
+  "environment": "Preview",
+  "observedBranch": "feature/neuro3d-atlas",
+  "observedShortCommit": "81f6799",
+  "matchedRemoteCommit": "81f679985dc448670ad13f30b0989fa598ac7ac2",
+  "confirmationDateLocal": "2026-10-21",
+  "programmaticConnectorAccess": false,
+  "browserFlowValidatedRemotely": false,
+  "interpretation": "Screenshot confirms this exact prior deployment; connector 403 does not establish deployment failure. Do not transfer Ready to later commits."
+}

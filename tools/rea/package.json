@@ -1,0 +1,7 @@
+{
+  "name": "qbank-neuro3d-rea-tools",
+  "private": true,
+  "type": "module",
+  "description": "Isolated optional REA analysis tooling, never bundled with the clinical education frontend",
+  "dependencies": { "rea-agents": "6.5.0" }
+}

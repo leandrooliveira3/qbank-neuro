@@ -1,0 +1,871 @@
+{
+  "schema": 1,
+  "coordinateSystem": "atlas centimetres; original node transforms baked x100, Y-160",
+  "decodedSHA256": "de06b562bc0808be5959c9437127c4b59ac12caa58dc4b0c9ba55546573337e3",
+  "verifiedSourceAssets": [
+    {
+      "file": "skeletal_head.glb",
+      "sha256": "b8cd51041148d3abfa5a803d666ecb849e2f785063271ee1c7acec8a50c5dfe7"
+    },
+    {
+      "file": "nervous_head.glb",
+      "sha256": "a2722df349d48e41da9bb361c0f7717d4f42885924ecefb7c0b6b73b809e6124"
+    },
+    {
+      "file": "cardiovascular_head.glb",
+      "sha256": "d3e60f36298bd92c044de4ee3c07c4fc823db3b96648646211edb9a24735a5d6"
+    },
+    {
+      "file": "landmarks_bone.glb",
+      "sha256": "a31ac9367c374267898c65bae05eb10ea07d57d2184d099274a8642b579db1af"
+    },
+    {
+      "file": "landmarks_gland.glb",
+      "sha256": "ba207a7d87da550ec618b9b764f72f1a2d2d34db4bfb33cce7dfbe95586e9dfc"
+    },
+    {
+      "file": "landmarks_dura.glb",
+      "sha256": "730eb2e0fafb74dcdf4ad9a4c4b8a816c2720e2e9d6439a6fe5044aa3801d054"
+    }
+  ],
+  "originalSinusVertices": 1164,
+  "originalSinusTriangles": 2304,
+  "context": [
+    {
+      "id": "straight_sinus",
+      "vertices": 1164,
+      "triangles": 2304,
+      "boundsAtlasCm": [
+        [
+          -0.1500000013038516,
+          -1.91339910030365,
+          -3.364123310893774
+        ],
+        [
+          0.15000239945948124,
+          1.375768855214119,
+          1.7185438424348831
+        ]
+      ],
+      "identityApproved": false
+    },
+    {
+      "id": "thalamus_l",
+      "vertices": 381,
+      "triangles": 758,
+      "boundsAtlasCm": [
+        [
+          0.061156523963525056,
+          1.4152328111961765,
+          -2.5806802784111635
+        ],
+        [
+          2.328639311397439,
+          3.7052058104367234,
+          0.9623020104497403
+        ]
+      ],
+      "identityApproved": false
+    },
+    {
+      "id": "thalamus_r",
+      "vertices": 381,
+      "triangles": 758,
+      "boundsAtlasCm": [
+        [
+          -2.3286273904684407,
+          1.4152323699061924,
+          -2.5806801272039603
+        ],
+        [
+          -0.061144603034613,
+          3.7052059625230243,
+          0.9623019439622738
+        ]
+      ],
+      "identityApproved": false
+    },
+    {
+      "id": "midbrain_l",
+      "vertices": 3053,
+      "triangles": 6092,
+      "boundsAtlasCm": [
+        [
+          0.0020088424762225096,
+          0.09192694356414677,
+          -2.122922496620441
+        ],
+        [
+          1.4274457073693692,
+          1.7461560339501148,
+          0.7253438641429231
+        ]
+      ],
+      "identityApproved": false
+    },
+    {
+      "id": "midbrain_r",
+      "vertices": 3053,
+      "triangles": 6092,
+      "boundsAtlasCm": [
+        [
+          -1.4274337864403797,
+          0.09192656145359024,
+          -2.122922478074596
+        ],
+        [
+          -0.001996921547287034,
+          1.746156696949754,
+          0.7253437076801816
+        ]
+      ],
+      "identityApproved": false
+    },
+    {
+      "id": "occipital_pole_l",
+      "vertices": 479,
+      "triangles": 954,
+      "boundsAtlasCm": [
+        [
+          0.0636707991361618,
+          -1.066068783402443,
+          -9.913199953734875
+        ],
+        [
+          3.225316107273102,
+          2.386159598827362,
+          -7.0762744173407555
+        ]
+      ],
+      "identityApproved": false
+    },
+    {
+      "id": "occipital_pole_r",
+      "vertices": 479,
+      "triangles": 954,
+      "boundsAtlasCm": [
+        [
+          -3.2253161072731045,
+          -1.0660687921678402,
+          -9.913200047363194
+        ],
+        [
+          -0.06367079913615833,
+          2.386159580537935,
+          -7.076274342318027
+        ]
+      ],
+      "identityApproved": false
+    },
+    {
+      "id": "occipital_bone",
+      "vertices": 3824,
+      "triangles": 7531,
+      "boundsAtlasCm": [
+        [
+          -5.963079258799553,
+          -4.926391914486885,
+          -10.337518900632858
+        ],
+        [
+          5.963079258799553,
+          5.519097074866295,
+          1.2472260743379593
+        ]
+      ],
+      "identityApproved": false
+    }
+  ],
+  "samples": [
+    {
+      "axisIndex": 0,
+      "pointAtlasCm": [
+        0,
+        1.3,
+        -4.7
+      ],
+      "distanceToOriginalTrianglesCm": 2.8524119627454327,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.6742991879582405,
+        -2.641263324767351
+      ]
+    },
+    {
+      "axisIndex": 1,
+      "pointAtlasCm": [
+        0,
+        1.3041666666666667,
+        -4.675
+      ],
+      "distanceToOriginalTrianglesCm": 2.8373248008988528,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.6742991879582405,
+        -2.641263324767351
+      ]
+    },
+    {
+      "axisIndex": 2,
+      "pointAtlasCm": [
+        0,
+        1.3083333333333333,
+        -4.65
+      ],
+      "distanceToOriginalTrianglesCm": 2.8223845886409484,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.6742643026207507,
+        -2.6412288939716126
+      ]
+    },
+    {
+      "axisIndex": 3,
+      "pointAtlasCm": [
+        0,
+        1.3125,
+        -4.625
+      ],
+      "distanceToOriginalTrianglesCm": 2.807518275121485,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.6596547224526575,
+        -2.626809670687975
+      ]
+    },
+    {
+      "axisIndex": 4,
+      "pointAtlasCm": [
+        0,
+        1.3166666666666667,
+        -4.6
+      ],
+      "distanceToOriginalTrianglesCm": 2.7926519616022585,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.6450451422845646,
+        -2.6123904474043376
+      ]
+    },
+    {
+      "axisIndex": 5,
+      "pointAtlasCm": [
+        0,
+        1.3208333333333333,
+        -4.575
+      ],
+      "distanceToOriginalTrianglesCm": 2.7777856480832726,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.6304355621164721,
+        -2.5979712241207005
+      ]
+    },
+    {
+      "axisIndex": 6,
+      "pointAtlasCm": [
+        0,
+        1.325,
+        -4.55
+      ],
+      "distanceToOriginalTrianglesCm": 2.762919334564531,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.615825981948379,
+        -2.583552000837063
+      ]
+    },
+    {
+      "axisIndex": 7,
+      "pointAtlasCm": [
+        0,
+        1.3291666666666666,
+        -4.525
+      ],
+      "distanceToOriginalTrianglesCm": 2.7480530210460374,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.6012164017802866,
+        -2.569132777553426
+      ]
+    },
+    {
+      "axisIndex": 8,
+      "pointAtlasCm": [
+        0,
+        1.3333333333333333,
+        -4.5
+      ],
+      "distanceToOriginalTrianglesCm": 2.7331867075277962,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5866068216121936,
+        -2.5547135542697883
+      ]
+    },
+    {
+      "axisIndex": 9,
+      "pointAtlasCm": [
+        0,
+        1.3375,
+        -4.475
+      ],
+      "distanceToOriginalTrianglesCm": 2.718338483512938,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5790554359555244,
+        -2.54726056009531
+      ]
+    },
+    {
+      "axisIndex": 10,
+      "pointAtlasCm": [
+        0,
+        1.3416666666666663,
+        -4.45
+      ],
+      "distanceToOriginalTrianglesCm": 2.703625490958932,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5790554359555244,
+        -2.54726056009531
+      ]
+    },
+    {
+      "axisIndex": 11,
+      "pointAtlasCm": [
+        0,
+        1.345833333333333,
+        -4.425
+      ],
+      "distanceToOriginalTrianglesCm": 2.6890708808063524,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5790554359555244,
+        -2.54726056009531
+      ]
+    },
+    {
+      "axisIndex": 12,
+      "pointAtlasCm": [
+        0,
+        1.3499999999999996,
+        -4.4
+      ],
+      "distanceToOriginalTrianglesCm": 2.674677238632842,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5790554359555244,
+        -2.54726056009531
+      ]
+    },
+    {
+      "axisIndex": 13,
+      "pointAtlasCm": [
+        0,
+        1.3541666666666663,
+        -4.375
+      ],
+      "distanceToOriginalTrianglesCm": 2.6604377368257754,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5741726971860728,
+        -2.5421235105305198
+      ]
+    },
+    {
+      "axisIndex": 14,
+      "pointAtlasCm": [
+        0,
+        1.3583333333333332,
+        -4.35
+      ],
+      "distanceToOriginalTrianglesCm": 2.646234373084553,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5597111436614544,
+        -2.5269087466966202
+      ]
+    },
+    {
+      "axisIndex": 15,
+      "pointAtlasCm": [
+        0,
+        1.3624999999999998,
+        -4.325
+      ],
+      "distanceToOriginalTrianglesCm": 2.6320310093435886,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5452495901368366,
+        -2.5116939828627216
+      ]
+    },
+    {
+      "axisIndex": 16,
+      "pointAtlasCm": [
+        0,
+        1.3666666666666663,
+        -4.299999999999999
+      ],
+      "distanceToOriginalTrianglesCm": 2.6178276456028855,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5307880366122179,
+        -2.4964792190288216
+      ]
+    },
+    {
+      "axisIndex": 17,
+      "pointAtlasCm": [
+        0,
+        1.370833333333333,
+        -4.274999999999999
+      ],
+      "distanceToOriginalTrianglesCm": 2.603624281862449,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5163264830875995,
+        -2.481264455194922
+      ]
+    },
+    {
+      "axisIndex": 18,
+      "pointAtlasCm": [
+        0,
+        1.3749999999999996,
+        -4.249999999999999
+      ],
+      "distanceToOriginalTrianglesCm": 2.5894209181222845,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.5018649295629817,
+        -2.466049691361023
+      ]
+    },
+    {
+      "axisIndex": 19,
+      "pointAtlasCm": [
+        0,
+        1.3791666666666662,
+        -4.224999999999999
+      ],
+      "distanceToOriginalTrianglesCm": 2.575219723690524,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.48970621079206467,
+        -2.453257702291012
+      ]
+    },
+    {
+      "axisIndex": 20,
+      "pointAtlasCm": [
+        0,
+        1.3833333333333329,
+        -4.199999999999998
+      ],
+      "distanceToOriginalTrianglesCm": 2.561129792133903,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.48970621079206467,
+        -2.453257702291012
+      ]
+    },
+    {
+      "axisIndex": 21,
+      "pointAtlasCm": [
+        0,
+        1.3874999999999993,
+        -4.174999999999999
+      ],
+      "distanceToOriginalTrianglesCm": 2.547214109816688,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.48970621079206467,
+        -2.453257702291012
+      ]
+    },
+    {
+      "axisIndex": 22,
+      "pointAtlasCm": [
+        0,
+        1.391666666666666,
+        -4.149999999999999
+      ],
+      "distanceToOriginalTrianglesCm": 2.5334616204066576,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.48405941362472205,
+        -2.4470380420879816
+      ]
+    },
+    {
+      "axisIndex": 23,
+      "pointAtlasCm": [
+        0,
+        1.3958333333333326,
+        -4.124999999999999
+      ],
+      "distanceToOriginalTrianglesCm": 2.5197418453238507,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.46973489028222526,
+        -2.431260307361477
+      ]
+    },
+    {
+      "axisIndex": 24,
+      "pointAtlasCm": [
+        0,
+        1.4,
+        -4.1
+      ],
+      "distanceToOriginalTrianglesCm": 2.506022070241323,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.45541036693972836,
+        -2.415482572634973
+      ]
+    },
+    {
+      "axisIndex": 25,
+      "pointAtlasCm": [
+        0,
+        1.4041666666666666,
+        -4.074999999999999
+      ],
+      "distanceToOriginalTrianglesCm": 2.4923022951590776,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.44108584359723135,
+        -2.3997048379084687
+      ]
+    },
+    {
+      "axisIndex": 26,
+      "pointAtlasCm": [
+        0,
+        1.4083333333333332,
+        -4.05
+      ],
+      "distanceToOriginalTrianglesCm": 2.478582520077121,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.42676132025473473,
+        -2.3839271031819647
+      ]
+    },
+    {
+      "axisIndex": 27,
+      "pointAtlasCm": [
+        0,
+        1.4124999999999999,
+        -4.0249999999999995
+      ],
+      "distanceToOriginalTrianglesCm": 2.4648627449954565,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.41243679691223767,
+        -2.36814936845546
+      ]
+    },
+    {
+      "axisIndex": 28,
+      "pointAtlasCm": [
+        0,
+        1.4166666666666665,
+        -3.9999999999999996
+      ],
+      "distanceToOriginalTrianglesCm": 2.451159047296223,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.4040798544883728,
+        -2.358944620937109
+      ]
+    },
+    {
+      "axisIndex": 29,
+      "pointAtlasCm": [
+        0,
+        1.4208333333333332,
+        -3.9749999999999996
+      ],
+      "distanceToOriginalTrianglesCm": 2.437610131866125,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.4040798544883728,
+        -2.358944620937109
+      ]
+    },
+    {
+      "axisIndex": 30,
+      "pointAtlasCm": [
+        0,
+        1.4249999999999998,
+        -3.9499999999999997
+      ],
+      "distanceToOriginalTrianglesCm": 2.4242504732458787,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.4040798544883728,
+        -2.358944620937109
+      ]
+    },
+    {
+      "axisIndex": 31,
+      "pointAtlasCm": [
+        0,
+        1.4291666666666665,
+        -3.925
+      ],
+      "distanceToOriginalTrianglesCm": 2.411041204364881,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.3947711419755905,
+        -2.3481770753639344
+      ]
+    },
+    {
+      "axisIndex": 32,
+      "pointAtlasCm": [
+        0,
+        1.4333333333333331,
+        -3.8999999999999995
+      ],
+      "distanceToOriginalTrianglesCm": 2.3978432415143933,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.38062029772835726,
+        -2.331808553925363
+      ]
+    },
+    {
+      "axisIndex": 33,
+      "pointAtlasCm": [
+        0,
+        1.4375,
+        -3.8749999999999996
+      ],
+      "distanceToOriginalTrianglesCm": 2.3846452786642054,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.366469453481124,
+        -2.3154400324867916
+      ]
+    },
+    {
+      "axisIndex": 34,
+      "pointAtlasCm": [
+        0,
+        1.4416666666666669,
+        -3.8499999999999996
+      ],
+      "distanceToOriginalTrianglesCm": 2.3714473158143217,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.3523186092338909,
+        -2.2990715110482203
+      ]
+    },
+    {
+      "axisIndex": 35,
+      "pointAtlasCm": [
+        0,
+        1.4458333333333335,
+        -3.8249999999999997
+      ],
+      "distanceToOriginalTrianglesCm": 2.358249352964748,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.3381677649866578,
+        -2.282702989609649
+      ]
+    },
+    {
+      "axisIndex": 36,
+      "pointAtlasCm": [
+        0,
+        1.4500000000000002,
+        -3.8
+      ],
+      "distanceToOriginalTrianglesCm": 2.3450513901154886,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.32401692073942456,
+        -2.266334468171077
+      ]
+    },
+    {
+      "axisIndex": 37,
+      "pointAtlasCm": [
+        0,
+        1.4541666666666668,
+        -3.7749999999999995
+      ],
+      "distanceToOriginalTrianglesCm": 2.331914853562036,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.3209354728460312,
+        -2.262770105153322
+      ]
+    },
+    {
+      "axisIndex": 38,
+      "pointAtlasCm": [
+        0,
+        1.4583333333333335,
+        -3.75
+      ],
+      "distanceToOriginalTrianglesCm": 2.318970476873979,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.3176443640178804,
+        -2.258850353776822
+      ]
+    },
+    {
+      "axisIndex": 39,
+      "pointAtlasCm": [
+        0,
+        1.4625000000000001,
+        -3.725
+      ],
+      "distanceToOriginalTrianglesCm": 2.306085951443025,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.30361011596730875,
+        -2.2421353905267956
+      ]
+    },
+    {
+      "axisIndex": 40,
+      "pointAtlasCm": [
+        0,
+        1.466666666666667,
+        -3.7
+      ],
+      "distanceToOriginalTrianglesCm": 2.2932014260123914,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.2895758679167369,
+        -2.2254204272767693
+      ]
+    },
+    {
+      "axisIndex": 41,
+      "pointAtlasCm": [
+        0,
+        1.4708333333333337,
+        -3.6750000000000003
+      ],
+      "distanceToOriginalTrianglesCm": 2.2803169005820845,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.2755416198661652,
+        -2.208705464026743
+      ]
+    },
+    {
+      "axisIndex": 42,
+      "pointAtlasCm": [
+        0,
+        1.4750000000000003,
+        -3.65
+      ],
+      "distanceToOriginalTrianglesCm": 2.2674323751521084,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.26150737181559336,
+        -2.1919905007767166
+      ]
+    },
+    {
+      "axisIndex": 43,
+      "pointAtlasCm": [
+        0,
+        1.479166666666667,
+        -3.625
+      ],
+      "distanceToOriginalTrianglesCm": 2.2545478497224707,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.2474731237650216,
+        -2.17527553752669
+      ]
+    },
+    {
+      "axisIndex": 44,
+      "pointAtlasCm": [
+        0,
+        1.4833333333333336,
+        -3.6
+      ],
+      "distanceToOriginalTrianglesCm": 2.241675051380051,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.23810140788555145,
+        -2.1641137078404427
+      ]
+    },
+    {
+      "axisIndex": 45,
+      "pointAtlasCm": [
+        0,
+        1.4875000000000005,
+        -3.5749999999999997
+      ],
+      "distanceToOriginalTrianglesCm": 2.228914744700577,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.22822403564681676,
+        -2.152202773071744
+      ]
+    },
+    {
+      "axisIndex": 46,
+      "pointAtlasCm": [
+        0,
+        1.491666666666667,
+        -3.55
+      ],
+      "distanceToOriginalTrianglesCm": 2.2161636600788515,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.21424212480236865,
+        -2.1353422534937843
+      ]
+    },
+    {
+      "axisIndex": 47,
+      "pointAtlasCm": [
+        0,
+        1.4958333333333336,
+        -3.5249999999999995
+      ],
+      "distanceToOriginalTrianglesCm": 2.20341257545748,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.20026021395792037,
+        -2.1184817339158246
+      ]
+    },
+    {
+      "axisIndex": 48,
+      "pointAtlasCm": [
+        0,
+        1.5000000000000002,
+        -3.4999999999999996
+      ],
+      "distanceToOriginalTrianglesCm": 2.1906614908364688,
+      "closestPointAtlasCm": [
+        -0.0001539243385195732,
+        -0.1862783031134721,
+        -2.101621214337865
+      ]
+    }
+  ],
+  "connectionVerified": false,
+  "anatomicalApproval": false,
+  "method": "For every sampled illustrative axis point: closest point over every original triangle, including face projection and all edge segments. Not a wall-to-wall or continuous-axis distance. No geometric correction.",
+  "limitations": "Labels and authored Galen path unreviewed. Nearest point does not identify an ostium or prove drainage/patency. Seven diagram identities unchanged."
+}

@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => {
         allowedHosts: true,
       },
       plugins: [react()],
+      worker: { format: 'es' },
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
         'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
@@ -21,7 +22,7 @@ export default defineConfig(({ mode }) => {
         }
       },
       optimizeDeps: {
-        include: ['sql.js'],
+        include: ['sql.js', 'dicom-parser', 'three/examples/jsm/objects/MarchingCubes.js'],
       },
     };
 });

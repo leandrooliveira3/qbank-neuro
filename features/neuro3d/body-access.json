@@ -1,0 +1,214 @@
+{
+  "sourceRepository": "https://github.com/Nurkan1/Anatria-3D",
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS → Z-Anatomy → Anatria3D → QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "structures": [
+    {
+      "id": "abdominal_aorta",
+      "name": "Abdominal aorta",
+      "latin": "Aorta abdominalis",
+      "node": "Abdominal aorta",
+      "layer": "arterial",
+      "file": "body_access.glb",
+      "path": [
+        "Systemic arteries",
+        "Aorta"
+      ],
+      "bounds": [
+        [
+          -0.003770112060010433,
+          1.0286395251750946,
+          -0.01918499544262886
+        ],
+        [
+          0.01913114171475172,
+          1.2105710357427597,
+          0.0404400248080492
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "thoracic_aorta",
+      "name": "Thoracic aorta",
+      "latin": "Aorta thoracica",
+      "node": "Thoracic aorta",
+      "layer": "arterial",
+      "file": "body_access.glb",
+      "path": [
+        "Systemic arteries",
+        "Aorta"
+      ],
+      "bounds": [
+        [
+          -0.0005391016602516174,
+          1.2050986886024475,
+          -0.04944118112325668
+        ],
+        [
+          0.031027745455503464,
+          1.3654878735542297,
+          -0.0010641273111104965
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "axillary_artery_r",
+      "name": "Axillary artery (right)",
+      "latin": "Arteria axillaris",
+      "node": "Axillary artery.r",
+      "layer": "arterial",
+      "file": "body_access.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.13685466349124908,
+          1.3634345248036657,
+          -0.013764277260556268
+        ],
+        [
+          -0.07857977971434593,
+          1.4143307216489287,
+          -0.0006045581718826633
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "brachial_artery_r",
+      "name": "Brachial artery (right)",
+      "latin": "Arteria brachialis",
+      "node": "Brachial artery.r",
+      "layer": "arterial",
+      "file": "body_access.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.2266131080687046,
+          1.0896793893324312,
+          -0.0271058321044853
+        ],
+        [
+          -0.13268068060278893,
+          1.3660634763441168,
+          -0.00886237403459309
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "femoral_artery_r",
+      "name": "Femoral artery (right)",
+      "latin": "Arteria femoralis",
+      "node": "Femoral artery.r",
+      "layer": "arterial",
+      "file": "body_access.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.07737140730023384,
+          0.5596850617465258,
+          -0.018447389417647217
+        ],
+        [
+          -0.04533403646200895,
+          0.8980872943991283,
+          0.05116074923826581
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "common_iliac_artery_r",
+      "name": "Common iliac artery (right)",
+      "latin": "Arteria iliaca communis",
+      "node": "Common iliac artery.r",
+      "layer": "arterial",
+      "file": "body_access.glb",
+      "path": [
+        "Systemic arteries",
+        "Aorta"
+      ],
+      "bounds": [
+        [
+          -0.03390117734670639,
+          0.978758567944169,
+          0.0056166257709264755
+        ],
+        [
+          0.01426563411951065,
+          1.0325059331953526,
+          0.040422508493065834
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "external_iliac_artery_r",
+      "name": "External iliac artery (right)",
+      "latin": "Arteria iliaca externa",
+      "node": "External iliac artery.r",
+      "layer": "arterial",
+      "file": "body_access.glb",
+      "path": [
+        "Systemic arteries",
+        "Aorta"
+      ],
+      "bounds": [
+        [
+          -0.058836717158555984,
+          0.8915320795114918,
+          -0.004678951233164148
+        ],
+        [
+          -0.023907199501991272,
+          0.9870111800008647,
+          0.03274896352651491
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    },
+    {
+      "id": "radial_artery_r",
+      "name": "Radial artery (right)",
+      "latin": "Arteria radialis",
+      "node": "Radial artery.r",
+      "layer": "arterial",
+      "file": "body_access.glb",
+      "path": [
+        "Systemic arteries"
+      ],
+      "bounds": [
+        [
+          -0.2875643987208605,
+          0.8440600544847058,
+          -0.01491447633355383
+        ],
+        [
+          -0.22280818969011307,
+          1.0905569365156274,
+          0.02473841432122676
+        ]
+      ],
+      "reviewStatus": "upstream-label-unreviewed"
+    }
+  ],
+  "assets": [
+    {
+      "file": "body_access.glb",
+      "size": 38448,
+      "structures": 8,
+      "sha256": "e333a2d6476b5707f33373ae0e10af35b2f0f237ee5fe21211b2589fe34c7c17",
+      "upstreamSha256": "05f373a294ab809b9a628bc1474a66028642997330fddc553a33d4ac6409b757"
+    }
+  ]
+}

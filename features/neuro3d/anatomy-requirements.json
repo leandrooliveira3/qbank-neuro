@@ -1,0 +1,849 @@
+{
+  "schemaVersion": 1,
+  "source": "User-supplied Neuroangio index, 2026-10-17",
+  "sourceSha256": "96a7bbcc1daba2529fa0dd711462df5bc0f9c5c883e47905ccc310e382547f37",
+  "scopeNote": "Source numbering retained verbatim; duplicates and grouped labels need manual disambiguation. This is a coverage backlog, not proof of anatomy implemented or sources reviewed. Original user index retained in full to preserve grouped or unparsed entries.",
+  "numberedEntries": [
+    {
+      "sourceNumber": "1",
+      "label": "internal carotid",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "2",
+      "label": "MHT",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "3",
+      "label": "ILT",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "5",
+      "label": "ophthalmic artery, 6 – “loop” intraorbital segment, 7 – distal intraorbital segment",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "8",
+      "label": "ethmoid (anterior) branch – same as 67",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "8",
+      "label": "ethmoid (anterior) branch",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "9",
+      "label": "anterior meningeal / anterior falcine",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "10",
+      "label": "short ciliary",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "11",
+      "label": "long ciliary",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "12",
+      "label": "central retinal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "13",
+      "label": "lacrimal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "14",
+      "label": "inferior hypophyseal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "15",
+      "label": "intercavernous (not shown) see skull base diagram",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "16",
+      "label": "lateral tentorial arcade",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "17",
+      "label": "marginal tentorial / Bernasconi-Cassinari",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "18",
+      "label": "medial clival arcade",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "20",
+      "label": "hypoglossal branch to the odontoid arcade",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "21",
+      "label": "odontoid arcade (ventral epidural arcade of the dens)",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "22",
+      "label": "hypoglossal division, AP artery",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "23 a",
+      "label": "jugular division, AP artery origin",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "23b",
+      "label": "jugular branch, occipital origin",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "24",
+      "label": "posterior meningeal / tentorium cerebelli branch",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "25",
+      "label": "sigmoid sinus arterial arcade (posterior meningeal system)",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "26",
+      "label": "transverse sinus arterial arcade (posterior meningeal system), 27 – SSS arterial arcade, 28 – transmastoid branch of OA (posterior meningeal system), 29 – OA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "30",
+      "label": "inferior tympanic branch, AP",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "31",
+      "label": "caroticotympanic branch (remnant hyoid artery)",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "32",
+      "label": "stylomastoid branch (OA or posterior auricular artery)",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "33",
+      "label": "petrous branch, MMA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "34",
+      "label": "foramen Lacerum branch, AP",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "35",
+      "label": "cavernous branch of MMA – same artery as spinosum branch of ILT",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "36",
+      "label": "foramen Ovale branch of ILT– same vessel as intracranial branch of AMA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "37",
+      "label": "foramen rotundum branch (ILTor IMAX)",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "38",
+      "label": "anteromedial branch, ILT (remnant dorsal ophthalmic artery)",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "39",
+      "label": "MMA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "40",
+      "label": "sphenoid ridge branch",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "41",
+      "label": "recurrent meningeal branch",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "42",
+      "label": "tentorial branch",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "43",
+      "label": "clival branch, ILT",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "44",
+      "label": "frontal or anterior branch, MMA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "45",
+      "label": "parietal or posterior branch, MMA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "46",
+      "label": "petrosquamosal branch, MMA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "47",
+      "label": "Ascending Pharyngeal Artery (APA)",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "48",
+      "label": "pharyngeal trunk, APA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "49",
+      "label": "inferior division, APA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "50",
+      "label": "middle division, APA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "51",
+      "label": "superior division, APA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "52",
+      "label": "vidian artery",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "53",
+      "label": "pterygovaginal artery",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "53a",
+      "label": "accessory meningeal artery",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "54",
+      "label": "cutaneous branch (Eustachian branch), AMA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "55",
+      "label": "IMAX",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "56",
+      "label": "anterior deep temporal branch",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "57",
+      "label": "posterior 58 – middle 59 – anterior superior alveolar",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "63",
+      "label": "mesial branch of the sphenopalatine artery, supplying posterior (64) and anterior (65) nasal septal systems](https://neuroangio.org/anatomy-and-variants/sphenopalatine-artery/), together with the corresponding posterior (66) and anterior (67) ethmoidal arteries",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "68a",
+      "label": "greater palatine](https://neuroangio.org/anatomy-and-variants/descending-and-greater-palatine-artery/)",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "69",
+      "label": "lesser palatine",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "70",
+      "label": "lingual",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "71",
+      "label": "submental",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "72",
+      "label": "inferior alveolar",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "73",
+      "label": "facial",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "73a",
+      "label": "submandibular",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "74",
+      "label": "ascending palatine",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "75",
+      "label": "angular",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "76",
+      "label": "inferior labial",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "77",
+      "label": "superior labial",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "78",
+      "label": "superficial nasal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "79",
+      "label": "buccal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "80",
+      "label": "transverse facial",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "81",
+      "label": "infraorbital",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "82",
+      "label": "dorsal nasal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "83",
+      "label": "supratrochlear",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "84",
+      "label": "supraorbital",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "85",
+      "label": "STA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "86",
+      "label": "frontal / anterior br. STA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "87",
+      "label": "parietal/posterior br. STA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "88",
+      "label": "STA / MMA anastomosis",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "89",
+      "label": "OA / MMA anastomosis",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "90",
+      "label": "Vertebral Artery",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "91",
+      "label": "ASA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "92",
+      "label": "PICA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "93",
+      "label": "lateral / posterior spinal artery",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "94",
+      "label": "coronary arteries",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "95",
+      "label": "sulco-commissural arteries",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "96",
+      "label": "hypoglossal nerve br",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "97",
+      "label": "musculospinal br with C1 and C2 AA anastomoses",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "98",
+      "label": "OA C1 nerve root branch",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "99",
+      "label": "OA C1 muscular VA anastomosis",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "100",
+      "label": "C2 muscular br.",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "101",
+      "label": "segmental muscular branches",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "102",
+      "label": "deep cervical artery",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "103",
+      "label": "ascending cervical artery and its anastomoses (104) with VA",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "105",
+      "label": "supreme intercostal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "105",
+      "label": "inferior thyroid",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "106",
+      "label": "superior thyroid",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "107",
+      "label": "supreme intercostal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "108",
+      "label": "trigeminal",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "sourceNumber": "109",
+      "label": "ventral ophthalmic,  110 – anterior cerebral artery, 111 – posterior communicating artery, 112 – anterior choroidal, 113 – posterior choroidal arteries, 114 – posterior cerebral artery, 115 – superior cerebellar, 116 – AICA, 117 – basilar artery, 118 — middle cerebral artery",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    }
+  ],
+  "referencePages": [
+    {
+      "label": "internal carotid",
+      "url": "https://neuroangio.org/anatomy-and-variants/internal-carotid-artery-and-its-aneurysms/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "MHT",
+      "url": "https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "ILT",
+      "url": "https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "ophthalmic artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/ophthalmic-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "anterior meningeal / anterior falcine",
+      "url": "https://neuroangio.org/anatomy-and-variants/meningeal-vessels/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "AP",
+      "url": "https://neuroangio.org/anatomy-and-variants/ascending-pharyngeal-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "posterior meningeal system",
+      "url": "https://neuroangio.org/anatomy-and-variants/posterior-meningeal-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "transmastoid branch of OA",
+      "url": "https://neuroangio.org/anatomy-and-variants/occipital-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "MMA",
+      "url": "https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "foramen Lacerum branch",
+      "url": "https://neuroangio.org/anatomy-and-variants/foramen-lacerum-branch/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "cavernous branch",
+      "url": "https://neuroangio.org/anatomy-and-variants/cavernous-branch-of-mma/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "dorsal ophthalmic artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "vidian artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/mandibulovidian-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "60 – sphenopalatine artery lateral nasal branch mainly supplying inferior (61), middle (62) and superior (62a) turbinates; 63 – mesial branch of the sphenopalatine artery, supplying posterior (64) and anterior (65) nasal septal systems",
+      "url": "https://neuroangio.org/anatomy-and-variants/sphenopalatine-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "68 – descending palatine; 68a — greater palatine",
+      "url": "https://neuroangio.org/anatomy-and-variants/descending-and-greater-palatine-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "lingual",
+      "url": "https://neuroangio.org/anatomy-and-variants/lingual-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "facial",
+      "url": "https://neuroangio.org/anatomy-and-variants/facial-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "ascending palatine",
+      "url": "https://neuroangio.org/ascending-palatine-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "infraorbital",
+      "url": "https://neuroangio.org/anatomy-and-variants/infraorbital-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "dorsal nasal",
+      "url": "https://neuroangio.org/anatomy-and-variants/dorsal-nasal-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "Vertebral Artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/vertebral-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "ASA",
+      "url": "https://neuroangio.org/spinal-vascular-anatomy/spinal-arterial-anatomy/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "PICA",
+      "url": "https://neuroangio.org/anatomy-and-variants/pica/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "lateral / posterior spinal artery",
+      "url": "https://neuroangio.org/spinal-vascular-anatomy/lateral-spinal-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "deep cervical artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/deep-cervical-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "supreme intercostal",
+      "url": "https://neuroangio.org/anatomy-and-variants/supreme-intercostal-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "inferior thyroid",
+      "url": "https://neuroangio.org/anatomy-and-variants/thyroid-arteries/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "trigeminal",
+      "url": "https://neuroangio.org/anatomy-and-variants/trigeminal-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "anterior cerebral artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "posterior communicating artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/posterior-communicating-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "anterior choroidal",
+      "url": "https://neuroangio.org/anatomy-and-variants/anterior-choroidal-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "posterior choroidal arteries",
+      "url": "https://neuroangio.org/anatomy-and-variants/posterior-choroidal-arteries/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "posterior cerebral artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/posterior-cerebral-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "superior cerebellar",
+      "url": "https://neuroangio.org/anatomy-and-variants/superior-cerebellar-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "AICA",
+      "url": "https://neuroangio.org/anatomy-and-variants/aica/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "basilar artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/basilar-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "middle cerebral artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/middle-cerebral-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "Aortic Arch",
+      "url": "https://neuroangio.org/anatomy-and-variants/aortic-arch/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "Dorsal Ophthalmic Artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/dorsal-ophthalmic-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "Subclavian Artery",
+      "url": "https://neuroangio.org/anatomy-and-variants/subclavian-artery/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    },
+    {
+      "label": "Vertebrobasilar System",
+      "url": "https://neuroangio.org/anatomy-and-variants/vertebrobasilar-system/",
+      "reviewStatus": "pending",
+      "geometryStatus": "not-mapped"
+    }
+  ],
+  "additionalRequiredSystems": [
+    "superficial-and-deep-cerebral-veins",
+    "dural-sinuses-and-emissary-veins",
+    "spinal-arteries-and-veins",
+    "skull-base-foramina-and-cervical-bone",
+    "brain-brainstem-cerebellum-and-spinal-cord",
+    "dura-and-dural-rings",
+    "cranial-nerves-and-orbit",
+    "aortic-arch-and-access-vessels"
+  ],
+  "originalUserIndex": "1 – [internal carotid](https://neuroangio.org/anatomy-and-variants/internal-carotid-artery-and-its-aneurysms/); 2 – [MHT](https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/); 3 – [ILT](https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/);  5 – [ophthalmic artery](https://neuroangio.org/anatomy-and-variants/ophthalmic-artery/), 6 – “loop” intraorbital segment, 7 – distal intraorbital segment; 8 – ethmoid (anterior) branch – same as 67; 8 – ethmoid (anterior) branch; 9 – [anterior meningeal / anterior falcine](https://neuroangio.org/anatomy-and-variants/meningeal-vessels/); 10 – short ciliary; 11 – long ciliary; 12 – central retinal; 13 – lacrimal; 14 – inferior hypophyseal; 15 – [intercavernous (not shown) see skull base diagram](https://neuroangio.org/anatomy-and-variants/meningohypophyseal-trunk/); 16– lateral tentorial arcade; 17 – marginal tentorial / Bernasconi-Cassinari; 18 – medial clival arcade; 19 lateral clival arcade; 20 – hypoglossal branch to the odontoid arcade; 21 – odontoid arcade (ventral epidural arcade of the dens); 22 – hypoglossal division, [AP](https://neuroangio.org/anatomy-and-variants/ascending-pharyngeal-artery/) artery; 23 a – jugular division, AP artery origin; 23b – jugular branch, occipital origin; 24 – posterior meningeal / tentorium cerebelli branch; 25 – [sigmoid sinus arterial arcade](https://neuroangio.org/anatomy-and-variants/meningeal-vessels/) ([posterior meningeal system](https://neuroangio.org/anatomy-and-variants/posterior-meningeal-artery/)); 26 – transverse sinus arterial arcade (posterior meningeal system), 27 – SSS arterial arcade, 28 – [transmastoid branch of OA](https://neuroangio.org/anatomy-and-variants/occipital-artery/) (posterior meningeal system), 29 – OA; 30 – inferior tympanic branch, AP; 31 – caroticotympanic branch (remnant hyoid artery); 32 – stylomastoid branch (OA or posterior auricular artery); 33 – petrous branch, [MMA](https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/); 34 – [foramen Lacerum branch](https://neuroangio.org/anatomy-and-variants/foramen-lacerum-branch/), AP; 35 – [cavernous branch](https://neuroangio.org/anatomy-and-variants/cavernous-branch-of-mma/) of [MMA](https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/) – same artery as spinosum branch of [ILT](https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/); 36 – foramen Ovale branch of [ILT](https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/)– same vessel as intracranial branch of AMA; 37 – foramen rotundum branch ([ILT](https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/)or IMAX); 38 – anteromedial branch, ILT (remnant [dorsal ophthalmic artery](https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/)); 39 – [MMA](https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/); 40 – sphenoid ridge branch; 41 – recurrent meningeal branch; 42 –tentorial branch; 43 – clival branch, ILT; 44 – frontal or anterior branch, [MMA](https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/); 45 – parietal or posterior branch, MMA; 46 – petrosquamosal branch, [MMA](https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/); 47 – [Ascending Pharyngeal Artery (APA)](https://neuroangio.org/anatomy-and-variants/ascending-pharyngeal-artery/); 48 – pharyngeal trunk, APA; 49 – inferior division, APA; 50 – middle division, APA; 51 – superior division, APA; 52 – [vidian artery](https://neuroangio.org/anatomy-and-variants/mandibulovidian-artery/); 53 – pterygovaginal artery; 53a — accessory meningeal artery; 54 – cutaneous branch (Eustachian branch), AMA; 55 – IMAX; 56 – anterior deep temporal branch; 57 – posterior 58 – middle 59 – anterior superior alveolar; [60 – sphenopalatine artery lateral nasal branch mainly supplying inferior (61), middle (62) and superior (62a) turbinates; 63 – mesial branch of the sphenopalatine artery, supplying posterior (64) and anterior (65) nasal septal systems](https://neuroangio.org/anatomy-and-variants/sphenopalatine-artery/), together with the corresponding posterior (66) and anterior (67) ethmoidal arteries; [68 – descending palatine; 68a — greater palatine](https://neuroangio.org/anatomy-and-variants/descending-and-greater-palatine-artery/); 69 – lesser palatine; 70 – [lingual](https://neuroangio.org/anatomy-and-variants/lingual-artery/); 71 – submental; 72 – inferior alveolar; 73 – [facial](https://neuroangio.org/anatomy-and-variants/facial-artery/); 73a – [submandibular](https://neuroangio.org/anatomy-and-variants/facial-artery/); 74 – [ascending palatine](https://neuroangio.org/ascending-palatine-artery/); 75 – angular; 76 – inferior labial; 77 – superior labial; 78 – superficial nasal; 79 – buccal; 80 — transverse facial; 81 – [infraorbital](https://neuroangio.org/anatomy-and-variants/infraorbital-artery/); 82 – [dorsal nasal](https://neuroangio.org/anatomy-and-variants/dorsal-nasal-artery/); 83 – supratrochlear; 84 – supraorbital; 85 – STA; 86 – frontal / anterior br. STA; 87 – parietal/posterior br. STA; 88 – STA / MMA anastomosis; 89 – OA / MMA anastomosis; 90 – [Vertebral Artery](https://neuroangio.org/anatomy-and-variants/vertebral-artery/); 91 – [ASA](https://neuroangio.org/spinal-vascular-anatomy/spinal-arterial-anatomy/); 92 – [PICA](https://neuroangio.org/anatomy-and-variants/pica/); 93 – [lateral / posterior spinal artery](https://neuroangio.org/spinal-vascular-anatomy/lateral-spinal-artery/); 94 – [coronary arteries](https://neuroangio.org/spinal-vascular-anatomy/spinal-arterial-anatomy/); 95 – [sulco-commissural arteries](https://neuroangio.org/spinal-vascular-anatomy/spinal-arterial-anatomy/); 96 — hypoglossal nerve br; 97 – musculospinal br with C1 and C2 AA anastomoses; 98 – OA C1 nerve root branch; 99 – OA C1 muscular VA anastomosis; 100 – C2 muscular br.; 101 – segmental muscular branches;  102 – [deep cervical artery](https://neuroangio.org/anatomy-and-variants/deep-cervical-artery/); 103 – ascending cervical artery and its anastomoses (104) with VA; 105 – [supreme intercostal](https://neuroangio.org/anatomy-and-variants/supreme-intercostal-artery/); 105 – [inferior thyroid](https://neuroangio.org/anatomy-and-variants/thyroid-arteries/); 106 –[ superior thyroid](https://neuroangio.org/anatomy-and-variants/thyroid-arteries/); 107 – [supreme intercostal](https://neuroangio.org/spinal-vascular-anatomy/spinal-arterial-anatomy/); 108 – [trigeminal](https://neuroangio.org/anatomy-and-variants/trigeminal-artery/); 109 – [ventral ophthalmic](https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/),  110 – [anterior cerebral artery](https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/), 111 – [posterior communicating artery](https://neuroangio.org/anatomy-and-variants/posterior-communicating-artery/), 112 – [anterior choroidal](https://neuroangio.org/anatomy-and-variants/anterior-choroidal-artery/), 113 – [posterior choroidal arteries](https://neuroangio.org/anatomy-and-variants/posterior-choroidal-arteries/), 114 – [posterior cerebral artery](https://neuroangio.org/anatomy-and-variants/posterior-cerebral-artery/), 115 – [superior cerebellar](https://neuroangio.org/anatomy-and-variants/superior-cerebellar-artery/), 116 – [AICA](https://neuroangio.org/anatomy-and-variants/aica/), 117 – [basilar artery](https://neuroangio.org/anatomy-and-variants/basilar-artery/), 118 — [middle cerebral artery](https://neuroangio.org/anatomy-and-variants/middle-cerebral-artery/)\n\n[**Anterior Inferior Cerebellar Artery (AICA)**](https://neuroangio.org/anatomy-and-variants/aica/ \"AICA\") \n\n[**Anterior Cerebral Artery**](https://neuroangio.org/anatomy-and-variants/anterior-cerebral-artery/ \"Anterior Cerebral Artery\") \n\n[**Anterior Choroidal Artery**](https://neuroangio.org/anatomy-and-variants/anterior-choroidal-artery/ \"Anterior Choroidal Artery\") \n\n[**Aortic Arch**](https://neuroangio.org/anatomy-and-variants/aortic-arch/ \"Aortic Arch\")[ ](https://neuroangio.org/anatomy-and-variants/aortic-arch/ \"Aortic Arch\")\n\n[**Ascending Pharyngeal Artery**](https://neuroangio.org/anatomy-and-variants/ascending-pharyngeal-artery/ \"Ascending Pharyngeal Artery\")[ ](https://neuroangio.org/anatomy-and-variants/ascending-pharyngeal-artery/ \"Ascending Pharyngeal Artery\")\n\n[**Basilar Artery**](https://neuroangio.org/anatomy-and-variants/basilar-artery/ \"Basilar Artery\")[ ](https://neuroangio.org/anatomy-and-variants/basilar-artery/ \"Basilar Artery\")\n\n[**Deep Cervical Artery**](https://neuroangio.org/anatomy-and-variants/deep-cervical-artery/)\n\n[**Dorsal Ophthalmic Artery**](https://neuroangio.org/anatomy-and-variants/dorsal-ophthalmic-artery/)\n\n[**Inferolateral Trunk (ILT)**](https://neuroangio.org/anatomy-and-variants/inferolateral-trunk/ \"Inferolateral Trunk\")\n\n[**Internal Carotid Artery and Its Aneurysms**](https://neuroangio.org/anatomy-and-variants/internal-carotid-artery-and-its-aneurysms/ \"Internal Carotid Artery and Its Aneurysms\")\n\n[**Mandibulovidian Artery**](https://neuroangio.org/anatomy-and-variants/mandibulovidian-artery/ \"Mandibulovidian Artery\")\n\n[**Meningeal Vessels**](https://neuroangio.org/anatomy-and-variants/meningeal-vessels/)\n\n[**Middle Cerebral Artery**](https://neuroangio.org/anatomy-and-variants/middle-cerebral-artery/ \"Middle Cerebral Artery\")\n\n[**Middle Meningeal Artery**](https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/ \"Middle Meningeal Artery\")[ ](https://neuroangio.org/anatomy-and-variants/middle-meningeal-artery/ \"Middle Meningeal Artery\")\n\n[**Occipital Artery**](https://neuroangio.org/anatomy-and-variants/occipital-artery/ \"Occipital Artery\")[ ](https://neuroangio.org/anatomy-and-variants/occipital-artery/ \"Occipital Artery\")\n\n[**Ophthalmic Artery**](https://neuroangio.org/anatomy-and-variants/ophthalmic-artery/ \"Ophthalmic Artery\")\n\n[**Posterior Cerebral Artery**](https://neuroangio.org/anatomy-and-variants/posterior-cerebral-artery/ \"Posterior Cerebral Artery\")\n\n[**Posterior Inferior Cerebellar Artery (PICA)**](https://neuroangio.org/anatomy-and-variants/pica/ \"PICA\") \n\n[**Posterior Choroidal Arteries**](https://neuroangio.org/anatomy-and-variants/posterior-choroidal-arteries/ \"Posterior Choroidal Arteries\")[ ](https://neuroangio.org/anatomy-and-variants/posterior-choroidal-arteries/ \"Posterior Choroidal Arteries\")\n\n[**Posterior Communicating Artery**](https://neuroangio.org/anatomy-and-variants/posterior-communicating-artery/ \"Posterior Communicating Artery\")[ ](https://neuroangio.org/anatomy-and-variants/posterior-communicating-artery/ \"Posterior Communicating Artery\")\n\n[**Posterior Meningeal Artery**](https://neuroangio.org/anatomy-and-variants/posterior-meningeal-artery/ \"Posterior Meningeal Artery\") \n\n[**Sphenopalatine Artery**](https://neuroangio.org/anatomy-and-variants/sphenopalatine-artery/)\n\n[**Subclavian Artery**](https://neuroangio.org/anatomy-and-variants/subclavian-artery/ \"Subclavian Artery\") \n\n[**Superior Cerebellar Artery**](https://neuroangio.org/anatomy-and-variants/superior-cerebellar-artery/ \"Superior Cerebellar Artery\")[ ](https://neuroangio.org/anatomy-and-variants/superior-cerebellar-artery/ \"Superior Cerebellar Artery\")\n\n[**Thyroid Arteries**](https://neuroangio.org/anatomy-and-variants/thyroid-arteries/ \"Thyroid Arteries\")[ ](https://neuroangio.org/anatomy-and-variants/thyroid-arteries/ \"Thyroid Arteries\")\n\n[**Ventral Ophthalmic Artery**](https://neuroangio.org/anatomy-and-variants/ventral-ophthalmic-artery/)\n\n[**Vertebral Artery**](https://neuroangio.org/anatomy-and-variants/vertebral-artery/ \"Vertebral Artery\") \n\n[**Vertebrobasilar System**](https://neuroangio.org/anatomy-and-variants/vertebrobasilar-system/ \"Vertebrobasilar System\")"
+}

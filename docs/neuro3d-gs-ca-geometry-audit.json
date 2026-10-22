@@ -1,0 +1,1005 @@
+{
+  "schema": 1,
+  "source": "https://lit.fe.uni-lj.si/en/research/resources/3D-2D-GS-CA/",
+  "licenseObserved": "CC BY-NC-ND on source page; guide also requires signed agreement and prohibits unauthorized distribution; no data redistributed",
+  "sourceArchives": [
+    {
+      "file": "3D-2D-GS-CA_dataset01.zip",
+      "bytes": 89653374,
+      "sha256": "d1a7c511d2b55c73a7a5369085863573eb3a66fa8ca0995e963a8ded2dd664c4"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset02.zip",
+      "bytes": 92156248,
+      "sha256": "191416afa604e560f4b39458e8c4d42fd0b3281ce91a59b4addaaad6e78da44d"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset03.zip",
+      "bytes": 93838038,
+      "sha256": "b25228c3994e14473c2c28230d03390b929e6c465bc8db6e68ec0906853e1bb1"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset04.zip",
+      "bytes": 92579610,
+      "sha256": "22fde776a051dbed747b758c5530c3ce38d0cb50e1e6e63706456e76decd9a0e"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset05.zip",
+      "bytes": 89029734,
+      "sha256": "c767d95f8ab99b4f90356630880898af82e79277684a578942f70763c5147f6e"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset06.zip",
+      "bytes": 125516920,
+      "sha256": "7beaf2cf15ac4baff68608237b0fef672c6746ab9a154231c2371662b35d832a"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset07.zip",
+      "bytes": 90042352,
+      "sha256": "3a33458805e09af754f145ce81f947f941538e95a24eea752683fbfdb08f0005"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset08.zip",
+      "bytes": 93363830,
+      "sha256": "4e8db204e7ba41c49ff97eaaf8a581c8b06e82fba93d660bc9381fca93a75635"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset09.zip",
+      "bytes": 89086861,
+      "sha256": "f674a048cd6d3766edabd1396c1515ecb215b037e4c2ebb418451ae1de6038e6"
+    },
+    {
+      "file": "3D-2D-GS-CA_dataset10.zip",
+      "bytes": 90895110,
+      "sha256": "65275f45b8ca45ccd7416dcb93ebf130c69bfc2b31faf9ab3185cb9178673640"
+    },
+    {
+      "file": "3D-2D-GS-CA_gold-standard.zip",
+      "bytes": 1015177,
+      "sha256": "e3eb76147e62473f41b5488258c523ee8d2c6d0ee982b3907c2ef6f6f06645bf",
+      "crcVerified": true
+    }
+  ],
+  "cases": [
+    {
+      "case": 1,
+      "dimensions": [
+        512,
+        512,
+        391
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "718f3fb56aac424f05e936fdecdcfe0a1697e06b8c84c5109647ebb3cdb46108",
+        "values": 102498304,
+        "minimum": 0.0,
+        "maximum": 9964.0,
+        "crcVerified": true
+      },
+      "targetCount": 1204,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.999999580381149,
+          "orthogonalityMaxError": 6.633700000000183e-07,
+          "targetsInsideDetector": 1204,
+          "rayRoundTripMaxResidualMm": 1.1644371367388218e-13,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "dfa08217bea37219fdc0fb1fa8e122e057954a3234c5cc5cfde9549d7c31e727",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "bf995d0c73e68aa824fde7af736c767ff855254463a91133747287d9acc795c6",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 1.0000004351850091,
+          "orthogonalityMaxError": 8.759209999542605e-07,
+          "targetsInsideDetector": 1204,
+          "rayRoundTripMaxResidualMm": 5.84411263443549e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "d79f4dc1feff9c6c4d1f76733293731fb2a2e3093b1cd57f2d5ef75bc24e59de",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "c5cc491391aadf91cf8dffc9304ff211bf98a1dbdb6bc8d42012a3bc54c906a6",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 2,
+      "dimensions": [
+        512,
+        512,
+        391
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "a21e0634d8bb52b874019420efee1bab8597e037b5bd88c254fb27b3a1cdcc76",
+        "values": 102498304,
+        "minimum": 0.0,
+        "maximum": 10752.0,
+        "crcVerified": true
+      },
+      "targetCount": 2203,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 1.0000010554230905,
+          "orthogonalityMaxError": 8.866610001767583e-07,
+          "targetsInsideDetector": 2203,
+          "rayRoundTripMaxResidualMm": 1.0044763906136892e-13,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "25249f0249ecccd2e539e774bb5f734f831cb95322d49e282d81b2b3f758b2f9",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "db404120f5faab0f41195c5e1521d07a962d3e41e01e01b61b253d3cd2597435",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999988708302906,
+          "orthogonalityMaxError": 9.67773000071226e-07,
+          "targetsInsideDetector": 2203,
+          "rayRoundTripMaxResidualMm": 5.783569359282722e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "eb44e6f89208f0f993939418a00bba747b5162b25e1629c48fe139cebb81cb8c",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "03d6a496fcd9dbb1e29ff5fc4a5f7785e42740077dcdc47a5c72fc49eef234a5",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 3,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "62a6cc5da6e1e800ce6a7877724c6240ad6a2f022df31b18fc3f7444a708f330",
+        "values": 102236160,
+        "minimum": 0.0,
+        "maximum": 15507.0,
+        "crcVerified": true
+      },
+      "targetCount": 2045,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            1920,
+            2480
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999998972921377,
+          "orthogonalityMaxError": 8.805269999998744e-07,
+          "targetsInsideDetector": 2045,
+          "rayRoundTripMaxResidualMm": 8.589654269254452e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "dfd64158706010c1fde628142a6f2d16a94d6af0df2c0b2a816ac06680ee1c9c",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "55f9d78205120842024db5dfc30b3edf0dd3a1405b7ef1b251575b377c81574e",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            1920,
+            2480
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999999573418515,
+          "orthogonalityMaxError": 9.191569998456828e-07,
+          "targetsInsideDetector": 2045,
+          "rayRoundTripMaxResidualMm": 7.571948929533474e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "7b38c75f13c62a39034268ed0d4da8fcbfef435d7152ac35888855c11879c08b",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "21a2af480e97e2adcd67edaf96356fd173500663cc4fdaa323a9e387d33f7c24",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 4,
+      "dimensions": [
+        512,
+        512,
+        391
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "d95a5bdb8989c8204927c5aea250939ac3fa1f2c3b8905e753bb8c8797009219",
+        "values": 102498304,
+        "minimum": 0.0,
+        "maximum": 8105.0,
+        "crcVerified": true
+      },
+      "targetCount": 1451,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 1.000001304198627,
+          "orthogonalityMaxError": 9.891859999999753e-07,
+          "targetsInsideDetector": 1451,
+          "rayRoundTripMaxResidualMm": 6.706453701556215e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "ce1f162fa30e0838a65752fe77cabfc2ae1e5f0a85656a9d503aa52d5368ada1",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "9b5b626953728c77945adfef4fc3a0ec4b9fe9847912f027b386a8087f4f1136",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            1920,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 1.0000002761039353,
+          "orthogonalityMaxError": 7.595729999421152e-07,
+          "targetsInsideDetector": 1451,
+          "rayRoundTripMaxResidualMm": 5.822185683694109e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "0a7c562c072e5b33303dfd756553b2ffa26aaba75d9087fd910640197769d7d1",
+              "values": 3686400,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "05c62bda99efaf3e5a95ddbd60a31101cbad1e10ddb9bb473c7def7e7062bbba",
+              "values": 3686400,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 5,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "fb21519f8d9f3ae8cb2c9577098790ef30de21d0d705e4c7c9691271839234a6",
+        "values": 102236160,
+        "minimum": 0.0,
+        "maximum": 10727.0,
+        "crcVerified": true
+      },
+      "targetCount": 1169,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 1.0000002654784816,
+          "orthogonalityMaxError": 3.4759400002748464e-07,
+          "targetsInsideDetector": 1169,
+          "rayRoundTripMaxResidualMm": 1.1638272620054524e-13,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "028bc3126a13d532e92c7093ef2e64bc50eb03e83a8773957d3c7d565296cf96",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "e8adcb004e499d3f50101b322140ad64c42d4f57f9c270ceb6bec93351e1e104",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 1.000000488622248,
+          "orthogonalityMaxError": 6.891710000456186e-07,
+          "targetsInsideDetector": 1169,
+          "rayRoundTripMaxResidualMm": 5.868124730145495e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "1c6ab237b325709ad5c05c3e687c26f68480e060c2628b84f2fe58ec575ed18c",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "91eaae42688e769d1c8c16aaa46686b1ccdc97d629458f9bc7a0252229a5c5f6",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 6,
+      "dimensions": [
+        512,
+        512,
+        396
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "6cd247a5dd01e463e3ac5c9769081fb8297fd77bddb7fe5e1cd6040ac64e6f00",
+        "values": 103809024,
+        "minimum": 0.0,
+        "maximum": 12492.0,
+        "crcVerified": true
+      },
+      "targetCount": 2100,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 1.0000003296417836,
+          "orthogonalityMaxError": 8.575250000086854e-07,
+          "targetsInsideDetector": 2100,
+          "rayRoundTripMaxResidualMm": 1.141682882449122e-13,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "31dd7cbe00f867a23ceef5d3f7dba33bb2827e89ca847a115711af147b0f4ce6",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "021e96d3d7c59bfc432a651f8b44014b1b1b2dad8c9974c1ad065c71b98d8d4b",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999993471507611,
+          "orthogonalityMaxError": 9.211639998563115e-07,
+          "targetsInsideDetector": 2100,
+          "rayRoundTripMaxResidualMm": 7.248897704812598e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "6831e32bda417073f123cf3c04b8c4db24202617a51975ecfec3c00971c8020f",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "ecb0fe0e3f79d4df419e6716dc9549e23a5391d80224568261515aa860169f9d",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 7,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "38eeb7eb868932734c26d32684faed887bc207c0f0e7f70aa6eb03e51c29c90b",
+        "values": 102236160,
+        "minimum": 0.0,
+        "maximum": 10432.0,
+        "crcVerified": true
+      },
+      "targetCount": 1131,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999998621704675,
+          "orthogonalityMaxError": 9.703189999266115e-07,
+          "targetsInsideDetector": 1131,
+          "rayRoundTripMaxResidualMm": 9.374385571418572e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "511bc6c130743f1b6d5a8955ddc1021028d9c66fd7ac3a4d512d6b69bd42e388",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "8d710a4209cff3e6d1bd09d5d46610689348d23f2c6f86406333612d0d4fdb8f",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999998696156114,
+          "orthogonalityMaxError": 7.811469999730036e-07,
+          "targetsInsideDetector": 1131,
+          "rayRoundTripMaxResidualMm": 6.552234932783661e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "c0cc4cd3df13faaed0c15f72345a841780f2b07baa54f36cd84ac6799c31144d",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "ad9d0e02e506c4fb885d788bbc305314a20f93341004c7f341db21addd3f11db",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 8,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "b54d8ed276875882570893965f97431a3db7ec27bdfa871d03fa751faaef9f87",
+        "values": 102236160,
+        "minimum": 0.0,
+        "maximum": 12987.0,
+        "crcVerified": true
+      },
+      "targetCount": 2424,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            1920,
+            2480
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.999999797535866,
+          "orthogonalityMaxError": 9.890630000564116e-07,
+          "targetsInsideDetector": 2424,
+          "rayRoundTripMaxResidualMm": 9.972942541209448e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "95a56b9aea91fd653d2259bae3f3790143a1b62ec871c3043a142c5101fdfa3a",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "183c853b1f1664032512fbb8fc1127c733bd4d664291d7b4a66ba1ef787657e9",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            1920,
+            2480
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999992687418344,
+          "orthogonalityMaxError": 7.132989998659411e-07,
+          "targetsInsideDetector": 2424,
+          "rayRoundTripMaxResidualMm": 9.976576364585347e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "3a7ff1dfdb7c3402a50c15895678f3695b55448ce1415a35adaa275719f5c75b",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "dd74bf8059dc90cdc5c1fcae4b4533a1bd1d413d5cb3ef38c4027275fef44d9e",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 9,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "161945220c2d1531b3da50ad217900ecfc4b52af977dce0217991ff813893a58",
+        "values": 102236160,
+        "minimum": 0.0,
+        "maximum": 14505.0,
+        "crcVerified": true
+      },
+      "targetCount": 1374,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.999999695674164,
+          "orthogonalityMaxError": 6.224990000136543e-07,
+          "targetsInsideDetector": 1374,
+          "rayRoundTripMaxResidualMm": 5.734772108694815e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "685423bbbae3e645ea1cf159569e42b44b61da26b58116c2cccd399899afd018",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "780d3110bdb4f50e434454a809de68db20e31ea181f2d5e92aec3d65131ba25a",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            1920,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 1.0000003313878199,
+          "orthogonalityMaxError": 6.555850000644625e-07,
+          "targetsInsideDetector": 1374,
+          "rayRoundTripMaxResidualMm": 6.489405532402124e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "b7afc304b0253f8ad5ddd2b8a4d2d7d9714abf453efa460102e64eca3a177dc9",
+              "values": 3686400,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "842776da0e5c1c8d814fc96493e2d0b400eaad57bcf2feb723f306a9b593f0a8",
+              "values": 3686400,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": 10,
+      "dimensions": [
+        512,
+        512,
+        390
+      ],
+      "spacingMm": [
+        0.464564,
+        0.464564,
+        0.464564
+      ],
+      "volume": {
+        "sha256": "3399a67bc5e385b8f1ea836906697ac1b0fee448c6abe8d05f934d2ec012dc80",
+        "values": 102236160,
+        "minimum": 0.0,
+        "maximum": 12506.0,
+        "crcVerified": true
+      },
+      "targetCount": 1327,
+      "targetPointsWithinVolumeExtent": true,
+      "displacementCount": 400,
+      "views": [
+        {
+          "view": "AP",
+          "dimensions": [
+            2480,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999999579462221,
+          "orthogonalityMaxError": 5.260270000002403e-07,
+          "targetsInsideDetector": 1327,
+          "rayRoundTripMaxResidualMm": 1.2171467731298707e-13,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "e99539b10eded3bb195ca055b131292c78e2efcee7582f7bdd42612508761dee",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "1731da8554204af0c24caf8bf0c55112aa1cecf64734246d6fa9bb274085e270",
+              "values": 4761600,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        },
+        {
+          "view": "LAT",
+          "dimensions": [
+            1920,
+            1920
+          ],
+          "pixelSpacingMm": [
+            0.154,
+            0.154
+          ],
+          "dsaMaxSameGeometry": true,
+          "rotationDeterminant": 0.9999992079533757,
+          "orthogonalityMaxError": 7.579299999838085e-07,
+          "targetsInsideDetector": 1327,
+          "rayRoundTripMaxResidualMm": 5.835169990805917e-14,
+          "images": [
+            {
+              "modality": "DSA",
+              "sha256": "4e44824fa9a0300f1ae23c49ee02e59284f494305940510c3e7da138fe70dcdb",
+              "values": 3686400,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            },
+            {
+              "modality": "MAX",
+              "sha256": "9567c73cb55678eeb13d896dba918643a84e4331db4c80fb60e55fe8b6dc5f42",
+              "values": 3686400,
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "crcVerified": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "goldStandardResultCollections": 60,
+  "executed": "Independent local Python/numpy header, byte-count, CRC, SHA, finite-data and ray/plane consistency checks",
+  "notExecuted": [
+    "Matlab/MEX binaries",
+    "MGP registration algorithm",
+    "Image landmark or clinical accuracy validation",
+    "App import or atlas registration"
+  ],
+  "coordinatePolicy": "Source Sv/Sw millimetres retained; no automatic RAS/LPS/atlas conversion",
+  "limitations": "Round-trip residual is internal algebraic consistency, not observed landmark error, mTRE/mRPD or reproduction of published accuracy."
+}

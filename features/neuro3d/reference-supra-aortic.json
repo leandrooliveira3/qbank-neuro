@@ -1,0 +1,97 @@
+{
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "attribution": "BodyParts3D / DBCLS \u2192 Z-Anatomy \u2192 Anatria3D \u2192 QBank-Neuro head/neck subset",
+  "coordinateSystem": "Upstream glTF coordinates, metres, Y up; original node transforms retained. Not registered to patient images.",
+  "file": "reference-supra-aortic.bin",
+  "size": 221960,
+  "uncompressedSize": 617551,
+  "sha256": "009837cbbcdefbc2d703933673f9906221ace141e0afcf282e17d950b6eb1361",
+  "structures": [
+    {
+      "id": "aortic_arch",
+      "layer": "arterial",
+      "originalFaces": 576,
+      "faces": 576
+    },
+    {
+      "id": "supreme_intercostal_artery_l",
+      "layer": "arterial",
+      "originalFaces": 576,
+      "faces": 576
+    },
+    {
+      "id": "supreme_intercostal_artery_r",
+      "layer": "arterial",
+      "originalFaces": 576,
+      "faces": 576
+    },
+    {
+      "id": "right_subclavian_artery",
+      "layer": "arterial",
+      "originalFaces": 864,
+      "faces": 864
+    },
+    {
+      "id": "left_subclavian_artery",
+      "layer": "arterial",
+      "originalFaces": 1152,
+      "faces": 1152
+    },
+    {
+      "id": "inferior_thyroid_artery_l",
+      "layer": "arterial",
+      "originalFaces": 1440,
+      "faces": 1440
+    },
+    {
+      "id": "inferior_thyroid_artery_r",
+      "layer": "arterial",
+      "originalFaces": 1440,
+      "faces": 1440
+    },
+    {
+      "id": "transverse_cervical_artery_l",
+      "layer": "arterial",
+      "originalFaces": 3168,
+      "faces": 3168
+    },
+    {
+      "id": "transverse_cervical_artery_r",
+      "layer": "arterial",
+      "originalFaces": 3168,
+      "faces": 3168
+    },
+    {
+      "id": "brachiocephalic_trunk",
+      "layer": "arterial",
+      "originalFaces": 576,
+      "faces": 576
+    },
+    {
+      "id": "costocervical_trunk_l",
+      "layer": "arterial",
+      "originalFaces": 288,
+      "faces": 288
+    },
+    {
+      "id": "costocervical_trunk_r",
+      "layer": "arterial",
+      "originalFaces": 288,
+      "faces": 288
+    },
+    {
+      "id": "thyrocervical_trunk_l",
+      "layer": "arterial",
+      "originalFaces": 288,
+      "faces": 288
+    },
+    {
+      "id": "thyrocervical_trunk_r",
+      "layer": "arterial",
+      "originalFaces": 288,
+      "faces": 288
+    }
+  ],
+  "projectionCoordinates": "Source world cm; Y minus160, same as atlas. Up to 4000 faces per structure. Gland and dura are selection context only, never radiopaque signal."
+}

@@ -1,0 +1,34 @@
+Reference geometry and navigation data — QBank-Neuro
+
+reference-network.json, reference-surfaces.json and the associated
+public/neuro3d/open-anatomy/reference-surfaces.bin are adaptations of the
+male atlas meshes distributed by Anatria3D, derived from Z-Anatomy and
+BodyParts3D / DBCLS. These adapted data remain CC BY-SA 4.0.
+
+Attribution chain and licence links:
+  BodyParts3D / DBCLS — CC BY-SA 2.1 Japan
+  Z-Anatomy — CC BY-SA 4.0
+  Anatria3D male atlas adaptations — CC BY-SA 4.0
+  QBank-Neuro — geometry decimation, common-coordinate packing,
+  voxel-derived medial axes, computational junctions and route metadata.
+
+See public/neuro3d/open-anatomy/NOTICE and LICENSE for the full upstream
+attribution and https://creativecommons.org/licenses/by-sa/4.0/ for terms.
+Computational derivation does not establish independent anatomical validation.
+
+2026-10-17: reconstructedArteries.ts adds original illustrative branch curves
+anchored to the derived atlas frame. The branch geometry, source-frame anchors
+and their derived surfaces are also distributed under CC BY-SA 4.0. They are
+not copied image segmentations or validated anatomical measurements.
+
+2026-10-17: reference-distal-aca.bin preserves four full-resolution
+pericallosal/callosomarginal source meshes in the same atlas frame. Derived
+data remain CC BY-SA 4.0 with the attribution above. No patient-image
+registration or independent anatomical validation is implied.
+
+2026-10-20: educational-vascular-paths.json and educationalVessels.ts add 301
+original hand-authored illustrative vessel/plexus structures under CC BY-SA 4.0.
+Topology references are cited per template. Numerical controls/calibres are not
+measured anatomy, patient segmentation, or recovered repository meshes. No
+Neuroangio/book figures are redistributed. These additions do not extend the
+procedural device/contrast graph. See docs/neuro3d-educational-additions.md.

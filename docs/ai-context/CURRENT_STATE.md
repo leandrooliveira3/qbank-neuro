@@ -1,0 +1,102 @@
+# Estado atual — XLS original, componentes e inspeção nativa
+
+Leia o bloco mais recente e ../neuro3d-gs-ca-components.md; registros anteriores são históricos.
+
+# Estado atual — prévia vascular GS-CA entregue
+
+Leia o bloco de22/10 ao final e ../neuro3d-gs-ca-study.md. Registros anteriores são históricos. Base629199a; novo checkpoint identificado porGit.
+
+# Estado atual — visor GS-CA entregue
+
+Última etapa ao final e em ../neuro3d-gs-ca-viewer.md. Basef7a04e6; registros anteriores abaixo são históricos. Nenhum vaso novo;20ausências/373lacunas mantidas.
+
+# Estado atual — bordas e cortes oblíquos entregues
+
+Última etapa ao final; ver ../neuro3d-skull-boundary-review.md. Base97d2a94. Blocos anteriores abaixo são históricos. Nenhuma nova geometria vascular;20ausências/373lacunas preservadas.
+
+# Estado atual — hierarquia V2 e contexto motor
+
+Última etapa: continuidade/limites descritos ao final deste documento e em ../neuro3d-contour-continuity-review.md. Base7b08047, continuation/contour-continuity. Conteúdo anterior abaixo permanece histórico, não estado de publicação deste lote.
+
+# Estado verificável — testemunhos ósseos e proveniência
+
+Atualizado21/10/2026. Base cc947c3e181816be6d91169ac0fcf616fe89dad5, árvore95dc5b46ea03853cf0df456cdeab90787e4bd23b, feature/neuro3d-atlas/PR2rascunho, VercelSUCCESS reconfirmado. Branchlocal continuation/skull-landmarks criada do remoto. O commit que contém este documento identifica o novo checkpoint; confirmar hash/árvore/deployment no fechamento. Original e cinco arquivos não rastreados preservados.
+
+## Prioridade e autorização
+
+Completude vascular Neuroangio é P0máximo: identidade/lado, ramos, trajeto, anastomoses e forames. Auditoria própria autorizada; evidência técnica não equivale a homologação anatômica. GS-CA/VOI preservado como apoio, sem cancelar demaisfrentes.
+
+## Entrega atual
+
+- Quatro testemunhos reais da borda do esfenoide, dois cortes Z29/30mm por lado, com triângulo/baricêntricas/hash/coordenadas. Contorno ósseo contém todo o perfil V2 nesses planos, sem cruzamento de arestas. Ponto da borda, não centro do nervo renomeado como forame. Nome do forame/túnel3D/passagem arterial seguem não certificados.
+- Inspetor existente permite abrir esses pontos, campo60/20/10mm, mostrar perfis nativos e ponto de revisão no mesmo plano3D, exportar evidência. Não move malhas ou registra datasets. Destaque seccional somente no plano para o qual foi comprovado.
+- Proveniência dirigida: seis nós vasculares (vidiana, lacrimal, meníngea média bilaterais) têm payload/transformações iguais à fonte fixa. Objetos são CURVE no vendor, não prova de segmentação clínica. Ramo esfenoidal tem três controles ilustrativos locais, não anastomose derivada de imagem.
+- Foramen rotundum.j/ovale.j/spinosum.j/Pterygoid canal.j constam como MESH na auditoria, mas são skipped no relatório de exportação e não possuem nó no GLB esquelético. Startup.blend não executado. Nome/tipo de objeto não provam malha utilizável.
+- Sete termos venosos mantidos sem correspondência geométrica, com substituições rejeitadas, motivos/fontes e exportação. Ausências bilaterais mostram agora o ID do lado correto. Não criadas geometrias ou identidades para zerar lacunas.
+
+Ler [relatório atual](../neuro3d-skull-landmarks-review.md), [auditoria de fonte](../neuro3d-skull-source-audit.json) e ../../features/neuro3d/skull-landmark-evidence.json. Não refazer essas provas sem mudança/evidência nova.
+
+## Entregas acumuladas e achados mantidos
+
+Inspetor8contextos/26elos/31superfícies e plano3D entregues antes. Cortes originais/ilustrativos separados, GLBSHA e hashes canônicos conferidos; erro/retry/exportação mantidos. Limites inferiores: vidiana–ACI4,578mm e esfenoidal–lacrimal3,788mm nominais, bilaterais. Novos pontos V2 estão a aproximadamente22–23mm das superfícies ilustrativas dos ramos redondos; distância ponto→todas as faces, sem certificar que o ponto é o forame. Nenhuma ponte/deslocamento/renomeação realizada.
+
+322exigências/612IDs esperados/592representados sem homologação,20sem geometria/373sem referência.1114importações originais/1112ativas,353reconstruções mantidas. Sete termos venosos adicionais não certificam exaustividade nem alteraram essas contagens. Galeno–seio reto e sete rótulos107,4,26b,70a,74a,114a,115a seguem sem comprovação.28faces degeneradas retinais e oito representações embrionárias adicionais históricas continuam pendentes.
+
+## Próxima prova necessária
+
+Continuidade3D e correspondência anatômica do contexto V2, antes de nomear o forame. V3: divisões mandibulares não provam todo o tronco pré-foraminal. Raiz motora do trigêmeo individual existe no manifesto; investigar como contexto adicional do oval, sem equiparar ao tronco sensitivoV3. Componentes ICAvidiana e meningo-lacrimal/recorrente ainda não individualizados de forma certificada. Não aproximar ramos ilustrativos da borda para eliminar medidas.
+
+## Frentes preservadas e validação
+
+42cortes/comparadorBRAVE-VENAT, vínculo físico e Anatria→Qbank do seio reto mantidos, espaços independentes. GS-CA dezcasos auditados; visorMHD/RAW/RAD/VOI pendente, dados locais restritos não redistribuídos. CTA complementar, limitescompressão/memória mantidos. Paciente3D DICOMreconstruído LPSmm, Doppler analítico, Mentice/VascularTwin, REA/Ankyras, embriologia/acessos/dispositivos mantidos; sem reconstruçãoXA ou recomendação clínica automática.
+
+TypeScript,142unitários/36arquivos e build aprovados; auditorias dirigidas executadas, sem repetir592vasos. 40 casos únicos de navegador aprovados em11arquivos, desktop e Pixel7: rodada ampla38mais dois casos novos de reconciliação/exportação venosa. Repetições dirigidas não somadas. A versão final dos testes ósseos também confere o alvo da câmera no ponto de origem. Capturas nativas das bordas V2 e plano/ponto3D desktop/mobile inspecionadas; em primeira inspeção o ponto era pequeno na visão geral, e o foco da câmera foi ajustado sem mover anatomia. Não houve teste remoto de navegador. Aviso de chunks>500kB permanece. Preview autorizado sem merge/force, confirmar commit exato.
+
+
+## 21/10/2026 — hierarquia, continuidade amostrada e limite motor
+
+Base7b080470f0ca286700774110062a4d4d2a846a97, árvore5d81326afff7b6b6d289822f47506e1ee484fdce; remoto conferido, branchlocal continuation/contour-continuity. Fonte fixa e referenciais preservados. Ver ../neuro3d-contour-continuity-review.md e features/neuro3d/contour-continuity-evidence.json.
+
+42novas secções V2:18/21contidas porlado, hierarquia pai/filho e orientação original oposta;17transições com triângulos ósseos compartilhados. Últimos3níveis não demonstram contenção. Esfenoide tem162bordas poríndices após excluir4faces degeneradas;32bordas permanecem na cópia diagnóstica de costuras, deslocamento0. Não certifica sólido/vazio/túnel/forame ou continuidade entre amostras. Raízes motoras482vértices/960faces porlado, segmentos curtos separados do esfenoide por≥12,143mm nominais segundo caixas; não são V3 sensitivo nem curso completo do oval.
+
+Sete termos venosos confrontados com7192rótulos ingleses TA2 da fonte fixa (blob71bef934c23d207550ad1f318ec6edd8551cdba4): seis sem correspondência exata, braquial lexical rejeitado por território; grupo pontino genérico não individualiza canal transverso. IDs terminológicos não viram malhas. Zero novas geometrias/identidades aprovadas.20ausências/373lacunas, Galeno, sete rótulos e componentes ICAvidiana/meningo-lacrimal permanecem. Todas as frentesGS-CA/VOI/Paciente3D/Doppler/Mentice/VascularTwin/REA/Ankyras preservadas; dados restritos não redistribuídos.
+
+PróximoP0: localizar32bordas abertas remanescentes e investigar transiçãoZ31,4→31,6 com contexto nativo/oblíquo e fonte óssea rotulada, sem reparar ou estender anatomia por inferência. Consultas bibliográficas não equivalem a ferramentas executadas. O commit que contém esta etapa identifica o novo checkpoint; confirmar hash/árvore/status remoto no fechamento.
+
+Validação final desta etapa:146unitários/37arquivos,42casos únicos de navegador/12arquivos,TypeScript/build aprovados. Capturas desktop/mobile inspecionadas, origem/offset3D/exportação conferidos. Publicação será confirmada por hash/árvore/status exatos no fechamento e comprovante local. Sem validação clínica ou promoção de nomes anatômicos.
+
+
+## 21/10/2026 — bordas localizadas e cortes oblíquos no atlas
+
+Base97d2a9413bfdba1654d70fedcb02a10d84989580, continuation/skull-boundaries. Entrega e limites em ../neuro3d-skull-boundary-review.md; dados em features/neuro3d/skull-boundary-evidence.json e sphenoid-lineage-evidence.json.32arestas em2grupos16, origem/análise/exportação e sobreposição3D;4cortes oblíquos coincidentes; refinamento31,42→31,44mm. Esfenoide payload/ancestralidade iguais à fonte; defeitos não introduzidos pelo recorte. Não certifica forames/túneis; nenhuma geometria reparada ou vaso criado.
+
+P0seguinte: voltar à completude vascular e fluxos de estudo, buscar fonte individual utilizável para20ausências venosas,373referências e7termos. Não repetir bordas/cortes/auditoria592sem nova evidência. Cadência pedida pelo usuário: lotes integrados e documentação concisa, sem uma etapa por microachado. Galeno/seteIDs/componentes e todas as frentes preservados. Hash do novo checkpoint será confirmado ao publicar, sem merge/force.
+
+Validação final:149unitários/38arquivos;24casos únicos de navegador/7arquivos aprovados, com10reexecuções dirigidas após ajustesvisuais. TypeScript/build e auditores dirigidos aprovados; capturas finais inspecionadas. Sem navegador remoto ou homologação anatômica.
+
+
+## 22/10/2026 — visor GS-CA local e vínculo físico entregue
+
+Basef7a04e68f67b8e25f2155acadd554360ba2ec80e; continuation/gs-ca-workspace. AbaGeometria3D–2D comMHD/RAWsigned16, RAD/RAWfloat32, cortes3eixos/janelas, VOI/ROImanuais, alvosSvfracionários, projeçãoSw→detector e cliqueinverso nocorte, cena3Dcaixa/raio eexportação local. Sem envio/registro noatlas/segmentaçãoclínica. Leia ../neuro3d-gs-ca-viewer.md e agregado devalidação.
+
+153unitários/39arquivos,24casos únicos denavegador/7arquivos,TypeScript/build aprovados; ensaioUIrealcaso1:4projeções×2alvos/3eixos,5hashesRAW iguais à auditoriaanterior,0erros/0nãoGET. Capturas privadas. Precisãoderegistro permanecefalse; não refeitos10casos/592vasos/bordas. TopBrainapenasconsultado, rótulospublicados não individualizam20ausências ou7termos; nenhumdownload/execução/importação.20/373/Galeno/seteIDs/componentes e demaisfrentes mantidos.
+
+PróximoP0: geometria local útil para estudo vascular (VOI/ROI com metadados verificados, isosuperfície/segmentaçãoemSw ou conferência quantitativa de alvos observados). ZIP/XLS automáticos pendentes; não repetir auditoriasprontas. Checkpoint será confirmado porhash/árvore/deployment exatos, sem merge/force.
+
+
+## 22/10/2026 — prévia vascular GS-CA e recortes locais
+
+Base `629199a63487e794be742fd7cf940b9f13cb5fde`; branch local `continuation/gs-ca-surface-metadata`, destino `feature/neuro3d-atlas`, sem merge/force. O commit que contém este registro identifica o novo checkpoint; hash remoto/status exatos ficam no comprovante privado da publicação.
+
+Entregues: reimportação JSON da própria revisão com VOI/ROI zero-based inclusivos, prévia antes de aplicar, hashes/cabeçalhos vinculados ao caso; isosuperfície Marching Cubes no worker, Sw nativo, resolução/limiar/memória explícitos, extremidades amostradas, sem tampas de recorte, limite 150 mil triângulos rejeitando malha parcial. Interseções da mesma malha nos cortes X/Y/Z e enquadramento 3D da VOI. Alteração de VOI/limiar/resolução invalida a prévia; alvos fracionários preservados. Exporta parâmetros e proveniência, sem publicar malhas/dados restritos.
+
+156 testes unitários/40 arquivos, 16 casos de navegador/3 arquivos (desktop+Pixel7), TypeScript/build aprovados. Caso real1: três superfícies, recortes reimportados, três eixos, alvo fracionário/hash do volume preservados, zero erros/nãoGET; imagens e calibrações privadas. Aviso histórico de chunks >500kB permanece. Não é validação clínica, mTRE/mRPD ou completude vascular. Ver `../neuro3d-gs-ca-study.md` e agregado de validação.
+
+Importação é do formato próprio explicitamente rotulado; não há conversão automática comprovada de `database_info.xls` ou ZIP. Não inventar equivalência de índices do fornecedor. 20 ausências venosas, 373 lacunas e sete termos não mapeados permanecem; Galeno, sete identidades, ICA-vidiana/meningo-lacrimal e demais frentes preservados. Nenhuma nova geometria anatômica rotulada, ponte, reparo ou registro no atlas. Sem repetição das auditorias prontas e sem execução de código do fornecedor.
+
+
+## 22/10/2026 — XLS original e componentes GS-CA
+
+Base `cecfb4801ea7244f3bcee6c845d25ea64a233be0`, local `continuation/gs-ca-component-study`, destino feature/neuro3d-atlas sem merge/force. Convenção XLS comprovada no guia seção3.5pp8–9: zero/inclusivo, VOI X/Y/Z e ROI AP/LAT por índices; adapter original com hash da planilha e vínculo dos hashes volume/MHD/RAD, prévia e aplicação. Dez abas comparadas com xlrd independente, sem reaudar volumes. Componentes por aresta exata, seleção/lista/clique3D e contornos; entorno do alvo em passo1 com retorno à VOI anterior. Sem soldagem por tolerância, nomeação ou prova luminal. SheetJS0.20.3 oficial/Apache2.0 fixado, parser sob demanda no worker; formato ES necessário aos workers e revalidado.
+
+159unitários/41arquivos,22casos navegador/4arquivos desktop+Pixel7, TypeScript/build aprovados. Caso real1: XLS/quatroROIs/alvofracionário, superfície3668tri/102componentes, seleção2036tri; entorno12400tri/55componentes em passo1; três cortes/3D e restauração conferidos,0erros/0nãoGET. Dados/recortes/calibrações privados. Ver ../neuro3d-gs-ca-components.md e agregado. ZIP automático/validação anatômica/registro seguem pendentes;20/373/setetermos/Galeno/seteIDs/componentesICAvidiana/meningolacrimal/demaisfrentes mantidos. Nãoexecutado fornecedor, não repetidos592/42/bordas. Commit que contém este arquivo identifica checkpoint; confirmar remoto/status exatos no comprovante privado.

@@ -1,0 +1,2029 @@
+{
+  "version": 1,
+  "coordinateSystem": "centimetres; source glTF world \u00d7100, Y minus160; same as atlas display",
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "sha256": "692336ddca273953311e3d00d658b2c5e0dfc03ccd7bc9056279a8fe8143916c",
+  "size": 3136516,
+  "structures": [
+    {
+      "id": "atlas_c1",
+      "layer": "bone",
+      "positionsOffset": 0,
+      "positionsCount": 1788,
+      "indicesOffset": 7152,
+      "indicesCount": 3600,
+      "originalFaces": 2194
+    },
+    {
+      "id": "axis_c2",
+      "layer": "bone",
+      "positionsOffset": 21552,
+      "positionsCount": 1788,
+      "indicesOffset": 28704,
+      "indicesCount": 3600,
+      "originalFaces": 2334
+    },
+    {
+      "id": "lower_canine_l",
+      "layer": "bone",
+      "positionsOffset": 43104,
+      "positionsCount": 1806,
+      "indicesOffset": 50328,
+      "indicesCount": 3600,
+      "originalFaces": 1276
+    },
+    {
+      "id": "lower_canine_r",
+      "layer": "bone",
+      "positionsOffset": 64728,
+      "positionsCount": 1806,
+      "indicesOffset": 71952,
+      "indicesCount": 3600,
+      "originalFaces": 1276
+    },
+    {
+      "id": "upper_canine_l",
+      "layer": "bone",
+      "positionsOffset": 86352,
+      "positionsCount": 1806,
+      "indicesOffset": 93576,
+      "indicesCount": 3600,
+      "originalFaces": 1470
+    },
+    {
+      "id": "upper_canine_r",
+      "layer": "bone",
+      "positionsOffset": 107976,
+      "positionsCount": 1806,
+      "indicesOffset": 115200,
+      "indicesCount": 3600,
+      "originalFaces": 1470
+    },
+    {
+      "id": "lower_lateral_incisor_l",
+      "layer": "bone",
+      "positionsOffset": 129600,
+      "positionsCount": 1566,
+      "indicesOffset": 135864,
+      "indicesCount": 3120,
+      "originalFaces": 1040
+    },
+    {
+      "id": "lower_lateral_incisor_r",
+      "layer": "bone",
+      "positionsOffset": 148344,
+      "positionsCount": 1566,
+      "indicesOffset": 154608,
+      "indicesCount": 3120,
+      "originalFaces": 1040
+    },
+    {
+      "id": "upper_lateral_incisor_l",
+      "layer": "bone",
+      "positionsOffset": 167088,
+      "positionsCount": 1806,
+      "indicesOffset": 174312,
+      "indicesCount": 3600,
+      "originalFaces": 1454
+    },
+    {
+      "id": "upper_lateral_incisor_r",
+      "layer": "bone",
+      "positionsOffset": 188712,
+      "positionsCount": 1806,
+      "indicesOffset": 195936,
+      "indicesCount": 3600,
+      "originalFaces": 1454
+    },
+    {
+      "id": "lower_medial_incisor_l",
+      "layer": "bone",
+      "positionsOffset": 210336,
+      "positionsCount": 1482,
+      "indicesOffset": 216264,
+      "indicesCount": 2952,
+      "originalFaces": 984
+    },
+    {
+      "id": "lower_medial_incisor_r",
+      "layer": "bone",
+      "positionsOffset": 228072,
+      "positionsCount": 1482,
+      "indicesOffset": 234000,
+      "indicesCount": 2952,
+      "originalFaces": 984
+    },
+    {
+      "id": "upper_medial_incisor_l",
+      "layer": "bone",
+      "positionsOffset": 245808,
+      "positionsCount": 1806,
+      "indicesOffset": 253032,
+      "indicesCount": 3600,
+      "originalFaces": 1368
+    },
+    {
+      "id": "upper_medial_incisor_r",
+      "layer": "bone",
+      "positionsOffset": 267432,
+      "positionsCount": 1806,
+      "indicesOffset": 274656,
+      "indicesCount": 3600,
+      "originalFaces": 1368
+    },
+    {
+      "id": "lower_first_molar_tooth_l",
+      "layer": "bone",
+      "positionsOffset": 289056,
+      "positionsCount": 1818,
+      "indicesOffset": 296328,
+      "indicesCount": 3600,
+      "originalFaces": 4508
+    },
+    {
+      "id": "lower_first_molar_tooth_r",
+      "layer": "bone",
+      "positionsOffset": 310728,
+      "positionsCount": 1818,
+      "indicesOffset": 318000,
+      "indicesCount": 3600,
+      "originalFaces": 4508
+    },
+    {
+      "id": "upper_first_molar_tooth_l",
+      "layer": "bone",
+      "positionsOffset": 332400,
+      "positionsCount": 1806,
+      "indicesOffset": 339624,
+      "indicesCount": 3600,
+      "originalFaces": 2176
+    },
+    {
+      "id": "upper_first_molar_tooth_r",
+      "layer": "bone",
+      "positionsOffset": 354024,
+      "positionsCount": 1806,
+      "indicesOffset": 361248,
+      "indicesCount": 3600,
+      "originalFaces": 2176
+    },
+    {
+      "id": "lower_second_molar_tooth_l",
+      "layer": "bone",
+      "positionsOffset": 375648,
+      "positionsCount": 1806,
+      "indicesOffset": 382872,
+      "indicesCount": 3600,
+      "originalFaces": 1676
+    },
+    {
+      "id": "lower_second_molar_tooth_r",
+      "layer": "bone",
+      "positionsOffset": 397272,
+      "positionsCount": 1806,
+      "indicesOffset": 404496,
+      "indicesCount": 3600,
+      "originalFaces": 1676
+    },
+    {
+      "id": "upper_second_molar_tooth_l",
+      "layer": "bone",
+      "positionsOffset": 418896,
+      "positionsCount": 1806,
+      "indicesOffset": 426120,
+      "indicesCount": 3600,
+      "originalFaces": 1844
+    },
+    {
+      "id": "upper_second_molar_tooth_r",
+      "layer": "bone",
+      "positionsOffset": 440520,
+      "positionsCount": 1806,
+      "indicesOffset": 447744,
+      "indicesCount": 3600,
+      "originalFaces": 1844
+    },
+    {
+      "id": "lower_first_premolar_l",
+      "layer": "bone",
+      "positionsOffset": 462144,
+      "positionsCount": 1806,
+      "indicesOffset": 469368,
+      "indicesCount": 3600,
+      "originalFaces": 1222
+    },
+    {
+      "id": "lower_first_premolar_r",
+      "layer": "bone",
+      "positionsOffset": 483768,
+      "positionsCount": 1806,
+      "indicesOffset": 490992,
+      "indicesCount": 3600,
+      "originalFaces": 1222
+    },
+    {
+      "id": "upper_first_premolar_l",
+      "layer": "bone",
+      "positionsOffset": 505392,
+      "positionsCount": 1806,
+      "indicesOffset": 512616,
+      "indicesCount": 3600,
+      "originalFaces": 1684
+    },
+    {
+      "id": "upper_first_premolar_r",
+      "layer": "bone",
+      "positionsOffset": 527016,
+      "positionsCount": 1806,
+      "indicesOffset": 534240,
+      "indicesCount": 3600,
+      "originalFaces": 1684
+    },
+    {
+      "id": "lower_second_premolar_l",
+      "layer": "bone",
+      "positionsOffset": 548640,
+      "positionsCount": 1776,
+      "indicesOffset": 555744,
+      "indicesCount": 3540,
+      "originalFaces": 1180
+    },
+    {
+      "id": "lower_second_premolar_r",
+      "layer": "bone",
+      "positionsOffset": 569904,
+      "positionsCount": 1776,
+      "indicesOffset": 577008,
+      "indicesCount": 3540,
+      "originalFaces": 1180
+    },
+    {
+      "id": "upper_second_premolar_l",
+      "layer": "bone",
+      "positionsOffset": 591168,
+      "positionsCount": 1806,
+      "indicesOffset": 598392,
+      "indicesCount": 3600,
+      "originalFaces": 1554
+    },
+    {
+      "id": "upper_second_premolar_r",
+      "layer": "bone",
+      "positionsOffset": 612792,
+      "positionsCount": 1806,
+      "indicesOffset": 620016,
+      "indicesCount": 3600,
+      "originalFaces": 1554
+    },
+    {
+      "id": "mandible",
+      "layer": "bone",
+      "positionsOffset": 634416,
+      "positionsCount": 1839,
+      "indicesOffset": 641772,
+      "indicesCount": 3597,
+      "originalFaces": 18834
+    },
+    {
+      "id": "maxilla_l",
+      "layer": "bone",
+      "positionsOffset": 656160,
+      "positionsCount": 1800,
+      "indicesOffset": 663360,
+      "indicesCount": 3600,
+      "originalFaces": 4798
+    },
+    {
+      "id": "maxilla_r",
+      "layer": "bone",
+      "positionsOffset": 677760,
+      "positionsCount": 1800,
+      "indicesOffset": 684960,
+      "indicesCount": 3600,
+      "originalFaces": 4798
+    },
+    {
+      "id": "vertebra_c3",
+      "layer": "bone",
+      "positionsOffset": 699360,
+      "positionsCount": 1788,
+      "indicesOffset": 706512,
+      "indicesCount": 3600,
+      "originalFaces": 2440
+    },
+    {
+      "id": "vertebra_c4",
+      "layer": "bone",
+      "positionsOffset": 720912,
+      "positionsCount": 1788,
+      "indicesOffset": 728064,
+      "indicesCount": 3600,
+      "originalFaces": 1940
+    },
+    {
+      "id": "vertebra_c5",
+      "layer": "bone",
+      "positionsOffset": 742464,
+      "positionsCount": 1788,
+      "indicesOffset": 749616,
+      "indicesCount": 3600,
+      "originalFaces": 2336
+    },
+    {
+      "id": "vertebra_c6",
+      "layer": "bone",
+      "positionsOffset": 764016,
+      "positionsCount": 1788,
+      "indicesOffset": 771168,
+      "indicesCount": 3600,
+      "originalFaces": 2304
+    },
+    {
+      "id": "vertebra_c7",
+      "layer": "bone",
+      "positionsOffset": 785568,
+      "positionsCount": 1788,
+      "indicesOffset": 792720,
+      "indicesCount": 3600,
+      "originalFaces": 2164
+    },
+    {
+      "id": "inferior_alveolar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 807120,
+      "positionsCount": 1074,
+      "indicesOffset": 811416,
+      "indicesCount": 2100,
+      "originalFaces": 5184
+    },
+    {
+      "id": "inferior_alveolar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 819816,
+      "positionsCount": 1071,
+      "indicesOffset": 824100,
+      "indicesCount": 2097,
+      "originalFaces": 5184
+    },
+    {
+      "id": "posterior_superior_alveolar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 832488,
+      "positionsCount": 1074,
+      "indicesOffset": 836784,
+      "indicesCount": 2097,
+      "originalFaces": 2592
+    },
+    {
+      "id": "posterior_superior_alveolar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 845172,
+      "positionsCount": 1074,
+      "indicesOffset": 849468,
+      "indicesCount": 2097,
+      "originalFaces": 2592
+    },
+    {
+      "id": "angular_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 857856,
+      "positionsCount": 1107,
+      "indicesOffset": 862284,
+      "indicesCount": 2100,
+      "originalFaces": 11808
+    },
+    {
+      "id": "angular_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 870684,
+      "positionsCount": 1113,
+      "indicesOffset": 875136,
+      "indicesCount": 2097,
+      "originalFaces": 11808
+    },
+    {
+      "id": "basilar_artery",
+      "layer": "arterial",
+      "positionsOffset": 883524,
+      "positionsCount": 1086,
+      "indicesOffset": 887868,
+      "indicesCount": 2100,
+      "originalFaces": 864
+    },
+    {
+      "id": "buccal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 896268,
+      "positionsCount": 1086,
+      "indicesOffset": 900612,
+      "indicesCount": 2100,
+      "originalFaces": 1440
+    },
+    {
+      "id": "buccal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 909012,
+      "positionsCount": 1086,
+      "indicesOffset": 913356,
+      "indicesCount": 2100,
+      "originalFaces": 1440
+    },
+    {
+      "id": "callosomarginal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 921756,
+      "positionsCount": 1092,
+      "indicesOffset": 926124,
+      "indicesCount": 2097,
+      "originalFaces": 14976
+    },
+    {
+      "id": "callosomarginal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 934512,
+      "positionsCount": 1092,
+      "indicesOffset": 938880,
+      "indicesCount": 2097,
+      "originalFaces": 14976
+    },
+    {
+      "id": "artery_of_pterygoid_canal_l",
+      "layer": "arterial",
+      "positionsOffset": 947268,
+      "positionsCount": 1083,
+      "indicesOffset": 951600,
+      "indicesCount": 2097,
+      "originalFaces": 1440
+    },
+    {
+      "id": "artery_of_pterygoid_canal_r",
+      "layer": "arterial",
+      "positionsOffset": 959988,
+      "positionsCount": 1083,
+      "indicesOffset": 964320,
+      "indicesCount": 2097,
+      "originalFaces": 1440
+    },
+    {
+      "id": "central_retinal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 972708,
+      "positionsCount": 1452,
+      "indicesOffset": 978516,
+      "indicesCount": 2094,
+      "originalFaces": 207360
+    },
+    {
+      "id": "central_retinal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 986892,
+      "positionsCount": 1455,
+      "indicesOffset": 992712,
+      "indicesCount": 2094,
+      "originalFaces": 207360
+    },
+    {
+      "id": "anterior_inferior_cerebellar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1001088,
+      "positionsCount": 1071,
+      "indicesOffset": 1005372,
+      "indicesCount": 2097,
+      "originalFaces": 4608
+    },
+    {
+      "id": "anterior_inferior_cerebellar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1013760,
+      "positionsCount": 1071,
+      "indicesOffset": 1018044,
+      "indicesCount": 2097,
+      "originalFaces": 4608
+    },
+    {
+      "id": "posterior_inferior_cerebellar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1026432,
+      "positionsCount": 1131,
+      "indicesOffset": 1030956,
+      "indicesCount": 2097,
+      "originalFaces": 37728
+    },
+    {
+      "id": "posterior_inferior_cerebellar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1039344,
+      "positionsCount": 1131,
+      "indicesOffset": 1043868,
+      "indicesCount": 2097,
+      "originalFaces": 37728
+    },
+    {
+      "id": "superior_cerebellar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1052256,
+      "positionsCount": 1089,
+      "indicesOffset": 1056612,
+      "indicesCount": 2097,
+      "originalFaces": 10944
+    },
+    {
+      "id": "superior_cerebellar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1065000,
+      "positionsCount": 1089,
+      "indicesOffset": 1069356,
+      "indicesCount": 2097,
+      "originalFaces": 10944
+    },
+    {
+      "id": "anterior_cerebral_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1077744,
+      "positionsCount": 1083,
+      "indicesOffset": 1082076,
+      "indicesCount": 2097,
+      "originalFaces": 864,
+      "tOffset": 1090464,
+      "tCount": 361
+    },
+    {
+      "id": "anterior_cerebral_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1091908,
+      "positionsCount": 1083,
+      "indicesOffset": 1096240,
+      "indicesCount": 2097,
+      "originalFaces": 864
+    },
+    {
+      "id": "middle_cerebral_artery_m1_segment_l",
+      "layer": "arterial",
+      "positionsOffset": 1104628,
+      "positionsCount": 1086,
+      "indicesOffset": 1108972,
+      "indicesCount": 2100,
+      "originalFaces": 1440,
+      "tOffset": 1117372,
+      "tCount": 362
+    },
+    {
+      "id": "middle_cerebral_artery_m1_segment_r",
+      "layer": "arterial",
+      "positionsOffset": 1118820,
+      "positionsCount": 1086,
+      "indicesOffset": 1123164,
+      "indicesCount": 2100,
+      "originalFaces": 1440
+    },
+    {
+      "id": "middle_cerebral_artery_m3_segment_r",
+      "layer": "arterial",
+      "positionsOffset": 1131564,
+      "positionsCount": 1077,
+      "indicesOffset": 1135872,
+      "indicesCount": 2100,
+      "originalFaces": 3744
+    },
+    {
+      "id": "posterior_cerebral_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1144272,
+      "positionsCount": 1122,
+      "indicesOffset": 1148760,
+      "indicesCount": 2097,
+      "originalFaces": 33696
+    },
+    {
+      "id": "posterior_cerebral_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1157148,
+      "positionsCount": 1122,
+      "indicesOffset": 1161636,
+      "indicesCount": 2097,
+      "originalFaces": 33696
+    },
+    {
+      "id": "deep_cervical_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1170024,
+      "positionsCount": 1068,
+      "indicesOffset": 1174296,
+      "indicesCount": 2097,
+      "originalFaces": 3168
+    },
+    {
+      "id": "deep_cervical_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1182684,
+      "positionsCount": 1068,
+      "indicesOffset": 1186956,
+      "indicesCount": 2097,
+      "originalFaces": 3168
+    },
+    {
+      "id": "anterior_communicating_artery",
+      "layer": "arterial",
+      "positionsOffset": 1195344,
+      "positionsCount": 165,
+      "indicesOffset": 1196004,
+      "indicesCount": 318,
+      "originalFaces": 106
+    },
+    {
+      "id": "posterior_communicating_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1197276,
+      "positionsCount": 1086,
+      "indicesOffset": 1201620,
+      "indicesCount": 2100,
+      "originalFaces": 864
+    },
+    {
+      "id": "posterior_communicating_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1210020,
+      "positionsCount": 1086,
+      "indicesOffset": 1214364,
+      "indicesCount": 2100,
+      "originalFaces": 864
+    },
+    {
+      "id": "anterior_ethmoidal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1222764,
+      "positionsCount": 1068,
+      "indicesOffset": 1227036,
+      "indicesCount": 2100,
+      "originalFaces": 3744
+    },
+    {
+      "id": "anterior_ethmoidal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1235436,
+      "positionsCount": 1068,
+      "indicesOffset": 1239708,
+      "indicesCount": 2100,
+      "originalFaces": 3744
+    },
+    {
+      "id": "posterior_ethmoidal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1248108,
+      "positionsCount": 900,
+      "indicesOffset": 1251708,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "posterior_ethmoidal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1258620,
+      "positionsCount": 900,
+      "indicesOffset": 1262220,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "facial_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1269132,
+      "positionsCount": 1074,
+      "indicesOffset": 1273428,
+      "indicesCount": 2100,
+      "originalFaces": 2592
+    },
+    {
+      "id": "facial_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1281828,
+      "positionsCount": 1074,
+      "indicesOffset": 1286124,
+      "indicesCount": 2100,
+      "originalFaces": 2592
+    },
+    {
+      "id": "infra_orbital_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1294524,
+      "positionsCount": 1080,
+      "indicesOffset": 1298844,
+      "indicesCount": 2097,
+      "originalFaces": 1152
+    },
+    {
+      "id": "infra_orbital_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1307232,
+      "positionsCount": 1080,
+      "indicesOffset": 1311552,
+      "indicesCount": 2097,
+      "originalFaces": 1152
+    },
+    {
+      "id": "inferior_labial_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1319940,
+      "positionsCount": 1077,
+      "indicesOffset": 1324248,
+      "indicesCount": 2100,
+      "originalFaces": 2304
+    },
+    {
+      "id": "inferior_labial_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1332648,
+      "positionsCount": 1077,
+      "indicesOffset": 1336956,
+      "indicesCount": 2100,
+      "originalFaces": 2304
+    },
+    {
+      "id": "superior_labial_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1345356,
+      "positionsCount": 1080,
+      "indicesOffset": 1349676,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "superior_labial_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1358076,
+      "positionsCount": 1080,
+      "indicesOffset": 1362396,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "lacrimal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1370796,
+      "positionsCount": 1101,
+      "indicesOffset": 1375200,
+      "indicesCount": 2100,
+      "originalFaces": 4320
+    },
+    {
+      "id": "lacrimal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1383600,
+      "positionsCount": 1098,
+      "indicesOffset": 1387992,
+      "indicesCount": 2100,
+      "originalFaces": 4320
+    },
+    {
+      "id": "maxillary_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1396392,
+      "positionsCount": 1143,
+      "indicesOffset": 1400964,
+      "indicesCount": 2097,
+      "originalFaces": 9504
+    },
+    {
+      "id": "maxillary_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1409352,
+      "positionsCount": 1140,
+      "indicesOffset": 1413912,
+      "indicesCount": 2097,
+      "originalFaces": 9504
+    },
+    {
+      "id": "middle_meningeal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1422300,
+      "positionsCount": 1077,
+      "indicesOffset": 1426608,
+      "indicesCount": 2100,
+      "originalFaces": 1440
+    },
+    {
+      "id": "middle_meningeal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1435008,
+      "positionsCount": 1077,
+      "indicesOffset": 1439316,
+      "indicesCount": 2100,
+      "originalFaces": 1440
+    },
+    {
+      "id": "occipital_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1447716,
+      "positionsCount": 1125,
+      "indicesOffset": 1452216,
+      "indicesCount": 2097,
+      "originalFaces": 13536
+    },
+    {
+      "id": "occipital_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1460604,
+      "positionsCount": 1119,
+      "indicesOffset": 1465080,
+      "indicesCount": 2100,
+      "originalFaces": 13536
+    },
+    {
+      "id": "lateral_occipital_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1473480,
+      "positionsCount": 1065,
+      "indicesOffset": 1477740,
+      "indicesCount": 2097,
+      "originalFaces": 4320
+    },
+    {
+      "id": "lateral_occipital_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1486128,
+      "positionsCount": 1065,
+      "indicesOffset": 1490388,
+      "indicesCount": 2097,
+      "originalFaces": 4320
+    },
+    {
+      "id": "medial_occipital_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1498776,
+      "positionsCount": 1071,
+      "indicesOffset": 1503060,
+      "indicesCount": 2100,
+      "originalFaces": 5184
+    },
+    {
+      "id": "medial_occipital_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1511460,
+      "positionsCount": 1071,
+      "indicesOffset": 1515744,
+      "indicesCount": 2097,
+      "originalFaces": 5184
+    },
+    {
+      "id": "ophthalmic_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1524132,
+      "positionsCount": 1077,
+      "indicesOffset": 1528440,
+      "indicesCount": 2100,
+      "originalFaces": 1728,
+      "tOffset": 1536840,
+      "tCount": 359
+    },
+    {
+      "id": "ophthalmic_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1538276,
+      "positionsCount": 1077,
+      "indicesOffset": 1542584,
+      "indicesCount": 2100,
+      "originalFaces": 1728
+    },
+    {
+      "id": "descending_palatine_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1550984,
+      "positionsCount": 1071,
+      "indicesOffset": 1555268,
+      "indicesCount": 2100,
+      "originalFaces": 3456
+    },
+    {
+      "id": "descending_palatine_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1563668,
+      "positionsCount": 1071,
+      "indicesOffset": 1567952,
+      "indicesCount": 2100,
+      "originalFaces": 3456
+    },
+    {
+      "id": "greater_palatine_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1576352,
+      "positionsCount": 1071,
+      "indicesOffset": 1580636,
+      "indicesCount": 2100,
+      "originalFaces": 2016
+    },
+    {
+      "id": "greater_palatine_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1589036,
+      "positionsCount": 1071,
+      "indicesOffset": 1593320,
+      "indicesCount": 2100,
+      "originalFaces": 2016
+    },
+    {
+      "id": "parieto_occipital_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1601720,
+      "positionsCount": 1086,
+      "indicesOffset": 1606064,
+      "indicesCount": 2100,
+      "originalFaces": 8352
+    },
+    {
+      "id": "parieto_occipital_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1614464,
+      "positionsCount": 1086,
+      "indicesOffset": 1618808,
+      "indicesCount": 2100,
+      "originalFaces": 8352
+    },
+    {
+      "id": "pericallosal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1627208,
+      "positionsCount": 1116,
+      "indicesOffset": 1631672,
+      "indicesCount": 2097,
+      "originalFaces": 32256
+    },
+    {
+      "id": "pericallosal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1640060,
+      "positionsCount": 1116,
+      "indicesOffset": 1644524,
+      "indicesCount": 2097,
+      "originalFaces": 32256
+    },
+    {
+      "id": "ascending_pharyngeal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1652912,
+      "positionsCount": 708,
+      "indicesOffset": 1655744,
+      "indicesCount": 2097,
+      "originalFaces": 6048
+    },
+    {
+      "id": "ascending_pharyngeal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1664132,
+      "positionsCount": 741,
+      "indicesOffset": 1667096,
+      "indicesCount": 2097,
+      "originalFaces": 6048
+    },
+    {
+      "id": "anterior_spinal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1675484,
+      "positionsCount": 1083,
+      "indicesOffset": 1679816,
+      "indicesCount": 2097,
+      "originalFaces": 1728
+    },
+    {
+      "id": "anterior_spinal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1688204,
+      "positionsCount": 1083,
+      "indicesOffset": 1692536,
+      "indicesCount": 2097,
+      "originalFaces": 1728
+    },
+    {
+      "id": "submental_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1700924,
+      "positionsCount": 1098,
+      "indicesOffset": 1705316,
+      "indicesCount": 2097,
+      "originalFaces": 4320
+    },
+    {
+      "id": "submental_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1713704,
+      "positionsCount": 1098,
+      "indicesOffset": 1718096,
+      "indicesCount": 2097,
+      "originalFaces": 4320
+    },
+    {
+      "id": "supra_orbital_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1726484,
+      "positionsCount": 1071,
+      "indicesOffset": 1730768,
+      "indicesCount": 2097,
+      "originalFaces": 8352
+    },
+    {
+      "id": "supra_orbital_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1739156,
+      "positionsCount": 1068,
+      "indicesOffset": 1743428,
+      "indicesCount": 2097,
+      "originalFaces": 8352
+    },
+    {
+      "id": "supratrochlear_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1751816,
+      "positionsCount": 1098,
+      "indicesOffset": 1756208,
+      "indicesCount": 2100,
+      "originalFaces": 5760
+    },
+    {
+      "id": "supratrochlear_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1764608,
+      "positionsCount": 1098,
+      "indicesOffset": 1769000,
+      "indicesCount": 2100,
+      "originalFaces": 5760
+    },
+    {
+      "id": "anterior_deep_temporal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1777400,
+      "positionsCount": 1095,
+      "indicesOffset": 1781780,
+      "indicesCount": 2100,
+      "originalFaces": 4032
+    },
+    {
+      "id": "anterior_deep_temporal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1790180,
+      "positionsCount": 1095,
+      "indicesOffset": 1794560,
+      "indicesCount": 2100,
+      "originalFaces": 4032
+    },
+    {
+      "id": "posterior_deep_temporal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1802960,
+      "positionsCount": 1110,
+      "indicesOffset": 1807400,
+      "indicesCount": 2097,
+      "originalFaces": 3744
+    },
+    {
+      "id": "posterior_deep_temporal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1815788,
+      "positionsCount": 1110,
+      "indicesOffset": 1820228,
+      "indicesCount": 2097,
+      "originalFaces": 3744
+    },
+    {
+      "id": "superficial_temporal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1828616,
+      "positionsCount": 1143,
+      "indicesOffset": 1833188,
+      "indicesCount": 2097,
+      "originalFaces": 26208
+    },
+    {
+      "id": "superficial_temporal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1841576,
+      "positionsCount": 1143,
+      "indicesOffset": 1846148,
+      "indicesCount": 2097,
+      "originalFaces": 26208
+    },
+    {
+      "id": "transverse_facial_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1854536,
+      "positionsCount": 1071,
+      "indicesOffset": 1858820,
+      "indicesCount": 2100,
+      "originalFaces": 4032
+    },
+    {
+      "id": "transverse_facial_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1867220,
+      "positionsCount": 1071,
+      "indicesOffset": 1871504,
+      "indicesCount": 2100,
+      "originalFaces": 4032
+    },
+    {
+      "id": "vertebral_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1879904,
+      "positionsCount": 1068,
+      "indicesOffset": 1884176,
+      "indicesCount": 2097,
+      "originalFaces": 4896
+    },
+    {
+      "id": "vertebral_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1892564,
+      "positionsCount": 1068,
+      "indicesOffset": 1896836,
+      "indicesCount": 2097,
+      "originalFaces": 4896
+    },
+    {
+      "id": "short_posterior_ciliary_arteries_l",
+      "layer": "arterial",
+      "positionsOffset": 1905224,
+      "positionsCount": 1086,
+      "indicesOffset": 1909568,
+      "indicesCount": 2100,
+      "originalFaces": 2592
+    },
+    {
+      "id": "short_posterior_ciliary_arteries_r",
+      "layer": "arterial",
+      "positionsOffset": 1917968,
+      "positionsCount": 1086,
+      "indicesOffset": 1922312,
+      "indicesCount": 2100,
+      "originalFaces": 2592
+    },
+    {
+      "id": "long_posterior_ciliary_arteries_l",
+      "layer": "arterial",
+      "positionsOffset": 1930712,
+      "positionsCount": 1098,
+      "indicesOffset": 1935104,
+      "indicesCount": 2100,
+      "originalFaces": 4320
+    },
+    {
+      "id": "long_posterior_ciliary_arteries_r",
+      "layer": "arterial",
+      "positionsOffset": 1943504,
+      "positionsCount": 1098,
+      "indicesOffset": 1947896,
+      "indicesCount": 2100,
+      "originalFaces": 4320
+    },
+    {
+      "id": "right_common_carotid_artery",
+      "layer": "arterial",
+      "positionsOffset": 1956296,
+      "positionsCount": 1086,
+      "indicesOffset": 1960640,
+      "indicesCount": 2100,
+      "originalFaces": 864
+    },
+    {
+      "id": "left_common_carotid_artery",
+      "layer": "arterial",
+      "positionsOffset": 1969040,
+      "positionsCount": 1086,
+      "indicesOffset": 1973384,
+      "indicesCount": 2100,
+      "originalFaces": 1152,
+      "tOffset": 1981784,
+      "tCount": 362
+    },
+    {
+      "id": "external_carotid_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 1983232,
+      "positionsCount": 1086,
+      "indicesOffset": 1987576,
+      "indicesCount": 2100,
+      "originalFaces": 1728,
+      "tOffset": 1995976,
+      "tCount": 362
+    },
+    {
+      "id": "external_carotid_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 1997424,
+      "positionsCount": 1086,
+      "indicesOffset": 2001768,
+      "indicesCount": 2100,
+      "originalFaces": 1728
+    },
+    {
+      "id": "internal_carotid_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2010168,
+      "positionsCount": 1083,
+      "indicesOffset": 2014500,
+      "indicesCount": 2100,
+      "originalFaces": 2880,
+      "tOffset": 2022900,
+      "tCount": 361
+    },
+    {
+      "id": "internal_carotid_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2024344,
+      "positionsCount": 1083,
+      "indicesOffset": 2028676,
+      "indicesCount": 2100,
+      "originalFaces": 2880
+    },
+    {
+      "id": "anterior_division_of_retromandibular_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2037076,
+      "positionsCount": 900,
+      "indicesOffset": 2040676,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "anterior_division_of_retromandibular_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2047588,
+      "positionsCount": 900,
+      "indicesOffset": 2051188,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "posterior_division_of_retromandibular_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2058100,
+      "positionsCount": 900,
+      "indicesOffset": 2061700,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "posterior_division_of_retromandibular_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2068612,
+      "positionsCount": 900,
+      "indicesOffset": 2072212,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "basilar_venous_plexus",
+      "layer": "venous",
+      "positionsOffset": 2079124,
+      "positionsCount": 1146,
+      "indicesOffset": 2083708,
+      "indicesCount": 2100,
+      "originalFaces": 56192
+    },
+    {
+      "id": "frontal_branches_of_callosomarginal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2092108,
+      "positionsCount": 1077,
+      "indicesOffset": 2096416,
+      "indicesCount": 2100,
+      "originalFaces": 2016
+    },
+    {
+      "id": "frontal_branches_of_callosomarginal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2104816,
+      "positionsCount": 1077,
+      "indicesOffset": 2109124,
+      "indicesCount": 2100,
+      "originalFaces": 2016
+    },
+    {
+      "id": "insular_branches_of_middle_cerebral_artery_m2_r",
+      "layer": "arterial",
+      "positionsOffset": 2117524,
+      "positionsCount": 1113,
+      "indicesOffset": 2121976,
+      "indicesCount": 2097,
+      "originalFaces": 1728
+    },
+    {
+      "id": "lateral_pontine_branches_of_basilar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2130364,
+      "positionsCount": 1086,
+      "indicesOffset": 2134708,
+      "indicesCount": 2100,
+      "originalFaces": 3456
+    },
+    {
+      "id": "lateral_pontine_branches_of_basilar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2143108,
+      "positionsCount": 1080,
+      "indicesOffset": 2147428,
+      "indicesCount": 2100,
+      "originalFaces": 3456
+    },
+    {
+      "id": "medial_pontine_branches_of_basilar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2155828,
+      "positionsCount": 1095,
+      "indicesOffset": 2160208,
+      "indicesCount": 2100,
+      "originalFaces": 2304
+    },
+    {
+      "id": "medial_pontine_branches_of_basilar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2168608,
+      "positionsCount": 1095,
+      "indicesOffset": 2172988,
+      "indicesCount": 2100,
+      "originalFaces": 2304
+    },
+    {
+      "id": "posterior_lateral_nasal_branches_of_sphenopalatine_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2181388,
+      "positionsCount": 1074,
+      "indicesOffset": 2185684,
+      "indicesCount": 2100,
+      "originalFaces": 15552
+    },
+    {
+      "id": "posterior_lateral_nasal_branches_of_sphenopalatine_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2194084,
+      "positionsCount": 1077,
+      "indicesOffset": 2198392,
+      "indicesCount": 2097,
+      "originalFaces": 15552
+    },
+    {
+      "id": "orbitofrontal_branches_of_anterior_cerebral_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2206780,
+      "positionsCount": 1080,
+      "indicesOffset": 2211100,
+      "indicesCount": 2100,
+      "originalFaces": 4608
+    },
+    {
+      "id": "orbitofrontal_branches_of_anterior_cerebral_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2219500,
+      "positionsCount": 1077,
+      "indicesOffset": 2223808,
+      "indicesCount": 2097,
+      "originalFaces": 4608
+    },
+    {
+      "id": "parietal_branches_of_middle_cerebral_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2232196,
+      "positionsCount": 1080,
+      "indicesOffset": 2236516,
+      "indicesCount": 2097,
+      "originalFaces": 4032
+    },
+    {
+      "id": "parietal_branches_of_middle_cerebral_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2244904,
+      "positionsCount": 1080,
+      "indicesOffset": 2249224,
+      "indicesCount": 2097,
+      "originalFaces": 4032
+    },
+    {
+      "id": "anterior_septal_branches_of_anterior_ethmoidal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2257612,
+      "positionsCount": 1071,
+      "indicesOffset": 2261896,
+      "indicesCount": 2100,
+      "originalFaces": 2880
+    },
+    {
+      "id": "anterior_septal_branches_of_anterior_ethmoidal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2270296,
+      "positionsCount": 1071,
+      "indicesOffset": 2274580,
+      "indicesCount": 2100,
+      "originalFaces": 2880
+    },
+    {
+      "id": "septal_branches_of_posterior_ethmoidal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2282980,
+      "positionsCount": 1071,
+      "indicesOffset": 2287264,
+      "indicesCount": 2097,
+      "originalFaces": 2880
+    },
+    {
+      "id": "septal_branches_of_posterior_ethmoidal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2295652,
+      "positionsCount": 1071,
+      "indicesOffset": 2299936,
+      "indicesCount": 2097,
+      "originalFaces": 2880
+    },
+    {
+      "id": "posterior_septal_branches_of_sphenopalatine_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2308324,
+      "positionsCount": 1071,
+      "indicesOffset": 2312608,
+      "indicesCount": 2097,
+      "originalFaces": 4032
+    },
+    {
+      "id": "posterior_septal_branches_of_sphenopalatine_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2320996,
+      "positionsCount": 1071,
+      "indicesOffset": 2325280,
+      "indicesCount": 2097,
+      "originalFaces": 4032
+    },
+    {
+      "id": "temporal_branches_of_middle_cerebral_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2333668,
+      "positionsCount": 1080,
+      "indicesOffset": 2337988,
+      "indicesCount": 2100,
+      "originalFaces": 5184
+    },
+    {
+      "id": "temporal_branches_of_middle_cerebral_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2346388,
+      "positionsCount": 1077,
+      "indicesOffset": 2350696,
+      "indicesCount": 2097,
+      "originalFaces": 5184
+    },
+    {
+      "id": "accessory_branch_of_middle_meningeal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2359084,
+      "positionsCount": 1077,
+      "indicesOffset": 2363392,
+      "indicesCount": 2100,
+      "originalFaces": 1440
+    },
+    {
+      "id": "accessory_branch_of_middle_meningeal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2371792,
+      "positionsCount": 1077,
+      "indicesOffset": 2376100,
+      "indicesCount": 2100,
+      "originalFaces": 1440
+    },
+    {
+      "id": "postcentral_arterial_branch_l",
+      "layer": "arterial",
+      "positionsOffset": 2384500,
+      "positionsCount": 1077,
+      "indicesOffset": 2388808,
+      "indicesCount": 2097,
+      "originalFaces": 4896
+    },
+    {
+      "id": "postcentral_arterial_branch_r",
+      "layer": "arterial",
+      "positionsOffset": 2397196,
+      "positionsCount": 1077,
+      "indicesOffset": 2401504,
+      "indicesCount": 2097,
+      "originalFaces": 4896
+    },
+    {
+      "id": "frontal_branch_of_superficial_temporal_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2409892,
+      "positionsCount": 1068,
+      "indicesOffset": 2414164,
+      "indicesCount": 2100,
+      "originalFaces": 4608
+    },
+    {
+      "id": "frontal_branch_of_superficial_temporal_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2422564,
+      "positionsCount": 1065,
+      "indicesOffset": 2426824,
+      "indicesCount": 2097,
+      "originalFaces": 4608
+    },
+    {
+      "id": "mental_branch_of_inferior_alveolar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2435212,
+      "positionsCount": 1092,
+      "indicesOffset": 2439580,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "mental_branch_of_inferior_alveolar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2447980,
+      "positionsCount": 1092,
+      "indicesOffset": 2452348,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "mylohyoid_branch_of_inferior_alveolar_artery_l",
+      "layer": "arterial",
+      "positionsOffset": 2460748,
+      "positionsCount": 1104,
+      "indicesOffset": 2465164,
+      "indicesCount": 2100,
+      "originalFaces": 3168
+    },
+    {
+      "id": "mylohyoid_branch_of_inferior_alveolar_artery_r",
+      "layer": "arterial",
+      "positionsOffset": 2473564,
+      "positionsCount": 1098,
+      "indicesOffset": 2477956,
+      "indicesCount": 2100,
+      "originalFaces": 3168
+    },
+    {
+      "id": "cavernous_sinus_l",
+      "layer": "venous",
+      "positionsOffset": 2486356,
+      "positionsCount": 1107,
+      "indicesOffset": 2490784,
+      "indicesCount": 2097,
+      "originalFaces": 9728
+    },
+    {
+      "id": "cavernous_sinus_r",
+      "layer": "venous",
+      "positionsOffset": 2499172,
+      "positionsCount": 1104,
+      "indicesOffset": 2503588,
+      "indicesCount": 2100,
+      "originalFaces": 9728
+    },
+    {
+      "id": "anterior_intercavernous_sinus",
+      "layer": "venous",
+      "positionsOffset": 2511988,
+      "positionsCount": 900,
+      "indicesOffset": 2515588,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "posterior_intercavernous_sinus",
+      "layer": "venous",
+      "positionsOffset": 2522500,
+      "positionsCount": 1083,
+      "indicesOffset": 2526832,
+      "indicesCount": 2097,
+      "originalFaces": 1440
+    },
+    {
+      "id": "occipital_sinus",
+      "layer": "venous",
+      "positionsOffset": 2535220,
+      "positionsCount": 1083,
+      "indicesOffset": 2539552,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "inferior_petrosal_sinus_l",
+      "layer": "venous",
+      "positionsOffset": 2547952,
+      "positionsCount": 1083,
+      "indicesOffset": 2552284,
+      "indicesCount": 2100,
+      "originalFaces": 1728
+    },
+    {
+      "id": "inferior_petrosal_sinus_r",
+      "layer": "venous",
+      "positionsOffset": 2560684,
+      "positionsCount": 1083,
+      "indicesOffset": 2565016,
+      "indicesCount": 2100,
+      "originalFaces": 1728
+    },
+    {
+      "id": "superior_petrosal_sinus_l",
+      "layer": "venous",
+      "positionsOffset": 2573416,
+      "positionsCount": 1083,
+      "indicesOffset": 2577748,
+      "indicesCount": 2100,
+      "originalFaces": 1728
+    },
+    {
+      "id": "superior_petrosal_sinus_r",
+      "layer": "venous",
+      "positionsOffset": 2586148,
+      "positionsCount": 1083,
+      "indicesOffset": 2590480,
+      "indicesCount": 2100,
+      "originalFaces": 1728
+    },
+    {
+      "id": "straight_sinus",
+      "layer": "venous",
+      "positionsOffset": 2598880,
+      "positionsCount": 1074,
+      "indicesOffset": 2603176,
+      "indicesCount": 2097,
+      "originalFaces": 2304
+    },
+    {
+      "id": "inferior_sagittal_sinus",
+      "layer": "venous",
+      "positionsOffset": 2611564,
+      "positionsCount": 1071,
+      "indicesOffset": 2615848,
+      "indicesCount": 2097,
+      "originalFaces": 3456
+    },
+    {
+      "id": "superior_sagittal_sinus",
+      "layer": "venous",
+      "positionsOffset": 2624236,
+      "positionsCount": 1059,
+      "indicesOffset": 2628472,
+      "indicesCount": 2097,
+      "originalFaces": 6336
+    },
+    {
+      "id": "sigmoid_sinus_l",
+      "layer": "venous",
+      "positionsOffset": 2636860,
+      "positionsCount": 1077,
+      "indicesOffset": 2641168,
+      "indicesCount": 2097,
+      "originalFaces": 864
+    },
+    {
+      "id": "sigmoid_sinus_r",
+      "layer": "venous",
+      "positionsOffset": 2649556,
+      "positionsCount": 1077,
+      "indicesOffset": 2653864,
+      "indicesCount": 2097,
+      "originalFaces": 864
+    },
+    {
+      "id": "transverse_sinus_l",
+      "layer": "venous",
+      "positionsOffset": 2662252,
+      "positionsCount": 1083,
+      "indicesOffset": 2666584,
+      "indicesCount": 2100,
+      "originalFaces": 2016
+    },
+    {
+      "id": "transverse_sinus_r",
+      "layer": "venous",
+      "positionsOffset": 2674984,
+      "positionsCount": 1083,
+      "indicesOffset": 2679316,
+      "indicesCount": 2100,
+      "originalFaces": 2016
+    },
+    {
+      "id": "angular_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2687716,
+      "positionsCount": 1086,
+      "indicesOffset": 2692060,
+      "indicesCount": 2097,
+      "originalFaces": 4320
+    },
+    {
+      "id": "angular_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2700448,
+      "positionsCount": 1089,
+      "indicesOffset": 2704804,
+      "indicesCount": 2100,
+      "originalFaces": 4320
+    },
+    {
+      "id": "posterior_auricular_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2713204,
+      "positionsCount": 1074,
+      "indicesOffset": 2717500,
+      "indicesCount": 2100,
+      "originalFaces": 2016
+    },
+    {
+      "id": "posterior_auricular_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2725900,
+      "positionsCount": 1074,
+      "indicesOffset": 2730196,
+      "indicesCount": 2100,
+      "originalFaces": 2016
+    },
+    {
+      "id": "facial_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2738596,
+      "positionsCount": 1071,
+      "indicesOffset": 2742880,
+      "indicesCount": 2097,
+      "originalFaces": 3456
+    },
+    {
+      "id": "facial_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2751268,
+      "positionsCount": 1071,
+      "indicesOffset": 2755552,
+      "indicesCount": 2097,
+      "originalFaces": 3456
+    },
+    {
+      "id": "common_facial_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2763940,
+      "positionsCount": 900,
+      "indicesOffset": 2767540,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "common_facial_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2774452,
+      "positionsCount": 900,
+      "indicesOffset": 2778052,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "external_jugular_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2784964,
+      "positionsCount": 1080,
+      "indicesOffset": 2789284,
+      "indicesCount": 2097,
+      "originalFaces": 2016
+    },
+    {
+      "id": "external_jugular_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2797672,
+      "positionsCount": 1080,
+      "indicesOffset": 2801992,
+      "indicesCount": 2097,
+      "originalFaces": 2016
+    },
+    {
+      "id": "internal_jugular_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2810380,
+      "positionsCount": 1077,
+      "indicesOffset": 2814688,
+      "indicesCount": 2097,
+      "originalFaces": 3456
+    },
+    {
+      "id": "internal_jugular_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2823076,
+      "positionsCount": 1077,
+      "indicesOffset": 2827384,
+      "indicesCount": 2097,
+      "originalFaces": 3456
+    },
+    {
+      "id": "superior_labial_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2835772,
+      "positionsCount": 1080,
+      "indicesOffset": 2840092,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "superior_labial_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2848492,
+      "positionsCount": 1080,
+      "indicesOffset": 2852812,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "lingual_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2861212,
+      "positionsCount": 1083,
+      "indicesOffset": 2865544,
+      "indicesCount": 2097,
+      "originalFaces": 1152
+    },
+    {
+      "id": "lingual_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2873932,
+      "positionsCount": 1083,
+      "indicesOffset": 2878264,
+      "indicesCount": 2097,
+      "originalFaces": 1152
+    },
+    {
+      "id": "occipital_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2886652,
+      "positionsCount": 1077,
+      "indicesOffset": 2890960,
+      "indicesCount": 2097,
+      "originalFaces": 5184
+    },
+    {
+      "id": "occipital_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2899348,
+      "positionsCount": 1077,
+      "indicesOffset": 2903656,
+      "indicesCount": 2097,
+      "originalFaces": 5184
+    },
+    {
+      "id": "inferior_ophthalmic_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2912044,
+      "positionsCount": 1077,
+      "indicesOffset": 2916352,
+      "indicesCount": 2100,
+      "originalFaces": 864
+    },
+    {
+      "id": "inferior_ophthalmic_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2924752,
+      "positionsCount": 1077,
+      "indicesOffset": 2929060,
+      "indicesCount": 2100,
+      "originalFaces": 864
+    },
+    {
+      "id": "superior_ophthalmic_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2937460,
+      "positionsCount": 1083,
+      "indicesOffset": 2941792,
+      "indicesCount": 2097,
+      "originalFaces": 1152
+    },
+    {
+      "id": "superior_ophthalmic_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2950180,
+      "positionsCount": 1083,
+      "indicesOffset": 2954512,
+      "indicesCount": 2097,
+      "originalFaces": 1152
+    },
+    {
+      "id": "retromandibular_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2962900,
+      "positionsCount": 900,
+      "indicesOffset": 2966500,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "retromandibular_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2973412,
+      "positionsCount": 900,
+      "indicesOffset": 2977012,
+      "indicesCount": 1728,
+      "originalFaces": 576
+    },
+    {
+      "id": "submental_vein_l",
+      "layer": "venous",
+      "positionsOffset": 2983924,
+      "positionsCount": 1077,
+      "indicesOffset": 2988232,
+      "indicesCount": 2097,
+      "originalFaces": 2304
+    },
+    {
+      "id": "submental_vein_r",
+      "layer": "venous",
+      "positionsOffset": 2996620,
+      "positionsCount": 1077,
+      "indicesOffset": 3000928,
+      "indicesCount": 2097,
+      "originalFaces": 2304
+    },
+    {
+      "id": "superior_thyroid_vein_l",
+      "layer": "venous",
+      "positionsOffset": 3009316,
+      "positionsCount": 1077,
+      "indicesOffset": 3013624,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "superior_thyroid_vein_r",
+      "layer": "venous",
+      "positionsOffset": 3022024,
+      "positionsCount": 1077,
+      "indicesOffset": 3026332,
+      "indicesCount": 2100,
+      "originalFaces": 1152
+    },
+    {
+      "id": "vertebral_vein_l",
+      "layer": "venous",
+      "positionsOffset": 3034732,
+      "positionsCount": 1068,
+      "indicesOffset": 3039004,
+      "indicesCount": 2100,
+      "originalFaces": 3456
+    },
+    {
+      "id": "vertebral_vein_r",
+      "layer": "venous",
+      "positionsOffset": 3047404,
+      "positionsCount": 1068,
+      "indicesOffset": 3051676,
+      "indicesCount": 2100,
+      "originalFaces": 3456
+    },
+    {
+      "id": "inferior_labial_veins_l",
+      "layer": "venous",
+      "positionsOffset": 3060076,
+      "positionsCount": 1101,
+      "indicesOffset": 3064480,
+      "indicesCount": 2097,
+      "originalFaces": 6048
+    },
+    {
+      "id": "inferior_labial_veins_r",
+      "layer": "venous",
+      "positionsOffset": 3072868,
+      "positionsCount": 1101,
+      "indicesOffset": 3077272,
+      "indicesCount": 2097,
+      "originalFaces": 6048
+    },
+    {
+      "id": "maxillary_veins_l",
+      "layer": "venous",
+      "positionsOffset": 3085660,
+      "positionsCount": 1080,
+      "indicesOffset": 3089980,
+      "indicesCount": 2100,
+      "originalFaces": 2880
+    },
+    {
+      "id": "maxillary_veins_r",
+      "layer": "venous",
+      "positionsOffset": 3098380,
+      "positionsCount": 1080,
+      "indicesOffset": 3102700,
+      "indicesCount": 2100,
+      "originalFaces": 2880
+    },
+    {
+      "id": "superficial_temporal_veins_l",
+      "layer": "venous",
+      "positionsOffset": 3111100,
+      "positionsCount": 1080,
+      "indicesOffset": 3115420,
+      "indicesCount": 2097,
+      "originalFaces": 3456
+    },
+    {
+      "id": "superficial_temporal_veins_r",
+      "layer": "venous",
+      "positionsOffset": 3123808,
+      "positionsCount": 1080,
+      "indicesOffset": 3128128,
+      "indicesCount": 2097,
+      "originalFaces": 3456
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "sourceRepository": "https://github.com/Nurkan1/Anatria-3D",
+  "sourceCommit": "6320bd64df8db2fcfed358a27c85d1fcc1c5913c",
+  "license": "CC-BY-SA-4.0",
+  "organ": {
+    "organ_id": "straight_sinus",
+    "ta2_latin": "Sinus rectus",
+    "name_en": "Straight sinus",
+    "system": "cardiovascular",
+    "mesh_file": "cardiovascular_male.glb",
+    "node": "Straight sinus",
+    "path": [
+      "Systemic veins"
+    ]
+  },
+  "originalObjectAudit": {
+    "type": "CURVE",
+    "cols": [
+      "5: Cardiovascular system",
+      "Head",
+      "Systemic veins"
+    ]
+  },
+  "evaluatedExportReport": {
+    "name": "Straight sinus",
+    "polygons": 1152,
+    "path": [
+      "Systemic veins"
+    ]
+  },
+  "ta2Row": "\"4853;Straight sinus;Sinus rectus;Sinus droit;Seno recto;Seio reto;Seno retto;اشکفت راست\"",
+  "upstreamGLBSHA256": "05f373a294ab809b9a628bc1474a66028642997330fddc553a33d4ac6409b757",
+  "qbankSubsetSHA256": "d3e60f36298bd92c044de4ee3c07c4fc823db3b96648646211edb9a24735a5d6",
+  "sourceAndSubsetPrimitive": {
+    "nodeName": "Straight sinus",
+    "translation": [
+      0,
+      1.6025556325912476,
+      -0.019911061972379684
+    ],
+    "rotation": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "matrix": null,
+    "parents": [],
+    "primitives": 1,
+    "vertices": 1164,
+    "indexCount": 6912,
+    "dracoSHA256": "66b50f993988a52892b83d2aba076698d60e6e99fd15676dde76f3507cc31bee",
+    "dracoBytes": 4462,
+    "dracoAttributes": {
+      "POSITION": 0,
+      "NORMAL": 1
+    }
+  },
+  "primitiveAndTransformsExactlyEqual": true,
+  "displayTransform": {
+    "scale": 100,
+    "translation": [
+      0,
+      -160,
+      0
+    ],
+    "units": "source glTF metres -> atlas centimetres, Y up"
+  },
+  "sourceFiles": [
+    {
+      "file": "manifest.json",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/public/anatomy/manifest.json",
+      "bytes": 1293434,
+      "sha256": "628983219020d9b9b0f14dfbc394c29952cab974fd18871469f6776917755662"
+    },
+    {
+      "file": "cardiovascular_male.glb",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/public/anatomy/cardiovascular_male.glb",
+      "bytes": 7217588,
+      "sha256": "05f373a294ab809b9a628bc1474a66028642997330fddc553a33d4ac6409b757"
+    },
+    {
+      "file": "NOTICE",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/public/anatomy/NOTICE",
+      "bytes": 8191,
+      "sha256": "3b2304a2feca5a8304991de8d684b42b3fb77c23a958fa2871fd60de076bfcb4"
+    },
+    {
+      "file": "tree.json",
+      "url": "https://api.github.com/repos/Nurkan1/Anatria-3D/git/trees/6320bd64df8db2fcfed358a27c85d1fcc1c5913c?recursive=1",
+      "bytes": 116304,
+      "sha256": "ef6f0cd75833f64b2a896975a76d661124b14e3375d298766942e8fd8005c5cb"
+    },
+    {
+      "file": "blender_export.py",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/blender_export.py",
+      "bytes": 15018,
+      "sha256": "0d76b32b4c2a98215bbdc249a7b14a6bf4e2a40baeec1b99863f2a746c848bcc"
+    },
+    {
+      "file": "export-all.py",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/export-all.py",
+      "bytes": 6844,
+      "sha256": "02592edb04fba75b33996d0f49be084f8a7f1b18be3cc8808a4ee4872e9980e5"
+    },
+    {
+      "file": "build-manifest.mjs",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/build-manifest.mjs",
+      "bytes": 11415,
+      "sha256": "5130eaff972835858ad99f3e0d1877f1cd9b6e84e680a9b40497a49e33a25a63"
+    },
+    {
+      "file": "ta2.mjs",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/ta2.mjs",
+      "bytes": 15539,
+      "sha256": "287b0f80fec5c33861e2f702c050033d2bd312cf02dcb2a51db1af29455578c3"
+    },
+    {
+      "file": "vendor-reports-cardiovascular.json",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/vendor/reports/cardiovascular.json",
+      "bytes": 84217,
+      "sha256": "e16d572a10811093ade4326c78a47d41a45c9a335f1b0856b5e5e5d4847dc0db"
+    },
+    {
+      "file": "vendor-inspect.json",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/vendor/inspect.json",
+      "bytes": 1754072,
+      "sha256": "b9df5d0d77049224d21d16c5edfc12c40b694f12943fb165a99f031d0f869aa7"
+    },
+    {
+      "file": "vendor-audit.json",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/vendor/audit.json",
+      "bytes": 702425,
+      "sha256": "f057a5b1f002d97da7d165d00cffc4f7ba3591f789a08a52a193106bd224588d"
+    },
+    {
+      "file": "vendor-TA2.csv",
+      "url": "https://raw.githubusercontent.com/Nurkan1/Anatria-3D/6320bd64df8db2fcfed358a27c85d1fcc1c5913c/tools/asset-pipeline/vendor/TA2.csv",
+      "bytes": 1510396,
+      "sha256": "0f9092a328b27dcd15d696d9f9a4087deb229a1aad21b75876657622de835974"
+    }
+  ],
+  "scientificStatus": {
+    "anatomicalIdentityApproved": false,
+    "clinicalSegmentationEstablished": false,
+    "connectionToGalenVerified": false
+  },
+  "lineageLimits": "Anatria vendor audit records a Blender CURVE, evaluated to a mesh before glTF export. TA2/name agreement is nomenclature only. NOTICE declares Z-Anatomy derived from BodyParts3D, but no object-specific BodyParts3D/FMA mesh identifier or patient segmentation provenance was established. Original Startup.blend was not independently inspected in this audit. No warp, bridge or renaming performed."
+}
