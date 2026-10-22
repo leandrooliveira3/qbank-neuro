@@ -1,3 +1,7 @@
+# Estado atual — revisão pessoal e catálogo de fontes
+
+Leia o bloco mais recente e ../neuro3d-gs-ca-review-notes.md. Registros anteriores são históricos.
+
 # Estado atual — XLS original, componentes e inspeção nativa
 
 Leia o bloco mais recente e ../neuro3d-gs-ca-components.md; registros anteriores são históricos.
@@ -100,3 +104,10 @@ Importação é do formato próprio explicitamente rotulado; não há conversão
 Base `cecfb4801ea7244f3bcee6c845d25ea64a233be0`, local `continuation/gs-ca-component-study`, destino feature/neuro3d-atlas sem merge/force. Convenção XLS comprovada no guia seção3.5pp8–9: zero/inclusivo, VOI X/Y/Z e ROI AP/LAT por índices; adapter original com hash da planilha e vínculo dos hashes volume/MHD/RAD, prévia e aplicação. Dez abas comparadas com xlrd independente, sem reaudar volumes. Componentes por aresta exata, seleção/lista/clique3D e contornos; entorno do alvo em passo1 com retorno à VOI anterior. Sem soldagem por tolerância, nomeação ou prova luminal. SheetJS0.20.3 oficial/Apache2.0 fixado, parser sob demanda no worker; formato ES necessário aos workers e revalidado.
 
 159unitários/41arquivos,22casos navegador/4arquivos desktop+Pixel7, TypeScript/build aprovados. Caso real1: XLS/quatroROIs/alvofracionário, superfície3668tri/102componentes, seleção2036tri; entorno12400tri/55componentes em passo1; três cortes/3D e restauração conferidos,0erros/0nãoGET. Dados/recortes/calibrações privados. Ver ../neuro3d-gs-ca-components.md e agregado. ZIP automático/validação anatômica/registro seguem pendentes;20/373/setetermos/Galeno/seteIDs/componentesICAvidiana/meningolacrimal/demaisfrentes mantidos. Nãoexecutado fornecedor, não repetidos592/42/bordas. Commit que contém este arquivo identifica checkpoint; confirmar remoto/status exatos no comprovante privado.
+
+
+## 22/10/2026 — anotações pessoais e fontes adicionais
+
+Base ea95218c3b420dcc082736c445ebc8ba71e6ce81; local continuation/vascular-review-notes. AnotaçõesGS-CA exportáveis/importáveis, hashes individuais/contexto/malha exata, ponto fracionário/corteinteiro, edição, remoção/desfazer, mesclagem sem sobrescrever conflitos e reabertura dos parâmetros/componentes somente após coincidência geométrica. Sempre hipótese/observação pessoal, flagsanatômica/registrofalse; semDB/envio.163unitários/42arquivos,22casos navegador/4arquivos desktop+Pixel7,TypeScript/build aprovados; caso real1 comJSONidêntico após round-trip ehash/componente/ponto recuperados,0erros/0nãoGET. Capturas privadas.
+
+Lista12fontes do novo anexo avaliada/catalogada emNeuroangio→Revisãovenosa; Jülich/HCPex candidatos de contexto, DSI/brainlife ferramentas nãoexecutadas; Radiopaedia402 eEmbryoCCBYNCND explícitos. Busca dirigida5candidatos não comprovou geometria individual reutilizável:20/373/setetermos inalterados. Galeno/seteIDs/componentesICAvidiana/meningolacrimal/demaisfrentes preservados. Ver ../neuro3d-gs-ca-review-notes.md, ../neuro3d-additional-databases.md e relatório de busca. Não repetidos592/42/bordas/10volumes. ZIPautomático pendente. Checkpoint é identificado pelo commit deste arquivo; remoto/deployment exatos no comprovante privado.

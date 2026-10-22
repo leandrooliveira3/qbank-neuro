@@ -121,3 +121,8 @@ Lote22/10: fonte/guia GS-CA previamente consultados continuam referenciados em n
 ## 22/10/2026 — XLS e componentes
 
 Guia GS-CA seção3.5pp8–9 reaberto e nota de índiceszero/inclusivos confirmada; XLS original lido por xlrd privado e adapter SheetJS. Dez abas com limites iguais; hashes dos pequenos cabeçalhos originais adicionados ao contrato, volumes não reauditados. Documentação oficial SheetJS (instalaçãoNode/formulae) e Viteworker.format consultada; SheetJSCE0.20.3Apache2.0 fixado viaCDNoficial comintegridade no lockfile. Dois scriptsMatlab de resultados apenaslidos, jamaisexecutados. Nenhuma nova fonte venosa importada. Ver ../neuro3d-gs-ca-components.md.
+
+
+## 22/10/2026 — revisão pessoal e fontes
+
+Novo anexo12fontes lido e páginas primárias consultadas; HCPexREADME/catálogo e NNCCATTRIBUTION porconectorGitHub. AJNR2003/2018 consultados emtexto primário indexado (direto403/challenge); CommonsNevitCCBYSA3.0 conferido na página do autor, STL não baixado. Sem nova execução/importação de software/dataset. Ver relatórios adicionais. Ferramentas própriasGSCA/testes/browser efetivamente executados.

@@ -1,4 +1,5 @@
 import {extractSurface,surfacePlan} from './surface';
+import {surfaceHash} from './reviewNotes';
 import {readGeometryFiles} from './reader';
 import {renderSlice,validateRoi,type Box3i} from './geometry';
 let data:Awaited<ReturnType<typeof readGeometryFiles>>|undefined,image:{name:string;values:Float32Array;minimum:number;maximum:number;sha256:string}|undefined,detectorSequence=0;
@@ -12,6 +13,7 @@ self.onmessage=async(event:MessageEvent)=>{
    const plan=surfacePlan(data.metadata.volume,q.voi,q.detail);
    if(data.metadata.volume.bytes+Math.max(0,...data.metadata.detectors.map(d=>d.header.bytes))+plan.estimatedWorkingBytes>512_000_000)throw Error('Estimativa da superfície excede 512 MB com o volume e detector.');
    const r=extractSurface(data.values,data.metadata.volume,q.voi,q.threshold,q.detail,[data.metadata.minimum,data.metadata.maximum]);
+   r.meshSha256=await surfaceHash(r);
    send({kind:'surface',sequence:q.sequence,...r},[r.positions.buffer,r.voxels.buffer,r.componentIds.buffer]);
   }
   else if(q.kind==='slice'&&data){const r=renderSlice(data.values,data.metadata.volume,q.axis,q.index,q.voi as Box3i,q.window);send({kind:'slice',key:q.key,sequence:q.sequence,...r},[r.pixels.buffer]);}

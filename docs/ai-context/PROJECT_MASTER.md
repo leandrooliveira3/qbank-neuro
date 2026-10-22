@@ -96,3 +96,8 @@ Etapa seguinte à aba GS-CA: recortes JSON próprios conferidos, prévia Sw e co
 ## 22/10/2026 — XLS e componentes
 
 Entregues XLSoriginal porhash/caso, componentes geométricos selecionáveis e recorte nativo passo1 comrestauração; consulte neuro3d-gs-ca-components.md. ZIPautomático e completude anatômica seguempendentes; não repetir estes recursos no próximo lote.
+
+
+## 22/10/2026 — revisão pessoal e fontes
+
+Revisão pessoalGSCA comJSONvinculado a fonte/malha/parametrização entregue; fontes do novo anexo12avaliadas e catalogadas. Leia neuro3d-gs-ca-review-notes.md e neuro3d-additional-databases.md. Completude20/373/setetermos permanece sem geometria adicional comprovada.

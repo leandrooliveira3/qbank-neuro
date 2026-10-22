@@ -8,6 +8,7 @@ export interface SurfacePreview {
  sampleDimensions:number[]; triangles:number; voi:Box3i; estimatedWorkingBytes:number;
  coordinateSystem:'GS-CA Sw mm';
  components:MeshComponent[];componentIds:Uint32Array;
+ detail:60|90;meshSha256?:string;
 }
 const maxTriangles=150_000;
 export function surfacePlan(h:VolumeHeader,voi:Box3i,detail:60|90){
@@ -42,7 +43,7 @@ export function extractSurface(values:Int16Array,h:VolumeHeader,voi:Box3i,thresh
   }
   if(!world.length||!world.every(Number.isFinite))throw Error('Sem superfície válida nesta VOI e limiar.');
   const voxelArray=new Float32Array(voxels),components=meshComponents(voxelArray);
-  return {positions:new Float32Array(world),voxels:voxelArray,...components,threshold,stride:plan.stride,sampleDimensions,triangles:world.length/9,voi:[...voi],estimatedWorkingBytes:plan.estimatedWorkingBytes,coordinateSystem:'GS-CA Sw mm'};
+  return {positions:new Float32Array(world),voxels:voxelArray,...components,threshold,detail,stride:plan.stride,sampleDimensions,triangles:world.length/9,voi:[...voi],estimatedWorkingBytes:plan.estimatedWorkingBytes,coordinateSystem:'GS-CA Sw mm'};
  }finally{cubes.geometry.dispose();material.dispose();}
 }
 

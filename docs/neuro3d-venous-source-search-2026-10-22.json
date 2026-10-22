@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-22",
+  "scope": "Directed search for individual named human venous geometry; not a new audit of the 592 atlas vessels",
+  "missingIds": [
+    "anterior_cerebral_vein_l",
+    "anterior_cerebral_vein_r",
+    "inferior_temporal_vein_l",
+    "inferior_temporal_vein_r",
+    "vein_of_rolando_l",
+    "vein_of_rolando_r",
+    "temporooccipital_vein_l",
+    "temporooccipital_vein_r",
+    "anterior_frontal_veins_l",
+    "anterior_frontal_veins_r",
+    "inferior_parietal_vein_l",
+    "inferior_parietal_vein_r",
+    "posterior_caudate_veins_l",
+    "posterior_caudate_veins_r",
+    "lateral_atrial_veins_l",
+    "lateral_atrial_veins_r",
+    "paracavernous_sinus_l",
+    "paracavernous_sinus_r",
+    "tentorial_sinus_l",
+    "tentorial_sinus_r"
+  ],
+  "unmappedTerms": [
+    "medial atrial vein",
+    "transverse caudate veins",
+    "interpeduncular vein",
+    "transverse pontine vein",
+    "pontomedullary sulcus vein",
+    "brachial vein",
+    "tonsillar veins"
+  ],
+  "candidates": [
+    {
+      "name": "AJNR2018 superior petrosal complex",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7655400/",
+      "terms": [
+        "transverse pontine vein",
+        "posterior-fossa brachial/pontotrigeminal tributary"
+      ],
+      "access": "Primary indexed text read; direct PMC challenge/AJNR403",
+      "block": "Published anatomy and apparent artificial artery-vein union discussed, but individual labeled raw volumes/masks and reuse terms not obtained. Article copyright is not a data license."
+    },
+    {
+      "name": "AJNR2003 pontomesencephalic veins",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7974009/",
+      "terms": [
+        "interpeduncular vein",
+        "transverse pontine vein"
+      ],
+      "access": "Primary indexed text read; direct challenge/403",
+      "block": "No individual side-labeled downloadable geometry or reuse license established; image depiction is insufficient to identify atlas components."
+    },
+    {
+      "name": "Neurosurgical Atlas Cohen collection",
+      "url": "https://www.neurosurgicalatlas.com/volumes/operative-neuroanatomy/infratentorial-operative-anatomy/cerebrovascular-anatomy",
+      "terms": [
+        "anterior cerebral vein",
+        "transverse pontine vein",
+        "pontomedullary sulcus vein"
+      ],
+      "access": "Primary indexed descriptions of annotated models; direct page title only",
+      "block": "Individual annotated asset, side/course continuity and redistribution license not established. Viewer assets not extracted."
+    },
+    {
+      "name": "Nevit Dilmen CNS Venography",
+      "url": "https://commons.wikimedia.org/wiki/File:CNS_Venography_3D_SR_Nevit_Dilmen.stl",
+      "terms": [
+        "global venous surface"
+      ],
+      "access": "Author/file page read; CC BY-SA3.0 declared; source file not downloaded",
+      "block": "Published page lacks individual named channel/side labels. Cannot assign a tributary, resolve Galen or register by proportional fit."
+    },
+    {
+      "name": "NNCC brain-atlas-3d",
+      "url": "https://github.com/nncceducation-cpu/brain-atlas-3d",
+      "access": "README and ATTRIBUTION read through GitHub connector",
+      "block": "Venous overlay points to Nevit surface with proportional educational fitting; no proof of missing individual tributaries. No code or assets executed/imported."
+    }
+  ],
+  "toolsExecuted": [
+    "GitHub read-only fetch",
+    "web primary-page/index search",
+    "own GS-CA annotation code/tests/browser"
+  ],
+  "newGeometryDownloaded": false,
+  "newGeometryImported": false,
+  "countsChanged": false,
+  "missingGeometry": 20,
+  "referenceGaps": 373,
+  "unmappedTermsCount": 7
+}

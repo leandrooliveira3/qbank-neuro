@@ -2,9 +2,10 @@ import React,{useEffect,useRef,useState} from 'react';
 import type {LocalGeometry} from './reader';
 import type {Box3i} from './geometry';
 import {surfacePlan,type SurfacePreview} from './surface';
-export default function GsCaSurfaceControls({worker,meta,voi,onSurface}:{worker:Worker;meta:LocalGeometry;voi:Box3i;onSurface:(surface:SurfacePreview|undefined)=>void}){
+export default function GsCaSurfaceControls({worker,meta,voi,onSurface,preset}:{worker:Worker;meta:LocalGeometry;voi:Box3i;onSurface:(surface:SurfacePreview|undefined)=>void;preset?:{token:number;threshold:number;detail:60|90}}){
  const [threshold,setThreshold]=useState(String(Math.round((meta.minimum+meta.maximum)/2))),[detail,setDetail]=useState<60|90>(60),[busy,setBusy]=useState(false),[error,setError]=useState('');
  const sequence=useRef(0),voiKey=JSON.stringify(voi);
+ useEffect(()=>{if(preset){++sequence.current;setBusy(false);setThreshold(String(preset.threshold));setDetail(preset.detail);}},[preset]);
  useEffect(()=>{++sequence.current;setBusy(false);setError('');onSurface(undefined);},[voiKey,threshold,detail,onSurface]);
  useEffect(()=>{const listener=(e:MessageEvent)=>{const r=e.data;if(r.sequence!==sequence.current)return;if(r.kind==='surface'){setBusy(false);onSurface(r);}else if(r.kind==='error'&&r.requestKind==='surface'){setBusy(false);setError(r.error);onSurface(undefined);}};worker.addEventListener('message',listener);return()=>worker.removeEventListener('message',listener);},[worker,onSurface]);
  let plan:ReturnType<typeof surfacePlan>|undefined;try{plan=surfacePlan(meta.volume,voi,detail);}catch{}

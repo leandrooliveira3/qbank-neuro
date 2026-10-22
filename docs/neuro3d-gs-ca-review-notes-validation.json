@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "ea95218c3b420dcc082736c445ebc8ba71e6ce81",
+  "unitTests": 163,
+  "unitFiles": 42,
+  "browserCases": 22,
+  "browserFiles": 4,
+  "browserProjects": [
+    "desktop",
+    "Pixel7 emulation"
+  ],
+  "typecheck": true,
+  "build": true,
+  "notesFormat": "qbank-gsca-study-notes/v1",
+  "fileLimitBytes": 1000000,
+  "noteLimit": 100,
+  "exactSurfaceHashRequiredForComponentMatch": true,
+  "sourceDigestsIncluded": true,
+  "realCase": {
+    "case": 1,
+    "notes": 1,
+    "sourceVolumeHashMatched": true,
+    "fractionalAnchorPreserved": true,
+    "exactMeshHashRestored": true,
+    "componentSelectionRestored": true,
+    "exportImportRoundTripEqual": true,
+    "axesInspected": [
+      0,
+      1,
+      2
+    ],
+    "errors": [],
+    "nonGetRequests": [],
+    "anatomicalIdentityVerified": false,
+    "registrationAccuracyValidated": false
+  },
+  "newAnatomicalGeometries": 0,
+  "missingVenousGeometries": 20,
+  "referenceGaps": 373,
+  "unmappedVenousTerms": 7,
+  "userSourcesAssessed": 12,
+  "primaryPagesReadable": 10,
+  "accessLimitedSources": ["Radiopaedia article HTTP402", "Neuroangio root timeout"],
+  "supplierCodeExecuted": false,
+  "restrictedDataPublished": false,
+  "registrationAccuracyValidated": false,
+  "clinicalValidation": false,
+  "automaticZipImport": false,
+  "remoteBrowserTested": false
+}

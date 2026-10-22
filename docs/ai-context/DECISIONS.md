@@ -111,3 +111,8 @@ Formato próprio de recortes exige convenção explícita zero inclusiva e vínc
 ## 22/10/2026 — XLS e componentes
 
 Guia primário comprova índiceszero/inclusivos; não aplicar+1 doMatlab. Aceitar somente XLS original porhash, vinculado aos hashesvolume/cabeçalhos; extrair apenas recortes literais. Componentes usam arestas exatas sem soldagem; IDs são locais à geração e sem nomes anatômicos. Inspeção local até28voxels de raio garante passo1, não continuidade. Margem de memória ampliada para mapas e filtros. Workers ES para imports dinâmicos apósgatehash.
+
+
+## 22/10/2026 — revisão pessoal e fontes
+
+Anotações nunca promovem identidade anatômica. Componente exige hash da malha+parâmetros, não somente rank; case binding usa hashes/cabeçalho e Sv/Sw. Reabrir restaura parâmetros, sem gerar automaticamente ou alterar malha. Mesclagem conflituosa é atômica. Novas12fontes são catálogo de referência, não integrações; formatos/licenças/espaços individuais precisam de prova.
