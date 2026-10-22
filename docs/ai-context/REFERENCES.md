@@ -111,3 +111,8 @@ FonteAnatria fixa6320bd64, skeletal_male.glb já recuperado/hashes do manifesto 
 ## 22/10/2026 — GS-CA local/TopBrain
 
 PáginaGS-CA primária reaberta; arquivoslocais jáauditados utilizados pelaUIrealcaso1, não reauditados10casos. CódigoMatlab/MEX/C++/MGP dofornecedor não executado. Somente agregados novos e código próprio publicados; políticaBY-NC-ND/condiçõesdoguia mantida. TopBrainpágina primária viabuscaindexada, direta403: rótulosvenosos/termos consultados, nenhumdownload ou execução. Candidato não fornece correspondência para20IDs/7termos. Ver ../neuro3d-venous-source-candidates.json e ../neuro3d-gs-ca-viewer-validation.json. Pesquisa porcaudado/interpeduncular retornou também estruturas não vasculares, descartadas; não contarfontes irrelevantes como integração.
+
+
+## 22/10/2026 — estudo vascular local
+
+Lote22/10: fonte/guia GS-CA previamente consultados continuam referenciados em neuro3d-geometry-dataset-review.md; neste lote arquivos ZIP apenas inventariados e casos locais lidos por ferramenta própria. MarchingCubes do Three.js instalado foi inspecionado/executado sob MIT; sem nova dependência. Nenhum Matlab/MEX/C++ do fornecedor executado, nenhum novo dataset/atlas importado. Ver neuro3d-gs-ca-study.md.

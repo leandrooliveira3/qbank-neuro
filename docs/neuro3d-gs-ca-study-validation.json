@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-22",
+  "baseCommit": "629199a63487e794be742fd7cf940b9f13cb5fde",
+  "unitTests": 156,
+  "unitFiles": 40,
+  "browserCases": 16,
+  "browserFiles": 3,
+  "browserProjects": [
+    "desktop",
+    "Pixel7 emulation"
+  ],
+  "typecheck": true,
+  "build": true,
+  "realCase": {
+    "id": 1,
+    "surfaceTrials": [
+      {
+        "threshold": 1200,
+        "stride": 9,
+        "sampleDimensions": [
+          58,
+          58,
+          45
+        ],
+        "triangles": 1320,
+        "estimatedWorkingBytes": 55394304
+      },
+      {
+        "threshold": 2400,
+        "stride": 6,
+        "sampleDimensions": [
+          87,
+          87,
+          66
+        ],
+        "triangles": 1964,
+        "estimatedWorkingBytes": 64069712
+      },
+      {
+        "threshold": 1200,
+        "stride": 2,
+        "sampleDimensions": [
+          77,
+          77,
+          44
+        ],
+        "triangles": 5558,
+        "estimatedWorkingBytes": 60348592
+      }
+    ],
+    "volumeHashMatchedPriorAudit": true,
+    "fractionalTargetPreserved": true,
+    "metadataRoundTrip": true,
+    "axesInspected": [
+      0,
+      1,
+      2
+    ],
+    "pageErrors": 0,
+    "nonGetRequests": 0,
+    "capturesPrivate": true
+  },
+  "vendorXlsConventionValidated": false,
+  "supplierCodeExecuted": false,
+  "registrationAccuracyValidated": false,
+  "clinicalValidation": false,
+  "newAnatomicalGeometries": 0,
+  "missingVenousGeometries": 20,
+  "referenceGaps": 373,
+  "unmappedVenousTerms": 7,
+  "restrictedDataPublished": false
+}

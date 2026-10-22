@@ -101,3 +101,8 @@ P0seguinte: voltar à completude vascular e fluxos de estudo, buscar fonte indiv
 Decisão: manter arraysgrandes emworker, umdetector porvez e limites explícitos, sem reduzir dimensões ou unidades silenciosamente. TransformaçõesSv/Sw completas, matrizes column-major exportadas; ponto-alvo fracionário distinto docorte inteiro mais próximo. Clique inverso só no plano atual, não profundidade reconstruída. VOI/ROI zero/inclusivos explícitos, XLSmanual nestaetapa. Revisão manual/diferença em pixels não altera flag de precisãofalse. Nenhum registroautomático noatlas nem nomeação emvolume não rotulado.
 
 Decisão: fontes venosas comrótulos apenasdecoletores existentes não preenchem as20ausências. TopBrain é candidato independentenãoimportado, termoscomerciais não assumidos. Publicar código próprio/agregados; imagens/pontos/calibrações/exames privados não entram norepo.
+
+
+## 22/10/2026 — estudo vascular local
+
+Formato próprio de recortes exige convenção explícita zero inclusiva e vínculo por hashes/cabeçalhos; sem adapter XLS até prova. Superfície usa Sw nativo, extremos de grade incluídos e descarte de padding, não PatientVolume LPS. Limites e contornos são revisão exploratória, nunca comprovação de identidade vascular.

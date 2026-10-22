@@ -27,3 +27,20 @@ test('GS-CA rejects incompatible RAW and recovers without inventing an import or
  await page.getByLabel('Importar geometria GS-CA',{exact:true}).setInputFiles(fixture());await expect(page.getByTestId('gsca-detector')).toHaveAttribute('data-busy','false');await page.getByLabel('VOI em índices zero',{exact:true}).fill('0 99 0 4 0 3');await page.getByRole('button',{name:'Aplicar VOI',exact:true}).click();await expect(page.getByRole('alert')).toContainText('VOI fora');await expect(page.getByRole('button',{name:'Exportar revisão geométrica local',exact:true})).toBeDisabled();
  await page.getByRole('button',{name:'Paciente 3D',exact:true}).click();await expect(page.getByLabel('Importar volume DICOM do paciente',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Geometria 3D–2D',exact:true}).click();await expect(page.getByTestId('gsca-metadata')).toHaveCount(0);
 });
+
+test('GS-CA previews a Sw surface, cross-sections it and safely reimports hash-bound crop metadata',async({page})=>{
+ const errors:string[]=[],sent:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(r.method()!=='GET')sent.push(r.url());});
+ await page.goto('/#/tools/neuro3d');await page.getByRole('button',{name:'Geometria 3D–2D',exact:true}).click();await page.getByLabel('Importar geometria GS-CA',{exact:true}).setInputFiles(fixture());
+ const exportButton=page.getByRole('button',{name:'Exportar revisão geométrica local',exact:true});await expect(exportButton).toBeEnabled();
+ await page.getByLabel('Alvo GS-CA',{exact:true}).selectOption('0');
+ await page.getByLabel('Limiar da superfície',{exact:true}).fill('155');await page.getByRole('button',{name:'Gerar prévia vascular',exact:true}).click();await expect(page.getByTestId('gsca-surface')).toContainText('GS-CA Sw mm');
+ for(const axis of ['0','1','2']){await page.getByLabel('Eixo do corte GS-CA',{exact:true}).selectOption(axis);await expect(page.getByTestId('gsca-slice')).toHaveAttribute('data-busy','false');await page.getByTestId('gsca-slice').screenshot({path:`test-results/gs-ca-surface-axis${axis}-${test.info().project.name}.png`});}
+ const download=page.waitForEvent('download');await exportButton.click();const stream=await(await download).createReadStream(),chunks:Buffer[]=[];for await(const c of stream!)chunks.push(c);const r=JSON.parse(Buffer.concat(chunks).toString());
+ expect(r.surface.triangles).toBeGreaterThan(0);expect(r.surface.voi).toEqual([0,7,0,5,0,3]);expect(r.selectedVoxel).toEqual([2.5,1.5,1.25]);expect(r.cropConvention).toBe('zero-based-inclusive');expect(r.registrationAccuracyValidated).toBe(false);
+ const input=page.getByLabel('Importar metadados VOI ROI',{exact:true});
+ await input.setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({...r,sourceDigests:[]}))});await expect(page.getByRole('alert')).toContainText('Hash');await expect(page.getByTestId('gsca-crop-preview')).toHaveCount(0);
+ r.voi=[1,6,0,4,0,3];r.roi=[1,12,1,10];
+ await input.setInputFiles({name:'review.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(r))});await expect(page.getByTestId('gsca-crop-preview')).toContainText('1 6 0 4 0 3');await expect(page.getByTestId('gsca-surface')).toBeVisible();
+ await page.getByRole('button',{name:'Aplicar metadados conferidos',exact:true}).click();await expect(page.getByLabel('VOI em índices zero',{exact:true})).toHaveValue('1 6 0 4 0 3');await expect(page.getByLabel('ROI em pixels zero',{exact:true})).toHaveValue('1 12 1 10');await expect(page.getByTestId('gsca-surface')).toHaveCount(0);await expect(page.getByTestId('gsca-point')).toContainText('2.5, 1.5, 1.25');
+ await page.getByRole('button',{name:'Gerar prévia vascular',exact:true}).click();await expect(page.getByTestId('gsca-surface')).toBeVisible();await page.getByLabel('Limiar da superfície',{exact:true}).fill('99999');await expect(page.getByTestId('gsca-surface')).toHaveCount(0);await page.getByRole('button',{name:'Gerar prévia vascular',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Limiar');expect(sent).toEqual([]);expect(errors).toEqual([]);
+});

@@ -1,3 +1,4 @@
+import {extractSurface,surfacePlan} from './surface';
 import {readGeometryFiles} from './reader';
 import {renderSlice,validateRoi,type Box3i} from './geometry';
 let data:Awaited<ReturnType<typeof readGeometryFiles>>|undefined,image:{name:string;values:Float32Array;minimum:number;maximum:number;sha256:string}|undefined,detectorSequence=0;
@@ -6,6 +7,12 @@ self.onmessage=async(event:MessageEvent)=>{
  const q=event.data;
  try{
   if(q.kind==='load'){data=await readGeometryFiles(q.files);send({kind:'ready',metadata:data.metadata});}
+  else if(q.kind==='surface'&&data){
+   const plan=surfacePlan(data.metadata.volume,q.voi,q.detail);
+   if(data.metadata.volume.bytes+Math.max(0,...data.metadata.detectors.map(d=>d.header.bytes))+plan.estimatedWorkingBytes>512_000_000)throw Error('Estimativa da superfície excede 512 MB com o volume e detector.');
+   const r=extractSurface(data.values,data.metadata.volume,q.voi,q.threshold,q.detail,[data.metadata.minimum,data.metadata.maximum]);
+   send({kind:'surface',sequence:q.sequence,...r},[r.positions.buffer,r.voxels.buffer]);
+  }
   else if(q.kind==='slice'&&data){const r=renderSlice(data.values,data.metadata.volume,q.axis,q.index,q.voi as Box3i,q.window);send({kind:'slice',key:q.key,sequence:q.sequence,...r},[r.pixels.buffer]);}
   else if(q.kind==='detector'&&data){
    const sequence=++detectorSequence,d=data.metadata.detectors.find(d=>d.name===q.name),file=data.imageFiles.get(q.name);if(!d||!file)throw Error('Projeção ausente.');

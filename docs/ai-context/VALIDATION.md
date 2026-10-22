@@ -114,3 +114,14 @@ Caso real1, fora do contador de fixtures: UI512×512×391/4projeções/2alvosSv 
 Fluxo novo: seleção local→validação de contrato/tamanho/memória→worker/Int16/hash→RGBAcorte/umFloat32detector→alvofracionário→Sv/Sw→projeção→raio intersectado nocorteinteiro→exportação comflagsfalse. VOI/ROIzero/inclusivos e janela; erro/reimportação; remoção/trocaaba e descarteworker; ausência dePOST verificadas. Fixtures numéricas testam magnificação, inversa completa, afimnãoortogonal, áreas fora do campo/RAW incompatível/duplicação, fontesparalelas e trêsorientações x-fastest semflip.
 
 Revisão React: nova aba lazy e processamento emworker; arraysgrandes não chegam aReact; carregamento de um detector porvez; buffersRGBA transferidos; workerterminado emclear/unmount; identidade+sequência+chave impedem framesobsoletos e exportaçãoenquanto recalcula. Controles rotulados e limitesexplícitos; cena3D protegida porboundary; semAPI/DB/dependência nova. Não executados MGP/Matlab/MEX/REA/Ankyras ou reconstruçãoa partir deprojeções. Não reauditados592vasos, bordas ou42cortes.
+
+
+## 22/10/2026 — prévia vascular GS-CA e recortes locais
+
+Base `629199a63487e794be742fd7cf940b9f13cb5fde`; branch local `continuation/gs-ca-surface-metadata`, destino `feature/neuro3d-atlas`, sem merge/force. O commit que contém este registro identifica o novo checkpoint; hash remoto/status exatos ficam no comprovante privado da publicação.
+
+Entregues: reimportação JSON da própria revisão com VOI/ROI zero-based inclusivos, prévia antes de aplicar, hashes/cabeçalhos vinculados ao caso; isosuperfície Marching Cubes no worker, Sw nativo, resolução/limiar/memória explícitos, extremidades amostradas, sem tampas de recorte, limite 150 mil triângulos rejeitando malha parcial. Interseções da mesma malha nos cortes X/Y/Z e enquadramento 3D da VOI. Alteração de VOI/limiar/resolução invalida a prévia; alvos fracionários preservados. Exporta parâmetros e proveniência, sem publicar malhas/dados restritos.
+
+156 testes unitários/40 arquivos, 16 casos de navegador/3 arquivos (desktop+Pixel7), TypeScript/build aprovados. Caso real1: três superfícies, recortes reimportados, três eixos, alvo fracionário/hash do volume preservados, zero erros/nãoGET; imagens e calibrações privadas. Aviso histórico de chunks >500kB permanece. Não é validação clínica, mTRE/mRPD ou completude vascular. Ver `../neuro3d-gs-ca-study.md` e agregado de validação.
+
+Importação é do formato próprio explicitamente rotulado; não há conversão automática comprovada de `database_info.xls` ou ZIP. Não inventar equivalência de índices do fornecedor. 20 ausências venosas, 373 lacunas e sete termos não mapeados permanecem; Galeno, sete identidades, ICA-vidiana/meningo-lacrimal e demais frentes preservados. Nenhuma nova geometria anatômica rotulada, ponte, reparo ou registro no atlas. Sem repetição das auditorias prontas e sem execução de código do fornecedor.

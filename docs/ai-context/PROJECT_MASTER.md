@@ -86,3 +86,8 @@ Basef7a04e68f67b8e25f2155acadd554360ba2ec80e; continuation/gs-ca-workspace. AbaG
 153unitários/39arquivos,24casos únicos denavegador/7arquivos,TypeScript/build aprovados; ensaioUIrealcaso1:4projeções×2alvos/3eixos,5hashesRAW iguais à auditoriaanterior,0erros/0nãoGET. Capturas privadas. Precisãoderegistro permanecefalse; não refeitos10casos/592vasos/bordas. TopBrainapenasconsultado, rótulospublicados não individualizam20ausências ou7termos; nenhumdownload/execução/importação.20/373/Galeno/seteIDs/componentes e demaisfrentes mantidos.
 
 PróximoP0: geometria local útil para estudo vascular (VOI/ROI com metadados verificados, isosuperfície/segmentaçãoemSw ou conferência quantitativa de alvos observados). ZIP/XLS automáticos pendentes; não repetir auditoriasprontas. Checkpoint será confirmado porhash/árvore/deployment exatos, sem merge/force.
+
+
+## 22/10/2026 — estudo vascular local
+
+Etapa seguinte à aba GS-CA: recortes JSON próprios conferidos, prévia Sw e contornos coincidentes entregues; leia neuro3d-gs-ca-study.md. XLS/ZIP originais e validação de segmentação/registro seguem pendentes; anatomia mantém20/373/setetermos/Galeno e demais restrições.
