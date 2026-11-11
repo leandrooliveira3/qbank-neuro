@@ -127,3 +127,12 @@ Lista12fontes do novo anexo avaliada/catalogada emNeuroangio→Revisãovenosa; J
 ## 22/10/2026 — ZIP local e busca tentorial dirigida
 
 168 testes unitários/43 arquivos e 26 casos únicos de navegador/5 arquivos, desktop e Pixel7 emulado, TypeScript e build aprovados. Repetições não somadas aos casos únicos. ZIP original do caso1: 11arquivos selecionados comCRC/tamanho, inventário exportado, SHA dos quatroRAWs de projeção confrontados com auditoria existente, hash do volume e ponto fracionário preservados; XLS/superfície/componente/notas e JSONidêntico após round-trip, três cortes inspecionados,0erros/0nãoGET. Teste ampliado revelou travamento ao reselecionar mesma projeção com ROI fonte compartilhada: reproduzido, corrigido por cópia da ROI e revalidado. Capturas e dados privados; nenhuma reauditoria dosdezcasos. Sem validação de registro/anatomia/clínica, novo dado vascular ou teste remoto. Ver ../neuro3d-gs-ca-zip-validation.json. Aviso histórico de chunks grandes permanece. Base e novo deployment dependem de confirmação de hash/status no comprovante privado; 403 não é prova de falha do build.
+
+
+## 10/11/2026 — Preparação NRI e referência LearnCoronary
+
+Nova aba NRI: estado documental 60/120 e 296/298, CP1 29/30 separado, CP2 pendente; 7I aguardando avaliação e 7J não iniciada. Registros posteriores sem evidência primária não substituídos. Questões A–E com gabaritos validados por fonte, versões de correção sem apagar pendências antigas, ciclos reais D0/+1/+3/+7/+14 e arquivos locais com prévia. IndexedDB e backup ZIP consultável, sem sincronização/restauração automática.
+
+LearnCoronary consultado como referência de interação: painel de orientação, seis vistas de estudo, comparação simultânea 3D–2D e aba Referências e fontes. Projetor ortográfico e licenças locais preservados; sem copiar código/ativos nem transplantar calibração coronariana. 184 unitários/45 arquivos, TypeScript e build aprovados. WebGL desativado no navegador de QA: controles e estado 2D conferidos; renderização/arraste 3D ainda precisam de validação em dispositivo com WebGL.
+
+Leia ../neuro3d-nri-and-projection-study.md. Estado anatômico e frentes anteriores mantidos. Próximo: validar comparação renderizada e documentos reais, conferir deploy do hash exato, incorporar evidências novas do curso. A publicação é comprovada separadamente por remoto/deployment; este texto não a presume.

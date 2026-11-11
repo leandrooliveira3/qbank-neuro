@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   data,
   emptyProgress,
@@ -23,6 +23,8 @@ const GsCaLab = lazy(() => import("./gsCa/GsCaLab"));
 const PatientLab = lazy(() => import("./patient/PatientLab"));
 const TcdLab = lazy(() => import("./tcd/TcdLab"));
 const ReferenceComparator = lazy(() => import("./comparison/ReferenceComparator"));
+const AtlasReferences = lazy(() => import("./acquisition/References"));
+const Preparation = lazy(() => import("./preparation/Preparation"));
 const Viewer = lazy(() => import("./Viewer"));
 const progressKey = "qbank_neuro3d_progress_v1";
 function download(name: string, value: unknown) {
@@ -43,6 +45,7 @@ function loadProgress() {
   }
 }
 export default function Neuro3DAtlas() {
+  const [params, setParams] = useSearchParams();
   const [atlasMode, setAtlasMode] = useState("surface");
   const [scene, setScene] = useState("arch");
   const [variant, setVariant] = useState("normal");
@@ -50,7 +53,7 @@ export default function Neuro3DAtlas() {
   const [layers, setLayers] = useState(Object.keys(layerNames));
   const [layerOpacity, setLayerOpacity] = useState<Record<string, number>>({});
   const [selected, setSelected] = useState<string | null>(null);
-  const [tab, setTab] = useState("Anatomia detalhada");
+  const [tab, setTab] = useState(params.get("tab") === "nri" ? "Preparação NRI 2027" : "Anatomia detalhada");
   const [detailedSelected, setDetailedSelected] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [registrySearch, setRegistrySearch] = useState("");
@@ -158,7 +161,7 @@ export default function Neuro3DAtlas() {
           </h1>
           <p>Explore a anatomia e pratique a navegação no mesmo espaço.</p>
         </div>
-        <div className="n3-metrics">
+        {tab !== "Preparação NRI 2027" && <div className="n3-metrics">
           <span>
             <b>{surfaceAtlas ? String(openAnatomy.structures.length + reconstructedVessels.length) : "12"}</b>{surfaceAtlas ? "estruturas" : "cenas"}
           </span>
@@ -168,12 +171,12 @@ export default function Neuro3DAtlas() {
           <span>
             <b>{answers.length}/25</b>questões
           </span>
-        </div>
+        </div>}
       </header>
-      <aside className="n3-warning" role="note">
+      {tab !== "Preparação NRI 2027" && <aside className="n3-warning" role="note">
         <strong>{tab === "Geometria 3D–2D" ? "Geometria da fonte · espaço independente." : tab === "Referências vasculares" ? "Referências derivadas de imagem · espaços independentes." : tab === "Paciente 3D" ? "Prévia derivada do exame · revisão necessária." : tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : tab === "Atlas" && atlasMode === "surface" ? "Base anatômica de referência · revisão em andamento." : "Geometria esquemática · não homologada."}</strong> Uso
         educacional. {tab === "Geometria 3D–2D" ? "Coordenadas da fonte em milímetros; precisão de registro ainda não validada. Nenhum vínculo espacial com o atlas presumido." : tab === "Paciente 3D" ? "Coordenadas físicas preservadas; segmentação e medidas ainda precisam de revisão. Sem recomendação automática de dispositivo ou técnica." : "Sem escala clínica, planejamento de pacientes ou simulação hemodinâmica validada."}
-      </aside>
+      </aside>}
       <div className="n3-topbar">
         <nav aria-label="Seções do atlas">
           {[
@@ -188,8 +191,10 @@ export default function Neuro3DAtlas() {
             "Questões",
             "Matriz",
             "Progresso",
+            "Preparação NRI 2027",
+            "Referências e fontes",
           ].map((t) => (
-            <button key={t} aria-pressed={tab === t} onClick={() => setTab(t)}>
+            <button key={t} aria-pressed={tab === t} onClick={() => {setTab(t);const next=new URLSearchParams(params);if(t === "Preparação NRI 2027") next.set("tab","nri");else next.delete("tab");setParams(next,{replace:true});}}>
               {t}
             </button>
           ))}
@@ -226,6 +231,8 @@ export default function Neuro3DAtlas() {
           </button>
         </p>
       )}
+      {tab === "Referências e fontes" && <Suspense fallback={<p role="status">Carregando referências…</p>}><AtlasReferences /></Suspense>}
+      {tab === "Preparação NRI 2027" && <Suspense fallback={<p role="status">Carregando preparação…</p>}><Preparation /></Suspense>}
       {tab === "Anatomia detalhada" && (
         <Suspense fallback={<p role="status">Carregando atlas de superfícies…</p>}><DetailedAtlas selected={detailedSelected} onSelect={setDetailedSelected} /></Suspense>
       )}

@@ -1,3 +1,4 @@
+import ProjectionStudy from "./acquisition/ProjectionStudy";
 import React, { Component, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei/core/Gltf";
@@ -109,7 +110,7 @@ function Asset({ file, opacity, selected, isolate, cut, onSelect, angiographic, 
     if (id && event.button === 0 && event.delta <= 3 && event.object.visible && event.object.userData.atlasPickable) onSelect(id);
   }} />;
 }
-function Camera({ selected, view, reset, focus, tool, poseRef }: { selected?: AtlasStructure; view: View; reset: number; focus: number; tool: AtlasTool; poseRef: React.RefObject<AngiographyPose> }) {
+function Camera({ selected, view, reset, focus, tool, poseRef, command, onPose }: { selected?: AtlasStructure; view: View; reset: number; focus: number; tool: AtlasTool; poseRef: React.RefObject<AngiographyPose>; command?: {id:number;pose:AngiographyPose}; onPose?: (pose:AngiographyPose)=>void }) {
   const ref = useRef<Controls>(null);
   const { camera, invalidate, gl, size } = useThree();
   const detectorScale = Math.min(size.width / 600, size.height / 560);
@@ -123,12 +124,14 @@ function Camera({ selected, view, reset, focus, tool, poseRef }: { selected?: At
     }
     const zoom = camera instanceof OrthographicCamera ? size.height * camera.zoom / (12 * (camera.top - camera.bottom) * detectorScale) : size.height / (24 * direction.length() * Math.tan((camera as PerspectiveCamera).fov * Math.PI / 360) * detectorScale);
     poseRef.current = { ...angles, zoom, center: ref.current.target.toArray() as P3 };
+    onPose?.(poseRef.current);
     gl.domElement.dataset.atlasCameraPose = [...camera.position.toArray(), ...ref.current.target.toArray()].map(v => v.toFixed(5)).join(",");
   };
   const selectionRef = useRef(selected); selectionRef.current = selected;
   const initialPose = useRef({ ...poseRef.current, center: [...poseRef.current.center] as P3 });
   const previous = useRef({ view, reset, focus, width: size.width, height: size.height });
   const mounted = useRef(false);
+  const lastCommand=useRef(-1);
   useEffect(() => {
     let target = new Vector3(0, -3, 0), distance = 48;
     const selected = selectionRef.current;
@@ -136,7 +139,8 @@ function Camera({ selected, view, reset, focus, tool, poseRef }: { selected?: At
     const orienting = view !== previous.current.view;
     const restoring = reset !== previous.current.reset;
     const resizing = size.width !== previous.current.width || size.height !== previous.current.height;
-    const requestedPose = mounted.current ? poseRef.current : initialPose.current;
+    const commanded=command && command.id !== lastCommand.current;
+    const requestedPose = commanded ? command.pose : mounted.current ? poseRef.current : initialPose.current;
     const oldDirection = camera.position.clone().sub(ref.current?.target ?? new Vector3()).normalize();
     if (selected && (focusing || orienting) && !restoring) {
       const a = new Vector3(...worldPoint(selected.bounds[0]));
@@ -147,21 +151,25 @@ function Camera({ selected, view, reset, focus, tool, poseRef }: { selected?: At
     const direction = view === "AP" ? new Vector3(0, 0, 1) : view === "Lateral" ? new Vector3(1, 0, 0)
       : view === "Posterior" ? new Vector3(0, 0, -1) : new Vector3(0.6, 0.2, 1).normalize();
     if (focusing) direction.copy(oldDirection);
-    if (!mounted.current || resizing) { target = new Vector3(...requestedPose.center); direction.set(...directionFromAngles(requestedPose.yaw, requestedPose.pitch)); }
+    if (!mounted.current || resizing || commanded) { target = new Vector3(...requestedPose.center); direction.set(...directionFromAngles(requestedPose.yaw, requestedPose.pitch)); }
     if (camera instanceof OrthographicCamera) {
       const zoom = focusing ? Math.min(12, 50 / distance) : restoring ? 1 : requestedPose.zoom;
       camera.left = -size.width / (24 * zoom * detectorScale); camera.right = -camera.left;
       camera.top = size.height / (24 * zoom * detectorScale); camera.bottom = -camera.top; camera.zoom = 1; camera.updateProjectionMatrix();
     }
+    if(command)lastCommand.current=command.id;
     mounted.current = true;
     previous.current = { view, reset, focus, width: size.width, height: size.height };
     camera.position.copy(target.clone().add(direction.multiplyScalar(distance)));
     camera.lookAt(target); ref.current?.target.copy(target); ref.current?.update(); reportPose(); invalidate();
-  }, [view, reset, focus, camera, invalidate, gl, size.width, size.height]);
+  }, [view, reset, focus, camera, invalidate, gl, size.width, size.height, command?.id]);
   return <OrbitControls onChange={reportPose} ref={ref} makeDefault minDistance={1} maxDistance={350} enableDamping={false} mouseButtons={{ LEFT: tool === "rotate" ? MOUSE.ROTATE : tool === "pan" ? MOUSE.PAN : -1 as MOUSE, MIDDLE: MOUSE.DOLLY, RIGHT: tool === "rotate" ? MOUSE.PAN : MOUSE.ROTATE }} touches={{ ONE: tool === "rotate" ? TOUCH.ROTATE : tool === "pan" ? TOUCH.PAN : -1 as TOUCH, TWO: TOUCH.DOLLY_PAN }} />;
 }
 export default function DetailedAtlas({ selected, onSelect: setSelected }: { selected: string | null; onSelect: (id: string | null) => void }) {
   const poseRef = useRef<AngiographyPose>({ yaw: 31, pitch: 10, zoom: 1, center: [0,-3,0] });
+  const [compareProjection,setCompareProjection]=useState(false);
+  const [poseCommand,setPoseCommand]=useState<{id:number;pose:AngiographyPose}>();
+  const poseSequence=useRef(0);
   const [linkedCenter, setLinkedCenter] = useState<P3>([0,-3,0]);
   const [tool, setTool] = useState<AtlasTool>("select");
   const [pickScope, setPickScope] = useState<PickScope>("arterial");
@@ -246,7 +254,16 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         : normalize(`${o.name} ${o.latin} ${"portuguese" in o ? o.portuguese : ""} ${o.path.join(" ")} ${landmarkAliases[o.id] ?? ""} ${labels.map((row) => row.portuguese).join(" ")}`).includes(needle);
     });
   }, [search]);
+  function receiveStudyPose(pose:AngiographyPose){
+    setYaw(pose.yaw);setPitch(pose.pitch);setImageZoom(pose.zoom);
+    setLinkedCenter(old=>old.every((v,i)=>Math.abs(v-pose.center[i])<1e-7)?old:pose.center);setImageField('linked');
+  }
+  function applyStudyPose(pose:AngiographyPose){
+    poseRef.current=pose;receiveStudyPose(pose);
+    setImageMode(false);setAngiographic3D(false);setPoseCommand({id:++poseSequence.current,pose});
+  }
   function restore() {
+    setCompareProjection(false);setPoseCommand(undefined);
     setInspectionPlane(null);
     setFullSource(false);
     setShowIllustrations(false);setShowVariants(false);setShowEmbryonic(false);setConnection(null);setHidden(new Set()); setTreeRoot(null); setView("Oblíqua"); setTool("select"); setPickScope("arterial"); setIsolate(false); setOpacity(initialOpacity); setPresentation("vascular");
@@ -290,11 +307,12 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     {inspectionPlane&&<aside className="nda-passage-context" data-testid="inspection-plane-context">{inspectionPlane.frame?"Plano oblíquo · origem matemática":`Plano ${inspectionPlane.axis.toUpperCase()} = ${(inspectionPlane.offsetCm*10).toFixed(2)} mm nominais`} · {inspectionPlane.passageId} · {inspectionPlane.side==='l'?'esquerda':'direita'}. Mesmo plano dos cortes da via, no referencial do atlas. Sobreposição pode aparecer através das superfícies; não marca um forame ou canal. {inspectionPlane.reviewWitness&&`Ponto branco: borda óssea em revisão ${inspectionPlane.reviewWitness.id}, triângulo ${inspectionPlane.reviewWitness.sourceTriangle}; não é centro de forame.`} {imageMode&&'Retorne às superfícies 3D para visualizar o plano.'}<button onClick={()=>setInspectionPlane(null)}>Ocultar plano de inspeção</button></aside>}
     {item && <div className="nda-selection" data-testid="atlas-selection" data-selected-id={item.id} role="status"><div><strong>{item.name}</strong>{(effectiveHidden.has(item.id) || opacity[item.layer] === 0) && <small>Estrutura oculta. Use Revelar seleção para mostrá-la.</small>}<small>{openLayerNames[item.layer]} · seleção mantida até escolher outra estrutura ou limpar</small>
       {anatomicalInventory.some((row) => row.ids.includes(item.id)) && <small data-testid="selected-diagram-numbers">Neuroangio: {anatomicalInventory.filter((row) => row.ids.includes(item.id)).map((row) => `${row.number} (${row.status === "partial" ? "parcial" : "identificado"})`).join(" · ")}</small>}</div><button onClick={focusSelection}>Focar seleção</button><button aria-pressed={isolate} onClick={() => setIsolate((value) => !value)}>Isolar seleção</button>{studyFamily?.hasBranches && <button aria-pressed={treeRoot === item.id} onClick={isolateStudyFamily}>{"status" in item ? "Isolar árvore didática" : "Isolar ramos de estudo"}</button>}<button onClick={() => { if (selected) setHidden(old => new Set([...old, selected])); setSelected(null); setIsolate(false); }}>Ocultar estrutura</button><button onClick={() => { if (item) { setHidden(old => { const next = new Set(old); next.delete(item.id); return next; }); setOpacity(old => ({ ...old, [item.layer]: 1 })); } }}>Revelar seleção</button><button onClick={() => { setSelected(null); setIsolate(false); }}>Limpar seleção</button></div>}
+    <ProjectionStudy pose={{yaw,pitch,zoom:imageZoom,center:imageCenter}} compare={compareProjection} onCompare={()=>{if(!compareProjection)applyStudyPose(poseRef.current);setCompareProjection(v=>!v);}} onPose={applyStudyPose}/>
     <div className="nda-workspace">
       <div className="nda-stage"><nav className="nda-mode" aria-label="Representação do atlas">
         <button aria-pressed={!imageMode && !angiographic3D} onClick={() => { setImageMode(false); setAngiographic3D(false); }}>Superfícies anatômicas 3D</button>
-        <button aria-pressed={imageMode} onClick={() => { const pose = poseRef.current; setYaw(pose.yaw); setPitch(pose.pitch); setImageZoom(pose.zoom); setLinkedCenter(pose.center); setImageField("linked"); setImageMode(true); setAngiographic3D(false); if (tool === "rotate") setTool("select"); }}>Angiografia</button>
-        <button aria-pressed={angiographic3D} onClick={() => { setImageMode(false); setAngiographic3D(true); }}>Angiografia 3D</button>
+        <button aria-pressed={imageMode} onClick={() => { const pose = poseRef.current; setYaw(pose.yaw); setPitch(pose.pitch); setImageZoom(pose.zoom); setLinkedCenter(pose.center); setImageField("linked"); setCompareProjection(false);setImageMode(true); setAngiographic3D(false); if (tool === "rotate") setTool("select"); }}>Angiografia</button>
+        <button aria-pressed={angiographic3D} onClick={() => { setCompareProjection(false);setImageMode(false); setAngiographic3D(true); }}>Angiografia 3D</button>
       </nav><div className="nda-toolbar"><nav aria-label="Vistas do modelo detalhado">
         {(["AP", "Lateral", "Oblíqua", "Posterior"] as View[]).map((name) => <button key={name} aria-pressed={view === name} onClick={() => { setView(name); setYaw(name === "Lateral" ? 90 : name === "Posterior" ? 180 : name === "Oblíqua" ? 30 : 0); setPitch(0); }}>{name}</button>)}
       </nav><select aria-label="Apresentação anatômica" value={presentation} onChange={(event) => {
@@ -317,6 +335,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         {!!hidden.size && <button onClick={() => setHidden(new Set())}>Reexibir ocultas ({hidden.size})</button>}
         <p>{tool === "select" ? (imageMode ? "Clique ou toque para identificar sem deslocar a imagem." : "Clique ou toque para identificar sem mover a câmera. Botão direito + arraste para girar.") : tool === "rotate" ? "Arraste para girar. Volte a Selecionar para identificar uma estrutura." : "Arraste para deslocar. Volte a Selecionar para identificar uma estrutura."} {imageMode ? "Na imagem 2D, use Mover para arrastar o campo e a roda para ampliar ao redor do cursor. O campo é mantido ao voltar à vista 3D." : "Roda para zoom; dois dedos para mover e ampliar. Focar seleção é uma ação separada."}</p>
       </div>
+      <div className={compareProjection?"nda-comparison":""}>
       <div className="nda-canvas" data-testid="detailed-atlas-canvas" data-dangerous-connection={connection?.key ?? ""} data-study-root={treeRoot ?? ""} data-illustrative-visible={educationalVessels.filter(row=>structureVisible(row.id,row.layer,opacity,selected,isolate,effectiveHidden,imageMode || angiographic3D,contrastLayer)).map(row=>row.id).join(",")} data-representation={imageMode ? "angiography-2d" : angiographic3D ? "angiography-3d" : "anatomy-3d"}><Boundary key={imageMode ? "2d" : angiographic3D ? "angio3d" : "anatomy3d"}>
         {imageMode ? <AtlasAngiography fullSource={fullSource} tool={tool} onFieldChange={(center, zoom) => { setLinkedCenter(center); setImageField("linked"); setImageZoom(zoom); }} hidden={effectiveHidden} center={imageCenter} yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas key={angiographic3D ? "angiographic" : "anatomic"} orthographic={angiographic3D} frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 600, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
           fallback={<p>WebGL indisponível neste navegador. Explore a lista de estruturas.</p>}>
@@ -324,9 +343,11 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
           <directionalLight position={[15, 25, 35]} intensity={2.4} /><directionalLight position={[-20, 10, -15]} intensity={1.2} />
           <Suspense fallback={null}><group scale={100} position={[0, -160, 0]}>
             {openAnatomy.assets.map((asset) => <Asset key={asset.file} file={asset.file} hidden={effectiveHidden} pickScope={pickScope} tool={tool} angiographic={angiographic3D} contrastLayer={contrastLayer} opacity={opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setFocusInspection(false); setSelected(id); setPanel("Estruturas"); }} />)}
-          </group><ReconstructedSurfaces contrastLayer={contrastLayer} hidden={effectiveHidden} tool={tool} pickScope={pickScope} angiographic={angiographic3D} opacity={opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setFocusInspection(false); setSelected(id); setPanel("Estruturas"); }} /></Suspense>{inspectionPlane&&<PassagePlane plane={inspectionPlane}/>}<Camera selected={cameraFocusItem} view={view} reset={reset} focus={focus} tool={tool} poseRef={poseRef} />
+          </group><ReconstructedSurfaces contrastLayer={contrastLayer} hidden={effectiveHidden} tool={tool} pickScope={pickScope} angiographic={angiographic3D} opacity={opacity} selected={selected} isolate={isolate} cut={cut} onSelect={(id) => { setFocusInspection(false); setSelected(id); setPanel("Estruturas"); }} /></Suspense>{inspectionPlane&&<PassagePlane plane={inspectionPlane}/>}<Camera selected={cameraFocusItem} view={view} reset={reset} focus={focus} tool={tool} poseRef={poseRef} command={poseCommand} onPose={receiveStudyPose} />
         </Canvas>}</Boundary>
         <div className="nda-canvas-caption">{inspectionPlane?.reviewWitness&&focusInspection?'Borda óssea em revisão · ponto da fonte, não centro de forame':item ? item.name : "Selecione uma estrutura para explorar"}<small>{imageMode ? "Projeção das mesmas superfícies · ajuste os ângulos no painel" : angiographic3D ? "Vista vascular 3D vinculada à projeção 2D · selecione Girar para rotacionar" : "Escolha Selecionar, Girar ou Mover nos controles acima"}</small></div>
+      </div>
+      {compareProjection&&<div className="nda-canvas" data-testid="linked-angiography-panel"><span className="nda-comparison-caption">PROJEÇÃO VINCULADA · {yaw.toFixed(1)}° / {pitch.toFixed(1)}°</span><AtlasAngiography yaw={yaw} pitch={pitch} zoom={imageZoom} center={imageCenter} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} hidden={effectiveHidden} tool="select" onSelect={id=>{setSelected(id);setPanel('Estruturas');}}/><p className="nda-comparison-note">Superfícies simplificadas · seleção compartilhada · sem injeção seletiva</p></div>}
       </div></div>
       <aside className="nda-sidebar"><nav aria-label="Painel do atlas detalhado">
         {["Neuroangio", "Forames", "Camadas", "Estruturas", "Revisão", "Inventário", "Vasos", "Anastomoses"].map((name) => <button key={name} aria-pressed={panel === name} onClick={() => setPanel(name)}>{name}</button>)}

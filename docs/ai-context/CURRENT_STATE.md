@@ -123,3 +123,12 @@ Deployment da base não confirmado: GitHub sem status; Vercel 403 no time conhec
 
 
 Validação do lote ZIP:168unitários/43arquivos,26casos únicos navegador/5arquivos desktop+Pixel7,TypeScript/build aprovados. Caso1 em ZIP recuperou notas/malha/ponto e hashes dos quatroRAWs de projeção;0erros/0nãoGET. Ver agregado específico.
+
+
+## 10/11/2026 — Preparação NRI e referência LearnCoronary
+
+Nova aba NRI: estado documental 60/120 e 296/298, CP1 29/30 separado, CP2 pendente; 7I aguardando avaliação e 7J não iniciada. Registros posteriores sem evidência primária não substituídos. Questões A–E com gabaritos validados por fonte, versões de correção sem apagar pendências antigas, ciclos reais D0/+1/+3/+7/+14 e arquivos locais com prévia. IndexedDB e backup ZIP consultável, sem sincronização/restauração automática.
+
+LearnCoronary consultado como referência de interação: painel de orientação, seis vistas de estudo, comparação simultânea 3D–2D e aba Referências e fontes. Projetor ortográfico e licenças locais preservados; sem copiar código/ativos nem transplantar calibração coronariana. 184 unitários/45 arquivos, TypeScript e build aprovados. WebGL desativado no navegador de QA: controles e estado 2D conferidos; renderização/arraste 3D ainda precisam de validação em dispositivo com WebGL.
+
+Leia ../neuro3d-nri-and-projection-study.md. Estado anatômico e frentes anteriores mantidos. Próximo: validar comparação renderizada e documentos reais, conferir deploy do hash exato, incorporar evidências novas do curso. A publicação é comprovada separadamente por remoto/deployment; este texto não a presume.

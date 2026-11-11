@@ -1,3 +1,7 @@
+# Próxima sessão — Preparação NRI e estudo de projeções
+
+Leia primeiro o registro de 10/11/2026 em CURRENT_STATE e ../neuro3d-nri-and-projection-study.md. Valide a comparação num navegador com WebGL e confira publicação do hash remoto exato. Preserve toda a continuidade anatômica abaixo; não refaça o leitor GS-CA ou auditorias concluídas.
+
 # Próxima sessão — ZIP local e completude vascular
 
 Base `167705814d2166f4288de61e5bcaeb163d1fc0cd`, continuação local `continuation-gsca-zip-20261022`. ZIP local clássico com inventário sem descompressão, conferência local/central/descritores, caminhos e intervalos, limites de expansão/memória, extração seletiva sequencial no worker e CRC/tamanho reais. Prévia/cancelamento e exportação do inventário; arquivos originais preservados, nenhum envio ou execução do fornecedor. Novo limite estimado ZIP 768 MiB é distinto do trabalho de 512 MB do leitor; não é pico medido. Sem nova dependência de produção. Seleção repetida da projeção agora solicita imagem novamente mesmo com ROI original compartilhada.

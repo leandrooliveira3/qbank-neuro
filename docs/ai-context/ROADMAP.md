@@ -109,3 +109,12 @@ Lista12fontes do novo anexo avaliada/catalogada emNeuroangio→Revisãovenosa; J
 ## 22/10/2026 — ZIP local e busca tentorial dirigida
 
 ZIP clássico local entregue; ZIP64, senhas e formatos adicionais rejeitados deliberadamente. Próximo: comprovar fonte tentorial individual ou avançar revisão pessoal de ramos com medidas vinculadas, sem inventar geometria anatômica. P0 continua 20/373/sete; demais frentes intactas.
+
+
+## 10/11/2026 — Preparação NRI e referência LearnCoronary
+
+Nova aba NRI: estado documental 60/120 e 296/298, CP1 29/30 separado, CP2 pendente; 7I aguardando avaliação e 7J não iniciada. Registros posteriores sem evidência primária não substituídos. Questões A–E com gabaritos validados por fonte, versões de correção sem apagar pendências antigas, ciclos reais D0/+1/+3/+7/+14 e arquivos locais com prévia. IndexedDB e backup ZIP consultável, sem sincronização/restauração automática.
+
+LearnCoronary consultado como referência de interação: painel de orientação, seis vistas de estudo, comparação simultânea 3D–2D e aba Referências e fontes. Projetor ortográfico e licenças locais preservados; sem copiar código/ativos nem transplantar calibração coronariana. 184 unitários/45 arquivos, TypeScript e build aprovados. WebGL desativado no navegador de QA: controles e estado 2D conferidos; renderização/arraste 3D ainda precisam de validação em dispositivo com WebGL.
+
+Leia ../neuro3d-nri-and-projection-study.md. Estado anatômico e frentes anteriores mantidos. Próximo: validar comparação renderizada e documentos reais, conferir deploy do hash exato, incorporar evidências novas do curso. A publicação é comprovada separadamente por remoto/deployment; este texto não a presume.
