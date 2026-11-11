@@ -1,4 +1,5 @@
 import React from "react";
+import SavedViews from "./SavedViews";
 import { directionFromAngles, type AngiographyPose } from "../angiographyPose";
 import "./study.css";
 export const studyPresets = [
@@ -28,11 +29,21 @@ export default function ProjectionStudy({
   compare,
   onCompare,
   onPose,
+  linked,
+  onLinked,
+  onCaptureInspection,
+  onAlignInspection,
+  inspectionAvailable,
 }: {
   pose: AngiographyPose;
   compare: boolean;
   onCompare: () => void;
   onPose: (pose: AngiographyPose) => void;
+  linked: boolean;
+  onLinked: (value: boolean) => void;
+  onCaptureInspection: () => void;
+  onAlignInspection: () => void;
+  inspectionAvailable: boolean;
 }) {
   const direction = directionFromAngles(pose.yaw, pose.pitch),
     cx = 100,
@@ -48,9 +59,27 @@ export default function ProjectionStudy({
           {compare ? "Fechar comparação" : "Comparar 3D + 2D"}
         </button>
       </div>
+      <div className="nps-link-controls">
+        <label>
+          <input
+            type="checkbox"
+            checked={linked}
+            onChange={(e) => onLinked(e.target.checked)}
+          />
+          Vincular inspeção 3D e aquisição 2D
+        </label>
+        <button disabled={!inspectionAvailable} onClick={onCaptureInspection}>
+          Capturar ângulo da inspeção
+        </button>
+        <button disabled={!inspectionAvailable} onClick={onAlignInspection}>
+          Alinhar inspeção à aquisição
+        </button>
+      </div>
       <p>
-        Gire a anatomia para observar a mesma orientação na projeção. Selecione
-        o mesmo vaso nas duas vistas.
+        {linked
+          ? "Vistas vinculadas: girar a inspeção atualiza a aquisição."
+          : "Inspeção livre: gire o modelo sem alterar o ângulo da aquisição."}{" "}
+        Seleção e visibilidade dos vasos são compartilhadas.
       </p>
       <div className="nps-controls">
         <div>
@@ -160,16 +189,18 @@ export default function ProjectionStudy({
           </figcaption>
         </figure>
       </div>
+      <SavedViews pose={pose} onRestore={onPose} />
       <details>
         <summary>Geometria e limites desta comparação</summary>
         <p>
           A projeção usa as superfícies do atlas e um modelo ortográfico
           existente. Não simula atenuação, transporte de contraste nem cine
           clínico. α/β são ângulos internos do atlas; estes botões não são
-          protocolos de aquisição nem ângulos DICOM calibrados. Centro,
-          ampliação, seleção e ocultações são compartilhados; osso de contexto
-          3D e sobreposição 2D têm controles distintos. O 2D geral usa a cópia
-          simplificada das superfícies.
+          protocolos de aquisição nem ângulos DICOM calibrados. Centro e
+          ampliação acompanham o vínculo entre as câmeras; seleção e ocultações
+          são compartilhadas. Osso de contexto 3D e sobreposição 2D têm
+          controles distintos. O 2D geral usa a cópia simplificada das
+          superfícies.
         </p>
         <p>
           Referência de organização:{" "}

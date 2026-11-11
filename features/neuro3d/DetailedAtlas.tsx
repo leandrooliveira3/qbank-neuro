@@ -1,4 +1,6 @@
 import ProjectionStudy from "./acquisition/ProjectionStudy";
+import {cameraPairAfter,copyPose} from "./acquisition/savedViews";
+import {orthographicField,requestedInspectionPose,perspectiveDistance,perspectiveMagnification} from "./acquisition/cameraGeometry";
 import React, { Component, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei/core/Gltf";
@@ -56,12 +58,11 @@ const colors: Record<string, string> = {
   muscle: "#a65c58", ligament: "#d9d8c4", cartilage: "#a2cfda", visceral: "#c89598", lymphatic: "#8db896",
   cavity: "#72b1d0", attachment: "#d6a476", region: "#ae93bc",
 };
-class Boundary extends Component<{ children: React.ReactNode }, { failed: boolean }> {
-  state = { failed: false };
-  static getDerivedStateFromError() { return { failed: true }; }
-  render() {
-    return this.state.failed ? <div role="alert" className="nda-failure">Não foi possível abrir a geometria 3D. A lista de estruturas continua disponível. Experimente a representação Angiografia 2D ou recarregue para tentar novamente.</div> : this.props.children;
-  }
+class Boundary extends Component<{children:React.ReactNode;onFailure?:()=>void;onRetry?:()=>void;onProjection?:()=>void},{failed:boolean;webgl:boolean}>{
+  state={failed:false,webgl:false};
+  static getDerivedStateFromError(error:Error){return {failed:true,webgl:/webgl|creating.*context/i.test(error?.message||'')};}
+  componentDidCatch(){this.props.onFailure?.();}
+  render(){return this.state.failed?<div role="alert" className="nda-failure"><strong>{this.state.webgl?'WebGL indisponível neste navegador.':'Não foi possível abrir a geometria 3D.'}</strong><p>A lista de estruturas e a projeção 2D continuam disponíveis. Sua seleção e os controles foram preservados.</p>{this.props.onProjection&&<button onClick={this.props.onProjection}>Continuar na projeção 2D</button>}{this.props.onRetry&&<button onClick={this.props.onRetry}>Tentar abrir o 3D</button>}</div>:this.props.children;}
 }
 function Asset({ file, opacity, selected, isolate, cut, onSelect, angiographic, contrastLayer, hidden, pickScope, tool }: {
   hidden: ReadonlySet<string>; pickScope: PickScope; tool: AtlasTool;
@@ -122,7 +123,7 @@ function Camera({ selected, view, reset, focus, tool, poseRef, command, onPose }
       const baseZoom = size.height / (12 * (camera.top - camera.bottom) * detectorScale);
       ref.current.minZoom = 0.1 / baseZoom; ref.current.maxZoom = 12 / baseZoom;
     }
-    const zoom = camera instanceof OrthographicCamera ? size.height * camera.zoom / (12 * (camera.top - camera.bottom) * detectorScale) : size.height / (24 * direction.length() * Math.tan((camera as PerspectiveCamera).fov * Math.PI / 360) * detectorScale);
+    const zoom = camera instanceof OrthographicCamera ? size.height * camera.zoom / (12 * (camera.top - camera.bottom) * detectorScale) : perspectiveMagnification(size.width,size.height,direction.length(),(camera as PerspectiveCamera).fov);
     poseRef.current = { ...angles, zoom, center: ref.current.target.toArray() as P3 };
     onPose?.(poseRef.current);
     gl.domElement.dataset.atlasCameraPose = [...camera.position.toArray(), ...ref.current.target.toArray()].map(v => v.toFixed(5)).join(",");
@@ -140,7 +141,7 @@ function Camera({ selected, view, reset, focus, tool, poseRef, command, onPose }
     const restoring = reset !== previous.current.reset;
     const resizing = size.width !== previous.current.width || size.height !== previous.current.height;
     const commanded=command && command.id !== lastCommand.current;
-    const requestedPose = commanded ? command.pose : mounted.current ? poseRef.current : initialPose.current;
+    const requestedPose = requestedInspectionPose(mounted.current ? poseRef.current : initialPose.current, commanded ? command.pose : undefined);
     const oldDirection = camera.position.clone().sub(ref.current?.target ?? new Vector3()).normalize();
     if (selected && (focusing || orienting) && !restoring) {
       const a = new Vector3(...worldPoint(selected.bounds[0]));
@@ -154,8 +155,11 @@ function Camera({ selected, view, reset, focus, tool, poseRef, command, onPose }
     if (!mounted.current || resizing || commanded) { target = new Vector3(...requestedPose.center); direction.set(...directionFromAngles(requestedPose.yaw, requestedPose.pitch)); }
     if (camera instanceof OrthographicCamera) {
       const zoom = focusing ? Math.min(12, 50 / distance) : restoring ? 1 : requestedPose.zoom;
-      camera.left = -size.width / (24 * zoom * detectorScale); camera.right = -camera.left;
-      camera.top = size.height / (24 * zoom * detectorScale); camera.bottom = -camera.top; camera.zoom = 1; camera.updateProjectionMatrix();
+      const field=orthographicField(size.width,size.height,zoom);
+      camera.left=field.left;camera.right=field.right;camera.top=field.top;camera.bottom=field.bottom;camera.zoom=1;camera.updateProjectionMatrix();
+    } else if(camera instanceof PerspectiveCamera){
+      const zoom=focusing?perspectiveMagnification(size.width,size.height,distance,camera.fov):restoring?1:requestedPose.zoom;
+      distance=perspectiveDistance(size.width,size.height,zoom,camera.fov);
     }
     if(command)lastCommand.current=command.id;
     mounted.current = true;
@@ -168,6 +172,10 @@ function Camera({ selected, view, reset, focus, tool, poseRef, command, onPose }
 export default function DetailedAtlas({ selected, onSelect: setSelected }: { selected: string | null; onSelect: (id: string | null) => void }) {
   const poseRef = useRef<AngiographyPose>({ yaw: 31, pitch: 10, zoom: 1, center: [0,-3,0] });
   const [compareProjection,setCompareProjection]=useState(false);
+  const [acquisitionTool,setAcquisitionTool]=useState<"select"|"pan">("select");
+  const [linkCameras,setLinkCameras]=useState(true);
+  const [inspectionStatus,setInspectionStatus]=useState<"loading"|"ready"|"failed">("loading");
+  const [rendererAttempt,setRendererAttempt]=useState(0);
   const [poseCommand,setPoseCommand]=useState<{id:number;pose:AngiographyPose}>();
   const poseSequence=useRef(0);
   const [linkedCenter, setLinkedCenter] = useState<P3>([0,-3,0]);
@@ -195,11 +203,11 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
   const [imageMode, setImageMode] = useState(false);
   const [angiographic3D, setAngiographic3D] = useState(false);
   const [fullSource,setFullSource]=useState(false);
-  const [yaw, setYaw] = useState(0);
-  const [pitch, setPitch] = useState(0);
+  const [yaw, setYaw] = useState(31);
+  const [pitch, setPitch] = useState(10);
   const [imageZoom, setImageZoom] = useState(1);
   const [imageBone, setImageBone] = useState(0);
-  const [imageField, setImageField] = useState("cranial");
+  const [imageField, setImageField] = useState("linked");
   const [presentation, setPresentation] = useState("vascular");
   const [panel, setPanel] = useState("Camadas");
   const [expanded, setExpanded] = useState(false);
@@ -229,7 +237,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     if(imageMode && focusItem) {
       const fitted=fitAtlasField(focusItem.bounds.map(worldPoint),yaw,pitch);
       setLinkedCenter(fitted.center);setImageZoom(fitted.zoom);setImageField("linked");
-    } else setImageField("selection");
+    } else if(linkCameras) setImageField("selection");
   }
   function isolateStudyFamily() {
     if(!item) return;
@@ -245,7 +253,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     }
     return imageField === "supraaortic" ? [0, -18, 0] : [0, 0, 0];
   }, [imageField, focusItem, linkedCenter]);
-  useEffect(() => { if (imageMode) poseRef.current = {yaw, pitch, zoom: imageZoom, center: imageCenter}; }, [imageMode, yaw, pitch, imageZoom, imageCenter]);
+  useEffect(() => { if (imageMode && linkCameras) poseRef.current = {yaw, pitch, zoom: imageZoom, center: imageCenter}; }, [imageMode, linkCameras, yaw, pitch, imageZoom, imageCenter]);
   const matches = useMemo(() => {
     const needle = normalize(search.trim());
     return atlasStructures.filter((o) => {
@@ -254,20 +262,35 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         : normalize(`${o.name} ${o.latin} ${"portuguese" in o ? o.portuguese : ""} ${o.path.join(" ")} ${landmarkAliases[o.id] ?? ""} ${labels.map((row) => row.portuguese).join(" ")}`).includes(needle);
     });
   }, [search]);
-  function receiveStudyPose(pose:AngiographyPose){
+  function receiveAcquisition(pose:AngiographyPose){
     setYaw(pose.yaw);setPitch(pose.pitch);setImageZoom(pose.zoom);
-    setLinkedCenter(old=>old.every((v,i)=>Math.abs(v-pose.center[i])<1e-7)?old:pose.center);setImageField('linked');
+    setLinkedCenter(old=>old.every((v,i)=>Math.abs(v-pose.center[i])<1e-7)?old:[...pose.center]);setImageField('linked');
+  }
+  function commandInspection(pose:AngiographyPose){
+    const next=copyPose(pose);poseRef.current=next;setPoseCommand({id:++poseSequence.current,pose:next});
+  }
+  function receiveStudyPose(pose:AngiographyPose){
+    const pair=cameraPairAfter(pose,linkCameras,'inspection');
+    if(pair.acquisition)receiveAcquisition(pair.acquisition);
   }
   function applyStudyPose(pose:AngiographyPose){
-    poseRef.current=pose;receiveStudyPose(pose);
-    setImageMode(false);setAngiographic3D(false);setPoseCommand({id:++poseSequence.current,pose});
+    const pair=cameraPairAfter(pose,linkCameras,'acquisition');
+    receiveAcquisition(pair.acquisition!);if(pair.inspection)commandInspection(pair.inspection);
+  }
+  function setCameraLink(value:boolean){
+    setLinkCameras(value);
+    if(value)commandInspection({yaw,pitch,zoom:imageZoom,center:imageCenter});
+  }
+  function toggleComparison(){
+    if(!compareProjection){if(linkCameras&&!imageMode&&inspectionStatus==='ready')receiveAcquisition(poseRef.current);setImageMode(false);setAngiographic3D(false);}
+    setCompareProjection(v=>!v);
   }
   function restore() {
-    setCompareProjection(false);setPoseCommand(undefined);
+    setCompareProjection(false);setPoseCommand(undefined);setLinkCameras(true);setAcquisitionTool("select");
     setInspectionPlane(null);
     setFullSource(false);
     setShowIllustrations(false);setShowVariants(false);setShowEmbryonic(false);setConnection(null);setHidden(new Set()); setTreeRoot(null); setView("Oblíqua"); setTool("select"); setPickScope("arterial"); setIsolate(false); setOpacity(initialOpacity); setPresentation("vascular");
-    setImageMode(false); setAngiographic3D(false); setContrastLayer("arterial"); setYaw(0); setPitch(0); setImageZoom(1); setImageBone(0); setImageField("cranial"); poseRef.current = {yaw:31,pitch:10,zoom:1,center:[0,-3,0]};
+    setImageMode(false); setAngiographic3D(false); setContrastLayer("arterial"); setYaw(31); setPitch(10); setImageZoom(1); setImageBone(0); setLinkedCenter([0,-3,0]);setImageField("linked"); poseRef.current = {yaw:31,pitch:10,zoom:1,center:[0,-3,0]};
     setCut({ axis: "none", offset: 0 }); setReset((n) => n + 1);
   }
   function exploreVessel(id:string){
@@ -278,8 +301,8 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     if(plan.embryonic)setShowEmbryonic(true);
     setFullSource(openAnatomy.structures.some(row=>row.id===id));
     setPresentation('custom');setPanel('Estruturas');setFocus(n=>n+1);
-    const fitted=fitAtlasField(plan.item.bounds.map(worldPoint),yaw,pitch);
-    setLinkedCenter(fitted.center);setImageZoom(fitted.zoom);setImageField('linked');
+    if(imageMode||linkCameras){const fitted=fitAtlasField(plan.item.bounds.map(worldPoint),yaw,pitch);
+    setLinkedCenter(fitted.center);setImageZoom(fitted.zoom);setImageField('linked');}
   }
   function explorePassage(id:string,side:'l'|'r'){
     setInspectionPlane(null);
@@ -307,21 +330,22 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
     {inspectionPlane&&<aside className="nda-passage-context" data-testid="inspection-plane-context">{inspectionPlane.frame?"Plano oblíquo · origem matemática":`Plano ${inspectionPlane.axis.toUpperCase()} = ${(inspectionPlane.offsetCm*10).toFixed(2)} mm nominais`} · {inspectionPlane.passageId} · {inspectionPlane.side==='l'?'esquerda':'direita'}. Mesmo plano dos cortes da via, no referencial do atlas. Sobreposição pode aparecer através das superfícies; não marca um forame ou canal. {inspectionPlane.reviewWitness&&`Ponto branco: borda óssea em revisão ${inspectionPlane.reviewWitness.id}, triângulo ${inspectionPlane.reviewWitness.sourceTriangle}; não é centro de forame.`} {imageMode&&'Retorne às superfícies 3D para visualizar o plano.'}<button onClick={()=>setInspectionPlane(null)}>Ocultar plano de inspeção</button></aside>}
     {item && <div className="nda-selection" data-testid="atlas-selection" data-selected-id={item.id} role="status"><div><strong>{item.name}</strong>{(effectiveHidden.has(item.id) || opacity[item.layer] === 0) && <small>Estrutura oculta. Use Revelar seleção para mostrá-la.</small>}<small>{openLayerNames[item.layer]} · seleção mantida até escolher outra estrutura ou limpar</small>
       {anatomicalInventory.some((row) => row.ids.includes(item.id)) && <small data-testid="selected-diagram-numbers">Neuroangio: {anatomicalInventory.filter((row) => row.ids.includes(item.id)).map((row) => `${row.number} (${row.status === "partial" ? "parcial" : "identificado"})`).join(" · ")}</small>}</div><button onClick={focusSelection}>Focar seleção</button><button aria-pressed={isolate} onClick={() => setIsolate((value) => !value)}>Isolar seleção</button>{studyFamily?.hasBranches && <button aria-pressed={treeRoot === item.id} onClick={isolateStudyFamily}>{"status" in item ? "Isolar árvore didática" : "Isolar ramos de estudo"}</button>}<button onClick={() => { if (selected) setHidden(old => new Set([...old, selected])); setSelected(null); setIsolate(false); }}>Ocultar estrutura</button><button onClick={() => { if (item) { setHidden(old => { const next = new Set(old); next.delete(item.id); return next; }); setOpacity(old => ({ ...old, [item.layer]: 1 })); } }}>Revelar seleção</button><button onClick={() => { setSelected(null); setIsolate(false); }}>Limpar seleção</button></div>}
-    <ProjectionStudy pose={{yaw,pitch,zoom:imageZoom,center:imageCenter}} compare={compareProjection} onCompare={()=>{if(!compareProjection)applyStudyPose(poseRef.current);setCompareProjection(v=>!v);}} onPose={applyStudyPose}/>
+    <ProjectionStudy pose={{yaw,pitch,zoom:imageZoom,center:imageCenter}} compare={compareProjection} onCompare={toggleComparison} onPose={applyStudyPose} linked={linkCameras} onLinked={setCameraLink} inspectionAvailable={inspectionStatus==='ready'} onCaptureInspection={()=>receiveAcquisition(poseRef.current)} onAlignInspection={()=>commandInspection({yaw,pitch,zoom:imageZoom,center:imageCenter})}/>
+    {inspectionStatus==='failed'&&<p role="status" className="nda-webgl-status">A inspeção 3D não abriu neste navegador. A aquisição 2D pode ser orientada pelos controles acima; a captura do ângulo 3D fica indisponível até o modelo abrir.</p>}
     <div className="nda-workspace">
       <div className="nda-stage"><nav className="nda-mode" aria-label="Representação do atlas">
         <button aria-pressed={!imageMode && !angiographic3D} onClick={() => { setImageMode(false); setAngiographic3D(false); }}>Superfícies anatômicas 3D</button>
-        <button aria-pressed={imageMode} onClick={() => { const pose = poseRef.current; setYaw(pose.yaw); setPitch(pose.pitch); setImageZoom(pose.zoom); setLinkedCenter(pose.center); setImageField("linked"); setCompareProjection(false);setImageMode(true); setAngiographic3D(false); if (tool === "rotate") setTool("select"); }}>Angiografia</button>
+        <button aria-pressed={imageMode} onClick={() => { if(linkCameras&&inspectionStatus==='ready')receiveAcquisition(poseRef.current); setCompareProjection(false);setImageMode(true); setAngiographic3D(false); if (tool === "rotate") setTool("select"); }}>Angiografia</button>
         <button aria-pressed={angiographic3D} onClick={() => { setCompareProjection(false);setImageMode(false); setAngiographic3D(true); }}>Angiografia 3D</button>
       </nav><div className="nda-toolbar"><nav aria-label="Vistas do modelo detalhado">
-        {(["AP", "Lateral", "Oblíqua", "Posterior"] as View[]).map((name) => <button key={name} aria-pressed={view === name} onClick={() => { setView(name); setYaw(name === "Lateral" ? 90 : name === "Posterior" ? 180 : name === "Oblíqua" ? 30 : 0); setPitch(0); }}>{name}</button>)}
+        {(["AP", "Lateral", "Oblíqua", "Posterior"] as View[]).map((name) => <button key={name} aria-pressed={view === name} onClick={() => { setView(name); if(imageMode||linkCameras){setYaw(name === "Lateral" ? 90 : name === "Posterior" ? 180 : name === "Oblíqua" ? 30 : 0); setPitch(0);} }}>{name}</button>)}
       </nav><select aria-label="Apresentação anatômica" value={presentation} onChange={(event) => {
         const mode = event.target.value; setPresentation(mode);
         if (mode === "supraaortic") {
           setOpacity({ ...initialOpacity, bone: 0, tissue: 0, nerve: 0, gland: 0, dura: 0, venous: 0.15 });
-          setSelected("aortic_arch"); setFocus(n => n + 1); setImageField("supraaortic"); setImageZoom(1.5); return;
+          setSelected("aortic_arch"); setFocus(n => n + 1); if(imageMode||linkCameras){setImageField("supraaortic"); setImageZoom(1.5);} return;
         }
-        setImageField(mode === "sellar" ? "selection" : "cranial");
+        if(imageMode||linkCameras)setImageField(mode === "sellar" ? "selection" : "cranial");
         setOpacity(mode === "bone" ? { ...initialOpacity, bone: 0.65, tissue: 0, nerve: 0.5 } : mode === "brain" ? { ...initialOpacity, tissue: 0.85, bone: 0, nerve: 0.5, arterial: 0.5, venous: 0.2 } : mode === "sellar" ? { ...initialOpacity, bone: 0.12, tissue: 0.02, dura: 0.2, gland: 1, venous: 0.8 } : initialOpacity);
         if (mode === "sellar") { setSelected("adenohypophysis"); setFocus(n => n + 1); }
       }}><option value="custom" disabled>Personalizada</option><option value="vascular">Visão vascular</option><option value="bone">Vasos e osso</option><option value="brain">Encéfalo</option><option value="sellar">Região selar e cavernosa</option><option value="supraaortic">Arco e troncos supra-aórticos</option></select></div>
@@ -336,8 +360,8 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         <p>{tool === "select" ? (imageMode ? "Clique ou toque para identificar sem deslocar a imagem." : "Clique ou toque para identificar sem mover a câmera. Botão direito + arraste para girar.") : tool === "rotate" ? "Arraste para girar. Volte a Selecionar para identificar uma estrutura." : "Arraste para deslocar. Volte a Selecionar para identificar uma estrutura."} {imageMode ? "Na imagem 2D, use Mover para arrastar o campo e a roda para ampliar ao redor do cursor. O campo é mantido ao voltar à vista 3D." : "Roda para zoom; dois dedos para mover e ampliar. Focar seleção é uma ação separada."}</p>
       </div>
       <div className={compareProjection?"nda-comparison":""}>
-      <div className="nda-canvas" data-testid="detailed-atlas-canvas" data-dangerous-connection={connection?.key ?? ""} data-study-root={treeRoot ?? ""} data-illustrative-visible={educationalVessels.filter(row=>structureVisible(row.id,row.layer,opacity,selected,isolate,effectiveHidden,imageMode || angiographic3D,contrastLayer)).map(row=>row.id).join(",")} data-representation={imageMode ? "angiography-2d" : angiographic3D ? "angiography-3d" : "anatomy-3d"}><Boundary key={imageMode ? "2d" : angiographic3D ? "angio3d" : "anatomy3d"}>
-        {imageMode ? <AtlasAngiography fullSource={fullSource} tool={tool} onFieldChange={(center, zoom) => { setLinkedCenter(center); setImageField("linked"); setImageZoom(zoom); }} hidden={effectiveHidden} center={imageCenter} yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas key={angiographic3D ? "angiographic" : "anatomic"} orthographic={angiographic3D} frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 600, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
+      <div className="nda-canvas" data-testid="detailed-atlas-canvas" data-dangerous-connection={connection?.key ?? ""} data-study-root={treeRoot ?? ""} data-illustrative-visible={educationalVessels.filter(row=>structureVisible(row.id,row.layer,opacity,selected,isolate,effectiveHidden,imageMode || angiographic3D,contrastLayer)).map(row=>row.id).join(",")} data-representation={imageMode ? "angiography-2d" : angiographic3D ? "angiography-3d" : "anatomy-3d"}>{compareProjection&&<span className="nda-comparison-caption">INSPEÇÃO 3D · {linkCameras?'VINCULADA':'LIVRE'}</span>}<Boundary key={`${imageMode ? "2d" : compareProjection ? "comparison" : angiographic3D ? "angio3d" : "anatomy3d"}:${rendererAttempt}`} onFailure={!imageMode?()=>setInspectionStatus('failed'):undefined} onRetry={!imageMode?()=>{setInspectionStatus('loading');setRendererAttempt(n=>n+1);}:undefined} onProjection={!imageMode?()=>{setImageMode(true);setCompareProjection(false);}:undefined}>
+        {imageMode ? <AtlasAngiography fullSource={fullSource} tool={tool} onFieldChange={(center, zoom) => { setLinkedCenter(center); setImageField("linked"); setImageZoom(zoom); }} hidden={effectiveHidden} center={imageCenter} yaw={yaw} pitch={pitch} zoom={imageZoom} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} onSelect={setSelected} /> : <Canvas onCreated={()=>setInspectionStatus('ready')} key={compareProjection ? "comparison" : angiographic3D ? "angiographic" : "anatomic"} orthographic={angiographic3D||compareProjection} frameloop="demand" dpr={[1, 1.5]} camera={{ position: [30, 10, 50], near: 0.1, far: 600, fov: 40 }} gl={{ antialias: true, localClippingEnabled: true }}
           fallback={<p>WebGL indisponível neste navegador. Explore a lista de estruturas.</p>}>
           <color attach="background" args={[angiographic3D ? "#05090d" : "#101b25"]} /><ambientLight intensity={1.1} />
           <directionalLight position={[15, 25, 35]} intensity={2.4} /><directionalLight position={[-20, 10, -15]} intensity={1.2} />
@@ -347,7 +371,7 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
         </Canvas>}</Boundary>
         <div className="nda-canvas-caption">{inspectionPlane?.reviewWitness&&focusInspection?'Borda óssea em revisão · ponto da fonte, não centro de forame':item ? item.name : "Selecione uma estrutura para explorar"}<small>{imageMode ? "Projeção das mesmas superfícies · ajuste os ângulos no painel" : angiographic3D ? "Vista vascular 3D vinculada à projeção 2D · selecione Girar para rotacionar" : "Escolha Selecionar, Girar ou Mover nos controles acima"}</small></div>
       </div>
-      {compareProjection&&<div className="nda-canvas" data-testid="linked-angiography-panel"><span className="nda-comparison-caption">PROJEÇÃO VINCULADA · {yaw.toFixed(1)}° / {pitch.toFixed(1)}°</span><AtlasAngiography yaw={yaw} pitch={pitch} zoom={imageZoom} center={imageCenter} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} hidden={effectiveHidden} tool="select" onSelect={id=>{setSelected(id);setPanel('Estruturas');}}/><p className="nda-comparison-note">Superfícies simplificadas · seleção compartilhada · sem injeção seletiva</p></div>}
+      {compareProjection&&<div className="nda-canvas" data-testid="linked-angiography-panel" data-camera-link={linkCameras?'linked':'independent'}><span className="nda-comparison-caption">{linkCameras?'PROJEÇÃO VINCULADA':'AQUISIÇÃO INDEPENDENTE'} · {yaw.toFixed(1)}° / {pitch.toFixed(1)}°</span><div className="nps-detector-tools" role="group" aria-label="Ferramentas da aquisição 2D"><button aria-pressed={acquisitionTool==='select'} onClick={()=>setAcquisitionTool('select')}>Selecionar na aquisição</button><button aria-pressed={acquisitionTool==='pan'} onClick={()=>setAcquisitionTool('pan')}>Mover aquisição</button></div><AtlasAngiography yaw={yaw} pitch={pitch} zoom={imageZoom} center={imageCenter} boneOpacity={imageBone} selected={selected} isolate={isolate} layers={opacity} contrastLayer={contrastLayer} hidden={effectiveHidden} tool={acquisitionTool} onFieldChange={(center,zoom)=>applyStudyPose({yaw,pitch,zoom,center})} onSelect={id=>{setSelected(id);setPanel('Estruturas');}}/><p className="nda-comparison-note">Superfícies simplificadas · {linkCameras?'orientação vinculada':'aquisição independente'} · seleção compartilhada</p></div>}
       </div></div>
       <aside className="nda-sidebar"><nav aria-label="Painel do atlas detalhado">
         {["Neuroangio", "Forames", "Camadas", "Estruturas", "Revisão", "Inventário", "Vasos", "Anastomoses"].map((name) => <button key={name} aria-pressed={panel === name} onClick={() => setPanel(name)}>{name}</button>)}
@@ -355,9 +379,9 @@ export default function DetailedAtlas({ selected, onSelect: setSelected }: { sel
       {panel==='Neuroangio'&&<div className="nda-review"><NeuroangioCoveragePanel onExplore={exploreVessel}/></div>}
       {panel==='Forames'&&<div className="nda-review"><NeurovascularPassagesPanel onExplore={explorePassage} onShowPlane={plane=>{explorePassage(plane.passageId,plane.side);setImageMode(false);setAngiographic3D(false);setInspectionPlane(plane);setFocusInspection(!!(plane.reviewWitness||plane.frame||plane.reviewSegments));}} onSelect={id=>{setFocusInspection(false);setSelected(id);setFocus(n=>n+1);setPanel('Estruturas');}}/></div>}
       {imageMode&&<label className="nda-original-control"><input type="checkbox" checked={fullSource} onChange={e=>setFullSource(e.target.checked)}/>Usar malha original na seleção importada isolada</label>}
-      {panel === "Camadas" && <div className="nda-controls" key={reset}>{(imageMode || angiographic3D) && <label>Camada contrastada<select aria-label="Camada vascular na angiografia" value={contrastLayer} onChange={(e) => setContrastLayer(e.target.value)}><option value="arterial">Artérias</option><option value="venous">Veias e seios</option><option value="both">Artérias e veias</option></select></label>}{angiographic3D && <><h3>Vista angiográfica 3D</h3><p className="nda-help">Vista vascular ortográfica vinculada à angiografia 2D: orientação, centro, ampliação, seleção e ocultações são compartilhados ao alternar. Use Girar para explorar e Selecionar para identificar. Esta etapa usa superfícies do atlas; a aquisição rotacional e reconstrução volumétrica ainda não estão implementadas.</p></>}{imageMode && <div className="nda-projection-controls">
+      {panel === "Camadas" && <div className="nda-controls" key={reset}>{(imageMode || angiographic3D || compareProjection) && <label>Camada contrastada<select aria-label="Camada vascular na angiografia" value={contrastLayer} onChange={(e) => setContrastLayer(e.target.value)}><option value="arterial">Artérias</option><option value="venous">Veias e seios</option><option value="both">Artérias e veias</option></select></label>}{angiographic3D && <><h3>Vista angiográfica 3D</h3><p className="nda-help">Vista vascular ortográfica vinculada à angiografia 2D: orientação, centro, ampliação, seleção e ocultações são compartilhados ao alternar. Use Girar para explorar e Selecionar para identificar. Esta etapa usa superfícies do atlas; a aquisição rotacional e reconstrução volumétrica ainda não estão implementadas.</p></>}{(imageMode || compareProjection) && <div className="nda-projection-controls">
         <h3>Imagem angiográfica</h3><p className="nda-help">Projeção sintética do atlas. Todos os vasos visíveis são opacificados; não é uma injeção seletiva. Use a estação para cateterização.</p>
-        <label>Campo angiográfico<select aria-label="Campo angiográfico" value={imageField} onChange={(event) => setImageField(event.target.value)}><option value="linked">Mesmo campo da vista 3D</option><option value="cranial">Cabeça</option><option value="supraaortic">Cervicotorácico</option><option value="selection" disabled={!item}>Centrado na seleção</option></select></label>
+        <label>Campo angiográfico<select aria-label="Campo angiográfico" value={imageField} onChange={(event) => setImageField(event.target.value)}><option value="linked">{linkCameras?'Mesmo campo da vista 3D':'Campo da aquisição'}</option><option value="cranial">Cabeça</option><option value="supraaortic">Cervicotorácico</option><option value="selection" disabled={!item}>Centrado na seleção</option></select></label>
 
         <label>Rotação LAO / RAO <output>{Math.round(yaw*10)/10}°</output><input aria-label="Rotação angiográfica" type="range" min="-180" max="180" step="5" value={yaw} onChange={(e) => setYaw(Number(e.target.value))} /></label>
         <label>Angulação cranial / caudal <output>{Math.round(pitch*10)/10}°</output><input aria-label="Angulação angiográfica" type="range" min="-60" max="60" step="5" value={pitch} onChange={(e) => setPitch(Number(e.target.value))} /></label>

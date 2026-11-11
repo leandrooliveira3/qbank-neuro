@@ -118,3 +118,12 @@ Nova aba NRI: estado documental 60/120 e 296/298, CP1 29/30 separado, CP2 penden
 LearnCoronary consultado como referência de interação: painel de orientação, seis vistas de estudo, comparação simultânea 3D–2D e aba Referências e fontes. Projetor ortográfico e licenças locais preservados; sem copiar código/ativos nem transplantar calibração coronariana. 184 unitários/45 arquivos, TypeScript e build aprovados. WebGL desativado no navegador de QA: controles e estado 2D conferidos; renderização/arraste 3D ainda precisam de validação em dispositivo com WebGL.
 
 Leia ../neuro3d-nri-and-projection-study.md. Estado anatômico e frentes anteriores mantidos. Próximo: validar comparação renderizada e documentos reais, conferir deploy do hash exato, incorporar evidências novas do curso. A publicação é comprovada separadamente por remoto/deployment; este texto não a presume.
+
+
+## 11/11/2026 — aquisição independente e vistas guardadas
+
+Base 29bc66e. Inspeção 3D/aquisição 2D podem ser desvinculadas; captura/alinhamento explícitos, campo 2D com ferramentas próprias e comparação ortográfica. Correção da preservação de ampliação/campo e helpers confrontados com matrizes Three.js. Vistas nomeadas locais (50), JSON com prévia/validação/mesclagem sem sobrescrita, desfazer remoção e proteção contra escrita de outra aba. NRI integralmente preservado, sem avaliações novas.
+
+197 unitários/47 arquivos, TypeScript/build aprovados. WebGL continua desativado no navegador de QA: desenho/arraste 3D não validados. UI confirmou fallback/projeção 2D pronta, independência, salvar/recuperar 30°, remover/desfazer, recarga e pan com ângulo mantido. Leitor de arquivo JSON na UI e responsividade móvel ainda não exercitados. Leia ../neuro3d-independent-acquisition.md. Nenhuma anatomia, referencial ou licença alterada; 20/373/sete/Galeno e frentes anteriores preservados.
+
+Próximo: conferir publicação do hash exato, validar interação renderizada em WebGL e JSON por arquivo, depois geometria física/cine com evidência. O commit que contém este registro identifica a etapa; remoto e deploy confirmados separadamente.

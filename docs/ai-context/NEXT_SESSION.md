@@ -1,3 +1,7 @@
+# Próxima sessão — aquisição independente e vistas guardadas
+
+Leia o registro de 11/11/2026 e ../neuro3d-independent-acquisition.md. Não refaça NRI ou vistas guardadas. Priorize validação renderizada com WebGL, JSON por arquivo e responsividade, preservando todas as pendências anatômicas abaixo. A validação 3D continua bloqueada no navegador atual; não alterar proteções/flags para contornar.
+
 # Próxima sessão — Preparação NRI e estudo de projeções
 
 Leia primeiro o registro de 10/11/2026 em CURRENT_STATE e ../neuro3d-nri-and-projection-study.md. Valide a comparação num navegador com WebGL e confira publicação do hash remoto exato. Preserve toda a continuidade anatômica abaixo; não refaça o leitor GS-CA ou auditorias concluídas.

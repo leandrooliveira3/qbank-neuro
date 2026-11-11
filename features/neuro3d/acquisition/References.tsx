@@ -130,8 +130,9 @@ export default function References() {
             <tr>
               <td>Projeção angiográfica do atlas</td>
               <td>
-                Superfícies em projeção ortográfica; 2D geral usa a cópia
-                simplificada.
+                Superfícies em projeção ortográfica; a comparação 3D–2D usa
+                inspeção ortográfica. A inspeção 3D isolada pode usar
+                perspectiva. O 2D geral usa a cópia simplificada.
               </td>
               <td>
                 Sem atenuação, espalhamento, injeção seletiva, transporte de

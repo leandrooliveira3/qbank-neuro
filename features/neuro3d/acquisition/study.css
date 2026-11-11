@@ -210,3 +210,137 @@
     height: 420px;
   }
 }
+.nps-link-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+.nps-link-controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 12px;
+}
+.nps-link-controls input {
+  accent-color: #80cfba;
+}
+.nps button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.nps .nps-saved {
+  margin: 18px 0;
+}
+.nps-save-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.nps-save-row label:not(.nps-import) {
+  flex: 1;
+  min-width: 180px;
+  margin: 0;
+}
+.nps-save-row label input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+}
+.nps-import {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex !important;
+  background: #183340;
+  border: 1px solid #2d4b5b;
+  border-radius: 8px;
+  padding: 9px 12px;
+  margin: 0 !important;
+  font-size: 11px !important;
+  cursor: pointer;
+}
+.nps-import input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.nps-saved-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid #2a4651;
+  font-size: 12px;
+}
+.nps-saved-row > div {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.nps-saved-row small {
+  margin-top: 5px;
+}
+.nps-import-preview {
+  padding: 15px;
+  border: 1px solid #467466;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+.nps-import-preview button {
+  margin-right: 8px;
+}
+.nda-webgl-status {
+  padding: 12px 16px;
+  background: #2b2c23;
+  border: 1px solid #635c3d;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #e1d9b4;
+}
+.nda-failure button {
+  margin: 8px 8px 0 0;
+}
+.nda-failure strong {
+  font-size: 15px;
+}
+.nda-failure p {
+  font-size: 12px;
+  line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .nps-link-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .nps-saved-row {
+    flex-wrap: wrap;
+  }
+  .nps-saved-row > div {
+    flex-basis: 100%;
+  }
+}
+.nps-detector-tools {
+  position: absolute;
+  top: 48px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  z-index: 2;
+}
+.nps-detector-tools button {
+  font-size: 10px;
+  padding: 7px 9px;
+  background: #102633ed;
+}
+.nda-comparison .nda-failure {
+  padding-top: 58px;
+}
