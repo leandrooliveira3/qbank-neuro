@@ -1,3 +1,7 @@
+## 21/11/2026 — Auditoria do Bloco 1 do Curso NRI
+
+Auditoria do Bloco 1 registrada com fontes por aula e por item. Seis aulas, 100 questões, 40 casos reformulados e 85 entradas de revisão. [Registro do cotejo](../neuro3d-curso-nri-bloco-1.md).
+
 # Histórico de checkpoints
 
 Acrescentar registros; não apagar os anteriores. Hashes publicados devem ser confirmados no remoto. O commit que cria um documento é identificado pelo Git, sem tentar inserir um hash autorreferente.

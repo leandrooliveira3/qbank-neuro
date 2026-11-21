@@ -2,15 +2,15 @@
 
 ## Versão do acervo
 
-O curso web contém as 120 aulas dos 13 blocos, 43 esquemas e 100 questões por bloco. O manifesto de proveniência vincula cada aula a pelo menos um dos três históricos de Estudos em NRI. A aba **Revisão de prova** usa os quadros originais que puderam ser recuperados com estrutura confiável e pontos complementares elaborados para as 120 aulas. O total passou de 733 para 1.413 entradas de revisão. Cada aula tem de 7 a 31 entradas e de 7 a 17 questões.
+O curso web contém as 120 aulas dos 13 blocos, 43 esquemas e 100 questões por bloco. O manifesto de proveniência vincula cada aula a pelo menos um dos três históricos de Estudos em NRI. A aba **Revisão de prova** usa os quadros originais que puderam ser recuperados com estrutura confiável e pontos complementares elaborados para as 120 aulas. O total passou de 733 para 1.432 entradas de revisão. Cada aula tem de 7 a 31 entradas e de 7 a 17 questões.
 
-O rastreio estrutural cobre os 1.300 enunciados. A classificação por formato encontrou originalmente 694 itens de recordação direta ou reversa. Após a troca de 39 por casos aplicados, restaram 655. O conjunto inclui ainda 569 questões autorais oriundas das conversas e 37 questões autorais de outros formatos. A classificação por enunciado identifica tarefas de recordação e serve como triagem pedagógica. A dificuldade real exige revisão de conteúdo e, idealmente, resultados de aplicação.
+O rastreio estrutural cobre os 1.300 enunciados. A classificação por formato encontrou originalmente 694 itens de recordação direta ou reversa. Após duas etapas que trocaram 79 por casos aplicados, restaram 615. O conjunto inclui ainda 569 questões autorais oriundas das conversas e 37 questões autorais de outros formatos. A classificação por enunciado identifica tarefas de recordação e serve como triagem pedagógica. A dificuldade real exige revisão de conteúdo e, idealmente, resultados de aplicação.
 
 ## Matriz de revisão por bloco
 
 | Bloco | Aulas | Questões | Pontos de revisão | Questões por fórmula de recordação | Conceitos trabalhados na revisão |
 |---|---:|---:|---:|---:|---|
-| 1 · Base do crânio e ACE | 6 | 100 | 66 | 82 | Trajeto foraminal, circulação ocular, nervos cranianos e anastomoses funcionais. |
+| [1 · Base do crânio e ACE](neuro3d-curso-nri-bloco-1.md) | 6 | 100 | 85 | 42 | Trajeto foraminal, circulação ocular, nervos cranianos e anastomoses funcionais. |
 | 2 · Embriologia | 13 | 100 | 149 | 30 | Reconciliação de nomenclaturas, remodelamento carotídeo, dependência posterior e circulação galênica. |
 | 3 · Anatomia arterial | 10 | 100 | 72 | 45 | Perfurantes, variantes de ACA e coroidea anterior, território isquêmico. |
 | 4 · Sistema venoso | 8 | 100 | 56 | 55 | Efluxo funcional, DVA, diferencial de trombose e proteção da drenagem normal. |
@@ -66,4 +66,4 @@ Os textos de Lasjaunias, Krings, Osborn, Morris e Harrigan, o LINNC Trials Book 
 
 Execute `node tools/nri/audit-course.mjs` para a matriz, ou acrescente `--json` para o detalhamento por aula e a lista de alertas. A triagem procura enunciados coincidentes após normalização, referências explícitas a imagens externas, alternativas vazias ou coincidentes e comentários idênticos ao gabarito. Todos os 13 blocos conservam 100 questões. O teste de integração abre cada aula integral e seu quadro de revisão.
 
-A conferência científica individual se concentrou nas questões reescritas e nas passagens revisadas. O restante do banco ainda precisa de cotejo individual com fontes para certificar cada gabarito, plausibilidade de alternativas, redundância semântica e cobertura integral dos conceitos. O Bloco 1 tem a maior concentração de recordação direta. As próximas trocas devem preservar IDs e incluir mais casos que exijam reconhecer territórios, escolher projeção, avaliar drenagem, discriminar complicações ou interpretar um ensaio.
+O Bloco 1 tem registro próprio de cotejo de conteúdo, revisão e questões. Nos Blocos 2–13, a conferência científica individual se concentrou nas questões reescritas e nas passagens revisadas. O restante desses blocos ainda precisa de cotejo individual com fontes para certificar cada gabarito, plausibilidade de alternativas, redundância semântica e cobertura integral dos conceitos. As próximas trocas devem preservar IDs e incluir mais casos que exijam reconhecer territórios, escolher projeção, avaliar drenagem, discriminar complicações ou interpretar um ensaio.

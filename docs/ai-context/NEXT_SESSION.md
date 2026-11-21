@@ -1,3 +1,7 @@
+## 21/11/2026 — Auditoria do Bloco 1 do Curso NRI
+
+Para o próximo bloco, use a trilha de cotejo do Bloco 1 como referência. Verifique o texto das aulas nas exportações e confronte o conteúdo com as referências específicas de embriologia antes de editar o Bloco 2. [Registro do cotejo](../neuro3d-curso-nri-bloco-1.md).
+
 ## 21/11/2026 — Próxima etapa da auditoria de questões NRI
 
 Use [a matriz atual](../neuro3d-curso-nri-auditoria.md) e `node tools/nri/audit-course.mjs --json`. Priorize o Bloco 1, que ainda tem 82 perguntas de recordação por fórmula. Compare cada questão com a aula e uma fonte científica, incluindo a qualidade de cada distrator, e registre o que foi conferido. Preserve 100 itens por bloco, IDs, a versão das tentativas e a publicação em `feature/neuro3d-atlas`. O acesso do Curso NRI está em `/#/tools/nri`; preserve o redirecionamento histórico.

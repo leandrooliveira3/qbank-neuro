@@ -1,3 +1,7 @@
+## 21/11/2026 — Auditoria do Bloco 1 do Curso NRI
+
+O Bloco 1 tem matriz por questão e plano D0–D+30 no leitor. A auditoria dos Blocos 2–13 permanece na sequência. [Registro do cotejo](../neuro3d-curso-nri-bloco-1.md).
+
 ## 21/11/2026 — Validação de conteúdo NRI
 
 O site tem curso nativo separado do Atlas, 120 quadros de revisão ampliados e triagem estrutural dos 1.300 itens. A etapa científica continua por lote, com 39 novos casos já incorporados. Prioridade do banco: revisar cientificamente os 1.261 itens restantes, reduzir fórmulas repetitivas e ampliar casos com achados angiográficos discriminantes. Ver [matriz de revisão](../neuro3d-curso-nri-auditoria.md).
