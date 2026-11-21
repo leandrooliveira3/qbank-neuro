@@ -149,3 +149,7 @@ Próximo: conferir publicação do hash exato, validar interação renderizada e
 ## 21/11/2026 — Curso NRI 2027
 
 Base 94a2688. Curso NRI no atlas em três modos, com 120 módulos, 13 blocos e 1.300 questões iniciais. Importação JSON e respostas persistem localmente. O [manual](../neuro3d-curso-nri.md) registra proveniência e limites do banco. A publicação deve ser confirmada por hash após o checkpoint.
+
+## 21/11/2026 — Layout e recuperação das aulas do Curso NRI
+
+Base `cfb8dee`. Teoria revista nos três históricos, tabelas recompostas pelas coordenadas das células, 16 esquemas no texto e 123 recortes originais em leitor local. Layout branco e verde com navegação principal reduzida. Veja [manual do curso](../neuro3d-curso-nri.md).

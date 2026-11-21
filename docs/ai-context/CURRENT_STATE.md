@@ -1,3 +1,7 @@
+## 21/11/2026 — Leitura do Curso NRI
+
+Aba Curso NRI com paleta branca e verde, sumário por aula, 16 esquemas didáticos embutidos e leitor local dos três PDFs a partir de 123 recortes vinculados aos 120 módulos. Tabelas recuperadas por coordenadas. Os recursos secundários do atlas estão no Acervo. Banco e IDs de 1.300 questões preservados. A leitura visual depende dos PDFs originais que o usuário vincula no navegador.
+
 ## 21/11/2026 — Curso NRI 2027
 
 Curso em aba própria do QBank-Neuro 3D com 13 blocos, 120 módulos e 1.300 questões. A teoria, as tabelas de prova e os exercícios são acessíveis por URL e busca. O banco permite importação JSON e gravação local. A sequência é a das aulas ministradas, com Galeno no Bloco 7 e aneurismas na segunda metade do Bloco 13. Ver [curso e contrato do JSON](../neuro3d-curso-nri.md).

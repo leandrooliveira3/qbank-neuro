@@ -50,12 +50,14 @@ test("quiz explanations, progress survives reload, matrix and curriculum remain 
   await page.goto(route);
   await page.getByRole("button", { name: "Atlas", exact: true }).click();
   await page.getByRole("button", { name: "Embriologia e variantes conceituais", exact: true }).click();
+  await page.getByText("Acervo do atlas", { exact: true }).click();
   await page.getByRole("button", { name: "Questões", exact: true }).click();
   await page
     .getByRole("button", { name: "B. Anel dural distal", exact: true })
     .click();
   await expect(page.locator(".n3-explanation")).toContainText("Correto");
   await page.reload();
+  await page.getByText("Acervo do atlas", { exact: true }).click();
   await page.getByRole("button", { name: "Progresso", exact: true }).click();
   await expect(page.locator(".n3-panel")).toContainText(
     "1/25 questões respondidas",
@@ -137,6 +139,7 @@ test("invalid progress import preserves earlier answers", async ({ page }) => {
   await page.goto(route);
   await page.getByRole("button", { name: "Atlas", exact: true }).click();
   await page.getByRole("button", { name: "Embriologia e variantes conceituais", exact: true }).click();
+  await page.getByText("Acervo do atlas", { exact: true }).click();
   await page.getByRole("button", { name: "Questões", exact: true }).click();
   await page
     .getByRole("button", { name: "B. Anel dural distal", exact: true })

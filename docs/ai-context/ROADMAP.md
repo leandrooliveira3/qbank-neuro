@@ -1,3 +1,7 @@
+## 21/11/2026 — Leitura do Curso NRI
+
+A experiência de leitura usa páginas originais com figuras e tabelas, navegação de sumário e paleta branca e verde. Ainda cabe conferir, questão a questão, gabaritos e comentários e localizar figuras que não foram incluídas nas exportações.
+
 ## Curso NRI 2027 — 21/11/2026
 
 A implementação reúne 13 blocos, 120 módulos e 1.300 questões com correção e importação local. Próximas frentes do curso incluem revisão científica item a item e banco visual com fontes identificadas e permissão de uso. A sequência suplementar do Bloco 14 tem planejamento próprio. Ver [curso e contrato do JSON](../neuro3d-curso-nri.md).

@@ -1,12 +1,14 @@
 .nri-course {
-  --nri-bg: #101c2d;
-  --nri-input: #16263b;
-  --nri-line: #304664;
-  --nri-muted: #b4c7da;
-  --nri-text: #f1f6fe;
-  --nri-accent: #9be3e4;
+  --nri-bg: #ffffff;
+  --nri-input: #f8fafc;
+  --nri-line: #dce5e1;
+  --nri-muted: #475569;
+  --nri-text: #172722;
+  --nri-accent: #047857;
   color: var(--nri-text);
-  padding: clamp(.75rem, 2vw, 2rem);
+  padding: clamp(.75rem, 2vw, 1.5rem) 0;
+  max-width: 1440px;
+  margin-inline: auto;
   min-width: 0;
   font-size: 1rem;
   line-height: 1.65;
@@ -47,7 +49,7 @@
   align-items: start;
   gap: 1rem;
 }
-.nri-course-nav { padding: .875rem; display: grid; gap: .5rem; min-width: 0; }
+.nri-course-nav { position: sticky; top: 1rem; padding: .875rem; display: grid; gap: .5rem; min-width: 0; }
 .nri-course-nav > label, .nri-course-import summary { display: flex; gap: .45rem; align-items: center; font-weight: 650; }
 .nri-course input[type="search"], .nri-course select {
   color: var(--nri-text);
@@ -70,14 +72,14 @@
   min-height: 42px;
   cursor: pointer;
 }
-.nri-course button:hover:enabled { border-color: var(--nri-accent); }
+.n3 .nri-course button:hover:enabled { border-color: var(--nri-accent); background: #f0fdf4; color: #064e3b; }
 .nri-course button:disabled { opacity: .5; cursor: default; }
 .nri-course :is(button, a, input, select, summary):focus-visible { outline: 2px solid var(--nri-accent); outline-offset: 3px; }
 .nri-course a { color: var(--nri-accent); text-decoration: underline; text-underline-offset: .2em; }
-.nri-course-modules { display: grid; gap: .375rem; margin: .25rem 0; max-height: 33rem; overflow: auto; padding: 3px; }
-.nri-course-modules button { text-align: left; display: grid; grid-template-columns: 2.75rem 1fr; gap: .25rem; }
+.nri-course-modules { display: grid; gap: .375rem; margin: .25rem 0; max-height: 33rem; overflow: auto; padding: 4px; grid-auto-rows: max-content; }
+.nri-course-modules button { text-align: left; display: grid; grid-template-columns: 2.65rem minmax(0, 1fr); gap: .25rem; align-items: baseline; overflow-wrap: anywhere; }
 .nri-course-modules button span { color: var(--nri-accent); font-weight: 700; font-variant-numeric: tabular-nums; }
-.nri-course :is([aria-current="page"], [aria-pressed="true"]) { border-color: var(--nri-accent); background: #1d4052; }
+.n3 .nri-course button:is([aria-current="page"], [aria-pressed="true"]) { border-color: var(--nri-accent); background: #ecfdf5; color: #065f46; }
 .nri-course-import { border-top: 1px solid var(--nri-line); padding: .75rem 0 .25rem; }
 .nri-course-import p { margin: .5rem 0; }
 .nri-course-import button { width: 100%; margin: .25rem 0; }
@@ -103,7 +105,7 @@
 .nri-course-references { margin-bottom: 1rem; }
 .nri-course details summary { cursor: pointer; }
 .nri-course-references ul { margin: .5rem 0; padding-left: 1.4rem; list-style: disc; }
-.nri-course .nri-course-primary { color: #0b2530; background: var(--nri-accent); border-color: var(--nri-accent); font-weight: 750; }
+.nri-course .nri-course-primary { color: #fff; background: var(--nri-accent); border-color: var(--nri-accent); font-weight: 750; }
 .nri-course-quizbar { justify-content: space-between; margin: .75rem 0; }
 .nri-course-quizbar span { color: var(--nri-muted); }
 .nri-course-quiz fieldset { min-width: 0; display: grid; gap: .5rem; border: 0; padding: 0; margin: 1.25rem 0; }
@@ -120,19 +122,43 @@
   cursor: pointer;
 }
 .nri-course-quiz input { accent-color: var(--nri-accent); margin: 0; }
-.nri-course-quiz fieldset label.is-correct { background: #164437; border-color: #78d2a7; }
-.nri-course-quiz fieldset label.is-incorrect { background: #4b2933; border-color: #f0a6ad; }
+.nri-course-quiz fieldset label.is-correct { background: #ecfdf5; border-color: #059669; }
+.nri-course-quiz fieldset label.is-incorrect { background: #fff1f2; border-color: #be123c; }
 .nri-course-feedback { border-left: 3px solid var(--nri-accent); padding: .6rem .85rem; background: var(--nri-input); }
 .nri-course-feedback p { margin: .35rem 0; white-space: pre-line; }
 .nri-course-feedback small { color: var(--nri-muted); }
 @media (max-width: 790px) {
   .nri-course-layout { grid-template-columns: minmax(0, 1fr); }
+  .nri-course-nav { position: static; }
   .nri-course-modules { max-height: 12rem; }
 }
 @media (max-width: 420px) {
   .nri-course-intro dl { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
   .nri-course-modes button { flex: 1 1 auto; }
 }
-.nri-course-text table { display: block; overflow-x: auto; }
+.nri-course-scroll { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--nri-line); border-radius: .65rem; }
 .nri-course-text table th { width: auto; }
 .nri-course-text table td { min-width: 9ch; }
+
+.nri-reading-modes { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.25rem; }
+.nri-reading-modes button { font-size: .875rem; }
+.nri-source-control { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; margin-bottom: .5rem; }
+.nri-source-name { overflow-wrap: anywhere; color: var(--nri-muted); font-size: .875rem; }
+.nri-source-empty { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: .75rem; padding: 1rem; }
+.nri-source-page { margin-block: .75rem 1.25rem; border: 1px solid var(--nri-line); border-radius: .65rem; overflow: auto; }
+.nri-source-page canvas { width: 100%; max-width: 900px; display: block; margin-inline: auto; }
+.nri-source-page.is-zoomed canvas { min-width: 960px; }
+.nri-zoom { margin-top: .5rem; }
+.nri-course-figure { display: block; border: 1px solid var(--nri-line); border-radius: .75rem; background: #f8fafc; margin-block: 1.25rem; }
+.nri-course-figure img { display: block; width: 100%; height: auto; border-radius: .75rem .75rem 0 0; }
+.nri-course-figure small { display: block; padding: .65rem .85rem; font-size: .875rem; }
+.nri-course-shell .nri-course small { color: var(--nri-muted); }
+.n3 .nri-course .nri-course-primary:hover:enabled { color: #fff; background: #065f46; }
+.nri-course-outline { border: 1px solid var(--nri-line); border-radius: .75rem; padding: .65rem .9rem; margin-block: .75rem 1.25rem; background: #f8fafc; }
+.nri-course-outline summary { color: #065f46; font-weight: 650; }
+.nri-course-outline ol { list-style: none; padding-left: 0; }
+.nri-course-outline button { min-height: 44px; border-color: transparent; text-align: left; background: transparent; color: #065f46; }
+.nri-course-text h2 { scroll-margin-top: 1.5rem; }
+@media (max-width: 790px) {
+  .nri-course-modules:not(.has-query) { display: none; }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { BookOpen, ClipboardList, FileUp, Search, Table2 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
@@ -10,6 +10,7 @@ import {
 } from './model';
 import './course.css';
 
+const OriginalLesson = lazy(() => import('./OriginalLesson'));
 const blocks: Block[] = manifest;
 const loaders = import.meta.glob<{ default: BlockContent }>('./content/block-*.json');
 const initialQuestionCount = blocks.length * 100;
@@ -25,6 +26,7 @@ export default function Course() {
   const [params, setParams] = useSearchParams();
   const block = blocks.find(({ id }) => String(id) === params.get('bloco')) ?? blocks[0];
   const selected = params.get('modulo');
+  const original = params.get('leitura') === 'original';
   const mode = modes.find(({ id }) => id === params.get('estudo'))?.id ?? 'teoria';
   const lessonId = mode === 'questoes' && selected === 'todos' ? 'todos'
     : block.lessons.find(({ id }) => id === selected)?.id ?? block.lessons[0].id;
@@ -53,6 +55,9 @@ export default function Course() {
   const ready = loaded?.id === block.id ? loaded : undefined;
   const data = ready?.data;
   const lesson = data?.lessons.find(({ id }) => id === lessonId);
+  const outline = useMemo(() => (lesson?.theory ?? '').split('\n').flatMap((line, index) =>
+    line.startsWith('## ') ? [{ id: `nri-${lessonId}-${index + 1}`, title: line.slice(3) }] : [],
+  ), [lesson, lessonId]);
   const questions = useMemo(() => data ? [...data.questions, ...course.imported]
     .filter((item) => lessonId === 'todos' ? block.lessons.some(({ id }) => id === item.lesson) : item.lesson === lessonId)
     : [], [data, course.imported, block, lessonId]);
@@ -152,13 +157,13 @@ export default function Course() {
             {mode === 'questoes' && <option value="todos">Todas as questões do bloco</option>}
             {block.lessons.map((item) => <option key={item.id} value={item.id}>{item.id} · {item.title}</option>)}
           </select>
-          <nav aria-label={needle ? 'Resultados da busca' : 'Módulos do bloco'} className="nri-course-modules">
+          <nav aria-label={needle ? 'Resultados da busca' : 'Módulos do bloco'} className={needle ? "nri-course-modules has-query" : "nri-course-modules"}>
             {needle && matches.length === 0 && <p>Nenhum módulo encontrado.</p>}
             {(needle ? matches : block.lessons.map((item) => ({ item, blockId: block.id })))
               .map(({ item, blockId }) => (
                 <button key={item.id} type="button" aria-current={lessonId === item.id ? 'page' : undefined}
                   onClick={() => { select(blockId, item.id); setFocusContent(true); }}>
-                  <span>{item.id}</span> {item.title}
+                  <span>{item.id}</span><div>{item.title}</div>
                 </button>
               ))}
           </nav>
@@ -193,9 +198,45 @@ export default function Course() {
             <h3 ref={heading} tabIndex={-1}>{lesson ? `${lesson.id} · ${lesson.title}` : 'Questões de todo o bloco'}</h3>
             {mode === 'questoes' && <Quiz key={`${block.id}:${lessonId}`} questions={questions} attempts={course.attempts}
               onGrade={grade} blockWide={lessonId === 'todos'} onBlock={() => select(block.id, 'todos')} />}
-            {lesson && mode === 'teoria' && <article className="nri-course-text">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{lesson.theory}</ReactMarkdown>
-            </article>}
+            {lesson && mode === 'teoria' && <>
+              <nav aria-label="Formato da aula" className="nri-reading-modes">
+                {[{ id: 'texto', label: 'Texto e esquemas' }, { id: 'original', label: 'Páginas originais' }].map(({ id, label }) =>
+                  <button key={id} type="button" aria-pressed={original === (id === 'original')} onClick={() => {
+                    const next = new URLSearchParams(params);
+                    if (id === 'original') next.set('leitura', id);
+                    else next.delete('leitura');
+                    setParams(next);
+                  }}>{label}</button>,
+                )}
+              </nav>
+              {original ? <Suspense fallback={<p role="status">Carregando leitor de PDF…</p>}>
+                <OriginalLesson key={lesson.id} lesson={lesson.id} />
+              </Suspense> : <article className="nri-course-text">
+                {outline.length > 2 && <details className="nri-course-outline">
+                  <summary>Nesta aula</summary>
+                  <ol>{outline.slice(1).map(({ id, title }) => <li key={id}>
+                    <button type="button" onClick={() => {
+                      const destination = document.getElementById(id);
+                      destination?.focus({ preventScroll: true });
+                      destination?.scrollIntoView({ block: 'start' });
+                    }}>{title}</button>
+                  </li>)}</ol>
+                </details>}
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
+                  h2: ({ node, ...props }) => <h2 {...props} tabIndex={-1}
+                    id={`nri-${lesson.id}-${node?.position?.start.line}`} />,
+                  table: ({ node: _node, ...props }) => <div className="nri-course-scroll" tabIndex={0}><table {...props} /></div>,
+                  img: ({ src }) => {
+                    const figure = lesson.figures?.find(({ id }) => src === `/nri-esquemas/${id}`);
+                    return figure ? <span className="nri-course-figure" role="group" aria-label={figure.caption}>
+                      <img src={figure.image} alt={figure.alt} width={figure.width} height={figure.height}
+                        loading="lazy" decoding="async" />
+                      <small>{figure.caption} · Esquema da aula original, p. {figure.page}</small>
+                    </span> : null;
+                  },
+                }}>{lesson.theory}</ReactMarkdown>
+              </article>}
+            </>}
             {lesson && mode !== 'questoes' && <>
               <h4>Conceitos-chave para a prova</h4>
               <div className="nri-course-table"><table>

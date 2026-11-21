@@ -888,3 +888,20 @@
 .n3-header .n3-eyebrow { margin-top:0; margin-bottom:4px; }
 .n3-header .n3-back { margin-bottom:7px; }
 .n3 select,.nda select,.nvs select { color-scheme:dark; background:#142633; color:#dce8ef; }
+
+.n3-course-shell {
+  --n3-text: #172722;
+  --n3-muted: #475569;
+  --n3-accent: #047857;
+  background: #f8fafc;
+  font-family: Inter, system-ui, sans-serif;
+}
+.n3-course-shell :is(.n3-header, .n3-topbar) { border-color: #dce5e1; }
+.n3-course-shell .n3-back { display: inline-flex; align-items: center; font-size: .875rem; min-height: 44px; }
+.n3-course-shell .n3-topbar nav button { font-size: .875rem; min-height: 44px; }
+.n3-course-shell .n3-topbar nav button:hover,
+.n3-course-shell .n3-topbar nav button[aria-pressed="true"] { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+.n3-secondary { margin: 1.25rem 0 .75rem; }
+.n3-secondary summary { width: fit-content; cursor: pointer; color: var(--n3-accent); font-weight: 650; }
+.n3-secondary nav { display: flex; gap: .5rem; flex-wrap: wrap; margin: .75rem 0; }
+.n3-course-shell .n3-secondary button { background: white; border-color: #dce5e1; }

@@ -1,0 +1,1813 @@
+{
+  "sources": [
+    {
+      "id": "0",
+      "name": "ChatGPT_Estudo-em-NRI_20261121-1124.pdf",
+      "pages": 395,
+      "bytes": 3473514,
+      "sha256": "a524cb32c59d01088dad53e7b3c1587129fb550bca7214db3c0c0ef090c163f9"
+    },
+    {
+      "id": "1",
+      "name": "ChatGPT_Estudos-em-NRI-parte-1_20261121-1124.pdf",
+      "pages": 610,
+      "bytes": 13892551,
+      "sha256": "13eeddc0111376b00d9394201a944af0156e7bae49b28d7dfa7654aaded34298"
+    },
+    {
+      "id": "2",
+      "name": "ChatGPT_Estudos-em-NRI-parte-2_20261121-1125.pdf",
+      "pages": 998,
+      "bytes": 20103714,
+      "sha256": "076b3eebd9a08916af6bb51fbcbd0d386a6c248ee982c73c9c716947f62ffbf8"
+    }
+  ],
+  "lessons": {
+    "1A": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 17,
+        "last": 20,
+        "top": 70.83,
+        "bottom": 252.98,
+        "figurePages": [
+          18
+        ]
+      }
+    ],
+    "1B": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 32,
+        "last": 41,
+        "top": 727.08,
+        "bottom": 119.48,
+        "figurePages": [
+          33,
+          35,
+          37
+        ]
+      }
+    ],
+    "1C": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 49,
+        "last": 59,
+        "top": 567.33,
+        "bottom": 270.23,
+        "figurePages": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          56
+        ]
+      }
+    ],
+    "1D": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 63,
+        "last": 70,
+        "top": 4.08,
+        "bottom": 24.98,
+        "figurePages": [
+          63,
+          65,
+          66,
+          67,
+          68
+        ]
+      }
+    ],
+    "1E": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 83,
+        "last": 88,
+        "top": 464.58,
+        "bottom": 735.98,
+        "figurePages": [
+          84,
+          85,
+          86,
+          87
+        ]
+      }
+    ],
+    "1F": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 95,
+        "last": 101,
+        "top": 481.08,
+        "bottom": 186.98,
+        "figurePages": [
+          96,
+          98,
+          99,
+          100
+        ]
+      }
+    ],
+    "2A": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 109,
+        "last": 113,
+        "top": 163.73,
+        "bottom": 743.37,
+        "figurePages": [
+          110,
+          111,
+          112,
+          113
+        ]
+      }
+    ],
+    "2B": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 131,
+        "last": 138,
+        "top": 220.73,
+        "bottom": 498.98,
+        "figurePages": [
+          132,
+          133,
+          135,
+          136,
+          138
+        ]
+      }
+    ],
+    "2C": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 149,
+        "last": 160,
+        "top": 144.33,
+        "bottom": 310.73,
+        "figurePages": [
+          150,
+          153,
+          156,
+          157
+        ]
+      }
+    ],
+    "2D": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 173,
+        "last": 182,
+        "top": 508.83,
+        "bottom": 78.23,
+        "figurePages": [
+          174,
+          177,
+          178,
+          180
+        ]
+      }
+    ],
+    "2E": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 184,
+        "last": 194,
+        "top": 132.33,
+        "bottom": 51.98,
+        "figurePages": [
+          184,
+          186,
+          187,
+          188,
+          189,
+          191
+        ]
+      }
+    ],
+    "2F": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 200,
+        "last": 209,
+        "top": 279.33,
+        "bottom": 732.98,
+        "figurePages": [
+          204
+        ]
+      }
+    ],
+    "2G": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 215,
+        "last": 225,
+        "top": 306.33,
+        "bottom": 350.48,
+        "figurePages": [
+          220,
+          222
+        ]
+      }
+    ],
+    "2H": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 230,
+        "last": 241,
+        "top": 558.33,
+        "bottom": 622.73,
+        "figurePages": [
+          231,
+          233,
+          236,
+          237
+        ]
+      }
+    ],
+    "2I": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 248,
+        "last": 259,
+        "top": 532.08,
+        "bottom": 156.98,
+        "figurePages": [
+          249,
+          251,
+          253
+        ]
+      }
+    ],
+    "2J": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 265,
+        "last": 281,
+        "top": 4.08,
+        "bottom": 486.98,
+        "figurePages": [
+          267,
+          269,
+          273,
+          275,
+          276
+        ]
+      }
+    ],
+    "2K": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 287,
+        "last": 300,
+        "top": 634.08,
+        "bottom": 156.98,
+        "figurePages": [
+          289,
+          294
+        ]
+      },
+      {
+        "source": "1",
+        "label": "Revisão de embriologia venosa",
+        "first": 341,
+        "last": 343,
+        "top": 728.58,
+        "bottom": 615.65,
+        "figurePages": []
+      }
+    ],
+    "2L": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 306,
+        "last": 315,
+        "top": 210.33,
+        "bottom": 258.98,
+        "figurePages": [
+          307,
+          308,
+          310,
+          313
+        ]
+      }
+    ],
+    "2M": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 321,
+        "last": 327,
+        "top": 672.33,
+        "bottom": 579.23,
+        "figurePages": [
+          324
+        ]
+      }
+    ],
+    "3A": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 352,
+        "last": 363,
+        "top": 278.58,
+        "bottom": 686.48,
+        "figurePages": [
+          353,
+          357,
+          358,
+          361,
+          362
+        ]
+      }
+    ],
+    "3B": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 373,
+        "last": 386,
+        "top": 749.58,
+        "bottom": 64.73,
+        "figurePages": [
+          374,
+          376,
+          377,
+          379,
+          380,
+          381,
+          383
+        ]
+      }
+    ],
+    "3C": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 392,
+        "last": 404,
+        "top": 535.83,
+        "bottom": 583.73,
+        "figurePages": [
+          393,
+          394,
+          395,
+          397,
+          399,
+          400,
+          402
+        ]
+      }
+    ],
+    "3D": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 410,
+        "last": 421,
+        "top": 784.83,
+        "bottom": 345.23,
+        "figurePages": [
+          411,
+          413,
+          414,
+          415,
+          417,
+          418,
+          419
+        ]
+      }
+    ],
+    "3E": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 427,
+        "last": 433,
+        "top": 70.83,
+        "bottom": 656.48,
+        "figurePages": [
+          427,
+          428,
+          429,
+          430,
+          432
+        ]
+      }
+    ],
+    "3F": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 439,
+        "last": 450,
+        "top": 404.58,
+        "bottom": 105.98,
+        "figurePages": [
+          440,
+          441,
+          442,
+          443,
+          444,
+          446,
+          447,
+          448
+        ]
+      }
+    ],
+    "3G": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 455,
+        "last": 464,
+        "top": 568.83,
+        "bottom": 423.98,
+        "figurePages": [
+          456,
+          457,
+          459,
+          461,
+          462
+        ]
+      }
+    ],
+    "3H": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 470,
+        "last": 477,
+        "top": 162.33,
+        "bottom": 646.73,
+        "figurePages": [
+          470,
+          471,
+          472,
+          474,
+          475,
+          476
+        ]
+      }
+    ],
+    "3I": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 483,
+        "last": 492,
+        "top": 424.08,
+        "bottom": 457.73,
+        "figurePages": [
+          484,
+          486,
+          487,
+          488,
+          489,
+          490
+        ]
+      }
+    ],
+    "3J": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 498,
+        "last": 508,
+        "top": 557.58,
+        "bottom": 447.98,
+        "figurePages": [
+          499,
+          500,
+          501,
+          502,
+          503,
+          505,
+          506
+        ]
+      }
+    ],
+    "4A": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 514,
+        "last": 525,
+        "top": 620.48,
+        "bottom": 135.23,
+        "figurePages": [
+          515,
+          516,
+          517,
+          519,
+          520,
+          521,
+          522,
+          523
+        ]
+      }
+    ],
+    "4B": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 531,
+        "last": 538,
+        "top": 195.33,
+        "bottom": 483.98,
+        "figurePages": [
+          531,
+          533,
+          534,
+          535
+        ]
+      }
+    ],
+    "4C": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 544,
+        "last": 553,
+        "top": 582.33,
+        "bottom": 164.48,
+        "figurePages": [
+          545,
+          547,
+          548,
+          549,
+          550
+        ]
+      }
+    ],
+    "4D": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 559,
+        "last": 567,
+        "top": 222.33,
+        "bottom": 439.73,
+        "figurePages": [
+          559,
+          561,
+          563
+        ]
+      }
+    ],
+    "4E": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 573,
+        "last": 580,
+        "top": 337.08,
+        "bottom": 672.23,
+        "figurePages": [
+          574,
+          575,
+          576,
+          578
+        ]
+      }
+    ],
+    "4F": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 586,
+        "last": 593,
+        "top": 623.58,
+        "bottom": 295.73,
+        "figurePages": [
+          587,
+          590
+        ]
+      }
+    ],
+    "4G": [
+      {
+        "source": "1",
+        "label": "Aula original",
+        "first": 599,
+        "last": 606,
+        "top": 519.33,
+        "bottom": 809,
+        "figurePages": [
+          601,
+          604
+        ]
+      }
+    ],
+    "4H": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 19,
+        "last": 25,
+        "top": 303.33,
+        "bottom": 288.98,
+        "figurePages": [
+          19
+        ]
+      }
+    ],
+    "5A": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 81,
+        "last": 84,
+        "top": 703.73,
+        "bottom": 21.98,
+        "figurePages": []
+      }
+    ],
+    "5B": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 91,
+        "last": 94,
+        "top": 430.83,
+        "bottom": 247.73,
+        "figurePages": []
+      }
+    ],
+    "5C": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 100,
+        "last": 103,
+        "top": 730.83,
+        "bottom": 780.98,
+        "figurePages": []
+      }
+    ],
+    "5D": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 109,
+        "last": 112,
+        "top": 495.33,
+        "bottom": 500.48,
+        "figurePages": [
+          110
+        ]
+      }
+    ],
+    "5E": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 118,
+        "last": 122,
+        "top": 268.83,
+        "bottom": 76.73,
+        "figurePages": []
+      }
+    ],
+    "5F": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 127,
+        "last": 132,
+        "top": 667.83,
+        "bottom": 117.23,
+        "figurePages": [
+          130
+        ]
+      }
+    ],
+    "5G": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 137,
+        "last": 141,
+        "top": 394.83,
+        "bottom": 427.73,
+        "figurePages": []
+      }
+    ],
+    "6A": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 148,
+        "last": 151,
+        "top": 121.83,
+        "bottom": 534.98,
+        "figurePages": []
+      }
+    ],
+    "6B": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 157,
+        "last": 161,
+        "top": 30.33,
+        "bottom": 295.73,
+        "figurePages": []
+      }
+    ],
+    "6C": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 167,
+        "last": 172,
+        "top": 83.58,
+        "bottom": 300.23,
+        "figurePages": [
+          170
+        ]
+      }
+    ],
+    "6D": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 177,
+        "last": 182,
+        "top": 625.08,
+        "bottom": 475.73,
+        "figurePages": []
+      }
+    ],
+    "6E": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 188,
+        "last": 192,
+        "top": 70.83,
+        "bottom": 580.73,
+        "figurePages": [
+          188,
+          189
+        ]
+      }
+    ],
+    "6F": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 198,
+        "last": 203,
+        "top": 745.08,
+        "bottom": 625.73,
+        "figurePages": [
+          199
+        ]
+      }
+    ],
+    "6G": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 209,
+        "last": 214,
+        "top": 394.83,
+        "bottom": 315.98,
+        "figurePages": [
+          211
+        ]
+      }
+    ],
+    "6H": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 219,
+        "last": 224,
+        "top": 723.33,
+        "bottom": 573.23,
+        "figurePages": []
+      }
+    ],
+    "7A": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 231,
+        "last": 235,
+        "top": 417.33,
+        "bottom": 809,
+        "figurePages": [
+          231
+        ]
+      }
+    ],
+    "7B": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 245,
+        "last": 250,
+        "top": 334.83,
+        "bottom": 350.48,
+        "figurePages": []
+      }
+    ],
+    "7C": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 255,
+        "last": 263,
+        "top": 708.33,
+        "bottom": 435.23,
+        "figurePages": [
+          257,
+          259,
+          260,
+          262
+        ]
+      }
+    ],
+    "7D": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 269,
+        "last": 276,
+        "top": 293.58,
+        "bottom": 615.98,
+        "figurePages": [
+          274
+        ]
+      }
+    ],
+    "7E": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 292,
+        "last": 308,
+        "top": 514.08,
+        "bottom": 20.37,
+        "figurePages": []
+      }
+    ],
+    "7F": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 313,
+        "last": 322,
+        "top": 97.08,
+        "bottom": 433.73,
+        "figurePages": []
+      }
+    ],
+    "7G": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 328,
+        "last": 336,
+        "top": 249.33,
+        "bottom": 429.98,
+        "figurePages": [
+          329,
+          331,
+          332,
+          334
+        ]
+      }
+    ],
+    "7H": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 342,
+        "last": 350,
+        "top": 23.58,
+        "bottom": 612.98,
+        "figurePages": [
+          342,
+          344,
+          346,
+          348
+        ]
+      }
+    ],
+    "7I": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 356,
+        "last": 364,
+        "top": 496.08,
+        "bottom": 643.73,
+        "figurePages": [
+          361
+        ]
+      }
+    ],
+    "7J": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 376,
+        "last": 382,
+        "top": 664.08,
+        "bottom": 384.98,
+        "figurePages": [
+          377,
+          378,
+          381
+        ]
+      }
+    ],
+    "8A": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 425,
+        "last": 429,
+        "top": 46.08,
+        "bottom": 749.58,
+        "figurePages": [
+          426,
+          427
+        ]
+      }
+    ],
+    "8B": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 435,
+        "last": 440,
+        "top": 744.33,
+        "bottom": 779.58,
+        "figurePages": [
+          436,
+          437,
+          438,
+          439
+        ]
+      }
+    ],
+    "8C": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 446,
+        "last": 450,
+        "top": 604.83,
+        "bottom": 541.83,
+        "figurePages": []
+      }
+    ],
+    "8D": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 456,
+        "last": 461,
+        "top": 211.08,
+        "bottom": 58.08,
+        "figurePages": [
+          458
+        ]
+      }
+    ],
+    "8E": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 466,
+        "last": 474,
+        "top": 641.58,
+        "bottom": 476.58,
+        "figurePages": [
+          467,
+          468,
+          470,
+          472,
+          473
+        ]
+      }
+    ],
+    "8F": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 480,
+        "last": 486,
+        "top": 342.33,
+        "bottom": 163.83,
+        "figurePages": [
+          481,
+          482,
+          483,
+          484
+        ]
+      }
+    ],
+    "8G": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 491,
+        "last": 501,
+        "top": 730.08,
+        "bottom": 295.08,
+        "figurePages": [
+          492,
+          493,
+          496,
+          498,
+          499
+        ]
+      }
+    ],
+    "8H": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 507,
+        "last": 515,
+        "top": 51.33,
+        "bottom": 691.83,
+        "figurePages": [
+          508,
+          512
+        ]
+      }
+    ],
+    "8I": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 521,
+        "last": 530,
+        "top": 517.83,
+        "bottom": 320.58,
+        "figurePages": [
+          522,
+          523,
+          525,
+          526
+        ]
+      }
+    ],
+    "8J": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 535,
+        "last": 547,
+        "top": 756.33,
+        "bottom": 476.58,
+        "figurePages": [
+          536,
+          538,
+          539,
+          541,
+          542,
+          543,
+          544,
+          545
+        ]
+      }
+    ],
+    "9A": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 555,
+        "last": 563,
+        "top": 561.33,
+        "bottom": 58.83,
+        "figurePages": [
+          556,
+          558,
+          560,
+          561
+        ]
+      }
+    ],
+    "9B": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 571,
+        "last": 579,
+        "top": 268.08,
+        "bottom": 137.58,
+        "figurePages": [
+          576,
+          577
+        ]
+      }
+    ],
+    "9C": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 584,
+        "last": 593,
+        "top": 606.33,
+        "bottom": 537.33,
+        "figurePages": [
+          585,
+          591
+        ]
+      }
+    ],
+    "9D": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 599,
+        "last": 607,
+        "top": 373.08,
+        "bottom": 570.33,
+        "figurePages": [
+          599,
+          601,
+          602,
+          604
+        ]
+      }
+    ],
+    "9E": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 614,
+        "last": 626,
+        "top": 546.33,
+        "bottom": 361.08,
+        "figurePages": [
+          615,
+          617,
+          619,
+          621
+        ]
+      }
+    ],
+    "9F": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 632,
+        "last": 642,
+        "top": 90.33,
+        "bottom": 374.58,
+        "figurePages": [
+          633,
+          634,
+          637,
+          639
+        ]
+      }
+    ],
+    "9G": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 649,
+        "last": 658,
+        "top": 110.62,
+        "bottom": 782.58,
+        "figurePages": [
+          649,
+          650,
+          652,
+          653,
+          655
+        ]
+      }
+    ],
+    "9H": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 664,
+        "last": 676,
+        "top": 493.83,
+        "bottom": 506.58,
+        "figurePages": [
+          665,
+          667,
+          669,
+          670,
+          672,
+          674
+        ]
+      }
+    ],
+    "9I": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 682,
+        "last": 693,
+        "top": 70.83,
+        "bottom": 153.4,
+        "figurePages": [
+          683,
+          684,
+          685,
+          688,
+          689
+        ]
+      }
+    ],
+    "9J": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 698,
+        "last": 710,
+        "top": 663.33,
+        "bottom": 325.83,
+        "figurePages": [
+          700,
+          701,
+          702,
+          704
+        ]
+      }
+    ],
+    "10A": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 717,
+        "last": 725,
+        "top": 306.4,
+        "bottom": 178.9,
+        "figurePages": [
+          718,
+          719,
+          720
+        ]
+      }
+    ],
+    "10B": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 730,
+        "last": 744,
+        "top": 640.83,
+        "bottom": 153.33,
+        "figurePages": [
+          731,
+          732,
+          733,
+          734,
+          735,
+          738,
+          740,
+          741
+        ]
+      }
+    ],
+    "10C": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 749,
+        "last": 760,
+        "top": 734.65,
+        "bottom": 70.83,
+        "figurePages": [
+          750,
+          751,
+          752,
+          753,
+          754
+        ]
+      }
+    ],
+    "10D": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 766,
+        "last": 775,
+        "top": 493.83,
+        "bottom": 754.83,
+        "figurePages": [
+          766,
+          768,
+          770
+        ]
+      }
+    ],
+    "10E": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 781,
+        "last": 791,
+        "top": 429.4,
+        "bottom": 809,
+        "figurePages": [
+          782,
+          783,
+          784,
+          785,
+          787
+        ]
+      }
+    ],
+    "10F": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 797,
+        "last": 808,
+        "top": 485.65,
+        "bottom": 445.08,
+        "figurePages": [
+          799,
+          803,
+          804
+        ]
+      }
+    ],
+    "10G": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 814,
+        "last": 824,
+        "top": 124.83,
+        "bottom": 313.83,
+        "figurePages": [
+          815,
+          816,
+          817,
+          819
+        ]
+      }
+    ],
+    "10H": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 830,
+        "last": 841,
+        "top": 159.33,
+        "bottom": 250.9,
+        "figurePages": [
+          831,
+          832,
+          833,
+          834,
+          835,
+          836,
+          837,
+          838
+        ]
+      }
+    ],
+    "11A": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 855,
+        "last": 861,
+        "top": 241.83,
+        "bottom": 640.15,
+        "figurePages": [
+          855,
+          856,
+          857,
+          860
+        ]
+      }
+    ],
+    "11B": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 867,
+        "last": 878,
+        "top": 481.08,
+        "bottom": 387.33,
+        "figurePages": [
+          868,
+          869,
+          870,
+          872,
+          874,
+          876
+        ]
+      }
+    ],
+    "11C": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 884,
+        "last": 893,
+        "top": 441.33,
+        "bottom": 70.9,
+        "figurePages": [
+          885,
+          886,
+          888
+        ]
+      }
+    ],
+    "11D": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 899,
+        "last": 907,
+        "top": 17.58,
+        "bottom": 126.33,
+        "figurePages": [
+          900,
+          901,
+          902,
+          903
+        ]
+      }
+    ],
+    "11E": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 912,
+        "last": 923,
+        "top": 760.83,
+        "bottom": 334.08,
+        "figurePages": [
+          913,
+          915,
+          916,
+          918,
+          919,
+          920
+        ]
+      }
+    ],
+    "11F": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 929,
+        "last": 938,
+        "top": 266.65,
+        "bottom": 228.33,
+        "figurePages": [
+          930,
+          931,
+          933,
+          934
+        ]
+      }
+    ],
+    "11G": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 944,
+        "last": 959,
+        "top": 316.08,
+        "bottom": 13.08,
+        "figurePages": [
+          945,
+          947,
+          949,
+          950,
+          952,
+          954,
+          957
+        ]
+      }
+    ],
+    "11H": [
+      {
+        "source": "2",
+        "label": "Aula original",
+        "first": 964,
+        "last": 972,
+        "top": 764.58,
+        "bottom": 632.58,
+        "figurePages": [
+          965,
+          967,
+          968,
+          969
+        ]
+      }
+    ],
+    "12.1": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 6,
+        "last": 17,
+        "top": 438.98,
+        "bottom": 270.98,
+        "figurePages": []
+      },
+      {
+        "source": "0",
+        "label": "Critérios de inclusão e exclusão",
+        "first": 21,
+        "last": 26,
+        "top": 661.08,
+        "bottom": 556.73,
+        "figurePages": []
+      }
+    ],
+    "12.2": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 31,
+        "last": 40,
+        "top": 51.33,
+        "bottom": 316.73,
+        "figurePages": []
+      }
+    ],
+    "12.3": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 48,
+        "last": 57,
+        "top": 468.33,
+        "bottom": 321.23,
+        "figurePages": [
+          49
+        ]
+      }
+    ],
+    "12.4": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 63,
+        "last": 71,
+        "top": 57.33,
+        "bottom": 325.73,
+        "figurePages": [
+          63
+        ]
+      }
+    ],
+    "12.5": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 76,
+        "last": 87,
+        "top": 442.83,
+        "bottom": 122.48,
+        "figurePages": [
+          77,
+          78
+        ]
+      }
+    ],
+    "12.6": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 92,
+        "last": 100,
+        "top": 703.08,
+        "bottom": 194.48,
+        "figurePages": []
+      }
+    ],
+    "12.7": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 105,
+        "last": 115,
+        "top": 496.83,
+        "bottom": 390.98,
+        "figurePages": []
+      }
+    ],
+    "12.8": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 121,
+        "last": 131,
+        "top": 38.58,
+        "bottom": 423.23,
+        "figurePages": [
+          121,
+          130
+        ]
+      }
+    ],
+    "12.9": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 137,
+        "last": 147,
+        "top": 51.33,
+        "bottom": 441.98,
+        "figurePages": [
+          137
+        ]
+      }
+    ],
+    "12.10": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 153,
+        "last": 163,
+        "top": 51.33,
+        "bottom": 668.48,
+        "figurePages": []
+      }
+    ],
+    "12.11": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 178,
+        "last": 189,
+        "top": 682.83,
+        "bottom": 688.83,
+        "figurePages": [
+          179,
+          180
+        ]
+      }
+    ],
+    "12.12": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 197,
+        "last": 207,
+        "top": 484.83,
+        "bottom": 289.83,
+        "figurePages": []
+      }
+    ],
+    "13.1": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 213,
+        "last": 222,
+        "top": 319.08,
+        "bottom": 216.33,
+        "figurePages": []
+      }
+    ],
+    "13.2": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 228,
+        "last": 238,
+        "top": 213.33,
+        "bottom": 184.83,
+        "figurePages": []
+      }
+    ],
+    "13.3": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 244,
+        "last": 256,
+        "top": 348.33,
+        "bottom": 544.83,
+        "figurePages": []
+      }
+    ],
+    "13.4": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 262,
+        "last": 271,
+        "top": 286.08,
+        "bottom": 531.33,
+        "figurePages": []
+      }
+    ],
+    "13.5": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 277,
+        "last": 288,
+        "top": 703.83,
+        "bottom": 775.83,
+        "figurePages": []
+      }
+    ],
+    "13.6": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 295,
+        "last": 307,
+        "top": 302.58,
+        "bottom": 21.33,
+        "figurePages": []
+      }
+    ],
+    "13.7": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 313,
+        "last": 323,
+        "top": 642.33,
+        "bottom": 759.33,
+        "figurePages": []
+      }
+    ],
+    "13.8": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 330,
+        "last": 341,
+        "top": 296.58,
+        "bottom": 402.33,
+        "figurePages": [
+          337
+        ]
+      }
+    ],
+    "13.9": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 348,
+        "last": 358,
+        "top": 70.83,
+        "bottom": 258.33,
+        "figurePages": []
+      }
+    ],
+    "13.10": [
+      {
+        "source": "0",
+        "label": "Aula original",
+        "first": 364,
+        "last": 378,
+        "top": 383.58,
+        "bottom": 373.83,
+        "figurePages": []
+      },
+      {
+        "source": "0",
+        "label": "Complemento ESO/EANS/ESMINT 2026",
+        "first": 381,
+        "last": 386,
+        "top": 245.37,
+        "bottom": 579.87,
+        "figurePages": []
+      }
+    ]
+  }
+}

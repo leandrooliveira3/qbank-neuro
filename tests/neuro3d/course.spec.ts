@@ -54,3 +54,41 @@ test('importa JSON válido e rejeita arquivos conflitantes sem remover questões
   await questionSelect.selectOption(await questionSelect.locator('option').last().getAttribute('value') ?? '0');
   await expect(course.getByText(entry.prompt)).toBeVisible();
 });
+
+test('aplica a paleta do QBank, restaura a tabela e exibe o esquema da aula 13.7', async ({ page }) => {
+  await page.goto('/#/tools/neuro3d?tab=curso&bloco=13&modulo=13.7');
+  const course = page.getByRole('region', { name: 'Curso NRI 2027' });
+  const mainNavigation = page.getByRole('navigation', { name: 'Seções do atlas' });
+  for (const section of ['Módulos', 'Questões', 'Matriz', 'Progresso']) {
+    await expect(mainNavigation.getByRole('button', { name: section, exact: true })).toHaveCount(0);
+  }
+  await expect(course.locator('.nri-course-main')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
+  const illustration = course.getByRole('img', { name: /PHASES estima ruptura/ });
+  await illustration.scrollIntoViewIfNeeded();
+  await expect(illustration).toBeVisible();
+  await expect.poll(() => illustration.evaluate((node: HTMLImageElement) => node.naturalWidth)).toBeGreaterThan(500);
+  const comparison = course.locator('table').filter({ has: page.getByRole('columnheader', { name: 'UIATS', exact: true }) }).first();
+  await expect(comparison.getByRole('row').filter({ hasText: 'Desfecho' })).toContainText('Recomendação de manejo');
+  await course.getByText('Nesta aula', { exact: true }).click();
+  await course.getByRole('button', { name: /Três modelos, três perguntas diferentes/ }).click();
+  await expect(course.getByRole('heading', { name: /Três modelos, três perguntas diferentes/ })).toBeFocused();
+});
+
+test('recorta a aula original a partir do PDF vinculado e mantém o vínculo após recarregar', async ({ page }) => {
+  const path = process.env.NRI_TRANSCRIPT_PDF;
+  test.skip(!path, 'O PDF original deve estar disponível localmente.');
+  await page.goto('/#/tools/neuro3d?tab=curso&bloco=13&modulo=13.7&leitura=original');
+  const source = page.getByRole('region', { name: 'Páginas originais' });
+  await expect(source.getByText(/páginas 313–323/)).toBeVisible();
+  await source.locator('input[type=file]').setInputFiles(path!);
+  const first = source.getByRole('img', { name: 'Página 313 da aula na exportação original' });
+  await expect(first).toBeVisible();
+  expect(await first.evaluate((node: HTMLCanvasElement) => node.height)).toBeLessThan(400);
+  await source.getByRole('button', { name: 'Próxima página' }).click();
+  const next = source.getByRole('img', { name: 'Página 314 da aula na exportação original' });
+  await expect(next).toBeVisible();
+  const height = await next.evaluate((node: HTMLCanvasElement) => node.height);
+  expect(height).toBeGreaterThan(1500);
+  await page.reload();
+  await expect(first).toBeVisible();
+});

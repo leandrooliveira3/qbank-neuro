@@ -155,20 +155,19 @@ export default function Neuro3DAtlas() {
       );
     }
   }
+  const isCourse = tab === "Curso NRI 2027";
   return (
-    <main className="n3">
+    <main className={isCourse ? "n3 n3-course-shell" : "n3"}>
       <header className="n3-header">
         <div>
           <Link to="/" className="n3-back">
             ← QBank-Neuro
           </Link>
-          <span className="n3-eyebrow">
-            ANATOMIA · IMAGEM · SIMULAÇÃO
-          </span>
+
           <h1>
             QBank-Neuro <em>3D</em>
           </h1>
-          <p>Explore a anatomia e pratique a navegação no mesmo espaço.</p>
+
         </div>
         {tab !== "Preparação NRI 2027" && tab !== "Curso NRI 2027" && <div className="n3-metrics">
           <span>
@@ -189,6 +188,7 @@ export default function Neuro3DAtlas() {
       <div className="n3-topbar">
         <nav aria-label="Seções do atlas">
           {[
+            "Curso NRI 2027",
             "Anatomia detalhada",
             "Atlas",
             "Referências vasculares",
@@ -196,11 +196,6 @@ export default function Neuro3DAtlas() {
             "Paciente 3D",
             "Geometria 3D–2D",
             "Doppler transcraniano",
-            "Módulos",
-            "Questões",
-            "Matriz",
-            "Progresso",
-            "Curso NRI 2027",
             "Preparação NRI 2027",
             "Referências e fontes",
           ].map((t) => (
@@ -690,6 +685,20 @@ export default function Neuro3DAtlas() {
           />
         </Suspense>
       )}
+      <details className="n3-secondary">
+        <summary>Acervo do atlas</summary>
+        <nav aria-label="Recursos do acervo">
+          {["Módulos", "Questões", "Matriz", "Progresso"].map((section) =>
+            <button key={section} type="button" aria-pressed={tab === section} onClick={() => {
+              setTab(section);
+              const next = new URLSearchParams(params);
+              next.delete("tab");
+              setParams(next, { replace: true });
+              requestAnimationFrame(() => document.querySelector(".n3-panel h2")?.scrollIntoView({ block: "start" }));
+            }}>{section}</button>,
+          )}
+        </nav>
+      </details>
       <footer className="n3-footer">
         Bouthillier C1–C7 · embriologia de Lasjaunias em eixo independente ·
         fontes por estrutura · nenhuma malha homologada.

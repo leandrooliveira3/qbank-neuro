@@ -1,6 +1,21 @@
 export type Reference = { label: string; url?: string };
 export type KeyPoint = { concept: string; takeaway: string };
-export type Lesson = { id: string; title: string; theory: string; points: KeyPoint[] };
+export type LessonFigure = {
+  id: string;
+  caption: string;
+  alt: string;
+  page: number;
+  width: number;
+  height: number;
+  image: string;
+};
+export type Lesson = {
+  id: string;
+  title: string;
+  theory: string;
+  points: KeyPoint[];
+  figures?: LessonFigure[];
+};
 export type Block = { id: number; title: string; lessons: (Pick<Lesson, 'id' | 'title'> & { topics: string[] })[] };
 export type CourseQuestion = {
   id: string;

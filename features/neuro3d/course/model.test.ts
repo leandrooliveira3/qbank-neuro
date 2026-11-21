@@ -58,3 +58,33 @@ describe('currículo e banco NRI', () => {
     expect(() => mergeCourseImport([], duplicated, new Set(promptIndex))).toThrow(/já presente/);
   });
 });
+
+it('vincula os 120 módulos a recortes originais e valida as referências a esquemas', async () => {
+  const { originalLessons, sources } = await import('./sourceFiles');
+  expect(new Set(Object.keys(originalLessons))).toEqual(lessons);
+  const attached = new Map(sources.map((source) => [source.id, source.pages]));
+  for (const ranges of Object.values(originalLessons)) {
+    expect(ranges.length).toBeGreaterThan(0);
+    for (const range of ranges) {
+      expect(range.first).toBeGreaterThanOrEqual(1);
+      expect(range.last).toBeGreaterThanOrEqual(range.first);
+      expect(range.last).toBeLessThanOrEqual(attached.get(range.source)!);
+      expect(range.top).toBeLessThan(809);
+      expect(range.bottom).toBeGreaterThan(range.first === range.last ? range.top : 0);
+      expect(range.figurePages.every((page) => page >= range.first && page <= range.last)).toBe(true);
+    }
+  }
+  let figures = 0;
+  for (const { default: content } of Object.values(data)) {
+    for (const module of content.lessons) {
+      const anchors = [...module.theory.matchAll(/\]\(\/nri-esquemas\/([^)]+)\)/g)].map(([, id]) => id);
+      expect(anchors).toEqual(module.figures?.map(({ id }) => id) ?? []);
+      for (const figure of module.figures ?? []) {
+        expect(figure.image).toMatch(/^data:image\/webp;base64,/);
+        expect(figure.alt).toBeTruthy();
+        figures++;
+      }
+    }
+  }
+  expect(figures).toBeGreaterThan(0);
+});
