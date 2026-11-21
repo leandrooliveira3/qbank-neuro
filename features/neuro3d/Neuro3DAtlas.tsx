@@ -158,7 +158,7 @@ export default function Neuro3DAtlas() {
   const isCourse = tab === "Curso NRI 2027";
   return (
     <main className={isCourse ? "n3 n3-course-shell" : "n3"}>
-      <header className="n3-header">
+      {!isCourse && <header className="n3-header">
         <div>
           <Link to="/" className="n3-back">
             ← QBank-Neuro
@@ -180,13 +180,16 @@ export default function Neuro3DAtlas() {
             <b>{answers.length}/25</b>questões
           </span>
         </div>}
-      </header>
+      </header>}
       {tab !== "Preparação NRI 2027" && tab !== "Curso NRI 2027" && <aside className="n3-warning" role="note">
         <strong>{tab === "Geometria 3D–2D" ? "Geometria da fonte · espaço independente." : tab === "Referências vasculares" ? "Referências derivadas de imagem · espaços independentes." : tab === "Paciente 3D" ? "Prévia derivada do exame · revisão necessária." : tab === "Anatomia detalhada" ? "Base anatômica de referência · revisão em andamento." : tab === "Simulação" ? "Simulação educacional · geometria em revisão." : tab === "Atlas" && atlasMode === "surface" ? "Base anatômica de referência · revisão em andamento." : "Geometria esquemática · não homologada."}</strong> Uso
         educacional. {tab === "Geometria 3D–2D" ? "Coordenadas da fonte em milímetros; precisão de registro ainda não validada. Nenhum vínculo espacial com o atlas presumido." : tab === "Paciente 3D" ? "Coordenadas físicas preservadas; segmentação e medidas ainda precisam de revisão. Sem recomendação automática de dispositivo ou técnica." : "Sem escala clínica, planejamento de pacientes ou simulação hemodinâmica validada."}
       </aside>}
       <div className="n3-topbar">
-        <nav aria-label="Seções do atlas">
+        {isCourse ? <nav aria-label="Seções do atlas" className="n3-course-shell-nav">
+          <Link to="/">QBank-Neuro</Link>
+          <Link to="/tools/neuro3d">Atlas 3D</Link>
+        </nav> : <nav aria-label="Seções do atlas">
           {[
             "Curso NRI 2027",
             "Anatomia detalhada",
@@ -203,7 +206,7 @@ export default function Neuro3DAtlas() {
               {t}
             </button>
           ))}
-        </nav>
+        </nav>}
         {tab === "Atlas" && atlasMode === "concept" && <div className="n3-search">
           <label htmlFor="n3-search">Busca livre em todas as cenas</label>
           <input
@@ -685,7 +688,7 @@ export default function Neuro3DAtlas() {
           />
         </Suspense>
       )}
-      <details className="n3-secondary">
+      {!isCourse && <details className="n3-secondary">
         <summary>Acervo do atlas</summary>
         <nav aria-label="Recursos do acervo">
           {["Módulos", "Questões", "Matriz", "Progresso"].map((section) =>
@@ -698,11 +701,11 @@ export default function Neuro3DAtlas() {
             }}>{section}</button>,
           )}
         </nav>
-      </details>
-      <footer className="n3-footer">
+      </details>}
+      {!isCourse && <footer className="n3-footer">
         Bouthillier C1–C7 · embriologia de Lasjaunias em eixo independente ·
         fontes por estrutura · nenhuma malha homologada.
-      </footer>
+      </footer>}
     </main>
   );
 }

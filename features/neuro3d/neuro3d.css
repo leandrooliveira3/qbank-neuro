@@ -905,3 +905,5 @@
 .n3-secondary summary { width: fit-content; cursor: pointer; color: var(--n3-accent); font-weight: 650; }
 .n3-secondary nav { display: flex; gap: .5rem; flex-wrap: wrap; margin: .75rem 0; }
 .n3-course-shell .n3-secondary button { background: white; border-color: #dce5e1; }
+.n3-course-shell .n3-course-shell-nav { max-width: 1180px; width: 100%; margin-inline: auto; gap: 1rem; }
+.n3-course-shell-nav a { display: inline-flex; align-items: center; font-size: .9rem; font-weight: 670; color: #047857; }

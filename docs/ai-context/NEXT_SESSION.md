@@ -1,3 +1,7 @@
+## 21/11/2026 — Curso NRI no site
+
+Abra o catálogo e confira o hash da publicação. Edite o conteúdo web via [manual do curso](../neuro3d-curso-nri.md). Para completar a auditoria científica, confira gabaritos e comentários separadamente e incorpore as figuras externas com autorização de republicação. Preserve os IDs das questões e a continuidade do atlas.
+
 ## 21/11/2026 — Leitura do Curso NRI
 
 Confirme a publicação antes de atribuir estado ao curso. Use [o manual](../neuro3d-curso-nri.md) para editar conteúdo, recortes e figuras. Siga com o cotejo científico de gabaritos e comentários e com o mapeamento de figuras ausentes nas exportações. Preserve IDs, conteúdo autoral, referências primárias e a continuidade do atlas.

@@ -15,6 +15,7 @@ export type Lesson = {
   theory: string;
   points: KeyPoint[];
   figures?: LessonFigure[];
+  references?: Reference[];
 };
 export type Block = { id: number; title: string; lessons: (Pick<Lesson, 'id' | 'title'> & { topics: string[] })[] };
 export type CourseQuestion = {

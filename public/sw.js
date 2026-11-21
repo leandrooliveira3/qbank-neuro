@@ -1,4 +1,4 @@
-const CACHE_NAME = 'neuro-portal-v4.0';
+const CACHE_NAME = 'neuro-portal-v4.1';
 
 const CORE_ASSETS = [
   '/',
@@ -31,7 +31,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
       return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys.filter((key) => key.startsWith('neuro-portal-') && key !== CACHE_NAME).map((key) => caches.delete(key))
       );
     }).then(() => self.clients.claim())
   );
@@ -95,7 +95,11 @@ self.addEventListener('fetch', (event) => {
         // Se já está no cache, retorna imediatamente e atualiza em segundo plano
         const fetchPromise = fetch(request)
           .then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
+            const type = networkResponse.headers.get('content-type') || '';
+            const correctAsset = request.destination === 'script' || request.destination === 'worker'
+              ? /javascript|ecmascript/.test(type)
+              : request.destination === 'style' ? type.startsWith('text/css') : true;
+            if (networkResponse.status === 200 && correctAsset) {
               const copy = networkResponse.clone();
               caches.open(CACHE_NAME).then((cache) => {
                 cache.put(request, copy);

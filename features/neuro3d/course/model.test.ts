@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import manifest from './content/index.json';
 import promptIndex from './content/prompts.json';
+import provenance from './content/originals.json';
 import { BlockContent, mergeCourseImport, parseCourseImport, searchable } from './model';
 
 const data = import.meta.glob<{ default: BlockContent }>('./content/block-*.json', { eager: true });
@@ -59,8 +60,8 @@ describe('currículo e banco NRI', () => {
   });
 });
 
-it('vincula os 120 módulos a recortes originais e valida as referências a esquemas', async () => {
-  const { originalLessons, sources } = await import('./sourceFiles');
+it('vincula os 120 módulos às conversas e valida imagens e fontes na página', () => {
+  const { lessons: originalLessons, sources } = provenance;
   expect(new Set(Object.keys(originalLessons))).toEqual(lessons);
   const attached = new Map(sources.map((source) => [source.id, source.pages]));
   for (const ranges of Object.values(originalLessons)) {
@@ -77,6 +78,7 @@ it('vincula os 120 módulos a recortes originais e valida as referências a esqu
   let figures = 0;
   for (const { default: content } of Object.values(data)) {
     for (const module of content.lessons) {
+      expect(module.references?.every(({ url }) => url?.startsWith('https://')) ?? true).toBe(true);
       const anchors = [...module.theory.matchAll(/\]\(\/nri-esquemas\/([^)]+)\)/g)].map(([, id]) => id);
       expect(anchors).toEqual(module.figures?.map(({ id }) => id) ?? []);
       for (const figure of module.figures ?? []) {

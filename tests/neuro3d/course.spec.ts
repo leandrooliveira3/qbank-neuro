@@ -1,20 +1,29 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+import type { Block } from '../../features/neuro3d/course/model';
+
+const manifest: Block[] = JSON.parse(readFileSync(
+  new URL('../../features/neuro3d/course/content/index.json', import.meta.url), 'utf8',
+));
 
 test('navega entre teoria, revisão e questões de todos os módulos e registra a resposta', async ({ page }) => {
   await page.goto('/#/tools/neuro3d?tab=curso');
   const course = page.getByRole('region', { name: 'Curso NRI 2027' });
+  await expect(course.getByRole('heading', { name: 'Blocos do curso' })).toBeVisible();
+  await expect(course.locator('.nri-course-catalog a')).toHaveCount(13);
+  await course.getByRole('link', { name: 'Começar pela aula 1A' }).click();
   await expect(course.getByRole('heading', { name: /1A · Carótida externa/ })).toBeVisible();
   await expect(course.locator('article')).toBeVisible();
   expect(await course.evaluate((node) => node.scrollWidth)).toBeLessThanOrEqual(
     await course.evaluate((node) => node.clientWidth + 1),
   );
-  await course.getByRole('searchbox', { name: 'Buscar módulos' }).fill('markowski');
-  await course.getByRole('button', { name: /2K ·? ?Vascularização medular/ }).click();
+  await course.getByRole('searchbox', { name: 'Buscar aulas' }).fill('markowski');
+  await course.getByRole('link', { name: /2K.*Vascularização medular/ }).click();
   await expect(course.getByRole('heading', { name: /2K · Vascularização medular/ })).toBeVisible();
-  await course.getByRole('button', { name: 'Revisão de prova' }).click();
+  await course.getByRole('link', { name: 'Revisão de prova' }).click();
   await expect(course.locator('article')).toHaveCount(0);
   await expect(course.getByRole('table')).toContainText('Markowski');
-  await course.getByRole('button', { name: 'Questões', exact: true }).click();
+  await course.getByRole('link', { name: 'Questões', exact: true }).click();
   await course.getByRole('button', { name: 'Praticar o bloco inteiro' }).click();
   await expect(course.getByRole('combobox', { name: 'Selecionar questão' }).locator('option')).toHaveCount(100);
   await expect(course.getByText(/Gabarito [A-E]/)).toHaveCount(0);
@@ -69,26 +78,36 @@ test('aplica a paleta do QBank, restaura a tabela e exibe o esquema da aula 13.7
   await expect.poll(() => illustration.evaluate((node: HTMLImageElement) => node.naturalWidth)).toBeGreaterThan(500);
   const comparison = course.locator('table').filter({ has: page.getByRole('columnheader', { name: 'UIATS', exact: true }) }).first();
   await expect(comparison.getByRole('row').filter({ hasText: 'Desfecho' })).toContainText('Recomendação de manejo');
-  await course.getByText('Nesta aula', { exact: true }).click();
+  await course.getByText('Sumário da aula', { exact: true }).click();
   await course.getByRole('button', { name: /Três modelos, três perguntas diferentes/ }).click();
   await expect(course.getByRole('heading', { name: /Três modelos, três perguntas diferentes/ })).toBeFocused();
 });
 
-test('recorta a aula original a partir do PDF vinculado e mantém o vínculo após recarregar', async ({ page }) => {
-  const path = process.env.NRI_TRANSCRIPT_PDF;
-  test.skip(!path, 'O PDF original deve estar disponível localmente.');
-  await page.goto('/#/tools/neuro3d?tab=curso&bloco=13&modulo=13.7&leitura=original');
-  const source = page.getByRole('region', { name: 'Páginas originais' });
-  await expect(source.getByText(/páginas 313–323/)).toBeVisible();
-  await source.locator('input[type=file]').setInputFiles(path!);
-  const first = source.getByRole('img', { name: 'Página 313 da aula na exportação original' });
-  await expect(first).toBeVisible();
-  expect(await first.evaluate((node: HTMLCanvasElement) => node.height)).toBeLessThan(400);
-  await source.getByRole('button', { name: 'Próxima página' }).click();
-  const next = source.getByRole('img', { name: 'Página 314 da aula na exportação original' });
-  await expect(next).toBeVisible();
-  const height = await next.evaluate((node: HTMLCanvasElement) => node.height);
-  expect(height).toBeGreaterThan(1500);
-  await page.reload();
-  await expect(first).toBeVisible();
+test('abre a aula pela URL antiga e segue entre blocos sem escolher arquivos', async ({ page }) => {
+  await page.goto('/#/tools/neuro3d?tab=curso&bloco=1&modulo=1F&leitura=original');
+  const course = page.getByRole('region', { name: 'Curso NRI 2027' });
+  await expect(course.getByRole('article', { name: 'Conteúdo da aula' })).toBeVisible();
+  await expect(page).not.toHaveURL(/leitura=original/);
+  await expect(course.locator('input[accept*="pdf"]')).toHaveCount(0);
+  await course.getByRole('link', { name: 'Próxima aula · 2A' }).click();
+  await expect(course.getByRole('heading', { name: /^2A ·/ })).toBeVisible();
+  await expect(course.getByRole('article', { name: 'Conteúdo da aula' })).toBeVisible();
 });
+
+for (const block of manifest) {
+  test(`bloco ${block.id}: cada aula tem leitura nativa e o bloco oferece 100 questões`, async ({ page }) => {
+    const route = `/#/tools/neuro3d?tab=curso&bloco=${block.id}`;
+    await page.goto(route);
+    const course = page.getByRole('region', { name: 'Curso NRI 2027' });
+    await expect(course.locator('.nri-block-index .nri-lesson-list a')).toHaveCount(block.lessons.length);
+    const text = course.getByRole('article', { name: 'Conteúdo da aula' });
+    for (const lesson of block.lessons) {
+      await page.goto(`${route}&modulo=${lesson.id}`);
+      await expect(course.getByRole('heading', { name: `${lesson.id} · ${lesson.title}`, exact: true })).toBeVisible();
+      await expect(text).toBeVisible();
+      expect((await text.innerText()).length).toBeGreaterThan(1_000);
+    }
+    await page.goto(`${route}&modulo=todos&estudo=questoes`);
+    await expect(course.getByRole('combobox', { name: 'Selecionar questão' }).locator('option')).toHaveCount(100);
+  });
+}

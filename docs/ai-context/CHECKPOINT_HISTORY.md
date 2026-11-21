@@ -153,3 +153,7 @@ Base 94a2688. Curso NRI no atlas em três modos, com 120 módulos, 13 blocos e 1
 ## 21/11/2026 — Layout e recuperação das aulas do Curso NRI
 
 Base `cfb8dee`. Teoria revista nos três históricos, tabelas recompostas pelas coordenadas das células, 16 esquemas no texto e 123 recortes originais em leitor local. Layout branco e verde com navegação principal reduzida. Veja [manual do curso](../neuro3d-curso-nri.md).
+
+## 21/11/2026 — Leitura web e catálogo do Curso NRI
+
+Base `3952cda`. Conteúdo HTML em 120 rotas, catálogo de 13 blocos, 43 esquemas incorporados e 1.300 questões. A auditoria cotejou os três históricos e preservou os IDs das questões. Migração do parâmetro antigo de leitura e recuperação de falha de carregamento de build. Ver [manual](../neuro3d-curso-nri.md).

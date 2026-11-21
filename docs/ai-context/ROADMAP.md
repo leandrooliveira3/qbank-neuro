@@ -1,3 +1,7 @@
+## 21/11/2026 — Curso NRI no site
+
+Catálogo dos 13 blocos, leitura web e checagem de acesso das 120 aulas concluídos. Questões científicas e licenças de figuras externas seguem em conferência por fonte.
+
 ## 21/11/2026 — Leitura do Curso NRI
 
 A experiência de leitura usa páginas originais com figuras e tabelas, navegação de sumário e paleta branca e verde. Ainda cabe conferir, questão a questão, gabaritos e comentários e localizar figuras que não foram incluídas nas exportações.

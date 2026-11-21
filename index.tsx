@@ -6,6 +6,25 @@ import App from './App';
 import { localDB } from './services/localDB';
 import { mediaService } from './services/mediaService';
 
+// An open course tab can outlive the build that served its module URLs.
+let retryingCourse = false;
+window.addEventListener('vite:preloadError', (event) => {
+  const [route, query] = window.location.hash.slice(1).split('?');
+  if (retryingCourse || !navigator.onLine || route !== '/tools/neuro3d'
+    || new URLSearchParams(query).get('tab') !== 'curso') return;
+  try {
+    const key = 'qbank-nri-course-reload';
+    const previous = Number(sessionStorage.getItem(key) ?? 0);
+    if (Date.now() - previous < 30_000) return;
+    sessionStorage.setItem(key, String(Date.now()));
+    retryingCourse = true;
+    event.preventDefault();
+    window.location.reload();
+  } catch {
+    // Storage may be blocked. The course still exposes a manual reload.
+  }
+});
+
 // Inicializar Banco Local antes de montar o App
 const initApp = async () => {
   try {
