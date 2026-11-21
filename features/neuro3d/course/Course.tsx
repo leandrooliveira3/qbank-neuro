@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm';
 import manifest from './content/index.json';
 import {
   Block, BlockContent, CourseQuestion, CourseState, Lesson, downloadCourseImportTemplate,
-  loadCourse, maxImportBytes, mergeCourseImport, parseCourseImport, saveCourse, searchable,
+  loadCourse, maxImportBytes, mergeCourseImport, parseCourseImport, saveCourse, searchable, courseAttemptKey,
 } from './model';
 import './course.css';
 
@@ -23,11 +23,12 @@ const modes = [
 type Mode = typeof modes[number]['id'];
 
 function courseLink(block?: number, lesson?: string, mode?: Mode) {
-  const params = new URLSearchParams({ tab: 'curso' });
+  const params = new URLSearchParams();
   if (block !== undefined) params.set('bloco', String(block));
   if (lesson) params.set('modulo', lesson);
   if (mode && mode !== 'teoria') params.set('estudo', mode);
-  return `/tools/neuro3d?${params}`;
+  const query = params.toString();
+  return query ? `/tools/nri?${query}` : '/tools/nri';
 }
 
 export default function Course() {
@@ -122,7 +123,7 @@ export default function Course() {
     const current = courseRef.current;
     const nextCourse = {
       ...current,
-      attempts: { ...current.attempts, [question.id]: { choice, correct: choice === question.answer } },
+      attempts: { ...current.attempts, [courseAttemptKey(question)]: { choice, correct: choice === question.answer } },
     };
     try {
       persist(nextCourse);
@@ -212,7 +213,7 @@ export default function Course() {
           <button type="button" onClick={() => window.location.reload()}>Recarregar curso</button>
         </div>}
         {data && mode === 'questoes' && <Quiz key={`${block.id}:${selected}`} questions={questions} attempts={course.attempts}
-          onGrade={grade} blockWide={blockWide} onBlock={() => setParams(new URLSearchParams({ tab: 'curso', bloco: String(block.id), modulo: 'todos', estudo: 'questoes' }))} />}
+          onGrade={grade} blockWide={blockWide} onBlock={() => setParams(new URLSearchParams({ bloco: String(block.id), modulo: 'todos', estudo: 'questoes' }))} />}
         {lesson && mode === 'teoria' && <LessonArticle key={lesson.id} lesson={lesson} />}
         {lesson && mode === 'revisao' && <>
           <h3>Conceitos-chave para a prova</h3>
@@ -299,8 +300,8 @@ function Quiz({ questions, attempts, onGrade, blockWide, onBlock }: {
   const [retryId, setRetryId] = useState<string>();
   const index = Math.min(position, questions.length - 1);
   const question = questions[index];
-  const answer = question && retryId !== question.id ? attempts[question.id] : undefined;
-  const completed = questions.flatMap((item) => attempts[item.id] ?? []);
+  const answer = question && retryId !== question.id ? attempts[courseAttemptKey(question)] : undefined;
+  const completed = questions.flatMap((item) => attempts[courseAttemptKey(item)] ?? []);
   const correct = completed.filter((attempt) => attempt.correct).length;
   if (!question) return <p>Nenhuma questão neste recorte.</p>;
   const letter = (number: number) => 'ABCDE'[number];
@@ -312,13 +313,16 @@ function Quiz({ questions, attempts, onGrade, blockWide, onBlock }: {
   return <div className="nri-course-quiz">
     <div className="nri-course-quizbar">
       <label>Questão <select aria-label="Selecionar questão" value={index} onChange={(event) => move(Number(event.target.value))}>
-        {questions.map((item, idx) => <option key={item.id} value={idx}>{idx + 1} / {questions.length} · {item.lesson}{attempts[item.id] ? ' ✓' : ''}</option>)}
+        {questions.map((item, idx) => <option key={item.id} value={idx}>{idx + 1} / {questions.length} · {item.lesson}{attempts[courseAttemptKey(item)] ? ' ✓' : ''}</option>)}
       </select></label>
       <span>{completed.length}/{questions.length} respondidas · {correct} acertos</span>
       {!blockWide && <button type="button" onClick={onBlock}>Praticar o bloco inteiro</button>}
     </div>
     <fieldset>
       <legend>{question.prompt}</legend>
+      {question.revision && !answer && attempts[question.id] && <p className="nri-course-status">
+        Questão revisada. Sua resposta à versão anterior está salva.
+      </p>}
       {question.options.map((option, idx) => <label key={option} className={
         answer && idx === question.answer ? 'is-correct' : answer && idx === answer.choice ? 'is-incorrect' : ''
       }>
@@ -330,6 +334,9 @@ function Quiz({ questions, attempts, onGrade, blockWide, onBlock }: {
     {answer && <section className="nri-course-feedback" aria-live="polite">
       <strong>{answer.correct ? 'Resposta correta.' : 'Resposta incorreta.'} Gabarito {letter(question.answer)}.</strong>
       <p>{question.explanation}</p>
+      {question.reference?.url && <p><a href={question.reference.url} target="_blank" rel="noreferrer">
+        {question.reference.label}
+      </a></p>}
       <small>{question.origin === 'histórico' ? 'Questão autoral recuperada do curso' : question.origin === 'revisão' ? 'Questão autoral de revisão' : 'Questão importada'}</small>
     </section>}
     <div className="nri-course-quizbar">

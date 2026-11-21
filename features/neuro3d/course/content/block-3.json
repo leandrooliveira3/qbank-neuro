@@ -5,6 +5,14 @@
       "title": "Carótida interna e segmentos de Bouthillier",
       "points": [
         {
+          "concept": "Limites do sifão",
+          "takeaway": "Bouthillier usa marcos ósseos e durais. O C5 fica entre os anéis durais. A relação do colo com o anel distal e sua extensão ao compartimento subaracnóideo orientam a interpretação do risco hemorrágico."
+        },
+        {
+          "concept": "Nomenclatura",
+          "takeaway": "Fischer descreve segmentos angiográficos históricos. Lasjaunias usa origens e limites embrionários. Declare o sistema antes de usar um número de segmento."
+        },
+        {
           "concept": "C1 cervical",
           "takeaway": "Trajeto extracraniano da bifurcação carotídea até a entrada no canal carotídeo."
         },
@@ -58,6 +66,10 @@
       "title": "ACA, comunicante anterior e recorrente de Heubner",
       "points": [
         {
+          "concept": "Perfurantes da ACom e variantes",
+          "takeaway": "Perfurantes da ACom e Heubner devem ser preservadas. Na ACA ázigos há um tronco A2 único que irriga os dois hemisférios; na bi-hemisférica há dois A2 com dominância funcional de um."
+        },
+        {
           "concept": "A1",
           "takeaway": "Segmento pré-comunicante da cerebral anterior."
         },
@@ -106,6 +118,10 @@
       "id": "3C",
       "title": "Artéria cerebral média e perfurantes",
       "points": [
+        {
+          "concept": "Bifurcação e perfurantes",
+          "takeaway": "Uma bifurcação precoce pode preceder a origem de lenticuloestriadas. Identifique divisão superior/inferior, ramos em passagem e território cortical. ACM acessória surge da ACA; duplicada surge da ACI."
+        },
         {
           "concept": "M1",
           "takeaway": "Segmento esfenoidal ou horizontal proximal da cerebral média."
@@ -160,6 +176,10 @@
       "title": "ACP e territórios talâmicos",
       "points": [
         {
+          "concept": "Segmentos e padrões de infarto",
+          "takeaway": "Em P1 procure perfurantes paramedianas; em P2, talamogeniculadas e coroideas posteriores; em P3/P4, ramos corticais. Tálamos paramedianos bilaterais orientam para variante de Percheron ou lesão do topo; analise mesencéfalo e demais territórios."
+        },
+        {
           "concept": "Talamoperfurantes paramedianas",
           "takeaway": "Ramos geralmente relacionados a P1."
         },
@@ -191,6 +211,10 @@
       "title": "Coroideas e irrigação profunda",
       "points": [
         {
+          "concept": "Ponto plexal e segurança",
+          "takeaway": "O ponto plexal orienta a transição para a fissura coroidea. Ramos neurais, refluxo e conexões com a circulação posterior mantêm risco distal ao marco."
+        },
+        {
           "concept": "Segmento cisternal da coroidea anterior",
           "takeaway": "Emite ramos profundos antes de atingir a fissura coroidea."
         },
@@ -221,6 +245,10 @@
       "id": "3F",
       "title": "Vertebrais, basilar e artérias cerebelares",
       "points": [
+        {
+          "concept": "Territórios do tronco e cerebelo",
+          "takeaway": "A PICA relaciona-se ao bulbo lateral; a AICA, à ponte lateral baixa e frequentemente à labiríntica; a SCA, ao cerebelo superior e à junção ponto-mesencefálica. A dominância recíproca altera limites corticais."
+        },
         {
           "concept": "PICA",
           "takeaway": "Ramo usual da vertebral intradural, com contribuição para bulbo lateral e cerebelo inferior."
@@ -273,6 +301,10 @@
       "id": "3G",
       "title": "Perfurantes do tronco encefálico",
       "points": [
+        {
+          "concept": "Topografia do déficit cruzado",
+          "takeaway": "No bulbo medial, procure hipoglosso ipsilateral e déficit piramidal contralateral. Na ponte ventral bilateral, preserve a distinção entre coma e encarceramento com consciência e movimentos oculares verticais. No mesencéfalo, o III ipsilateral ajuda a separar síndromes por déficits motores ou cerebelares contralaterais."
+        },
         {
           "concept": "Weber",
           "takeaway": "Lesão mesencefálica ventral com III ipsilateral e hemiparesia contralateral."
@@ -330,6 +362,10 @@
       "title": "Síndromes lacunares e topografia profunda",
       "points": [
         {
+          "concept": "Lacunar versus doença de ramo",
+          "takeaway": "Topografia subcortical sem sinais corticais sustenta uma síndrome lacunar. Uma lesão pontina que chega à superfície ventral levanta hipótese de placa no vaso parental comprometendo o óstio da perfurante."
+        },
+        {
           "concept": "Hemiparesia motora pura",
           "takeaway": "Fraqueza contralateral sem sinais corticais nem déficit sensitivo predominante."
         },
@@ -374,6 +410,10 @@
       "id": "3I",
       "title": "Variantes e circulação colateral",
       "points": [
+        {
+          "concept": "Colaterais em sequência",
+          "takeaway": "Comunicantes fornecem vias primárias do polígono; leptomeníngeas redistribuem entre territórios distais; fluxo retrógrado pela oftálmica pode vir da ACE. A patência de uma via não garante reserva funcional."
+        },
         {
           "concept": "Comunicante anterior",
           "takeaway": "Via colateral primária entre os dois sistemas carotídeos."
@@ -438,6 +478,10 @@
       "id": "3J",
       "title": "Integração angiográfica arterial",
       "points": [
+        {
+          "concept": "Roteiro antes do tratamento",
+          "takeaway": "Defina segmento, projeções ortogonais e de trabalho, relação colo–ramos–perfurantes e vias colaterais. Confirme o território que ficaria dependente de um vaso a reconstruir ou ocluir."
+        },
         {
           "concept": "Perfurantes de P1",
           "takeaway": "Irrigam tálamo paramediano e podem participar do suprimento mesencefálico."
@@ -739,17 +783,18 @@
     {
       "id": "nri:3B:d1",
       "lesson": "3B",
-      "prompt": "No contexto de ACA, comunicante anterior e recorrente de Heubner, qual alternativa descreve corretamente «A1»?",
+      "prompt": "Na DSA de aneurisma da ACom, ambas as injeções carotídeas demonstram dois A2. O A2 direito irriga grande parte do território medial frontal bilateral; o esquerdo é curto, mas tem ramos próprios. Qual descrição orienta a preservação arterial?",
       "options": [
-        "Tronco distal único compartilhado pelos dois hemisférios.",
-        "Segmento pré-comunicante da cerebral anterior.",
-        "Ramo recorrente com participação no suprimento da cabeça do caudado e cápsula interna anterior.",
-        "Pode causar abulia e paresia contralateral com predomínio crural.",
-        "Predomínio de um eixo distal que envia ramos relevantes para os dois hemisférios."
+        "Fenestração de A2 com reconvergência",
+        "Duplicação da ACom com fusão distal de ambos os A2",
+        "ACA bi-hemisférica com dominância direita",
+        "ACA ázigos verdadeira",
+        "ACA mediana acessória dominante"
       ],
-      "answer": 1,
-      "explanation": "A1. Segmento pré-comunicante da cerebral anterior.",
-      "origin": "revisão"
+      "answer": 2,
+      "explanation": "Há dois A2 e um deles fornece parte substancial da irrigação dos dois lados, caracterizando ACA bi-hemisférica. Na ázigos existe tronco A2 único. O território em risco é determinado por seus ramos na DSA.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:3B:d2",
@@ -1204,17 +1249,18 @@
     {
       "id": "nri:3E:d1",
       "lesson": "3E",
-      "prompt": "No contexto de Coroideas e irrigação profunda, qual alternativa descreve corretamente «Segmento cisternal da coroidea anterior»?",
+      "prompt": "Em MAV intraventricular, a microinjeção pela coroidea anterior ultrapassa o ponto plexal. Uma pequena conexão com a coroidea posterolateral e enchimento de um ramo neural ainda são visíveis. Qual é a interpretação mais rigorosa?",
       "options": [
-        "Alcança o plexo do corpo e átrio do ventrículo lateral.",
-        "Emite ramos profundos antes de atingir a fissura coroidea.",
-        "Hemiparesia, hemihipoestesia e hemianopsia homônima contralaterais, frequentemente incompletas.",
-        "Relaciona-se com o teto do terceiro ventrículo e a região pineal.",
-        "Território relacionado à artéria coroidea anterior e vulnerável em sua oclusão."
+        "A conexão transforma o pedículo coroideu em drenagem venosa do nidus",
+        "O ponto plexal delimita um segmento em que todos os ramos irrigam exclusivamente o plexo",
+        "A posição distal reduz certos riscos, mas os ramos em passagem, conexão e refluxo ainda precisam ser avaliados",
+        "O ponto plexal permite considerar a injeção segura quando a microguia já foi retirada",
+        "A coroidea posterolateral fornece proteção contra isquemia de todos os ramos neurais cisternais"
       ],
-      "answer": 1,
-      "explanation": "Segmento cisternal da coroidea anterior. Emite ramos profundos antes de atingir a fissura coroidea.",
-      "origin": "revisão"
+      "answer": 2,
+      "explanation": "O ponto plexal indica a entrada na fissura coroidea. Não estabelece exclusividade de suprimento ao plexo nem neutraliza o risco de refluxo e embolização de ramos normais.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:3E:d2",
@@ -1804,17 +1850,18 @@
     {
       "id": "nri:3I:d1",
       "lesson": "3I",
-      "prompt": "No contexto de Variantes e circulação colateral, qual alternativa descreve corretamente «Comunicante anterior»?",
+      "prompt": "Na oclusão de ACI, a injeção contralateral enche a ACA ipsilateral via ACom e, mais tarde, áreas distais de ACM a partir de ramos piais da ACA. Como classificar as duas vias?",
       "options": [
-        "Conexões distais entre ramos corticais de territórios arteriais.",
-        "Via colateral primária entre sistemas carotídeo e vertebrobasilar.",
-        "Pode comprometer territórios anterior e posterior dependentes da ACI.",
-        "Via colateral primária entre os dois sistemas carotídeos.",
-        "Colateral extracraniana que pode auxiliar no preenchimento distal da ACI."
+        "Ambas são vias oftálmicas retrógradas",
+        "ACom é via leptomeníngea; ACA–ACM é conexão do polígono",
+        "ACom é anastomose cavernosa; ACA–ACM é colateral extracraniana",
+        "Ambas são evidência de comunicação direta entre ACI cervical e basilar",
+        "ACom é via do polígono; ACA–ACM distal é via leptomeníngea"
       ],
-      "answer": 3,
-      "explanation": "Comunicante anterior. Via colateral primária entre os dois sistemas carotídeos.",
-      "origin": "revisão"
+      "answer": 4,
+      "explanation": "A primeira travessia ocorre pelo polígono de Willis. O enchimento distal secundário por conexões piais é leptomeníngeo, confirmado pelo trajeto e pela sequência angiográfica.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:3I:d2",

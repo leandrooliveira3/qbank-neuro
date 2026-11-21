@@ -26,6 +26,8 @@ export type CourseQuestion = {
   answer: number;
   explanation: string;
   origin: 'histórico' | 'revisão' | 'importada';
+  revision?: number;
+  reference?: Reference;
 };
 export type BlockContent = { lessons: Lesson[]; questions: CourseQuestion[]; references: Reference[] };
 export type Attempt = { choice: number; correct: boolean };
@@ -35,6 +37,7 @@ const storageKey = 'qbank-neuro3d-course-v1';
 const maxImported = 3000;
 export const maxImportBytes = 4 * 1024 * 1024;
 export const emptyCourse = (): CourseState => ({ imported: [], attempts: {} });
+export const courseAttemptKey = ({ id, revision }: CourseQuestion) => revision ? `${id}:v${revision}` : id;
 export const searchable = (value: string) =>
   value.normalize('NFD').replace(/\p{Mark}/gu, '').trim().toLocaleLowerCase('pt-BR').replace(/\s+/g, ' ');
 

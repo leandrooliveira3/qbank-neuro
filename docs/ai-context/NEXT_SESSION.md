@@ -1,3 +1,7 @@
+## 21/11/2026 — Próxima etapa da auditoria de questões NRI
+
+Use [a matriz atual](../neuro3d-curso-nri-auditoria.md) e `node tools/nri/audit-course.mjs --json`. Priorize o Bloco 1, que ainda tem 82 perguntas de recordação por fórmula. Compare cada questão com a aula e uma fonte científica, incluindo a qualidade de cada distrator, e registre o que foi conferido. Preserve 100 itens por bloco, IDs, a versão das tentativas e a publicação em `feature/neuro3d-atlas`. O acesso do Curso NRI está em `/#/tools/nri`; preserve o redirecionamento histórico.
+
 ## 21/11/2026 — Curso NRI no site
 
 Abra o catálogo e confira o hash da publicação. Edite o conteúdo web via [manual do curso](../neuro3d-curso-nri.md). Para completar a auditoria científica, confira gabaritos e comentários separadamente e incorpore as figuras externas com autorização de republicação. Preserve os IDs das questões e a continuidade do atlas.

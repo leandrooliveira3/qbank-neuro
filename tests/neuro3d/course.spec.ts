@@ -7,7 +7,7 @@ const manifest: Block[] = JSON.parse(readFileSync(
 ));
 
 test('navega entre teoria, revisão e questões de todos os módulos e registra a resposta', async ({ page }) => {
-  await page.goto('/#/tools/neuro3d?tab=curso');
+  await page.goto('/#/tools/nri');
   const course = page.getByRole('region', { name: 'Curso NRI 2027' });
   await expect(course.getByRole('heading', { name: 'Blocos do curso' })).toBeVisible();
   await expect(course.locator('.nri-course-catalog a')).toHaveCount(13);
@@ -39,7 +39,7 @@ test('navega entre teoria, revisão e questões de todos os módulos e registra 
 });
 
 test('importa JSON válido e rejeita arquivos conflitantes sem remover questões salvas', async ({ page }) => {
-  await page.goto('/#/tools/neuro3d?tab=curso&bloco=8&modulo=8A&estudo=questoes');
+  await page.goto('/#/tools/nri?bloco=8&modulo=8A&estudo=questoes');
   const course = page.getByRole('region', { name: 'Curso NRI 2027' });
   await course.getByText('Importar questões JSON').click();
   const entry = {
@@ -65,12 +65,9 @@ test('importa JSON válido e rejeita arquivos conflitantes sem remover questões
 });
 
 test('aplica a paleta do QBank, restaura a tabela e exibe o esquema da aula 13.7', async ({ page }) => {
-  await page.goto('/#/tools/neuro3d?tab=curso&bloco=13&modulo=13.7');
+  await page.goto('/#/tools/nri?bloco=13&modulo=13.7');
   const course = page.getByRole('region', { name: 'Curso NRI 2027' });
-  const mainNavigation = page.getByRole('navigation', { name: 'Seções do atlas' });
-  for (const section of ['Módulos', 'Questões', 'Matriz', 'Progresso']) {
-    await expect(mainNavigation.getByRole('button', { name: section, exact: true })).toHaveCount(0);
-  }
+  await expect(page.getByRole('navigation', { name: 'Navegação principal' }).getByRole('link', { name: /QBank-Neuro/ })).toHaveAttribute('href', '#/');
   await expect(course.locator('.nri-course-main')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
   const illustration = course.getByRole('img', { name: /PHASES estima ruptura/ });
   await illustration.scrollIntoViewIfNeeded();
@@ -87,7 +84,7 @@ test('abre a aula pela URL antiga e segue entre blocos sem escolher arquivos', a
   await page.goto('/#/tools/neuro3d?tab=curso&bloco=1&modulo=1F&leitura=original');
   const course = page.getByRole('region', { name: 'Curso NRI 2027' });
   await expect(course.getByRole('article', { name: 'Conteúdo da aula' })).toBeVisible();
-  await expect(page).not.toHaveURL(/leitura=original/);
+  await expect(page).toHaveURL(/#\/tools\/nri\?bloco=1&modulo=1F$/);
   await expect(course.locator('input[accept*="pdf"]')).toHaveCount(0);
   await course.getByRole('link', { name: 'Próxima aula · 2A' }).click();
   await expect(course.getByRole('heading', { name: /^2A ·/ })).toBeVisible();
@@ -96,7 +93,7 @@ test('abre a aula pela URL antiga e segue entre blocos sem escolher arquivos', a
 
 for (const block of manifest) {
   test(`bloco ${block.id}: cada aula tem leitura nativa e o bloco oferece 100 questões`, async ({ page }) => {
-    const route = `/#/tools/neuro3d?tab=curso&bloco=${block.id}`;
+    const route = `/#/tools/nri?bloco=${block.id}`;
     await page.goto(route);
     const course = page.getByRole('region', { name: 'Curso NRI 2027' });
     await expect(course.locator('.nri-block-index .nri-lesson-list a')).toHaveCount(block.lessons.length);
@@ -107,7 +104,18 @@ for (const block of manifest) {
       await expect(text).toBeVisible();
       expect((await text.innerText()).length).toBeGreaterThan(1_000);
     }
+    for (const lesson of block.lessons) {
+      await page.goto(`${route}&modulo=${lesson.id}&estudo=revisao`);
+      await expect.poll(() => course.getByRole('table').getByRole('row').count()).toBeGreaterThanOrEqual(8);
+    }
     await page.goto(`${route}&modulo=todos&estudo=questoes`);
     await expect(course.getByRole('combobox', { name: 'Selecionar questão' }).locator('option')).toHaveCount(100);
   });
 }
+
+test('o Atlas mantém a preparação e o Curso NRI tem acesso independente', async ({ page }) => {
+  await page.goto('/#/tools/neuro3d');
+  const nav = page.getByRole('navigation', { name: 'Seções do atlas' });
+  await expect(nav.getByRole('button', { name: 'Preparação NRI 2027' })).toBeVisible();
+  await expect(nav.getByRole('button', { name: 'Curso NRI 2027' })).toHaveCount(0);
+});

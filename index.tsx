@@ -10,8 +10,9 @@ import { mediaService } from './services/mediaService';
 let retryingCourse = false;
 window.addEventListener('vite:preloadError', (event) => {
   const [route, query] = window.location.hash.slice(1).split('?');
-  if (retryingCourse || !navigator.onLine || route !== '/tools/neuro3d'
-    || new URLSearchParams(query).get('tab') !== 'curso') return;
+  const isCourse = route === '/tools/nri'
+    || (route === '/tools/neuro3d' && new URLSearchParams(query).get('tab') === 'curso');
+  if (retryingCourse || !navigator.onLine || !isCourse) return;
   try {
     const key = 'qbank-nri-course-reload';
     const previous = Number(sessionStorage.getItem(key) ?? 0);

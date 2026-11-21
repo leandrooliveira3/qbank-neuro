@@ -5,6 +5,10 @@
       "title": "DSA, fluoroscopia e angiografia rotacional",
       "points": [
         {
+          "concept": "Escolha da aquisição",
+          "takeaway": "Fluoroscopia orienta movimento em tempo real. DSA subtrai o fundo para acompanhar passagem vascular. Rotacional 3D separa colo e ramos sob diferentes ângulos, com avaliação temporal em sequências complementares."
+        },
+        {
           "concept": "Máscara de subtração",
           "takeaway": "Imagem sem contraste usada para remover estruturas de fundo."
         },
@@ -27,6 +31,42 @@
         {
           "concept": "Angiografia rotacional 3D",
           "takeaway": "Reconstrói volumes a partir de projeções adquiridas ao redor do alvo."
+        },
+        {
+          "concept": "DSA",
+          "takeaway": "Subtração entre máscara e imagem contrastada"
+        },
+        {
+          "concept": "Misregistration",
+          "takeaway": "Desalinhamento por movimento"
+        },
+        {
+          "concept": "Pixel shift",
+          "takeaway": "Correção digital de deslocamento"
+        },
+        {
+          "concept": "Fluoroscopia",
+          "takeaway": "Navegação dinâmica"
+        },
+        {
+          "concept": "Frame rate",
+          "takeaway": "Resolução temporal"
+        },
+        {
+          "concept": "Magnificação",
+          "takeaway": "Depende da geometria fonte–objeto–detector"
+        },
+        {
+          "concept": "3D rotational",
+          "takeaway": "Reconstrução volumétrica por múltiplas projeções"
+        },
+        {
+          "concept": "MIP",
+          "takeaway": "Projeção dos valores de maior intensidade"
+        },
+        {
+          "concept": "VR",
+          "takeaway": "Representação volumétrica"
         }
       ],
       "theory": "## DSA, fluoroscopia e angiografia rotacional 3D\n\n## 1. Formação da imagem angiográfica\n\nA angiografia por raios X utiliza diferenças na atenuação da radiação pelos tecidos e pelo contraste iodado.\n\nO tubo de raios X produz fótons que atravessam o paciente e atingem um detector digital. A imagem depende da intensidade do feixe transmitido e de sua atenuação.\n\nA relação fundamental é descrita pela lei de Beer–Lambert:\n\n− μx\n\nI = I ​ e 0\n\nI ​ 0 I μ x\n\nEm que é a intensidade incidente, é a transmitida, é o coeficiente de atenuação linear e é a espessura atravessada.\n\nO iodo apresenta elevada atenuação dos raios X, permitindo visualizar o lúmen arterial opacificado.\n\nComponentes do sistema\n\n| Componente | Função |\n| --- | --- |\n| Tubo de raios X | Produção da radiação |\n| Gerador | Controle de parâmetros de exposição |\n| Colimadores | Limitação do campo irradiado |\n| Detector plano | Conversão da radiação transmitida em sinal digital |\n| Arco em C | Posicionamento e projeções |\n| Sistema de processamento | Subtração, roadmap e reconstrução |\n\n## 2. DSA — Digital Subtraction Angiography\n\nA angiografia por subtração digital remove estruturas estáticas da imagem, destacando a passagem do contraste.\n\nComo funciona?\n\nImagem máscara\n\nAntes da chegada do contraste Imagem contrastada\n\nDurante a passagem do iodo\n\nSubtração digital\n\nEstruturas estáticas são suprimidas, destacando os vasos opacificados\n\nA subtração é feita sobre imagens digitais, habitualmente após transformação logarítmica para representar diferenças de atenuação.\n\nPegadinha: DSA não é simplesmente uma angiografia com contraste. O princípio distintivo é a utilização de uma máscara para remover estruturas de fundo.\n\n## 3. Artefatos de subtração\n\nO artefato mais importante para provas é o misregistration, causado pelo desalinhamento entre a máscara e a imagem contrastada.\n\nCausas\n\n- Movimento da cabeça.\n\n- Deglutição.\n\n- Movimento respiratório.\n\n- Movimentação da mesa ou do arco.\n\n- Alterações de posição entre máscara e aquisição.\n\nCorreção por pixel shift\n\nO pixel shift desloca digitalmente uma imagem em relação à outra para melhorar o alinhamento.\n\nÉ útil em deslocamentos relativamente uniformes, mas não corrige completamente movimentos complexos ou deformações não rígidas.\n\n| Artefato | Mecanismo |\n| --- | --- |\n| Misregistration | Desalinhamento máscara–contraste |\n| Saturação | Perda de informação em regiões com exposição inadequada |\n| Ruído quântico | Número insuficiente de fótons detectados |\n| Artefato metálico | Atenuação intensa e distorções relacionadas a implantes |\n| Movimento | Deslocamento durante a aquisição |\n\nPegadinha: aumentar a dose não resolve necessariamente um artefato de movimento.\n\n## 4. Fluoroscopia versus aquisição DSA\n\nmedworld.co.kr\n\nFluoroscopia\n\nProduz imagens sucessivas para acompanhamento dinâmico de cateteres, microguias e dispositivos.\n\nUtiliza frequentemente modos pulsados e estratégias de menor dose por imagem.\n\nDSA\n\nUtiliza sequências de aquisição para melhor caracterização vascular, com subtração e resolução temporal apropriada.\n\n| Característica | Fluoroscopia | DSA |\n| --- | --- | --- |\n| Objetivo principal | Navegação dinâmica | Diagnóstico e avaliação vascular |\n| Subtração | Não obrigatória | Característica central |\n| Dose por imagem | Geralmente menor | Geralmente maior |\n| Resolução temporal | Adequada à navegação | Adequada às fases vasculares |\n| Uso típico | Avanço de dispositivos | Estudo arterial, capilar e venoso |\n\nPegadinha: fluoroscopia contínua não é obrigatória para toda navegação. Modos pulsados podem reduzir a exposição.\n\n## 5. Frame rate e resolução temporal\n\nO frame rate corresponde ao número de imagens adquiridas por segundo.\n\nValores mais altos permitem caracterizar eventos rápidos, mas podem aumentar a dose total se os demais parâmetros forem mantidos.\n\nA escolha deve considerar a informação necessária.\n\nExemplos\n\n- Avaliação de fluxo arterial rápido: pode exigir maior resolução temporal.\n\n- Estudo de drenagem venosa: pode admitir aquisição mais lenta.\n\n- Navegação simples de dispositivos: pode ser realizada com fluoroscopia pulsada de baixa\n\n- frequência, quando segura.\n\nPegadinha: maior frame rate não melhora automaticamente a resolução espacial.\n\n## 6. Resolução espacial, temporal e contraste\n\nSão propriedades diferentes.\n\n| Propriedade | Significado |\n| --- | --- |\n| Espacial | Capacidade de distinguir estruturas próximas |\n| Temporal | Capacidade de distinguir eventos rápidos |\n| Contraste | Capacidade de distinguir diferenças de atenuação |\n| Relação sinal–ruído | Qualidade do sinal em relação ao ruído |\n\nMagnificação\n\nA ampliação geométrica depende da relação entre distâncias da fonte, objeto e detector.\n\nSID\n\nM = ​ SOD\n\nEm que SID é a distância fonte–detector e SOD é a distância fonte–objeto.\n\nAproximar o detector do paciente e manter a geometria adequada pode reduzir magnificação indesejada e melhorar aspectos da qualidade da imagem.\n\nPegadinha: ampliar a imagem digitalmente não recupera detalhes espaciais que não foram adquiridos.\n\n## 7. Roadmap angiográfico\n\nO roadmap sobrepõe uma representação vascular obtida com contraste à fluoroscopia em tempo real.\n\nÉ especialmente útil para navegação de cateteres e microguias em trajetos tortuosos.\n\nLimitações\n\n- Movimento da cabeça.\n\n- Mudança de projeção.\n\n- Alterações da anatomia após deslocamento de dispositivos.\n\n- Desalinhamento da imagem de referência.\n\nPegadinha: roadmap não é uma representação dinâmica perfeita do vaso. Uma mudança de posição pode tornar o mapa inadequado.\n\n## 8. Angiografia rotacional 3D\n\nnemlib.cz\n\nNa angiografia rotacional, o arco em C percorre uma trajetória angular enquanto adquire múltiplas projeções.\n\nOs dados são processados para reconstruir um volume tridimensional.\n\nAplicações\n\n- Caracterização de colo e domo de aneurismas.\n\n- Relação do aneurisma com ramos adjacentes.\n\n- Planejamento de coils, stents e flow diverters.\n\n- Identificação de projeções de trabalho.\n\n- Avaliação de anatomia vascular complexa.\n\nDSA 2D versus 3D\n\n| DSA 2D | Angiografia rotacional 3D |\n| --- | --- |\n| Projeções específicas | Reconstrução volumétrica |\n| Boa resolução temporal | Melhor avaliação espacial tridimensional |\n| Avaliação dinâmica do fluxo | Avaliação de relações anatômicas |\n| Sobreposição de vasos pode dificultar análise | Permite explorar diferentes ângulos |\n\nPegadinha: angiografia rotacional 3D não substitui a DSA dinâmica para avaliação de direção e sequência temporal do fluxo.\n\n## 9. Reconstrução e pós-processamento\n\nAs técnicas mais cobradas incluem:\n\nMPR — Multiplanar Reconstruction: visualização em planos reconstruídos.\n\nMIP — Maximum Intensity Projection: destaca estruturas de alta intensidade ao longo de uma direção de projeção.\n\nVR — Volume Rendering: representação volumétrica com ajustes de transparência e intensidade.\n\nReconstrução tipo cone-beam CT: aquisição rotacional e reconstrução tomográfica, com aplicações específicas dependendo do protocolo e do equipamento.\n\nLimitações da reconstrução 3D\n\n- Artefatos de movimento.\n\n- Reconstrução inadequada.\n\n- Segmentação ou limiar incorretos.\n\n- Distorção aparente de pequenos ramos.\n\n- Dificuldade com dispositivos metálicos.\n\nPegadinha: uma reconstrução 3D visualmente convincente não garante representação fiel de todos os pequenos vasos.\n\n## 10. Projeção de trabalho\n\nA projeção ideal depende da relação entre vaso principal, colo aneurismático e ramos adjacentes.\n\nEm aneurismas de bifurcação, a escolha busca separar os ramos e demonstrar adequadamente o colo.\n\nUma projeção pode ser excelente para visualização do colo e inadequada para observar a ponta do microcateter.\n\nPegadinha: não existe uma projeção universalmente ideal para todos os aneurismas de uma mesma artéria.\n\n## 11. Revisão de alta retenção\n\n| Tema | Conceito-chave |\n| --- | --- |\n| DSA | Subtração entre máscara e imagem contrastada |\n| Misregistration | Desalinhamento por movimento |\n| Pixel shift | Correção digital de deslocamento |\n| Fluoroscopia | Navegação dinâmica |\n| Frame rate | Resolução temporal |\n| Magnificação | Depende da geometria fonte–objeto–detector |\n| Roadmap | Referência vascular sobreposta à fluoroscopia |\n| 3D rotational | Reconstrução volumétrica por múltiplas projeções |\n| MIP | Projeção dos valores de maior intensidade |\n| VR | Representação volumétrica |\n\nDSA 2D versus 3D Dinâmica de fluxo versus relações espaciais"
@@ -35,6 +75,10 @@
       "id": "9B",
       "title": "Proteção radiológica e dose",
       "points": [
+        {
+          "concept": "Dose cutânea e exposição ocupacional",
+          "takeaway": "Kerma em ponto de referência é indicador de exposição cutânea potencial, influenciado por geometria. PKA integra kerma e área irradiada. Use colimação, menor taxa de pulsos compatível, distância e blindagem."
+        },
         {
           "concept": "Kerma acumulado de referência",
           "takeaway": "Indicador de exposição em ponto de referência geométrico do equipamento."
@@ -58,6 +102,58 @@
         {
           "concept": "Reação tecidual",
           "takeaway": "Lesão como eritema ou epilação, ligada a dose local e limiar."
+        },
+        {
+          "concept": "ALARA",
+          "takeaway": "Otimizar dose sem comprometer o procedimento"
+        },
+        {
+          "concept": "Gy",
+          "takeaway": "Dose absorvida"
+        },
+        {
+          "concept": "Sv",
+          "takeaway": "Dose equivalente ou efetiva, conforme a grandeza"
+        },
+        {
+          "concept": "Ka,r",
+          "takeaway": "Indicador de exposição, não PSD"
+        },
+        {
+          "concept": "PKA",
+          "takeaway": "Produto kerma–área"
+        },
+        {
+          "concept": "Catarata",
+          "takeaway": "Reação tecidual"
+        },
+        {
+          "concept": "Câncer",
+          "takeaway": "Efeito estocástico"
+        },
+        {
+          "concept": "Dose ocupacional",
+          "takeaway": "Principalmente radiação espalhada"
+        },
+        {
+          "concept": "Distância dobrada",
+          "takeaway": "Aproximadamente 1/4 da intensidade, em modelo ideal"
+        },
+        {
+          "concept": "Detector próximo",
+          "takeaway": "Geometria geralmente favorável"
+        },
+        {
+          "concept": "Obliquidade extrema",
+          "takeaway": "Pode elevar a dose"
+        },
+        {
+          "concept": "Last image hold",
+          "takeaway": "Revisão sem nova exposição"
+        },
+        {
+          "concept": "Limites de dose",
+          "takeaway": "Aplicáveis à ocupação/público, não como teto para exposição médica justificada"
         }
       ],
       "theory": "## Proteção radiológica, dose e redução de exposição\n\n## 1. Por que proteção radiológica é essencial na NRI?\n\nProcedimentos neurointervencionistas podem envolver fluoroscopia prolongada, múltiplas aquisições DSA e angiografia rotacional. A exposição envolve o paciente e a equipe, principalmente pela radiação espalhada.\n\nOs três princípios fundamentais são:\n\n- Justificação: realizar o procedimento quando o benefício esperado supera os riscos.\n\n- Otimização: manter a exposição tão baixa quanto razoavelmente possível, preservando\n\n- qualidade diagnóstica e segurança.\n\n- Limitação de dose: aplicar limites ocupacionais e públicos; limites regulatórios de dose não são\n\n- aplicados à exposição médica do paciente.\n\nO conceito de otimização é frequentemente resumido pela sigla ALARA ( As Low As Reasonably Achievable ).\n\n## 2. Grandezas dosimétricas — a tabela mais importante\n\n| Grandeza | Unidade | Significado |\n| --- | --- | --- |\n| Dose absorvida | Gy | Energia depositada por unidade de massa |\n| Dose equivalente | Sv | Dose absorvida ponderada pelo tipo de radiação |\n| Dose efetiva | Sv | Soma ponderada das doses equivalentes nos tecidos |\n\n| Kerma no ar | Gy | Energia cinética transferida às partículas carregadas por unidade de massa de ar |\n| --- | --- | --- |\n| Ka,r | Gy | Kerma no ar acumulado no ponto de referência intervencionista |\n| PKA / DAP | Gy·cm² | Produto kerma–área |\n| Taxa de dose | Gy/min ou unidade equivalente | Dose por unidade de tempo |\n\nO que realmente importa para a prova?\n\nKa,r é útil para acompanhar exposição e risco de efeitos teciduais, sobretudo cutâneos, mas não é igual à dose máxima na pele ( peak skin dose, PSD).\n\nPKA/DAP considera a dose e a área irradiada, sendo útil para acompanhar a carga global de radiação do procedimento. Não determina isoladamente a dose máxima cutânea.\n\nDose efetiva é uma grandeza de proteção radiológica relacionada ao risco estocástico populacional; não deve ser interpretada como uma medida individual precisa de risco oncológico.\n\n![Comparação conceitual: dois campos irradiados Campo menor Menor área irradiada Campo maior Maior área irradiada Com kerma aproximadamente igual, aumentar a área irradiada aumenta o PKA. Esquema conceitual, não uma medição real. ](/nri-esquemas/9B-572)\n\nPegadinha clássica: Ka,r e PKA não são intercambiáveis. Um campo mais amplo pode aumentar o PKA sem aumentar proporcionalmente o Ka,r.\n\n## 3. Efeitos determinísticos versus estocásticos\n\nA terminologia moderna frequentemente utiliza reações teciduais para os efeitos anteriormente denominados determinísticos.\n\nCaracterística Reações teciduais Efeitos estocásticos\n\n| Limiar | Em geral, presente | Modelo de proteção assume ausência de limiar |\n| --- | --- | --- |\n| Gravidade | Aumenta com a dose acima do limiar | Não é determinada pela dose |\n| Probabilidade | Aumenta após ultrapassar o limiar | Aumenta com a dose |\n| Exemplos | Eritema, epilação, lesão cutânea, catarata | Câncer radioinduzido |\n| Interesse na NRI | Procedimentos longos e repetidos | Exposição cumulativa de pacientes e equipe |\n\nAtenção às nuances\n\nA catarata é classificada como reação tecidual, embora os mecanismos e a definição de seu limiar tenham particularidades.\n\nPara câncer, o modelo linear sem limiar (LNT) é utilizado em proteção radiológica, mas não significa que seja possível quantificar com precisão o risco individual decorrente de uma exposição pequena.\n\n## 4. Limiares de lesão cutânea e acompanhamento\n\nOs limiares de efeitos cutâneos dependem da distribuição da dose, da área, do fracionamento, da radiossensibilidade e de outros fatores.\n\nValores orientativos frequentemente citados incluem:\n\n| Reação | Ordem de grandeza da dose cutânea |\n| --- | --- |\n| Eritema transitório precoce | Aproximadamente 2 Gy |\n| Epilação temporária | Aproximadamente 3 Gy |\n| Eritema mais pronunciado | Aproximadamente 6 Gy |\n| Epilação permanente | Aproximadamente 7 Gy |\n| Lesões cutâneas mais graves | Doses maiores, variáveis |\n\nEsses valores são aproximações didáticas, não pontos de corte absolutos para todos os pacientes.\n\nNíveis de alerta\n\nOrientações de acompanhamento após procedimentos fluoroscópicos utilizam frequentemente valores de referência como:\n\n- Ka,r de aproximadamente 5 Gy.\n\n- PKA de aproximadamente 500 Gy·cm².\n\n- Tempo de fluoroscopia de aproximadamente 60 minutos.\n\n- PSD estimada de aproximadamente 3 Gy.\n\nEsses valores são gatilhos operacionais de revisão ou acompanhamento, não limites universais de segurança nem prova de lesão. Protocolos institucionais e normas locais podem adotar outros critérios.\n\nPegadinha: 5 Gy de Ka,r não significa necessariamente 5 Gy de dose máxima na pele.\n\n## 5. Dose ocupacional\n\nNa equipe, a principal fonte de exposição durante procedimentos intervencionistas costuma ser a radiação espalhada pelo paciente.\n\nO feixe primário é muito mais intenso e deve ser evitado.\n\nLimites de referência da ICRP\n\n| Exposição ocupacional | Limite recomendado |\n| --- | --- |\n| Dose efetiva | 20 mSv/ano, em média por cinco anos, sem exceder 50 mSv em um único ano |\n| Cristalino | 20 mSv/ano, em média por cinco anos, sem exceder 50 mSv em um único ano |\n| Pele | 500 mSv/ano |\n| Extremidades | 500 mSv/ano |\n\nEsses são valores de referência internacionais da ICRP; a aplicação regulatória deve seguir as normas brasileiras vigentes.\n\nPegadinha: a dose efetiva ocupacional e a dose equivalente no cristalino não representam a mesma grandeza, mesmo quando possuem limites numericamente semelhantes.\n\n## 6. Lei do inverso do quadrado da distância\n\nPara uma fonte pontual ideal:\n\n1\n\nI ∝\n\n​ r 2\n\nDobrar a distância reduz a intensidade a aproximadamente um quarto.\n\nIntensidade relativa com o aumento da distância\n\n100%\n\n25%\n\n11%\n\n1 m 2 m 3 m\n\nModelo idealizado de fonte pontual. A distribuição real da radiação espalhada em uma sala de angiografia é mais complexa.\n\nAplicação prática\n\n- Afastar-se quando não for necessária proximidade com o campo.\n\n- Evitar colocar as mãos no feixe primário.\n\n- Utilizar barreiras suspensas e proteção inferior à mesa.\n\n- Posicionar a equipe de acordo com a geometria do equipamento.\n\n## 7. Geometria do arco em C\n\nConfiguração preferencial\n\nEm sistemas que permitem essa geometria, costuma-se preferir:\n\n- Detector próximo do paciente.\n\n- Tubo de raios X tão distante do paciente quanto praticável.\n\n- Campo colimado à região de interesse.\n\n- Evitar angulações oblíquas extremas desnecessárias.\n\nAumentar a distância entre o paciente e o detector pode levar o controle automático de exposição a elevar a saída do tubo.\n\nProjeções oblíquas\n\nProjeções muito oblíquas frequentemente aumentam a espessura de tecido atravessado, exigindo maior saída de radiação.\n\nEntretanto, uma projeção mais oblíqua pode ser indispensável para visualizar um colo aneurismático ou separar ramos vasculares.\n\nPegadinha: a projeção de menor dose não é necessariamente a melhor projeção para realizar o procedimento com segurança.\n\n## 8. Medidas efetivas de redução de dose\n\n| Medida | Efeito esperado |\n| --- | --- |\n| Reduzir frame rate | Menor número de pulsos por segundo |\n| Fluoroscopia de baixa dose | Menor exposição durante navegação |\n| Colimação | Redução do campo irradiado e do espalhamento |\n| Detector próximo | Melhora da geometria e possível redução da saída do tubo |\n| Evitar magnificação desnecessária | Reduz exposição em sistemas que elevam a dose no modo de magnificação |\n| Last image hold | Evita exposição adicional para rever imagem já adquirida |\n| Roadmap adequado | Pode reduzir aquisições repetidas |\n| Planejamento das projeções | Evita sequências desnecessárias |\n| Proteção plumbífera | Atenua radiação espalhada sobre a equipe |\n| Rodízio de projeções | Pode distribuir a dose por diferentes áreas cutâneas |\n\nA colimação costuma reduzir o PKA e a radiação espalhada, mas não necessariamente reduz o Ka,r na mesma proporção.\n\n## 9. Proteção individual e coletiva\n\nOs recursos principais são avental plumbífero, protetor de tireoide, óculos de proteção radiológica, barreiras suspensas, saias plumbíferas da mesa e dosímetros.\n\nA eficácia depende do posicionamento e do uso correto.\n\nDosimetria individual\n\nA instituição define o protocolo de monitoramento, que pode incluir dosímetros sob e sobre o avental, além de dosimetria específica para cristalino ou extremidades.\n\nPegadinha: o dosímetro utilizado sobre o avental não representa diretamente a dose efetiva de corpo inteiro sem interpretação apropriada.\n\n## 10. Dose em procedimentos neurointervencionistas\n\nA dose pode aumentar com:\n\n- Procedimentos prolongados.\n\n- Múltiplas aquisições DSA.\n\n- Repetição de angiografia rotacional.\n\n- Angulações muito oblíquas.\n\n- Obesidade e maior espessura atravessada.\n\n- Magnificação e modos de alta dose.\n\n- Procedimentos repetidos sobre a mesma região cutânea.\n\nEm uma embolização complexa de MAV, por exemplo, é importante acompanhar não apenas o tempo de fluoroscopia, mas também Ka,r, PKA e distribuição estimada da dose.\n\nPegadinha de prova: dois procedimentos com o mesmo tempo de fluoroscopia podem produzir doses muito diferentes.\n\n## 11. Tabela final — Conceitos que precisam ser memorizados\n\n| Conceito | Decoreba / pegadinha |\n| --- | --- |\n| ALARA | Otimizar dose sem comprometer o procedimento |\n| Gy | Dose absorvida |\n| Sv | Dose equivalente ou efetiva, conforme a grandeza |\n| Ka,r | Indicador de exposição, não PSD |\n| PKA | Produto kerma–área |\n| Reação tecidual | Em geral, possui limiar |\n| Efeito estocástico | Probabilidade aumenta com a dose |\n| Catarata | Reação tecidual |\n| Câncer | Efeito estocástico |\n| Dose ocupacional | Principalmente radiação espalhada |\n| Distância dobrada | Aproximadamente 1/4 da intensidade, em modelo ideal |\n| Colimação | Reduz campo e espalhamento |\n| Detector próximo | Geometria geralmente favorável |\n\n| Obliquidade extrema | Pode elevar a dose |\n| --- | --- |\n| Last image hold | Revisão sem nova exposição |\n| Tempo de fluoroscopia | Não determina isoladamente a dose |\n| Limites de dose | Aplicáveis à ocupação/público, não como teto para exposição médica justificada |",
@@ -77,6 +173,10 @@
       "id": "9C",
       "title": "Contrastes iodados e segurança",
       "points": [
+        {
+          "concept": "Três complicações distintas",
+          "takeaway": "Reações agudas podem ser fisiológicas ou alérgicas-like. Lesão renal associada é temporal; induzida implica causalidade. Nova síndrome focal após contraste exige distinguir encefalopatia, isquemia e hemorragia."
+        },
         {
           "concept": "Reação alérgica-like prévia",
           "takeaway": "Fator de risco importante para reação semelhante em nova exposição."
@@ -100,6 +200,74 @@
         {
           "concept": "Encefalopatia por contraste",
           "takeaway": "Diagnóstico diferencial raro de sintomas após exposição que exige excluir outras complicações."
+        },
+        {
+          "concept": "Contraste não iônico",
+          "takeaway": "Menor frequência de reações adversas que agentes hiperosmolares antigos"
+        },
+        {
+          "concept": "Baixa osmolalidade",
+          "takeaway": "Não significa iso-osmolaridade"
+        },
+        {
+          "concept": "Iodixanol",
+          "takeaway": "Dímero não iônico iso-osmolar"
+        },
+        {
+          "concept": "Viscosidade",
+          "takeaway": "Aumenta com concentração e diminui com aquecimento"
+        },
+        {
+          "concept": "Principal risco alérgico-like",
+          "takeaway": "Reação prévia ao contraste"
+        },
+        {
+          "concept": "Alergia a frutos do mar",
+          "takeaway": "Não é contraindicação específica"
+        },
+        {
+          "concept": "Anafilaxia",
+          "takeaway": "Adrenalina IM é primeira linha"
+        },
+        {
+          "concept": "Pré-medicação",
+          "takeaway": "Não elimina reações de escape"
+        },
+        {
+          "concept": "CA-AKI",
+          "takeaway": "Associação temporal, sem causalidade necessariamente estabelecida"
+        },
+        {
+          "concept": "CI-AKI",
+          "takeaway": "Lesão atribuída causalmente ao contraste"
+        },
+        {
+          "concept": "Prevenção renal",
+          "takeaway": "Hidratação isotônica em pacientes selecionados"
+        },
+        {
+          "concept": "N-acetilcisteína",
+          "takeaway": "Não recomendada rotineiramente"
+        },
+        {
+          "concept": "Metformina",
+          "takeaway": "Conduta depende de função renal, LRA e tipo de administração"
+        },
+        {
+          "concept": "Jod-Basedow",
+          "takeaway": "Hipertireoidismo induzido por iodo"
+        },
+        {
+          "concept": "Wolff–Chaikoff",
+          "takeaway": "Inibição aguda da síntese hormonal"
+        },
+        {
+          "concept": "CIE",
+          "takeaway": "Neurotoxicidade rara; diagnóstico de exclusão"
+        },
+        {
+          "concept": "Hiperdensidade pós-angiografia",
+          "takeaway": "Pode representar sangue, iodo ou ambos"
         }
       ],
       "theory": "## Contrastes iodados e segurança em neurointervenção\n\n## 1. Por que esse tema importa para a NRI?\n\nO contraste iodado é indispensável para grande parte dos procedimentos de angiografia cerebral, trombectomia, embolização de aneurismas, tratamento de MAVs e FAVs durais.\n\nA segurança depende de quatro decisões:\n\n## 1. Escolher o contraste apropriado, considerando osmolalidade, viscosidade e concentração de\n\n- iodo.\n\n## 2. Identificar fatores de risco, especialmente reação prévia, lesão renal aguda e disfunção renal\n\n- grave.\n\n## 3. Reconhecer rapidamente reações adversas, diferenciando manifestações alérgicas-like de\n\n- efeitos fisiológicos.\n\n## 4. Minimizar exposição desnecessária, sem comprometer a eficácia e a segurança do\n\n- procedimento.\n\n## 2. Classificação dos contrastes iodados\n\nOs contrastes podem ser classificados conforme a estrutura molecular, a ionização e a osmolalidade.\n\n| Classe | Exemplo | Característica |\n| --- | --- | --- |\n| Iônico, alta osmolalidade | Diatrizoato | Monômero iônico; uso intravascular moderno mais limitado |\n| Não iônico, baixa osmolalidade | Iohexol, iopamidol, iopromida | Monômeros não iônicos amplamente utilizados |\n\nNão iônico, iso-osmolar Iodixanol Dímero não iônico\n\nOsmolalidade\n\nValores aproximados:\n\n- Plasma: 290 mOsm/kg.\n\n- Contrastes de baixa osmolalidade: aproximadamente 600–850 mOsm/kg, dependendo do\n\n- produto e da concentração.\n\n- Iodixanol: aproximadamente 290 mOsm/kg.\n\nA expressão baixa osmolalidade é relativa aos contrastes hiperosmolares antigos, não necessariamente ao plasma.\n\nPegadinha: baixa osmolalidade não significa iso-osmolalidade.\n\nViscosidade\n\nA viscosidade influencia a facilidade de injeção e a pressão necessária para administrar o contraste.\n\nEm geral:\n\n- Aumenta com a concentração de iodo.\n\n- Diminui com o aquecimento.\n\n- Depende da estrutura molecular.\n\nContrastes iso-osmolares podem apresentar viscosidade maior que alguns contrastes de baixa osmolalidade.\n\nPegadinha: iso-osmolar não significa menos viscoso.\n\n## 3. Concentração de iodo versus volume de contraste\n\nA concentração é expressa em mg de iodo por mL.\n\nPor exemplo, um contraste de 300 mg I/mL contém 300 mg de iodo por mililitro de solução.\n\nA carga total de iodo depende de:\n\n​ o × c¸a˜ Volume\n\nCarga de iodo = Concentra\n\nNa angiografia, maior concentração não significa automaticamente melhor exame. A opacificação depende também do fluxo, da taxa de injeção, do calibre vascular e da técnica de aquisição.\n\nPegadinha: volume de contraste, concentração de iodo e carga total de iodo são variáveis relacionadas, mas distintas.\n\n## 4. Reações adversas agudas\n\nAs reações podem ser divididas em:\n\n- Alérgicas-like: manifestações semelhantes às de hipersensibilidade, nem sempre mediadas por\n\n- IgE.\n\n- Fisiológicas: efeitos relacionados às propriedades do contraste e à resposta fisiológica à\n\n- administração.\n\nClassificação por gravidade\n\n| Gravidade | Exemplos |\n| --- | --- |\n| Leve | Urticária limitada, prurido, náusea leve |\n| Moderada | Urticária difusa, edema facial sem dispneia, broncoespasmo leve |\n| Grave | Edema laríngeo com comprometimento respiratório, broncoespasmo grave, choque anafilático |\n\nA gravidade depende do quadro clínico e da repercussão fisiológica, não apenas do número de sintomas.\n\nConduta diante de reação grave\n\nA administração de contraste deve ser interrompida quando possível, com avaliação imediata de vias aéreas, ventilação e circulação, acionamento de suporte de emergência e tratamento específico.\n\nNa anafilaxia, adrenalina intramuscular é o tratamento de primeira linha, conforme protocolo de emergência. Anti-histamínicos e corticosteroides não a substituem.\n\nPegadinha: corticosteroide não é tratamento de primeira linha para anafilaxia.\n\n## 5. Fatores de risco para reações alérgicas-like\n\nO principal fator de risco é uma reação alérgica-like prévia ao contraste iodado.\n\nOutros fatores, como asma, podem aumentar o risco, mas não equivalem a contraindicação absoluta.\n\nMitos frequentes\n\n| Afirmação | Correção |\n| --- | --- |\n| Alergia a frutos do mar contraindica contraste iodado | Falso |\n| Alergia a povidona-iodo prediz reação ao contraste | Falso |\n| O iodo é o alérgeno responsável por todas as reações | Falso |\n| Reação prévia ao contraste aumenta o risco de recorrência | Verdadeiro |\n\nPré-medicação elimina completamente o risco Falso\n\nPegadinha clássica de prova: alergia a camarão não representa alergia ao iodo. O iodo é um elemento essencial ao organismo e não funciona como alérgeno específico dessa forma.\n\n## 6. Pré-medicação e reações de escape\n\nEm pacientes selecionados com reação alérgica-like prévia, pode-se considerar pré-medicação com corticosteroides, eventualmente associada a anti-histamínicos, conforme protocolos institucionais.\n\nEntretanto:\n\n- A eficácia é limitada e não elimina o risco.\n\n- Reações de escape podem ocorrer.\n\n- Trocar o agente iodado pode reduzir o risco de recorrência.\n\n- Em emergências neurovasculares, atrasar uma reperfusão potencialmente salvadora exige\n\n- ponderação cuidadosa.\n\nPegadinha: pré-medicação não garante ausência de anafilaxia e não deve ser considerada proteção absoluta.\n\n## 7. Contraste e função renal\n\nA terminologia atual diferencia:\n\nCA-AKI — Contrast-Associated Acute Kidney Injury: lesão renal aguda temporalmente associada à administração de contraste, sem necessariamente estabelecer causalidade.\n\nCI-AKI — Contrast-Induced Acute Kidney Injury: lesão renal aguda atribuída causalmente ao contraste.\n\nEssa distinção é importante porque nem toda piora da creatinina após um procedimento foi provocada pelo contraste.\n\nPrincipais fatores de risco\n\n- Lesão renal aguda pré-existente.\n\n- Doença renal crônica avançada.\n\n- Hipovolemia e instabilidade hemodinâmica.\n\n- Exposição a outros fatores nefrotóxicos.\n\nEstratificação prática\n\nSituação Interpretação\n\nFunção renal preservada e estável Risco geralmente baixo\n\n| eGFR 30–44 mL/min/1,73 m² | Avaliação individualizada |\n| --- | --- |\n| eGFR abaixo de 30 | Risco aumentado; considerar medidas preventivas |\n| Lesão renal aguda | Avaliação específica, independentemente da eGFR calculada |\n\nNuance fundamental para NRI: o risco e os protocolos de prevenção diferem entre contraste intravenoso e administração intra-arterial, particularmente quando há exposição renal de primeira passagem. Não se deve extrapolar automaticamente todos os limiares da TC contrastada intravenosa para qualquer angiografia.\n\n## 8. Prevenção de lesão renal\n\nA principal medida preventiva em pacientes selecionados de alto risco é a expansão volêmica intravenosa com solução isotônica, quando não houver contraindicação.\n\nA estratégia deve ser individualizada em pacientes com insuficiência cardíaca ou risco de congestão.\n\nOutras medidas:\n\n- Evitar volume desnecessário de contraste.\n\n- Corrigir hipovolemia quando possível.\n\n- Avaliar outros fatores nefrotóxicos.\n\n- Monitorar função renal quando indicado.\n\nO que não é recomendado rotineiramente?\n\nA N-acetilcisteína não possui benefício consistente que justifique seu uso rotineiro para prevenção de lesão renal associada ao contraste.\n\nNão há indicação de iniciar hemodiálise exclusivamente para remover contraste após sua administração.\n\nPegadinha: creatinina elevada não é contraindicação absoluta a angiografia cerebral urgente quando o benefício clínico supera o risco.\n\n## 9. Metformina e contraste iodado\n\nO problema não é uma interação tóxica direta entre metformina e contraste.\n\nA preocupação é a possibilidade de lesão renal aguda com redução da depuração da metformina e aumento do risco de acidose láctica.\n\nConduta\n\nPara contraste intravenoso, pacientes sem lesão renal aguda e com eGFR ≥30 mL/min/1,73 m² geralmente não precisam suspender metformina segundo o ACR.\n\nPorém, protocolos podem ser mais conservadores em procedimentos intra-arteriais, especialmente quando há risco de embolização renal ou exposição renal de primeira passagem.\n\nPegadinha: não se deve suspender metformina automaticamente em toda administração de contraste iodado.\n\n## 10. Disfunção tireoidiana e contraste\n\nO contraste iodado contém grande quantidade de iodo e pode desencadear alterações tireoidianas em pacientes suscetíveis.\n\nFenômenos importantes\n\nJod-Basedow: hipertireoidismo induzido por carga de iodo, especialmente em pacientes com autonomia tireoidiana.\n\nEfeito Wolff–Chaikoff: redução transitória da organificação do iodo e da síntese hormonal após exposição a grande carga de iodo.\n\nEm pessoas suscetíveis, falha no escape desse efeito pode contribuir para hipotireoidismo.\n\nPegadinha: Jod-Basedow corresponde a hipertireoidismo, enquanto Wolff–Chaikoff está associado à inibição da síntese hormonal.\n\n## 11. Encefalopatia induzida por contraste — tema de alto rendimento\n\nA encefalopatia induzida por contraste (CIE) é uma complicação neurológica incomum após procedimentos angiográficos.\n\nPode ocorrer após angiografia diagnóstica ou terapêutica.\n\nManifestações possíveis\n\n- Confusão ou alteração do nível de consciência.\n\n- Crises epilépticas.\n\n- Déficits neurológicos focais.\n\n- Alterações visuais, inclusive cegueira cortical.\n\n- Cefaleia.\n\nFisiopatologia\n\nO mecanismo não é completamente esclarecido, mas envolve possível disfunção da barreira hematoencefálica e neurotoxicidade relacionada à exposição ao contraste.\n\nNeuroimagem\n\nPode haver:\n\n- Hiperdensidade cortical ou subaracnóidea na TC.\n\n- Edema cortical ou subcortical.\n\n- Alterações de sinal na RM.\n\n- Exames inicialmente pouco específicos.\n\nDiagnóstico diferencial obrigatório\n\n| Diagnóstico | Elemento de diferenciação |\n| --- | --- |\n| CIE | Relação temporal com contraste e exclusão de outras causas |\n| AVC isquêmico | Distribuição vascular e alterações de difusão |\n| Hemorragia intracraniana | Sangue demonstrado por imagem apropriada |\n| PRES | Edema vasogênico, frequentemente posterior |\n| Crise epiléptica / estado pós-ictal | História, EEG e alterações peri-ictais |\n\nA CIE é um diagnóstico de exclusão. Piora neurológica após angiografia nunca deve ser atribuída automaticamente ao contraste, pois hemorragia, oclusão arterial e outras complicações exigem investigação urgente.\n\nPrognóstico\n\nMuitos casos apresentam recuperação em horas ou dias, mas formas graves e déficits persistentes são possíveis.\n\nO tratamento é predominantemente de suporte e direcionado às manifestações clínicas.\n\nPegadinha: CIE pode produzir hiperdensidade que simula hemorragia; a TC de dupla energia pode auxiliar na diferenciação entre iodo e sangue.\n\n## 12. Extravasamento de contraste\n\nO extravasamento de contraste para tecidos moles durante injeção por acesso venoso é diferente do extravasamento angiográfico intracraniano por perfuração arterial.\n\nNa primeira situação, a preocupação principal envolve lesão local, edema e, raramente, síndrome compartimental.\n\nNa segunda, a prioridade é identificar e controlar uma possível ruptura vascular.\n\nPegadinha: a mesma expressão — extravasamento de contraste — pode descrever mecanismos e urgências completamente diferentes.\n\n## 13. Resumo de alta retenção\n\n| Tema | Conceito-chave para prova |\n| --- | --- |\n| Contraste não iônico | Menor frequência de reações adversas que agentes hiperosmolares antigos |\n| Baixa osmolalidade | Não significa iso-osmolaridade |\n| Iodixanol | Dímero não iônico iso-osmolar |\n| Viscosidade | Aumenta com concentração e diminui com aquecimento |\n| Principal risco alérgico-like | Reação prévia ao contraste |\n| Alergia a frutos do mar | Não é contraindicação específica |\n| Anafilaxia | Adrenalina IM é primeira linha |\n| Pré-medicação | Não elimina reações de escape |\n| CA-AKI | Associação temporal, sem causalidade necessariamente estabelecida |\n| CI-AKI | Lesão atribuída causalmente ao contraste |\n| Prevenção renal | Hidratação isotônica em pacientes selecionados |\n| N-acetilcisteína | Não recomendada rotineiramente |\n| Metformina | Conduta depende de função renal, LRA e tipo de administração |\n| Jod-Basedow | Hipertireoidismo induzido por iodo |\n| Wolff–Chaikoff | Inibição aguda da síntese hormonal |\n| CIE | Neurotoxicidade rara; diagnóstico de exclusão |\n| Hiperdensidade pós-angiografia | Pode representar sangue, iodo ou ambos |"
@@ -108,6 +276,10 @@
       "id": "9D",
       "title": "Acessos radial e femoral e arco aórtico",
       "points": [
+        {
+          "concept": "Acesso orientado pela anatomia",
+          "takeaway": "Na femoral, busque segmento comum sobre a cabeça do fêmur, acima da bifurcação e abaixo do ligamento inguinal. Na radial, considere calibre, espasmo, trajeto subclávio e hemostasia patente."
+        },
         {
           "concept": "Artéria radial",
           "takeaway": "Via compressível que exige adaptação à anatomia do antebraço e do arco."
@@ -131,6 +303,62 @@
         {
           "concept": "Arco tipo III",
           "takeaway": "Pode dificultar o suporte e a seleção de troncos supra-aórticos."
+        },
+        {
+          "concept": "Arco clássico",
+          "takeaway": "Braquiocefálico, CCE, subclávia esquerda"
+        },
+        {
+          "concept": "Vertebral esquerda do arco",
+          "takeaway": "Variante importante"
+        },
+        {
+          "concept": "Bovine arch",
+          "takeaway": "Termo amplo para variantes de origem comum"
+        },
+        {
+          "concept": "Femoral comum",
+          "takeaway": "Local preferencial para punção femoral"
+        },
+        {
+          "concept": "Punção femoral baixa",
+          "takeaway": "Pseudoaneurisma e FAV"
+        },
+        {
+          "concept": "Radial direita",
+          "takeaway": "Pode favorecer vasos direitos"
+        },
+        {
+          "concept": "Radial esquerda",
+          "takeaway": "Pode favorecer vertebral esquerda"
+        },
+        {
+          "concept": "Arteria lusoria",
+          "takeaway": "Dificuldade típica pela radial direita"
+        },
+        {
+          "concept": "Espasmo radial",
+          "takeaway": "Não tracionar dispositivos à força"
+        },
+        {
+          "concept": "Oclusão radial",
+          "takeaway": "Pode ser assintomática"
+        },
+        {
+          "concept": "Hemostasia patente",
+          "takeaway": "Preservar fluxo radial durante compressão"
+        },
+        {
+          "concept": "Sistema triaxial",
+          "takeaway": "Maior suporte e estabilidade"
+        },
+        {
+          "concept": "Ateroma do arco",
+          "takeaway": "Risco de embolização por manipulação"
+        },
+        {
+          "concept": "Escolha do acesso",
+          "takeaway": "Depende de anatomia, técnica e dispositivos"
         }
       ],
       "theory": "## Acessos radial/femoral e arco aórtico\n\nObjetivo da aula: compreender como a anatomia do arco aórtico e dos vasos de acesso determina a escolha da via radial ou femoral, a estabilidade dos cateteres e os riscos de uma intervenção neurovascular.\n\n## 1. Anatomia do arco aórtico\n\nscielo.sa.cr\n\nNo padrão anatômico clássico, o arco aórtico origina três ramos, da direita para a esquerda:\n\n1. Tronco braquiocefálico, que origina a carótida comum direita e a subclávia direita. 2. Carótida comum esquerda. 3. Subclávia esquerda.\n\nAs artérias vertebrais geralmente se originam das subclávias.\n\nVariantes importantes para a NRI\n\n| Variante | Relevância prática |\n| --- | --- |\n| Origem comum do tronco braquiocefálico e da carótida comum esquerda | Altera os ângulos de cateterização |\n| Carótida comum esquerda originando-se do tronco braquiocefálico | Pode facilitar ou dificultar a seleção conforme a via |\n| Artéria vertebral esquerda diretamente do arco | Exige identificação da origem separada |\n| Artéria subclávia direita aberrante (arteria lusoria) | Pode dificultar muito a navegação transradial direita |\n| Arco aórtico direito | Modifica a orientação dos ramos supra-aórticos |\n| Tortuosidade ou ectasia do arco | Pode comprometer suporte e estabilidade dos cateteres |\n\nPegadinha: o chamado bovine arch humano não é uma configuração única. O termo costuma descrever variantes envolvendo origem comum ou origem da carótida comum esquerda a partir do tronco braquiocefálico.\n\n## 2. Arco aórtico tipos I, II e III\n\nA classificação considera a posição vertical das origens dos vasos supra-aórticos em relação ao topo do arco, frequentemente expressa em diâmetros da carótida comum esquerda.\n\n![Esquema conceitual da classificação do arco Tipo I Tipo II Tipo III Representação esquemática simplificada. A classificação formal depende da posição das origens em relação ao ápice do arco; a aparência isolada do desenho não permite medições precisas. ](/nri-esquemas/9D-600)\n\n| Tipo | Critério aproximado | Implicação |\n| --- | --- | --- |\n| I | Origens ao nível do topo do arco ou próximas dele | Geralmente acesso mais direto |\n| II | Origens até cerca de dois diâmetros abaixo do topo | Maior angulação potencial |\n| III | Origens mais de dois diâmetros abaixo do topo | Maior dificuldade potencial de seleção e suporte |\n\nAs definições exatas variam entre classificações e publicações; é importante reconhecer qual convenção a prova utiliza.\n\nPegadinha: arco tipo III não contraindica automaticamente a via femoral, mas pode exigir técnicas e cateteres diferentes.\n\n## 3. Acesso femoral\n\nradiology.expert\n\nO acesso femoral é uma via tradicional para angiografia e procedimentos neurointervencionistas.\n\nLocal ideal de punção\n\nA punção da artéria femoral comum deve ser realizada:\n\n- Abaixo do ligamento inguinal.\n\n- Acima da bifurcação femoral.\n\n- Preferencialmente sobre a cabeça femoral, para permitir compressão eficaz.\n\nA ultrassonografia pode ajudar a identificar o vaso, a bifurcação e a presença de aterosclerose ou calcificação.\n\nComplicações relacionadas ao nível de punção\n\n| Punção | Principal risco |\n| --- | --- |\n| Muito alta | Hemorragia retroperitoneal, especialmente se acima do ligamento inguinal |\n| Muito baixa | Pseudoaneurisma, fístula arteriovenosa e dificuldade de hemostasia |\n| Parede posterior transfixada | Sangramento e hematoma |\n| Vaso muito calcificado | Falha de fechamento e complicações locais |\n\nPegadinha: a artéria femoral comum é preferível à femoral superficial para punções de maior calibre.\n\n## 4. Acesso radial\n\nO acesso radial ganhou importância na neuroangiografia diagnóstica e em procedimentos terapêuticos selecionados.\n\nVantagens\n\n- Menor incidência de algumas complicações hemorrágicas do sítio de acesso.\n\n- Hemostasia geralmente mais simples.\n\n- Mobilização precoce.\n\n- Maior conforto em determinados pacientes.\n\nLimitações\n\n- Calibre arterial menor.\n\n- Espasmo radial.\n\n- Tortuosidade do trajeto.\n\n- Dificuldade para determinados vasos supra-aórticos.\n\n- Limitações de compatibilidade com sistemas de grande calibre.\n\nAvaliação pré-procedimento\n\nA ultrassonografia pode avaliar diâmetro, patência, calcificações e variantes anatômicas.\n\nA avaliação da circulação colateral da mão é relevante, mas testes clínicos como Allen e Barbeau não devem ser interpretados como garantias absolutas de ausência de isquemia.\n\nPegadinha: a via radial não é necessariamente superior para todos os procedimentos. A escolha depende da anatomia, do dispositivo e da experiência da equipe.\n\n## 5. Radial direita versus radial esquerda\n\nA via radial direita segue, habitualmente:\n\nRadial direita → braquial → axilar → subclávia direita → tronco braquiocefálico → arco aórtico.\n\nA via radial esquerda segue:\n\nRadial esquerda → braquial → axilar → subclávia esquerda → arco aórtico.\n\nSeleção de vasos\n\n| Alvo | Consideração anatômica |\n| --- | --- |\n| Carótida direita | Acesso radial direito pode oferecer trajeto favorável |\n| Vertebral direita | Radial direita frequentemente permite seleção relativamente direta |\n| Vertebral esquerda | Radial esquerda pode oferecer trajeto favorável |\n| Carótida esquerda | Dificuldade variável, dependente da origem e do arco |\n| Vasos contralaterais | Podem exigir cateteres específicos e maior manipulação |\n\nPegadinha: a escolha da radial não deve ser determinada apenas pelo lado da lesão. A geometria dos troncos supra-aórticos é decisiva.\n\n## 6. Arteria lusoria\n\nA artéria subclávia direita aberrante frequentemente se origina distalmente à subclávia esquerda e pode seguir trajeto retroesofágico.\n\nRelevância na NRI\n\nNa via radial direita, o cateter pode alcançar a aorta descendente de maneira inesperada, dificultando a seleção dos vasos supra-aórticos.\n\nPegadinha: dificuldade persistente de direcionar o cateter da subclávia direita para a aorta ascendente deve levantar a possibilidade de subclávia direita aberrante.\n\nNão se deve insistir em manobras traumáticas quando a anatomia impede progressão segura.\n\n## 7. Espasmo radial\n\nO espasmo radial é uma complicação relevante do acesso transradial.\n\nFatores associados\n\n- Pequeno calibre arterial.\n\n- Múltiplas tentativas de punção.\n\n- Manipulação excessiva.\n\n- Dor e ansiedade.\n\n- Relação desfavorável entre diâmetro do introdutor e da artéria.\n\nPrevenção e manejo\n\n- Punção atraumática, preferencialmente guiada por ultrassom quando apropriado.\n\n- Analgesia e sedação adequadas.\n\n- Introdutores de perfil apropriado.\n\n- Vasodilatadores intra-arteriais conforme protocolo e condições hemodinâmicas.\n\n- Evitar tração forçada sobre cateteres em espasmo intenso.\n\nPegadinha: espasmo radial não deve ser tratado por retirada forçada de dispositivos, pois há risco de lesão arterial e aprisionamento do cateter.\n\n## 8. Oclusão radial e hemostasia patente\n\nA oclusão da artéria radial pode ocorrer após o procedimento e frequentemente é assintomática devido à circulação colateral da mão.\n\nA prevenção inclui anticoagulação procedural quando indicada, escolha adequada do calibre e técnica de hemostasia patente.\n\nHemostasia patente: compressão suficiente para controlar o sangramento, preservando fluxo arterial quando possível.\n\nPegadinha: ausência de sangramento no local da punção não comprova patência da artéria radial.\n\n## 9. Tortuosidade e suporte do cateter\n\nO sucesso da cateterização não depende apenas de alcançar o óstio do vaso.\n\nÉ necessário obter suporte adequado para avançar sistemas coaxiais ou triaxiais.\n\nProblemas frequentes\n\n- Arco tipo III.\n\n- Carótida comum tortuosa.\n\n- Tortuosidade cervical acentuada.\n\n- Origem muito angulada da carótida ou vertebral.\n\n- Aterosclerose e placas no arco.\n\n- Variantes anatômicas.\n\nEstratégias possíveis\n\n- Escolha de cateter diagnóstico apropriado.\n\n- Uso de guia de suporte.\n\n- Sistemas coaxiais ou triaxiais.\n\n- Mudança da projeção angiográfica.\n\n- Conversão de acesso quando necessário.\n\nPegadinha: alcançar o vaso com um cateter diagnóstico não garante estabilidade suficiente para avançar um cateter-guia de grande calibre.\n\n## 10. Complicações embólicas relacionadas ao arco\n\nEm pacientes com ateromatose importante do arco aórtico, a manipulação de fios e cateteres pode mobilizar material aterotrombótico.\n\nO risco depende de fatores como anatomia, extensão da doença e técnica utilizada.\n\nPrincípios de segurança\n\n- Avaliar exames prévios quando disponíveis.\n\n- Evitar manipulação desnecessária.\n\n- Não avançar dispositivos contra resistência.\n\n- Reconhecer variantes e tortuosidades.\n\n- Reavaliar a estratégia diante de instabilidade do cateter.\n\nPegadinha: o risco embólico não se restringe à lesão intracraniana tratada; a navegação pelo arco também pode produzir complicações.\n\n## 11. Acesso radial versus femoral — comparação de prova\n\n| Característica | Radial | Femoral |\n| --- | --- | --- |\n| Calibre do vaso | Menor | Maior |\n| Sistemas de grande calibre | Mais restrições | Geralmente mais favorável |\n| Hemostasia | Compressão mais simples | Compressão ou dispositivo de fechamento |\n| Mobilização | Geralmente precoce | Variável conforme hemostasia |\n| Complicação característica | Espasmo e oclusão radial | Hematoma, pseudoaneurisma, sangramento retroperitoneal |\n| Arco complexo | Pode favorecer alguns trajetos | Pode exigir cateterização mais difícil |\n| Seleção do acesso | Anatomia e dispositivos | Anatomia e dispositivos |\n\nConclusão: nenhuma via é universalmente superior. O acesso ideal é aquele que permite realizar o procedimento com segurança e suporte adequado.\n\n## 12. Tabela final — Decorebas e pegadinhas\n\n| Tema | Conceito-chave |\n| --- | --- |\n| Arco clássico | Braquiocefálico, CCE, subclávia esquerda |\n| Vertebral esquerda do arco | Variante importante |\n| Arco tipo III | Maior dificuldade potencial de cateterização |\n| Bovine arch | Termo amplo para variantes de origem comum |\n| Femoral comum | Local preferencial para punção femoral |\n| Punção femoral alta | Risco de sangramento retroperitoneal |\n| Punção femoral baixa | Pseudoaneurisma e FAV |\n| Radial direita | Pode favorecer vasos direitos |\n| Radial esquerda | Pode favorecer vertebral esquerda |\n| Arteria lusoria | Dificuldade típica pela radial direita |\n| Espasmo radial | Não tracionar dispositivos à força |\n| Oclusão radial | Pode ser assintomática |\n| Hemostasia patente | Preservar fluxo radial durante compressão |\n| Sistema triaxial | Maior suporte e estabilidade |\n| Ateroma do arco | Risco de embolização por manipulação |\n| Escolha do acesso | Depende de anatomia, técnica e dispositivos |",
@@ -150,6 +378,10 @@
       "id": "9E",
       "title": "Introdutores, guias e cateteres de suporte",
       "points": [
+        {
+          "concept": "Compatibilidade e lavagem",
+          "takeaway": "No sistema coaxial/triaxial, verifique diâmetros internos e externos, comprimentos úteis, conexão de válvulas e fluxo de lavagem. Observe limites de injeção do cateter e sua posição antes de usar injetora."
+        },
         {
           "concept": "Introdutor",
           "takeaway": "Mantém uma porta de acesso para trocas de dispositivos."
@@ -173,6 +405,86 @@
         {
           "concept": "Simmons",
           "takeaway": "Família de cateteres de curva reversa útil em anatomias selecionadas de arco."
+        },
+        {
+          "concept": "French",
+          "takeaway": "1 Fr = 0,333 mm de diâmetro externo nominal"
+        },
+        {
+          "concept": "ID",
+          "takeaway": "Determina capacidade luminal"
+        },
+        {
+          "concept": "OD",
+          "takeaway": "Determina perfil externo"
+        },
+        {
+          "concept": "Mesmo French",
+          "takeaway": "Não garante mesmo ID"
+        },
+        {
+          "concept": "Fio 0,035\"",
+          "takeaway": "Navegação diagnóstica proximal"
+        },
+        {
+          "concept": "Fio hidrofílico",
+          "takeaway": "Menor atrito; exige cuidado com progressão inadvertida"
+        },
+        {
+          "concept": "Pushability",
+          "takeaway": "Transmissão de força longitudinal"
+        },
+        {
+          "concept": "Trackability",
+          "takeaway": "Capacidade de acompanhar o trajeto"
+        },
+        {
+          "concept": "Torqueability",
+          "takeaway": "Transmissão de rotação"
+        },
+        {
+          "concept": "Kink resistance",
+          "takeaway": "Resistência ao dobramento"
+        },
+        {
+          "concept": "Balão-guia",
+          "takeaway": "Pode produzir oclusão temporária de fluxo"
+        },
+        {
+          "concept": "Intermediário",
+          "takeaway": "Suporte distal e, em alguns modelos, aspiração"
+        },
+        {
+          "concept": "Sistema coaxial",
+          "takeaway": "Dois componentes concêntricos"
+        },
+        {
+          "concept": "Sistema triaxial",
+          "takeaway": "Três cateteres concêntricos"
+        },
+        {
+          "concept": "Compatibilidade",
+          "takeaway": "ID/OD, folga, comprimento e instruções do fabricante"
+        },
+        {
+          "concept": "Lavagem contínua",
+          "takeaway": "Reduz estase e risco tromboembólico"
+        },
+        {
+          "concept": "Embolia gasosa",
+          "takeaway": "Exige prevenção rigorosa"
+        },
+        {
+          "concept": "Resistência inesperada",
+          "takeaway": "Não forçar; investigar causa"
+        },
+        {
+          "concept": "Injetora automática",
+          "takeaway": "Respeitar pressão e fluxo autorizados"
+        },
+        {
+          "concept": "Cateterização diagnóstica",
+          "takeaway": "Não garante suporte terapêutico"
         }
       ],
       "theory": "## Cateteres diagnósticos, guias, introdutores, cateteres-guia e intermediários\n\n## 1. Objetivos da aula\n\nAo final, você deverá conseguir selecionar os componentes de um sistema neuroendovascular e compreender:\n\n- Diferenças entre cateter diagnóstico, cateter-guia e cateter intermediário.\n\n- Compatibilidade entre diâmetro interno, externo, fios-guia e dispositivos.\n\n- Conceitos de pushability, trackability, torqueability e suporte.\n\n- Sistemas coaxiais e triaxiais.\n\n- Seleção de cateteres para anatomias supra-aórticas difíceis.\n\n- Complicações mecânicas, embolígenas e relacionadas à injeção de contraste.\n\nA questão central é: não basta alcançar o vaso-alvo; é necessário criar uma plataforma estável, compatível e segura para o procedimento.\n\n## 2. Organização do sistema neuroendovascular\n\nUm sistema terapêutico pode apresentar três componentes concêntricos:\n\n![Esquema de um sistema triaxial Cateter-guia Intermediário Microcateter + microguia Representação didática, não em escala. As dimensões reais e a possibilidade de combinação dependem das especificações de cada dispositivo. ](/nri-esquemas/9E-615)\n\n| Componente | Função principal |\n| --- | --- |\n| Introdutor | Estabelecer e manter o acesso vascular |\n| Fio-guia | Facilitar navegação e troca de cateteres |\n| Cateter diagnóstico | Selecionar vasos e realizar angiografia |\n| Cateter-guia | Fornecer acesso proximal e suporte terapêutico |\n| Cateter intermediário | Aproximar o suporte do território-alvo |\n| Microcateter | Navegação distal e entrega de dispositivos |\n\nMicroguia Direcionar e sustentar a progressão do microcateter\n\nO sistema não precisa obrigatoriamente conter todos esses componentes. A configuração depende do procedimento.\n\n## 3. Medidas e unidades: French, polegadas e milímetros\n\nEsta é uma das principais fontes de erros de prova e de incompatibilidade de materiais.\n\nFrench (Fr)\n\nA escala French corresponde ao diâmetro externo nominal:\n\n1 Fr = ​ mm 3 1\n\n| Tamanho | Diâmetro externo nominal |\n| --- | --- |\n| 4 Fr | 1,33 mm |\n| 5 Fr | 1,67 mm |\n| 6 Fr | 2,00 mm |\n| 7 Fr | 2,33 mm |\n| 8 Fr | 2,67 mm |\n\nAtenção: essa relação não permite deduzir diretamente o diâmetro interno de um cateter. A espessura da parede varia conforme o modelo.\n\nDiâmetro interno (ID) e externo (OD)\n\n- ID: determina quais dispositivos podem atravessar o lúmen.\n\n- OD: influencia o perfil de acesso, a passagem pelo vaso e a compatibilidade com o introdutor.\n\nUm cateter de 6 Fr pode apresentar diferentes diâmetros internos dependendo da construção.\n\nPegadinha: dois cateteres com o mesmo French não necessariamente acomodam os mesmos dispositivos.\n\nPolegadas\n\nAlguns valores frequentemente encontrados:\n\n| Diâmetro | Equivalente aproximado |\n| --- | --- |\n| 0,014\" | 0,356 mm |\n\n|  |  |\n| --- | --- |\n| 0,018\" | 0,457 mm |\n| 0,021\" | 0,533 mm |\n| 0,027\" | 0,686 mm |\n| 0,035\" | 0,889 mm |\n| 0,038\" | 0,965 mm |\n\nEsses valores são medidas geométricas, não garantias de compatibilidade entre dispositivos.\n\n## 4. Introdutores vasculares\n\nlumeimportsrl.it\n\nO introdutor é composto habitualmente por uma bainha, dilatador e sistema de válvula hemostática.\n\nFunções\n\n- Manter o acesso arterial.\n\n- Permitir trocas de cateteres.\n\n- Reduzir sangramento pelo acesso.\n\n- Possibilitar infusão ou lavagem conforme o sistema.\n\nEscolha do calibre\n\nO introdutor deve ser compatível com o diâmetro externo do dispositivo que passará por ele, considerando as especificações do fabricante.\n\nO perfil externo do próprio introdutor também importa, especialmente no acesso radial.\n\nPegadinha: um introdutor de 6 Fr não tem necessariamente diâmetro externo de 2 mm; sua classificação nominal está relacionada à capacidade de acomodar dispositivos, e o perfil externo pode ser maior.\n\n## 5. Fios-guia diagnósticos\n\nOs fios-guia podem variar quanto a:\n\n- Diâmetro.\n\n- Comprimento.\n\n- Rigidez.\n\n- Tipo de ponta.\n\n- Revestimento hidrofílico.\n\n- Capacidade de transmissão de torque.\n\nFio 0,035\"\n\nMuito utilizado na navegação de cateteres diagnósticos e em trocas de sistemas proximais.\n\nPonta em J\n\nA ponta em J pode reduzir a tendência de entrada traumática em pequenos ramos quando utilizada adequadamente, mas não elimina o risco de lesão.\n\nFios hidrofílicos\n\nApresentam baixo atrito e podem facilitar a navegação em trajetos tortuosos.\n\nEntretanto, a facilidade de progressão também exige cuidado: o fio pode avançar inadvertidamente em ramos pequenos ou atravessar lesões.\n\nPegadinha: menor atrito não equivale a menor risco de perfuração em qualquer circunstância.\n\n## 6. Cateteres diagnósticos e suas curvas\n\nA geometria da ponta determina como o cateter interage com as origens arteriais.\n\n| Cateter | Característica e aplicação |\n| --- | --- |\n| Vertebral | Seleção de artérias vertebrais e outros vasos com anatomia favorável |\n| Headhunter | Curva útil em determinadas origens supra-aórticas |\n| Simmons 1, 2 e 3 | Curvas reversas úteis em anatomias difíceis |\n| Multipurpose | Aplicações variadas conforme a anatomia |\n| Pigtail | Angiografia de grandes vasos, como aortografia |\n\nCateter Simmons\n\nÉ um cateter de curva reversa que pode ser útil na seleção de vasos supra-aórticos, inclusive em arcos complexos.\n\nSua utilização pode exigir formação ou reconstituição da curva antes da seleção.\n\nPegadinha: o Simmons não é universalmente superior ao cateter vertebral. A escolha depende do arco, da origem vascular e da via de acesso.\n\n## 7. Propriedades mecânicas dos cateteres\n\nQuatro conceitos que precisam ser diferenciados\n\nPushability\n\nTrackability\n\nCapacidade de transmitir força longitudinal para avançar o dispositivo.\n\nCapacidade de acompanhar o trajeto vascular e o fio- guia.\n\nTorqueability\n\nKink resistance\n\nCapacidade de transmitir rotação da extremidade proximal à distal.\n\nResistência ao dobramento ou colapso do lúmen em curvas acentuadas.\n\nConstrução do cateter\n\nFrequentemente combina:\n\n- Camada interna de baixo atrito.\n\n- Reforço por malha metálica ou espiral.\n\n- Polímeros de diferentes rigidezes.\n\n- Marcadores radiopacos.\n\n- Revestimentos superficiais.\n\nUma construção com maior rigidez proximal e maior flexibilidade distal procura equilibrar suporte e navegabilidade.\n\nPegadinha: aumentar rigidez pode melhorar suporte, mas também aumentar o risco de trauma vascular e dificultar navegação distal.\n\n## 8. Cateter-guia\n\nO cateter-guia estabelece uma plataforma proximal para o procedimento.\n\nCaracterísticas desejáveis\n\n- Estabilidade.\n\n- Diâmetro interno compatível.\n\n- Resistência ao dobramento.\n\n- Boa transmissão de força.\n\n- Ponta atraumática.\n\n- Capacidade de permitir lavagem e injeção conforme o dispositivo.\n\nCateter-guia convencional versus balão-guia\n\n| Cateter-guia convencional | Balão-guia |\n| --- | --- |\n| Oferece suporte e acesso proximal | Oferece suporte e possibilidade de oclusão temporária do fluxo proximal |\n| Não possui balão de oclusão integrado | Possui balão próximo à extremidade distal |\n| Utilizado em diversos procedimentos | Particularmente relevante em estratégias selecionadas de trombectomia |\n\nO balão-guia pode contribuir para controle de fluxo e redução da migração distal de fragmentos durante determinadas técnicas de trombectomia.\n\nPegadinha: o balão-guia não substitui automaticamente o cateter intermediário ou o sistema de aspiração.\n\n## 9. Cateter intermediário\n\nO cateter intermediário é utilizado entre o cateter-guia e o microcateter em configurações triaxiais.\n\nPode melhorar o suporte mais próximo da lesão, reduzindo a distância entre a plataforma de apoio e o dispositivo distal.\n\nAplicações\n\n- Navegação em anatomias tortuosas.\n\n- Suporte durante implantação de dispositivos.\n\n- Trombectomia por aspiração.\n\n- Sistemas combinados de trombectomia.\n\nLimitações\n\n- Necessidade de compatibilidade com o cateter-guia.\n\n- Risco de lesão vascular durante progressão distal.\n\n- Possibilidade de dobramento em curvas.\n\n- Redução do espaço disponível para lavagem quando há dispositivos concêntricos.\n\nPegadinha: avançar o cateter intermediário mais distalmente nem sempre é melhor; o ganho de suporte deve ser ponderado contra o risco vascular.\n\n## 10. Sistemas coaxiais e triaxiais\n\nSistema coaxial\n\nUm dispositivo avança dentro de outro.\n\nExemplo: microcateter dentro de cateter-guia.\n\nSistema triaxial\n\nTrês cateteres concêntricos:\n\nCateter-guia → intermediário → microcateter.\n\nVantagens do sistema triaxial\n\n- Suporte proximal e distal.\n\n- Melhor navegabilidade em determinados trajetos.\n\n- Possibilidade de estabilizar o sistema durante entrega de dispositivos.\n\nLimitações\n\n- Maior complexidade.\n\n- Mais interfaces de atrito.\n\n- Possível comprometimento do fluxo de lavagem.\n\n- Exigência de compatibilidade dimensional.\n\nPegadinha: sistemas triaxiais podem melhorar suporte, mas não eliminam a necessidade de planejamento da geometria vascular.\n\n## 11. Compatibilidade dimensional: conceito fundamental\n\nPara um dispositivo atravessar outro, seu diâmetro externo precisa ser menor que o diâmetro interno útil do componente que o recebe.\n\nEntretanto, essa condição geométrica é necessária, mas não suficiente.\n\nTambém é preciso considerar:\n\n- Folga funcional.\n\n- Curvas e tortuosidade.\n\n- Comprimento dos dispositivos.\n\n- Válvulas e conectores.\n\n- Revestimentos.\n\n- Recomendações do fabricante.\n\nExemplo\n\nUm cateter intermediário com ID de 0,071\" pode receber dispositivos cujo OD seja suficientemente menor que esse valor, desde que a combinação seja autorizada e funcional.\n\nIsso não significa que qualquer dispositivo com OD nominal de 0,070\" seja automaticamente compatível.\n\nPegadinha: compatibilidade nominal não garante passagem segura em condições reais.\n\n## 12. Comprimento útil e trocas de cateter\n\nO comprimento de um cateter deve ser adequado à distância entre o acesso e o alvo.\n\nEm procedimentos radiais, especialmente em pacientes altos ou com trajetos longos, a extensão disponível pode limitar a escolha dos materiais.\n\nTroca sobre fio\n\nA troca exige comprimento de fio suficiente para manter controle e suporte durante a retirada do cateter anterior e a introdução do seguinte.\n\nFios de troca possuem comprimentos maiores que fios diagnósticos habituais.\n\nPegadinha: selecionar o diâmetro correto, mas comprimento insuficiente, pode inviabilizar o procedimento.\n\n## 13. Lavagem contínua e prevenção de tromboembolismo\n\nA presença de dispositivos concêntricos pode criar espaços de baixo fluxo, favorecendo estase sanguínea.\n\nPrincípios fundamentais:\n\n- Manter sistemas de lavagem apropriados.\n\n- Evitar entrada de ar.\n\n- Inspecionar conexões e válvulas.\n\n- Reduzir manipulação desnecessária.\n\n- Utilizar anticoagulação conforme o procedimento e protocolo.\n\nEmbolia gasosa\n\nPode ocorrer pela introdução de ar através de conexões, seringas ou sistemas inadequadamente purgados.\n\nA prevenção depende de técnica rigorosa de preparação e manutenção do circuito.\n\nPegadinha: uma pequena quantidade de ar em sistema intra-arterial cerebral não deve ser considerada inofensiva.\n\n## 14. Injeção de contraste e segurança dos cateteres\n\nA injeção de contraste deve respeitar as especificações do cateter, incluindo sua capacidade de suportar determinada pressão e fluxo.\n\nInjeção manual versus injetora\n\n| Injeção manual | Injetora automática |\n| --- | --- |\n| Maior controle tátil | Controle programável de fluxo e volume |\n| Frequente em angiografias seletivas | Útil em aquisições padronizadas |\n| Pressão depende da técnica | Pode produzir pressões elevadas |\n| Exige atenção à resistência | Exige verificação da compatibilidade do sistema |\n\nNunca se deve presumir que um cateter pode receber injeção automática sob alta pressão apenas porque seu lúmen permite passagem de contraste.\n\nIntegração da diretriz CBR\n\nO documento Diretrizes para o uso de meios de contraste intravenosos destaca riscos de administração por cateter venoso central, como ruptura, fragmentação e embolização, além da importância de verificar posicionamento e fluxo. Esses princípios reforçam a necessidade de respeitar as limitações de cada dispositivo.\n\nLimite da referência: as recomendações específicas do CBR para injeção intravenosa por acesso central não devem ser aplicadas como parâmetros de pressão ou fluxo para cateteres neuroarteriais.\n\n## 15. Complicações mecânicas dos cateteres\n\n| Complicação | Mecanismo possível | Prevenção |\n| --- | --- | --- |\n| Dissecção | Trauma por fio ou cateter | Navegação cuidadosa |\n| Perfuração | Avanço traumático de dispositivo | Evitar força e confirmar posição |\n| Vasoespasmo | Irritação mecânica vascular | Minimizar manipulação |\n\n| Tromboembolismo | Trombo em dispositivos ou mobilização de placas | Lavagem e técnica adequada |\n| --- | --- | --- |\n| Embolia gasosa | Ar no sistema | Purgar e inspecionar conexões |\n| Dobramento do cateter | Tortuosidade e suporte inadequado | Seleção apropriada do sistema |\n| Aprisionamento do dispositivo | Espasmo, tortuosidade ou incompatibilidade | Reconhecer resistência precocemente |\n\nSituação crítica\n\nDurante avanço de um cateter intermediário, surge resistência inesperada.\n\nA conduta correta não é aplicar força progressivamente. Deve-se interromper o avanço, reavaliar a posição, a geometria e as causas possíveis de resistência.\n\n## 16. Tabela final — Conceitos e pegadinhas de alta retenção\n\n| Tema | Conceito-chave para prova |\n| --- | --- |\n| French | 1 Fr = 0,333 mm de diâmetro externo nominal |\n| ID | Determina capacidade luminal |\n| OD | Determina perfil externo |\n| Mesmo French | Não garante mesmo ID |\n| Introdutor | Mantém acesso e facilita trocas |\n| Fio 0,035\" | Navegação diagnóstica proximal |\n| Fio hidrofílico | Menor atrito; exige cuidado com progressão inadvertida |\n| Simmons | Cateter de curva reversa |\n| Pushability | Transmissão de força longitudinal |\n| Trackability | Capacidade de acompanhar o trajeto |\n| Torqueability | Transmissão de rotação |\n| Kink resistance | Resistência ao dobramento |\n| Cateter-guia | Plataforma proximal de suporte |\n| Balão-guia | Pode produzir oclusão temporária de fluxo |\n| Intermediário | Suporte distal e, em alguns modelos, aspiração |\n| Sistema coaxial | Dois componentes concêntricos |\n| Sistema triaxial | Três cateteres concêntricos |\n\n| Compatibilidade | ID/OD, folga, comprimento e instruções do fabricante |\n| --- | --- |\n| Lavagem contínua | Reduz estase e risco tromboembólico |\n| Embolia gasosa | Exige prevenção rigorosa |\n| Resistência inesperada | Não forçar; investigar causa |\n| Injetora automática | Respeitar pressão e fluxo autorizados |\n| Cateterização diagnóstica | Não garante suporte terapêutico |\n\nSíntese para memorização\n\nO raciocínio técnico da instrumentação neuroendovascular segue esta sequência:\n\nAcesso vascular → navegação proximal → suporte → compatibilidade → entrega do dispositivo → segurança do sistema.\n\nPara a prova, a distinção entre diâmetro externo, diâmetro interno, suporte e navegabilidade é especialmente importante.",
@@ -192,6 +504,10 @@
       "id": "9F",
       "title": "Microcateteres, microguias e navegação",
       "points": [
+        {
+          "concept": "Três perguntas de navegação",
+          "takeaway": "O conjunto alcança o vaso? Há suporte e transição de perfil para a curva? O microcateter comporta o dispositivo ou é compatível com DMSO? Resistência inesperada exige reavaliação angiográfica e mecânica."
+        },
         {
           "concept": "Diâmetro interno do microcateter",
           "takeaway": "Deve aceitar o dispositivo ou guia segundo especificação do fabricante."
@@ -215,6 +531,98 @@
         {
           "concept": "Microcateter de ponta destacável",
           "takeaway": "Pode facilitar retirada em cenários de maior risco de retenção."
+        },
+        {
+          "concept": "Microcateter 0,017\"",
+          "takeaway": "Uso em sistemas de baixo perfil compatíveis"
+        },
+        {
+          "concept": "Microcateter 0,021\"",
+          "takeaway": "Compatibilidade com dispositivos selecionados"
+        },
+        {
+          "concept": "Microcateter 0,027\"",
+          "takeaway": "Necessário para determinados dispositivos de maior perfil"
+        },
+        {
+          "concept": "Microguia 0,014\"",
+          "takeaway": "Calibre frequente em NRI"
+        },
+        {
+          "concept": "Diâmetro do microguia",
+          "takeaway": "Não determina isoladamente a rigidez"
+        },
+        {
+          "concept": "Over-the-wire",
+          "takeaway": "Navegação direcionada por microguia"
+        },
+        {
+          "concept": "Flow-directed",
+          "takeaway": "Progressão auxiliada pelo fluxo"
+        },
+        {
+          "concept": "Trackability",
+          "takeaway": "Acompanhar o trajeto vascular"
+        },
+        {
+          "concept": "Pushability",
+          "takeaway": "Transmitir força longitudinal"
+        },
+        {
+          "concept": "Torqueability",
+          "takeaway": "Transmitir rotação"
+        },
+        {
+          "concept": "Sistema triaxial",
+          "takeaway": "Guia + intermediário + microcateter"
+        },
+        {
+          "concept": "Kickback",
+          "takeaway": "Recuo durante progressão ou liberação"
+        },
+        {
+          "concept": "Resistência inesperada",
+          "takeaway": "Interromper e investigar"
+        },
+        {
+          "concept": "Coils",
+          "takeaway": "Exigem microcateter compatível"
+        },
+        {
+          "concept": "Stent retriever",
+          "takeaway": "Exige sistema de entrega específico"
+        },
+        {
+          "concept": "EVOH",
+          "takeaway": "Requer compatibilidade com DMSO"
+        },
+        {
+          "concept": "NBCA",
+          "takeaway": "Agente adesivo"
+        },
+        {
+          "concept": "Ponta destacável",
+          "takeaway": "Pode reduzir tração traumática em situações previstas"
+        },
+        {
+          "concept": "Refluxo de embolizante",
+          "takeaway": "Pode favorecer aprisionamento"
+        },
+        {
+          "concept": "Microguia hidrofílico",
+          "takeaway": "Menor atrito, mas risco de progressão inadvertida"
+        },
+        {
+          "concept": "Compatibilidade",
+          "takeaway": "Verificar ID, OD, comprimento e fabricante"
+        },
+        {
+          "concept": "Injeção pressurizada",
+          "takeaway": "Apenas quando autorizada para o dispositivo"
+        },
+        {
+          "concept": "Segurança distal",
+          "takeaway": "Visualização, suporte e navegação atraumática"
         }
       ],
       "theory": "## Microcateteres, microguias e técnicas de navegação\n\n## 1. Objetivos e conceitos fundamentais\n\nEsta aula aprofunda a instrumentação distal utilizada na embolização de aneurismas, MAVs, FAVs durais e na trombectomia mecânica.\n\nAo final, você deverá dominar:\n\n- Seleção de microcateteres conforme o procedimento.\n\n- Diferenças entre microguias 0,008\", 0,010\", 0,014\" e 0,016\"/0,018\".\n\n- Compatibilidade entre microcateter, microguia, coils, stents e agentes embolizantes.\n\n- Microcateteres over-the-wire, de fluxo dirigido e destacáveis.\n\n- Técnicas de navegação e suporte coaxial/triaxial.\n\n- Reconhecimento de resistência, refluxo, aprisionamento, dissecção e perfuração.\n\nPrincípio central: a segurança da navegação distal depende da interação entre a anatomia, a ponta do microguia, a flexibilidade do microcateter e a estabilidade do suporte proximal.\n\n## 2. Anatomia funcional de um microcateter\n\nterumocanada.ca\n\nUm microcateter pode apresentar:\n\n- Camada interna de baixo atrito: facilita a passagem de microguias e dispositivos.\n\n- Reforço estrutural: malha ou espiral para transmitir força e resistir ao dobramento.\n\n- Polímeros de rigidez variável: maior suporte proximal e flexibilidade distal.\n\n- Marcadores radiopacos: permitem identificar a extremidade distal sob fluoroscopia.\n\n- Revestimento hidrofílico: reduz atrito externo durante a navegação.\n\nNem todos os microcateteres possuem a mesma construção.\n\nPropriedades relevantes\n\n| Propriedade | Significado prático |\n| --- | --- |\n| ID (inner diameter) | Determina compatibilidade intraluminal |\n| OD (outer diameter) | Influencia passagem pelo vaso e por outros cateteres |\n| Flexibilidade distal | Facilita navegação em vasos tortuosos |\n| Suporte proximal | Ajuda a transmitir força de progressão |\n| Radiopacidade | Permite localizar a ponta |\n| Resistência à pressão | Determina limites de injeção autorizados |\n| Comprimento útil | Deve alcançar o alvo com margem operacional |\n\nPegadinha: um microcateter adequado para entregar coils não é automaticamente compatível com DMSO, Onyx ou injeção pressurizada.\n\n## 3. Diâmetros internos: 0,017\", 0,021\" e 0,027\"\n\nEsses calibres são frequentes na instrumentação neurovascular, mas não constituem uma classificação universal de indicações.\n\n| ID nominal | Aplicações possíveis |\n| --- | --- |\n| 0,017\" | Coils e dispositivos de baixo perfil compatíveis |\n| 0,021\" | Alguns stents intracranianos e sistemas de trombectomia |\n| 0,027\" | Determinados flow diverters e dispositivos de maior perfil |\n\nA compatibilidade depende do modelo e das instruções de uso.\n\nExemplo de raciocínio\n\nUm dispositivo requer microcateter de ID 0,027\". Isso não significa que qualquer microcateter 0,027\" seja adequado: também devem ser considerados comprimento, plataforma de entrega, curvatura, atrito e compatibilidade homologada.\n\nPegadinha de prova: ID nominal igual ao requisito dimensional não garante compatibilidade entre marcas ou sistemas.\n\n## 4. Microguias: calibres e comportamento\n\nOs microguias variam em diâmetro, rigidez, revestimento e formato da ponta.\n\n| Calibre | Considerações |\n| --- | --- |\n| 0,008\" | Aplicações selecionadas de muito baixo perfil |\n| 0,010\" | Navegação delicada e sistemas compatíveis |\n| 0,014\" | Muito utilizado em intervenções neurovasculares |\n| 0,016\"/0,018\" | Maior suporte em sistemas e anatomias selecionados |\n\nO diâmetro não determina isoladamente a rigidez. A construção do núcleo, o afilamento distal, o revestimento e o comprimento da ponta flexível também influenciam o comportamento.\n\nPonta reta, angulada e em J\n\n- Ponta reta: pode facilitar progressão em trajetos favoráveis, mas exige atenção ao risco de\n\n- perfuração.\n\n- Ponta angulada: permite direcionamento em bifurcações e curvas.\n\n- Ponta em J: pode reduzir a tendência de penetração traumática em pequenos ramos em\n\n- situações selecionadas.\n\nNenhuma configuração elimina o risco de lesão vascular.\n\n## 5. Navegação over-the-wire versus flow-directed\n\n![Over-the-wire Microguia direciona a progressão do microcateter. Flow-directed Microcateter muito flexível pode progredir com auxílio do fluxo. Esquemas conceituais, não representações de uma técnica específica. ](/nri-esquemas/9F-635)\n\nOver-the-wire (OTW)\n\nO microguia é utilizado para selecionar o trajeto, e o microcateter progride sobre ele.\n\nVantagens: maior capacidade de direcionamento e controle em anatomias complexas.\n\nRiscos: perfuração por ponta distal, dissecção, entrada em ramos inadequados e formação de alças.\n\nFlow-directed\n\nMicrocateteres muito flexíveis podem acompanhar o fluxo sanguíneo, particularmente em determinados pedículos de MAVs e FAVs.\n\nVantagens: possibilidade de alcançar vasos distais delicados com menor necessidade de força mecânica.\n\nLimitações: dependência da hemodinâmica, dificuldade em trajetos desfavoráveis e controle direcional variável.\n\nPegadinha: flow-directed não significa ausência obrigatória de microguia. A compatibilidade e a técnica variam conforme o sistema.\n\n## 6. Técnicas de navegação segura\n\n## 6.1. Roadmap e visualização da ponta\n\nO roadmap auxilia na orientação do trajeto, mas depende de correspondência entre a imagem de referência e a anatomia atual.\n\nDurante navegação distal, é essencial identificar a posição da ponta do microguia e do microcateter.\n\n## 6.2. Microguia como elemento de direção\n\nO microguia deve selecionar o trajeto pretendido, com progressão controlada do microcateter.\n\nUma ponta distal excessivamente rígida pode aumentar o risco de perfuração, particularmente em vasos pequenos e tortuosos.\n\n## 6.3. Evitar avanço contra resistência\n\nA resistência pode indicar:\n\n- Curva desfavorável.\n\n- Atrito entre dispositivos.\n\n- Falta de suporte proximal.\n\n- Formação de alça.\n\n- Ponta impactada.\n\n- Dissecção ou outra lesão vascular.\n\nConduta conceitual: interromper a progressão, verificar a geometria e identificar a causa antes de prosseguir.\n\n## 7. Suporte proximal e distal\n\nA navegação distal depende de uma plataforma estável.\n\nSistema coaxial\n\nCateter-guia → microcateter.\n\nSistema triaxial\n\nCateter-guia → intermediário → microcateter.\n\nO intermediário pode reduzir a distância entre o suporte e o alvo, melhorando a transmissão de força e a navegabilidade.\n\nEfeito de kickback\n\nKickback é o recuo do microcateter ou de parte do sistema durante a progressão ou liberação de um dispositivo.\n\nPode ocorrer devido à resistência distal, tortuosidade, falta de suporte ou interação entre dispositivos.\n\nPegadinha: kickback não significa obrigatoriamente que o microcateter está mal posicionado desde o início; pode surgir durante a entrega de um dispositivo.\n\n## 8. Técnica de troca e comprimento de microguia\n\nAlguns procedimentos exigem troca de microcateter mantendo o acesso ao território-alvo.\n\nIsso depende de fio com comprimento e características adequados à técnica.\n\nA troca deve preservar a posição vascular sem gerar tensão excessiva no sistema.\n\nPegadinha: um microguia adequado para navegação não é automaticamente adequado para uma troca de cateteres.\n\n## 9. Microcateteres para coils\n\nNa embolização de aneurismas, a seleção depende de:\n\n- Tamanho e geometria do aneurisma.\n\n- Relação colo–domo.\n\n- Ângulo de entrada.\n\n- Compatibilidade com os coils.\n\n- Necessidade de suporte adicional.\n\n- Comportamento da ponta durante a liberação.\n\nFormação da ponta\n\nAlguns microcateteres podem receber conformação distal compatível com suas especificações.\n\nA conformação pode melhorar o alinhamento com o eixo do aneurisma.\n\nPegadinha: uma ponta adequadamente conformada não elimina o risco de perfuração do saco aneurismático.\n\n## 10. Microcateteres para embolizantes líquidos\n\nA embolização com agentes líquidos apresenta exigências específicas.\n\nNBCA\n\nO N-butil-cianoacrilato é um agente adesivo que polimeriza em contato com o meio iônico.\n\nO preparo e a compatibilidade do sistema são essenciais.\n\nEVOH — Onyx e agentes relacionados\n\nO EVOH é um copolímero não adesivo dissolvido em DMSO, associado a material radiopaco em determinadas formulações.\n\nA administração requer microcateter compatível com DMSO.\n\nDiferenças essenciais\n\n| Característica | NBCA | EVOH |\n| --- | --- | --- |\n| Comportamento | Adesivo | Não adesivo |\n| Mecanismo | Polimerização | Precipitação do polímero |\n| Solvente associado | Preparação com componentes apropriados à técnica | DMSO |\n| Risco importante | Colagem/aprisionamento do microcateter | Refluxo, aprisionamento e lesão por injeção |\n| Microcateter | Compatível com a formulação e técnica | Compatível com DMSO |\n\nPegadinha: EVOH não adesivo não significa ausência de risco de aprisionamento do microcateter.\n\n## 11. Microcateteres destacáveis\n\ncor-medical.ua\n\nAlguns microcateteres utilizados em embolização líquida possuem ponta destacável.\n\nObjetivo\n\nPermitir que uma porção distal seja separada em condições previstas pelo dispositivo, reduzindo a necessidade de tração traumática quando há incorporação da ponta pelo material embolizante.\n\nLimitações\n\n- O destacamento não é garantia de segurança em qualquer situação.\n\n- O segmento destacado permanece no território vascular.\n\n- A indicação e a técnica dependem do dispositivo.\n\nPegadinha: microcateter destacável não é sinônimo de microcateter universalmente compatível com qualquer embolizante.\n\n## 12. Microcateteres na trombectomia mecânica\n\nNa trombectomia, o microcateter pode ser utilizado para atravessar o trombo e entregar um stent retriever.\n\nEm técnicas combinadas, interage com cateteres intermediários de aspiração e sistemas proximais de suporte.\n\nAspectos críticos\n\n- Perfil do microcateter.\n\n- Compatibilidade com o stent retriever.\n\n- Navegação distal atraumática.\n\n- Posição do sistema em relação ao trombo.\n\n- Suporte proximal e aspiração conforme a técnica.\n\nPegadinha: a seleção do microcateter para um stent retriever deve seguir a compatibilidade específica do dispositivo, não apenas seu diâmetro nominal.\n\n## 13. Complicações da navegação distal\n\n| Complicação | Mecanismo | Ponto de atenção |\n| --- | --- | --- |\n| Perfuração | Avanço traumático de microguia ou microcateter | Ponta distal e resistência |\n| Dissecção | Trauma da íntima | Manipulação em segmentos tortuosos |\n| Vasoespasmo | Irritação mecânica | Navegação repetida |\n| Tromboembolismo | Estase ou trombo no sistema | Lavagem e técnica apropriada |\n| Embolia gasosa | Entrada de ar | Purgar conexões |\n| Kickback | Perda de suporte durante entrega | Estabilidade proximal |\n| Aprisionamento | Interação com embolizante ou anatomia | Refluxo e limites do sistema |\n| Ruptura de dispositivo | Tração, torção ou pressão excessiva | Respeitar especificações |\n\nSinal de alerta\n\nUma alteração súbita na resistência, na posição da ponta ou no comportamento do dispositivo deve levar à reavaliação antes de novas manobras.\n\n## 14. Integração com a segurança do contraste — CBR\n\nA referência do CBR incorporada ao Bloco 9 é particularmente útil para reconhecer reações adversas sistêmicas e princípios de segurança da administração de contraste.\n\nEntretanto, seus parâmetros voltados à administração intravenosa não definem automaticamente a pressão máxima, o fluxo ou a compatibilidade de microcateteres neuroarteriais.\n\nPara esses dispositivos, devem prevalecer as instruções específicas do fabricante e os protocolos do procedimento.\n\n## 15. Tabela final — Decorebas e pegadinhas da Aula 9F\n\n| Tema | Conceito-chave para prova |\n| --- | --- |\n| Microcateter 0,017\" | Uso em sistemas de baixo perfil compatíveis |\n| Microcateter 0,021\" | Compatibilidade com dispositivos selecionados |\n| Microcateter 0,027\" | Necessário para determinados dispositivos de maior perfil |\n| Microguia 0,014\" | Calibre frequente em NRI |\n| Diâmetro do microguia | Não determina isoladamente a rigidez |\n| Over-the-wire | Navegação direcionada por microguia |\n| Flow-directed | Progressão auxiliada pelo fluxo |\n| Trackability | Acompanhar o trajeto vascular |\n| Pushability | Transmitir força longitudinal |\n| Torqueability | Transmitir rotação |\n| Sistema triaxial | Guia + intermediário + microcateter |\n| Kickback | Recuo durante progressão ou liberação |\n| Resistência inesperada | Interromper e investigar |\n| Coils | Exigem microcateter compatível |\n| Stent retriever | Exige sistema de entrega específico |\n| EVOH | Requer compatibilidade com DMSO |\n| NBCA | Agente adesivo |\n| Ponta destacável | Pode reduzir tração traumática em situações previstas |\n\n| Refluxo de embolizante | Pode favorecer aprisionamento |\n| --- | --- |\n| Microguia hidrofílico | Menor atrito, mas risco de progressão inadvertida |\n| Comprimento útil | Fundamental para alcançar o alvo |\n| Compatibilidade | Verificar ID, OD, comprimento e fabricante |\n| Injeção pressurizada | Apenas quando autorizada para o dispositivo |\n| Segurança distal | Visualização, suporte e navegação atraumática |\n\nSíntese para a prova\n\nO microcateter deve ser escolhido em função de três compatibilidades simultâneas:\n\n## 1. Anatômica: consegue alcançar o vaso-alvo com segurança?\n\n## 2. Mecânica: apresenta flexibilidade, suporte e comprimento adequados?\n\n## 3. Funcional: é compatível com o dispositivo ou embolizante a ser entregue?\n\nUma falha em qualquer uma dessas dimensões pode inviabilizar o procedimento, mesmo que o microcateter alcance a posição desejada.",
@@ -234,6 +642,10 @@
       "id": "9G",
       "title": "Partículas, coils, NBCA e EVOH",
       "points": [
+        {
+          "concept": "Escolha do agente",
+          "takeaway": "Partículas penetram conforme calibre e fluxo; coils ocluem mecanicamente; NBCA polimeriza e adere; EVOH precipita. Tamanho de partícula, estabilidade da ponta e limites de refluxo devem considerar conexões com retina, nervos ou parênquima."
+        },
         {
           "concept": "Partículas",
           "takeaway": "Embolizam leitos arteriais distais de forma dependente da distribuição e do tamanho."
@@ -257,6 +669,86 @@
         {
           "concept": "Refluxo de líquido embolizante",
           "takeaway": "Deve ser controlado devido ao risco de ocluir ramos normais ou reter o cateter."
+        },
+        {
+          "concept": "Partículas menores",
+          "takeaway": "Maior potencial de penetração distal"
+        },
+        {
+          "concept": "PVA irregular",
+          "takeaway": "Pode apresentar agregação"
+        },
+        {
+          "concept": "Microesferas calibradas",
+          "takeaway": "Distribuição dimensional mais uniforme"
+        },
+        {
+          "concept": "Coil destacável",
+          "takeaway": "Pode ser reposicionado antes do destacamento, conforme sistema"
+        },
+        {
+          "concept": "Framing",
+          "takeaway": "Estrutura inicial no aneurisma"
+        },
+        {
+          "concept": "Filling",
+          "takeaway": "Preenchimento do saco"
+        },
+        {
+          "concept": "Finishing",
+          "takeaway": "Complementação da oclusão"
+        },
+        {
+          "concept": "NBCA + óleo iodado",
+          "takeaway": "Mistura influencia cinética e radiopacidade"
+        },
+        {
+          "concept": "Onyx",
+          "takeaway": "EVOH + DMSO + tântalo"
+        },
+        {
+          "concept": "Onyx 18",
+          "takeaway": "Menor viscosidade nominal que Onyx 34"
+        },
+        {
+          "concept": "PHIL",
+          "takeaway": "Radiopacidade ligada ao polímero"
+        },
+        {
+          "concept": "DMSO",
+          "takeaway": "Exige microcateter compatível"
+        },
+        {
+          "concept": "Microcateter destacável",
+          "takeaway": "Pode reduzir necessidade de tração traumática"
+        },
+        {
+          "concept": "FAV dural",
+          "takeaway": "Oclusão do ponto fistuloso é fundamental"
+        },
+        {
+          "concept": "MAV",
+          "takeaway": "Preservar drenagem venosa até controle apropriado do influxo"
+        },
+        {
+          "concept": "Artéria en passage",
+          "takeaway": "Irriga também tecido normal"
+        },
+        {
+          "concept": "Anastomoses perigosas",
+          "takeaway": "Risco de embolização não alvo"
+        },
+        {
+          "concept": "Refluxo",
+          "takeaway": "Pode ser controlado ou representar complicação"
+        },
+        {
+          "concept": "Aprisionamento",
+          "takeaway": "Possível com NBCA e EVOH"
+        },
+        {
+          "concept": "Cura angiográfica",
+          "takeaway": "Depende da doença e do compartimento ocluído"
         }
       ],
       "theory": "## Embolizantes: partículas, coils, NBCA, EVOH e agentes líquidos\n\n## 1. Princípio fundamental: o que cada embolizante faz?\n\nO objetivo da embolização não é simplesmente interromper o fluxo em um vaso. É produzir uma oclusão no compartimento vascular correto, com extensão e permanência apropriadas, preservando a circulação normal.\n\nA escolha depende de cinco fatores: anatomia, hemodinâmica, objetivo terapêutico, comportamento do agente e possibilidade de refluxo ou embolização não alvo.\n\n| Material | Mecanismo principal | Controle da oclusão |\n| --- | --- | --- |\n| Partículas | Obstrução de vasos distais | Distribuição dependente de fluxo e tamanho |\n| Coils | Oclusão mecânica com contribuição da trombose | Posicionamento focal |\n| NBCA | Polimerização de adesivo líquido | Dependente da mistura, fluxo e técnica |\n| EVOH | Precipitação de polímero não adesivo | Progressão sob controle angiográfico |\n| Esclerosantes | Lesão endotelial e trombose | Dependente da substância e do tecido |\n\nPegadinha: oclusão angiográfica imediata não garante cura definitiva da doença. Em MAVs e FAVs, a localização da oclusão é tão importante quanto sua extensão.\n\n## 2. Partículas embolizantes\n\nPVA — álcool polivinílico\n\nAs partículas tradicionais de PVA são frequentemente irregulares e podem apresentar agregação, com comportamento menos previsível do que microesferas calibradas.\n\nMicroesferas calibradas\n\nPossuem distribuição dimensional mais uniforme, embora o comportamento real também dependa da deformabilidade, da suspensão e das características do vaso.\n\n| Característica | PVA irregular | Microesferas calibradas |\n| --- | --- | --- |\n| Formato | Irregular | Geralmente esférico |\n| Distribuição dimensional | Menos uniforme | Mais uniforme |\n| Agregação | Pode ocorrer | Depende do produto |\n| Penetração distal | Variável | Mais previsível, não absoluta |\n\nRelação tamanho–penetração\n\nEm termos gerais, partículas menores podem alcançar vasos mais distais, aumentando o risco de oclusão de territórios não pretendidos quando existem anastomoses perigosas.\n\nNa embolização de ramos da carótida externa, é essencial reconhecer conexões com as circulações oftálmica, carotídea interna e vertebrobasilar.\n\nPegadinha: partículas não são agentes ideais para toda FAV de alto fluxo; a passagem através de comunicações arteriovenosas pode resultar em embolização venosa ou sistêmica.\n\n## 3. Coils — oclusão mecânica\n\nkup.at\n\nOs coils são geralmente dispositivos metálicos, frequentemente de platina, utilizados para produzir oclusão mecânica e favorecer trombose.\n\nDestacáveis versus pushable\n\nCoil destacável Coil pushable\n\n| Permite avaliação da posição antes do destacamento | Geralmente não permite reposicionamento após liberação |\n| --- | --- |\n| Pode ser recuperado ou reposicionado antes do destacamento, conforme o sistema | Usado em situações selecionadas de embolização |\n| Importante na embolização intracraniana de aneurismas | Mais comum em determinadas oclusões vasculares proximais |\n\nFraming, filling e finishing\n\n- Framing: estabelece uma estrutura inicial no saco aneurismático.\n\n- Filling: ocupa o espaço interno.\n\n- Finishing: completa áreas residuais com coils apropriados.\n\nEssas categorias descrevem funções, não necessariamente materiais quimicamente distintos.\n\nComplicações\n\n- Perfuração aneurismática.\n\n- Protrusão ou herniação de coil para a artéria parental.\n\n- Tromboembolismo.\n\n- Migração do coil.\n\n- Recanalização tardia por compactação ou crescimento do aneurisma.\n\nPegadinha: alta densidade de empacotamento pode favorecer estabilidade da oclusão, mas não elimina o risco de recanalização.\n\n## 4. NBCA — N-butil-cianoacrilato\n\nO NBCA é um agente líquido adesivo, que polimeriza em contato com componentes iônicos do sangue.\n\nCostuma ser preparado com óleo iodado radiopaco, conforme formulação e técnica.\n\nO que determina o comportamento?\n\nA proporção de NBCA e óleo iodado, o fluxo vascular e a geometria do pedículo influenciam a velocidade de polimerização e a penetração.\n\nDe modo geral, maior diluição com óleo iodado tende a retardar a polimerização e permitir maior penetração, mas não existe uma relação universal que dispense considerar fluxo e anatomia.\n\nRiscos principais\n\n- Colagem e aprisionamento do microcateter.\n\n- Refluxo proximal.\n\n- Oclusão de ramos normais.\n\n- Migração para o compartimento venoso.\n\n- Oclusão incompleta do ponto fistuloso.\n\nPegadinha: NBCA não é um agente puramente mecânico como o coil. Seu comportamento depende de uma reação química de polimerização.\n\n## 5. EVOH — copolímero de etileno-álcool vinílico\n\nabsc.kz\n\nO EVOH, utilizado em produtos como Onyx, é um polímero não adesivo, dissolvido em DMSO.\n\nEm formulações como Onyx, partículas de tântalo proporcionam radiopacidade.\n\nMecanismo\n\nApós a injeção, o DMSO difunde-se para o sangue e o polímero precipita, formando um molde intravascular.\n\nIsso difere da polimerização do NBCA.\n\nPropriedades importantes\n\n- Permite injeção controlada e progressiva em condições apropriadas.\n\n- Pode formar um tampão proximal de refluxo que modifica a distribuição subsequente.\n\n- Requer microcateter compatível com DMSO.\n\n- Pode provocar aprisionamento do microcateter.\n\n- A injeção excessiva ou inadequada pode produzir lesão vascular.\n\nOnyx 18 versus Onyx 34\n\nEm termos gerais, Onyx 18 apresenta menor viscosidade nominal que Onyx 34, podendo favorecer maior penetração distal em condições comparáveis.\n\nEntretanto, a viscosidade não determina sozinha a penetração: fluxo, posição do microcateter, geometria e técnica influenciam decisivamente o resultado.\n\nPegadinha: EVOH é não adesivo, mas pode aprisionar o microcateter por incorporação ao molde embolizante.\n\n## 6. NBCA versus EVOH — comparação obrigatória\n\n| Característica | NBCA | EVOH |\n| --- | --- | --- |\n| Natureza | Adesivo | Não adesivo |\n| Mecanismo | Polimerização | Precipitação |\n| Preparação | Mistura apropriada com óleo iodado | Polímero dissolvido em DMSO |\n| Controle da injeção | Fortemente dependente da cinética de polimerização | Pode permitir progressão mais prolongada |\n| Risco de aprisionamento | Adesão do cateter | Incorporação ao molde/refluxo |\n| Radiopacidade | Geralmente por óleo iodado | Tântalo em Onyx |\n| Principal armadilha | Colagem e refluxo | Refluxo excessivo e aprisionamento |\n\nA escolha entre os agentes não pode ser feita apenas com base na preferência pelo material. Deve considerar a lesão, a rota de acesso, o objetivo e a experiência técnica.\n\n## 7. PHIL, Squid e outros agentes líquidos\n\nAlém do Onyx, existem outras formulações de embolizantes líquidos.\n\nPHIL é um agente não adesivo baseado em polímero, com radiopacidade obtida por componente iodado ligado ao material, diferentemente do tântalo particulado do Onyx.\n\nSquid é outra formulação de EVOH com DMSO, disponível em diferentes viscosidades.\n\n| Agente | Distinção relevante |\n| --- | --- |\n| Onyx | EVOH/DMSO com tântalo |\n| Squid | EVOH/DMSO com formulações próprias |\n| PHIL | Polímero não adesivo com radiopacidade ligada ao composto |\n\nPegadinha: agentes líquidos não adesivos não são todos quimicamente idênticos. Compatibilidade com solventes, microcateteres e técnicas deve ser verificada para cada produto.\n\n## 8. Embolização de FAV dural — o ponto mais importante\n\nEm uma FAV dural, o objetivo curativo é interromper a comunicação arteriovenosa patológica, incluindo o ponto fistuloso e, quando necessário, o segmento venoso proximal relacionado à fístula.\n\nA simples oclusão proximal de um pedículo arterial pode não curar a lesão.\n\nPor quê?\n\nPorque a FAV pode receber múltiplos pedículos arteriais. Se apenas uma artéria nutridora for ocluída proximalmente, outras podem continuar alimentando o ponto fistuloso.\n\nPegadinha de alto rendimento: em FAV dural, a embolização arterial curativa exige alcançar o compartimento fistuloso adequado; oclusão isolada de uma nutridora não equivale necessariamente à cura.\n\nA escolha entre abordagem transarterial, transvenosa ou combinada depende da anatomia e da drenagem venosa.\n\n## 9. Embolização de MAV cerebral\n\nNa MAV, é necessário distinguir:\n\n- Artérias nutridoras.\n\n- Nidus.\n\n- Drenagem venosa.\n\n- Artérias de passagem ( en passage ).\n\n- Aneurismas associados.\n\n- Compartimentos hemodinâmicos.\n\nOclusão venosa precoce\n\nA obstrução da drenagem venosa antes do controle adequado do influxo arterial pode aumentar a pressão intranidal e contribuir para ruptura.\n\nPegadinha: oclusão venosa prematura pode ser perigosa em MAVs com fluxo arterial persistente.\n\nArtérias en passage\n\nSão artérias que fornecem ramos à MAV, mas também irrigam parênquima normal distalmente.\n\nSua embolização exige extremo cuidado para evitar infarto.\n\nPegadinha: nem toda artéria que contribui para o nidus pode ser sacrificada com segurança.\n\n## 10. Anastomoses perigosas e embolização não alvo\n\nNa embolização de territórios da carótida externa, é indispensável reconhecer possíveis comunicações com a circulação intracraniana.\n\nExemplos de regiões de risco:\n\n| Região | Risco |\n| --- | --- |\n| Ramos orbitários da meníngea média | Comunicação com circulação oftálmica |\n| Ramos cavernosos da meníngea média | Anastomoses com ramos da carótida interna |\n| Território faríngeo ascendente | Suprimento de nervos cranianos e anastomoses intracranianas |\n| Ramos occipitais e vertebrais | Comunicações com circulação vertebrobasilar |\n| Ramos petrosos e estilomastoideos | Isquemia de estruturas neurais |\n\nA relevância clínica depende da anatomia individual e do comportamento do agente embolizante.\n\nPegadinha: agentes líquidos e partículas podem atravessar anastomoses que não são evidentes em todas as projeções angiográficas.\n\n## 11. Refluxo e aprisionamento do microcateter\n\nRefluxo significa progressão retrógrada do agente embolizante em relação ao fluxo pretendido.\n\nNem todo refluxo é necessariamente indesejado: em algumas técnicas com EVOH, um tampão proximal controlado faz parte da estratégia.\n\nEntretanto, refluxo excessivo pode causar:\n\n- Oclusão de ramos normais.\n\n- Incorporação do microcateter.\n\n- Perda de acesso.\n\n- Complicações isquêmicas.\n\nPegadinha: refluxo controlado e refluxo perigoso não são sinônimos. A distinção depende do agente, do dispositivo e da anatomia.\n\n## 12. Embolização de aneurismas com coils versus agentes líquidos\n\nOs coils são amplamente empregados para tratamento endossacular de aneurismas.\n\nAgentes líquidos não são substitutos universais dos coils no tratamento de aneurismas saculares intracranianos.\n\nA seleção terapêutica depende da morfologia aneurismática, do colo, da relação com a artéria parental e dos dispositivos disponíveis.\n\nPegadinha: não se deve generalizar técnicas de embolização líquida de MAVs e FAVs para aneurismas saculares.\n\n## 13. Complicações dos embolizantes\n\n| Complicação | Materiais envolvidos | Mecanismo |\n| --- | --- | --- |\n| Embolização não alvo | Partículas, NBCA, EVOH | Passagem para vasos normais |\n| Perfuração | Coils, microcateteres, microguias | Trauma mecânico |\n| Aprisionamento do microcateter | NBCA, EVOH | Adesão ou incorporação |\n| Migração de coil | Coils | Instabilidade ou posicionamento inadequado |\n| Recanalização | Coils e outras técnicas | Oclusão incompleta ou alterações tardias |\n| Isquemia por anastomose | Partículas e líquidos | Passagem para circulação não pretendida |\n| Hemorragia | Embolização de MAV/FAV | Alteração hemodinâmica ou lesão vascular |\n| Reação relacionada ao solvente | Alguns líquidos | Exposição inadequada ou incompatibilidade |\n\n## 14. Tabela final — Decorebas e pegadinhas\n\n| Tema | Conceito de prova |\n| --- | --- |\n| Partículas menores | Maior potencial de penetração distal |\n| PVA irregular | Pode apresentar agregação |\n| Microesferas calibradas | Distribuição dimensional mais uniforme |\n| Coils | Oclusão mecânica e trombose |\n| Coil destacável | Pode ser reposicionado antes do destacamento, conforme sistema |\n| Framing | Estrutura inicial no aneurisma |\n| Filling | Preenchimento do saco |\n| Finishing | Complementação da oclusão |\n| NBCA | Adesivo; polimerização |\n| NBCA + óleo iodado | Mistura influencia cinética e radiopacidade |\n| EVOH | Não adesivo; precipitação |\n| Onyx | EVOH + DMSO + tântalo |\n| Onyx 18 | Menor viscosidade nominal que Onyx 34 |\n| PHIL | Radiopacidade ligada ao polímero |\n| DMSO | Exige microcateter compatível |\n| Microcateter destacável | Pode reduzir necessidade de tração traumática |\n| FAV dural | Oclusão do ponto fistuloso é fundamental |\n| MAV | Preservar drenagem venosa até controle apropriado do influxo |\n| Artéria en passage | Irriga também tecido normal |\n| Anastomoses perigosas | Risco de embolização não alvo |\n| Refluxo | Pode ser controlado ou representar complicação |\n| Aprisionamento | Possível com NBCA e EVOH |\n| Cura angiográfica | Depende da doença e do compartimento ocluído |\n\nSíntese de memorização\n\nPartículas obstruem. Coils ocupam e favorecem trombose. NBCA polimeriza. EVOH precipita.\n\nO conceito decisivo para a NRI é determinar onde o material deve terminar. O mesmo agente pode ser eficaz ou perigoso dependendo da anatomia, da hemodinâmica e da localização final da oclusão."
@@ -265,6 +757,10 @@
       "id": "9H",
       "title": "Balões, remodelamento e angioplastia",
       "points": [
+        {
+          "concept": "Complacência e complicações",
+          "takeaway": "Balões de remodelamento oferecem suporte temporário ao colo. Angioplastia modifica o lúmen e pode lesar parede ou ocluir perfurantes por efeito snowplow. Teste de oclusão estima tolerância nas condições avaliadas."
+        },
         {
           "concept": "Balão complacente",
           "takeaway": "Adapta-se mais ao contorno, útil em remodelamento de colo."
@@ -288,6 +784,98 @@
         {
           "concept": "Efeito snowplow",
           "takeaway": "Deslocamento de placa sobre perfurantes adjacentes à estenose."
+        },
+        {
+          "concept": "Balão não complacente",
+          "takeaway": "Diâmetro mais previsível"
+        },
+        {
+          "concept": "RBP",
+          "takeaway": "Limite especificado; não é pressão-alvo"
+        },
+        {
+          "concept": "Remodelamento",
+          "takeaway": "Suporte temporário ao colo aneurismático"
+        },
+        {
+          "concept": "Balloon-assisted coiling",
+          "takeaway": "Balão não permanece implantado"
+        },
+        {
+          "concept": "Stent-assisted coiling",
+          "takeaway": "Suporte permanente"
+        },
+        {
+          "concept": "Duplo balão",
+          "takeaway": "Dois dispositivos; não confundir com duplo lúmen"
+        },
+        {
+          "concept": "Duplo lúmen",
+          "takeaway": "Vias funcionais separadas"
+        },
+        {
+          "concept": "Balão-guia",
+          "takeaway": "Controle de fluxo proximal"
+        },
+        {
+          "concept": "Angioplastia carotídea",
+          "takeaway": "Atenção a bradicardia e hipotensão"
+        },
+        {
+          "concept": "Pré-dilatação",
+          "takeaway": "Facilita tratamento em casos selecionados"
+        },
+        {
+          "concept": "Pós-dilatação",
+          "takeaway": "Otimiza expansão em casos selecionados"
+        },
+        {
+          "concept": "Angioplastia intracraniana",
+          "takeaway": "Risco de dissecção, ruptura e perfurantes"
+        },
+        {
+          "concept": "Snow-plowing",
+          "takeaway": "Comprometimento de perfurantes por deslocamento de placa"
+        },
+        {
+          "concept": "SAMMPRIS",
+          "takeaway": "Evidência contra stent intracraniano como tratamento inicial rotineiro"
+        },
+        {
+          "concept": "CASSISS",
+          "takeaway": "Não demonstrou benefício adicional do stent à terapia clínica no desfecho primário"
+        },
+        {
+          "concept": "Vasoespasmo proximal",
+          "takeaway": "Possível aplicação de angioplastia"
+        },
+        {
+          "concept": "Vasoespasmo distal",
+          "takeaway": "Vasodilatador IA pode ser alternativa"
+        },
+        {
+          "concept": "Vasoespasmo ≠ DCI",
+          "takeaway": "DCI é multifatorial"
+        },
+        {
+          "concept": "Balão + EVOH",
+          "takeaway": "Pode reduzir refluxo em sistemas compatíveis"
+        },
+        {
+          "concept": "Anastomoses perigosas",
+          "takeaway": "Permanecem relevantes mesmo com balão"
+        },
+        {
+          "concept": "Insuflação excessiva",
+          "takeaway": "Risco de ruptura"
+        },
+        {
+          "concept": "Oclusão temporária",
+          "takeaway": "Pode causar isquemia"
+        },
+        {
+          "concept": "Seleção do balão",
+          "takeaway": "Depende de vaso, lesão e finalidade"
         }
       ],
       "theory": "## Balões mono/duplo lúmen, remodelamento e angioplastia\n\n## 1. Objetivos da aula\n\nAo final, você deverá compreender:\n\n- Diferenças entre balões de lúmen único e duplo lúmen.\n\n- Balões complacentes, semicomplacentes e não complacentes.\n\n- Remodelamento com balão no tratamento de aneurismas de colo largo.\n\n- Balões de oclusão proximal e controle de fluxo.\n\n- Angioplastia carotídea e intracraniana.\n\n- Angioplastia de vasoespasmo após hemorragia subaracnóidea.\n\n- Complicações: dissecção, ruptura, tromboembolismo, hiperperfusão e oclusão de ramos.\n\nO conceito central é que balões podem ter funções diferentes: remodelar, dilatar, ocluir temporariamente ou auxiliar a entrega de um agente embolizante. Essas finalidades não devem ser\n\nconfundidas.\n\n## 2. Anatomia e funcionamento dos balões\n\nnch-neurosurgery.jp\n\nUm cateter-balão contém um segmento expansível próximo à extremidade distal.\n\nO comportamento depende de sua construção, comprimento, diâmetro, pressão e características do material.\n\nLúmen único versus duplo lúmen\n\n| Característica | Lúmen único | Duplo lúmen |\n| --- | --- | --- |\n| Estrutura | Via funcional destinada à navegação/insuflação conforme o modelo | Vias separadas para insuflação e injeção/navegação conforme o dispositivo |\n| Uso típico | Remodelamento e oclusão temporária em modelos específicos | Embolização assistida por balão em modelos compatíveis |\n| Injeção de embolizante | Não é universalmente disponível | Pode ser realizada pelo lúmen destinado à injeção |\n| Principal vantagem | Perfil e comportamento adequados a determinadas técnicas | Possibilidade de oclusão temporária associada à administração de material |\n\nImportante: a nomenclatura varia entre fabricantes. Não se deve inferir a arquitetura exata ou as possibilidades de injeção apenas pela expressão “balão de lúmen único”.\n\nBalão de duplo lúmen na embolização\n\nAlguns dispositivos permitem insuflar o balão e injetar agente embolizante através de um lúmen separado, favorecendo controle do refluxo e da penetração em situações selecionadas.\n\nPegadinha: possuir dois lúmens não significa compatibilidade automática com DMSO ou qualquer agente líquido.\n\n## 3. Complacência dos balões\n\n![Comparação conceitual Balão complacente Adapta-se mais à geometria do vaso; a forma depende da pressão e do ambiente. Balão não complacente Apresenta diâmetro mais previsível dentro da faixa de pressão especificada. Esquema simplificado; a geometria real depende do modelo e da anatomia. ](/nri-esquemas/9H-666)\n\n| Tipo | Comportamento | Aplicação |\n| --- | --- | --- |\n| Complacente | Expande-se e adapta-se mais ao contorno vascular | Remodelamento de aneurismas e oclusão temporária |\n| Semicomplacen te | Expansão intermediária, dependente da pressão | Angioplastia e outras técnicas conforme o dispositivo |\n| Não complacente | Diâmetro mais controlado dentro da faixa especificada | Dilatação de estenoses selecionadas |\n\nPressão nominal e pressão de ruptura\n\n- Pressão nominal: pressão associada ao diâmetro nominal do balão.\n\n- Rated burst pressure (RBP): limite de pressão especificado pelo fabricante com critérios de\n\n- segurança e ensaio definidos.\n\nA RBP não deve ser tratada como uma meta de insuflação.\n\nPegadinha: maior pressão não significa automaticamente maior eficácia. Pode aumentar o risco de dissecção ou ruptura.\n\n## 4. Remodelamento com balão — Balloon-assisted coiling\n\nnch-neurosurgery.jp\n\nA técnica de remodelamento com balão é utilizada em aneurismas selecionados, particularmente quando o colo largo dificulta a estabilidade dos coils.\n\nConceito\n\nUm balão é temporariamente insuflado na artéria parental, junto ao colo aneurismático, durante etapas da colocação dos coils.\n\nO balão fornece suporte temporário para evitar protrusão dos coils na artéria parental.\n\nApós a desinsuflação, é necessário verificar a estabilidade do material e a patência vascular.\n\nVantagens\n\n- Pode permitir embolização de aneurismas de colo largo.\n\n- Evita a necessidade de implante permanente de stent em determinados casos.\n\n- Pode ser útil quando se deseja evitar terapia antiplaquetária dupla relacionada a stent.\n\nLimitações\n\n- Oclusão temporária do fluxo durante insuflação.\n\n- Risco de tromboembolismo.\n\n- Risco de lesão da parede vascular.\n\n- Possibilidade de deslocamento dos coils após desinsuflação.\n\nPegadinha: o balão não permanece implantado no vaso. Sua função é temporária.\n\n## 5. Remodelamento com balão versus stent-assisted coiling\n\n| Característica | Balloon-assisted coiling | Stent-assisted coiling |\n| --- | --- | --- |\n| Dispositivo de suporte | Temporário | Permanente |\n| Suporte ao colo | Durante insuflação | Persistente após implantação |\n| Terapia antiplaquetária | Depende do contexto; não exige DAPT apenas pelo balão | Geralmente exige estratégia antiplaquetária específica |\n\n| Oclusão temporária do fluxo | Pode ocorrer | Não é característica necessária |\n| --- | --- | --- |\n| Aplicação | Aneurismas selecionados de colo largo | Aneurismas selecionados de colo largo ou anatomia complexa |\n\nPegadinha: a escolha não depende apenas da largura do colo; anatomia da bifurcação, ramos incorporados, condição de ruptura e estratégia antitrombótica também importam.\n\n## 6. Balão de remodelamento e bifurcações\n\nEm aneurismas de bifurcação, o colo pode envolver mais de um ramo.\n\nAlgumas estratégias utilizam balões posicionados em ramos diferentes para remodelar a região do colo.\n\nTécnica de duplo balão\n\nPode ser considerada em anatomias selecionadas, mas aumenta a complexidade do procedimento.\n\nRiscos\n\n- Maior manipulação intracraniana.\n\n- Oclusão temporária de múltiplos ramos.\n\n- Tromboembolismo.\n\n- Lesão vascular.\n\nPegadinha: uma técnica com dois balões não é sinônimo de um único cateter-balão de duplo lúmen.\n\n## 7. Balão-guia e oclusão proximal\n\nO balão-guia pode produzir interrupção temporária do fluxo anterógrado proximal.\n\nÉ particularmente relevante em estratégias de trombectomia mecânica e em determinadas situações de controle de fluxo.\n\nObjetivos\n\n- Reduzir fluxo anterógrado durante retirada do trombo.\n\n- Favorecer aspiração e controle de fragmentos embólicos.\n\n- Fornecer plataforma proximal de suporte.\n\nPegadinha: balão-guia proximal e balão de remodelamento intracraniano são dispositivos com funções distintas.\n\n## 8. Angioplastia carotídea extracraniana\n\nA angioplastia carotídea é utilizada em situações selecionadas, frequentemente associada a implante de stent.\n\nPrincípios\n\n- Avaliação da estenose e da morfologia da placa.\n\n- Seleção do sistema de proteção embólica quando indicado e viável.\n\n- Escolha do balão conforme o vaso e a lesão.\n\n- Atenção à possibilidade de bradicardia e hipotensão pela estimulação do seio carotídeo.\n\nPré-dilatação e pós-dilatação\n\n- Pré-dilatação: pode facilitar a passagem ou expansão do stent.\n\n- Pós-dilatação: pode otimizar a expansão em situações selecionadas.\n\nA necessidade dessas etapas depende da anatomia, da lesão e da estratégia.\n\nPegadinha: dilatação excessiva pode aumentar risco de lesão vascular e embolização.\n\n## 9. Angioplastia intracraniana para estenose aterosclerótica\n\nA angioplastia intracraniana exige atenção especial devido ao menor calibre vascular, à tortuosidade e à presença de ramos perfurantes.\n\nComplicações importantes\n\n- Dissecção.\n\n- Ruptura.\n\n- Tromboembolismo.\n\n- Oclusão de perfurantes.\n\n- Reestenose.\n\n- Hiperperfusão em situações selecionadas.\n\nSnow-plowing\n\nO termo snow-plowing descreve o deslocamento de material ateromatoso durante a expansão do balão ou stent, potencialmente comprometendo a origem de ramos perfurantes.\n\nÉ especialmente relevante em lesões de segmentos ricos em perfurantes, como a artéria basilar.\n\nPegadinha: melhora do calibre luminal não garante ausência de complicações isquêmicas em perfurantes.\n\nEvidência clínica\n\nPara estenose aterosclerótica intracraniana sintomática, o tratamento clínico intensivo é a estratégia inicial preferencial na maioria dos pacientes. Ensaios como SAMMPRIS e CASSISS demonstraram limitações importantes do stent como tratamento inicial rotineiro.\n\nA angioplastia isolada e o stent podem ser considerados em situações muito selecionadas, mas não devem ser tratados como substitutos universais do tratamento clínico.\n\n## 10. Angioplastia de vasoespasmo após HSA\n\nApós hemorragia subaracnóidea aneurismática, vasoespasmo angiográfico pode contribuir para isquemia cerebral tardia.\n\nEm pacientes selecionados com vasoespasmo grave e deterioração clínica, pode ser considerada terapia endovascular.\n\nModalidades\n\n| Modalidade | Característica |\n| --- | --- |\n| Angioplastia com balão | Dilatação mecânica, geralmente em vasos proximais acessíveis |\n| Vasodilatador intra-arterial | Pode alcançar segmentos mais distais, conforme distribuição e agente |\n\nVantagens da angioplastia\n\n- Pode produzir dilatação mais duradoura no segmento tratado.\n\n- É particularmente aplicável a vasos proximais de calibre adequado.\n\nLimitações\n\n- Risco de ruptura e dissecção.\n\n- Não é apropriada para todos os segmentos distais.\n\n- Não trata necessariamente todos os mecanismos da isquemia cerebral tardia.\n\nPegadinha: vasoespasmo angiográfico e DCI não são sinônimos. DCI envolve mecanismos adicionais, como disfunção microcirculatória e alterações da autorregulação.\n\n## 11. Vasoespasmo: angioplastia versus vasodilatador intra-arterial\n\n| Característica | Balão | Vasodilatador IA |\n| --- | --- | --- |\n| Mecanismo | Dilatação mecânica | Vasodilatação farmacológica |\n| Melhor aplicação | Vasos proximais acessíveis | Vasos proximais e distais selecionados |\n| Duração | Pode ser mais sustentada no segmento tratado | Efeito variável, com possibilidade de recorrência |\n| Risco específico | Ruptura/dissecção | Hipotensão sistêmica e outros efeitos do agente |\n\nA seleção depende do território acometido, da gravidade, do estado clínico e da experiência do serviço.\n\n## 12. Balão de duplo lúmen para embolização líquida\n\nEm embolização de FAVs durais e MAVs selecionadas, balões de duplo lúmen podem permitir insuflação e administração de embolizante por vias separadas.\n\nPotenciais vantagens\n\n- Redução do refluxo proximal.\n\n- Melhor direcionamento do agente para o compartimento-alvo.\n\n- Possibilidade de obter progressão sem depender exclusivamente da formação de um tampão de\n\n- refluxo.\n\nRiscos\n\n- Lesão vascular durante insuflação.\n\n- Refluxo ou migração de embolizante.\n\n- Oclusão não alvo.\n\n- Aprisionamento ou dificuldades na retirada do sistema.\n\n- Incompatibilidade entre balão, solvente e agente.\n\nPegadinha: o balão pode ajudar a controlar refluxo, mas não elimina o risco de passagem do embolizante por anastomoses perigosas.\n\n## 13. Complicações dos balões\n\n| Complicação | Mecanismo possível |\n| --- | --- |\n| Ruptura vascular | Insuflação excessiva ou parede fragilizada |\n| Dissecção | Trauma mecânico durante progressão ou dilatação |\n| Tromboembolismo | Formação ou mobilização de trombos |\n| Isquemia transitória | Oclusão temporária prolongada |\n| Oclusão de perfurantes | Deslocamento de placa ou comprometimento ostial |\n| Ruptura do balão | Falha estrutural ou pressão excessiva |\n| Hiperperfusão | Alteração hemodinâmica após revascularização |\n| Embolização não alvo | Passagem de agente durante técnica assistida |\n\nSegurança\n\nO dimensionamento deve considerar o diâmetro vascular, a anatomia e as especificações do dispositivo.\n\nNunca se deve considerar a RBP como pressão de trabalho obrigatória.\n\n## 14. Tabela final — Decorebas e pegadinhas\n\n| Tema | Conceito-chave |\n| --- | --- |\n| Balão complacente | Adapta-se mais à geometria vascular |\n| Balão não complacente | Diâmetro mais previsível |\n| RBP | Limite especificado; não é pressão-alvo |\n| Remodelamento | Suporte temporário ao colo aneurismático |\n| Balloon-assisted coiling | Balão não permanece implantado |\n| Stent-assisted coiling | Suporte permanente |\n| Duplo balão | Dois dispositivos; não confundir com duplo lúmen |\n| Duplo lúmen | Vias funcionais separadas |\n| Balão-guia | Controle de fluxo proximal |\n| Angioplastia carotídea | Atenção a bradicardia e hipotensão |\n| Pré-dilatação | Facilita tratamento em casos selecionados |\n| Pós-dilatação | Otimiza expansão em casos selecionados |\n\n| Angioplastia intracraniana | Risco de dissecção, ruptura e perfurantes |\n| --- | --- |\n| Snow-plowing | Comprometimento de perfurantes por deslocamento de placa |\n| SAMMPRIS | Evidência contra stent intracraniano como tratamento inicial rotineiro |\n| CASSISS | Não demonstrou benefício adicional do stent à terapia clínica no desfecho primário |\n| Vasoespasmo proximal | Possível aplicação de angioplastia |\n| Vasoespasmo distal | Vasodilatador IA pode ser alternativa |\n| Vasoespasmo ≠ DCI | DCI é multifatorial |\n| Balão + EVOH | Pode reduzir refluxo em sistemas compatíveis |\n| Anastomoses perigosas | Permanecem relevantes mesmo com balão |\n| Insuflação excessiva | Risco de ruptura |\n| Oclusão temporária | Pode causar isquemia |\n| Seleção do balão | Depende de vaso, lesão e finalidade |\n\nSíntese para memorização\n\nRemodelamento sustenta. Angioplastia dilata. Balão-guia controla fluxo. Duplo lúmen permite funções simultâneas em canais separados.\n\nNa prova, a principal armadilha é confundir o dispositivo com sua finalidade: um balão utilizado para remodelamento de aneurisma não tem necessariamente as características apropriadas para angioplastia de estenose.",
@@ -307,6 +895,10 @@
       "id": "9I",
       "title": "Stents, flow diverters, retrievers e aspiração",
       "points": [
+        {
+          "concept": "Dispositivos com propósitos diferentes",
+          "takeaway": "Stent de colo sustenta coils; flow diverter redireciona fluxo; retriever e aspiração removem trombo. Em cada um, identifique ramo em risco, perfil de entrega, tamanho do vaso e implicações antitrombóticas."
+        },
         {
           "concept": "Stent de suporte de colo",
           "takeaway": "Mantém coils no saco de aneurisma e preserva o vaso parental."
@@ -330,6 +922,102 @@
         {
           "concept": "Cobertura de ramo lateral",
           "takeaway": "Pode alterar a patência de ramos após implantação de dispositivos intraluminais."
+        },
+        {
+          "concept": "Stent intracraniano",
+          "takeaway": "Suporte e reconstrução luminal"
+        },
+        {
+          "concept": "Stent-assisted coiling",
+          "takeaway": "Suporte permanente ao colo"
+        },
+        {
+          "concept": "Laser-cut",
+          "takeaway": "Estrutura cortada a laser"
+        },
+        {
+          "concept": "Braided",
+          "takeaway": "Estrutura de fios entrelaçados"
+        },
+        {
+          "concept": "Força radial",
+          "takeaway": "Resistência à compressão"
+        },
+        {
+          "concept": "Aposição",
+          "takeaway": "Contato com parede vascular"
+        },
+        {
+          "concept": "Proteção embólica",
+          "takeaway": "Reduz risco, mas não o elimina"
+        },
+        {
+          "concept": "Seio carotídeo",
+          "takeaway": "Bradicardia e hipotensão"
+        },
+        {
+          "concept": "Oclusão após FD",
+          "takeaway": "Pode ser progressiva e tardia"
+        },
+        {
+          "concept": "Cobertura metálica",
+          "takeaway": "Influencia fluxo e ramos"
+        },
+        {
+          "concept": "Foreshortening",
+          "takeaway": "Encurtamento durante expansão"
+        },
+        {
+          "concept": "Perfurantes",
+          "takeaway": "Risco de isquemia por cobertura"
+        },
+        {
+          "concept": "DAPT",
+          "takeaway": "Individualizar conforme contexto"
+        },
+        {
+          "concept": "Aspiração direta",
+          "takeaway": "Pressão negativa"
+        },
+        {
+          "concept": "ADAPT",
+          "takeaway": "Aspiração direta como primeira estratégia"
+        },
+        {
+          "concept": "Técnica combinada",
+          "takeaway": "Stent retriever + aspiração"
+        },
+        {
+          "concept": "FPE",
+          "takeaway": "Reperfusão após uma passagem, conforme definição do estudo"
+        },
+        {
+          "concept": "mTICI 2b",
+          "takeaway": "Pelo menos 50% de reperfusão"
+        },
+        {
+          "concept": "mTICI 2c",
+          "takeaway": "Reperfusão quase completa"
+        },
+        {
+          "concept": "mTICI 3",
+          "takeaway": "Reperfusão completa"
+        },
+        {
+          "concept": "Stent de resgate",
+          "takeaway": "Implante permanente em situação selecionada"
+        },
+        {
+          "concept": "SAMMPRIS",
+          "takeaway": "Tratamento clínico intensivo como referência inicial"
+        },
+        {
+          "concept": "PUFS",
+          "takeaway": "Evidência histórica importante para flow diverters"
+        },
+        {
+          "concept": "ASTER/COMPASS",
+          "takeaway": "Comparações entre estratégias de trombectomia"
         }
       ],
       "theory": "## Stents intracranianos, carotídeos, flow diverters, stent retrievers e sistemas de aspiração\n\n## 1. Classificação: cinco famílias, cinco funções\n\nA primeira distinção é entre dispositivos destinados à reconstrução vascular, ao tratamento de aneurismas e à remoção de trombos.\n\n![Representação conceitual de padrões de malha. A construção e o desempenho dependem do dispositivo. ](/nri-esquemas/9I-682)\n\n| Família | Objetivo principal | Permanece implantada? |\n| --- | --- | --- |\n| Stent intracraniano convencional | Sustentação ou reconstrução luminal; assistência à embolização | Geralmente sim |\n| Stent carotídeo | Tratamento de estenose extracraniana selecionada | Sim |\n| Flow diverter | Redirecionar fluxo e favorecer trombose aneurismática | Sim |\n| Stent retriever | Capturar e retirar trombo | Geralmente não |\n| Cateter de aspiração | Remover trombo por pressão negativa | Não |\n\nPegadinha fundamental: stent retriever não é sinônimo de stent intracraniano permanente.\n\n## 2. Stents intracranianos convencionais\n\nPrincipais aplicações\n\n- Assistência à embolização de aneurismas de colo largo.\n\n- Reconstrução luminal em situações selecionadas.\n\n- Tratamento de determinadas estenoses intracranianas, respeitando indicações restritas.\n\nArquitetura\n\nLaser-cut: estrutura cortada a laser a partir de tubo metálico, com diferentes configurações de células.\n\nBraided: estrutura formada por fios entrelaçados, cujo comportamento depende da interação entre os fios e da geometria vascular.\n\n| Propriedade | Importância |\n| --- | --- |\n| Força radial | Resistência à compressão e capacidade de manter expansão |\n| Aposição à parede | Contato adequado com o vaso |\n| Flexibilidade | Adaptação à tortuosidade |\n| Cobertura metálica | Influência sobre fluxo, ramos e trombogenicidade |\n| Recuperabilidade | Possibilidade de reposicionar conforme o modelo |\n| Compatibilidade | Microcateter e sistema de entrega exigidos |\n\nCélulas abertas versus fechadas\n\nEm termos gerais, desenhos de células abertas podem favorecer adaptação a certas curvas; desenhos de células fechadas podem oferecer características diferentes de cobertura e suporte.\n\nEntretanto, não é correto afirmar que todos os stents de células abertas são mais flexíveis ou que todos os de células fechadas são mais seguros. O desempenho depende do projeto completo.\n\nStent-assisted coiling\n\nO stent oferece suporte ao colo aneurismático e reduz o risco de protrusão dos coils para a artéria parental.\n\nAo contrário do balão de remodelamento, o stent permanece implantado.\n\nA necessidade de terapia antiplaquetária é uma consideração central, particularmente em aneurismas rotos.\n\n## 3. Stents carotídeos\n\nvasculargroup.co.nz\n\nOs stents carotídeos são utilizados para tratar estenoses extracranianas em pacientes selecionados.\n\nAutoexpansíveis\n\nA maioria dos sistemas carotídeos utiliza stents autoexpansíveis, frequentemente de nitinol, adequados à mobilidade e às características mecânicas da região cervical.\n\nPontos de planejamento\n\n- Diâmetro da carótida comum e interna.\n\n- Extensão e localização da placa.\n\n- Calcificação.\n\n- Tortuosidade.\n\n- Arco aórtico e acesso.\n\n- Risco embólico.\n\n- Necessidade e viabilidade de proteção cerebral.\n\nProteção embólica\n\nPode envolver filtros distais ou estratégias de proteção proximal, conforme o procedimento.\n\nO objetivo é reduzir embolização cerebral durante manipulação da placa.\n\nPegadinha: um filtro distal não elimina completamente a possibilidade de embolização, inclusive durante etapas anteriores ao seu posicionamento.\n\nComplicações\n\n- AVC embólico.\n\n- Dissecção.\n\n- Trombose do stent.\n\n- Bradicardia e hipotensão por estímulo do seio carotídeo.\n\n- Síndrome de hiperperfusão.\n\n- Reestenose.\n\nA escolha entre endarterectomia, stent transfemoral e abordagens alternativas depende de características clínicas, anatômicas e da experiência da equipe.\n\n## 4. Flow diverters — mecanismo e indicações\n\nneurorad.insel.ch anevrisme.info\n\nOs flow diverters são implantes endoluminais de malha relativamente densa, concebidos para modificar a hemodinâmica na entrada do aneurisma.\n\nMecanismo\n\n1. O dispositivo é implantado na artéria parental, cobrindo o colo aneurismático.\n\n2. A entrada de fluxo no saco é reduzida ou modificada. 3. Ocorre estase e trombose progressiva do aneurisma. 4. A endotelização sobre o dispositivo pode contribuir para reconstrução da artéria parental.\n\nA oclusão do aneurisma pode ser tardia. Não é necessário que o saco desapareça imediatamente na angiografia pós-implante.\n\nIndicações típicas\n\nSão particularmente relevantes para aneurismas selecionados, como os de colo largo, fusiformes ou de anatomia desfavorável ao coiling convencional.\n\nA indicação depende da localização, tamanho, morfologia, ramos envolvidos, condição de ruptura e dispositivo autorizado.\n\nPorosidade e cobertura metálica\n\n- Porosidade: proporção de área aberta da malha.\n\n- Cobertura metálica: proporção ocupada pelos elementos metálicos.\n\nDe modo conceitual, maior cobertura metálica tende a produzir maior modificação do fluxo, mas também influencia a interação com ramos e a trombogenicidade.\n\nPegadinha: um flow diverter não é apenas um stent convencional com força radial maior. Seu objetivo hemodinâmico é diferente.\n\n## 5. Aposição, encurtamento e dimensionamento dos flow diverters\n\nO comportamento de uma malha trançada depende da geometria do vaso e da expansão do dispositivo.\n\nAposição inadequada\n\nPode aumentar o risco de trombose e comprometer a reconstrução vascular.\n\nEncurtamento ( foreshortening )\n\nAlguns dispositivos podem apresentar redução do comprimento longitudinal durante expansão, com magnitude dependente do modelo e da anatomia.\n\nDimensionamento\n\nÉ necessário considerar:\n\n- Diâmetros proximal e distal.\n\n- Diferenças de calibre entre os segmentos.\n\n- Curvatura.\n\n- Comprimento do colo.\n\n- Ramos incorporados.\n\n- Zonas de ancoragem.\n\nPegadinha: comprimento nominal e comprimento final implantado podem diferir, especialmente em dispositivos trançados.\n\n## 6. Flow diverters e ramos cobertos\n\nCobrir a origem de um ramo não significa necessariamente ocluí-lo.\n\nA patência depende de múltiplos fatores, incluindo gradiente de pressão, demanda de fluxo, anatomia colateral e características do dispositivo.\n\nEntretanto, a cobertura de ramos e perfurantes pode provocar eventos isquêmicos.\n\nIsso é particularmente relevante em territórios ricos em perfurantes, como a circulação posterior.\n\nAneurismas rotos\n\nA utilização de flow diverters em aneurismas rotos exige avaliação cuidadosa, pois a terapia antiplaquetária necessária e a oclusão potencialmente tardia podem criar dificuldades adicionais.\n\nPegadinha: reconstrução hemodinâmica não equivale a proteção imediata garantida contra ressangramento.\n\n## 7. Terapia antiplaquetária e trombogenicidade\n\nStents intracranianos e flow diverters são dispositivos implantáveis que podem favorecer trombose, especialmente antes da integração endotelial.\n\nA estratégia antiplaquetária depende do dispositivo, da indicação e do contexto clínico.\n\nConceitos para prova\n\n- A terapia antiplaquetária dupla é frequentemente utilizada após implantes intracranianos.\n\n- A duração não deve ser generalizada para todos os dispositivos e pacientes.\n\n- Resistência farmacológica, interações medicamentosas e risco hemorrágico podem influenciar a\n\n- estratégia.\n\n- Modificações de superfície dos dispositivos não eliminam automaticamente a necessidade de\n\n- antitrombóticos.\n\nPegadinha: não existe um esquema único de DAPT válido para todo stent, flow diverter ou cenário clínico.\n\n## 8. Stent retrievers — trombectomia mecânica\n\npharmazeutische-zeitung.de\n\nO stent retriever é um dispositivo de trombectomia que se expande no interior ou ao longo do trombo, favorecendo sua captura e retirada.\n\nSequência conceitual\n\n1. Atravessar o segmento ocluído com sistema compatível. 2. Posicionar o microcateter adequadamente. 3. Implantar o stent retriever no segmento trombosado. 4. Permitir interação do dispositivo com o trombo. 5. Retirar o conjunto conforme a estratégia escolhida, frequentemente com aspiração associada.\n\nA execução depende do dispositivo e do protocolo do procedimento.\n\nVariáveis importantes\n\n- Diâmetro e comprimento do dispositivo.\n\n- Compatibilidade com microcateter.\n\n- Localização da oclusão.\n\n- Geometria vascular.\n\n- Suporte proximal.\n\n- Estratégia de aspiração.\n\nPegadinha: o stent retriever é normalmente removido com o trombo; não deve ser confundido com stent de resgate implantado permanentemente.\n\n## 9. Sistemas de aspiração\n\nNa trombectomia por aspiração, um cateter é aproximado do trombo e conectado a um sistema de pressão negativa.\n\nADAPT\n\nDirect Aspiration First Pass Technique descreve uma estratégia de trombectomia por aspiração direta como abordagem inicial.\n\nAspectos relevantes\n\n- Diâmetro interno do cateter.\n\n- Capacidade de navegação.\n\n- Geometria da ponta.\n\n- Contato com o trombo.\n\n- Suporte proximal.\n\n- Capacidade do sistema de aspiração.\n\nPegadinha: maior diâmetro interno pode favorecer capacidade de aspiração, mas também pode dificultar navegação em vasos tortuosos ou de menor calibre.\n\n## 10. Aspiração versus stent retriever versus técnica combinada\n\n| Estratégia | Princípio | Limitação importante |\n| --- | --- | --- |\n| Aspiração direta | Remoção por pressão negativa | Necessidade de contato e navegabilidade |\n| Stent retriever | Captura e extração mecânica | Interação com parede e trombo |\n| Combinada | Captura mecânica associada à aspiração | Maior complexidade do sistema |\n\nTécnica combinada\n\nPode associar stent retriever e cateter de aspiração distal, buscando melhorar a captura do trombo e reduzir embolização de fragmentos.\n\nFirst-pass effect (FPE)\n\nO termo descreve reperfusão substancial ou completa após uma única passagem, mas as definições variam entre estudos, especialmente quanto ao grau de reperfusão exigido.\n\nPara questões de ensaios clínicos, é indispensável verificar a definição operacional adotada.\n\n## 11. mTICI e avaliação da reperfusão\n\n| Grau | Interpretação resumida |\n| --- | --- |\n| 0 | Ausência de perfusão |\n| 1 | Penetração mínima sem perfusão distal significativa |\n| 2a | Reperfusão de menos de 50% do território afetado |\n| 2b | Reperfusão de pelo menos 50%, mas não completa |\n| 2c | Reperfusão quase completa, com pequenas alterações residuais |\n| 3 | Reperfusão completa |\n\nPegadinha: mTICI mede reperfusão angiográfica, não recuperação funcional. Um resultado mTICI 3 não garante mRS 0–2.\n\n## 12. Stenting de resgate após trombectomia\n\nEm situações selecionadas, pode haver estenose intracraniana subjacente, reoclusão ou falha persistente de reperfusão.\n\nO implante de stent de resgate pode ser considerado em determinados cenários, mas envolve desafios como necessidade de antitrombóticos e risco hemorrágico.\n\nDiferenciação\n\n- Stent retriever: instrumento de remoção.\n\n- Stent de resgate: implante permanente para tratar problema vascular residual selecionado.\n\nPegadinha: não se deve implantar stent permanentemente apenas porque houve necessidade de múltiplas passagens com stent retriever.\n\n## 13. Complicações por família de dispositivos\n\n| Dispositivo | Complicações relevantes |\n| --- | --- |\n| Stent intracraniano | Trombose, má aposição, estenose intra-stent |\n| Stent carotídeo | Embolização, bradicardia, hipotensão, hiperperfusão |\n| Flow diverter | Trombose, oclusão de ramos, hemorragia, oclusão aneurismática incompleta |\n| Stent retriever | Dissecção, perfuração, vasoespasmo, embolização distal |\n| Aspiração | Lesão vascular, embolização, falha de captura, dificuldade de navegação |\n| Stent de resgate | Trombose, necessidade de antitrombóticos, complicações hemorrágicas |\n\n## 14. Integração com estudos clínicos\n\n| Estudo | Conceito relevante |\n| --- | --- |\n| ISAT | Comparação histórica entre coiling e clipagem em aneurismas rotos selecionados |\n| PUFS | Evidência importante para flow diversion em aneurismas grandes ou gigantes da carótida interna em população selecionada |\n| SAMMPR IS | Resultados desfavoráveis ao stenting intracraniano como estratégia inicial rotineira frente ao tratamento clínico intensivo |\n| CASSISS | Não demonstrou benefício adicional do stent ao tratamento clínico no desfecho primário |\n| MR CLEAN | Ensaio fundamental para trombectomia endovascular no AVC por oclusão de grande vaso |\n| HERMES | Metanálise individual de ensaios que consolidou benefícios da trombectomia em populações selecionadas |\n| ASTER | Comparação de aspiração por contato versus stent retriever como estratégia inicial |\n| COMPAS S | Ensaio de não inferioridade de aspiração inicial versus stent retriever em população selecionada |\n\nA discussão detalhada de desenho, critérios de inclusão, desfechos e resultados numéricos pertence ao Bloco 12, dedicado aos ensaios clínicos.\n\n## 15. Tabela final — Decorebas e pegadinhas da Aula 9I\n\n| Tema | Conceito-chave |\n| --- | --- |\n| Stent intracraniano | Suporte e reconstrução luminal |\n| Stent-assisted coiling | Suporte permanente ao colo |\n| Laser-cut | Estrutura cortada a laser |\n| Braided | Estrutura de fios entrelaçados |\n| Força radial | Resistência à compressão |\n| Aposição | Contato com parede vascular |\n| Stent carotídeo | Frequentemente autoexpansível |\n| Proteção embólica | Reduz risco, mas não o elimina |\n| Seio carotídeo | Bradicardia e hipotensão |\n| Flow diverter | Modificação do fluxo no colo |\n| Oclusão após FD | Pode ser progressiva e tardia |\n| Cobertura metálica | Influencia fluxo e ramos |\n| Foreshortening | Encurtamento durante expansão |\n| Perfurantes | Risco de isquemia por cobertura |\n| DAPT | Individualizar conforme contexto |\n| Stent retriever | Captura e retirada de trombo |\n| Aspiração direta | Pressão negativa |\n| ADAPT | Aspiração direta como primeira estratégia |\n| Técnica combinada | Stent retriever + aspiração |\n| FPE | Reperfusão após uma passagem, conforme definição do estudo |\n| mTICI 2b | Pelo menos 50% de reperfusão |\n| mTICI 2c | Reperfusão quase completa |\n| mTICI 3 | Reperfusão completa |\n| Stent de resgate | Implante permanente em situação selecionada |\n| SAMMPRIS | Tratamento clínico intensivo como referência inicial |\n| PUFS | Evidência histórica importante para flow diverters |\n| ASTER/COMPASS | Comparações entre estratégias de trombectomia |\n\nSíntese de alta retenção\n\nStent convencional sustenta. Flow diverter modifica o fluxo. Stent retriever captura o trombo. Aspiração remove por pressão negativa.\n\nPara a prova, a pergunta essencial é: o dispositivo deve permanecer implantado, modificar a hemodinâmica ou ser retirado com o trombo?",
@@ -349,6 +1037,10 @@
       "id": "9J",
       "title": "Planejamento de kits e resolução de complicações",
       "points": [
+        {
+          "concept": "Checklist operacional",
+          "takeaway": "Antes de prosseguir, confirme acesso, comprimento, perfil de cruzamento, irrigação e compatibilidade. Diante de resistência, extravasamento, aprisionamento ou migração, identifique mecanismo e efeito da retirada antes de escolher o resgate."
+        },
         {
           "concept": "Perfil de cruzamento",
           "takeaway": "Dimensão do sistema que limita a passagem por um lúmen ou zona estreita."
@@ -372,6 +1064,102 @@
         {
           "concept": "Plano de resgate",
           "takeaway": "Deve antecipar complicações do procedimento e disponibilidade de dispositivos apropriados."
+        },
+        {
+          "concept": "Sistema coaxial",
+          "takeaway": "Guia + microcateter"
+        },
+        {
+          "concept": "Sistema triaxial",
+          "takeaway": "Guia + intermediário + microcateter"
+        },
+        {
+          "concept": "French",
+          "takeaway": "Não define automaticamente o ID"
+        },
+        {
+          "concept": "Compatibilidade",
+          "takeaway": "ID/OD, comprimento, construção e fabricante"
+        },
+        {
+          "concept": "Kickback",
+          "takeaway": "Recuo por perda de estabilidade ou resistência distal"
+        },
+        {
+          "concept": "Coil destacável",
+          "takeaway": "Pode permitir reposicionamento antes do destacamento"
+        },
+        {
+          "concept": "Balloon remodeling",
+          "takeaway": "Suporte temporário"
+        },
+        {
+          "concept": "Stent-assisted coiling",
+          "takeaway": "Suporte permanente"
+        },
+        {
+          "concept": "Flow diverter",
+          "takeaway": "Oclusão aneurismática pode ser tardia"
+        },
+        {
+          "concept": "Má aposição",
+          "takeaway": "Risco de trombose e falha de reconstrução"
+        },
+        {
+          "concept": "NBCA",
+          "takeaway": "Adesivo; polimerização"
+        },
+        {
+          "concept": "EVOH",
+          "takeaway": "Não adesivo; precipitação"
+        },
+        {
+          "concept": "DMSO",
+          "takeaway": "Exige sistema compatível"
+        },
+        {
+          "concept": "FAV dural",
+          "takeaway": "Oclusão da comunicação fistulosa"
+        },
+        {
+          "concept": "MAV",
+          "takeaway": "Evitar comprometimento venoso prematuro"
+        },
+        {
+          "concept": "Stent retriever",
+          "takeaway": "Dispositivo de extração"
+        },
+        {
+          "concept": "ADAPT",
+          "takeaway": "Aspiração direta como estratégia inicial"
+        },
+        {
+          "concept": "mTICI 2c",
+          "takeaway": "Reperfusão quase completa"
+        },
+        {
+          "concept": "mTICI 3",
+          "takeaway": "Reperfusão completa"
+        },
+        {
+          "concept": "Snow-plowing",
+          "takeaway": "Risco de oclusão de perfurantes"
+        },
+        {
+          "concept": "Seio carotídeo",
+          "takeaway": "Bradicardia e hipotensão"
+        },
+        {
+          "concept": "Resistência inesperada",
+          "takeaway": "Investigar antes de prosseguir"
+        },
+        {
+          "concept": "Aprisionamento",
+          "takeaway": "Evitar tração traumática"
+        },
+        {
+          "concept": "Embolia gasosa",
+          "takeaway": "Prevenção com purga e conexões adequadas"
         }
       ],
       "theory": "## Montagem de kits por procedimento, resolução de complicações e simulações técnicas\n\nEsta é a aula integradora do Bloco 9. O objetivo não é memorizar catálogos comerciais, mas reconhecer qual função cada componente desempenha, quais compatibilidades precisam ser verificadas e como identificar falhas de um sistema endovascular.\n\nA abordagem utiliza os princípios de instrumentação neuroendovascular do Harrigan e conhecimentos técnicos consolidados. Configurações comerciais, pressões, dimensões e sequências operacionais específicas devem ser confirmadas nas instruções de uso de cada dispositivo.\n\n## 1. A lógica universal de montagem de um sistema\n\nAntes de escolher os materiais, defina cinco elementos:\n\n## 1. Alvo: aneurisma, trombo, estenose, MAV ou FAV.\n\n## 2. Via de acesso: femoral, radial ou outra abordagem apropriada.\n\n## 3. Plataforma de suporte: introdutor, cateter-guia e eventual intermediário.\n\n## 4. Dispositivo terapêutico: coil, stent, flow diverter, balão, microcateter de embolização ou sistema\n\n- de trombectomia.\n\n## 5. Estratégia de segurança: anticoagulação/antiagregação quando indicada, lavagem, controle\n\n- angiográfico, prevenção de embolização não alvo e alternativas para complicações.\n\nHierarquia funcional\n\n![Suporte proximal Alvo distal Guia Intermediário Microcateter Esquema de um sistema triaxial: cateter-guia, cateter intermediário e microcateter. A configuração real depende da intervenção. ](/nri-esquemas/9J-699)\n\n| Componente | Função | Falha típica |\n| --- | --- | --- |\n| Introdutor | Estabelecer acesso e permitir passagem dos sistemas | Incompatibilidade de calibre ou problema no acesso |\n| Cateter-guia | Suporte e acesso proximal | Instabilidade, refluxo ou posição traumática |\n| Cateter intermediário | Aproximar o suporte do alvo | Dificuldade de navegação ou dobramento |\n| Microcateter | Entregar o dispositivo terapêutico | Kickback, incompatibilidade, aprisionamento |\n| Microguia | Direcionar a navegação | Perfuração, entrada em ramo inadequado |\n\nDispositivo terapêutico\n\nProduzir o efeito desejado Falha de entrega, migração ou efeito não alvo\n\nPegadinha: aumentar a rigidez de um componente não resolve necessariamente a falta de suporte e pode aumentar o risco de trauma vascular.\n\n## 2. Kit para embolização de aneurisma com coils\n\nsynapse-med.ru\n\nComponentes funcionais\n\n- Sistema de acesso arterial.\n\n- Cateter-guia estável.\n\n- Microcateter compatível com os coils.\n\n- Microguia apropriado para navegação.\n\n- Coils de diferentes geometrias e dimensões, conforme planejamento.\n\n- Sistema de destacamento compatível.\n\n- Material de suporte ou remodelamento quando indicado.\n\nDecisões fundamentais\n\nAneurisma de colo estreito: o coiling simples pode ser tecnicamente viável, conforme a anatomia.\n\nAneurisma de colo largo: considerar estratégias assistidas, como balão, stent ou dispositivos intra- aneurismáticos apropriados.\n\nAneurisma roto: a necessidade de antiagregação para dispositivos implantáveis é uma consideração especialmente relevante.\n\nSimulação 1 — Coil protruso antes do destacamento\n\nDurante a colocação de um coil, parte de sua estrutura projeta-se para a artéria parental.\n\nRaciocínio correto: não considerar a posição aceitável automaticamente. Avaliar a estabilidade e a possibilidade de reposicionamento ou recuperação antes do destacamento, conforme o sistema.\n\nPegadinha: um coil destacável oferece oportunidade de avaliação antes do destacamento, mas não elimina o risco de migração posterior.\n\n## 3. Kit para aneurisma com flow diverter\n\nComponentes\n\n- Acesso e suporte proximal adequados.\n\n- Cateter-guia e eventual intermediário.\n\n- Microcateter de entrega homologado para o dispositivo.\n\n- Microguia compatível.\n\n- Flow diverter com dimensões apropriadas.\n\n- Estratégia antitrombótica individualizada.\n\nPontos críticos\n\n- Diâmetro proximal e distal da artéria parental.\n\n- Curvatura vascular.\n\n- Comprimento de cobertura.\n\n- Aposição.\n\n- Encurtamento durante expansão.\n\n- Ramos e perfurantes cobertos.\n\n- Risco de trombose do dispositivo.\n\nSimulação 2 — Má aposição\n\nApós o implante, identifica-se segmento do flow diverter sem contato adequado com a parede vascular.\n\nInterpretação: a má aposição pode favorecer trombose e comprometer o efeito de reconstrução.\n\nA necessidade de correção depende do dispositivo, da anatomia e da avaliação angiográfica. A expansão adicional não deve ser tratada como manobra automática, pois também apresenta riscos.\n\nPegadinha: angiografia com enchimento residual do aneurisma não é, isoladamente, prova de má aposição.\n\n## 4. Kit para embolização de FAV dural com EVOH\n\nComponentes\n\n- Sistema de acesso e suporte.\n\n- Microcateter compatível com DMSO e com o agente.\n\n- Microguia, quando apropriado.\n\n- Agente embolizante e materiais de preparo específicos.\n\n- Sistema de injeção e conexões compatíveis.\n\n- Eventual microcateter destacável ou balão de duplo lúmen, conforme a estratégia.\n\nO que precisa ser confirmado?\n\n1. A localização do ponto fistuloso. 2. A existência de múltiplos pedículos. 3. A drenagem venosa, especialmente refluxo cortical. 4. As anastomoses perigosas. 5. O território que será ocluído pelo agente.\n\nSimulação 3 — Oclusão proximal incompleta\n\nUma FAV dural recebe suprimento de três pedículos. A embolização oclui proximalmente apenas um deles, sem alcançar a comunicação fistulosa.\n\nInterpretação: não é possível declarar cura com base apenas na oclusão dessa nutridora. A fístula pode persistir por outros pedículos.\n\nPegadinha: sucesso técnico de ocluir uma artéria não equivale a sucesso terapêutico de eliminar a FAV.\n\n## 5. Kit para embolização de MAV cerebral\n\nElementos de planejamento\n\n- Identificação de nutridoras e artérias en passage.\n\n- Localização do nidus.\n\n- Drenagem venosa superficial ou profunda.\n\n- Aneurismas associados.\n\n- Compartimentos hemodinâmicos.\n\n- Seleção do agente e da plataforma de entrega.\n\nSimulação 4 — Penetração venosa precoce\n\nDurante embolização, o agente alcança uma veia de drenagem enquanto persiste fluxo arterial significativo.\n\nInterpretação: a oclusão venosa prematura pode elevar a pressão intranidal e favorecer hemorragia.\n\nO objetivo é preservar a coerência hemodinâmica da estratégia, e não simplesmente maximizar a quantidade de material injetado.\n\nPegadinha: maior penetração do embolizante não significa necessariamente melhor resultado.\n\n## 6. Kit para trombectomia mecânica\n\nTrês configurações principais\n\n| Estratégia | Componentes centrais | Conceito |\n| --- | --- | --- |\n| Aspiração direta | Cateter de aspiração e suporte proximal | Contato com o trombo e pressão negativa |\n| Stent retriever | Microcateter compatível, stent retriever e suporte | Captura e extração mecânica |\n| Combinada | Stent retriever e aspiração | Associação de mecanismos de extração |\n\nUm balão-guia proximal pode integrar determinadas configurações para auxiliar o controle de fluxo.\n\nSimulação 5 — Recanalização sem reperfusão completa\n\nApós retirada do trombo, o vaso proximal está pérvio, mas permanece um defeito de reperfusão distal.\n\nInterpretação: recanalização do vaso-alvo não é sinônimo de reperfusão completa do território.\n\nA avaliação deve considerar mTICI, oclusões residuais, risco de novas passagens e contexto clínico.\n\nPegadinha: mTICI 2c e mTICI 3 não são equivalentes.\n\n## 7. Kit para angioplastia carotídea\n\nComponentes funcionais\n\n- Acesso arterial.\n\n- Cateter-guia ou bainha longa apropriada.\n\n- Sistema de proteção embólica, quando indicado.\n\n- Microguia/fio compatível com o procedimento.\n\n- Balão de angioplastia, se necessário.\n\n- Stent carotídeo apropriado.\n\n- Materiais para manejo de complicações hemodinâmicas.\n\nSimulação 6 — Bradicardia durante dilatação\n\nO paciente desenvolve bradicardia e hipotensão durante expansão do sistema na bifurcação carotídea.\n\nMecanismo provável: estimulação dos barorreceptores do seio carotídeo.\n\nA equipe deve reconhecer a instabilidade hemodinâmica e aplicar o protocolo institucional apropriado.\n\nPegadinha: a resposta pode persistir após o término da manipulação.\n\n## 8. Kit para angioplastia intracraniana\n\nDiferenças em relação à carótida cervical\n\n- Vasos de menor calibre.\n\n- Maior tortuosidade.\n\n- Maior vulnerabilidade à ruptura.\n\n- Presença de perfurantes.\n\n- Maior relevância de estenose residual, dissecção e reoclusão.\n\nSimulação 7 — Estenose basilar\n\nApós angioplastia de uma estenose da artéria basilar, observa-se melhora do calibre luminal, mas surge déficit neurológico.\n\nUma possibilidade importante é isquemia de perfurantes por deslocamento de placa ( snow-plowing ).\n\nPegadinha: resultado angiográfico aparentemente satisfatório não exclui complicação isquêmica.\n\n## 9. Matriz de compatibilidade — Antes de abrir um dispositivo\n\nA compatibilidade precisa ser verificada em toda a cadeia, e não apenas entre dois componentes adjacentes.\n\n| Verificação | Pergunta essencial |\n| --- | --- |\n| Introdutor × guia | O calibre do sistema é compatível? |\n| Guia × intermediário | Há espaço funcional e comprimento adequados? |\n| Intermediário × microcateter | O microcateter pode progredir com segurança? |\n| Microcateter × microguia | O calibre e o comportamento são apropriados? |\n| Microcateter × dispositivo | A entrega é homologada pelo fabricante? |\n| Microcateter × embolizante | Existe compatibilidade química e pressórica? |\n| Comprimento útil | O dispositivo alcança o alvo mantendo suporte? |\n| Conexões | O sistema é compatível e pode ser purgado adequadamente? |\n\nTrês erros clássicos\n\nErro 1 — Confundir French com diâmetro interno. O French de um cateter está relacionado ao diâmetro externo nominal; a nomenclatura dos introdutores possui particularidades.\n\nErro 2 — Confundir passagem geométrica com compatibilidade funcional. ID maior que OD não garante entrega adequada.\n\nErro 3 — Ignorar o comprimento útil. Um conjunto pode ser dimensionalmente compatível, mas não alcançar o alvo.\n\n## 10. Troubleshooting — Falhas mecânicas\n\n| Problema | Hipóteses relevantes | Princípio de segurança |\n| --- | --- | --- |\n| Microcateter não progride | Tortuosidade, atrito, suporte insuficiente | Reavaliar a geometria e a posição |\n| Kickback | Resistência distal e suporte inadequado | Investigar a estabilidade do sistema |\n| Cateter intermediário impactado | Curva desfavorável ou interação mecânica | Não forçar progressão |\n| Dispositivo não atravessa o microcateter | Incompatibilidade, dobra ou obstrução | Verificar sistema e especificações |\n| Perda de roadmap | Movimento ou alteração da projeção | Restabelecer orientação anatômica |\n| Resistência ao retirar microcateter | Aprisionamento ou interação com material | Evitar tração traumática |\n\n| Falha de aspiração | Contato inadequado, obstrução ou problema no circuito | Verificar posicionamento e integridade |\n| --- | --- | --- |\n| Má aposição de stent | Geometria, dimensionamento ou expansão incompleta | Avaliar consequências e opções apropriadas |\n\nRegra de prova: resistência inesperada deve levar à investigação da causa, não à aplicação automática de maior força.\n\n## 11. Complicações críticas — Reconhecimento e prioridades\n\n## 11.1. Perfuração vascular\n\nPode ocorrer durante navegação com microguia, microcateter ou manipulação de dispositivos.\n\nSinais possíveis: extravasamento angiográfico, alteração súbita do comportamento do sistema e deterioração clínica.\n\nPrioridades gerais: reconhecer imediatamente, interromper a manobra causadora, comunicar a equipe e aplicar o protocolo de controle hemorrágico e estabilização apropriado.\n\n## 11.2. Dissecção\n\nPode resultar de trauma por cateter, fio, balão ou stent.\n\nA relevância depende da extensão, do comprometimento luminal, da circulação colateral e do território afetado.\n\n## 11.3. Tromboembolismo\n\nPossíveis mecanismos:\n\n- Formação de trombo sobre dispositivos.\n\n- Mobilização de placa.\n\n- Fragmentação do trombo.\n\n- Estase no sistema.\n\n- Embolização durante retirada de materiais.\n\nA prevenção inclui técnica apropriada de lavagem, controle de conexões e estratégia antitrombótica individualizada.\n\n## 11.4. Embolia gasosa\n\nA entrada de ar no sistema é potencialmente grave.\n\nPegadinha: uma pequena bolha visível em conexão não deve ser considerada irrelevante apenas porque o volume parece reduzido.\n\n## 11.5. Aprisionamento de microcateter\n\nEspecialmente relevante durante embolização líquida.\n\nPode decorrer de adesão pelo NBCA ou incorporação ao molde de EVOH.\n\nA retirada forçada pode produzir lesão vascular grave.\n\n## 12. Simulações integradas — Identifique o erro de raciocínio\n\nCaso A — Aneurisma com flow diverter\n\nApós o implante, ainda existe enchimento do saco aneurismático. Erro: concluir que houve falha obrigatória porque não ocorreu oclusão imediata. Conceito correto: o efeito do flow diverter pode ser progressivo.\n\nCaso B — FAV dural\n\nO pedículo principal foi ocluído, mas o ponto fistuloso permanece perfundido. Erro: declarar cura com base apenas na oclusão proximal. Conceito correto: a comunicação arteriovenosa precisa ser efetivamente interrompida.\n\nCaso C — Trombectomia\n\nHouve recanalização da ACM, mas persistem defeitos distais de reperfusão. Erro: registrar automaticamente mTICI 3. Conceito correto: a classificação depende da reperfusão territorial final.\n\nCaso D — Microcateter\n\nO sistema apresenta resistência crescente durante navegação distal. Erro: aumentar a força sem investigar a causa. Conceito correto: resistência inesperada pode indicar risco de lesão vascular.\n\n## 13. Checklist de segurança por procedimento\n\n| Procedimento | Ponto que não pode ser esquecido |\n| --- | --- |\n| Coiling | Estabilidade dos coils e patência da artéria parental |\n| Flow diversion | Aposição, ramos cobertos e estratégia antitrombótica |\n\n| FAV dural | Ponto fistuloso, drenagem venosa e anastomoses perigosas |\n| --- | --- |\n| MAV | Nidus, artérias en passage e drenagem venosa |\n| Trombectomia | Reperfusão territorial, embolização distal e lesão vascular |\n| Stent carotídeo | Proteção embólica, resposta do seio carotídeo e hiperperfusão |\n| Angioplastia intracraniana | Perfurantes, dissecção e ruptura |\n| Embolização líquida | Compatibilidade, refluxo e risco de aprisionamento |\n\n## 14. Tabela final — Pegadinhas de alta incidência\n\n| Conceito | Resposta de prova |\n| --- | --- |\n| Sistema coaxial | Guia + microcateter |\n| Sistema triaxial | Guia + intermediário + microcateter |\n| French | Não define automaticamente o ID |\n| Compatibilidade | ID/OD, comprimento, construção e fabricante |\n| Kickback | Recuo por perda de estabilidade ou resistência distal |\n| Coil destacável | Pode permitir reposicionamento antes do destacamento |\n| Balloon remodeling | Suporte temporário |\n| Stent-assisted coiling | Suporte permanente |\n| Flow diverter | Oclusão aneurismática pode ser tardia |\n| Má aposição | Risco de trombose e falha de reconstrução |\n| NBCA | Adesivo; polimerização |\n| EVOH | Não adesivo; precipitação |\n| DMSO | Exige sistema compatível |\n| FAV dural | Oclusão da comunicação fistulosa |\n| MAV | Evitar comprometimento venoso prematuro |\n| Stent retriever | Dispositivo de extração |\n| ADAPT | Aspiração direta como estratégia inicial |\n| mTICI 2c | Reperfusão quase completa |\n| mTICI 3 | Reperfusão completa |\n| Snow-plowing | Risco de oclusão de perfurantes |\n| Seio carotídeo | Bradicardia e hipotensão |\n\n| Resistência inesperada | Investigar antes de prosseguir |\n| --- | --- |\n| Aprisionamento | Evitar tração traumática |\n| Embolia gasosa | Prevenção com purga e conexões adequadas |\n\nFechamento conceitual do Bloco 9\n\nO domínio da instrumentação exige integrar três dimensões:\n\nCompatibilidade — os componentes podem funcionar juntos?\n\nNavegabilidade — o conjunto alcança o alvo sem lesão?\n\nEficácia terapêutica — o dispositivo produz o efeito desejado no compartimento correto?\n\nUm procedimento pode ser tecnicamente executável e, ainda assim, ser inadequado se o alvo terapêutico, a hemodinâmica ou os riscos não forem corretamente considerados.",
@@ -647,17 +1435,18 @@
     {
       "id": "nri:9B:d1",
       "lesson": "9B",
-      "prompt": "No contexto de Proteção radiológica e dose, qual alternativa descreve corretamente «Kerma acumulado de referência»?",
+      "prompt": "Em dois procedimentos com o mesmo tempo de fluoroscopia, o primeiro tem kerma acumulado de referência alto e o segundo tem PKA maior por uso prolongado de campo amplo. Qual inferência é mais defensável?",
       "options": [
-        "Risco probabilístico, como câncer, cuja chance aumenta com exposição.",
-        "Lesão como eritema ou epilação, ligada a dose local e limiar.",
-        "Métrica de duração que isoladamente não estima toda a dose.",
-        "Integra kerma e área irradiada, comum em relatórios dosimétricos.",
-        "Indicador de exposição em ponto de referência geométrico do equipamento."
+        "Considere kerma e geometria para risco cutâneo, e PKA como medida integrada do campo; nenhum fornece sozinho o pico de dose na pele",
+        "Use o tempo isolado para estimar o pico cutâneo, já que os dois valores são iguais",
+        "Use PKA como leitura direta da dose de pico cutânea em Gy",
+        "Uso de campo amplo reduz PKA mesmo quando aumenta a área irradiada",
+        "Use o kerma de referência como medida direta da dose efetiva em mSv"
       ],
-      "answer": 4,
-      "explanation": "Kerma acumulado de referência. Indicador de exposição em ponto de referência geométrico do equipamento.",
-      "origin": "revisão"
+      "answer": 0,
+      "explanation": "O kerma de referência é um indicador de exposição em ponto especificado e depende da geometria para estimar pele. PKA é produto de kerma e área, não informa por si só distribuição sobre a pele.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:9B:d2",
@@ -1247,17 +2036,18 @@
     {
       "id": "nri:9F:d1",
       "lesson": "9F",
-      "prompt": "No contexto de Microcateteres, microguias e navegação, qual alternativa descreve corretamente «Diâmetro interno do microcateter»?",
+      "prompt": "A microguia atravessa o segmento, mas o microcateter não segue e forma uma alça proximal. O dispositivo cabe nominalmente no lúmen. Qual análise melhor diferencia navegabilidade de compatibilidade?",
       "options": [
-        "Necessária para sistemas de entrega de embolizantes formulados nesse solvente.",
-        "Pode facilitar retirada em cenários de maior risco de retenção.",
-        "Pode reduzir atrito e modificar a percepção tátil.",
-        "Favorece navegação distal cuidadosa e controle de lesão vascular.",
-        "Deve aceitar o dispositivo ou guia segundo especificação do fabricante."
+        "Reavaliar suporte, perfil de transição e anatomia da curva, além das medidas luminais",
+        "Escolher microcateter apenas pelo diâmetro interno maior",
+        "Considerar o conjunto navegável porque o dispositivo cabe no microcateter",
+        "Considerar incompatibilidade com DMSO como causa do prolapso em qualquer montagem",
+        "Aumentar força axial até o microcateter retificar a curva"
       ],
-      "answer": 4,
-      "explanation": "Diâmetro interno do microcateter. Deve aceitar o dispositivo ou guia segundo especificação do fabricante.",
-      "origin": "revisão"
+      "answer": 0,
+      "explanation": "Compatibilidade luminal não garante transmissão de força nem estabilidade do conjunto. Prolapso aponta para suporte e geometria de transição, e força cega pode lesar o vaso.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:9F:d2",
@@ -1397,17 +2187,22 @@
     {
       "id": "nri:9G:d1",
       "lesson": "9G",
-      "prompt": "No contexto de Partículas, coils, NBCA e EVOH, qual alternativa descreve corretamente «Partículas»?",
+      "prompt": "A microinjeção em ramo da meníngea média preenche a lacrimal e, em fase tardia, aparece suprimento ocular. Proposta: usar partículas maiores sem reavaliar a posição do microcateter. Qual objeção é mais pertinente?",
       "options": [
-        "Produzem oclusão focal com estrutura metálica e formação local de trombo.",
-        "Embolizam leitos arteriais distais de forma dependente da distribuição e do tamanho.",
-        "Adesivo cianoacrilato que polimeriza em contato com fluidos iônicos.",
-        "Pode ser obtida com partículas de tântalo em determinadas formulações.",
-        "Copolímero não adesivo que precipita à medida que o DMSO se dispersa."
+        "O aparecimento tardio da via ocular exclui risco se houver blush dural primeiro",
+        "Coils proximais teriam a mesma distribuição distal que partículas, desde que usados no mesmo vaso",
+        "Mudanças de fluxo e refluxo podem levar agente à circulação ocular; conexão funcional precisa orientar a estratégia",
+        "Partículas maiores tendem a atravessar anastomoses com mais facilidade que partículas menores",
+        "Conexões orbitárias são relevantes somente com NBCA devido à adesividade"
       ],
-      "answer": 1,
-      "explanation": "Partículas. Embolizam leitos arteriais distais de forma dependente da distribuição e do tamanho.",
-      "origin": "revisão"
+      "answer": 2,
+      "explanation": "Diâmetro nominal é apenas um componente da distribuição. Fluxo, posição e relações orbitárias mudam risco. Uma via demonstrada requer reavaliação, independentemente do agente.",
+      "origin": "revisão",
+      "revision": 1,
+      "reference": {
+        "label": "Geibprasert et al. AJNR 2009, anastomoses orbitárias.",
+        "url": "https://doi.org/10.3174/ajnr.A1500"
+      }
     },
     {
       "id": "nri:9G:d2",

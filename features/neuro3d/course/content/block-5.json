@@ -5,6 +5,10 @@
       "title": "Embriologia vascular medular",
       "points": [
         {
+          "concept": "Metameria e perda de reforços",
+          "takeaway": "A irrigação radicular segmentar persiste mais frequentemente que a contribuição medular. Eixos longitudinais ventrais se fundem em ASA, com persistência local de canais em alguns indivíduos."
+        },
+        {
           "concept": "Metameria",
           "takeaway": "Organização inicial em contribuições arteriais segmentares."
         },
@@ -27,6 +31,30 @@
         {
           "concept": "Artéria radiculomedular",
           "takeaway": "Conecta-se ao eixo espinal anterior na terminologia usada nesta aula."
+        },
+        {
+          "concept": "Organização inicial",
+          "takeaway": "Metamérica e segmentar"
+        },
+        {
+          "concept": "Eixo espinal ventral",
+          "takeaway": "Fusão longitudinal dos eixos neurais ventrais"
+        },
+        {
+          "concept": "Radiculopial",
+          "takeaway": "Reforça a rede pial"
+        },
+        {
+          "concept": "Radiculomedular",
+          "takeaway": "Reforça a ASA"
+        },
+        {
+          "concept": "Artéria de Adamkiewicz",
+          "takeaway": "Reforço dominante toracolombar da ASA"
+        },
+        {
+          "concept": "Falha de fusão",
+          "takeaway": "Pode simular duplicação ou fenestração"
         }
       ],
       "theory": "## Embriologia vascular medular segundo Lasjaunias\n\nAula 38/120 · Bloco 5, aula 1/7 · Referência principal: Pierre Lasjaunias, Surgical Neuroangiography, volume 1, capítulo 2, especialmente seções 2.1 e 2.4.\n\n## 1. O princípio central: metameria, fusão e dessegmentação\n\nA circulação medular se desenvolve a partir de uma organização inicialmente metamérica: cada segmento possui contribuições arteriais destinadas ao tubo neural e às estruturas adjacentes.\n\nAo longo do desenvolvimento, três processos reorganizam esse padrão:\n\n## 1. Organização segmentar: os vasos metaméricos suprem raízes, meninges, ossos, músculos e\n\n- tecido neural.\n\n## 2. Fusão longitudinal: os eixos neurais ventrais pareados fundem-se na linha média, formando o\n\n- eixo espinal ventral, correspondente à artéria espinal anterior (ASA).\n\n## 3. Dessegmentação: numerosas conexões segmentares com a medula regridem, permanecendo\n\n- um número limitado de artérias que reforçam os sistemas longitudinais.\n\n![Metameria, fusão dos eixos ventrais e dessegmentação com reforços seletivos. ](/nri-esquemas/5A-82)\n\nLasjaunias destaca que a falha de fusão pode produzir segmentos de artéria espinal ventral pareados, inclusive com configuração em diamante. Essa aparência pode ser interpretada erroneamente como duplicação ou fenestração, quando corresponde à persistência de um padrão embrionário não fundido.\n\n## 2. O que persiste após a dessegmentação?\n\nO ponto decisivo é que nem toda artéria segmentar continua irrigando a medula espinhal.\n\nAs artérias segmentares podem conservar o suprimento de raízes nervosas, dura-máter, vértebras e músculos, enquanto somente algumas mantêm conexão efetiva com a circulação medular.\n\nNa nomenclatura de Lasjaunias:\n\nArtéria Função e destino\n\n| Radicular | Irriga principalmente a raiz nervosa, sem necessariamente alcançar o sistema arterial da medula. |\n| --- | --- |\n| Radiculopial | Atinge a superfície medular e reforça a rede pial perimedular. |\n| Radiculomedula r | Alcança e reforça o eixo espinal ventral, a ASA, com ramos longitudinais ascendentes e descendentes. |\n\nUma distinção importante de Lasjaunias: artérias que reforçam os eixos dorsolaterais, frequentemente chamadas de radiculomedulares posteriores em outras classificações, são consideradas radiculopiais no modelo adotado por ele.\n\n## 3. Por que isso importa na angiografia?\n\nA circulação medular combina dois sistemas de irrigação:\n\n- Sistema centrífugo: ramos sulcocomissurais originados do eixo espinal ventral penetram pela\n\n- fissura mediana anterior e irrigam regiões profundas da medula.\n\n- Sistema centrípeto: perfurantes radiais originadas da rede pial superficial dirigem-se para o\n\n- interior da medula.\n\nA artéria radiculomedular magna, conhecida como artéria de Adamkiewicz, representa um reforço dominante do eixo espinal anterior na região toracolombar, após a regressão de numerosas contribuições segmentares.\n\nConsequência para a NRI: durante embolização de uma lesão espinal, identificar uma artéria radiculomedular que participa da ASA muda completamente a avaliação de segurança. A oclusão inadvertida pode causar infarto medular grave.\n\n## 4. Pontos de prova da Aula 5A\n\n| Conceito | O que memorizar |\n| --- | --- |\n| Organização inicial | Metamérica e segmentar |\n| Eixo espinal ventral | Fusão longitudinal dos eixos neurais ventrais |\n| Dessegmentação | Regressão seletiva de contribuições medulares segmentares |\n| Radiculopial | Reforça a rede pial |\n| Radiculomedular | Reforça a ASA |\n| Artéria de Adamkiewicz | Reforço dominante toracolombar da ASA |\n| Falha de fusão | Pode simular duplicação ou fenestração |\n\nFonte consultada: Lasjaunias, capítulo 2, Spinal and Spinal Cord Arteries and Veins, incluindo as figuras 2.7 e 2.56 e as seções sobre artérias radiculares, radiculopiais e radiculomedulares. A exposição acima segue a terminologia do texto traduzido disponibilizado anteriormente.",
@@ -46,6 +74,10 @@
       "id": "5B",
       "title": "Artérias radiculares, radiculopiais e radiculomedulares",
       "points": [
+        {
+          "concept": "Marcadores angiográficos",
+          "takeaway": "Ramo radicular acompanha a raiz; radiculopial alcança a rede pial; radiculomedular reforça a ASA. Confirme continuidade e fase de enchimento, pois a silhueta em grampo isolada pode confundir."
+        },
         {
           "concept": "Ramo radicular",
           "takeaway": "Acompanha e supre a raiz, sem contribuição medular obrigatória."
@@ -89,6 +121,10 @@
       "title": "ASA, eixos posteriores, vasocorona e perfurantes",
       "points": [
         {
+          "concept": "Síndrome anterior versus dorsal",
+          "takeaway": "ASA e artérias sulcais irrigam setores centrais, enquanto rede pial posterolateral e vasocorona irrigam periferia e colunas dorsais de forma variável. Síndromes incompletas refletem sobreposição e topografia dos reforços."
+        },
+        {
           "concept": "ASA",
           "takeaway": "Eixo mediano anterior que dá origem a ramos sulcais."
         },
@@ -131,6 +167,10 @@
       "title": "Adamkiewicz e irrigação da medula toracolombar",
       "points": [
         {
+          "concept": "Como diferenciar artéria de veia",
+          "takeaway": "Adamkiewicz opacifica em fase arterial, faz a conexão em grampo e continua pela ASA longitudinal. Uma veia radiculomedular pode também curvar-se, mas preenche na fase venosa."
+        },
+        {
           "concept": "Adamkiewicz",
           "takeaway": "Principal reforço radiculomedular da ASA toracolombar em muitos indivíduos."
         },
@@ -153,6 +193,26 @@
         {
           "concept": "Rede colateral paravertebral",
           "takeaway": "Pode redistribuir fluxo entre pedículos segmentares."
+        },
+        {
+          "concept": "Pergunta de prova",
+          "takeaway": "Resposta-chave"
+        },
+        {
+          "concept": "O que é a Adamkiewicz?",
+          "takeaway": "Artéria radiculomedular anterior dominante"
+        },
+        {
+          "concept": "Origem mais frequente?",
+          "takeaway": "Esquerda, região T8–L1"
+        },
+        {
+          "concept": "Sinal angiográfico clássico?",
+          "takeaway": "Curvatura em grampo com continuidade na ASA"
+        },
+        {
+          "concept": "Qual o risco de lesão?",
+          "takeaway": "Isquemia medular, particularmente no território anterior"
         }
       ],
       "theory": "## Artérias radiculomedulares dominantes, Adamkiewicz e circulação colateral espinal\n\nObjetivos: reconhecer as principais artérias radiculomedulares, identificar a artéria de Adamkiewicz na angiografia, compreender a variabilidade de origem e aplicar esses conceitos à segurança endovascular.\n\n## 1. Por que existem artérias radiculomedulares dominantes?\n\nNa organização embrionária descrita por Lasjaunias, a medula recebe inicialmente numerosas contribuições segmentares. Durante a maturação, ocorre regressão seletiva dessas conexões, enquanto o eixo espinal ventral se mantém longitudinalmente.\n\nO resultado é uma distribuição desigual dos reforços arteriais: algumas artérias radiculomedulares persistentes assumem importância hemodinâmica maior que outras.\n\nAssim, uma artéria segmentar de pequeno calibre pode ter enorme relevância funcional caso seja a principal fonte de suprimento de determinado segmento da ASA.\n\n## 2. Artéria de Adamkiewicz\n\nA artéria radiculomedular magna de Adamkiewicz é, classicamente, a maior contribuição radiculomedular anterior da região toracolombar.\n\nSua identificação angiográfica depende de acompanhar o ramo segmentar até sua conexão com a ASA, frequentemente formando uma curva característica em grampo ( hairpin ).\n\npacs.de\n\nDados anatômicos de maior relevância\n\nUma metanálise de 60 estudos, envolvendo 5.437 indivíduos, encontrou os seguintes resultados entre os casos avaliados:\n\n## 76,6%\n\n## 89%\n\n## 87,4%\n\nOrigem à esquerda\n\nOrigem entre T8–L1\n\nUma única artéria identificada\n\nEsses números descrevem distribuições populacionais, não regras anatômicas absolutas. PMC +1\n\nA artéria pode originar-se fora do intervalo mais frequente, inclusive à direita, e podem existir múltiplas contribuições dominantes.\n\nPegadinha P1: não confundir o nível mais frequente de origem com o nível obrigatório de origem.\n\n## 3. Identificação angiográfica\n\nO raciocínio deve seguir a sequência anatômica:\n\nArtéria segmentar intercostal ou lombar\n\nRamo radiculomedular anterior\n\nCurvatura em grampo\n\nContinuidade com a ASA\n\nO aspecto em grampo é uma pista anatômica, mas a demonstração da conexão com a ASA é decisiva.\n\nNa angiografia por subtração digital, é necessário distinguir a fase arterial da venosa. Uma veia radicular ou perimedular proeminente não deve ser confundida com uma artéria radiculomedular apenas por seu trajeto curvilíneo.\n\nA identificação pode ser auxiliada por angio-TC e angio-RM, conforme o contexto clínico e a finalidade do exame. A Review of… +1\n\n## 4. Circulação colateral espinal\n\nA medula possui uma organização vascular longitudinal, segmentar e pial. Essa arquitetura cria possibilidades de redistribuição de fluxo quando determinadas contribuições são reduzidas.\n\n| Componente | Participação na circulação colateral |\n| --- | --- |\n| ASA | Continuidade longitudinal entre diferentes reforços radiculomedulares |\n| Rede pial | Anastomoses perimedulares entre territórios |\n| Artérias radiculopiais | Reforço de sistemas posterolaterais |\n| Artérias segmentares | Possíveis conexões por ramos musculares e paravertebrais |\n| Rede periconal | Comunicação entre os sistemas anterior e posterior junto ao cone medular |\n\nA rede periconal pode formar uma configuração anastomótica em torno do cone, descrita como arterial basket. PMC +1\n\nConceito de prova: circulação colateral não equivale a proteção garantida. A suficiência hemodinâmica depende do calibre, da continuidade, da pressão de perfusão e da condição vascular de cada paciente.\n\n## 5. Implicações endovasculares\n\nA identificação da artéria de Adamkiewicz é particularmente importante em procedimentos envolvendo artérias intercostais, lombares e territórios paravertebrais.\n\nAs principais situações de risco incluem embolização de lesões hipervasculares, tratamento de malformações ou fístulas espinais e intervenções aórticas capazes de comprometer vasos segmentares.\n\nNa análise angiográfica, deve-se verificar se há:\n\n- Artéria radiculomedular funcional no pedículo.\n\n- Origem compartilhada com o vaso que alimenta a lesão.\n\n- Anastomoses capazes de permitir embolização não alvo.\n\n- Reforços alternativos demonstráveis, sem presumir que sejam suficientes.\n\n- Dependência do território toracolombar em relação à contribuição identificada.\n\nA perda do suprimento medular anterior pode produzir paraparesia ou paraplegia, alterações de dor e temperatura e disfunção esfincteriana, com relativa preservação de modalidades sensitivas dos cordões posteriores. NCBI Book… +1\n\n## 6. Quadro P1 — O que memorizar\n\n| Pergunta de prova | Resposta-chave |\n| --- | --- |\n| O que é a Adamkiewicz? | Artéria radiculomedular anterior dominante |\n| Origem mais frequente? | Esquerda, região T8–L1 |\n| Sinal angiográfico clássico? | Curvatura em grampo com continuidade na ASA |\n| Pode surgir à direita? | Sim |\n| Pode haver mais de uma contribuição dominante? | Sim |\n| A circulação colateral garante proteção? | Não |\n| Qual o risco de lesão? | Isquemia medular, particularmente no território anterior |\n\nDistinção entre fontes: a explicação de metameria e dessegmentação segue Lasjaunias; a anatomia angiográfica funcional é compatível com Harrigan. Os percentuais populacionais foram acrescentados a partir da metanálise publicada em Neuroradiology, não atribuídos aos livros.",
@@ -179,6 +239,10 @@
       "id": "5E",
       "title": "Origens segmentares e anastomoses espinais",
       "points": [
+        {
+          "concept": "Mapa de pesquisa segmentar",
+          "takeaway": "Inclua aportes cervical profundo/ascendente, intercostais posteriores, lombares, iliolombar e sacrais laterais segundo a topografia. A injeção de pedículos vizinhos esclarece anastomoses e eventual irrigação compartilhada da medula."
+        },
         {
           "concept": "Cervical ascendente",
           "takeaway": "Ramo habitualmente relacionado ao tronco tireocervical."
@@ -244,6 +308,10 @@
       "title": "Drenagem espinal e mielopatia venosa",
       "points": [
         {
+          "concept": "Congestão versus shunt pial",
+          "takeaway": "Na FAV dural, a transição ocorre na manga radicular, com refluxo perimedular. Shunt pial direto situa-se na superfície medular e pode ser irrigado pela ASA. Angiografia negativa incompleta não exclui FAV."
+        },
+        {
           "concept": "Veias perimedulares",
           "takeaway": "Coletores longitudinais e superficiais sobre a medula."
         },
@@ -299,6 +367,10 @@
       "id": "5G",
       "title": "Classificação e tratamento das malformações espinais",
       "points": [
+        {
+          "concept": "Alvo de cada tratamento",
+          "takeaway": "Identifique manga dural e veia proximal na FAV dural, bolsa epidural e eventual refluxo intradural na epidural, ponto pial na perimedular e nidus na MAV intramedular. Em lesões metaméricas, procure componentes ósseos, epidurais e cutâneos."
+        },
         {
           "concept": "FAV dural espinal",
           "takeaway": "Shunt dural radicular associado a hipertensão venosa perimedular."
@@ -642,17 +714,18 @@
     {
       "id": "nri:5B:d1",
       "lesson": "5B",
-      "prompt": "No contexto de Artérias radiculares, radiculopiais e radiculomedulares, qual alternativa descreve corretamente «Ramo radicular»?",
+      "prompt": "Um pedículo segmentar irriga a raiz, e um ramo separado alcança o cordão ventral com enchimento longitudinal da ASA. Qual achado mais limita embolização do pedículo comum de uma lesão adjacente?",
       "options": [
-        "Acompanha e supre a raiz, sem contribuição medular obrigatória.",
-        "Segmentares que habitualmente derivam das intercostais posteriores.",
-        "Atinge a superfície medular e reforça o sistema pial.",
-        "Segmentares que habitualmente derivam das artérias lombares.",
-        "Atinge a ASA e participa de seu reforço longitudinal."
+        "A ASA é reforçada por um segundo pedículo em outro nível",
+        "Presença de contribuição radiculomedular para o eixo espinal anterior",
+        "O ramo radicular aparece antes da artéria segmentar na fase arterial",
+        "O pedículo nasce acima do nível habitual de Adamkiewicz",
+        "A projeção lateral separa a lesão da raiz em razão de paralaxe"
       ],
-      "answer": 0,
-      "explanation": "Ramo radicular. Acompanha e supre a raiz, sem contribuição medular obrigatória.",
-      "origin": "revisão"
+      "answer": 1,
+      "explanation": "O trânsito até a ASA demonstra suprimento medular em risco. Outro reforço visível não prova proteção contra oclusão da contribuição nem contra passagem do agente ao eixo anterior.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:5B:d2",
@@ -1077,17 +1150,18 @@
     {
       "id": "nri:5D:d1",
       "lesson": "5D",
-      "prompt": "No contexto de Adamkiewicz e irrigação da medula toracolombar, qual alternativa descreve corretamente «Adamkiewicz»?",
+      "prompt": "Na angiografia segmentar, dois vasos desenham uma curva em grampo. O primeiro aparece imediatamente após a injeção e continua em eixo ventral longitudinal. O segundo aparece na fase de esvaziamento e segue para a raiz. Qual critério diferencia os dois?",
       "options": [
-        "Pode redistribuir fluxo entre pedículos segmentares.",
-        "Principal reforço radiculomedular da ASA toracolombar em muitos indivíduos.",
-        "Designação de contribuição radiculomedular dominante cervical em parte da literatura.",
-        "Rede de conexões entre os eixos anterior e posterior na região do cone.",
-        "Configuração angiográfica típica na junção de um reforço radiculomedular com a ASA."
+        "Presença de curva em grampo compartilhada",
+        "Ausência de reforço no lado contralateral",
+        "Temporalidade de enchimento e continuidade do primeiro com a ASA",
+        "Lateralidade esquerda comum a ambos",
+        "Nível vertebral torácico baixo"
       ],
-      "answer": 1,
-      "explanation": "Adamkiewicz. Principal reforço radiculomedular da ASA toracolombar em muitos indivíduos.",
-      "origin": "revisão"
+      "answer": 2,
+      "explanation": "Uma curva em grampo pode ser arterial ou venosa. Enchimento arterial precoce e continuidade ventral com a ASA identificam a contribuição radiculomedular. A veia acompanha o escoamento tardio.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:5D:d2",
@@ -1722,17 +1796,18 @@
     {
       "id": "nri:5G:d1",
       "lesson": "5G",
-      "prompt": "No contexto de Classificação e tratamento das malformações espinais, qual alternativa descreve corretamente «FAV dural espinal»?",
+      "prompt": "Uma DSA espinal mostra aferentes segmentares convergindo em bolsa venosa epidural, com refluxo por uma veia radicular para a superfície medular. Qual arquitetura explica o quadro?",
       "options": [
-        "Lesões em grupos de tecidos relacionados ao mesmo território metamérico.",
-        "Shunt dural radicular associado a hipertensão venosa perimedular.",
-        "Comunicação arteriovenosa diretamente na superfície da medula.",
-        "Shunt que contém nidus no parênquima medular.",
-        "Shunt extradural que pode causar mielopatia se houver refluxo intradural."
+        "Shunt perimedular direto irrigado pela ASA",
+        "Anomalia venosa do desenvolvimento espinal sem shunt",
+        "Fístula epidural com refluxo perimedular",
+        "Fístula dural com ponto obrigatório na manga radicular",
+        "MAV intramedular compacta"
       ],
-      "answer": 1,
-      "explanation": "FAV dural espinal. Shunt dural radicular associado a hipertensão venosa perimedular.",
-      "origin": "revisão"
+      "answer": 2,
+      "explanation": "A bolsa epidural está a jusante do ponto de shunt. Refluxo intradural pode tornar a fístula epidural sintomática por congestão, imitando FAV dural. O compartimento primário, e não apenas o padrão venoso distal, distingue as duas.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:5G:d2",

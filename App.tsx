@@ -45,6 +45,17 @@ import { BureaucracyTool } from './pages/tools/BureaucracyTool';
 import { NeuroRadiologyTool } from './pages/tools/NeuroRadiology';
 
 const Neuro3DAtlas = lazy(() => import('./features/neuro3d/Neuro3DAtlas'));
+const NriCoursePage = lazy(() => import('./features/neuro3d/course/CoursePage'));
+
+function AtlasRoute() {
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  if (params.get('tab') === 'curso') {
+    params.delete('tab');
+    return <Navigate to={{ pathname: '/tools/nri', search: params.toString() }} replace />;
+  }
+  return <Suspense fallback={<p role="status">Carregando atlas…</p>}><Neuro3DAtlas /></Suspense>;
+}
 
 const PrivateRoute = ({ children }: { children?: React.ReactNode }) => {
   const { user, loading, initialized } = useAuthStore();
@@ -63,7 +74,8 @@ export default function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/tools/neuro3d" element={<Suspense fallback={<p role="status">Carregando atlas…</p>}><Neuro3DAtlas /></Suspense>} />
+        <Route path="/tools/neuro3d" element={<AtlasRoute />} />
+        <Route path="/tools/nri" element={<Suspense fallback={<p role="status">Carregando curso…</p>}><NriCoursePage /></Suspense>} />
         <Route path="/login" element={<Login />} />
         <Route path="/tools/neurovascular" element={<NeurovascularTool />} />
         <Route path="/tools/emergency" element={<NeuroEmergencyTool />} />

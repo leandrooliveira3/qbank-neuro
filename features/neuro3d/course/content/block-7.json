@@ -5,6 +5,10 @@
       "title": "MAV cerebral, história natural e escores",
       "points": [
         {
+          "concept": "Dois escores, dois construtos",
+          "takeaway": "Spetzler–Martin combina tamanho, eloquência e drenagem profunda para risco cirúrgico. Lawton–Young adiciona idade, apresentação hemorrágica e compacidade. Nenhum dos dois mede diretamente o risco anual de ruptura."
+        },
+        {
           "concept": "Nidus",
           "takeaway": "Rede de canais anormais entre aferências arteriais e drenagem venosa da MAV."
         },
@@ -35,6 +39,10 @@
       "id": "7B",
       "title": "Tratamento das MAVs cerebrais",
       "points": [
+        {
+          "concept": "Estratégia e momento de proteção",
+          "takeaway": "Cirurgia oferece efeito imediato quando completa; radioscirurgia mantém risco durante a latência; embolização pode ser adjuvante ou focal conforme a angioarquitetura. No ARUBA, a estratégia clínica teve menos eventos no horizonte estudado em adultos com MAV não rota; o estudo não compara cada técnica entre si."
+        },
         {
           "concept": "Ressecção completa",
           "takeaway": "Permite exclusão imediata da MAV se confirmada angiograficamente."
@@ -78,6 +86,10 @@
       "title": "Malformação da veia de Galeno e anomalias venosas",
       "points": [
         {
+          "concept": "Coletor embrionário e drenagem normal",
+          "takeaway": "Na MAVG, localize a veia mediana prosencefálica persistente e saída falcina ou via seio reto. Diferencie de dilatação galênica secundária por MAV pial e de DVA que drena parênquima normal."
+        },
+        {
           "concept": "MAVG verdadeira",
           "takeaway": "Shunt para a veia mediana prosencefálica embrionária persistente."
         },
@@ -120,6 +132,10 @@
       "title": "MAVG neonatal, Bicêtre e tratamento",
       "points": [
         {
+          "concept": "Bicêtre e prioridades",
+          "takeaway": "O escore integra função cardíaca, cerebral, respiratória, hepática e renal; apoia decisão com avaliação de lesão cerebral e repercussão sistêmica. Embolização pode ser estagiada para controlar o shunt preservando drenagem normal."
+        },
+        {
           "concept": "Insuficiência cardíaca de alto débito",
           "takeaway": "Apresentação neonatal importante de MAVG com grande fluxo."
         },
@@ -150,6 +166,10 @@
       "id": "7E",
       "title": "Aneurismas não rotos e história natural",
       "points": [
+        {
+          "concept": "Risco cumulativo contextualizado",
+          "takeaway": "Considere localização intra ou extradural, tamanho, morfologia, crescimento, história de HSA e perfil clínico. Ao tratar, compare risco procedimental e expectativa de benefício ao longo do horizonte do paciente."
+        },
         {
           "concept": "PHASES",
           "takeaway": "Estima risco de ruptura em cinco anos a partir de variáveis clínicas e anatômicas."
@@ -207,6 +227,10 @@
       "id": "7F",
       "title": "HSA aneurismática, ISAT e BRAT",
       "points": [
+        {
+          "concept": "Proteção do aneurisma e seleção",
+          "takeaway": "Trate a fonte de ressangramento precocemente quando viável. ISAT estudou pacientes elegíveis a ambos os métodos; BRAT apresentou crossover relevante. Estado clínico, anatomia, hematoma e durabilidade influenciam a estratégia."
+        },
         {
           "concept": "WFNS",
           "takeaway": "Graduação clínica baseada na Glasgow e na presença de déficit motor."
@@ -273,6 +297,10 @@
       "title": "Coils, remodelamento e dispositivos intrasaculares",
       "points": [
         {
+          "concept": "Técnicas para colo largo",
+          "takeaway": "Balão faz suporte transitório durante coiling. Stent permanece no vaso e costuma exigir antiagregação. Dispositivo intrasacular atua na interface do colo e exige avaliar tamanho, configuração e eventual protrusão."
+        },
+        {
           "concept": "Coiling simples",
           "takeaway": "Preenchimento do saco por espiras sem suporte permanente no vaso parental."
         },
@@ -303,6 +331,10 @@
       "id": "7H",
       "title": "Flow diverter e aneurismas complexos",
       "points": [
+        {
+          "concept": "Reconstrução e tempo de oclusão",
+          "takeaway": "Flow diversion reduz entrada de fluxo e depende de remodelamento progressivo. Avalie cobertura de perfurantes, ramos incorporados, parede a reconstruir e riscos da antiagregação, sobretudo após ruptura."
+        },
         {
           "concept": "Flow diverter",
           "takeaway": "Reconstrói o vaso parental e promove trombose progressiva do saco."
@@ -335,6 +367,10 @@
       "title": "Vasoespasmo e isquemia cerebral tardia",
       "points": [
         {
+          "concept": "Vasoespasmo versus DCI",
+          "takeaway": "Estreitamento angiográfico é um achado; DCI envolve deterioração clínica ou infarto tardio após excluir causas alternativas. Nimodipina beneficia desfechos; tratar calibre angiográfico isoladamente não demonstra benefício funcional."
+        },
+        {
           "concept": "Nimodipina enteral",
           "takeaway": "Tratamento que melhora desfechos após HSA aneurismática."
         },
@@ -365,6 +401,10 @@
       "id": "7J",
       "title": "Revisão de MAVs, Galeno, aneurismas e HSA",
       "points": [
+        {
+          "concept": "Comparação integrada",
+          "takeaway": "Em MAV, localize nidus e venosa de saída. Em MAVG, diferencie o coletor embrionário de Galeno madura. Em HSA, separe proteção contra ressangramento, hidrocefalia e DCI. Nas três situações, valide o desfecho relevante e o risco da abordagem."
+        },
         {
           "concept": "Ectasia venosa em MAV",
           "takeaway": "Deve ser localizada em relação ao nidus e ao padrão de efluxo."
@@ -487,17 +527,18 @@
     {
       "id": "nri:7A:d1",
       "lesson": "7A",
-      "prompt": "No contexto de MAV cerebral, história natural e escores, qual alternativa descreve corretamente «Nidus»?",
+      "prompt": "Uma MAV não rota, compacta, de 2,5 cm, em área eloquente, tem drenagem superficial e profunda. Qual escore e uso estão corretos?",
       "options": [
-        "Usa idade, apresentação hemorrágica e compactação do nidus.",
-        "Rede de canais anormais entre aferências arteriais e drenagem venosa da MAV.",
-        "Restrição de efluxo a descrever na avaliação angioarquitetural.",
-        "Critério de graduação cirúrgica, observado pelo destino venoso do nidus.",
-        "Pode ser relevante como fonte de sangramento, dependendo da relação com o hematoma."
+        "Lawton–Young III, dedutível somente da imagem descrita",
+        "Spetzler–Martin III, para prever diretamente risco anual de hemorragia",
+        "Spetzler–Martin III, para estratificação do risco cirúrgico",
+        "Spetzler–Martin II, porque existe drenagem superficial concomitante",
+        "Spetzler–Martin IV, porque área eloquente vale dois pontos"
       ],
-      "answer": 1,
-      "explanation": "Nidus. Rede de canais anormais entre aferências arteriais e drenagem venosa da MAV.",
-      "origin": "revisão"
+      "answer": 2,
+      "explanation": "Menos de 3 cm soma um ponto, eloquência soma um e qualquer drenagem profunda soma um. Lawton–Young suplementar inclui idade, apresentação hemorrágica e compacidade.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:7A:d2",
@@ -787,17 +828,18 @@
     {
       "id": "nri:7C:d1",
       "lesson": "7C",
-      "prompt": "No contexto de Malformação da veia de Galeno e anomalias venosas, qual alternativa descreve corretamente «MAVG verdadeira»?",
+      "prompt": "A DSA mostra nidus pial talâmico drenando pela veia cerebral interna até grande veia cerebral dilatada. O sistema profundo normal também utiliza essa grande veia. Qual hipótese corresponde à arquitetura?",
       "options": [
-        "Coletor galênico dilatado em razão de outro shunt, como uma MAV parenquimatosa.",
-        "Rede medular coletora que drena parênquima normal.",
-        "Rede arterial complexa com múltiplos shunts e apresentação neonatal frequente.",
-        "Conexão mais direta na parede da veia embrionária, com uma ou poucas fístulas.",
-        "Shunt para a veia mediana prosencefálica embrionária persistente."
+        "MAV pial com dilatação galênica secundária",
+        "MAVG verdadeira do tipo mural",
+        "MAVG verdadeira do tipo coroideano",
+        "FAV dural do seio reto com drenagem direta para Galeno",
+        "DVA talâmica isolada com remodelamento fisiológico"
       ],
-      "answer": 4,
-      "explanation": "MAVG verdadeira. Shunt para a veia mediana prosencefálica embrionária persistente.",
-      "origin": "revisão"
+      "answer": 0,
+      "explanation": "A lesão inicia em nidus pial e drena para a grande veia cerebral madura. Na MAVG verdadeira, as conexões alcançam a veia mediana prosencefálica persistente. Reconhecer a drenagem normal evita confundir o alvo com a saída venosa do encéfalo.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:7C:d2",
@@ -1702,17 +1744,18 @@
     {
       "id": "nri:7I:d1",
       "lesson": "7I",
-      "prompt": "No contexto de Vasoespasmo e isquemia cerebral tardia, qual alternativa descreve corretamente «Nimodipina enteral»?",
+      "prompt": "No oitavo dia após HSA tratada, surge hemiparesia. A DSA mostra estreitamento de M1. A TC evidencia hidrocefalia nova e a avaliação inicial detecta hiponatremia. Como interpretar a relação entre os achados?",
       "options": [
-        "Relação da velocidade média da ACM com a ACI extracraniana ipsilateral.",
-        "Estratégia de resgate para vasoespasmo proximal em casos selecionados.",
-        "Deterioração neurológica ou infarto tardio após excluir causas alternativas pertinentes.",
-        "Pode atingir leitos distais e ter efeito transitório.",
-        "Tratamento que melhora desfechos após HSA aneurismática."
+        "Vasoespasmo angiográfico é plausível, mas atribuir a deterioração a DCI exige avaliar causas concorrentes",
+        "O estreitamento prova DCI independentemente de achados concomitantes",
+        "Hidrocefalia exclui vasoespasmo porque as duas complicações não coexistem",
+        "A DCI exige infarto confirmado antes de reconhecer deterioração clínica",
+        "O uso de nimodipina exclui DCI e torna a estenose irrelevante"
       ],
-      "answer": 4,
-      "explanation": "Nimodipina enteral. Tratamento que melhora desfechos após HSA aneurismática.",
-      "origin": "revisão"
+      "answer": 0,
+      "explanation": "Vasoespasmo descreve calibre. DCI é um constructo clínico e/ou radiológico que exige interpretação temporal e exclusão de causas alternativas de piora, incluindo hidrocefalia e alterações metabólicas.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:7I:d2",

@@ -5,6 +5,14 @@
       "title": "Borden, Cognard e risco nas fístulas durais",
       "points": [
         {
+          "concept": "Cognard IIb, IIa+b e III",
+          "takeaway": "IIb é drenagem sinusal com refluxo cortical; IIa+b soma refluxo sinusal retrógrado; III drena diretamente para veia cortical sem ectasia. A ectasia na drenagem cortical direta define IV."
+        },
+        {
+          "concept": "Perfil de risco",
+          "takeaway": "Além de refluxo cortical, considere ectasia, restrição de efluxo e apresentação hemorrágica ou com déficit neurológico."
+        },
+        {
           "concept": "Borden I",
           "takeaway": "Drenagem em seio dural sem refluxo venoso cortical."
         },
@@ -47,6 +55,10 @@
       "title": "Angioarquitetura das fístulas durais",
       "points": [
         {
+          "concept": "Motivo de recorrência após oclusão proximal",
+          "takeaway": "Alimentadores podem ser recrutados se o ponto fistuloso e a porção inicial da saída venosa patológica permanecem. Diferencie bolsa mural, seio funcional e veias normais antes de escolher via arterial, venosa ou cirurgia."
+        },
+        {
           "concept": "Ponto fistuloso",
           "takeaway": "Local em que o sangue arterial cruza diretamente para o sistema venoso."
         },
@@ -77,6 +89,10 @@
       "id": "6C",
       "title": "Fístulas carotidocavernosas e Barrow",
       "points": [
+        {
+          "concept": "Barrow e prioridade clínica",
+          "takeaway": "Direta tipo A comunica ACI e cavernoso. B/C/D são durais por aferências de ACI, ACE ou ambas. Drenagem cortical, piora visual e ameaça de perda de visão pesam mais na urgência que a letra."
+        },
         {
           "concept": "Barrow A",
           "takeaway": "Comunicação direta da ACI cavernosa com o seio cavernoso."
@@ -138,6 +154,10 @@
       "title": "Tratamento das fístulas carotidocavernosas",
       "points": [
         {
+          "concept": "Escolha do acesso",
+          "takeaway": "Em fístula dural cavernosa, busque via petrosa inferior e alternativas, como oftálmica superior, conforme a anatomia. Na direta, avalie reconstrução ou oclusão seletiva do ponto; avaliar tolerância a sacrifício da ACI é questão distinta."
+        },
+        {
           "concept": "Seio petroso inferior",
           "takeaway": "Via transvenosa frequentemente usada para alcançar o cavernoso quando acessível."
         },
@@ -160,6 +180,42 @@
         {
           "concept": "Teste de oclusão carotídea",
           "takeaway": "Pode ajudar a avaliar reserva colateral quando se considera sacrifício da ACI."
+        },
+        {
+          "concept": "Via transvenosa clássica",
+          "takeaway": "Seio petroso inferior"
+        },
+        {
+          "concept": "Alternativa anterior",
+          "takeaway": "Veia oftálmica superior"
+        },
+        {
+          "concept": "Alternativa contralateral",
+          "takeaway": "Seios intercavernosos"
+        },
+        {
+          "concept": "Opacificação cavernosa bilateral",
+          "takeaway": "Não comprova fístula bilateral"
+        },
+        {
+          "concept": "Alvo ideal em bolsa restrita",
+          "takeaway": "Compartimento fistuloso"
+        },
+        {
+          "concept": "Risco de coils extensos",
+          "takeaway": "Neuropatia craniana"
+        },
+        {
+          "concept": "Risco de oclusão venosa incompleta",
+          "takeaway": "Redirecionamento para drenagem cortical ou orbitária"
+        },
+        {
+          "concept": "FCC direta",
+          "takeaway": "Excluir defeito da ACI, preservando-a quando possível"
+        },
+        {
+          "concept": "FCC indireta",
+          "takeaway": "Excluir shunt dural e preservar drenagem fisiológica"
         }
       ],
       "theory": "Aula 4/8 · Compartimentalização cavernosa, planejamento angiográfico, acessos e complicações\n\nReferência principal: Harrigan, 4ª edição, capítulo 14 e seção 11.5 ( Transvenous Embolization ). Complemento anatômico: Lasjaunias. Os resultados de tratamentos contemporâneos são identificados separadamente como evidência adicional.\n\n## 1. O seio cavernoso não deve ser tratado como uma cavidade única\n\nA representação clássica do seio cavernoso como um espaço venoso uniforme é insuficiente para o planejamento endovascular.\n\nDo ponto de vista angiográfico, é necessário distinguir:\n\n- Compartimentos venosos que recebem diretamente os shunts.\n\n- Compartimentos comunicantes sem conexão fistulosa própria.\n\n- Vias de drenagem orbitária, petrosa, intercavernosa e cortical.\n\n- Septações, trabéculas e restrições anatômicas que podem dificultar a navegação.\n\nUma FCC pode envolver um compartimento restrito, enquanto outras porções do seio cavernoso participam apenas do escoamento venoso.\n\nImplicação terapêutica: quando o ponto fistuloso e a bolsa receptora podem ser isolados, a oclusão seletiva pode evitar a necessidade de preencher extensamente o seio cavernoso.\n\nUma revisão especializada descreve a oclusão seletiva da bolsa fistulosa como alternativa ao preenchimento amplo do seio, que pode causar neuropatia craniana por efeito de massa.\n\n## 2. Reconstrução angiográfica antes do tratamento\n\nA angiografia deve responder a seis perguntas:\n\n| Pergunta | Importância |\n| --- | --- |\n| A comunicação é direta ou dural indireta? | Distingue Barrow A de B–D |\n| Quais sistemas arteriais alimentam a FCC? | Define pedículos e anastomoses perigosas |\n| Onde está o ponto ou a bolsa fistulosa? | Identifica o alvo de oclusão |\n| Quais são as vias venosas de saída? | Define acesso e risco de redirecionamento |\n| Existe refluxo cortical? | Identifica comportamento agressivo |\n| A ACI pode ser preservada? | Determina a estratégia reconstrutiva nas FCCs diretas |\n\nNas FCCs indiretas, a avaliação deve considerar injeções seletivas das carótidas internas e externas, bilateralmente quando necessário, com análise das fases venosas.\n\nNas FCCs diretas, a angiografia deve caracterizar o defeito da ACI cavernosa e verificar se o fluxo elevado dificulta a identificação das estruturas distais.\n\n## 3. Vias de acesso transvenoso\n\nMapa conceitual dos acessos\n\n![Seio cavernoso Veia oftálmica superior Via anterior Seio intercavernoso Via contralateral Seio petroso inferior Via posterior clássica Esquema de conexões, não de trajetos em escala ](/nri-esquemas/6D-179)\n\nA. Seio petroso inferior — via clássica\n\nO trajeto é realizado pelo sistema venoso jugular até o seio petroso inferior, alcançando o seio cavernoso.\n\nÉ frequentemente a via preferida por ser relativamente curta e direta.\n\nA ausência de opacificação angiográfica do seio petroso inferior não demonstra necessariamente impossibilidade de acesso, mas a tentativa de atravessar segmentos trombosados deve considerar o risco de perfuração e a experiência técnica.\n\nB. Veia oftálmica superior — via anterior\n\nPode ser alcançada por:\n\n- Veia facial e angular.\n\n- Exposição cirúrgica da veia oftálmica superior.\n\n- Punção direta selecionada.\n\nAs limitações incluem tortuosidade, pequeno calibre, fragilidade venosa e risco de hematoma orbitário.\n\nC. Via contralateral intercavernosa\n\nO seio cavernoso contralateral pode oferecer acesso por conexões intercavernosas.\n\nPegadinha: opacificação de ambos os seios cavernosos não significa necessariamente duas fístulas. Pode representar uma única FCC com drenagem contralateral.\n\nD. Outras vias\n\nEm casos selecionados, podem ser considerados o seio petroso superior, plexos venosos da base do crânio e outras rotas de acesso.\n\nA escolha deve ser orientada pela angioarquitetura demonstrada, não apenas pela disponibilidade anatômica presumida. PMC +1\n\n## 4. Embolização seletiva versus preenchimento extenso do seio\n\n| Estratégia | Vantagem potencial | Limitação |\n| --- | --- | --- |\n| Oclusão seletiva da bolsa fistulosa | Menor volume de material e preservação de compartimentos não envolvidos | Exige identificação precisa e acesso à bolsa |\n| Preenchimento mais extenso do seio | Pode excluir múltiplas conexões difusas | Maior risco de efeito de massa e neuropatia craniana |\n| Embolização transarterial | Pode alcançar diretamente pedículos favoráveis | Anastomoses perigosas e lesão de nervos cranianos |\n| Reconstrução da ACI em FCC direta | Preserva o fluxo carotídeo quando tecnicamente viável | Exige seleção conforme defeito, dispositivo e anatomia |\n\nA revisão de Harake e colaboradores encontrou altas taxas de oclusão das FCCs durais com abordagens transvenosas, mas os dados são predominantemente observacionais, não permitindo concluir que uma única técnica seja superior em todas as anatomias.\n\n## 5. Complicações que devem ser antecipadas\n\nA. Neuropatia craniana\n\nPode ocorrer por:\n\n- Efeito de massa de coils.\n\n- Trombose e reação inflamatória local.\n\n- Comprometimento vascular dos nervos.\n\n- Lesão mecânica durante a navegação.\n\nO VI nervo é particularmente relevante devido à sua relação com a ACI cavernosa.\n\nB. Agravamento da congestão orbitária\n\nPode ocorrer quando a drenagem oftálmica é bloqueada antes da exclusão completa do shunt.\n\nC. Refluxo cortical após oclusão parcial\n\nUma mudança das vias venosas de saída pode redirecionar o fluxo para veias leptomeníngeas e aumentar o risco neurológico.\n\nD. Perfuração venosa\n\nRisco durante a passagem por vias estreitas, tortuosas ou previamente trombosadas.\n\nE. Embolização arterial não alvo\n\nParticularmente importante quando existem anastomoses entre ramos meníngeos da ACE e da ACI, ou suprimento de nervos cranianos.\n\nUma série retrospectiva publicada em 2024 identificou neuropatias cranianas como complicações relevantes após tratamento endovascular de FCCs, além de casos de persistência ou recorrência que exigiram retratamento. PMC\n\n## 6. Casos clínicos integrativos\n\nCaso 1 — FCC indireta com drenagem orbitária\n\nPaciente com quemose, proptose e hipertensão ocular. A angiografia mostra Barrow D, drenagem anterior predominante e seio petroso inferior acessível.\n\nRaciocínio: considerar abordagem transvenosa pelo seio petroso inferior, visando excluir o compartimento fistuloso e preservar a drenagem normal.\n\nCaso 2 — FCC indireta sem olho vermelho\n\nPaciente com diplopia dolorosa, paresia do VI nervo e pouca congestão orbitária. A angiografia demonstra drenagem posterior.\n\nRaciocínio: a ausência de sinais orbitários não exclui FCC. A avaliação deve procurar drenagem posterior e eventual refluxo cortical.\n\nCaso 3 — FCC com seio petroso inferior não opacificado\n\nPaciente com FCC indireta sintomática e drenagem predominante pela veia oftálmica superior.\n\nRaciocínio: avaliar a possibilidade de acesso pelo trajeto petroso, sem presumir sua viabilidade, e comparar com alternativas pela via oftálmica ou intercavernosa.\n\nCaso 4 — FCC direta traumática\n\nPaciente com Barrow A e defeito da ACI cavernosa.\n\nRaciocínio: o tratamento deve excluir a comunicação e preservar a ACI quando possível. A estratégia reconstrutiva depende da anatomia do defeito e da circulação colateral.\n\n## 7. Pontos de prova — Aula 6D\n\n| Conceito | Resposta essencial |\n| --- | --- |\n| Via transvenosa clássica | Seio petroso inferior |\n| Alternativa anterior | Veia oftálmica superior |\n| Alternativa contralateral | Seios intercavernosos |\n| Opacificação cavernosa bilateral | Não comprova fístula bilateral |\n| Alvo ideal em bolsa restrita | Compartimento fistuloso |\n| Risco de coils extensos | Neuropatia craniana |\n| Risco de oclusão venosa incompleta | Redirecionamento para drenagem cortical ou orbitária |\n| FCC direta | Excluir defeito da ACI, preservando-a quando possível |\n| FCC indireta | Excluir shunt dural e preservar drenagem fisiológica |\n\nSíntese: o planejamento endovascular das FCCs exige identificar o ponto fistuloso, suas vias de alimentação e drenagem e o compartimento que pode ser excluído com segurança. O sucesso não depende de preencher o maior volume possível do seio cavernoso.",
@@ -198,6 +254,10 @@
       "title": "Fístulas tentoriais e das fossas anterior e posterior",
       "points": [
         {
+          "concept": "Pontos frágeis por topografia",
+          "takeaway": "Etmoidal envolve circulação oftálmica e saída cortical frontal. Tentorial pode receber MHT e aferentes piais, com drenagem profunda. Fossa posterior exige avaliar nervos cranianos, efluxo perimedular e conexões vertebrais."
+        },
+        {
           "concept": "FAV etmoidal",
           "takeaway": "Suprimento frequente por ramos etmoidais da oftálmica e drenagem cortical."
         },
@@ -228,6 +288,10 @@
       "id": "6F",
       "title": "Fístulas transverso-sigmoides",
       "points": [
+        {
+          "concept": "Mapa do transverso-sigmoide",
+          "takeaway": "Examine injeções bilaterais, direção da drenagem, ponto de entrada de Labbé e destino do córtex normal. Uma bolsa mural acessível pode permitir preservar um seio ainda funcional."
+        },
         {
           "concept": "Zumbido pulsátil",
           "takeaway": "Manifestação possível de shunt junto aos seios laterais."
@@ -289,6 +353,10 @@
       "title": "Fístulas do sagital superior, seio marginal e canal do hipoglosso",
       "points": [
         {
+          "concept": "Canais da junção craniocervical",
+          "takeaway": "No marginal e no canal do hipoglosso, mapeie plexos condilares, ramos vertebrais e relação com XII. Refluxo perimedular pode explicar mielopatia em shunt craniano."
+        },
+        {
           "concept": "FAV sagital superior",
           "takeaway": "Pode recrutar múltiplas aferências meníngeas e afetar drenagem cortical parassagital."
         },
@@ -330,6 +398,10 @@
       "id": "6H",
       "title": "Revisão integrada das fístulas durais",
       "points": [
+        {
+          "concept": "Evidência de cura",
+          "takeaway": "Desaparecimento do sopro ou redução de fluxo arterial não demonstra desconexão. Confirme ausência de enchimento venoso precoce em injeções relevantes e programe vigilância angiográfica quando indicada."
+        },
         {
           "concept": "Embolização transarterial curativa",
           "takeaway": "Exige alcançar o shunt e sua saída venosa proximal quando a anatomia permite."
@@ -437,17 +509,18 @@
     {
       "id": "nri:6A:d1",
       "lesson": "6A",
-      "prompt": "No contexto de Borden, Cognard e risco nas fístulas durais, qual alternativa descreve corretamente «Borden I»?",
+      "prompt": "Uma FAV drena primeiro no seio transverso. A DSA mostra fluxo retrógrado no próprio seio e refluxo para veia cortical, que não é ectásica. Qual par de classificações corresponde ao caso?",
       "options": [
-        "Drenagem para veias perimedulares espinais.",
-        "Drenagem direta em veias corticais ou subaracnóideas.",
-        "Drenagem venosa cortical direta com ectasia.",
-        "Drenagem em seio dural sem refluxo venoso cortical.",
-        "Drenagem sinusal com refluxo para veias corticais."
+        "Borden I e Cognard IIa",
+        "Borden II e Cognard IIb",
+        "Borden III e Cognard III",
+        "Borden III e Cognard IV",
+        "Borden II e Cognard IIa+b"
       ],
-      "answer": 3,
-      "explanation": "Borden I. Drenagem em seio dural sem refluxo venoso cortical.",
-      "origin": "revisão"
+      "answer": 4,
+      "explanation": "O refluxo cortical com drenagem sinusal classifica a fístula como Borden II. Cognard IIa+b acrescenta a documentação de refluxo sinusal retrógrado ao refluxo cortical.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:6A:d2",
@@ -1007,17 +1080,18 @@
     {
       "id": "nri:6D:d1",
       "lesson": "6D",
-      "prompt": "No contexto de Tratamento das fístulas carotidocavernosas, qual alternativa descreve corretamente «Seio petroso inferior»?",
+      "prompt": "Após embolização cavernosa, o sopro diminui. A DSA de controle mostra menor enchimento de veia oftálmica, mas persiste drenagem cortical precoce pela veia silviana. Qual conclusão é mais apropriada?",
       "options": [
-        "Prioriza exclusão do shunt com preservação da ACI quando viável.",
-        "Pode contribuir para disfunção de nervos cranianos.",
-        "Pode integrar uma via anterior alternativa de acesso em casos selecionados.",
-        "Via transvenosa frequentemente usada para alcançar o cavernoso quando acessível.",
-        "Alvo venoso que pode permitir oclusão seletiva em anatomia favorável."
+        "O shunt agora é de baixo risco porque o refluxo ocular diminuiu",
+        "A redução do sopro confirma a desconexão da comunicação",
+        "A origem arterial passa a ser direta, pois a veia silviana permanece visível",
+        "A fase precoce é esperada após cura se a veia silviana opacifica antes do seio",
+        "Persiste shunt com efluxo cortical de risco, apesar da melhora clínica"
       ],
-      "answer": 3,
-      "explanation": "Seio petroso inferior. Via transvenosa frequentemente usada para alcançar o cavernoso quando acessível.",
-      "origin": "revisão"
+      "answer": 4,
+      "explanation": "A persistência de drenagem cortical precoce mostra shunt residual e mantém uma via de risco. Redução dos sinais orbitários pode refletir redistribuição do efluxo sem cura da fístula.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:6D:d2",
@@ -1382,17 +1456,18 @@
     {
       "id": "nri:6F:d1",
       "lesson": "6F",
-      "prompt": "No contexto de Fístulas transverso-sigmoides, qual alternativa descreve corretamente «Zumbido pulsátil»?",
+      "prompt": "Uma FAV transverso-sigmoide recebe aferências bilaterais. Existe pouch venoso focal, e a fase tardia das injeções carotídeas mostra fluxo cortical anterógrado pelo mesmo seio. Qual é a diferença entre os alvos de tratamento?",
       "options": [
-        "Manifestação possível de shunt junto aos seios laterais.",
-        "Compartimento fistuloso potencialmente distinto da luz principal do seio.",
-        "Recebe drenagem cerebral normal que precisa ser considerada no tratamento.",
-        "Pode desviar o efluxo do shunt para veias corticais.",
-        "Pode reduzir fluxo sem excluir definitivamente o ponto fistuloso."
+        "Ocluir o seio contralateral para reduzir o refluxo pelo torcular",
+        "Excluir o pouch fistuloso e preservar a luz que recebe drenagem normal",
+        "Ocluir todo o seio por haver aferências bilaterais",
+        "Ocluir somente aferência dominante, pois a drenagem do seio é anterógrada",
+        "Tratar a veia de Labbé por ser o maior ramo cortical"
       ],
-      "answer": 0,
-      "explanation": "Zumbido pulsátil. Manifestação possível de shunt junto aos seios laterais.",
-      "origin": "revisão"
+      "answer": 1,
+      "explanation": "Uma bolsa fistulosa pode ser alvo seletivo. A drenagem fisiológica documentada no mesmo seio aumenta o custo de sacrificar sua luz funcional.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:6F:d2",

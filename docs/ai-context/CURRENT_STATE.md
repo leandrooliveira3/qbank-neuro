@@ -1,3 +1,7 @@
+## 21/11/2026 — Curso NRI independente e auditoria do banco
+
+Curso NRI 2027 abaixo do Atlas Neurovascular 3D no menu principal do QBank. Rota `/#/tools/nri`; os links antigos de curso redirecionam com a seleção e a Preparação NRI continua no Atlas. Nas 120 aulas, a Revisão de prova passou a 1.413 pontos. O banco preserva 13 blocos de 100 questões. A auditoria estrutural avaliou 1.300 itens, reescreveu 39 e complementou cinco comentários de embriologia. As respostas das versões originais continuam armazenadas. Ver [auditoria e pendências](../neuro3d-curso-nri-auditoria.md).
+
 ## 21/11/2026 — Curso NRI no site
 
 Aba Curso NRI com catálogo de 13 blocos, 120 aulas HTML, 43 esquemas incorporados e 1.300 questões. O leitor de PDF foi removido e URLs antigas abrem a aula web. Cotejo com os três históricos e testes de abertura de todas as aulas em desktop e celular. Veja [o manual](../neuro3d-curso-nri.md).

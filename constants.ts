@@ -30,6 +30,7 @@ import {
 
 export const MENU_ITEMS = [
   { name: 'Atlas Neurovascular 3D', icon: Brain, path: '/tools/neuro3d' },
+  { name: 'Curso NRI 2027', icon: BookOpen, path: '/tools/nri' },
   { name: 'Dashboard', icon: LayoutDashboard, path: '/' },
   { name: 'Prática', icon: Zap, path: '/practice' },
   { name: 'Gerar Questões IA', icon: Upload, path: '/import' },

@@ -157,3 +157,7 @@ Base `cfb8dee`. Teoria revista nos três históricos, tabelas recompostas pelas 
 ## 21/11/2026 — Leitura web e catálogo do Curso NRI
 
 Base `3952cda`. Conteúdo HTML em 120 rotas, catálogo de 13 blocos, 43 esquemas incorporados e 1.300 questões. A auditoria cotejou os três históricos e preservou os IDs das questões. Migração do parâmetro antigo de leitura e recuperação de falha de carregamento de build. Ver [manual](../neuro3d-curso-nri.md).
+
+## 21/11/2026 — Curso independente e auditoria de conteúdo
+
+Base remota `9b66c6b`. Rota própria do curso, revisão nas 120 aulas, triagem das 1.300 questões, 39 casos reescritos e cinco comentários completados. Consulte [a matriz e seus limites](../neuro3d-curso-nri-auditoria.md). A validação científica dos demais gabaritos continua por lote.

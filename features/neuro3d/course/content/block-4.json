@@ -5,6 +5,10 @@
       "title": "Organização venosa superficial e profunda",
       "points": [
         {
+          "concept": "Fase venosa normal",
+          "takeaway": "Mapeie veias corticais para seios durais, veias cerebrais internas e basais para a grande veia cerebral, e saída jugular. Use a fase tardia de injeções de artérias que irrigam o parênquima adjacente para identificar drenagem normal."
+        },
+        {
           "concept": "Seio sagital superior",
           "takeaway": "Recebe veias corticais da convexidade e parassagitais."
         },
@@ -61,6 +65,10 @@
       "title": "Veias corticais e drenagem silviana",
       "points": [
         {
+          "concept": "Drenagem silviana variável",
+          "takeaway": "O destino da veia cerebral média superficial pode ser cavernoso, paracavernoso, pterigoideo ou esfenopetroso. Não assuma um seio esfenoparietal universal como continuação da veia silviana. Trolard e Labbé podem assumir a drenagem dominante."
+        },
+        {
           "concept": "Trolard",
           "takeaway": "Veia anastomótica superior que comunica drenagem silviana ou lateral com o sagital superior."
         },
@@ -91,6 +99,10 @@
       "id": "4C",
       "title": "Seios durais e variantes",
       "points": [
+        {
+          "concept": "Hipoplasia versus trombose",
+          "takeaway": "Compare calibre ao longo do sistema, sulco ósseo, jugular e exame contrastado; fluxo lento pode simular falha no TOF. Antes de ocluir um seio, confirme se ele recebe parênquima normal."
+        },
         {
           "concept": "Torcular",
           "takeaway": "Confluência variável de seios posteriores, com possíveis septos e dominância lateral."
@@ -128,6 +140,10 @@
       "id": "4D",
       "title": "Veias cerebrais internas, Rosenthal e Galeno",
       "points": [
+        {
+          "concept": "Confluência e colaterais profundas",
+          "takeaway": "Veia septal anterior e talamoestriada ajudam a localizar a origem da veia cerebral interna. A basal de Rosenthal drena conforme variantes, inclusive por conexões da veia mesencefálica lateral. Na trombose profunda, suspeite diante de edema talâmico bilateral."
+        },
         {
           "concept": "Veia talamoestriada",
           "takeaway": "Chega à região do forame de Monro e participa da drenagem para a veia cerebral interna."
@@ -181,6 +197,10 @@
       "title": "Drenagem venosa da fossa posterior",
       "points": [
         {
+          "concept": "Três sistemas da fossa posterior",
+          "takeaway": "Separe rotas galênica superior, petrosa anterior e tentorial/torcular posterior. Determine se a mesma veia petrosa recebe drenagem cerebelar ou do tronco antes de desconectar um shunt."
+        },
+        {
           "concept": "Veia petrosa superior",
           "takeaway": "Coletor da região pontocerebelar com drenagem frequente ao petroso superior."
         },
@@ -211,6 +231,10 @@
       "id": "4F",
       "title": "DVA, veias transmedulares e cavernomas",
       "points": [
+        {
+          "concept": "Hemorragia em região com DVA",
+          "takeaway": "Procure cavernoma associado e obstrução de saída venosa. O coletor da DVA é via de drenagem do tecido normal; sua perda pode causar infarto venoso. Cavernoma pode ser oculto na DSA."
+        },
         {
           "concept": "Caput medusae",
           "takeaway": "Veias medulares radiadas convergindo para uma veia coletora."
@@ -259,6 +283,10 @@
       "id": "4G",
       "title": "Anatomia venosa angiográfica e refluxo",
       "points": [
+        {
+          "concept": "Temporalidade e patência funcional",
+          "takeaway": "Uma veia que opacifica antes da fase esperada sugere shunt. Uma via transcerebral tardia pode ser colateral de congestão. Compare arterial, capilar e venosa tardia e documente a drenagem normal antes de fechar um seio."
+        },
         {
           "concept": "Fase venosa tardia",
           "takeaway": "Mostra vias de drenagem e retenção de contraste que podem passar despercebidas nas fases iniciais."
@@ -319,6 +347,10 @@
       "id": "4H",
       "title": "Trombose venosa cerebral e hipertensão venosa",
       "points": [
+        {
+          "concept": "TVC e HII",
+          "takeaway": "Anticoagulação é o tratamento inicial usual da TVC aguda, inclusive com hemorragia venosa, quando não há contraindicação relevante. TO-ACT foi neutro na população estudada. Stent para HII selecionada envolve confirmação diagnóstica, anatomia e manometria com contexto técnico."
+        },
         {
           "concept": "Infarto venoso hemorrágico",
           "takeaway": "Hemorragia venosa associada à TVC geralmente não impede anticoagulação por si só."
@@ -635,17 +667,18 @@
     {
       "id": "nri:4B:d1",
       "lesson": "4B",
-      "prompt": "No contexto de Veias corticais e drenagem silviana, qual alternativa descreve corretamente «Trolard»?",
+      "prompt": "Uma FAV lateral preenche um compartimento mural. Na fase venosa tardia da injeção carotídea, quase toda a drenagem temporal ipsilateral passa por Labbé e desemboca no mesmo seio. Qual achado pesa a favor de buscar oclusão seletiva do compartimento?",
       "options": [
-        "É preciso determinar se o segmento a tratar também recebe drenagem cerebral normal.",
-        "Pode conduzir drenagem silviana para o sistema venoso posterior.",
-        "Veia anastomótica superior que comunica drenagem silviana ou lateral com o sagital superior.",
-        "Veia anastomótica inferior que dirige drenagem temporal lateral para o sistema transverso.",
-        "Coletor silviano com saídas venosas variáveis."
+        "Distância entre torcular e óstio jugular",
+        "Presença de via arterial pela meníngea média contralateral",
+        "Espessura da parede do seio na TC sem contraste",
+        "Dependência do parênquima normal desse efluxo temporal",
+        "Número de ramos meníngeos alimentando a bolsa"
       ],
-      "answer": 2,
-      "explanation": "Trolard. Veia anastomótica superior que comunica drenagem silviana ou lateral com o sagital superior.",
-      "origin": "revisão"
+      "answer": 3,
+      "explanation": "O fluxo venoso normal pela veia de Labbé é o achado que mais pesa na preservação do seio ou da via de saída normal. Sacrifício de um efluxo dominante pode causar congestão e infarto venoso.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:4B:d2",
@@ -1025,17 +1058,18 @@
     {
       "id": "nri:4D:d1",
       "lesson": "4D",
-      "prompt": "No contexto de Veias cerebrais internas, Rosenthal e Galeno, qual alternativa descreve corretamente «Veia talamoestriada»?",
+      "prompt": "Em paciente com alteração de consciência, a RM demonstra edema bilateral dos tálamos com focos hemorrágicos e alterações que ultrapassam o território paramediano esperado. A venografia mostra falha no seio reto e nas veias cerebrais internas. Qual mecanismo melhor unifica os achados?",
       "options": [
-        "Chega à região do forame de Monro e participa da drenagem para a veia cerebral interna.",
-        "Pode oferecer saída posterior alternativa ao sistema venoso profundo.",
-        "Pode gerar edema, infarto ou hemorragia talâmica bilateral.",
-        "Percorre a região perimesencefálica com saída posterior frequentemente galênica.",
-        "Coletor profundo que normalmente desemboca no seio reto."
+        "Fístula cavernosa com drenagem exclusiva pela oftálmica superior",
+        "Hipertensão venosa por trombose do sistema profundo",
+        "Oclusão da artéria de Percheron com drenagem venosa profunda preservada",
+        "Trombose isolada da veia de Labbé",
+        "Oclusão de uma única artéria tuberotalâmica"
       ],
-      "answer": 0,
-      "explanation": "Veia talamoestriada. Chega à região do forame de Monro e participa da drenagem para a veia cerebral interna.",
-      "origin": "revisão"
+      "answer": 1,
+      "explanation": "Veias cerebrais internas e seio reto integram o sistema profundo. A obstrução pode produzir edema e infarto hemorrágico talâmico bilateral. Percheron é um diferencial arterial que não explica diretamente o defeito venográfico.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:4D:d2",
@@ -1580,17 +1614,18 @@
     {
       "id": "nri:4G:d1",
       "lesson": "4G",
-      "prompt": "No contexto de Anatomia venosa angiográfica e refluxo, qual alternativa descreve corretamente «Fase venosa tardia»?",
+      "prompt": "Na injeção da meníngea média observa-se veia cortical na fase arterial. Após tratar o ponto de shunt, a mesma veia reaparece apenas na fase venosa da injeção da ACI. O que esse padrão sugere?",
       "options": [
-        "Marcador de risco de fístula dural intracraniana.",
-        "Segmento que pode drenar por vias alternativas após obstruções dos trajetos sinusais usuais.",
-        "Deve ser interpretada com dominância, colaterais e relevância hemodinâmica.",
-        "Mostra vias de drenagem e retenção de contraste que podem passar despercebidas nas fases iniciais.",
-        "Pode levar o efluxo de uma MAV profunda até um seio superficial."
+        "Recorrência da fístula porque a veia continua visível em qualquer fase",
+        "Oclusão da drenagem cortical normal porque a veia aparece mais tarde",
+        "Mudança de Borden I para III por visualização da veia na injeção carotídea",
+        "Trombose da ACI com colateralização pelas artérias meníngeas",
+        "Perda de enchimento precoce patológico com preservação da drenagem venosa fisiológica"
       ],
-      "answer": 3,
-      "explanation": "Fase venosa tardia. Mostra vias de drenagem e retenção de contraste que podem passar despercebidas nas fases iniciais.",
-      "origin": "revisão"
+      "answer": 4,
+      "explanation": "Uma veia pode drenar o encéfalo normalmente após a desconexão. O marcador da fístula era o enchimento precoce após injeção arterial do pedículo, que deve estar ausente nas injeções de controle relevantes.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:4G:d2",

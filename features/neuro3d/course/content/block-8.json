@@ -5,6 +5,10 @@
       "title": "Fisiopatologia do AVCi, colaterais e escalas",
       "points": [
         {
+          "concept": "Três dimensões do resultado",
+          "takeaway": "NIHSS mede déficit agudo, mRS mede incapacidade e eTICI mede reperfusão angiográfica. Colaterais podem retardar expansão do núcleo mesmo em oclusões no mesmo segmento."
+        },
+        {
           "concept": "Núcleo isquêmico",
           "takeaway": "Região estimada de dano isquêmico grave, cuja dimensão depende do tempo e do método de imagem."
         },
@@ -35,6 +39,10 @@
       "id": "8B",
       "title": "Imagem no AVC isquêmico agudo",
       "points": [
+        {
+          "concept": "Sequência de imagem",
+          "takeaway": "TC exclui hemorragia e estima extensão precoce; angio-TC localiza oclusão e colaterais; perfusão e RM respondem a questões específicas de seleção. Core estimado por software pode divergir do infarto final."
+        },
         {
           "concept": "TC sem contraste",
           "takeaway": "Avalia hemorragia e alterações isquêmicas precoces."
@@ -67,6 +75,10 @@
       "title": "Trombólise intravenosa",
       "points": [
         {
+          "concept": "Janela e indicação",
+          "takeaway": "Defina incapacidade e último momento bem, confirme critérios de tempo/imagem e reduza PA abaixo de 185/110 antes da IVT. Em elegível para IVT e EVT, administre IVT sem atrasar EVT e sem esperar resposta."
+        },
+        {
           "concept": "Alteplase",
           "takeaway": "Administração intravenosa de 0,9 mg/kg, com 10% em bolus e o restante em 60 minutos, máximo 90 mg."
         },
@@ -97,6 +109,10 @@
       "id": "8D",
       "title": "Trombectomia mecânica",
       "points": [
+        {
+          "concept": "Recanalização versus reperfusão",
+          "takeaway": "Reabertura do vaso parental não garante reperfusão distal. Registre eTICI final, número de passagens, novos territórios embolizados e riscos de insistir em déficit distal residual."
+        },
         {
           "concept": "Aspiração por contato",
           "takeaway": "Aproxima o cateter aspirativo da face proximal do trombo."
@@ -129,6 +145,10 @@
       "title": "Oclusão basilar e grandes núcleos",
       "points": [
         {
+          "concept": "Basilar e núcleo extenso",
+          "takeaway": "ATTENTION e BAOCHE estudam basilar com janelas distintas e mRS 0–3. SELECT2 e ANGEL-ASPECT tratam oclusão anterior com núcleo extenso em populações selecionadas; desfechos e critérios devem ser interpretados por estudo."
+        },
+        {
           "concept": "pc-ASPECTS",
           "takeaway": "Escore de alterações isquêmicas precoces da circulação posterior que pondera ponte e mesencéfalo."
         },
@@ -151,6 +171,30 @@
         {
           "concept": "mRS 0–3",
           "takeaway": "Desfecho dicotômico empregado em ensaios recentes de oclusão basilar."
+        },
+        {
+          "concept": "Oclusão basilar",
+          "takeaway": "Pode produzir déficit devastador mesmo com volume de infarto pequeno"
+        },
+        {
+          "concept": "NIHSS",
+          "takeaway": "Pode subestimar sintomas de circulação posterior"
+        },
+        {
+          "concept": "TC inicial",
+          "takeaway": "Pode ser normal em infarto de tronco"
+        },
+        {
+          "concept": "DWI inicial",
+          "takeaway": "Pode ser falsamente negativa"
+        },
+        {
+          "concept": "Percheron",
+          "takeaway": "Pode causar infarto talâmico paramediano bilateral"
+        },
+        {
+          "concept": "Recanalização basilar",
+          "takeaway": "Não garante recuperação de perfurantes previamente comprometidas"
         }
       ],
       "theory": "## Oclusão basilar, circulação posterior e AVC de grandes núcleos\n\n## 1. Por que a oclusão basilar é diferente?\n\nA oclusão da artéria basilar pode comprometer simultaneamente estruturas responsáveis pela consciência, respiração, motricidade, movimentos oculares e integração sensitiva.\n\nMesmo lesões relativamente pequenas no tronco encefálico podem produzir déficits graves, diferentemente do que seria esperado ao considerar apenas o volume do infarto.\n\nTrês princípios fundamentais:\n\n- A gravidade funcional não é proporcional apenas ao volume da lesão.\n\n- O NIHSS pode subestimar manifestações importantes da circulação posterior.\n\n- A preservação de colaterais e a localização da oclusão influenciam o prognóstico.\n\n## 2. Anatomia vascular aplicada\n\nA artéria basilar resulta da união das artérias vertebrais intracranianas e percorre a superfície ventral da ponte até sua bifurcação terminal.\n\nRamos e territórios\n\n| Vaso | Territórios principais | Síndromes associadas |\n| --- | --- | --- |\n| Vertebral intracraniana | Bulbo lateral e medial, conforme ramos | Síndromes bulbares |\n| PICA | Cerebelo posteroinferior e bulbo lateral | Wallenberg |\n| AICA | Ponte lateral caudal e cerebelo anteroinferior | Síndrome pontina lateral, possível hipoacusia |\n| Perfurantes basilares | Ponte paramediana e estruturas profundas | Hemiparesia, tetraparesia, locked-in |\n| SCA | Cerebelo superior e regiões rostrais adjacentes | Ataxia, dismetria |\n| ACP | Occipital, temporal medial e estruturas profundas por seus ramos | Hemianopsia, alterações mnésicas, infartos talâmicos |\n\nLocalização da oclusão basilar\n\nTerço proximal: pode comprometer ramos pontinos caudais e circulação cerebelar.\n\nTerço médio: risco de lesões pontinas extensas, inclusive comprometimento das vias corticoespinais e corticobulbares.\n\nTopo da basilar: pode comprometer circulação das ACPs, mesencéfalo e tálamos, dependendo da anatomia.\n\nA síndrome de topo da basilar pode cursar com alteração de consciência, distúrbios oculomotores, alterações visuais e déficits cognitivos.\n\nSíndrome do encarceramento ( locked-in )\n\nLesões pontinas ventrais bilaterais podem interromper vias corticoespinais e corticobulbares, preservando relativamente a consciência e determinados movimentos oculares verticais.\n\nPegadinha: ausência de resposta motora ou verbal não significa obrigatoriamente coma. É fundamental pesquisar movimentos oculares voluntários.\n\n## 3. Circulação colateral posterior\n\nA circulação posterior dispõe de mecanismos colaterais que incluem:\n\n- Artérias comunicantes posteriores.\n\n- Conexões entre territórios vertebrais e cerebelares.\n\n- Fluxo retrógrado pelo topo da basilar em determinadas configurações.\n\n- Anastomoses piais entre territórios cerebelares.\n\nUma comunicante posterior calibrosa pode permitir fluxo colateral para a circulação distal à oclusão basilar.\n\nEntretanto, isso não garante proteção das perfurantes pontinas originadas abaixo do ponto de reperfusão colateral.\n\nPonto de prova: é possível preservar a perfusão de territórios distais e ainda ocorrer infarto pontino extenso por comprometimento das perfurantes.\n\n## 4. Neuroimagem da circulação posterior\n\nTC sem contraste\n\nA TC apresenta sensibilidade limitada para alterações isquêmicas precoces da fossa posterior, especialmente devido a artefatos ósseos e ao pequeno volume de determinadas estruturas.\n\nA ausência de hipodensidade não exclui infarto de tronco encefálico.\n\nAngiotomografia\n\nÉ essencial para identificar a oclusão, sua localização, extensão, circulação colateral e possíveis lesões associadas.\n\nRessonância magnética\n\nA DWI é particularmente útil para identificar lesões isquêmicas agudas, mas pode apresentar resultados falsamente negativos nas fases iniciais, sobretudo em pequenos infartos do tronco encefálico.\n\nPegadinha: DWI inicial negativa não exclui AVC de circulação posterior diante de quadro clínico compatível.\n\n## 5. pc-ASPECTS\n\nO posterior circulation ASPECTS começa em dez pontos e subtrai pontos conforme as estruturas comprometidas.\n\n| Estrutura | Desconto |\n| --- | --- |\n| Tálamo direito | −1 |\n| Tálamo esquerdo | −1 |\n| Cerebelo direito | −1 |\n| Cerebelo esquerdo | −1 |\n| Território da ACP direita | −1 |\n| Território da ACP esquerda | −1 |\n| Ponte | −2 |\n| Mesencéfalo | −2 |\n\nTotal máximo de descontos: dez pontos.\n\nExemplo\n\nPaciente com infarto envolvendo ponte, cerebelo direito e tálamo esquerdo:\n\npc - ASPECTS = 10 −(2 + 1 + 1) = ​ 6\n\nPegadinha: ponte e mesencéfalo descontam dois pontos cada; não seguem a mesma pontuação das estruturas bilaterais.\n\nO pc-ASPECTS não substitui avaliação da extensão real do comprometimento do tronco, do estado clínico e da circulação colateral.\n\n## 6. Trombectomia na oclusão basilar: ensaios clínicos\n\nOs estudos de trombectomia basilar apresentam diferenças importantes em seleção, janela terapêutica e resultados.\n\n| Estudo | População e janela | Principal mensagem |\n| --- | --- | --- |\n| BEST | Oclusão vertebrobasilar, até 8 h | Resultado inconclusivo na análise primária por problemas de recrutamento e cruzamento entre grupos |\n| BASICS | Oclusão basilar, até 6 h | Não demonstrou superioridade estatisticamente significativa no desfecho primário |\n| ATTENTI ON | Oclusão basilar, até 12 h | Demonstrou benefício funcional da trombectomia em população selecionada |\n| BAOCHE | Oclusão basilar, 6–24 h | Demonstrou benefício funcional em pacientes selecionados na janela tardia |\n\nPor que os resultados diferiram?\n\nA interpretação envolve diferenças de critérios de inclusão, gravidade clínica, extensão do infarto, seleção por imagem, tratamentos do grupo controle e aspectos operacionais dos estudos.\n\nATTENTION e BAOCHE fortaleceram a evidência favorável à trombectomia na oclusão basilar em populações selecionadas.\n\nPegadinha: BASICS não demonstrar superioridade estatisticamente significativa não equivale a comprovar ausência de benefício da trombectomia.\n\nSeleção clínica\n\nA decisão deve considerar:\n\n- Confirmação de oclusão basilar.\n\n- Gravidade e natureza incapacitante dos sintomas.\n\n- Tempo de início ou último momento conhecido sem sintomas.\n\n- Extensão da lesão estabelecida, incluindo avaliação do tronco encefálico.\n\n- Estado funcional prévio, comorbidades e riscos procedurais.\n\nNão se deve extrapolar automaticamente resultados de ensaios com NIHSS elevado para pacientes com sintomas mínimos ou não incapacitantes.\n\n## 7. Particularidades técnicas da trombectomia basilar\n\nsuckhoedoisong.vn\n\nA navegação pela circulação vertebrobasilar exige atenção às artérias vertebrais, tortuosidade, origem da PICA, ramos cerebelares e perfurantes basilares.\n\nRiscos importantes\n\nPerfuração: manipulação de microguia ou dispositivo em vasos pequenos, tortuosos ou com anatomia desfavorável.\n\nEmbolização distal: fragmentos podem migrar para ACPs ou ramos cerebelares.\n\nComprometimento de perfurantes: mesmo após recanalização do tronco basilar, pode persistir lesão isquêmica por obstrução ou dano das perfurantes.\n\nEstenose residual e reoclusão: particularmente relevantes quando a etiologia é aterosclerose intracraniana.\n\nO sucesso angiográfico deve ser interpretado em conjunto com a perfusão distal e a evolução neurológica.\n\n## 8. AVC de grandes núcleos — integração anatômica\n\nO termo da ementa abrange o estudo de estruturas profundas, especialmente núcleos da base e tálamo.\n\nNúcleos da base\n\n| Estrutura | Irrigação predominante |\n| --- | --- |\n| Cabeça do caudado | Ramos recorrentes da ACA, especialmente artéria de Heubner |\n\n| Putâmen | Artérias lenticuloestriadas da ACM |\n| --- | --- |\n| Globo pálido | Ramos lenticuloestriados e contribuições da coroideia anterior |\n| Cápsula interna | Lenticuloestriadas, Heubner e coroideia anterior, conforme segmento |\n\nA cápsula interna não é um núcleo da base, mas sua proximidade anatômica é fundamental para interpretar síndromes motoras profundas.\n\nTálamo\n\nA irrigação talâmica deriva principalmente de ramos da circulação posterior, incluindo artérias talamoperfurantes, talamogeniculadas e coroideias posteriores.\n\nUma variante importante é a artéria de Percheron, tronco único que pode irrigar ambos os tálamos paramedianos e, ocasionalmente, o mesencéfalo rostral.\n\nSíndrome da artéria de Percheron\n\nPode causar:\n\n- Alteração de consciência.\n\n- Distúrbios de memória.\n\n- Alterações dos movimentos oculares verticais.\n\n- Infartos talâmicos paramedianos bilaterais, com ou sem lesão mesencefálica.\n\nPegadinha: infartos talâmicos bilaterais não significam obrigatoriamente trombose da basilar. A artéria de Percheron é um diagnóstico vascular diferencial importante.\n\n## 9. Resumo de alta retenção\n\n| Conceito | Informação essencial |\n| --- | --- |\n| Oclusão basilar | Pode produzir déficit devastador mesmo com volume de infarto pequeno |\n| NIHSS | Pode subestimar sintomas de circulação posterior |\n| TC inicial | Pode ser normal em infarto de tronco |\n| DWI inicial | Pode ser falsamente negativa |\n| pc-ASPECTS | Ponte e mesencéfalo descontam 2 pontos cada |\n| ATTENTION | Evidência favorável à TM em até 12 h, em pacientes selecionados |\n| BAOCHE | Evidência favorável à TM de 6–24 h, em pacientes selecionados |\n| Percheron | Pode causar infarto talâmico paramediano bilateral |\n| Recanalização basilar | Não garante recuperação de perfurantes previamente comprometidas |"
@@ -159,6 +203,10 @@
       "id": "8F",
       "title": "Oclusões M2, distais e em tandem",
       "points": [
+        {
+          "concept": "M2 dominante, tandem e pseudo-oclusão",
+          "takeaway": "M2 proximal dominante pode comportar-se como oclusão de grande vaso. DISTAL e ESCAPE-MeVO desencorajam extrapolar EVT rotineira aos grupos estudados. No tandem, confirme lesão cervical verdadeira e pondere necessidade de reconstrução e antiagregação."
+        },
         {
           "concept": "M2 proximal dominante",
           "takeaway": "Subgrupo anatômico distinto de segmentos mais distais e de ramos M2 não dominantes."
@@ -182,6 +230,38 @@
         {
           "concept": "DISTAL",
           "takeaway": "Ensaio neutro para benefício funcional da intervenção nos vasos médios e distais selecionados."
+        },
+        {
+          "concept": "M2",
+          "takeaway": "Nem toda M2 é pequena ou clinicamente leve"
+        },
+        {
+          "concept": "MeVO/DMVO",
+          "takeaway": "Ensaios recentes não sustentam trombectomia rotineira indiscriminada"
+        },
+        {
+          "concept": "Lesão tandem",
+          "takeaway": "ACI cervical + oclusão intracraniana ipsilateral"
+        },
+        {
+          "concept": "Anterógrada",
+          "takeaway": "Tratar lesão cervical antes da intracraniana"
+        },
+        {
+          "concept": "Retrógrada",
+          "takeaway": "Priorizar reperfusão intracraniana"
+        },
+        {
+          "concept": "Stent cervical",
+          "takeaway": "Não é obrigatório; implica decisões antitrombóticas"
+        },
+        {
+          "concept": "Dissecção",
+          "takeaway": "Risco de falso lúmen e propagação da lesão"
+        },
+        {
+          "concept": "Pseudo-oclusão",
+          "takeaway": "Estase por oclusão distal pode simular doença cervical"
         }
       ],
       "theory": "## Oclusões M2/distais, lesões tandem e situações anatômicas especiais\n\n## 1. Oclusões M2 e distais: por que são diferentes?\n\nA trombectomia mecânica foi inicialmente consolidada para oclusões proximais da circulação anterior, sobretudo ACI intracraniana e M1. Nas oclusões mais distais, o balanço entre benefício e risco muda.\n\nIsso ocorre porque:\n\n- O território ameaçado pode ser menor, mas ainda funcionalmente eloquente.\n\n- Os vasos são mais finos, tortuosos e vulneráveis à manipulação.\n\n- A evolução clínica pode ser favorável em parte dos pacientes com tratamento clínico.\n\n- O risco de perfuração, dissecção e hemorragia pode se tornar proporcionalmente mais\n\n- importante.\n\nA classificação anatômica isolada não determina a indicação terapêutica.\n\n## 2. Anatomia aplicada da ACM\n\n| Segmen to | Anatomia | Relevância |\n| --- | --- | --- |\n| M1 | Segmento esfenoidal/horizontal, até a bifurcação ou trifurcação principal | Oclusão proximal com território frequentemente extenso |\n| M2 | Segmentos insulares, incluindo divisões superior e inferior | Calibre e território muito variáveis |\n| M3 | Segmentos operculares | Navegação mais distal e tortuosa |\n| M4 | Ramos corticais | Territórios menores, vasos mais delicados |\n\nPegadinha anatômica\n\nUma oclusão de M2 dominante pode comprometer território expressivo e produzir afasia incapacitante ou hemiparesia importante.\n\nPor outro lado, uma oclusão distal de pequeno ramo pode causar déficit discreto.\n\nNão é correto presumir que toda oclusão M2 seja clinicamente leve.\n\nM2 proximal versus distal\n\nA localização dentro do próprio segmento M2 importa. Uma divisão dominante proximal pode irrigar grande território, enquanto um ramo mais distal pode representar território menor.\n\nEntretanto, o tamanho do território ameaçado não resolve sozinho a decisão de trombectomia: é necessário considerar evidência clínica, risco procedural e alternativas terapêuticas.\n\n## 3. Evidência para trombectomia em oclusões médias e distais\n\nO termo MeVO ( medium vessel occlusion ) frequentemente abrange M2, A2/A3 e P2/P3, com variações entre estudos. DMVO ( distal medium vessel occlusion ) é utilizado para oclusões de vasos médios mais distais.\n\nOs estudos ESCAPE-MeVO, DISTAL e DISCOUNT, divulgados em 2025, modificaram a interpretação da trombectomia rotineira nesse grupo.\n\n| Ensaio | Mensagem principal |\n| --- | --- |\n| ESCAPE- MeVO | Não demonstrou benefício funcional da trombectomia adicionada ao tratamento usual na população estudada |\n| DISTAL | Não demonstrou superioridade funcional da estratégia endovascular na população estudada |\n| DISCOUNT | Também não estabeleceu benefício da trombectomia distal e levantou preocupações de segurança |\n\nEsses resultados não significam que toda oclusão M2 tenha comportamento idêntico ou que a trombectomia nunca possa ser considerada em circunstâncias particulares.\n\nA distinção essencial é entre oclusões M2 proximais de grande território, que podem se aproximar funcionalmente das oclusões de grande vaso, e oclusões médias/distais incluídas nos ensaios mais recentes.\n\nConclusão de prova: não se deve afirmar que a trombectomia rotineira de todas as MeVO/DMVO está estabelecida. A seleção precisa ser individualizada e alinhada à evidência e às recomendações atuais.\n\n## 4. Riscos técnicos nas oclusões distais\n\nA progressão distal dos dispositivos aumenta a importância de três fatores.\n\nCalibre: dispositivos devem ser compatíveis com o diâmetro do vaso e com a anatomia distal.\n\nTortuosidade: curvas acentuadas aumentam forças de tração e risco de lesão vascular durante a retirada.\n\nTerritório eloquente: o benefício clínico potencial pode ser relevante mesmo em áreas pequenas, mas deve ser contraposto ao risco da intervenção.\n\nComplicações de maior interesse\n\n- Perfuração arterial e hemorragia subaracnóidea.\n\n- Dissecção ou vasoespasmo induzido por dispositivo.\n\n- Embolização para outro ramo.\n\n- Lesão vascular associada a passagens repetidas.\n\nPegadinha: dispositivos de menor perfil não eliminam o risco de perfuração em vasos distais.\n\n## 5. Lesões tandem\n\nA lesão tandem clássica consiste em doença oclusiva ou estenosante significativa da ACI cervical ipsilateral, associada a oclusão intracraniana aguda, frequentemente em ACI terminal ou M1.\n\nO tratamento é mais complexo porque envolve dois problemas:\n\n1. A lesão cervical pode dificultar ou impedir o acesso ao trombo intracraniano. 2. A oclusão intracraniana compromete diretamente a perfusão cerebral distal.\n\nEtiologias cervicais\n\nA lesão pode decorrer de aterosclerose carotídea, dissecção ou outras causas menos frequentes.\n\nÉ importante distinguir uma verdadeira lesão cervical de uma pseudo-oclusão carotídea causada por estase de contraste secundária à oclusão intracraniana.\n\n## 6. Estratégias anterógrada e retrógrada\n\nEstratégia anterógrada — cervical primeiro\n\nTratar ACI cervical Tratar oclusão intracraniana\n\nPode facilitar acesso e fluxo proximal, mas potencialmente atrasa a reperfusão intracraniana.\n\nEstratégia retrógrada — intracraniana primeiro\n\nReperfusão intracraniana Reavaliar ACI cervical\n\nPrioriza o território isquêmico, desde que seja possível atravessar a lesão cervical com segurança.\n\nNão existe uma sequência universalmente superior para todas as lesões tandem. A escolha depende da anatomia, do acesso, da etiologia cervical e da urgência de reperfusão.\n\nAngioplastia versus stent carotídeo agudo\n\nO tratamento da lesão cervical pode envolver angioplastia com balão, implante de stent ou tratamento diferido.\n\nO implante agudo de stent introduz uma questão importante: a necessidade de terapia antitrombótica para reduzir trombose do dispositivo, contraposta ao risco hemorrágico no contexto de AVC agudo, especialmente após trombólise intravenosa ou em infartos extensos.\n\nPegadinha: stent carotídeo agudo não é obrigatório em toda lesão tandem.\n\n## 7. Dissecção cervical com oclusão intracraniana\n\nradiologyassistant.nl\n\nA dissecção da ACI pode provocar estenose, oclusão cervical ou embolização intracraniana.\n\nAchados possíveis incluem afilamento progressivo, estenose longa, irregularidade luminal, pseudoaneurisma e sinais de hematoma mural em modalidades apropriadas.\n\nImplicações para a trombectomia\n\nA navegação deve considerar a possibilidade de entrada do dispositivo no falso lúmen, extensão da dissecção ou dificuldade de suporte.\n\nA necessidade de stent cervical depende da manutenção do fluxo, da estabilidade da lesão e da possibilidade de reperfusão intracraniana.\n\nPegadinha: uma oclusão cervical por dissecção não deve ser tratada automaticamente como uma placa aterosclerótica curta.\n\n## 8. Pseudo-oclusão da ACI cervical\n\nEm uma oclusão distal da ACI, a estase de contraste pode simular oclusão cervical na angiotomografia.\n\nO reconhecimento é importante para evitar interpretação equivocada de lesão tandem.\n\nA avaliação de fases tardias, imagens multiphasic CTA ou angiografia seletiva pode ajudar a diferenciar estase de uma oclusão cervical verdadeira.\n\nPonto de prova: aparente ausência de opacificação da ACI cervical não comprova, isoladamente, trombose ou estenose cervical primária.\n\n## 9. Oclusões em territórios especiais\n\n| Território | Particularidade |\n| --- | --- |\n| ACA A2/A3 | Déficit motor crural, abulia ou alterações executivas; vasos relativamente pequenos |\n| ACP P2/P3 | Déficits visuais e cognitivos potencialmente incapacitantes |\n| M2 dominante | Pode causar afasia ou hemiparesia importante |\n| Oclusão distal múltipla | Necessidade de ponderar benefício por território e risco de múltiplas intervenções |\n\nA decisão endovascular nesses territórios não deve ser baseada apenas no fato de o déficit ser incapacitante. A evidência para intervenção é menos robusta do que para ACI/M1, e os ensaios recentes de MeVO/DMVO são particularmente relevantes.\n\n## 10. Síntese para prova\n\n| Tema | Pegadinha central |\n| --- | --- |\n| M2 | Nem toda M2 é pequena ou clinicamente leve |\n| MeVO/DMVO | Ensaios recentes não sustentam trombectomia rotineira indiscriminada |\n| Lesão tandem | ACI cervical + oclusão intracraniana ipsilateral |\n\n| Anterógrada | Tratar lesão cervical antes da intracraniana |\n| --- | --- |\n| Retrógrada | Priorizar reperfusão intracraniana |\n| Stent cervical | Não é obrigatório; implica decisões antitrombóticas |\n| Dissecção | Risco de falso lúmen e propagação da lesão |\n| Pseudo-oclusão | Estase por oclusão distal pode simular doença cervical |"
@@ -190,6 +270,10 @@
       "id": "8G",
       "title": "Doença carotídea, endarterectomia e stent",
       "points": [
+        {
+          "concept": "Estenose e intervenção",
+          "takeaway": "Estime a estenose NASCET usando a ACI distal normal. Identifique colapso distal por quase oclusão antes de calcular porcentagem. Lateralidade e sintomas recentes, perfil operatório e anatomia do arco entram na escolha entre CEA e stent."
+        },
         {
           "concept": "Método NASCET",
           "takeaway": "Calcula a estenose em relação ao diâmetro da ACI distal normal."
@@ -213,6 +297,50 @@
         {
           "concept": "Síndrome de hiperperfusão",
           "takeaway": "Complicação após revascularização que pode cursar com cefaleia, crise ou hemorragia."
+        },
+        {
+          "concept": "NASCET",
+          "takeaway": "Usa ACI distal normal como referência"
+        },
+        {
+          "concept": "ECST",
+          "takeaway": "Usa diâmetro original estimado no local da placa"
+        },
+        {
+          "concept": "Near-occlusion",
+          "takeaway": "Redução do calibre distal; não aplicar NASCET convencional indiscriminadamente"
+        },
+        {
+          "concept": "Sintomática 70–99%",
+          "takeaway": "Benefício robusto da CEA em pacientes selecionados"
+        },
+        {
+          "concept": "Sintomática 50–69%",
+          "takeaway": "Benefício mais modesto e dependente do contexto"
+        },
+        {
+          "concept": "Sintomática inferior a 50%",
+          "takeaway": "CEA geralmente não indicada"
+        },
+        {
+          "concept": "Idade avançada",
+          "takeaway": "Pode favorecer CEA sobre CAS transfemoral"
+        },
+        {
+          "concept": "CAS",
+          "takeaway": "Risco de embolização e instabilidade hemodinâmica"
+        },
+        {
+          "concept": "CEA",
+          "takeaway": "Risco de lesão de nervos cranianos"
+        },
+        {
+          "concept": "TCAR",
+          "takeaway": "Acesso cervical e proteção por reversão de fluxo"
+        },
+        {
+          "concept": "Hiperperfusão",
+          "takeaway": "Cefaleia, convulsões e possível hemorragia após revascularização"
         }
       ],
       "theory": "## Doença carotídea: endarterectomia, angioplastia e stents\n\n## 1. Objetivos de aprendizagem\n\nEsta aula tem seis competências centrais: reconhecer a doença carotídea aterosclerótica, quantificar corretamente a estenose, identificar pacientes que se beneficiam de revascularização, comparar endarterectomia com stenting, compreender a técnica endovascular e reconhecer complicações.\n\nA distinção mais importante para a prova é entre estenose sintomática e assintomática. O percentual de estreitamento, isoladamente, não determina a conduta.\n\n## 2. Anatomia carotídea aplicada\n\nA aterosclerose carotídea extracraniana acomete frequentemente a bifurcação da carótida comum e a origem da ACI.\n\nA região do bulbo carotídeo apresenta geometria de fluxo complexa, com áreas de baixo estresse de cisalhamento e fluxo oscilatório, favorecendo aterogênese.\n\nPontos anatômicos relevantes\n\n- A ACI cervical normalmente não apresenta ramos, ao contrário da ACE.\n\n- A placa pode estender-se da bifurcação para o segmento proximal da ACI.\n\n- O nervo hipoglosso (XII) e o nervo vago (X) são importantes nas complicações da\n\n- endarterectomia.\n\n- A altura da bifurcação, a tortuosidade e a extensão cranial da placa influenciam a dificuldade\n\n- cirúrgica e endovascular.\n\nPegadinha: bifurcação alta e lesão cervical muito distal podem dificultar a endarterectomia, mas não significam automaticamente que o stenting seja seguro ou preferível.\n\n## 3. Quantificação da estenose — NASCET versus ECST\n\nMétodo NASCET\n\nO método NASCET utiliza como referência o diâmetro da ACI distal, em segmento considerado normal.\n\nD ​ min ) 100\n\n% estenose = 1 − ​ × ( D ​ ACI distal\n\nExemplo\n\nSe o lúmen residual mínimo é 1,2 mm e o diâmetro distal normal é 4 mm:\n\n1 − ​ × ( 4 1,2 ) 100 = ​ 70%\n\nMétodo ECST\n\nO ECST utiliza uma estimativa do diâmetro original do vaso no local da placa, geralmente no bulbo.\n\nPor isso, o mesmo estreitamento anatômico costuma receber percentual maior pelo método ECST do que pelo NASCET.\n\n| Método | Referência | Pegadinha |\n| --- | --- | --- |\n| NASCET | ACI distal normal | Padrão amplamente utilizado para decisões clínicas |\n| ECST | Diâmetro original estimado no local da lesão | Pode produzir percentual numericamente maior |\n\nNear-occlusion\n\nA near-occlusion carotídea representa estenose muito grave acompanhada de redução do calibre distal da ACI, com ou sem colapso acentuado.\n\nNão se deve simplesmente calcular um percentual NASCET convencional quando o segmento distal usado como referência já está reduzido.\n\nPegadinha de alto rendimento: near-occlusion não é sinônimo de estenose NASCET de 95–99%. É uma categoria hemodinâmica e morfológica própria, com implicações terapêuticas distintas.\n\n## 4. O que torna uma estenose sintomática?\n\nEm termos clínicos, considera-se sintomática uma estenose carotídea ipsilateral associada a evento isquêmico cerebral ou retiniano recente atribuível àquela artéria.\n\nOs estudos clássicos e as recomendações frequentemente utilizam uma janela de até seis meses para definir estenose sintomática, embora o benefício da intervenção seja fortemente dependente da precocidade após o evento.\n\nExemplos:\n\n- AVC isquêmico hemisférico ipsilateral.\n\n- AIT hemisférico ipsilateral.\n\n- Amaurose fugaz ipsilateral.\n\nTontura isolada inespecífica não torna automaticamente uma placa carotídea sintomática.\n\nRisco embólico versus risco hemodinâmico\n\nA placa pode causar AVC por embolização artéria-artéria, trombose local ou, menos frequentemente, hipoperfusão relevante em situações de reserva colateral insuficiente.\n\nA composição da placa, ulceração, hemorragia intraplaca e características de vulnerabilidade podem modificar o risco além do percentual de estenose.\n\n## 5. Quando revascularizar?\n\nEstenose carotídea sintomática\n\n| Estenose NASCET | Interpretação clássica |\n| --- | --- |\n| 70–99%, sem near- occlusion | Benefício robusto da endarterectomia em pacientes apropriadamente selecionados |\n| 50–69% | Benefício mais modesto, dependente de características clínicas e risco procedural |\n| Inferior a 50% | Endarterectomia geralmente não indicada para prevenção de AVC por estenose aterosclerótica |\n| Near-occlusion | Benefício menos estabelecido; requer avaliação específica |\n\nPara pacientes elegíveis com evento isquêmico não incapacitante e sem grande infarto, a revascularização costuma ser considerada precocemente, frequentemente dentro de 14 dias, conforme estabilidade clínica.\n\nEntretanto, após AVC extenso, edema importante ou transformação hemorrágica, pode ser necessário adiar a intervenção.\n\nPegadinha: a regra de intervenção precoce não significa operar imediatamente qualquer paciente com grande infarto hemisférico.\n\nEstenose carotídea assintomática\n\nO benefício absoluto da revascularização tende a ser menor, porque o risco de AVC com tratamento clínico contemporâneo pode ser relativamente baixo.\n\nA decisão depende de fatores como gravidade da estenose, risco cirúrgico, expectativa de vida, características da placa e risco de AVC apesar do tratamento clínico otimizado.\n\nOs ensaios clássicos ACAS e ACST-1 demonstraram benefício da endarterectomia em populações selecionadas, mas foram realizados em contextos de tratamento clínico diferentes dos atuais.\n\nA interpretação contemporânea deve considerar também os resultados do CREST-2, sem presumir que o benefício histórico da cirurgia se aplique indistintamente a todos os pacientes assintomáticos.\n\n## 6. Endarterectomia versus stenting\n\nEndarterectomia carotídea (CEA)\n\nAngioplastia com stent carotídeo (CAS)\n\nRemoção cirúrgica da placa, por técnica\n\nTratamento endovascular da estenose,\n\nconvencional ou por eversão.\n\ngeralmente com estratégia de proteção embólica.\n\nComparação clínica\n\n| Característica | CEA | CAS transfemoral |\n| --- | --- | --- |\n| Acesso | Cirúrgico cervical | Endovascular |\n| AVC periprocedimento | Em geral menor em populações sintomáticas comparáveis | Pode ser maior, especialmente em idosos |\n| Infarto do miocárdio periprocedimento | Pode ser maior | Pode ser menor |\n| Lesão de nervos cranianos | Risco específico | Muito menos frequente |\n| Anatomia do arco aórtico | Menor influência | Pode dificultar o procedimento |\n| Lesão cervical alta | Pode dificultar a cirurgia | Pode favorecer abordagem endovascular em casos selecionados |\n\nInfluência da idade\n\nNo estudo CREST, houve interação importante entre idade e modalidade de revascularização: pacientes mais idosos apresentaram resultados relativamente menos favoráveis com CAS transfemoral.\n\nUm marco frequentemente cobrado é a idade aproximada de 70 anos, mas isso não constitui uma fronteira absoluta para decisão individual.\n\nPegadinha: não confundir menor risco de infarto do miocárdio com menor risco de AVC periprocedimento.\n\n## 7. Ensaios clínicos fundamentais\n\n| Estudo | População | Principal contribuição |\n| --- | --- | --- |\n| NASCE T | Estenose sintomática | Benefício da CEA, especialmente em estenose grave |\n| ECST | Estenose sintomática | Benefício da cirurgia e método histórico de mensuração |\n| ACAS | Estenose assintomática | Benefício da CEA em população selecionada, no contexto histórico |\n| ACST-1 | Estenose assintomática | Benefício de longo prazo da CEA em pacientes selecionados |\n| CREST | Sintomáticos e assintomáticos | Comparação entre CAS e CEA, com diferenças nos componentes do desfecho |\n| ICSS | Estenose sintomática | Comparação CAS versus CEA, incluindo segurança periprocedimento |\n| ACT I | Assintomáticos selecionados | Avaliação de CAS versus CEA em pacientes de risco cirúrgico habitual |\n| ACST-2 | Assintomáticos | Comparação entre CAS e CEA quando a intervenção já havia sido considerada indicada |\n\nComo memorizar\n\n- NASCET / ECST: benefício da cirurgia na estenose sintomática.\n\n- ACAS / ACST: prevenção em pacientes assintomáticos selecionados.\n\n- CREST / ICSS: comparação entre stent e endarterectomia.\n\n- ACST-2: comparação das duas modalidades em assintomáticos.\n\nAtenção: CREST e CREST-2 são estudos diferentes, com perguntas clínicas distintas.\n\n## 8. Técnica de angioplastia carotídea\n\nPlanejamento pré-procedimento\n\nAvaliar:\n\n- Arco aórtico e tortuosidade dos vasos supra-aórticos.\n\n- Morfologia, extensão e calcificação da placa.\n\n- Diâmetro e tortuosidade da ACI distal.\n\n- Presença de trombo intraluminal.\n\n- Circulação colateral intracraniana.\n\n- Necessidade de antiagregação e risco hemorrágico.\n\nEtapas gerais\n\n1. Obtenção de acesso vascular e cateterização da carótida. 2. Avaliação angiográfica da lesão. 3. Posicionamento de sistema de proteção embólica quando apropriado e tecnicamente viável. 4. Angioplastia e implante de stent conforme estratégia. 5. Avaliação do resultado luminal, fluxo distal e complicações.\n\nO pré-dilatamento e o pós-dilatamento não são obrigatórios em todos os casos; dependem da morfologia da lesão, da expansão do stent e do risco de embolização ou instabilidade hemodinâmica.\n\n## 9. Proteção embólica\n\nrevmed.ch\n\nFiltro distal\n\nProteção proximal e reversão de fluxo\n\nMantém fluxo anterógrado enquanto busca\n\nProcura reduzir a embolização cerebral durante a\n\ncapturar partículas embolizadas.\n\nmanipulação da placa.\n\nDiferenças importantes\n\n| Proteção distal | Proteção proximal |\n| --- | --- |\n| Frequentemente exige atravessar a lesão antes da proteção efetiva | Pode estabelecer proteção antes de atravessar a placa |\n| Preserva fluxo anterógrado | Pode empregar interrupção ou reversão de fluxo |\n| Depende de zona distal de implantação adequada | Depende de anatomia, colaterais e tolerância hemodinâmica |\n\nPegadinha: um filtro distal não protege contra a embolização que possa ocorrer antes de sua implantação.\n\n## 10. TCAR — Revascularização transcarotídea\n\nA transcarotid artery revascularization (TCAR) utiliza acesso direto à carótida comum cervical, geralmente associado a proteção cerebral por reversão de fluxo.\n\nSua principal vantagem técnica é evitar parte da manipulação do arco aórtico exigida pelo CAS transfemoral.\n\nA TCAR possui evidência observacional importante, mas não deve ser considerada automaticamente superior à endarterectomia em todos os cenários.\n\nPegadinha: TCAR não é sinônimo de CAS transfemoral com filtro distal.\n\n## 11. Complicações da revascularização carotídea\n\nEmbolização cerebral\n\nPode ocorrer durante a passagem de dispositivos, dilatação, implantação do stent ou manipulação da placa.\n\nSíndrome de hiperperfusão cerebral\n\nApós correção de estenose crítica, especialmente quando há autorregulação comprometida, pode ocorrer aumento excessivo da perfusão cerebral.\n\nManifestações possíveis:\n\n- Cefaleia intensa.\n\n- Crises epilépticas.\n\n- Déficits neurológicos.\n\n- Edema cerebral.\n\n- Hemorragia intracerebral.\n\nA hipertensão arterial pós-procedimento é um fator de risco importante.\n\nBradicardia e hipotensão\n\nA distensão do bulbo carotídeo durante angioplastia e stenting pode ativar barorreceptores, produzindo bradicardia e hipotensão.\n\nLesão de nervos cranianos\n\nMais associada à endarterectomia, incluindo comprometimento de hipoglosso, vago e seus ramos.\n\nTrombose ou reestenose\n\nPodem ocorrer após revascularização e exigem acompanhamento clínico e vascular apropriado.\n\n## 12. Revisão de alta retenção\n\n| Conceito | Informação de prova |\n| --- | --- |\n| NASCET | Usa ACI distal normal como referência |\n\n| ECST | Usa diâmetro original estimado no local da placa |\n| --- | --- |\n| Near-occlusion | Redução do calibre distal; não aplicar NASCET convencional indiscriminadamente |\n| Sintomática 70–99% | Benefício robusto da CEA em pacientes selecionados |\n| Sintomática 50–69% | Benefício mais modesto e dependente do contexto |\n| Sintomática inferior a 50% | CEA geralmente não indicada |\n| Idade avançada | Pode favorecer CEA sobre CAS transfemoral |\n| CAS | Risco de embolização e instabilidade hemodinâmica |\n| CEA | Risco de lesão de nervos cranianos |\n| TCAR | Acesso cervical e proteção por reversão de fluxo |\n| Hiperperfusão | Cefaleia, convulsões e possível hemorragia após revascularização |"
@@ -221,6 +349,10 @@
       "id": "8H",
       "title": "Aterosclerose intracraniana e terapia de resgate",
       "points": [
+        {
+          "concept": "Estenose residual no vaso culpado",
+          "takeaway": "Reoclusão repetida e estenose fixa sustentam ICAD, mas compare vasoespasmo e dissecção. SAMMPRIS/CASSISS em prevenção não respondem diretamente ao stent de resgate na oclusão aguda."
+        },
         {
           "concept": "Reoclusão precoce após retirada do trombo",
           "takeaway": "Pode sugerir lesão aterosclerótica intracraniana subjacente."
@@ -253,6 +385,10 @@
       "title": "Complicações e cuidados após trombectomia",
       "points": [
         {
+          "concept": "Hiperdensidade e PA após EVT",
+          "takeaway": "TC de dupla energia pode diferenciar extravasamento de iodo de sangue. Alvo intensivo de PAS abaixo de 140 mmHg após reperfusão bem-sucedida é prejudicial no cenário definido pela AHA/ASA 2026; verifique reperfusão, hemorragia e outras indicações hemodinâmicas."
+        },
+        {
           "concept": "Embolização em novo território",
           "takeaway": "Migração de material para uma circulação que não integrava o leito originalmente ocluído."
         },
@@ -284,6 +420,10 @@
       "title": "Casos integrados de reperfusão",
       "points": [
         {
+          "concept": "Roteiro de decisão",
+          "takeaway": "Integre último momento bem, incapacidade, vaso, território, ASPECTS/perfusão quando aplicável e grau final de reperfusão. Déficit pós-EVT exige investigar hemorragia, reoclusão, embolização, edema ou causas sistêmicas."
+        },
+        {
           "concept": "Oclusão carotídea com déficit incapacitante precoce",
           "takeaway": "Exige avaliação rápida de elegibilidade a trombólise e trombectomia."
         },
@@ -306,6 +446,62 @@
         {
           "concept": "Oclusão média ou distal isolada",
           "takeaway": "Deve ser interpretada à luz dos ensaios neutros e de suas populações."
+        },
+        {
+          "concept": "Penumbra",
+          "takeaway": "Tecido hipoperfundido potencialmente recuperável"
+        },
+        {
+          "concept": "ASPECTS",
+          "takeaway": "Estima alterações isquêmicas precoces na circulação anterior"
+        },
+        {
+          "concept": "DAWN",
+          "takeaway": "Mismatch clínico–core, 6–24 h"
+        },
+        {
+          "concept": "DEFUSE 3",
+          "takeaway": "Mismatch de perfusão, 6–16 h"
+        },
+        {
+          "concept": "Large core",
+          "takeaway": "ASPECTS baixo não é contraindicação absoluta"
+        },
+        {
+          "concept": "Oclusão basilar",
+          "takeaway": "ATTENTION e BAOCHE sustentam benefício em selecionados"
+        },
+        {
+          "concept": "M2/DMVO",
+          "takeaway": "Benefício da TM rotineira não estabelecido nos ensaios recentes"
+        },
+        {
+          "concept": "Tandem",
+          "takeaway": "Lesão cervical associada a oclusão intracraniana"
+        },
+        {
+          "concept": "ICAD-LVO",
+          "takeaway": "Estenose residual e reoclusão recorrente"
+        },
+        {
+          "concept": "SAMMPRIS",
+          "takeaway": "Tratamento clínico intensivo superior à estratégia inicial de stenting estudada"
+        },
+        {
+          "concept": "Perfuração",
+          "takeaway": "Extravasamento de contraste"
+        },
+        {
+          "concept": "Vasoespasmo",
+          "takeaway": "Estreitamento potencialmente reversível após manipulação"
+        },
+        {
+          "concept": "ECASS PH2",
+          "takeaway": "Hematoma maior que 30% com efeito de massa substancial"
+        },
+        {
+          "concept": "Pós-TM",
+          "takeaway": "Evitar hipotensão e redução pressórica excessiva"
         }
       ],
       "theory": "## Casos integrados, interpretação de imagem e decisões endovasculares\n\nEsta aula encerra o conteúdo programático do Bloco 8. O objetivo não é repetir os conceitos isoladamente, mas integrar apresentação clínica, neuroimagem, evidência científica e tomada de decisão endovascular.\n\nA sequência de raciocínio que deve orientar os casos é:\n\n## 1. Definir síndrome vascular e gravidade\n\n## 2. Identificar oclusão e território ameaçado\n\n## 3. Avaliar core, colaterais, tempo e elegibilidade\n\n## 4. Selecionar estratégia de reperfusão\n\n## 5. Reconhecer complicações e orientar pós-procedimento\n\n## Caso integrado 1 — AVC ao despertar e mismatch\n\nPaciente de 64 anos, previamente independente, desperta com afasia e hemiparesia direita. Último momento conhecido sem sintomas há sete horas. NIHSS 16.\n\nA TC não demonstra hemorragia; ASPECTS 8. A angio-TC identifica oclusão de M1 esquerda. A perfusão demonstra core estimado de 18 mL e tecido hipoperfundido de 105 mL.\n\nRaciocínio\n\n## 1. Existe oclusão de grande vaso? Sim, M1.\n\n## 2. Há tecido potencialmente recuperável? Os dados sugerem discrepância relevante entre core e\n\nterritório hipoperfundido, embora a interpretação dependa dos parâmetros e da qualidade da perfusão.\n\n## 3. O tempo exclui trombectomia? Não. A seleção para trombectomia em janela estendida pode\n\nutilizar critérios clínicos e de imagem.\n\n## 4. A trombólise intravenosa está automaticamente indicada? Não. A elegibilidade para trombólise\n\nem AVC de início desconhecido requer critérios próprios, que não devem ser confundidos com os critérios de trombectomia.\n\nDAWN versus DEFUSE 3\n\n| Aspecto | DAWN | DEFUSE 3 |\n| --- | --- | --- |\n| Janela | 6–24 horas | 6–16 horas |\n| Seleção | Discrepância clínico–core | Discrepância de perfusão–core |\n| População principal | ACI intracraniana/M1 | ACI intracraniana/M1 |\n| Conceito | Déficit desproporcional ao core | Território ameaçado maior que o core |\n\nPegadinha: DWI–FLAIR mismatch, mismatch clínico–core e mismatch de perfusão são conceitos diferentes.\n\n## Caso integrado 2 — Grande core e indicação de trombectomia\n\nPaciente de 72 anos, previamente independente, com NIHSS 20, oclusão de ACI terminal e ASPECTS 4, cinco horas após o início.\n\nRaciocínio\n\nHistoricamente, ASPECTS inferior a 6 era frequentemente utilizado para excluir pacientes dos principais ensaios iniciais de trombectomia.\n\nEntretanto, os estudos RESCUE-Japan LIMIT, SELECT2, ANGEL-ASPECT, TENSION e LASTE ampliaram a evidência para pacientes com infarto extenso.\n\nConclusão: ASPECTS 4 não representa contraindicação absoluta, mas também não torna a trombectomia obrigatória.\n\nA decisão deve considerar funcionalidade prévia, gravidade, extensão do infarto, riscos, objetivos terapêuticos e características da população estudada.\n\nComparação para a prova\n\nEstudo Conceito central\n\n| RESCUE-Japan LIMIT | Benefício em população selecionada com ASPECTS 3–5 |\n| --- | --- |\n| SELECT2 | Benefício em pacientes selecionados com grande core |\n| ANGEL-ASPECT | Benefício em população selecionada com infarto extenso |\n| TENSION | Evidência favorável em ASPECTS baixo |\n| LASTE | Evidência favorável em infarto extenso selecionado |\n\nPegadinha: large core não significa que todo volume de infarto, por maior que seja, tenha benefício comprovado com trombectomia.\n\n## Caso integrado 3 — Oclusão basilar tardia\n\nPaciente de 59 anos apresenta tetraparesia, disartria intensa e redução do nível de consciência. Último momento conhecido sem sintomas há 11 horas.\n\nA angio-TC confirma oclusão basilar. A avaliação por imagem não demonstra infarto extenso do tronco encefálico.\n\nRaciocínio\n\nA gravidade da síndrome é compatível com comprometimento vertebrobasilar importante.\n\nOs ensaios ATTENTION e BAOCHE demonstraram benefício da trombectomia em populações selecionadas com oclusão basilar.\n\n| Estudo | Janela | Ponto-chave |\n| --- | --- | --- |\n| BASICS | Até 6 h | Resultado primário não significativo |\n| BEST | Até 8 h | Limitações de recrutamento e cruzamento |\n| ATTENTION | Até 12 h | Benefício da trombectomia em selecionados |\n| BAOCHE | 6–24 h | Benefício na janela tardia em selecionados |\n\nPegadinha anatômica\n\nA reperfusão do topo da basilar não garante recuperação das perfurantes pontinas comprometidas.\n\nUma angiografia tecnicamente satisfatória pode coexistir com infarto pontino grave.\n\n## Caso integrado 4 — M2 dominante versus oclusão distal\n\nPaciente apresenta afasia global, NIHSS 12, oclusão de ramo M2 dominante proximal e pequena área isquêmica estabelecida.\n\nO caso exige distinguir duas questões:\n\nA oclusão é clinicamente importante? Sim, a afasia global é incapacitante.\n\nIsso comprova benefício da trombectomia? Não.\n\nOs ensaios recentes ESCAPE-MeVO, DISTAL e DISCOUNT não estabeleceram benefício da trombectomia rotineira nas populações de oclusões médias e distais estudadas.\n\nA anatomia, o território, a incapacidade clínica, a possibilidade de tratamento farmacológico e os riscos técnicos devem ser avaliados.\n\nPegadinha: déficit incapacitante é relevante para a decisão, mas não substitui evidência de benefício líquido do procedimento.\n\n## Caso integrado 5 — Lesão tandem e dissecção\n\nPaciente jovem com dor cervical, síndrome de Horner parcial e hemiparesia apresenta dissecção da ACI cervical associada à oclusão de M1 ipsilateral.\n\nRaciocínio\n\nA prioridade é estabelecer uma estratégia de reperfusão intracraniana segura, considerando a dificuldade de atravessar a lesão cervical.\n\nEstratégia anterógrada: tratar a lesão cervical primeiro.\n\nEstratégia retrógrada: tratar a oclusão intracraniana primeiro, quando o acesso for viável.\n\nO stent cervical pode ser necessário em situações selecionadas, mas não é obrigatório em toda dissecção.\n\nComplicação técnica relevante\n\nO microguia pode entrar no falso lúmen. Resistência inesperada e trajetória anormal exigem confirmação da posição antes de prosseguir.\n\nPegadinha: atravessar a lesão cervical não é sinônimo de realizar uma estratégia anterógrada; a classificação depende da ordem de tratamento.\n\n## Caso integrado 6 — Reoclusão após trombectomia\n\nPaciente submetido a trombectomia de M1 apresenta recanalização inicial, seguida de reoclusão rápida no mesmo ponto. Após nova abertura, observa-se estenose focal residual importante.\n\nHipóteses\n\nA principal hipótese é ICAD subjacente, embora seja necessário considerar vasoespasmo, dissecção e trombo residual.\n\nA persistência de estenose focal e a reoclusão recorrente favorecem um mecanismo aterotrombótico.\n\nDecisão endovascular\n\nRepetir indefinidamente as passagens de trombectomia pode aumentar o risco de lesão vascular sem corrigir a estenose subjacente.\n\nPode ser necessário considerar estratégias de resgate, incluindo angioplastia, stenting ou tratamento farmacológico, conforme a situação.\n\nAtenção: SAMMPRIS e CASSISS estudaram principalmente o stenting em estenose intracraniana sintomática, não a mesma situação de resgate agudo após trombectomia.\n\n## Caso integrado 7 — Perfuração e extravasamento\n\nDurante trombectomia distal, surge extravasamento ativo de contraste após avanço do microguia.\n\nInterpretação\n\nO achado sugere perfuração vascular.\n\nA prioridade é interromper a manipulação traumática e estabelecer controle do sangramento.\n\nDependendo da situação, podem ser necessárias medidas de tamponamento, reversão de anticoagulação e tratamento endovascular focal.\n\nPegadinha: vasoespasmo causa estreitamento, não extravasamento ativo de contraste.\n\n## Caso integrado 8 — Hemorragia versus impregnação por contraste\n\nApós trombectomia, a TC mostra hiperdensidade cortical no território reperfundido.\n\nDiferenciais\n\n- Impregnação por contraste.\n\n- Transformação hemorrágica.\n\n- Associação de sangue e contraste.\n\nA TC de dupla energia pode ajudar na diferenciação.\n\nECASS — revisão obrigatória\n\n| Categoria | Definição |\n| --- | --- |\n| HI1 | Pequenas petéquias periféricas |\n| HI2 | Petéquias confluentes, sem hematoma expansivo |\n| PH1 | Hematoma até 30% da área infartada, com efeito de massa discreto |\n\nPH2 Hematoma superior a 30%, com efeito de massa substancial\n\nPegadinha: hiperdensidade pós-trombectomia não é sinônimo de PH2.\n\n## Caso integrado 9 — Reperfusão completa, evolução desfavorável\n\nPaciente com oclusão M1 apresenta reperfusão mTICI 3, mas permanece com déficit neurológico grave.\n\nPossíveis explicações\n\n- Infarto estabelecido antes da reperfusão.\n\n- Comprometimento de perfurantes.\n\n- Lesão microvascular e fenômeno de no-reflow.\n\n- Edema cerebral.\n\n- Transformação hemorrágica.\n\n- Reoclusão subsequente.\n\nO mTICI avalia reperfusão angiográfica; o mRS avalia incapacidade funcional.\n\nPegadinha: mTICI 3 não garante mRS 0–2 aos 90 dias.\n\n## Caso integrado 10 — Manejo pós-trombectomia\n\nPaciente apresenta reperfusão mTICI 3 após trombectomia de M1 e permanece hemodinamicamente estável.\n\nPrioridades\n\n- Monitorização neurológica seriada.\n\n- Evitar hipotensão.\n\n- Controlar hipertensão significativa sem reduções excessivamente agressivas.\n\n- Identificar transformação hemorrágica e edema.\n\n- Avaliar necessidade e momento de antitrombóticos.\n\n- Investigar reoclusão diante de piora clínica.\n\nOs ensaios ENCHANTED2/MT e OPTIMAL-BP demonstraram preocupações relevantes com estratégias intensivas de redução pressórica após reperfusão.\n\nPegadinha: reperfusão completa não justifica reduzir a pressão sistólica indiscriminadamente para valores muito baixos.\n\n## Revisão final — Bloco 8\n\n| Tema | Conceito decisivo |\n| --- | --- |\n| Penumbra | Tecido hipoperfundido potencialmente recuperável |\n| ASPECTS | Estima alterações isquêmicas precoces na circulação anterior |\n| DAWN | Mismatch clínico–core, 6–24 h |\n| DEFUSE 3 | Mismatch de perfusão, 6–16 h |\n| Large core | ASPECTS baixo não é contraindicação absoluta |\n| Oclusão basilar | ATTENTION e BAOCHE sustentam benefício em selecionados |\n| M2/DMVO | Benefício da TM rotineira não estabelecido nos ensaios recentes |\n| Tandem | Lesão cervical associada a oclusão intracraniana |\n| ICAD-LVO | Estenose residual e reoclusão recorrente |\n| SAMMPRIS | Tratamento clínico intensivo superior à estratégia inicial de stenting estudada |\n| Perfuração | Extravasamento de contraste |\n| Vasoespasmo | Estreitamento potencialmente reversível após manipulação |\n| ECASS PH2 | Hematoma maior que 30% com efeito de massa substancial |\n| Pós-TM | Evitar hipotensão e redução pressórica excessiva |\n\nA seguir, a avaliação de encerramento da Aula 8J integrará esses conceitos em cinco decisões clínicas de alta dificuldade."
@@ -1155,17 +1351,22 @@
     {
       "id": "nri:8F:d1",
       "lesson": "8F",
-      "prompt": "No contexto de Oclusões M2, distais e em tandem, qual alternativa descreve corretamente «M2 proximal dominante»?",
+      "prompt": "Uma análise propõe usar o resultado neutro do DISTAL para vetar EVT em qualquer M2, incluindo ramo proximal dominante em quadro grave. Qual problema metodológico é mais direto?",
       "options": [
-        "Ensaio sem melhora do desfecho primário com trombectomia de rotina na população estudada.",
-        "Associação de doença carotídea cervical aguda com oclusão intracraniana ipsilateral.",
-        "Prioriza o tratamento da oclusão intracraniana antes do tratamento cervical definitivo.",
-        "Subgrupo anatômico distinto de segmentos mais distais e de ramos M2 não dominantes.",
-        "Aborda primeiro a lesão cervical para viabilizar ou estabilizar o acesso."
+        "O DISTAL selecionou somente segmentos M1 e ACI",
+        "O desfecho do DISTAL foi apenas recanalização, sem mRS",
+        "A intervenção foi realizada apenas na janela de até 6 h",
+        "O comparador recebeu trombectomia de resgate como estratégia mandatória",
+        "O DISTAL selecionou M2 não dominante ou codominante; a extrapolação muda a população"
       ],
-      "answer": 3,
-      "explanation": "M2 proximal dominante. Subgrupo anatômico distinto de segmentos mais distais e de ramos M2 não dominantes.",
-      "origin": "revisão"
+      "answer": 4,
+      "explanation": "O DISTAL incluiu M2 não dominante ou codominante e segmentos mais distais. Analisou incapacidade pela mRS em 90 dias. M2 proximal dominante pertence a uma população que exige avaliação específica.",
+      "origin": "revisão",
+      "revision": 1,
+      "reference": {
+        "label": "Psychogios et al. DISTAL. NEJM 2025.",
+        "url": "https://doi.org/10.1056/NEJMoa2408954"
+      }
     },
     {
       "id": "nri:8F:d2",
@@ -1320,17 +1521,18 @@
     {
       "id": "nri:8G:d1",
       "lesson": "8G",
-      "prompt": "No contexto de Doença carotídea, endarterectomia e stent, qual alternativa descreve corretamente «Método NASCET»?",
+      "prompt": "Em estenose crítica do bulbo, a ACI distal ipsilateral está difusamente reduzida, com atraso de enchimento. Usar esse vaso de pequeno calibre como referência produz uma porcentagem inesperadamente modesta. Qual é o passo interpretativo correto?",
       "options": [
-        "Calcula a estenose em relação ao diâmetro da ACI distal normal.",
-        "Complicação após revascularização que pode cursar com cefaleia, crise ou hemorragia.",
-        "Alternativa em perfis selecionados, com considerações de idade, anatomia e risco embólico.",
-        "Pode incluir colapso distal, dificultando aplicar o cálculo de estenose usual.",
-        "Remove a placa carotídea e deve ser ponderada conforme estenose, sintomas e risco perioperatório."
+        "Classificar a lesão como oclusão completa pela assimetria distal",
+        "Avaliar quase oclusão com redução distal antes de aplicar o cálculo convencional NASCET",
+        "Trocar o denominador pelo diâmetro da carótida comum e manter denominação NASCET",
+        "Usar o ponto de maior calibre do bulbo como referência padrão do NASCET",
+        "Interpretar a estenose como baixa pelo resultado numérico isolado"
       ],
-      "answer": 0,
-      "explanation": "Método NASCET. Calcula a estenose em relação ao diâmetro da ACI distal normal.",
-      "origin": "revisão"
+      "answer": 1,
+      "explanation": "A redução distal após estenose crítica torna o denominador inadequado para porcentagem NASCET convencional. Correlacione atraso, calibre distal comparativo e evidência de patência anterógrada para distinguir quase oclusão de estenose convencional e oclusão.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:8G:d2",
@@ -1620,17 +1822,18 @@
     {
       "id": "nri:8I:d1",
       "lesson": "8I",
-      "prompt": "No contexto de Complicações e cuidados após trombectomia, qual alternativa descreve corretamente «Embolização em novo território»?",
+      "prompt": "Imediatamente após EVT, a TC mostra hiperdensidade no território reperfundido. A equipe precisa distinguir iodo de sangue para interpretar o achado. Qual modalidade pode ajudar nessa distinção?",
       "options": [
-        "Sugere lesão vascular e exige avaliação imediata de hemorragia.",
-        "Migração de material para uma circulação que não integrava o leito originalmente ocluído.",
-        "Pode representar contraste, sangue ou ambos.",
-        "Pode ajudar a discriminar componente iodado de sangue após procedimento.",
-        "Estreitamento transitório possível após manipulação por fios ou cateteres."
+        "DSA em projeção contralateral para estimar a extensão da hiperdensidade",
+        "TC sem contraste feita durante o mesmo tempo de fluoro, sem comparação",
+        "TC de dupla energia com mapas de iodo e reconstrução virtual sem contraste",
+        "Graduação eTICI da última aquisição sem nenhuma imagem tomográfica",
+        "Angio-TC monofásica usada apenas para classificar o calibre da ACI cervical"
       ],
-      "answer": 1,
-      "explanation": "Embolização em novo território. Migração de material para uma circulação que não integrava o leito originalmente ocluído.",
-      "origin": "revisão"
+      "answer": 2,
+      "explanation": "A dupla energia permite separar componentes pelo comportamento espectral. Acúmulo de iodo, hemorragia e coexistência podem ser avaliados no contexto clínico e de imagem.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:8I:d2",

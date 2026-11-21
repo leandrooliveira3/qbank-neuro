@@ -5,6 +5,10 @@
       "title": "Ensaios pioneiros de reperfusão e trombectomia",
       "points": [
         {
+          "concept": "Comparação dos cinco ensaios de 2015",
+          "takeaway": "MR CLEAN usou janela de 6 h e oclusão proximal documentada; ESCAPE combinou pequeno núcleo e colaterais favoráveis até 12 h; EXTEND-IA usou perfusão; SWIFT PRIME incluiu IVT e EVT até 6 h; REVASCAT tratou até 8 h. Critérios distintos precederam a síntese HERMES."
+        },
+        {
           "concept": "PROACT II",
           "takeaway": "Avaliou pró-uroquinase intra-arterial na oclusão da artéria cerebral média."
         },
@@ -90,12 +94,16 @@
       "title": "Janela estendida e grandes núcleos",
       "points": [
         {
+          "concept": "Critério de entrada e desfecho",
+          "takeaway": "DAWN selecionou mismatch clínico–núcleo entre 6–24 h e DEFUSE 3 mismatch perfusão–núcleo entre 6–16 h. Grandes núcleos foram selecionados por ASPECTS, volume ou ambos segundo o ensaio. Distinguir resultados primários de análises exploratórias e de subgrupos."
+        },
+        {
           "concept": "DAWN",
           "takeaway": "Selecionou discrepância clínico-núcleo entre 6 e 24 horas."
         },
         {
           "concept": "DEFUSE 3",
-          "takeaway": "Selecionou mismatch de perfusão e núcleo limitado entre 6 e 16 horas."
+          "takeaway": "Core <70 mL, razão de mismatch ≥1,8, mismatch absoluto ≥15 mL, oclusão ACI/M1 e 6–16 h desde o último momento bem."
         },
         {
           "concept": "SELECT2",
@@ -112,6 +120,10 @@
         {
           "concept": "TESLA",
           "takeaway": "Ensaio em grandes núcleos selecionados por TC sem contraste que não atingiu o limiar pré-especificado para o desfecho primário."
+        },
+        {
+          "concept": "DAWN em pacientes ≥80 anos",
+          "takeaway": "No estrato ≥80 anos, NIHSS ≥10 e core <21 mL. Em pacientes mais jovens, os limiares dependem do NIHSS. Ambos os estratos foram estudados na janela de 6–24 h."
         }
       ],
       "theory": "## Trombectomia em janela estendida e grandes núcleos isquêmicos\n\nTema: DAWN, DEFUSE 3, RESCUE-Japan LIMIT, SELECT2, ANGEL-ASPECT, TENSION, LASTE e TESLA.\n\nFontes primárias do curso: LINNC Trials Book 2026, páginas impressas 52–53 e 108–119; Harrigan, 4ª edição, capítulo 8. Complementação com artigos originais, protocolos e diretriz AHA/ASA 2026 quando houver diferenças ou atualizações.\n\n## Parte I — A mudança de paradigma\n\nOs cinco ensaios de 2015 estabeleceram o benefício da trombectomia em pacientes selecionados, predominantemente com pequenos núcleos isquêmicos.\n\nEntretanto, duas perguntas permaneceram:\n\n1. Um paciente que chega depois de seis horas ainda pode se beneficiar da reperfusão? 2. Um paciente que já apresenta um infarto grande necessariamente tem pouco a ganhar com a\n\n- trombectomia?\n\nAs respostas surgiram em duas fases distintas.\n\n## 1. 2018 — DAWN e DEFUSE 3 Expansão da janela, selecionando pacientes com tecido cerebral\n\nrecuperável ou discrepância clínico-radiológica.\n\n## 2. 2022–2024 — Ensaios de grandes núcleos Expansão dos critérios de imagem, incluindo pacientes\n\ncom ASPECTS baixo ou volume de núcleo elevado.\n\nA distinção fundamental é que janela estendida e grande núcleo não são conceitos equivalentes. DAWN e DEFUSE 3 selecionavam pacientes tardiamente, mas com núcleo relativamente limitado. Os estudos posteriores testaram o benefício mesmo quando o infarto inicial era extenso.\n\n## Parte II — Janela estendida\n\n## 1. DAWN — Mismatch clínico-radiológico\n\nNogueira et al. · NEJM, 2018\n\nO DAWN foi desenhado para identificar pacientes que apresentavam déficit neurológico importante apesar de um núcleo isquêmico relativamente pequeno.\n\nA hipótese era que um paciente com NIHSS elevado e pequeno volume infartado ainda poderia apresentar tecido cerebral funcionalmente comprometido, mas recuperável.\n\nDesenho e população\n\n| Característica | DAWN |\n| --- | --- |\n| Desenho | Multicêntrico, randomizado, adaptativo, análise bayesiana |\n| Pacientes | 206 |\n| Janela | 6–24 horas |\n| Idade | ≥18 anos |\n| NIHSS mínimo | ≥10, dependendo da categoria |\n| mRS prévio | ≤1 |\n| Oclusão | ACI intracraniana ou M1 |\n| Imagem | TC de perfusão ou RM-DWI para quantificação do núcleo |\n| Dispositivo | Trevo |\n| Controle | Tratamento clínico |\n| Desfechos coprimários | mRS ponderada por utilidade e independência funcional em 90 dias |\n\nCritérios de inclusão — Memorizar obrigatoriamente\n\nDAWN — Três grupos de mismatch clínico-núcleo\n\n| Grupo | Idade | NIHSS | Núcleo isquêmico |\n| --- | --- | --- | --- |\n| A | ≥80 anos | ≥10 | &lt;21 mL |\n| B | &lt;80 anos | ≥10 | &lt;31 mL |\n| C | &lt;80 anos | ≥20 | 31 a &lt;51 mL |\n\nEsses limites exigem atenção. Por exemplo, um paciente de 75 anos, NIHSS 12 e núcleo de 42 mL não atende aos critérios do DAWN, porque o grupo com núcleo maior exige NIHSS ≥20.\n\nDa mesma forma, um paciente de 83 anos com NIHSS 18 e núcleo de 25 mL não atende ao grupo de idade ≥80 anos.\n\nExclusões importantes\n\nAlém dos critérios anteriores, os pacientes precisavam apresentar mRS prévio ≤1, ausência de hemorragia intracraniana e condições anatômicas e clínicas compatíveis com o tratamento. Núcleos acima do limite correspondente à idade e ao NIHSS excluíam a participação.\n\nResultados\n\nIndependência funcional — mRS 0–2 aos 90 dias\n\n## 49%\n\n## 13%\n\nTrombectomia\n\nTratamento clínico\n\nA análise demonstrou superioridade da trombectomia nos pacientes rigorosamente selecionados, levando à interrupção precoce do estudo por eficácia.\n\nLimitações: população muito selecionada, tamanho amostral relativamente pequeno e interrupção precoce. O resultado não significa que todos os pacientes entre 6 e 24 horas sejam candidatos.\n\nPegadinha de prova: DAWN utiliza mismatch clínico-núcleo. Não exige o mesmo conjunto de critérios de mismatch perfusional do DEFUSE 3.\n\n## 2. DEFUSE 3 — Mismatch por perfusão\n\nAlbers et al. · NEJM, 2018\n\nO DEFUSE 3 investigou a eficácia da trombectomia em pacientes com oclusão proximal da circulação anterior, selecionados pela presença de tecido hipoperfundido em volume substancialmente maior que o núcleo infartado.\n\n| Característica | DEFUSE 3 |\n| --- | --- |\n| Pacientes | 182 |\n| Janela | 6–16 horas |\n| Idade | 18–90 anos |\n| NIHSS | ≥6 |\n| mRS prévio | ≤2 |\n| Oclusão | ACI ou M1 |\n| Imagem | Perfusão por TC ou RM, processada automaticamente |\n| Desfecho primário | Distribuição ordinal da mRS aos 90 dias |\n\nCritérios de inclusão por perfusão\n\nNúcleo isquêmico &lt;70 mL\n\nMismatch volumétrico ≥15 mL\n\nRazão de mismatch ≥1,8\n\nCritérios de seleção por perfusão do DEFUSE 3. O mismatch volumétrico corresponde à diferença entre a lesão hipoperfundida e o núcleo, não ao volume total de penumbra isoladamente.\n\nO volume hipoperfundido era identificado pela região com Tmax superior a seis segundos. O núcleo era estimado pelas sequências de perfusão ou difusão conforme a modalidade.\n\nExclusões relevantes\n\nPacientes com NIHSS inferior a seis, incapacidade prévia acima de mRS 2, núcleo acima do limite definido ou ausência de mismatch significativo não preenchiam os critérios centrais. Também se excluíam condições hemorrágicas e outras contraindicações previstas no protocolo.\n\nResultados\n\nTrombectomia 45%\n\nControle 17%\n\nmRS 0–2 em 90 dias\n\nmRS 0–2 em 90 dias\n\nO estudo demonstrou deslocamento favorável da distribuição funcional, com OR de aproximadamente 2,77 na análise ordinal.\n\nLimitações: pacientes selecionados por perfusão, restrição à circulação anterior proximal e interrupção precoce por eficácia.\n\nPegadinha: DEFUSE 3 aceita NIHSS ≥6 e mRS prévio ≤2, enquanto DAWN exige NIHSS ≥10 e mRS prévio ≤1.\n\nDAWN × DEFUSE 3 — Tabela obrigatória\n\n| Critério | DAWN | DEFUSE 3 |\n| --- | --- | --- |\n| Janela | 6–24 h | 6–16 h |\n| Idade | ≥18 anos | 18–90 anos |\n| NIHSS | ≥10, dependente da idade/núcleo | ≥6 |\n| mRS prévio | ≤1 | ≤2 |\n| Imagem principal | Volume de núcleo + NIHSS | Perfusão e mismatch volumétrico |\n| Núcleo máximo | Dependente de idade/NIHSS, até &lt;51 mL | &lt;70 mL |\n| Mismatch perfusional obrigatório | Não | Sim |\n| mRS 0–2 com EVT | 49% | 45% |\n| mRS 0–2 controle | 13% | 17% |\n\nAssociação para memorização: DAWN = déficit desproporcional ao núcleo; DEFUSE 3 = penumbra proporcionalmente grande em relação ao núcleo.\n\nReferências: LINNC Trials Book 2026, seção 3, páginas impressas 52–53; artigos originais NEJM 2018. pmc.ncbi.n… +1\n\n## Parte III — Trombectomia em grandes núcleos\n\nO conceito de grande núcleo é definido de modo diferente entre os ensaios. Alguns utilizaram ASPECTS, outros volume por perfusão, e alguns aceitaram ambos.\n\nTabela de critérios dos seis grandes ensaios\n\n| Ensaio | NIHS S | Janela | Inclusão por imagem |\n| --- | --- | --- | --- |\n| RESCUE-Japan LIMIT | ≥6 | ≤6 h; até 24 h com critério adicional de FLAIR | ASPECTS 3–5 |\n| ANGEL-ASPECT | 6–30 | ≤24 h | ASPECTS 3–5; alguns grupos por núcleo 70– 100 mL |\n| SELECT2 | ≥6 | ≤24 h | ASPECTS 3–5 ou núcleo ≥50 mL |\n| TENSION | &lt;26 | ≤12 h | ASPECTS 3–5 |\n| LASTE | ≥6 | ≤6,5 h; exceção por FLAIR | ASPECTS 0–5, com restrições pela idade |\n| TESLA | ≥6 | ≤24 h | ASPECTS 2–5 na TC sem contraste |\n\nResumo dos critérios principais; outros requisitos e exclusões são detalhados abaixo. Fontes: LINNC 2026, seção 8, artigos originais e protocolos. pmc.ncbi.nl… +2\n\n## 3. RESCUE-Japan LIMIT — 2022\n\nYoshimura et al. · NEJM, 2022\n\n| Característica | RESCUE-Japan LIMIT |\n| --- | --- |\n| Pacientes randomizados | 203 |\n| Idade | ≥18 anos |\n| NIHSS | ≥6 |\n| mRS prévio | ≤1 |\n| Oclusão | ACI ou M1 |\n| ASPECTS | 3–5 por TC ou RM-DWI |\n| Janela | Até 6 horas ou 6–24 horas se ausência de alteração correspondente no FLAIR |\n| Desfecho primário | mRS 0–3 aos 90 dias |\n\nResultado primário: independência para deambulação ou incapacidade até moderada (mRS 0–3) em 31,0% versus 12,7%, favorecendo a trombectomia.\n\nHouve maior frequência de hemorragia intracraniana de qualquer tipo no grupo intervencionista, sem diferença estatisticamente significativa em hemorragia sintomática.\n\nLimitações: população japonesa, uso predominante de RM-DWI para estimar ASPECTS e baixa proporção de trombólise IV.\n\nPegadinha: o desfecho primário foi mRS 0–3, e não mRS 0–2.\n\n## 4. ANGEL-ASPECT — 2023\n\nHuo et al. · NEJM, 2023\n\nEnsaio multicêntrico chinês com 456 pacientes randomizados, analisando trombectomia versus cuidado médico em oclusões da circulação anterior.\n\nInclusões clínicas: 18–80 anos, NIHSS 6–30, mRS prévio 0–1, oclusão da ACI ou M1 e randomização até 24 horas.\n\nCritérios de imagem:\n\n- ASPECTS 3–5: inclusão independentemente do volume de núcleo.\n\n- ASPECTS 0–2: exigência de núcleo entre 70 e 100 mL.\n\n- ASPECTS acima de 5, entre 6 e 24 horas: núcleo de 70–100 mL.\n\nDesfecho primário: análise ordinal da mRS em 90 dias.\n\nO ensaio demonstrou melhora da distribuição funcional, com OR generalizado de 1,37. A frequência de qualquer hemorragia intracraniana foi maior no grupo endovascular.\n\nLimitação: os resultados não estabelecem benefício uniforme em todos os pacientes com ASPECTS 0–2, pois esse subgrupo era pequeno e tinha critérios adicionais.\n\nPegadinha: ANGEL-ASPECT não permitia inclusão irrestrita de qualquer volume de núcleo em todas as faixas de ASPECTS.\n\n## 5. SELECT2 — 2023\n\nSarraj et al. · NEJM, 2023\n\n| Característica | SELECT2 |\n| --- | --- |\n| Pacientes | 352 |\n| Idade | 18–85 anos |\n| NIHSS | ≥6 |\n| mRS prévio | ≤1 |\n| Janela | ≤24 horas |\n\n| Oclusão | ACI ou M1 |\n| --- | --- |\n| ASPECTS | 3–5 |\n| Critério alternativo | Núcleo ≥50 mL na perfusão ou RM |\n| Desfecho primário | Distribuição ordinal da mRS aos 90 dias |\n\nDiferentemente do ANGEL-ASPECT, o SELECT2 permitiu selecionar pacientes pelo volume de núcleo elevado, mesmo quando o ASPECTS não estivesse entre três e cinco.\n\nResultados: mRS 0–2 em 20,3% versus 7,0%; mRS 0–3 em aproximadamente 38% versus 19%, favorecendo a trombectomia.\n\nLimitações: interrupção precoce por eficácia e heterogeneidade na relação entre ASPECTS e volume de núcleo. Pacientes selecionados pelo ASPECTS baixo nem sempre apresentavam volumes tão elevados quanto se imaginava.\n\nPegadinha: SELECT2 = ASPECTS 3–5 OU núcleo ≥50 mL. Não é necessário satisfazer ambos os critérios simultaneamente.\n\n## 6. TENSION — 2023\n\nBendszus et al. · Lancet, 2023\n\n| Característica | TENSION |\n| --- | --- |\n| Pacientes | 253 |\n| Idade | Adultos |\n| NIHSS | &lt;26 |\n| mRS prévio | ≤2 |\n| Janela | Até 12 horas |\n| Oclusão | ACI distal ou M1 |\n| Imagem | ASPECTS 3–5 por TC ou RM-DWI |\n| Desfecho primário | Análise ordinal da mRS em 90 dias |\n\nResultado: melhora funcional com trombectomia; OR de 2,58 na análise ordinal. A independência funcional (mRS 0–2) ocorreu em aproximadamente 17% versus 2%.\n\nContribuição: evidência favorável usando imagem convencional para selecionar grandes núcleos, sem exigir perfusão automatizada.\n\nPegadinha: a inclusão baseava-se no ASPECTS 3–5, não em um limite mínimo obrigatório de volume por perfusão.\n\n## 7. LASTE — 2024\n\nCostalat et al. · NEJM, 2024\n\nO LASTE foi especialmente importante por estudar pacientes com infartos extensos, incluindo ASPECTS muito baixos.\n\nCritérios de inclusão:\n\n- Adultos, sem limite superior de idade universal.\n\n- NIHSS ≥6.\n\n- mRS prévio ≤1.\n\n- Oclusão proximal anterior.\n\n- ASPECTS 0–5 para pacientes mais jovens.\n\n- ASPECTS 4–5 para pacientes com 80 anos ou mais.\n\n- Janela até 6,5 horas, com critérios de RM para determinados casos de horário desconhecido.\n\nDesfecho primário: distribuição da mRS aos 90 dias, agrupando as categorias 5 e 6.\n\nO resultado foi favorável à trombectomia (OR generalizado 1,63). Houve também redução de mortalidade: aproximadamente 36% versus 56% em 90 dias.\n\nPegadinha: LASTE incluiu ASPECTS 0–5, mas não significa que todos os pacientes idosos com ASPECTS 0–2 eram elegíveis.\n\nUma correção documental importante: a página do LINNC apresenta o sinal do mRS prévio de forma inconsistente. O protocolo original confirma mRS prévio 0–1, não mRS ≥1. pmc.ncbi.nlm.…\n\n## 8. TESLA — 2024\n\nYoo et al. · JAMA, 2024\n\n| Característica | TESLA |\n| --- | --- |\n| Pacientes | 300 na análise randomizada |\n| Idade | 18–85 anos |\n| NIHSS | ≥6 |\n| mRS prévio | ≤1 |\n| Janela | Até 24 horas |\n| Oclusão | ACI terminal ou M1 |\n| Imagem | ASPECTS 2–5 na TC sem contraste |\n| Desfecho primário | mRS ponderada por utilidade em 90 dias |\n\nO TESLA utilizou seleção pragmática por TC sem contraste, sem exigir perfusão avançada.\n\nResultado: não atingiu o limiar estatístico pré-especificado de superioridade para o desfecho primário, apesar de tendência favorável em algumas análises.\n\nA diferença ajustada na mRS ponderada por utilidade foi aproximadamente 0,63, com intervalo de confiança que incluía ausência de efeito. jamanetwork.…\n\nPegadinha: TESLA não deve ser classificado como um ensaio primariamente positivo apenas porque alguns desfechos secundários favoreceram a intervenção.\n\nSua publicação definitiva no JAMA ocorreu em 2024; o LINNC reproduz também informações de apresentações preliminares, que não substituem o artigo revisado por pares.\n\n## Parte IV — Quadro final de resultados\n\n| Estudo | Principal resultado | Mensagem para prova |\n| --- | --- | --- |\n| DAWN | mRS 0–2: 49% vs. 13% | Mismatch clínico-núcleo, até 24 h |\n| DEFUSE 3 | mRS 0–2: 45% vs. 17% | Mismatch perfusional, até 16 h |\n| RESCUE-Japan LIMIT | mRS 0–3: 31% vs. 12,7% | Primeiro grande ECR positivo de ASPECTS 3–5 |\n| ANGEL-ASPECT | OR ordinal 1,37 | Grande núcleo por ASPECTS ou volume |\n| SELECT2 | mRS 0–2: 20,3% vs. 7% | ASPECTS 3–5 ou núcleo ≥50 mL |\n| TENSION | OR ordinal 2,58 | ASPECTS 3–5 e imagem convencional |\n| LASTE | OR generalizado 1,63 | ASPECTS até 0 em pacientes selecionados |\n| TESLA | Primário não atingido | ASPECTS 2–5, TC simples, ≤24 h |\n\nInterpretação clínica atual: esses ensaios modificaram as recomendações, mas não eliminaram a importância do tempo, do estado funcional prévio, da gravidade clínica, do efeito de massa e da avaliação individualizada de risco. A diretriz AHA/ASA 2026 será estudada sistematicamente no Bloco 13.\n\n## Parte V — Pegadinhas de maior rendimento\n\n- DAWN é definido por três faixas que combinam idade, NIHSS e volume de núcleo.\n\n- DEFUSE 3 utiliza núcleo inferior a 70 mL, mismatch volumétrico ≥15 mL e razão ≥1,8.\n\n- RESCUE-Japan LIMIT utilizou mRS 0–3 como desfecho primário.\n\n- SELECT2 selecionava por ASPECTS baixo ou núcleo volumetricamente grande.\n\n- ANGEL-ASPECT permitiu algumas faixas extremas de ASPECTS, mas com condições adicionais.\n\n- TENSION priorizou imagem convencional e ASPECTS 3–5.\n\n- LASTE incluiu ASPECTS 0–5, com critérios específicos para idosos.\n\n- TESLA não atingiu o desfecho primário.\n\n## Parte VI — Questão de prova real verificada\n\nCBR 2019 — Neurorradiologia Terapêutica, questão 74.\n\nO enunciado cobra a seleção de pacientes pelo estudo DAWN, entre 6 e 24 horas. As opções contrapõem mismatch difusão-perfusão, angio-TC/ASPECTS, avaliação colateral e relação entre volume de núcleo e NIHSS.\n\nO documento oficial do CBR apresenta gabarito E, correspondente ao mismatch clínico-radiológico. Confrontei o enunciado e as alternativas com o caderno original.\n\nEssa questão confirma que a banca já cobrou exatamente a diferença entre DAWN e DEFUSE 3, inclusive a natureza do mismatch usado para seleção.\n\nA Q74 fica registrada como questão oficial validada, separadamente das questões inéditas avaliativas.",
@@ -150,6 +162,10 @@
       "id": "12.3",
       "title": "Ensaios em M2 e oclusões médias ou distais",
       "points": [
+        {
+          "concept": "Alcance dos resultados MeVO",
+          "takeaway": "DISTAL incluiu M2 não dominante/codominante e segmentos mais distais. ESCAPE-MeVO testou outra seleção. Identifique segmento, dominância, NIHSS, janela e desfecho antes de aplicar resultados a M2 proximal dominante."
+        },
         {
           "concept": "HERMES M2",
           "takeaway": "Análise de subgrupo com casos predominantemente proximais, com alcance limitado a oclusões distais."
@@ -212,6 +228,10 @@
       "title": "Ensaios em oclusão da basilar",
       "points": [
         {
+          "concept": "Comparar janelas e vieses",
+          "takeaway": "BEST e BASICS tiveram desafios diferentes de recrutamento, crossover e poder. ATTENTION até 12 h e BAOCHE entre 6–24 h demonstraram benefício em populações selecionadas, com mRS 0–3 como desfecho. PLATO é evidência observacional de ACP."
+        },
+        {
           "concept": "BEST",
           "takeaway": "Ensaio limitado por encerramento precoce e crossover."
         },
@@ -253,6 +273,10 @@
       "title": "Técnicas, trombólise de ponte e fármacos adjuntos",
       "points": [
         {
+          "concept": "Separar estratégia e hipótese",
+          "takeaway": "ASTER comparou aspiração inicial com stent retriever; ASTER2, combinação com stent retriever isolado. CHOICE testou alteplase intra-arterial após reperfusão. Ensaios EVT direta versus ponte usam margens próprias de não inferioridade; compare cada desenho."
+        },
+        {
           "concept": "ASTER",
           "takeaway": "Comparou aspiração por contato e stent retriever como estratégias de primeira linha."
         },
@@ -284,6 +308,10 @@
       "title": "Anestesia e pressão arterial na trombectomia",
       "points": [
         {
+          "concept": "Controle anestésico e pressão após reperfusão",
+          "takeaway": "Estudos de anestesia protocolizada e ensaios de alvo pressórico pós-EVT respondem a perguntas distintas. ENCHANTED2/MT e OPTIMAL-BP encontraram resultados desfavoráveis com metas intensivas nas populações estudadas."
+        },
+        {
           "concept": "SIESTA",
           "takeaway": "Ensaio de anestesia geral versus sedação, com desfecho primário neurológico precoce."
         },
@@ -314,6 +342,10 @@
       "id": "12.7",
       "title": "Sistemas de atendimento e aterosclerose intracraniana",
       "points": [
+        {
+          "concept": "Validade externa de sistemas de atendimento",
+          "takeaway": "RACECAT testa transferência pré-hospitalar em uma rede específica; ANGIOCAT avalia fluxo direto à sala em centro apto. SAMMPRIS e CASSISS avaliam ICAD sintomática em prevenção secundária, com resultados próprios de seleção e intervenção."
+        },
         {
           "concept": "RACECAT",
           "takeaway": "Comparou rotas pré-hospitalares em uma rede regional, sem vantagem funcional global da estratégia direta."
@@ -359,6 +391,10 @@
       "id": "12.8",
       "title": "Ensaios de doença carotídea e stents",
       "points": [
+        {
+          "concept": "Randomização e comparadores",
+          "takeaway": "CREST-2 reúne dois ensaios paralelos contra tratamento clínico intensivo, um para CEA e outro para stent. Não há comparação aleatorizada direta entre CEA e stent no CREST-2. Controle histórico e estudo de braço único não sustentam a mesma inferência."
+        },
         {
           "concept": "CREST-2",
           "takeaway": "Dois ensaios paralelos em estenose carotídea assintomática, cada procedimento comparado com manejo intensivo."
@@ -413,6 +449,10 @@
       "title": "Ensaios e dispositivos para aneurismas",
       "points": [
         {
+          "concept": "Qual desfecho o dispositivo demonstrou?",
+          "takeaway": "Estudos de WEB, stent e flow diverter têm populações, anatomias e definições de oclusão próprias. Oclusão adequada pode incluir remanescente de colo. Braço único não compara superioridade entre dispositivos."
+        },
+        {
           "concept": "WEB-IT",
           "takeaway": "Estudo prospectivo de braço único com dispositivo intrasacular em aneurismas de bifurcação de colo largo."
         },
@@ -458,6 +498,10 @@
       "title": "Evidências em MAVs, fístulas durais e vasoespasmo",
       "points": [
         {
+          "concept": "Angiografia e benefício clínico",
+          "takeaway": "Em MAV não rota, ARUBA mede eventos clínicos da estratégia. Em FAV, revisão angiográfica precisa testar cura do shunt. No vasoespasmo, calibre pode melhorar sem benefício em DCI ou incapacidade. Separe ensaio, registro e coorte."
+        },
+        {
           "concept": "ARUBA",
           "takeaway": "Randomizou MAVs não rotas para manejo clínico isolado ou associado a intervenção."
         },
@@ -489,6 +533,10 @@
       "title": "Ensaios de embolização no subdural crônico",
       "points": [
         {
+          "concept": "Cinco ensaios de AMM",
+          "takeaway": "EMBOLISE foi positivo para reoperação em 90 dias; MAGIC-MT foi neutro para recorrência/progressão em 90 dias; STEM foi positivo no composto em 180 dias. MEMBRANE e EMPROTECT usam estratégias e desfechos próprios; conferir dispositivo e população antes de comparar."
+        },
+        {
           "concept": "EMBOLISE",
           "takeaway": "Estudou embolização somada à cirurgia em hematomas com indicação de evacuação."
         },
@@ -511,6 +559,14 @@
         {
           "concept": "Desfecho composto",
           "takeaway": "Pode reunir características clínicas e radiológicas e precisa ser detalhado antes de comparar estudos."
+        },
+        {
+          "concept": "População e comparação no EMBOLISE",
+          "takeaway": "Pacientes com indicação cirúrgica randomizados para embolização mais cirurgia versus cirurgia. O primário foi 4,1% contra 11,3% para recorrência/progressão levando a reoperação em 90 dias."
+        },
+        {
+          "concept": "MAGIC-MT e STEM",
+          "takeaway": "MAGIC-MT teve desfecho primário neutro em 90 dias (6,7% vs 9,9%). STEM usou composto em 180 dias e foi positivo (16% vs 36% nos participantes da análise primária)."
         }
       ],
       "theory": "## Hematoma subdural crônico e embolização da artéria meníngea média\n\nReferência principal: LINNC Trials Book 2026, seção 18, páginas impressas 229–236, conferidas diretamente no PDF do projeto. Os artigos originais de EMBOLISE, MAGIC-MT e STEM são publicados\n\nno New England Journal of Medicine; EMPROTECT, no JAMA. Para EMBOLISE-2, o próprio LINNC identifica resultados apresentados em congresso, ainda não publicados em artigo completo na versão consultada.\n\n## 1. Por que embolizar a artéria meníngea média?\n\nO hematoma subdural crônico (HSDc) não é simplesmente uma coleção de sangue antigo. É uma doença dinâmica, caracterizada por inflamação, formação de membranas e neovascularização.\n\nFisiopatologia em quatro etapas\n\n## 1. Lesão inicial e formação da coleção: sangue e produtos de degradação acumulam-se no espaço\n\n- subdural, frequentemente após traumatismo de baixa energia.\n\n## 2. Formação de membranas: desenvolvem-se membranas interna e externa, com resposta\n\n- inflamatória persistente.\n\n## 3. Neovascularização: a membrana externa contém capilares frágeis, permeáveis e propensos a\n\n- micro-hemorragias repetidas.\n\n## 4. Persistência ou recorrência: exsudação e micro-hemorragias alimentam a coleção, mesmo após\n\n- drenagem cirúrgica.\n\nA artéria meníngea média (AMM) participa da vascularização da membrana externa. Sua embolização busca interromper esse suprimento e favorecer a involução da coleção.\n\nIsso explica a diferença fundamental entre os tratamentos:\n\n| Drenagem cirúrgica | Embolização da AMM |\n| --- | --- |\n| Remove rapidamente o conteúdo da coleção | Atua sobre a vascularização das membranas |\n| Pode aliviar imediatamente o efeito de massa | Não produz descompressão imediata equivalente |\n| Indicada quando há necessidade de descompressão | Pode ser adjuvante ou alternativa em pacientes selecionados |\n| Pode apresentar recorrência | Busca reduzir progressão, persistência ou recorrência |\n\nPonto de segurança: embolização não substitui automaticamente cirurgia em paciente com deterioração neurológica ou efeito de massa que exige descompressão urgente.\n\n## 2. Anatomia e segurança endovascular\n\nA AMM geralmente nasce da artéria maxilar, ramo da carótida externa, e alcança a cavidade craniana pelo forame espinhoso.\n\nAnastomoses perigosas\n\nAntes de embolizar, é necessário identificar possíveis conexões entre a AMM e territórios intracranianos ou orbitários.\n\n| Conexão | Risco potencial |\n| --- | --- |\n| Ramos meníngeos e lacrimais da artéria oftálmica | Isquemia retiniana ou ocular |\n| Anastomoses com a circulação da carótida interna | Embolização não alvo intracraniana |\n| Ramos petrosos relacionados à vascularização do nervo facial | Isquemia de nervo craniano |\n| Colaterais durais da base do crânio | Migração do embolizante para territórios não pretendidos |\n\nPegadinha anatômica: o fato de a AMM ser ramo da carótida externa não torna sua embolização automaticamente segura.\n\nA angiografia seletiva, a posição distal do microcateter, a avaliação do refluxo e a escolha do agente são elementos essenciais de segurança.\n\n## 3. EMBOLISE — O estudo pivotal da embolização adjuvante\n\nDavies et al. · NEJM 2024;391:1890–1900 · DOI: 10.1056/NEJMoa2313472\n\nPergunta\n\nAdicionar embolização da AMM com Onyx à cirurgia reduz recorrência ou progressão do HSDc que exige nova intervenção?\n\nDesenho\n\n- Randomizado, multicêntrico, aberto e controlado.\n\n- 39 centros nos Estados Unidos.\n\n- Randomização entre cirurgia + embolização com Onyx e cirurgia isolada.\n\n- 400 pacientes na análise apresentada.\n\nCritérios de inclusão documentados\n\n| Critério | EMBOLISE |\n| --- | --- |\n| Idade | 18–90 anos |\n| Diagnóstico | HSD subagudo ou crônico confirmado por TC |\n| Situação clínica | Indicação de tratamento cirúrgico |\n| Características destacadas | Deterioração neurológica, desvio de linha média ≥5 mm e espessura &gt;15 mm |\n| Agente embolizante | Onyx |\n\nO resumo do LINNC menciona essas características clínicas e radiológicas, mas não deixa completamente explícito se cada uma delas era requisito simultâneo de inclusão ou parte de um conjunto de critérios de indicação cirúrgica. Portanto, não devem ser interpretadas como uma regra cumulativa universal sem consulta ao protocolo completo.\n\nExclusões\n\nA população do ensaio não abrangia a estratégia de observação isolada para pacientes sem indicação cirúrgica. Outras exclusões clínicas e anatômicas — incluindo contraindicações ao procedimento — não são integralmente transcritas no LINNC.\n\nDesfecho primário\n\nRecorrência ou progressão do hematoma que exigisse nova drenagem cirúrgica em até 90 dias.\n\nResultados\n\nRecorrência/progressão exigindo reoperação em 90 dias\n\n## 4,1%\n\n## 11,3%\n\nCirurgia + Onyx (n=197)\n\nCirurgia isolada (n=203)\n\nRR 0,36 · p = 0,0081\n\nA embolização adjuvante reduziu significativamente a necessidade de nova cirurgia.\n\nA deterioração neurológica em 90 dias ocorreu em 11,9% versus 9,8%, respectivamente, sem demonstração de diferença significativa.\n\nConclusão de prova: EMBOLISE é positivo para redução de reoperação, não para superioridade funcional demonstrada.\n\n## 4. MAGIC-MT — Resultado primário neutro\n\nLiu et al. · NEJM 2024;391:1901–1912 · DOI: 10.1056/NEJMoa2401201\n\nPergunta\n\nA embolização da AMM com Onyx, acrescentada ao cuidado habitual, reduz recorrência ou progressão sintomática do HSD subagudo ou crônico?\n\nDesenho\n\nEnsaio randomizado, aberto, multicêntrico, realizado em 31 centros chineses.\n\nCritérios de inclusão\n\n| Critério | MAGIC-MT |\n| --- | --- |\n| Idade | ≥18 anos |\n| Diagnóstico | HSD subagudo ou crônico sintomático |\n| Imagem | Efeito de massa, desvio da linha média ou deformação cortical |\n| Funcionalidade prévia | mRS ≤2 |\n| Cirurgia | Drenagem por trepanação conforme decisão clínica |\n\nExclusões: o resumo não fornece lista integral. Pacientes sem HSD não agudo sintomático, sem as características de imagem exigidas ou com mRS prévio superior ao limite não correspondiam à população-alvo.\n\nDesfecho primário\n\nRecorrência ou progressão sintomática do hematoma, ou morte, em aproximadamente 90 dias.\n\nO estudo definiu recorrência e progressão com critérios específicos de espessura, crescimento e necessidade de cirurgia de resgate.\n\nResultados\n\n| Desfecho | Embolização | Cuidado habitual |\n| --- | --- | --- |\n| Primário | 6,7% (24/360) | 9,9% (36/362) |\n| Eventos adversos graves | 6,7% | 11,6% |\n| Mortes | 0,6% | 2,2% |\n\nDesfecho primário: p = 0,10 — não significativo.\n\nOs eventos adversos graves foram menos frequentes no braço embolização, com p = 0,02.\n\nConclusão: MAGIC-MT não demonstrou superioridade para o desfecho primário, embora tenha apresentado sinal favorável em segurança.\n\nPegadinha: não classificar MAGIC-MT como positivo apenas porque a taxa de eventos adversos graves foi menor.\n\n## 5. STEM — Benefício em desfecho composto de falha terapêutica\n\nFiorella et al. · NEJM 2025;392:855–864 · DOI: 10.1056/NEJMoa2409845\n\nPergunta\n\nA embolização adjuvante da AMM com Squid reduz falha do tratamento cirúrgico ou não cirúrgico do HSDc?\n\nDesenho\n\n- Randomizado 1:1.\n\n- Internacional, multicêntrico e aberto.\n\n- 32 centros nos Estados Unidos.\n\n- Pacientes conduzidos por estratégia cirúrgica ou não cirúrgica.\n\nInclusões documentadas\n\n| Critério | STEM |\n| --- | --- |\n| Idade | ≥30 anos |\n| mRS pré-mórbido | 0–1 |\n| Diagnóstico | HSDc com pelo menos 50% de conteúdo iso/hipodenso na TC |\n\n| Espessura | ≥10 mm |\n| --- | --- |\n| Efeito de massa | Achatamento cortical ou desvio de linha média |\n| Quadro clínico | Sintomas atribuíveis ao hematoma |\n| Agente | Squid |\n\nO estudo admitia sintomas como cefaleia, declínio cognitivo, alteração de linguagem e dificuldade de marcha.\n\nExclusões\n\nNão se enquadravam nos critérios centrais pacientes abaixo da idade mínima, com funcionalidade prévia superior ao limite, hematomas fora da definição tomográfica ou sem as características clínicas exigidas.\n\nOutras exclusões formais não constam integralmente no resumo do LINNC.\n\nDesfecho primário de eficácia\n\nComposto de falha terapêutica em até 180 dias:\n\n- Hematoma residual ou recorrente ≥10 mm.\n\n- Reoperação ou cirurgia de resgate.\n\n- AVC incapacitante maior, IAM ou morte neurológica.\n\nResultados\n\nFalha terapêutica em 180 dias 16%\n\n## 36%\n\nEmbolização adjuvante\n\nControle\n\nOR 0,36 · p = 0,001\n\nSubgrupos\n\n| Estratégia inicial | Com embolização | Sem embolização |\n| --- | --- | --- |\n| Não cirúrgica | 19% | 56% |\n| Cirúrgica | 14% | 23% |\n\nA associação foi particularmente expressiva no grupo não cirúrgico. No subgrupo cirúrgico, o intervalo de confiança não excluiu ausência de efeito.\n\nPegadinha: STEM é positivo no desfecho composto global, mas isso não significa que todos os componentes e subgrupos tenham apresentado benefício estatisticamente significativo.\n\n## 6. MEMBRANE — Embolização com n-BCA\n\nMEMBRANE · Resultados apresentados em 2024 e referenciados no LINNC 2026\n\nDesenho\n\nEnsaio prospectivo, randomizado, multicêntrico e aberto, em 28 centros dos Estados Unidos e dois da China.\n\nDispositivo/agente: TRUFILL n-BCA, um adesivo líquido à base de cianoacrilato.\n\nInclusões\n\n| Critério | MEMBRANE |\n| --- | --- |\n| Idade | 18–90 anos |\n| Diagnóstico | HSDc sintomático |\n| Espessura | &gt;10 mm |\n\n\\| Desvio de linha média \\| Knopman et al. · ISC 2026 · Resultados de congresso, identificados como não publicados no LINNC\n\nEssa coorte do programa EMBOLISE investigou uma pergunta diferente da primeira: é possível melhorar o prognóstico de pacientes com HSDc pouco sintomático, sem cirurgia inicial, por meio de embolização isolada?\n\nDesenho e elegibilidade\n\n- Randomizado, multicêntrico, aberto, 60 centros norte-americanos.\n\n- Embolização com Onyx versus observação.\n\n- Pacientes com HSDc levemente sintomático.\n\n- Desvio de linha média inferior a 5 mm.\n\n- Exclusão de fraqueza motora grave.\n\nNota de auditoria: o LINNC registra volume de HSD ≤15 mL como critério de população, mas apresenta volumes médios de seguimento muito superiores. Essa discrepância interna exige consulta ao protocolo antes de tratar o limite volumétrico como critério definitivo.\n\nDesfecho primário\n\nComposto, em 90 dias, de necessidade de drenagem cirúrgica, pior resultado clínico ou deterioração clínica definida por escalas neurológicas.\n\nResultados\n\n| Desfecho | Embolização (n=101) | Observação (n=99) |\n| --- | --- | --- |\n| Composto primário | 11,9% | 23,2% |\n\nRR 0,51; p = 0,041.\n\nConclusão provisória: resultado favorável à embolização isolada nessa população selecionada. Entretanto, trata-se de resultado apresentado em congresso, com menor grau de verificabilidade que os ensaios publicados integralmente.\n\nPegadinha: EMBOLISE e EMBOLISE-2 não devem ser confundidos. O primeiro avaliou embolização adjuvante à cirurgia; o segundo, embolização isolada versus observação.\n\n## 8. EMPROTECT — Resultado negativo com partículas\n\nShotar et al. · JAMA 2025;334:127–135 · DOI: 10.1001/jama.2025.758\n\nPergunta\n\nA embolização da AMM com partículas após drenagem cirúrgica reduz a recorrência do HSDc em pacientes de alto risco?\n\nDesenho\n\n- Randomizado, aberto, com avaliação cega do desfecho.\n\n- 12 centros franceses.\n\n- Embolização com partículas de trisacril-gelatina de 300–500 μm.\n\n- Procedimento realizado até sete dias após a drenagem.\n\nInclusões\n\nAdultos ≥18 anos submetidos à drenagem cirúrgica de HSDc recorrente ou de primeiro episódio com pelo menos um fator de risco para recorrência:\n\n- Uso de antiagregantes ou anticoagulantes.\n\n- Alcoolismo crônico.\n\n- Cirrose hepática.\n\n- Trombocitopenia.\n\n- Cirurgia sem dreno externo.\n\nExclusões: a síntese não reproduz a lista integral. Pacientes sem drenagem prévia ou sem os fatores de elegibilidade exigidos não representavam a população-alvo.\n\nDesfecho primário\n\nRecorrência do HSDc em seis meses, com adjudicação independente e cega.\n\nResultados\n\n| Desfecho | Embolização | Controle |\n| --- | --- | --- |\n| Recorrência em seis meses | 14,8% (24/162) | 21,0% (33/157) |\n\nOR 0,64; p = 0,13.\n\nConclusão: redução numérica, mas sem significância estatística.\n\nPegadinha: EMPROTECT não contradiz necessariamente os ensaios com embolizantes líquidos. Populações, agentes, momentos do procedimento e desfechos diferem; tampouco demonstra que partículas sejam inferiores aos líquidos em comparação randomizada direta.\n\n## 9. OTEMACS — Onyx associado ao tratamento convencional\n\nCostalat et al. · Apresentação SLICE 2025 · NCT04742920\n\nO OTEMACS investigou a adição de embolização com Onyx ao tratamento convencional do HSDc sintomático.\n\nDesenho e população\n\n- Ensaio randomizado multicêntrico, em seis centros franceses.\n\n- Adultos ≥18 anos.\n\n- HSDc confirmado e pelo menos um sintoma atribuível à coleção.\n\n- mRS ≤3.\n\n- Aproximadamente 95% dos participantes receberam tratamento cirúrgico.\n\nA síntese do LINNC não apresenta todas as exclusões formais.\n\nDesfecho primário\n\nRecorrência definida por hematoma residual superior a 10 mm em 90 dias ou necessidade de cirurgia de revisão/resgate.\n\nResultados\n\n| Desfecho | Embolização | Tratamento convencional |\n| --- | --- | --- |\n| Reoperação/resgate em 90 dias | 5,3% | 19,8% |\n| Hematoma residual &gt;10 mm | 38,5% | 55,8% |\n\nOs resultados apresentados foram favoráveis à embolização.\n\nLimitação: no LINNC, a referência principal é uma apresentação em congresso. O nível de documentação não deve ser equiparado automaticamente ao de um artigo original completo revisado por pares.\n\n## 10. Comparação definitiva dos estudos\n\n| Ensaio | Agent e | População/estratégia | Primário | Resultado |\n| --- | --- | --- | --- | --- |\n| EMBOLI SE | Onyx | Embolização + cirurgia versus cirurgia | Reoperação em 90 dias | Positivo |\n| EMBOLI SE-2 | Onyx | Embolização isolada versus observação | Falha clínica composta em 90 dias | Positivo, dados de congresso |\n| MAGIC- MT | Onyx | Embolização + cuidado habitual | Recorrência/progressão sintomática ou morte em 90 dias | Neutro |\n| STEM | Squid | Embolização + tratamento cirúrgico/não cirúrgico | Falha composta em 180 dias | Positivo |\n| MEMBR ANE | n-BCA | Embolização + tratamento convencional | Falha em seis meses | Favorável, com limitações dos dados resumidos |\n| EMPRO TECT | Partíc ulas | Embolização após cirurgia em alto risco | Recorrência em seis meses | Neutro |\n| OTEMA CS | Onyx | Embolização + tratamento convencional | Recorrência em 90 dias | Favorável, dados de congresso |\n\nO que os estudos demonstram em conjunto?\n\nHá evidência randomizada consistente de que a embolização da AMM pode reduzir recorrência, progressão ou falha terapêutica em populações selecionadas de HSDc.\n\nEntretanto, nem todos os ensaios foram positivos, e seus desfechos não são idênticos. Alguns avaliam reoperação, outros progressão radiológica e outros um composto que inclui incapacidade, IAM ou morte.\n\nTambém não existe, nesses estudos, uma comparação randomizada definitiva demonstrando superioridade universal de Onyx, Squid, n-BCA ou partículas.\n\n## 11. Critérios de inclusão e exclusão — quadro para memorização\n\n\\| Estudo \\| Critério de seleção mais característico \\| Exclusão/limite importante \\| \\|---\\|---\\|---\\| \\| EMBOLISE \\| 18–90 anos; HSD subagudo/crônico com indicação cirúrgica \\| Não representa observação isolada \\| \\| MAGIC-MT \\| ≥18 anos; sintomático, efeito de massa, mRS ≤2 \\| Fora da população se mRS prévio &gt;2 \\| \\| STEM \\| ≥30 anos; mRS 0–1, espessura ≥10 mm, sintomas \\| Não inclui a população com mRS prévio &gt;1 \\| \\| MEMBRANE \\| 18–90 anos; espessura &gt;10 mm, desvio 3 \\|\n\nImportante: esta tabela reúne os critérios verificáveis na seção 18 do LINNC, não a totalidade das exclusões protocolares. Não é correto transformar critérios não publicados no resumo em regras rígidas de elegibilidade.\n\n## 12. Dez pegadinhas de prova\n\n## 1. EMBOLISE: Onyx + cirurgia, reoperação em 90 dias, positivo.\n\n## 2. MAGIC-MT: Onyx, primário neutro, apesar de menos eventos adversos graves.\n\n## 3. STEM: Squid, falha composta em 180 dias, positivo.\n\n## 4. MEMBRANE: n-BCA, não Onyx.\n\n## 5. EMPROTECT: partículas de 300–500 μm, resultado primário neutro.\n\n6. EMBOLISE-2: embolização isolada versus observação, não cirurgia. 7. OTEMACS: Onyx e resultado favorável, mas referência de congresso no LINNC. 8. Oclusão da AMM não é sinônimo de evacuação imediata do hematoma. 9. Reoperação, recorrência radiológica e deterioração funcional não são desfechos equivalentes.\n\n10. Anastomoses da AMM com territórios orbitários e intracranianos devem ser avaliadas antes da\n\n- embolização.\n\nReferências principais\n\n- Davies JM et al. NEJM. 2024. EMBOLISE\n\n- Liu J et al. NEJM. 2024. MAGIC-MT\n\n- Fiorella D et al. NEJM. 2025. STEM\n\n- Shotar E et al. JAMA. 2025. EMPROTECT\n\nAs informações numéricas e de elegibilidade desta aula foram extraídas diretamente do LINNC. Os links acima identificam os artigos originais, mas não constituem uma auditoria independente dos respectivos protocolos suplementares.",
@@ -537,6 +593,10 @@
       "id": "12.12",
       "title": "Intervenções venosas e novas tecnologias",
       "points": [
+        {
+          "concept": "TVC versus HII",
+          "takeaway": "TO-ACT testou terapia endovascular para TVC grave, sem ganho funcional no primário. RIVER avaliou stent venoso em HII com comparador histórico. Recanalização ou redução de gradiente são desfechos fisiológicos, distintos do benefício clínico."
+        },
         {
           "concept": "TO-ACT",
           "takeaway": "Randomizou pacientes com TVC grave e foi neutro no desfecho funcional primário."
@@ -843,17 +903,18 @@
     {
       "id": "nri:12.2:d1",
       "lesson": "12.2",
-      "prompt": "No contexto de Janela estendida e grandes núcleos, qual alternativa descreve corretamente «DAWN»?",
+      "prompt": "Paciente de 82 anos, mRS prévia 1, NIHSS 15, ACI intracraniana ocluída e 12 h desde o último momento bem. A perfusão estima núcleo de 24 mL e área com Tmax >6 s de 70 mL. Quanto aos critérios de imagem dos ensaios, qual perfil ele preenche?",
       "options": [
-        "Ensaio em grandes núcleos selecionados por TC sem contraste que não atingiu o limiar pré-especificado para o desfecho primário.",
-        "Selecionou mismatch de perfusão e núcleo limitado entre 6 e 16 horas.",
-        "Ensaio chinês de grandes núcleos com critérios de ASPECTS e volume dependentes do estrato.",
-        "Incluiu núcleo grande por ASPECTS 3–5 ou estimativa volumétrica de pelo menos 50 mL.",
-        "Selecionou discrepância clínico-núcleo entre 6 e 24 horas."
+        "Perfil de perfusão do DEFUSE 3, mas não o limite de núcleo do DAWN para idade ≥80 anos",
+        "Perfis de imagem de ambos os ensaios",
+        "Somente o perfil de imagem do DAWN, porque a razão de mismatch é abaixo de 1,8",
+        "Nenhum dos dois ensaios, porque 24 mL ultrapassa ambos os limiares de núcleo",
+        "Somente o perfil de imagem do DAWN, porque o mismatch absoluto é abaixo de 15 mL"
       ],
-      "answer": 4,
-      "explanation": "DAWN. Selecionou discrepância clínico-núcleo entre 6 e 24 horas.",
-      "origin": "revisão"
+      "answer": 0,
+      "explanation": "No DAWN, idade ≥80 anos exigia núcleo <21 mL. No DEFUSE 3, núcleo 24 mL atende ao limite <70 mL, razão 70/24 ≈ 2,9 atende ≥1,8, e diferença 46 mL atende ≥15 mL. A questão compara critérios de ensaio, e a decisão clínica atual usa a recomendação aplicável.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:12.2:d2",
@@ -1593,17 +1654,18 @@
     {
       "id": "nri:12.8:d1",
       "lesson": "12.8",
-      "prompt": "No contexto de Ensaios de doença carotídea e stents, qual alternativa descreve corretamente «CREST-2»?",
+      "prompt": "Em discussão do CREST-2, alguém compara resultados absolutos dos braços de stent e endarterectomia para declarar o stent superior à cirurgia. Qual limitação é decisiva?",
       "options": [
-        "Estudo de braço único que avaliou um stent carotídeo com micromalha.",
-        "Pode aferir desempenho contra um objetivo, com limites para comparação causal direta.",
-        "Dois ensaios paralelos em estenose carotídea assintomática, cada procedimento comparado com manejo intensivo.",
-        "Comparador relevante que altera o risco basal nos ensaios de doença assintomática.",
-        "Comparação em assintomáticos limitada por recrutamento muito menor que o planejado."
+        "A alocação original foi entre stent e endarterectomia e não incluiu braço clínico",
+        "A endarterectomia foi realizada somente como crossover no braço de stent",
+        "Ambos os procedimentos foram avaliados em uma única coorte sem randomização",
+        "Os procedimentos foram estudados em dois ensaios paralelos, cada um versus tratamento clínico intensivo",
+        "O CREST-2 não teve tratamento clínico como comparador"
       ],
-      "answer": 2,
-      "explanation": "CREST-2. Dois ensaios paralelos em estenose carotídea assintomática, cada procedimento comparado com manejo intensivo.",
-      "origin": "revisão"
+      "answer": 3,
+      "explanation": "Cada intervenção tem seu próprio comparador randomizado. Comparar os braços intervencionistas entre ensaios não reproduz uma comparação direta aleatorizada.",
+      "origin": "revisão",
+      "revision": 1
     },
     {
       "id": "nri:12.8:d2",
@@ -1953,17 +2015,22 @@
     {
       "id": "nri:12.11:d1",
       "lesson": "12.11",
-      "prompt": "No contexto de Ensaios de embolização no subdural crônico, qual alternativa descreve corretamente «EMBOLISE»?",
+      "prompt": "Os pesquisadores querem replicar exatamente o desfecho primário do EMBOLISE. Qual resultado devem contar na comparação aos 90 dias?",
       "options": [
-        "Estudou adição de embolização à estratégia padrão previamente selecionada.",
-        "Pode reunir características clínicas e radiológicas e precisa ser detalhado antes de comparar estudos.",
-        "Estudou embolização somada à cirurgia em hematomas com indicação de evacuação.",
-        "Desfecho clínico diretamente relevante após recorrência ou progressão de hematoma.",
-        "Ensaio que avaliou embolização com n-BCA associada ao manejo padrão."
+        "Qualquer mudança na mRS depois de 180 dias",
+        "Necessidade de iniciar corticosteroide em 21 dias",
+        "Resolução completa da coleção em TC realizada no dia da embolização",
+        "Recorrência ou progressão do hematoma que levou a nova cirurgia",
+        "Qualquer resíduo radiológico acima de 10 mm, mesmo sem indicação de reoperação"
       ],
-      "answer": 2,
-      "explanation": "EMBOLISE. Estudou embolização somada à cirurgia em hematomas com indicação de evacuação.",
-      "origin": "revisão"
+      "answer": 3,
+      "explanation": "O primário do EMBOLISE exigiu recorrência ou progressão com nova cirurgia em 90 dias. Desfechos radiológicos/combinados noutros estudos, como STEM, respondem a uma pergunta diferente.",
+      "origin": "revisão",
+      "revision": 1,
+      "reference": {
+        "label": "Davies et al. EMBOLISE. NEJM 2024.",
+        "url": "https://doi.org/10.1056/NEJMoa2313472"
+      }
     },
     {
       "id": "nri:12.11:d2",

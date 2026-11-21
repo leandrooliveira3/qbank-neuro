@@ -1,3 +1,7 @@
+## 21/11/2026 — Curso separado da navegação do Atlas
+
+O Curso NRI ocupa a entrada imediatamente abaixo do Atlas no menu principal; Preparação NRI conserva seu painel próprio. A URL antiga de curso é compatível. Questões reescritas conservam seu ID público e ganham chave de tentativa por versão para preservar a resposta anterior sem aplicá-la ao novo enunciado.
+
 # Decisões — histórico cumulativo
 
 ## 21/10/2026 — consolidação de decisões anteriores
