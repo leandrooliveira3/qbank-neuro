@@ -1,3 +1,7 @@
+## 21/11/2026 — Auditoria dos Blocos 2–6 do Curso NRI
+
+Continuação sugerida na Aula 7A, no Bloco 7. Use as exportações integrais e as referências para verificar cada aula, com atenção à malformação aneurismática da veia de Galeno, à sua distinção de ectasia da veia adulta e às transições de conteúdo entre blocos. [Cotejo](../neuro3d-curso-nri-blocos-2-6.md).
+
 ## 21/11/2026 — Auditoria do Bloco 1 do Curso NRI
 
 Para o próximo bloco, use a trilha de cotejo do Bloco 1 como referência. Verifique o texto das aulas nas exportações e confronte o conteúdo com as referências específicas de embriologia antes de editar o Bloco 2. [Registro do cotejo](../neuro3d-curso-nri-bloco-1.md).

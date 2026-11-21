@@ -1,3 +1,7 @@
+## 21/11/2026 — Auditoria dos Blocos 2–6 do Curso NRI
+
+Registrados os Blocos 2–6, com decisões e fonte temática para cada questão, planos de revisão e correções de conteúdo e nomenclatura. [Cotejo](../neuro3d-curso-nri-blocos-2-6.md).
+
 ## 21/11/2026 — Auditoria do Bloco 1 do Curso NRI
 
 Auditoria do Bloco 1 registrada com fontes por aula e por item. Seis aulas, 100 questões, 40 casos reformulados e 85 entradas de revisão. [Registro do cotejo](../neuro3d-curso-nri-bloco-1.md).

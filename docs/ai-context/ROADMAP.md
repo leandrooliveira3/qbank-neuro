@@ -1,3 +1,7 @@
+## 21/11/2026 — Auditoria dos Blocos 2–6 do Curso NRI
+
+Blocos 1–6 com auditorias de conteúdo, revisão e banco registradas. Próxima frente curricular, Bloco 7. [Cotejo](../neuro3d-curso-nri-blocos-2-6.md).
+
 ## 21/11/2026 — Auditoria do Bloco 1 do Curso NRI
 
 O Bloco 1 tem matriz por questão e plano D0–D+30 no leitor. A auditoria dos Blocos 2–13 permanece na sequência. [Registro do cotejo](../neuro3d-curso-nri-bloco-1.md).

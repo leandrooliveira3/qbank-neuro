@@ -1,3 +1,7 @@
+## 21/11/2026 — Auditoria dos Blocos 2–6 do Curso NRI
+
+Os Blocos 2–6 têm 46 aulas cotejadas com as exportações, 500 questões com registro por ID e cinco planos D0–D+30. Foram introduzidos 46 casos e revistas quatro questões para precisão anatômica ou classificatória. A conferência de imagens externas depende da disponibilidade no acervo. [Cotejo](../neuro3d-curso-nri-blocos-2-6.md).
+
 ## 21/11/2026 — Auditoria do Bloco 1 do Curso NRI
 
 Cotejo das seis aulas e 100 questões do Bloco 1. Foram reescritos 40 itens e acrescentados 19 pontos de revisão. O plano D0–D+30 integra a Aula 1F. [Registro do cotejo](../neuro3d-curso-nri-bloco-1.md).
