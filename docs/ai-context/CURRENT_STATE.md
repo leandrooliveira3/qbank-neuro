@@ -1,3 +1,9 @@
+## 21/11/2026 — Curso NRI 2027
+
+Curso em aba própria do QBank-Neuro 3D com 13 blocos, 120 módulos e 1.300 questões. A teoria, as tabelas de prova e os exercícios são acessíveis por URL e busca. O banco permite importação JSON e gravação local. A sequência é a das aulas ministradas, com Galeno no Bloco 7 e aneurismas na segunda metade do Bloco 13. Ver [curso e contrato do JSON](../neuro3d-curso-nri.md).
+
+Base remota 94a2688. A publicação do commit deste lote deve ser conferida por hash no GitHub e status no Vercel. A revisão científica independente item a item, a recuperação de questões com figuras e as tarefas anatômicas anteriores continuam registradas. O painel de preparação e sua linha de base seguem separados.
+
 # Estado atual — revisão pessoal e catálogo de fontes
 
 Leia o bloco mais recente e ../neuro3d-gs-ca-review-notes.md. Registros anteriores são históricos.

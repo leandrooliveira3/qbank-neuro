@@ -145,3 +145,7 @@ Base 29bc66e. Inspeção 3D/aquisição 2D podem ser desvinculadas; captura/alin
 197 unitários/47 arquivos, TypeScript/build aprovados. WebGL continua desativado no navegador de QA: desenho/arraste 3D não validados. UI confirmou fallback/projeção 2D pronta, independência, salvar/recuperar 30°, remover/desfazer, recarga e pan com ângulo mantido. Leitor de arquivo JSON na UI e responsividade móvel ainda não exercitados. Leia ../neuro3d-independent-acquisition.md. Nenhuma anatomia, referencial ou licença alterada; 20/373/sete/Galeno e frentes anteriores preservados.
 
 Próximo: conferir publicação do hash exato, validar interação renderizada em WebGL e JSON por arquivo, depois geometria física/cine com evidência. O commit que contém este registro identifica a etapa; remoto e deploy confirmados separadamente.
+
+## 21/11/2026 — Curso NRI 2027
+
+Base 94a2688. Curso NRI no atlas em três modos, com 120 módulos, 13 blocos e 1.300 questões iniciais. Importação JSON e respostas persistem localmente. O [manual](../neuro3d-curso-nri.md) registra proveniência e limites do banco. A publicação deve ser confirmada por hash após o checkpoint.

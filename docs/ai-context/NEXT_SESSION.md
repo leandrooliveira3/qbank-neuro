@@ -1,3 +1,7 @@
+## Continuação do curso NRI — 21/11/2026
+
+Leia AGENTS.md e [o manual do curso](../neuro3d-curso-nri.md). Confirme o hash da branch e o preview antes de atribuir estado de publicação. O Curso NRI 2027 tem 13 blocos, 120 módulos, 100 questões por bloco, três modos de estudo e importação local por JSON. Preserve os IDs do banco e o histórico separado da preparação. A próxima frente de conteúdo é auditar gabaritos e adicionar questões de interpretação angiográfica com licença e origem conferidas. Consulte as tarefas de anatomia e interação 3D abaixo para continuar o atlas.
+
 # Próxima sessão — aquisição independente e vistas guardadas
 
 Leia o registro de 11/11/2026 e ../neuro3d-independent-acquisition.md. Não refaça NRI ou vistas guardadas. Priorize validação renderizada com WebGL, JSON por arquivo e responsividade, preservando todas as pendências anatômicas abaixo. A validação 3D continua bloqueada no navegador atual; não alterar proteções/flags para contornar.

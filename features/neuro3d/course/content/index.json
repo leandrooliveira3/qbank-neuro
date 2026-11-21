@@ -1,0 +1,1533 @@
+[
+  {
+    "id": 1,
+    "title": "Carótida externa, base do crânio e anastomoses perigosas",
+    "lessons": [
+      {
+        "id": "1A",
+        "title": "Carótida externa, meníngea média e anastomoses",
+        "topics": [
+          "Meníngea média",
+          "Meníngea acessória",
+          "Ramo jugular",
+          "Ramo hipoglosso",
+          "Conexão meningolacrimal",
+          "Artéria vidiana",
+          "Artéria do forame redondo",
+          "Divisão petrosa da meníngea média"
+        ]
+      },
+      {
+        "id": "1B",
+        "title": "Oftálmica e anastomoses orbitárias",
+        "topics": [
+          "Artéria central da retina",
+          "Artérias ciliares posteriores",
+          "Lacrimal",
+          "Artérias etmoidais",
+          "Angular facial",
+          "Sistema estapedial",
+          "Oftálmica ventral primitiva no modelo de Lasjaunias",
+          "Oftálmica dorsal primitiva no modelo de Lasjaunias"
+        ]
+      },
+      {
+        "id": "1C",
+        "title": "Maxilar interna e região petrocavernosa",
+        "topics": [
+          "Porção mandibular da maxilar",
+          "Porção pterigoidea da maxilar",
+          "Porção pterigopalatina da maxilar",
+          "Esfenopalatina",
+          "Tronco inferolateral",
+          "Tronco meningo-hipofisário",
+          "Infraorbitária",
+          "Ramos temporais profundos"
+        ]
+      },
+      {
+        "id": "1D",
+        "title": "Faríngea ascendente, occipital e nervos cranianos",
+        "topics": [
+          "Tronco faríngeo",
+          "Tronco neuromeníngeo",
+          "Arcada do odontoide",
+          "Artéria estilomastoidea",
+          "Anastomose occipitovertebral",
+          "Ramo jugular do tronco neuromeníngeo",
+          "Ramo hipoglosso do tronco neuromeníngeo",
+          "Artéria labiríntica"
+        ]
+      },
+      {
+        "id": "1E",
+        "title": "Vascularização dural da fossa posterior",
+        "topics": [
+          "Davidoff–Schechter",
+          "Bernasconi–Cassinari",
+          "Subarcuata",
+          "Meníngea posterior",
+          "Ramos meníngeos da occipital",
+          "Ramo petroso da meníngea média",
+          "Tronco inferolateral",
+          "Refluxo em aferente pial"
+        ]
+      },
+      {
+        "id": "1F",
+        "title": "Integração angiográfica da carótida externa",
+        "topics": [
+          "Injeção seletiva de ACE",
+          "Anastomose pouco visível inicialmente",
+          "Blush coroideano na injeção de ACE",
+          "Via vidiana",
+          "Via do forame redondo",
+          "Comunicação faríngeo-vertebral",
+          "Aferência dural originada da ACP",
+          "Embolização por ramo petroso"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Embriologia neurovascular de Lasjaunias",
+    "lessons": [
+      {
+        "id": "2A",
+        "title": "Arcos aórticos, vertebrais e subclávias",
+        "topics": [
+          "Terceiro arco",
+          "Quarto arco esquerdo",
+          "Quarto arco direito",
+          "Sexto arco esquerdo",
+          "Sétima intersegmentar esquerda",
+          "Anastomoses intersegmentares cervicais"
+        ]
+      },
+      {
+        "id": "2B",
+        "title": "Troncos supra-aórticos e variantes do arco",
+        "topics": [
+          "Arco angiográfico tipo III",
+          "Origem comum braquiocefálica e carotídea esquerda",
+          "Artéria lusória",
+          "Divertículo de Kommerell",
+          "Arco aórtico direito",
+          "Anel vascular"
+        ]
+      },
+      {
+        "id": "2C",
+        "title": "Sistema carotídeo primitivo e hioestapedial",
+        "topics": [
+          "Artéria hioidea",
+          "Estapedial persistente",
+          "Forame espinhoso hipoplásico ou ausente",
+          "Sistema maxilar distal",
+          "Anel perióptico",
+          "Carótida interna distal"
+        ]
+      },
+      {
+        "id": "2D",
+        "title": "Segmentação embriológica da ACI",
+        "topics": [
+          "Divisão cranial da ACI primitiva",
+          "Divisão caudal da ACI primitiva",
+          "Agenesia carotídea congênita",
+          "C7 em Bouthillier",
+          "Segmentação de Lasjaunias",
+          "Coroidea anterior hiperplásica"
+        ]
+      },
+      {
+        "id": "2E",
+        "title": "Oftálmicas primitivas segundo Lasjaunias e Padget",
+        "topics": [
+          "Persistência da via dorsal no modelo de Lasjaunias",
+          "Via ventral no modelo de Lasjaunias",
+          "Padrão meningolacrimal",
+          "Padrão meningo-oftálmico",
+          "Dupla origem oftálmica",
+          "Ausência de blush ocular"
+        ]
+      },
+      {
+        "id": "2F",
+        "title": "Formação de ACA, ACM e coroidea anterior",
+        "topics": [
+          "Artéria cerebral média acessória",
+          "Duplicação da ACM",
+          "Coroidea anterior primitiva",
+          "Perfurantes estriadas",
+          "Recorrente de Heubner",
+          "Coroidea anterior dominante"
+        ]
+      },
+      {
+        "id": "2G",
+        "title": "ACP, comunicante posterior e coroideas",
+        "topics": [
+          "ACP fetal completa",
+          "ACP fetal parcial",
+          "Configuração adulta da ACP",
+          "Artéria de Percheron",
+          "Coroidea anterior dominante",
+          "Coroideas posteriores"
+        ]
+      },
+      {
+        "id": "2H",
+        "title": "Anastomoses carotidobasilares primitivas",
+        "topics": [
+          "Trigeminal persistente",
+          "Hipoglossal persistente",
+          "Proatlantal tipo I",
+          "Proatlantal tipo II",
+          "Ótica primitiva",
+          "Saltzman"
+        ]
+      },
+      {
+        "id": "2I",
+        "title": "Eixos neurais longitudinais e formação da basilar",
+        "topics": [
+          "Coalescência dos eixos neurais longitudinais",
+          "Fenestração basilar",
+          "Fusão assimétrica rostral",
+          "Perfurantes paramedianas pontinas",
+          "Ramos circunflexos pontinos",
+          "Fenestração versus dissecção"
+        ]
+      },
+      {
+        "id": "2J",
+        "title": "Vertebrais, cerebelares e artérias espinais",
+        "topics": [
+          "V3",
+          "V4",
+          "PICA",
+          "AICA",
+          "SCA",
+          "Tronco comum AICA–PICA"
+        ]
+      },
+      {
+        "id": "2K",
+        "title": "Vascularização medular e complementação venosa",
+        "topics": [
+          "Artéria sulcocomissural",
+          "Perfurantes radiais da vasocorona",
+          "Adamkiewicz",
+          "Vasocorona",
+          "Veia mediana prosencefálica de Markowski",
+          "Veia de Galeno madura"
+        ]
+      },
+      {
+        "id": "2L",
+        "title": "Integração embriológica e angiográfica",
+        "topics": [
+          "Fase pré-coroidal",
+          "Fase coroidal",
+          "Fase intrínseca",
+          "Transferência territorial",
+          "Ausência de canal carotídeo",
+          "Anastomose carotidobasilar persistente"
+        ]
+      },
+      {
+        "id": "2M",
+        "title": "Revisão integrada da embriologia neurovascular",
+        "topics": [
+          "Persistência segmentar espinal",
+          "Falha local de fusão basilar",
+          "Recrutamento cerebelar",
+          "Oftálmica de origem meníngea",
+          "MAVG mural",
+          "MAVG coroideana"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Anatomia arterial intracraniana",
+    "lessons": [
+      {
+        "id": "3A",
+        "title": "Carótida interna e segmentos de Bouthillier",
+        "topics": [
+          "C1 cervical",
+          "C2 petroso",
+          "C3 lácero",
+          "C4 cavernoso",
+          "C5 clinoideo",
+          "C6 oftálmico",
+          "C7 comunicante"
+        ]
+      },
+      {
+        "id": "3B",
+        "title": "ACA, comunicante anterior e recorrente de Heubner",
+        "topics": [
+          "A1",
+          "A2",
+          "Heubner",
+          "ACA ázigos",
+          "ACA bi-hemisférica",
+          "Infarto medial frontal no território ACA"
+        ]
+      },
+      {
+        "id": "3C",
+        "title": "Artéria cerebral média e perfurantes",
+        "topics": [
+          "M1",
+          "M2",
+          "M3",
+          "M4",
+          "Lenticuloestriadas laterais",
+          "Divisão inferior dominante da ACM esquerda"
+        ]
+      },
+      {
+        "id": "3D",
+        "title": "ACP e territórios talâmicos",
+        "topics": [
+          "Talamoperfurantes paramedianas",
+          "Talamogeniculadas",
+          "Tuberotalâmica",
+          "Artéria calcarina",
+          "Infarto occipital dominante com esplênio",
+          "Artéria de Percheron"
+        ]
+      },
+      {
+        "id": "3E",
+        "title": "Coroideas e irrigação profunda",
+        "topics": [
+          "Segmento cisternal da coroidea anterior",
+          "Ponto plexal",
+          "Trato óptico",
+          "Coroidea posterior medial",
+          "Coroidea posterior lateral",
+          "Síndrome coroidea anterior clássica"
+        ]
+      },
+      {
+        "id": "3F",
+        "title": "Vertebrais, basilar e artérias cerebelares",
+        "topics": [
+          "PICA",
+          "AICA",
+          "SCA",
+          "Artéria labiríntica",
+          "Junção vertebrobasilar",
+          "Infarto de ponte ventral bilateral"
+        ]
+      },
+      {
+        "id": "3G",
+        "title": "Perfurantes do tronco encefálico",
+        "topics": [
+          "Weber",
+          "Claude",
+          "Wallenberg",
+          "Dejerine",
+          "Perfurantes basilares paramedianas",
+          "Ramos circunflexos longos"
+        ]
+      },
+      {
+        "id": "3H",
+        "title": "Síndromes lacunares e topografia profunda",
+        "topics": [
+          "Hemiparesia motora pura",
+          "AVC sensitivo puro",
+          "Síndrome sensitivo-motora",
+          "Disartria–mão desajeitada",
+          "Hemiparesia atáxica",
+          "Afasia"
+        ]
+      },
+      {
+        "id": "3I",
+        "title": "Variantes e circulação colateral",
+        "topics": [
+          "Comunicante anterior",
+          "Comunicante posterior",
+          "Anastomoses leptomeníngeas",
+          "Via oftálmica retrógrada",
+          "ACI hipoplásica congênita",
+          "Oclusão carotídea com ACP fetal ipsilateral"
+        ]
+      },
+      {
+        "id": "3J",
+        "title": "Integração angiográfica arterial",
+        "topics": [
+          "Perfurantes de P1",
+          "Talamogeniculadas de P2",
+          "Artéria tuberotalâmica",
+          "Revisão da ACom",
+          "Revisão do sifão carotídeo",
+          "Projeção de trabalho para um aneurisma"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Sistema venoso cerebral",
+    "lessons": [
+      {
+        "id": "4A",
+        "title": "Organização venosa superficial e profunda",
+        "topics": [
+          "Seio sagital superior",
+          "Seio reto",
+          "Sistema venoso profundo",
+          "Veia cerebral interna",
+          "Sistema cavernoso",
+          "Seio petroso inferior"
+        ]
+      },
+      {
+        "id": "4B",
+        "title": "Veias corticais e drenagem silviana",
+        "topics": [
+          "Trolard",
+          "Labbé",
+          "Veia cerebral média superficial",
+          "Via esfenopetrosa",
+          "Drenagem paracavernosa",
+          "Labbé dominante perto de shunt dural"
+        ]
+      },
+      {
+        "id": "4C",
+        "title": "Seios durais e variantes",
+        "topics": [
+          "Torcular",
+          "Seio transverso hipoplásico",
+          "Granulação aracnoidea",
+          "Seio sigmoide",
+          "Seio petroso superior",
+          "Seio cavernoso"
+        ]
+      },
+      {
+        "id": "4D",
+        "title": "Veias cerebrais internas, Rosenthal e Galeno",
+        "topics": [
+          "Veia talamoestriada",
+          "Veia septal anterior",
+          "Veia basal de Rosenthal",
+          "Veia de Galeno",
+          "Trombose do sistema venoso profundo",
+          "Seio falcino persistente"
+        ]
+      },
+      {
+        "id": "4E",
+        "title": "Drenagem venosa da fossa posterior",
+        "topics": [
+          "Veia petrosa superior",
+          "Veia pré-central do cerebelo",
+          "Veias hemisféricas cerebelares",
+          "Veias pontinas transversas",
+          "Veia mesencefálica lateral",
+          "Veias medulares anteriores"
+        ]
+      },
+      {
+        "id": "4F",
+        "title": "DVA, veias transmedulares e cavernomas",
+        "topics": [
+          "Caput medusae",
+          "Coletor de uma DVA",
+          "Cavernoma",
+          "Halo de hemossiderina",
+          "DVA de drenagem profunda",
+          "Veia arterializada precoce"
+        ]
+      },
+      {
+        "id": "4G",
+        "title": "Anatomia venosa angiográfica e refluxo",
+        "topics": [
+          "Fase venosa tardia",
+          "Refluxo venoso cortical",
+          "Seio isolado",
+          "Drenagem transcerebral",
+          "Estenose sinusal",
+          "Oclusão venosa precoce em MAV"
+        ]
+      },
+      {
+        "id": "4H",
+        "title": "Trombose venosa cerebral e hipertensão venosa",
+        "topics": [
+          "Infarto venoso hemorrágico",
+          "Venografia por TOF",
+          "TVC profunda",
+          "Hipertensão intracraniana idiopática",
+          "Gradiente venoso",
+          "TO-ACT"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Anatomia vascular medular e malformações espinais",
+    "lessons": [
+      {
+        "id": "5A",
+        "title": "Embriologia vascular medular",
+        "topics": [
+          "Metameria",
+          "Fusão dos eixos ventrais",
+          "Dessegmentação",
+          "Persistência de eixos ventrais pareados",
+          "Artéria radiculopial",
+          "Artéria radiculomedular"
+        ]
+      },
+      {
+        "id": "5B",
+        "title": "Artérias radiculares, radiculopiais e radiculomedulares",
+        "topics": [
+          "Ramo radicular",
+          "Ramo radiculopial",
+          "Ramo radiculomedular",
+          "Pedículos torácicos",
+          "Pedículos lombares",
+          "Pedículos cervicais"
+        ]
+      },
+      {
+        "id": "5C",
+        "title": "ASA, eixos posteriores, vasocorona e perfurantes",
+        "topics": [
+          "ASA",
+          "Artérias espinais posteriores",
+          "Artérias sulcais",
+          "Perfurantes piais",
+          "Vasocorona",
+          "Ramos sulcais unilaterais alternantes"
+        ]
+      },
+      {
+        "id": "5D",
+        "title": "Adamkiewicz e irrigação da medula toracolombar",
+        "topics": [
+          "Adamkiewicz",
+          "Curva em grampo",
+          "Lazorthes",
+          "Cesta arterial do cone",
+          "Predominância esquerda de Adamkiewicz",
+          "Rede colateral paravertebral"
+        ]
+      },
+      {
+        "id": "5E",
+        "title": "Origens segmentares e anastomoses espinais",
+        "topics": [
+          "Cervical ascendente",
+          "Cervical profunda",
+          "Intercostal posterior",
+          "Artéria iliolombar",
+          "Artérias sacrais laterais",
+          "Pedículo tumoral compartilhado com ASA"
+        ]
+      },
+      {
+        "id": "5F",
+        "title": "Drenagem espinal e mielopatia venosa",
+        "topics": [
+          "Veias perimedulares",
+          "Veia radicular",
+          "Plexo epidural",
+          "FAV dural espinal",
+          "Congestão venosa medular",
+          "Vasos dorsais serpiginosos na RM"
+        ]
+      },
+      {
+        "id": "5G",
+        "title": "Classificação e tratamento das malformações espinais",
+        "topics": [
+          "FAV dural espinal",
+          "FAV perimedular",
+          "MAV intramedular",
+          "Malformação metamérica espinal",
+          "FAV epidural",
+          "Exclusão da saída venosa proximal na FAV dural"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Fístulas durais e carotidocavernosas",
+    "lessons": [
+      {
+        "id": "6A",
+        "title": "Borden, Cognard e risco nas fístulas durais",
+        "topics": [
+          "Borden I",
+          "Borden II",
+          "Borden III",
+          "Cognard IIa",
+          "Cognard IV",
+          "Cognard V"
+        ]
+      },
+      {
+        "id": "6B",
+        "title": "Angioarquitetura das fístulas durais",
+        "topics": [
+          "Ponto fistuloso",
+          "Compartimento venoso patológico",
+          "Fase arterial com preenchimento venoso precoce",
+          "Refluxo cortical",
+          "Ectasia de veia de drenagem",
+          "Alimentadores bilaterais"
+        ]
+      },
+      {
+        "id": "6C",
+        "title": "Fístulas carotidocavernosas e Barrow",
+        "topics": [
+          "Barrow A",
+          "Barrow B",
+          "Barrow C",
+          "Barrow D",
+          "Drenagem oftálmica anterior",
+          "Drenagem cortical retrógrada"
+        ]
+      },
+      {
+        "id": "6D",
+        "title": "Tratamento das fístulas carotidocavernosas",
+        "topics": [
+          "Seio petroso inferior",
+          "Veia oftálmica superior",
+          "Fístula direta traumática",
+          "Compartimento cavernoso focal",
+          "Espaço cavernoso excessivamente preenchido",
+          "Teste de oclusão carotídea"
+        ]
+      },
+      {
+        "id": "6E",
+        "title": "Fístulas tentoriais e das fossas anterior e posterior",
+        "topics": [
+          "FAV etmoidal",
+          "FAV tentorial",
+          "Ramo de Davidoff–Schechter",
+          "Artéria tentorial marginal",
+          "FAV de fossa posterior",
+          "Aferente pela oftálmica"
+        ]
+      },
+      {
+        "id": "6F",
+        "title": "Fístulas transverso-sigmoides",
+        "topics": [
+          "Zumbido pulsátil",
+          "Segmento sinusal funcional",
+          "Bolsa venosa mural",
+          "Veia de Labbé",
+          "Embolização arterial proximal isolada",
+          "Seio isolado trombosado"
+        ]
+      },
+      {
+        "id": "6G",
+        "title": "Fístulas do sagital superior, seio marginal e canal do hipoglosso",
+        "topics": [
+          "FAV sagital superior",
+          "FAV do seio marginal",
+          "FAV do canal do hipoglosso",
+          "Ramo hipoglosso da faríngea ascendente",
+          "Rede condilar",
+          "Mielopatia em FAV craniana"
+        ]
+      },
+      {
+        "id": "6H",
+        "title": "Revisão integrada das fístulas durais",
+        "topics": [
+          "Embolização transarterial curativa",
+          "Desconexão microcirúrgica",
+          "Radioscirurgia",
+          "Recorrência tardia",
+          "DSA pós-tratamento",
+          "Baixo risco venoso"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "MAVs, Galeno, aneurismas e hemorragia",
+    "lessons": [
+      {
+        "id": "7A",
+        "title": "MAV cerebral, história natural e escores",
+        "topics": [
+          "Nidus",
+          "Spetzler–Martin",
+          "Lawton–Young suplementar",
+          "Drenagem profunda",
+          "Aneurisma associado ao fluxo",
+          "Drenagem venosa estreita"
+        ]
+      },
+      {
+        "id": "7B",
+        "title": "Tratamento das MAVs cerebrais",
+        "topics": [
+          "Ressecção completa",
+          "Radioscirurgia estereotáxica",
+          "Embolização pré-operatória",
+          "Oclusão venosa prematura",
+          "ARUBA",
+          "Tratamento focal de ponto frágil"
+        ]
+      },
+      {
+        "id": "7C",
+        "title": "Malformação da veia de Galeno e anomalias venosas",
+        "topics": [
+          "MAVG verdadeira",
+          "Dilatação galênica secundária",
+          "Tipo coroideano",
+          "Tipo mural",
+          "Seio falcino persistente",
+          "Anomalia venosa do desenvolvimento"
+        ]
+      },
+      {
+        "id": "7D",
+        "title": "MAVG neonatal, Bicêtre e tratamento",
+        "topics": [
+          "Insuficiência cardíaca de alto débito",
+          "Escore neonatal de Bicêtre",
+          "Hipertensão venosa cerebral",
+          "Embolização estagiada",
+          "Instabilidade multissistêmica",
+          "Hidrocefalia na MAVG"
+        ]
+      },
+      {
+        "id": "7E",
+        "title": "Aneurismas não rotos e história natural",
+        "topics": [
+          "PHASES",
+          "ELAPSS",
+          "UIATS",
+          "UCAS Japan",
+          "SUAVe",
+          "Crescimento documentado"
+        ]
+      },
+      {
+        "id": "7F",
+        "title": "HSA aneurismática, ISAT e BRAT",
+        "topics": [
+          "WFNS",
+          "Fisher modificada",
+          "TC sem contraste",
+          "ISAT",
+          "BRAT",
+          "Aneurisma responsável pela HSA"
+        ]
+      },
+      {
+        "id": "7G",
+        "title": "Coils, remodelamento e dispositivos intrasaculares",
+        "topics": [
+          "Coiling simples",
+          "Remodelamento por balão",
+          "Coiling assistido por stent",
+          "Dispositivo intrasacular",
+          "Raymond–Roy II",
+          "Raymond–Roy III"
+        ]
+      },
+      {
+        "id": "7H",
+        "title": "Flow diverter e aneurismas complexos",
+        "topics": [
+          "Flow diverter",
+          "Aneurisma fusiforme",
+          "Aneurisma blister",
+          "Trapping",
+          "Artéria de PICA incorporada",
+          "Cobertura de perfurantes"
+        ]
+      },
+      {
+        "id": "7I",
+        "title": "Vasoespasmo e isquemia cerebral tardia",
+        "topics": [
+          "Nimodipina enteral",
+          "Isquemia cerebral tardia",
+          "Vasoespasmo angiográfico",
+          "Índice de Lindegaard",
+          "Angioplastia com balão",
+          "Vasodilatador intra-arterial"
+        ]
+      },
+      {
+        "id": "7J",
+        "title": "Revisão de MAVs, Galeno, aneurismas e HSA",
+        "topics": [
+          "Ectasia venosa em MAV",
+          "Galeno secundariamente dilatada",
+          "Raymond–Roy I",
+          "Crossover assimétrico no BRAT",
+          "Pressão de perfusão em HSA",
+          "Embolização não alvo"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "AVC isquêmico e doença oclusiva",
+    "lessons": [
+      {
+        "id": "8A",
+        "title": "Fisiopatologia do AVCi, colaterais e escalas",
+        "topics": [
+          "Núcleo isquêmico",
+          "Penumbra",
+          "Colaterais leptomeníngeas",
+          "NIHSS",
+          "mRS",
+          "eTICI 3"
+        ]
+      },
+      {
+        "id": "8B",
+        "title": "Imagem no AVC isquêmico agudo",
+        "topics": [
+          "TC sem contraste",
+          "Angio-TC",
+          "DWI hiperintensa com ADC baixo",
+          "ASPECTS de 10",
+          "Mismatch DWI–FLAIR",
+          "Mismatch de perfusão"
+        ]
+      },
+      {
+        "id": "8C",
+        "title": "Trombólise intravenosa",
+        "topics": [
+          "Alteplase",
+          "Tenecteplase para AVCi",
+          "Déficit incapacitante com NIHSS baixo",
+          "Último momento bem",
+          "Pressão pré-trombólise",
+          "Piora neurológica após trombólise"
+        ]
+      },
+      {
+        "id": "8D",
+        "title": "Trombectomia mecânica",
+        "topics": [
+          "Aspiração por contato",
+          "Stent retriever",
+          "Cateter-guia com balão",
+          "Reperfusão de primeira passagem",
+          "eTICI 2c",
+          "Recanalização"
+        ]
+      },
+      {
+        "id": "8E",
+        "title": "Oclusão basilar e grandes núcleos",
+        "topics": [
+          "pc-ASPECTS",
+          "ATTENTION",
+          "BAOCHE",
+          "SELECT2",
+          "RESCUE-Japan LIMIT",
+          "mRS 0–3"
+        ]
+      },
+      {
+        "id": "8F",
+        "title": "Oclusões M2, distais e em tandem",
+        "topics": [
+          "M2 proximal dominante",
+          "Lesão em tandem",
+          "Estratégia retrógrada no tandem",
+          "Estratégia anterógrada no tandem",
+          "ESCAPE-MeVO",
+          "DISTAL"
+        ]
+      },
+      {
+        "id": "8G",
+        "title": "Doença carotídea, endarterectomia e stent",
+        "topics": [
+          "Método NASCET",
+          "Quase oclusão carotídea",
+          "Carótida sintomática",
+          "Endarterectomia",
+          "Stent carotídeo",
+          "Síndrome de hiperperfusão"
+        ]
+      },
+      {
+        "id": "8H",
+        "title": "Aterosclerose intracraniana e terapia de resgate",
+        "topics": [
+          "Reoclusão precoce após retirada do trombo",
+          "SAMMPRIS",
+          "CASSISS",
+          "Efeito snowplow",
+          "Angioplastia submáxima",
+          "Stent de resgate"
+        ]
+      },
+      {
+        "id": "8I",
+        "title": "Complicações e cuidados após trombectomia",
+        "topics": [
+          "Embolização em novo território",
+          "Extravasamento angiográfico",
+          "Vasoespasmo mecânico",
+          "Hiperdensidade imediata pós-procedimento",
+          "TC de dupla energia",
+          "Redução intensiva da pressão após EVT"
+        ]
+      },
+      {
+        "id": "8J",
+        "title": "Casos integrados de reperfusão",
+        "topics": [
+          "Oclusão carotídea com déficit incapacitante precoce",
+          "Trombólise de ponte",
+          "Janela tardia",
+          "Núcleo extenso",
+          "Mudança ordinal da mRS",
+          "Oclusão média ou distal isolada"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Angiografia, radiação, contraste e materiais",
+    "lessons": [
+      {
+        "id": "9A",
+        "title": "DSA, fluoroscopia e angiografia rotacional",
+        "topics": [
+          "Máscara de subtração",
+          "Desregistro por movimento",
+          "Remasking",
+          "Roadmap",
+          "DSA temporal",
+          "Angiografia rotacional 3D"
+        ]
+      },
+      {
+        "id": "9B",
+        "title": "Proteção radiológica e dose",
+        "topics": [
+          "Kerma acumulado de referência",
+          "Produto kerma-área",
+          "Tempo de fluoroscopia",
+          "Colimação",
+          "Efeito estocástico",
+          "Reação tecidual"
+        ]
+      },
+      {
+        "id": "9C",
+        "title": "Contrastes iodados e segurança",
+        "topics": [
+          "Reação alérgica-like prévia",
+          "Reação fisiológica",
+          "Anafilaxia por contraste",
+          "Lesão renal associada ao contraste",
+          "Lesão renal induzida por contraste",
+          "Encefalopatia por contraste"
+        ]
+      },
+      {
+        "id": "9D",
+        "title": "Acessos radial e femoral e arco aórtico",
+        "topics": [
+          "Artéria radial",
+          "Artéria femoral comum",
+          "Punção femoral alta",
+          "Punção abaixo da bifurcação femoral",
+          "Hemostasia patente radial",
+          "Arco tipo III"
+        ]
+      },
+      {
+        "id": "9E",
+        "title": "Introdutores, guias e cateteres de suporte",
+        "topics": [
+          "Introdutor",
+          "Cateter diagnóstico",
+          "Cateter-guia",
+          "Cateter intermediário",
+          "Configuração triaxial",
+          "Simmons"
+        ]
+      },
+      {
+        "id": "9F",
+        "title": "Microcateteres, microguias e navegação",
+        "topics": [
+          "Diâmetro interno do microcateter",
+          "Comprimento útil",
+          "Ponta atraumática da microguia",
+          "Revestimento hidrofílico",
+          "Compatibilidade com DMSO",
+          "Microcateter de ponta destacável"
+        ]
+      },
+      {
+        "id": "9G",
+        "title": "Partículas, coils, NBCA e EVOH",
+        "topics": [
+          "Partículas",
+          "Coils",
+          "NBCA",
+          "EVOH",
+          "Radiopacidade do EVOH",
+          "Refluxo de líquido embolizante"
+        ]
+      },
+      {
+        "id": "9H",
+        "title": "Balões, remodelamento e angioplastia",
+        "topics": [
+          "Balão complacente",
+          "Balão de angioplastia",
+          "Balão de duplo lúmen",
+          "Teste de oclusão por balão",
+          "Ruptura durante angioplastia",
+          "Efeito snowplow"
+        ]
+      },
+      {
+        "id": "9I",
+        "title": "Stents, flow diverters, retrievers e aspiração",
+        "topics": [
+          "Stent de suporte de colo",
+          "Flow diverter",
+          "Stent retriever",
+          "Cateter de aspiração",
+          "Stent carotídeo",
+          "Cobertura de ramo lateral"
+        ]
+      },
+      {
+        "id": "9J",
+        "title": "Planejamento de kits e resolução de complicações",
+        "topics": [
+          "Perfil de cruzamento",
+          "Compatibilidade funcional",
+          "Cateter-guia estável",
+          "Resistência inesperada à progressão",
+          "Descolamento de coil",
+          "Plano de resgate"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Tumores e procedimentos especiais",
+    "lessons": [
+      {
+        "id": "10A",
+        "title": "Meningiomas e embolização pré-operatória",
+        "topics": [
+          "Suprimento dural do meningioma",
+          "Suprimento pial tumoral",
+          "Blush tumoral",
+          "Embolização pré-operatória",
+          "Meningioma de base anterior",
+          "Ramo petroso da meníngea média"
+        ]
+      },
+      {
+        "id": "10B",
+        "title": "Nasoangiofibroma juvenil e epistaxe",
+        "topics": [
+          "Nasoangiofibroma juvenil",
+          "Esfenopalatina",
+          "Extensão intracraniana ou contralateral",
+          "Sinal de Holman–Miller",
+          "Artérias etmoidais na epistaxe",
+          "Via esfenopalatina–etmoidal"
+        ]
+      },
+      {
+        "id": "10C",
+        "title": "Paragangliomas de cabeça e pescoço",
+        "topics": [
+          "Tumor do corpo carotídeo",
+          "Paraganglioma vagal",
+          "Paraganglioma jugular",
+          "Sal e pimenta na RM",
+          "Classificação de Shamblin",
+          "Faríngea ascendente"
+        ]
+      },
+      {
+        "id": "10D",
+        "title": "Retinoblastoma e quimioterapia intra-arterial",
+        "topics": [
+          "Quimioterapia intra-arterial oftálmica",
+          "Melfalano",
+          "Blush coroideano",
+          "Oftálmica de origem meníngea",
+          "Sementes vítreas",
+          "Retinoblastoma hereditário"
+        ]
+      },
+      {
+        "id": "10E",
+        "title": "Hematoma subdural crônico e meníngea média",
+        "topics": [
+          "Membrana externa do hematoma",
+          "Embolização da meníngea média",
+          "Efeito de massa com deterioração",
+          "Conexão meningolacrimal",
+          "Ramo petroso da meníngea média",
+          "EMBOLISE"
+        ]
+      },
+      {
+        "id": "10F",
+        "title": "AVC e trombectomia pediátricos",
+        "topics": [
+          "Arteriopatia cerebral focal",
+          "Cardiopatia congênita",
+          "Calibre vascular pediátrico",
+          "Save ChildS",
+          "RM com difusão",
+          "Baixa certeza pediátrica"
+        ]
+      },
+      {
+        "id": "10G",
+        "title": "Procedimentos especiais e hemorragias",
+        "topics": [
+          "Pseudoaneurisma traumático",
+          "Teste de oclusão por balão",
+          "Falso negativo no teste de oclusão",
+          "Sacrifício de vaso parental",
+          "Hemorragia tumoral",
+          "Embolização em epistaxe"
+        ]
+      },
+      {
+        "id": "10H",
+        "title": "Casos de tumores, epistaxe e intervenções especiais",
+        "topics": [
+          "Perda do blush tumoral",
+          "Artéria oftálmica recrutada no tumor",
+          "Hematoma subdural com compressão aguda",
+          "Hemorragia maciça tardia após trauma de face",
+          "Paresia facial após embolização",
+          "Nasoangiofibroma com aferência de ACI"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Vasculopatias e síndromes hereditárias",
+    "lessons": [
+      {
+        "id": "11A",
+        "title": "Displasia fibromuscular e dissecções",
+        "topics": [
+          "DFM multifocal",
+          "DFM focal",
+          "Hematoma mural",
+          "Flap intimal",
+          "Pseudoaneurisma dissecante",
+          "Placa de bulbo carotídeo"
+        ]
+      },
+      {
+        "id": "11B",
+        "title": "Moyamoya, colaterais e ACTA2",
+        "topics": [
+          "Moyamoya",
+          "Suzuki",
+          "Síndrome de moyamoya",
+          "Colaterais transdurais",
+          "RNF213",
+          "ACTA2"
+        ]
+      },
+      {
+        "id": "11C",
+        "title": "Vasculites e mimetizadores",
+        "topics": [
+          "Takayasu",
+          "Arterite de células gigantes",
+          "Vasculite primária do SNC",
+          "RCVS",
+          "LCR inflamatório",
+          "Realce de parede vascular"
+        ]
+      },
+      {
+        "id": "11D",
+        "title": "Marfan, Ehlers–Danlos vascular e Loeys–Dietz",
+        "topics": [
+          "Marfan",
+          "Ehlers–Danlos vascular",
+          "Loeys–Dietz",
+          "Ectopia lentis",
+          "Tortuosidade arterial difusa",
+          "Fragilidade vascular"
+        ]
+      },
+      {
+        "id": "11E",
+        "title": "NF1, Sturge–Weber e esclerose tuberosa",
+        "topics": [
+          "NF1",
+          "Sturge–Weber",
+          "GNAQ em mosaico",
+          "Veias medulares profundas proeminentes",
+          "Esclerose tuberosa",
+          "Ativação da via mTOR"
+        ]
+      },
+      {
+        "id": "11F",
+        "title": "PHACE, Wyburn–Mason, Cobb e síndromes segmentares",
+        "topics": [
+          "PHACE",
+          "Wyburn–Mason",
+          "Cobb",
+          "Klippel–Trénaunay",
+          "Parkes Weber",
+          "RASA1"
+        ]
+      },
+      {
+        "id": "11G",
+        "title": "Cavernomas familiares, HHT e arteriopatias hereditárias",
+        "topics": [
+          "KRIT1, CCM2 e PDCD10",
+          "Cavernomas múltiplos",
+          "Critérios de Curaçao",
+          "ENG e ACVRL1",
+          "MAV pulmonar na HHT",
+          "CADASIL"
+        ]
+      },
+      {
+        "id": "11H",
+        "title": "Diagnóstico diferencial das vasculopatias",
+        "topics": [
+          "Estenose segmentar após cefaleia em trovoada",
+          "Colar de contas cervical sem placa",
+          "Retificação dos vasos intracranianos",
+          "Múltiplos cavernomas e história familiar",
+          "Angiopatia leptomeníngea com atrofia cortical",
+          "Espessamento de grandes ramos aórticos"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Ensaios clínicos — LINNC Trials Book 2026",
+    "lessons": [
+      {
+        "id": "12.1",
+        "title": "Ensaios pioneiros de reperfusão e trombectomia",
+        "topics": [
+          "PROACT II",
+          "IMS III",
+          "MR CLEAN",
+          "ESCAPE",
+          "EXTEND-IA",
+          "HERMES"
+        ]
+      },
+      {
+        "id": "12.2",
+        "title": "Janela estendida e grandes núcleos",
+        "topics": [
+          "DAWN",
+          "DEFUSE 3",
+          "SELECT2",
+          "ANGEL-ASPECT",
+          "TENSION",
+          "TESLA"
+        ]
+      },
+      {
+        "id": "12.3",
+        "title": "Ensaios em M2 e oclusões médias ou distais",
+        "topics": [
+          "HERMES M2",
+          "DISTAL",
+          "ESCAPE-MeVO",
+          "DISCOUNT",
+          "M2 dominante",
+          "Comparação entre ensaios MeVO"
+        ]
+      },
+      {
+        "id": "12.4",
+        "title": "Ensaios em oclusão da basilar",
+        "topics": [
+          "BEST",
+          "BASICS",
+          "ATTENTION",
+          "BAOCHE",
+          "PLATO",
+          "mRS 0–3 em basilar"
+        ]
+      },
+      {
+        "id": "12.5",
+        "title": "Técnicas, trombólise de ponte e fármacos adjuntos",
+        "topics": [
+          "ASTER",
+          "ASTER2",
+          "CHOICE",
+          "DIRECT-MT",
+          "SWIFT DIRECT",
+          "EXTEND-IA TNK"
+        ]
+      },
+      {
+        "id": "12.6",
+        "title": "Anestesia e pressão arterial na trombectomia",
+        "topics": [
+          "SIESTA",
+          "ANSTROKE",
+          "GOLIATH",
+          "ENCHANTED2/MT",
+          "OPTIMAL-BP",
+          "Hipotensão periprocedimento"
+        ]
+      },
+      {
+        "id": "12.7",
+        "title": "Sistemas de atendimento e aterosclerose intracraniana",
+        "topics": [
+          "RACECAT",
+          "ANGIOCAT",
+          "CASSISS",
+          "SAMMPRIS",
+          "Mothership",
+          "Drip-and-ship"
+        ]
+      },
+      {
+        "id": "12.8",
+        "title": "Ensaios de doença carotídea e stents",
+        "topics": [
+          "CREST-2",
+          "SPACE-2",
+          "C-GUARDIANS",
+          "CREST",
+          "Ensaio de braço único",
+          "Tratamento clínico intensivo moderno"
+        ]
+      },
+      {
+        "id": "12.9",
+        "title": "Ensaios e dispositivos para aneurismas",
+        "topics": [
+          "WEB-IT",
+          "CLARYS",
+          "ATLAS IDE",
+          "PREMIER",
+          "FRED",
+          "Oclusão adequada"
+        ]
+      },
+      {
+        "id": "12.10",
+        "title": "Evidências em MAVs, fístulas durais e vasoespasmo",
+        "topics": [
+          "ARUBA",
+          "TOBAS",
+          "TATAM",
+          "Isquemia cerebral tardia",
+          "Nimodipina",
+          "Oclusão angiográfica de FAV"
+        ]
+      },
+      {
+        "id": "12.11",
+        "title": "Ensaios de embolização no subdural crônico",
+        "topics": [
+          "EMBOLISE",
+          "MAGIC-MT",
+          "STEM",
+          "MEMBRANE",
+          "Reoperação",
+          "Desfecho composto"
+        ]
+      },
+      {
+        "id": "12.12",
+        "title": "Intervenções venosas e novas tecnologias",
+        "topics": [
+          "TO-ACT",
+          "RIVER",
+          "Recanalização venosa",
+          "Gradiente de pressão em estenose venosa",
+          "Controle histórico",
+          "TVC grave com deterioração"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "AHA/ASA 2026 — AVC isquêmico e evidências em aneurismas",
+    "lessons": [
+      {
+        "id": "13.1",
+        "title": "AHA/ASA 2026 — triagem, transporte e neuroimagem",
+        "topics": [
+          "Unidade móvel de AVC",
+          "Escala pré-hospitalar de OGV",
+          "Escolha do destino",
+          "Imagem cerebral inicial",
+          "Angio-TC na suspeita de OGV",
+          "Perfusão avançada"
+        ]
+      },
+      {
+        "id": "13.2",
+        "title": "AHA/ASA 2026 — trombólise intravenosa",
+        "topics": [
+          "Tenecteplase 0,25 mg/kg",
+          "Alteplase 0,9 mg/kg",
+          "Déficit menor não incapacitante",
+          "Déficit incapacitante",
+          "Seleção DWI–FLAIR",
+          "Hemorragia intracraniana aguda na TC"
+        ]
+      },
+      {
+        "id": "13.3",
+        "title": "AHA/ASA 2026 — trombectomia mecânica",
+        "topics": [
+          "OGV anterior proximal",
+          "ASPECTS 3–10 em até seis horas",
+          "ASPECTS 6–10 entre seis e 24 horas",
+          "Oclusão basilar com NIHSS pelo menos 10",
+          "IVT e EVT concomitantes",
+          "Oclusão distal ou M2 não dominante"
+        ]
+      },
+      {
+        "id": "13.4",
+        "title": "AHA/ASA 2026 — hemodinâmica e antitrombóticos",
+        "topics": [
+          "Pressão antes da IVT",
+          "Pressão nas 24 horas pós-IVT",
+          "Alvo intensivo abaixo de 140 após EVT bem-sucedida",
+          "Antiagregação após IVT",
+          "DAPT por 21 dias",
+          "Momento da anticoagulação na FA"
+        ]
+      },
+      {
+        "id": "13.5",
+        "title": "AHA/ASA 2026 — AVC pediátrico e cuidados hospitalares",
+        "topics": [
+          "AVC pediátrico",
+          "Seleção pediátrica para EVT",
+          "Triagem de disfagia",
+          "Edema maligno hemisférico",
+          "Infarto cerebelar com compressão do tronco",
+          "Oxigênio suplementar"
+        ]
+      },
+      {
+        "id": "13.6",
+        "title": "Aneurismas não rotos — história natural",
+        "topics": [
+          "ISUIA",
+          "UCAS Japan",
+          "SUAVe",
+          "Crescimento aneurismático",
+          "Aneurisma cavernoso",
+          "Saco filho"
+        ]
+      },
+      {
+        "id": "13.7",
+        "title": "PHASES, ELAPSS e UIATS",
+        "topics": [
+          "PHASES",
+          "ELAPSS",
+          "UIATS",
+          "Corte de localização no PHASES",
+          "Consenso versus modelo prognóstico",
+          "Validação externa"
+        ]
+      },
+      {
+        "id": "13.8",
+        "title": "Diretrizes e manejo do aneurisma não roto",
+        "topics": [
+          "Risco futuro de ruptura",
+          "Observação de aneurisma incidental",
+          "Controle de hipertensão e tabagismo",
+          "Crescimento no seguimento",
+          "Aneurisma sintomático por efeito de massa",
+          "Rastreamento familiar"
+        ]
+      },
+      {
+        "id": "13.9",
+        "title": "ISAT e BRAT no aneurisma roto",
+        "topics": [
+          "ISAT",
+          "mRS 3–6 no ISAT",
+          "Crossover no BRAT",
+          "Análise por intenção de tratar",
+          "Retratamento em seguimento",
+          "Oclusão completa versus função"
+        ]
+      },
+      {
+        "id": "13.10",
+        "title": "CARAT, ISAT-2 e complicações da HSA",
+        "topics": [
+          "CARAT",
+          "ISAT-2",
+          "Ressangramento após tratamento",
+          "Hidrocefalia aguda sintomática na HSA",
+          "Nimodipina após HSA",
+          "Isquemia cerebral tardia"
+        ]
+      }
+    ]
+  }
+]
