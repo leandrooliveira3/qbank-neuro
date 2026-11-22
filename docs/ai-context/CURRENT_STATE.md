@@ -1,3 +1,7 @@
+## 22/11/2026 — Curso NRI 2027
+
+A revisão local dos 13 blocos corrigiu figuras, navegação e justificativas. O catálogo apresenta 629 imagens recuperadas e localizadores nas 1.300 questões. A auditoria registra o alcance dos localizadores e da conferência clínica. [Resultados da auditoria](../neuro3d-curso-nri-auditoria-final.md).
+
 ## 21/11/2026 — Revisão curricular e visual dos 13 blocos NRI
 
 Os 13 blocos têm 120 aulas, leitura integral indexada, 13 planos D0–D+30 e 1.300 questões. O lote novo acrescentou síntese e recuperação ativa às 68 aulas dos Blocos 7–13, com 43 questões autorais revisadas e manutenção das tentativas por versão. A conferência visual cobriu desktop e Pixel 7. [Registro](../neuro3d-curso-nri-auditoria-final.md).

@@ -1,3 +1,7 @@
+## 22/11/2026 — Curso NRI 2027
+
+A revisão local dos 13 blocos corrigiu figuras, navegação e justificativas. O catálogo apresenta 629 imagens recuperadas e localizadores nas 1.300 questões. A auditoria registra o alcance dos localizadores e da conferência clínica. [Resultados da auditoria](../neuro3d-curso-nri-auditoria-final.md).
+
 ## 21/11/2026 — Material integral do Curso NRI
 
 Acervo de leitura integral com procedência por aula, renderização de páginas e imagens, texto selecionável e ajustes de formatação responsiva. O checkpoint é local. A revisão automática bloqueou a publicação de dois volumes derivados das exportações no GitHub. [Manual](../neuro3d-curso-nri.md).

@@ -739,7 +739,11 @@
       ],
       "answer": 1,
       "explanation": "A. A aterosclerose carotídea costuma predominar no bulbo e na bifurcação, enquanto a DFM multifocal frequentemente envolve segmentos médios e distais da ACI cervical.\nB. A alternância de estenoses e dilatações (string of beads) é característica da DFM multifocal; deve-se investigar acometimento de outros territórios vasculares.\nC. A DFM é uma arteriopatia não aterosclerótica e não inflamatória, não uma vasculite sistêmica obrigatória.\nD. Aneurisma intracraniano pode coexistir, mas não é necessário para estabelecer o diagnóstico angiográfico de DFM.\nE. A aparência multifocal em contas não significa necessariamente dissecção aguda ou falso lúmen.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Gornik et al., First International Consensus on Fibromuscular Dysplasia, tabela suplementar 1 (diagnóstico, morfologia e imagem multiterritorial).",
+        "url": "https://cdn-links.lww.com/permalink/hjh/b/hjh_2019_01_11_persu_jh-d-18-00316_sdc2.pdf"
+      }
     },
     {
       "id": "nri:11A:h2",
@@ -754,7 +758,11 @@
       ],
       "answer": 3,
       "explanation": "A. A síndrome de Horner pode decorrer da lesão do plexo simpático pericarotídeo na dissecção da ACI.\nB. A idade, a dor, o Horner e o afilamento cervical favorecem dissecção, não aterosclerose como diagnóstico obrigatório.\nC. Estenose afilada extracraniana não comprova vasculite primária do SNC.\nD. Horner parcial doloroso e estenose afilada da ACI cervical são fortemente sugestivos de dissecção, cuja isquemia frequentemente resulta de tromboembolismo artéria-artéria.\nE. Dor cervical ou cefaleia na dissecção não significa ruptura aneurismática com HSA.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §18.9, pp. 1034–1035, Carotid Dissection.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11A:h3",
@@ -769,7 +777,11 @@
       ],
       "answer": 4,
       "explanation": "A. CADISS não demonstrou superioridade definitiva da aspirina; estudou estratégias antiplaquetárias versus anticoagulação.\nB. TREAT-CAD não comprovou equivalência absoluta entre aspirina e anticoagulação.\nC. Os estudos avaliaram estratégias antitrombóticas para prevenção de eventos recorrentes, não demonstraram ausência de benefício de qualquer antitrombótico.\nD. CADISS não determina anticoagulação vitalícia obrigatória após dissecção cervical.\nE. CADISS não identificou diferença estatisticamente significativa entre estratégias, enquanto TREAT-CAD não demonstrou não inferioridade da aspirina.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ESO, manejo das dissecções cervicais e intracranianas, PICO 5 (CADISS e TREAT-CAD).",
+        "url": "https://eso-stroke.org/wp-content/uploads/ESO_Dissection_Guideline_03092021.pdf"
+      }
     },
     {
       "id": "nri:11A:h4",
@@ -784,7 +796,11 @@
       ],
       "answer": 0,
       "explanation": "A. A exclusão ou reconstrução da lesão deve considerar a origem da PICA, as perfurantes e a circulação vertebrobasilar, equilibrando ressangramento e isquemia.\nB. Anticoagulação plena isolada diante de HSA por dissecção não trata adequadamente a lesão rota e pode agravar o risco hemorrágico.\nC. Uma dissecção intradural rota tem riscos e prioridades diferentes de uma dissecção cervical não rota.\nD. Sacrifício bilateral das vertebrais não é uma estratégia obrigatória e pode provocar isquemia grave de tronco encefálico.\nE. HSA associada a aneurisma dissecante indica potencial de gravidade, inclusive ressangramento precoce.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ESO, manejo das dissecções cervicais e intracranianas, recomendação para dissecção intracraniana com hemorragia subaracnóidea.",
+        "url": "https://eso-stroke.org/wp-content/uploads/ESO_Dissection_Guideline_03092021.pdf"
+      }
     },
     {
       "id": "nri:11A:h5",
@@ -799,7 +815,11 @@
       ],
       "answer": 2,
       "explanation": "A. Aterosclerose intracraniana geralmente não apresenta reversão difusa e rápida das estenoses.\nB. DFM não é a explicação obrigatória para vasoconstrições intracranianas reversíveis acompanhadas de cefaleias em trovoada.\nC. Cefaleias em trovoada recorrentes, estreitamentos multifocais e resolução angiográfica favorecem SVCR/RCVS.\nD. Estenoses multifocais não comprovam vasculite primária do SNC; SVCR é um diferencial fundamental.\nE. Moyamoya é uma arteriopatia esteno-oclusiva progressiva, não caracterizada pelo desaparecimento espontâneo das estenoses.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Miller et al., Reversible Cerebral Vasoconstriction Syndrome, Part 1, tabela 2, critérios diagnósticos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7964694/"
+      }
     },
     {
       "id": "nri:11A:d1",
@@ -815,7 +835,11 @@
       "answer": 1,
       "explanation": "Dissecção, aneurisma e tortuosidade podem acompanhar DFM, mas isoladamente não preenchem o critério diagnóstico de lesão estenótica focal ou multifocal.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Gornik et al., First International Consensus on Fibromuscular Dysplasia, tabela suplementar 1 (diagnóstico, morfologia e imagem multiterritorial).",
+        "url": "https://cdn-links.lww.com/permalink/hjh/b/hjh_2019_01_11_persu_jh-d-18-00316_sdc2.pdf"
+      }
     },
     {
       "id": "nri:11A:d2",
@@ -830,29 +854,38 @@
       ],
       "answer": 4,
       "explanation": "DFM focal. Estenose única ou tubular sem o aspecto multifocal clássico.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Gornik et al., First International Consensus on Fibromuscular Dysplasia, tabela suplementar 1 (diagnóstico, morfologia e imagem multiterritorial).",
+        "url": "https://cdn-links.lww.com/permalink/hjh/b/hjh_2019_01_11_persu_jh-d-18-00316_sdc2.pdf"
+      }
     },
     {
       "id": "nri:11A:d3",
       "lesson": "11A",
       "prompt": "No contexto de Displasia fibromuscular e dissecções, qual alternativa descreve corretamente «Hematoma mural»?",
       "options": [
-        "Achado de dissecção que pode ser detectado em imagem de parede.",
+        "Coleção de sangue dentro da parede arterial, por vezes em crescente hiperintenso na sequência T1 com supressão de gordura.",
         "Interface que pode delimitar lúmens verdadeiro e falso.",
         "Estenose única ou tubular sem o aspecto multifocal clássico.",
         "Dilatação decorrente de lesão parietal com alteração da arquitetura vascular.",
         "Alternância de estenoses e dilatações em artérias de médio calibre, com padrão de colar de contas."
       ],
       "answer": 0,
-      "explanation": "Hematoma mural. Achado de dissecção que pode ser detectado em imagem de parede.",
-      "origin": "revisão"
+      "explanation": "O hematoma mural corresponde a sangue contido na parede arterial. Seu sinal em T1 varia com a idade do hematoma.",
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §18.9, pp. 1034–1035, Carotid Dissection.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11A:d4",
       "lesson": "11A",
       "prompt": "No contexto de Displasia fibromuscular e dissecções, qual alternativa descreve corretamente «Flap intimal»?",
       "options": [
-        "Achado de dissecção que pode ser detectado em imagem de parede.",
+        "Coleção de sangue dentro da parede arterial, por vezes em crescente hiperintenso na sequência T1 com supressão de gordura.",
         "Interface que pode delimitar lúmens verdadeiro e falso.",
         "Dilatação decorrente de lesão parietal com alteração da arquitetura vascular.",
         "Estenose única ou tubular sem o aspecto multifocal clássico.",
@@ -860,7 +893,12 @@
       ],
       "answer": 1,
       "explanation": "Flap intimal. Interface que pode delimitar lúmens verdadeiro e falso.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §18.9, pp. 1034–1035, Carotid Dissection.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11A:d5",
@@ -871,11 +909,16 @@
         "Alternância de estenoses e dilatações em artérias de médio calibre, com padrão de colar de contas.",
         "Topografia típica de aterosclerose, distinta da localização cervical média ou distal comum na DFM.",
         "Estenose única ou tubular sem o aspecto multifocal clássico.",
-        "Achado de dissecção que pode ser detectado em imagem de parede."
+        "Coleção de sangue dentro da parede arterial, por vezes em crescente hiperintenso na sequência T1 com supressão de gordura."
       ],
       "answer": 0,
       "explanation": "Pseudoaneurisma dissecante. Dilatação decorrente de lesão parietal com alteração da arquitetura vascular.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §18.9, pp. 1034–1035, Carotid Dissection.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11A:d6",
@@ -885,12 +928,17 @@
         "Dilatação decorrente de lesão parietal com alteração da arquitetura vascular.",
         "Estenose única ou tubular sem o aspecto multifocal clássico.",
         "Topografia típica de aterosclerose, distinta da localização cervical média ou distal comum na DFM.",
-        "Achado de dissecção que pode ser detectado em imagem de parede.",
+        "Coleção de sangue dentro da parede arterial, por vezes em crescente hiperintenso na sequência T1 com supressão de gordura.",
         "Interface que pode delimitar lúmens verdadeiro e falso."
       ],
       "answer": 2,
       "explanation": "Placa de bulbo carotídeo. Topografia típica de aterosclerose, distinta da localização cervical média ou distal comum na DFM.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §18.10, pp. 1041–1042, Fibromuscular Dysplasia.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11A:r1",
@@ -905,7 +953,11 @@
       ],
       "answer": 3,
       "explanation": "DFM multifocal. Alternância de estenoses e dilatações em artérias de médio calibre, com padrão de colar de contas.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Gornik et al., First International Consensus on Fibromuscular Dysplasia, tabela suplementar 1 (diagnóstico, morfologia e imagem multiterritorial).",
+        "url": "https://cdn-links.lww.com/permalink/hjh/b/hjh_2019_01_11_persu_jh-d-18-00316_sdc2.pdf"
+      }
     },
     {
       "id": "nri:11A:r2",
@@ -920,7 +972,11 @@
       ],
       "answer": 4,
       "explanation": "DFM focal. Estenose única ou tubular sem o aspecto multifocal clássico.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Gornik et al., First International Consensus on Fibromuscular Dysplasia, tabela suplementar 1 (diagnóstico, morfologia e imagem multiterritorial).",
+        "url": "https://cdn-links.lww.com/permalink/hjh/b/hjh_2019_01_11_persu_jh-d-18-00316_sdc2.pdf"
+      }
     },
     {
       "id": "nri:11B:h1",
@@ -935,7 +991,11 @@
       ],
       "answer": 2,
       "explanation": "A. A unilateralidade não exclui a doença de moyamoya pelos critérios japoneses revisados em 2021.\nB. RNF213 é um gene de suscetibilidade, mas sua identificação não é obrigatória para o diagnóstico.\nC. A doença pode ser unilateral quando os achados vasculares e a investigação diferencial sustentam o diagnóstico.\nD. Colaterais basais são características da própria arteriopatia moyamoya; não comprovam etiologia secundária.\nE. Em apresentações unilaterais ou atípicas, a angiografia pode ser especialmente importante para excluir aterosclerose e outras arteriopatias.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Kuroda et al., Diagnostic Criteria for Moyamoya Disease — 2021 Revised Version, tabela 2.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9357455/"
+      }
     },
     {
       "id": "nri:11B:h2",
@@ -945,12 +1005,17 @@
         "Suzuki I, com estreitamento inicial e ausência de circulação colateral.",
         "Suzuki II, com aparecimento precoce e discreto da rede basal.",
         "Suzuki III, com desenvolvimento máximo da rede moyamoya basal.",
-        "Suzuki IV, com regressão inicial da rede basal e recrutamento de colaterais externas.",
+        "Suzuki IV, quando surgem as primeiras colaterais da ACE e a rede basal começa a regredir.",
         "Suzuki VI, obrigatoriamente com desaparecimento completo de toda rede colateral intracraniana."
       ],
       "answer": 3,
       "explanation": "A. Suzuki I corresponde ao estreitamento carotídeo inicial, antes do desenvolvimento significativo da rede basal.\nB. Suzuki II corresponde ao início da formação das colaterais moyamoya, não à regressão dessas colaterais.\nC. Suzuki III apresenta rede basal exuberante e progressão das estenoses, mas não caracteriza ainda a regressão com predomínio transdural descrita.\nD. Suzuki IV caracteriza o início da redução das colaterais basais, com recrutamento crescente da circulação da ACE.\nE. Suzuki VI envolve desaparecimento da rede moyamoya basal típica, não ausência de toda circulação colateral intracraniana.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, tabela 19.1, p. 1077, progressão angiográfica e colaterais externas.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11B:h3",
@@ -965,7 +1030,11 @@
       ],
       "answer": 0,
       "explanation": "A. O JAM é o ensaio randomizado de referência para revascularização direta em adultos selecionados com moyamoya hemorrágica.\nB. CADISS investigou estratégias antitrombóticas na dissecção cervical.\nC. TREAT-CAD avaliou a não inferioridade da aspirina em relação à anticoagulação na dissecção cervical.\nD. ISAT comparou estratégias de tratamento de aneurismas intracranianos rotos, não revascularização na moyamoya.\nE. SUAVe estudou a história natural de aneurismas intracranianos pequenos e não rotos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, p. 1085, Japan Adult Moyamoya Trial.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11B:h4",
@@ -980,7 +1049,11 @@
       ],
       "answer": 4,
       "explanation": "A. O enunciado descreve ausência de colaterais basais exuberantes, diferentemente do padrão clássico de moyamoya.\nB. DFM multifocal costuma acometer artérias cervicais médias/distais e apresentar padrão em contas; não explica especificamente o conjunto descrito.\nC. Artérias retilíneas não confirmam vasculite primária do SNC.\nD. Dolicoectasia persistente da ACI petrosa não é um sinal definidor de síndrome de vasoconstrição cerebral reversível.\nE. A associação de ACI petrosa dilatada, estreitamento supraclinoideo, artérias intracranianas retilíneas e colaterais basais pouco desenvolvidas é característica do fenótipo cerebrovascular relacionado a determinadas variantes de ACTA2.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.10, pp. 1086–1087, fig. 19.5, arteriopatia ACTA2.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11B:h5",
@@ -995,7 +1068,11 @@
       ],
       "answer": 1,
       "explanation": "A. A circulação da ACE pode participar significativamente da perfusão cerebral em moyamoya avançada.\nB. Colaterais transdurais da AMM podem nutrir tecido cerebral; sua oclusão inadvertida pode provocar isquemia.\nC. A existência de colaterais não garante segurança; depende de quais vasos serão sacrificados.\nD. A oclusão da AMM não reverte imediatamente a arteriopatia esteno-oclusiva da ACI terminal.\nE. Colaterais meníngeas espontâneas podem desenvolver-se sem bypass cirúrgico.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, tabela 19.1, p. 1077, progressão angiográfica e colaterais externas.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11B:d1",
@@ -1011,7 +1088,11 @@
       "answer": 3,
       "explanation": "A combinação de retificação intracraniana e anomalias aórticas sugere arteriopatia por ACTA2. Estenose terminal isoladamente pode lembrar moyamoya, de modo que o padrão de colaterais e a história sistêmica orientam a diferenciação.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.10, pp. 1086–1087, fig. 19.5, arteriopatia ACTA2.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11B:d2",
@@ -1026,7 +1107,11 @@
       ],
       "answer": 2,
       "explanation": "Suzuki. Estadiamento angiográfico da evolução entre circulação intracraniana e colaterais externas.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, tabela 19.1, p. 1077, progressão angiográfica e colaterais externas.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11B:d3",
@@ -1041,7 +1126,11 @@
       ],
       "answer": 1,
       "explanation": "Síndrome de moyamoya. Padrão vascular associado a outra condição reconhecida.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Kuroda et al., Diagnostic Criteria for Moyamoya Disease — 2021 Revised Version, tabela 2.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9357455/"
+      }
     },
     {
       "id": "nri:11B:d4",
@@ -1056,7 +1145,11 @@
       ],
       "answer": 0,
       "explanation": "Colaterais transdurais. Podem aumentar após progressão e participar do suprimento a partir da ACE.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, tabela 19.1, p. 1077, progressão angiográfica e colaterais externas.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11B:d5",
@@ -1071,7 +1164,11 @@
       ],
       "answer": 1,
       "explanation": "RNF213. Gene associado à suscetibilidade ao moyamoya em determinadas populações.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, p. 1075, associação com RNF213.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11B:d6",
@@ -1086,7 +1183,11 @@
       ],
       "answer": 4,
       "explanation": "ACTA2. Arteriopatia que pode cursar com vasos intracranianos retificados e pouca rede colateral basal típica.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.10, pp. 1086–1087, fig. 19.5, arteriopatia ACTA2.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11B:r1",
@@ -1101,7 +1202,11 @@
       ],
       "answer": 4,
       "explanation": "Moyamoya. Arteriopatia esteno-oclusiva em torno da terminação da ACI com rede colateral basal.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Kuroda et al., Diagnostic Criteria for Moyamoya Disease — 2021 Revised Version, tabela 2.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9357455/"
+      }
     },
     {
       "id": "nri:11B:r2",
@@ -1116,7 +1221,11 @@
       ],
       "answer": 0,
       "explanation": "Suzuki. Estadiamento angiográfico da evolução entre circulação intracraniana e colaterais externas.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, tabela 19.1, p. 1077, progressão angiográfica e colaterais externas.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11C:h1",
@@ -1131,7 +1240,11 @@
       ],
       "answer": 4,
       "explanation": "A. A arterite de células gigantes predomina após os 50 anos; uma paciente jovem com doença dos ramos do arco aórtico sugere Takayasu.\nB. Aneurismas saculares intracranianos não definem a arterite de Takayasu. As lesões esteno- oclusivas dos grandes vasos são mais características.\nC. A vasculite primária do SNC não explica, por definição, o acometimento inflamatório da aorta e dos grandes ramos extracranianos.\nD. Takayasu provoca predominantemente estenoses e oclusões, embora aneurismas e dilatações também possam ocorrer.\nE. A arterite de Takayasu pode produzir estenoses e oclusões da aorta e seus ramos, com redução do fluxo cerebral, AIT e AVC.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., cap. 16, p. 934, Takayasu arteritis.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11C:h2",
@@ -1146,7 +1259,11 @@
       ],
       "answer": 1,
       "explanation": "A. A suspeita de ACG com perda visual não deve aguardar angiografia cerebral convencional para início do tratamento.\nB. A avaliação e o tratamento devem ser urgentes; o ultrassom de artérias temporais e axilares é exame inicial recomendado pela EULAR quando prontamente disponível com expertise adequada.\nC. Uma angio-TC intracraniana sem estenoses não exclui ACG, que pode afetar artérias extracranianas e ramos oculares.\nD. Isquemia ocular, especialmente neuropatia óptica isquêmica arterítica, é uma manifestação grave e característica.\nE. Angioplastia da artéria temporal não constitui tratamento inicial da ACG. O manejo urgente envolve imunossupressão.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "EULAR, recomendações de imagem para vasculite de grandes vasos, atualização 2023, princípio A e recomendação 1.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37550004/"
+      }
     },
     {
       "id": "nri:11C:h3",
@@ -1161,7 +1278,11 @@
       ],
       "answer": 2,
       "explanation": "A. Cefaleias em trovoada recorrentes e reversibilidade angiográfica favorecem RCVS, não confirmam PACNS.\nB. A reversibilidade de vasoconstrições intracranianas não caracteriza obrigatoriamente DFM.\nC. O conjunto de cefaleias em trovoada, LCR sem alterações inflamatórias significativas e resolução das estenoses favorece RCVS.\nD. LCR normal não comprova aterosclerose intracraniana.\nE. Moyamoya é uma arteriopatia esteno-oclusiva progressiva, não caracterizada pela resolução das estenoses em semanas.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Miller et al., Reversible Cerebral Vasoconstriction Syndrome, Part 1, tabela 2, critérios diagnósticos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7964694/"
+      }
     },
     {
       "id": "nri:11C:h4",
@@ -1176,7 +1297,11 @@
       ],
       "answer": 0,
       "explanation": "A. A deficiência de ADA2 pode causar vasculite sistêmica e AVC precoce, inclusive lacunar. Inibidores de TNF são fundamentais para prevenção de novos eventos no fenótipo vasculítico.\nB. CADASIL está relacionado ao gene NOTCH3, não ao ADA2.\nC. Anticoagulação vitalícia universal não é o tratamento-padrão da DADA2 e pode ser inadequada diante de risco hemorrágico.\nD. Livedo pode ser manifestação de arteriopatias inflamatórias ou trombóticas e não exclui inflamação.\nE. A DADA2 clássica é causada por variantes patogênicas bialélicas em ADA2, não por variantes heterozigóticas de RNF213.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Adenosine Deaminase 2 Deficiency — Management, Treatment of Manifestations.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK544951/"
+      }
     },
     {
       "id": "nri:11C:h5",
@@ -1191,7 +1316,11 @@
       ],
       "answer": 3,
       "explanation": "A. Takayasu envolve principalmente a aorta e grandes ramos, e a associação livedo–AVC não é sua manifestação definidora.\nB. Moyamoya é definido pelo padrão esteno-oclusivo intracraniano e pelas colaterais, não pela livedo racemosa.\nC. Susac é uma microangiopatia com acometimento encefálico, retiniano e coclear.\nD. Sneddon deve ser considerado na presença de livedo racemosa persistente e eventos cerebrovasculares, inclusive quando anticorpos antifosfolípides são negativos.\nE. Livedo persistente isolada não diagnostica displasia fibromuscular, cuja definição depende de alterações arteriais características.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Sneddon syndrome: a comprehensive clinical review of 53 patients, Results, pacientes com e sem anticorpos antifosfolípides.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8217002/"
+      }
     },
     {
       "id": "nri:11C:c1",
@@ -1206,7 +1335,11 @@
       ],
       "answer": 3,
       "explanation": "A reversibilidade é um componente central da síndrome de vasoconstrição cerebral reversível.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Miller et al., Reversible Cerebral Vasoconstriction Syndrome, Part 1, tabela 2, critérios diagnósticos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7964694/"
+      }
     },
     {
       "id": "nri:11C:d1",
@@ -1222,7 +1355,11 @@
       "answer": 0,
       "explanation": "A irregularidade multifocal pode ocorrer em mais de uma vasculopatia. O contexto clínico e a reversibilidade na imagem de seguimento sustentam RCVS; realce de parede isolado tem especificidade insuficiente.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Miller et al., Reversible Cerebral Vasoconstriction Syndrome, Part 1, tabela 2, critérios diagnósticos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7964694/"
+      }
     },
     {
       "id": "nri:11C:d2",
@@ -1231,13 +1368,18 @@
       "options": [
         "Processo inflamatório restrito ao SNC após investigação de causas secundárias e mimetizadores.",
         "Síndrome com cefaleia em trovoada recorrente e vasoconstrição tipicamente reversível.",
-        "Vasculite de grandes vasos que pode comprometer aorta e ramos supra-aórticos.",
+        "Arterite necrosante de vasos médios, frequentemente com microaneurismas viscerais.",
         "Elemento complementar de investigação que deve ser interpretado com contexto e demais exames.",
         "Vasculite de adultos mais velhos com risco de isquemia visual."
       ],
       "answer": 4,
       "explanation": "Arterite de células gigantes. Vasculite de adultos mais velhos com risco de isquemia visual.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., cap. 16, p. 934, Giant cell arteritis.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11C:d3",
@@ -1252,7 +1394,11 @@
       ],
       "answer": 4,
       "explanation": "Vasculite primária do SNC. Processo inflamatório restrito ao SNC após investigação de causas secundárias e mimetizadores.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ESO, Guidelines on Primary Angiitis of the Central Nervous System, Introdução, definição clínica.",
+        "url": "https://doi.org/10.1177/23969873231190431"
+      }
     },
     {
       "id": "nri:11C:d4",
@@ -1267,7 +1413,11 @@
       ],
       "answer": 4,
       "explanation": "RCVS. Síndrome com cefaleia em trovoada recorrente e vasoconstrição tipicamente reversível.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Miller et al., Reversible Cerebral Vasoconstriction Syndrome, Part 1, tabela 2, critérios diagnósticos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7964694/"
+      }
     },
     {
       "id": "nri:11C:d5",
@@ -1282,7 +1432,11 @@
       ],
       "answer": 2,
       "explanation": "LCR inflamatório. Pode apoiar investigação de vasculite do SNC, embora seja inespecífico.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ESO, Guidelines on Primary Angiitis of the Central Nervous System, PICO 1, avaliação do LCR.",
+        "url": "https://doi.org/10.1177/23969873231190431"
+      }
     },
     {
       "id": "nri:11C:d6",
@@ -1290,14 +1444,19 @@
       "prompt": "No contexto de Vasculites e mimetizadores, qual alternativa descreve corretamente «Realce de parede vascular»?",
       "options": [
         "Vasculite de grandes vasos que pode comprometer aorta e ramos supra-aórticos.",
-        "Pode apoiar investigação de vasculite do SNC, embora seja inespecífico.",
+        "Pleocitose e elevação de proteínas no líquido cefalorraquidiano.",
         "Síndrome com cefaleia em trovoada recorrente e vasoconstrição tipicamente reversível.",
         "Processo inflamatório restrito ao SNC após investigação de causas secundárias e mimetizadores.",
         "Elemento complementar de investigação que deve ser interpretado com contexto e demais exames."
       ],
       "answer": 4,
       "explanation": "Realce de parede vascular. Elemento complementar de investigação que deve ser interpretado com contexto e demais exames.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ESO, Guidelines on Primary Angiitis of the Central Nervous System, PICO 6 e 7, RM de parede vascular.",
+        "url": "https://doi.org/10.1177/23969873231190431"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11C:r1",
@@ -1308,11 +1467,16 @@
         "Vasculite primária do SNC",
         "RCVS",
         "Takayasu",
-        "Arterite de células gigantes"
+        "Poliarterite nodosa"
       ],
       "answer": 3,
       "explanation": "Takayasu. Vasculite de grandes vasos que pode comprometer aorta e ramos supra-aórticos.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., cap. 16, p. 934, Takayasu arteritis.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11D:h1",
@@ -1327,7 +1491,11 @@
       ],
       "answer": 2,
       "explanation": "A. COL3A1 e deficiência de colágeno III caracterizam Ehlers-Danlos vascular, não Marfan.\nB. TGFBR2 é associado a Loeys-Dietz; úvula bífida e tortuosidade arterial são pistas dessa síndrome, mas não manifestações obrigatórias.\nC. Marfan decorre de variantes em FBN1, que codifica fibrilina-1, e está associado a dilatação da raiz aórtica e dissecção.\nD. ADA2 está associado à deficiência de adenosina desaminase 2, que pode provocar vasculite e AVC precoce.\nE. NOTCH3 é relacionado a CADASIL, arteriopatia hereditária de pequenos vasos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, FBN1-Related Marfan Syndrome — Clinical Characteristics, manifestações oculares e cardiovasculares.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1335/"
+      }
     },
     {
       "id": "nri:11D:h2",
@@ -1342,7 +1510,11 @@
       ],
       "answer": 4,
       "explanation": "A. Uma FAV carotidocavernosa espontânea pode ser manifestação de fragilidade arterial hereditária, especialmente vEDS.\nB. O fenótipo de fragilidade vascular, equimoses e fístula espontânea favorece vEDS, não Marfan.\nC. A investigação não deve restringir-se à artéria comunicante anterior; o problema central é a fragilidade arterial sistêmica.\nD. A angiografia por cateter pode apresentar risco elevado de dissecção, perfuração e complicações de acesso no vEDS.\nE. COL3A1, defeito no colágeno III e fragilidade arterial são característicos do vEDS; a manipulação endovascular exige cautela especial.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Vascular Ehlers-Danlos Syndrome — Clinical Characteristics e Management, Agents/Circumstances to Avoid.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1494/"
+      }
     },
     {
       "id": "nri:11D:h3",
@@ -1357,7 +1529,11 @@
       ],
       "answer": 0,
       "explanation": "A. Loeys-Dietz relaciona-se a alterações da via TGF-β e associa tortuosidade arterial, aneurismas, hipertelorismo e úvula bífida.\nB. CADASIL cursa com doença hereditária de pequenos vasos, infartos lacunares e leucoencefalopatia.\nC. DADA2 não é causada por deficiência de colágeno III; essa alteração caracteriza vEDS.\nD. Sneddon é uma arteriopatia associada a livedo racemosa e eventos cerebrovasculares, não a aneurismas difusos com úvula bífida.\nE. DFM não explica obrigatoriamente o fenótipo craniofacial, especialmente úvula bífida e hipertelorismo.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Loeys-Dietz Syndrome — Clinical Characteristics e Molecular Genetics.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1133/"
+      }
     },
     {
       "id": "nri:11D:h4",
@@ -1372,7 +1548,11 @@
       ],
       "answer": 3,
       "explanation": "A. Loeys-Dietz pode envolver ramos cervicais, intracranianos, torácicos, abdominais e periféricos, não apenas a aorta ascendente.\nB. Angiografia cerebral invasiva anual não é a estratégia rotineira de rastreamento.\nC. A ausência de sintomas neurológicos não elimina a necessidade de avaliar aneurismas e tortuosidades cerebrovasculares.\nD. A diretriz ACC/AHA 2022 recomenda avaliação vascular inicial da cabeça à pelve, com vigilância individualizada.\nE. Ultrassonografia temporal não exclui aneurismas intracranianos ou cervicais.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ACC/AHA 2022, Guideline for the Diagnosis and Management of Aortic Disease, §6.1.2.3.1, Imaging in Loeys-Dietz Syndrome.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10784847/"
+      }
     },
     {
       "id": "nri:11D:h5",
@@ -1387,7 +1567,11 @@
       ],
       "answer": 1,
       "explanation": "A. No vEDS, ruptura pode ocorrer sem aneurisma volumoso previamente identificado.\nB. A fragilidade da parede arterial permite dissecção ou ruptura mesmo quando o diâmetro vascular não está significativamente aumentado.\nC. Diâmetro preservado não determina etiologia aterosclerótica.\nD. vEDS aumenta a preocupação com lesões iatrogênicas durante procedimentos vasculares.\nE. Nem toda dissecção exige stent; a decisão depende da apresentação clínica, anatomia, risco e alternativas.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Vascular Ehlers-Danlos Syndrome — Clinical Characteristics e Management, Agents/Circumstances to Avoid.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1494/"
+      }
     },
     {
       "id": "nri:11D:d1",
@@ -1403,7 +1587,11 @@
       "answer": 4,
       "explanation": "O fenótipo de fragilidade arterial com pele translúcida favorece Ehlers–Danlos vascular, cuja investigação molecular inclui COL3A1.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "GeneReviews, Vascular Ehlers-Danlos Syndrome — Clinical Characteristics e Management, Agents/Circumstances to Avoid.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1494/"
+      }
     },
     {
       "id": "nri:11D:d2",
@@ -1418,7 +1606,11 @@
       ],
       "answer": 1,
       "explanation": "Ehlers–Danlos vascular. Geralmente associado a COL3A1 e fragilidade arterial ou visceral.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Vascular Ehlers-Danlos Syndrome — Clinical Characteristics e Management, Agents/Circumstances to Avoid.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1494/"
+      }
     },
     {
       "id": "nri:11D:d3",
@@ -1433,7 +1625,11 @@
       ],
       "answer": 2,
       "explanation": "Loeys–Dietz. Síndrome de vias do TGF-beta com tortuosidade e aneurismas arteriais.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Loeys-Dietz Syndrome — Clinical Characteristics e Molecular Genetics.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1133/"
+      }
     },
     {
       "id": "nri:11D:d4",
@@ -1448,7 +1644,11 @@
       ],
       "answer": 1,
       "explanation": "Ectopia lentis. Achado clássico que pode apoiar a suspeita de Marfan.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, FBN1-Related Marfan Syndrome — Clinical Characteristics, manifestações oculares e cardiovasculares.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1335/"
+      }
     },
     {
       "id": "nri:11D:d5",
@@ -1463,7 +1663,11 @@
       ],
       "answer": 1,
       "explanation": "Tortuosidade arterial difusa. Achado de interesse em Loeys–Dietz, interpretado no fenótipo.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Loeys-Dietz Syndrome — Clinical Characteristics e Molecular Genetics.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1133/"
+      }
     },
     {
       "id": "nri:11D:d6",
@@ -1478,7 +1682,11 @@
       ],
       "answer": 1,
       "explanation": "Fragilidade vascular. Aumenta o peso dado a alternativas não invasivas antes de angiografia diagnóstica.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Vascular Ehlers-Danlos Syndrome — Clinical Characteristics e Management, Agents/Circumstances to Avoid.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1494/"
+      }
     },
     {
       "id": "nri:11D:r1",
@@ -1493,7 +1701,11 @@
       ],
       "answer": 2,
       "explanation": "Marfan. Síndrome relacionada a FBN1, com alterações esqueléticas, oculares e aórticas.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, FBN1-Related Marfan Syndrome — Clinical Characteristics, manifestações oculares e cardiovasculares.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1335/"
+      }
     },
     {
       "id": "nri:11E:h1",
@@ -1508,7 +1720,11 @@
       ],
       "answer": 3,
       "explanation": "A. A estenose da ACI terminal com colaterais basais não comprova vasculite primária do SNC.\nB. A NF1 pode estar associada a estenoses intracranianas e arteriopatia do tipo moyamoya.\nC. Aneurisma sacular não é requisito para diagnosticar a arteriopatia associada à NF1.\nD. NF1 é uma condição reconhecida em associação com síndrome de moyamoya, podendo apresentar estenoses carotídeas terminais e colaterais basais.\nE. Colaterais basais não são específicas da esclerose tuberosa; representam um achado típico da angiopatia moyamoya.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, pp. 1073 e 1081, associações da síndrome de moyamoya.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11E:h2",
@@ -1523,7 +1739,11 @@
       ],
       "answer": 0,
       "explanation": "A. A malformação vascular capilar-venosa leptomeníngea compromete a drenagem venosa, favorecendo congestão, alterações da perfusão e lesão cortical crônica.\nB. Sturge-Weber não exige nidus arteriovenoso com comunicação direta de alto fluxo entre ACM e seio sagital superior.\nC. A fisiopatologia não depende de aterosclerose carotídea bilateral congênita.\nD. Hamartomas corticais por desregulação de mTOR são característicos da esclerose tuberosa, não de Sturge-Weber.\nE. COL3A1 está associado ao Ehlers-Danlos vascular, que provoca fragilidade arterial, não o padrão leptomeníngeo descrito.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Sturge-Weber Syndrome, StatPearls, seções Pathophysiology e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK459163/"
+      }
     },
     {
       "id": "nri:11E:h3",
@@ -1538,7 +1758,11 @@
       ],
       "answer": 4,
       "explanation": "A. Schwannoma vestibular associado a NF2 não é a lesão característica do forame de Monro na esclerose tuberosa.\nB. Malformação leptomeníngea por variante somática em GNAQ é característica de Sturge-Weber.\nC. ACTA2 pode produzir arteriopatia intracraniana, mas não explica o tumor subependimário descrito.\nD. Glioma das vias ópticas está associado à NF1 e não corresponde ao tumor do forame de Monro.\nE. O astrocitoma subependimário de células gigantes (SEGA) pode obstruir o forame de Monro e relaciona-se à desregulação da via mTOR por alterações em TSC1/TSC2.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Tuberous Sclerosis Complex — Clinical Characteristics e Molecular Genetics.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/"
+      }
     },
     {
       "id": "nri:11E:h4",
@@ -1553,7 +1777,11 @@
       ],
       "answer": 1,
       "explanation": "A. DFM cervical caracteriza-se por alterações arteriais como string of beads, não calcificações corticais giriformes.\nB. Calcificações giriformes em trilhos associadas a atrofia cortical favorecem Sturge-Weber, refletindo consequências crônicas da alteração vascular leptomeníngea.\nC. Calcificações giriformes não confirmam aneurisma intraventricular por TSC2.\nD. Suzuki III caracteriza a circulação colateral basal exuberante da moyamoya, não calcificações corticais em trilhos.\nE. A alteração da drenagem venosa é fundamental na fisiopatologia de Sturge-Weber.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Sturge-Weber Syndrome, StatPearls, seções Pathophysiology e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK459163/"
+      }
     },
     {
       "id": "nri:11E:h5",
@@ -1568,7 +1796,11 @@
       ],
       "answer": 2,
       "explanation": "A. Angiomiolipomas contêm componentes vasculares, musculares e adiposos, em proporções variáveis.\nB. Hemorragia de angiomiolipoma renal não confirma aneurisma intracraniano concomitante.\nC. A embolização arterial seletiva pode controlar sangramento de angiomiolipomas em pacientes apropriados.\nD. O sangramento renal não demonstra malformação leptomeníngea por GNAQ.\nE. A fisiopatologia do angiomiolipoma difere da arteriopatia esteno-oclusiva da moyamoya.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Tuberous Sclerosis Complex — Management, tratamento do angiomiolipoma renal com hemorragia aguda.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/"
+      }
     },
     {
       "id": "nri:11E:d1",
@@ -1584,7 +1816,11 @@
       "answer": 0,
       "explanation": "O conjunto de malformação capilar facial e alterações leptomeníngeas e venosas é compatível com Sturge–Weber.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Sturge-Weber Syndrome, StatPearls, seções Pathophysiology e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK459163/"
+      }
     },
     {
       "id": "nri:11E:d2",
@@ -1599,7 +1835,11 @@
       ],
       "answer": 0,
       "explanation": "Sturge–Weber. Associa malformação capilar e alteração vascular leptomeníngea em distribuição compatível.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Sturge-Weber Syndrome, StatPearls, seções Pathophysiology e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK459163/"
+      }
     },
     {
       "id": "nri:11E:d3",
@@ -1614,7 +1854,11 @@
       ],
       "answer": 2,
       "explanation": "GNAQ em mosaico. Mecanismo genético associado à síndrome de Sturge–Weber.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Shirley et al., Sturge–Weber syndrome and port-wine stains caused by somatic mutation in GNAQ, Results (resumo disponível no UpToDate).",
+        "url": "https://www.uptodate.com/contents/sturge-weber-syndrome/abstract/1"
+      }
     },
     {
       "id": "nri:11E:d4",
@@ -1629,7 +1873,11 @@
       ],
       "answer": 3,
       "explanation": "Veias medulares profundas proeminentes. Podem compensar anormalidades da drenagem superficial em Sturge–Weber.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AJNR, 1995, vol. 16, p. 1541, fig. 2A, drenagem centrípeta por veias medulares profundas.",
+        "url": "https://www.ajnr.org/content/ajnr/16/7/1539.full.pdf"
+      }
     },
     {
       "id": "nri:11E:d5",
@@ -1644,7 +1892,11 @@
       ],
       "answer": 2,
       "explanation": "Esclerose tuberosa. Associada a TSC1/TSC2, túberes corticais e nódulos subependimários.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Tuberous Sclerosis Complex — Clinical Characteristics e Molecular Genetics.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/"
+      }
     },
     {
       "id": "nri:11E:d6",
@@ -1659,7 +1911,11 @@
       ],
       "answer": 0,
       "explanation": "Ativação da via mTOR. Mecanismo relevante da esclerose tuberosa.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Tuberous Sclerosis Complex — Clinical Characteristics e Molecular Genetics.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/"
+      }
     },
     {
       "id": "nri:11E:r1",
@@ -1674,7 +1930,11 @@
       ],
       "answer": 0,
       "explanation": "NF1. Pode acompanhar estenoses intracranianas e padrão de moyamoya.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, pp. 1073 e 1081, associações da síndrome de moyamoya.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11F:h1",
@@ -1689,7 +1949,11 @@
       ],
       "answer": 1,
       "explanation": "A. Uma anastomose carotidobasilar persistente não estabelece o diagnóstico de Wyburn-Mason, cuja associação característica é retinocerebral arteriovenosa.\nB. Hemangioma infantil segmentar extenso, hipoplasia da ACI e persistência de anastomoses embrionárias são compatíveis com PHACE.\nC. Hemangioma infantil é um tumor vascular proliferativo; a mancha vinho-do-porto de Sturge- Weber é uma malformação capilar.\nD. A hipoplasia da ACI pode produzir vulnerabilidade hemodinâmica, especialmente quando a circulação colateral é inadequada.\nE. Malformações venolinfáticas e hipertrofia de membro não são critérios obrigatórios de PHACE.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Garzon et al., PHACE Syndrome: Consensus-Derived Diagnosis and Care Recommendations, tabela II, critérios revisados.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6599593/"
+      }
     },
     {
       "id": "nri:11F:h2",
@@ -1704,14 +1968,18 @@
       ],
       "answer": 3,
       "explanation": "A. Cobb corresponde ao espectro de malformações vasculares espinais metaméricas, não à associação retinocerebral.\nB. PHACE relaciona-se a hemangiomas infantis segmentares e anomalias estruturais ou arteriais, não obrigatoriamente a shunts retinocerebrais.\nC. Klippel-Trénaunay apresenta malformações predominantemente de baixo fluxo, frequentemente em membros.\nD. Wyburn-Mason integra o espectro das síndromes arteriovenosas cerebrofaciais metaméricas, com malformações retinianas e encefálicas relacionadas.\nE. Parkes Weber caracteriza-se por crescimento excessivo de membro e múltiplas microfístulas arteriovenosas.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., pp. 764–765, Wyburn-Mason Syndrome.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11F:h3",
       "lesson": "11F",
       "prompt": "Paciente apresenta mancha vascular cutânea no dorso e mielopatia progressiva. A RM demonstra estruturas vasculares anormais na medula e nos tecidos paravertebrais da mesma distribuição segmentar. Qual hipótese é mais provável?",
       "options": [
-        "Síndrome de Cobb, ou síndrome arteriovenosa espinal metamérica.",
+        "Síndrome de Cobb, forma cutaneomedular de malformação vascular espinal metamérica.",
         "Síndrome de Sturge-Weber, caracterizada por lesões venosas leptomeníngeas cerebrais.",
         "Síndrome de PHACE, definida pela associação de alterações medulares segmentares.",
         "Síndrome de Sneddon, cuja alteração principal é uma MAV espinal congênita.",
@@ -1719,7 +1987,12 @@
       ],
       "answer": 0,
       "explanation": "A. Malformações vasculares cutâneas, espinais e paravertebrais na mesma distribuição metamérica caracterizam a síndrome de Cobb.\nB. Sturge-Weber apresenta acometimento vascular leptomeníngeo cerebral, frequentemente associado a malformação capilar facial.\nC. PHACE não é definida por malformações vasculares espinais segmentares.\nD. Sneddon é uma arteriopatia associada a livedo racemosa e eventos cerebrovasculares, não a uma MAV espinal congênita.\nE. Susac é uma microangiopatia que envolve cérebro, retina e cóclea.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., p. 1108, Cobb Syndrome.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      },
+      "revision": 1
     },
     {
       "id": "nri:11F:h4",
@@ -1734,7 +2007,11 @@
       ],
       "answer": 4,
       "explanation": "A. Klippel-Trénaunay clássica apresenta malformações de baixo fluxo; múltiplas microfístulas AV favorecem Parkes Weber.\nB. Sturge-Weber não é definida por crescimento excessivo de membro associado a microfístulas AV.\nC. A síndrome de Maffucci caracteriza-se por encondromas e malformações vasculares, principalmente venosas, não por microfístulas AV difusas como manifestação definidora.\nD. Cobb envolve malformações vasculares em distribuição espinal metamérica.\nE. Parkes Weber associa malformação capilar, crescimento excessivo e shunts arteriovenosos de alto fluxo.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Klippel-Trenaunay Syndrome, StatPearls, seções Etiology e Differential Diagnosis (Parkes Weber).",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK558989/"
+      }
     },
     {
       "id": "nri:11F:h5",
@@ -1749,7 +2026,11 @@
       ],
       "answer": 2,
       "explanation": "A. Klippel-Trénaunay está frequentemente relacionada a variantes somáticas em PIK3CA; shunts AV extensos não são característicos.\nB. Parkes Weber é uma síndrome de alto fluxo, não uma malformação venolinfática isolada por TSC2.\nC. Klippel-Trénaunay associa-se ao espectro PIK3CA e a malformações de baixo fluxo, enquanto Parkes Weber pode relacionar-se a RASA1 e microfístulas AV.\nD. Os termos não são sinônimos; distinguem fenótipos hemodinâmicos e genéticos.\nE. Crescimento excessivo de partes moles e/ou osso pode ocorrer em ambas.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Klippel-Trenaunay Syndrome, StatPearls, seções Etiology e Differential Diagnosis (Parkes Weber).",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK558989/"
+      }
     },
     {
       "id": "nri:11F:c1",
@@ -1764,7 +2045,11 @@
       ],
       "answer": 1,
       "explanation": "Parkes Weber inclui shunts arteriovenosos, enquanto Klippel–Trénaunay tem padrão predominantemente de baixo fluxo.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Klippel-Trenaunay Syndrome, StatPearls, seções Etiology e Differential Diagnosis (Parkes Weber).",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK558989/"
+      }
     },
     {
       "id": "nri:11F:d1",
@@ -1775,11 +2060,15 @@
         "Malformação combinada predominantemente de baixo fluxo com sobrecrescimento.",
         "Gene relacionado a fenótipos de malformação capilar e arteriovenosa e a alguns casos de Parkes Weber.",
         "Associação de hemangioma segmentar com alterações arteriais, de fossa posterior, cardíacas ou oculares.",
-        "Sobrecrecimento de membro com comunicações arteriovenosas de alto fluxo."
+        "Sobrecrescimento de membro com comunicações arteriovenosas de alto fluxo."
       ],
       "answer": 3,
       "explanation": "PHACE. Associação de hemangioma segmentar com alterações arteriais, de fossa posterior, cardíacas ou oculares.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Garzon et al., PHACE Syndrome: Consensus-Derived Diagnosis and Care Recommendations, tabela II, critérios revisados.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6599593/"
+      }
     },
     {
       "id": "nri:11F:d2",
@@ -1790,11 +2079,15 @@
         "Associação metamérica de malformações arteriovenosas retinianas e intracranianas.",
         "Associação de hemangioma segmentar com alterações arteriais, de fossa posterior, cardíacas ou oculares.",
         "Associação segmentar de lesões vasculares cutâneas e espinais.",
-        "Sobrecrecimento de membro com comunicações arteriovenosas de alto fluxo."
+        "Sobrecrescimento de membro com comunicações arteriovenosas de alto fluxo."
       ],
       "answer": 1,
       "explanation": "Wyburn–Mason. Associação metamérica de malformações arteriovenosas retinianas e intracranianas.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., pp. 764–765, Wyburn-Mason Syndrome.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11F:d3",
@@ -1803,13 +2096,17 @@
       "options": [
         "Associação segmentar de lesões vasculares cutâneas e espinais.",
         "Malformação combinada predominantemente de baixo fluxo com sobrecrescimento.",
-        "Sobrecrecimento de membro com comunicações arteriovenosas de alto fluxo.",
+        "Sobrecrescimento de membro com comunicações arteriovenosas de alto fluxo.",
         "Associação de hemangioma segmentar com alterações arteriais, de fossa posterior, cardíacas ou oculares.",
         "Associação metamérica de malformações arteriovenosas retinianas e intracranianas."
       ],
       "answer": 0,
       "explanation": "Cobb. Associação segmentar de lesões vasculares cutâneas e espinais.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., p. 1108, Cobb Syndrome.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11F:d4",
@@ -1818,13 +2115,17 @@
       "options": [
         "Associação de hemangioma segmentar com alterações arteriais, de fossa posterior, cardíacas ou oculares.",
         "Associação segmentar de lesões vasculares cutâneas e espinais.",
-        "Sobrecrecimento de membro com comunicações arteriovenosas de alto fluxo.",
+        "Sobrecrescimento de membro com comunicações arteriovenosas de alto fluxo.",
         "Gene relacionado a fenótipos de malformação capilar e arteriovenosa e a alguns casos de Parkes Weber.",
         "Malformação combinada predominantemente de baixo fluxo com sobrecrescimento."
       ],
       "answer": 4,
       "explanation": "Klippel–Trénaunay. Malformação combinada predominantemente de baixo fluxo com sobrecrescimento.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Klippel-Trenaunay Syndrome, StatPearls, seções Etiology e Differential Diagnosis (Parkes Weber).",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK558989/"
+      }
     },
     {
       "id": "nri:11F:d5",
@@ -1835,11 +2136,15 @@
         "Associação metamérica de malformações arteriovenosas retinianas e intracranianas.",
         "Gene relacionado a fenótipos de malformação capilar e arteriovenosa e a alguns casos de Parkes Weber.",
         "Malformação combinada predominantemente de baixo fluxo com sobrecrescimento.",
-        "Sobrecrecimento de membro com comunicações arteriovenosas de alto fluxo."
+        "Sobrecrescimento de membro com comunicações arteriovenosas de alto fluxo."
       ],
       "answer": 4,
-      "explanation": "Parkes Weber. Sobrecrecimento de membro com comunicações arteriovenosas de alto fluxo.",
-      "origin": "revisão"
+      "explanation": "Parkes Weber. Sobrecrescimento de membro com comunicações arteriovenosas de alto fluxo.",
+      "origin": "revisão",
+      "reference": {
+        "label": "Klippel-Trenaunay Syndrome, StatPearls, seções Etiology e Differential Diagnosis (Parkes Weber).",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK558989/"
+      }
     },
     {
       "id": "nri:11F:d6",
@@ -1849,12 +2154,16 @@
         "Associação segmentar de lesões vasculares cutâneas e espinais.",
         "Malformação combinada predominantemente de baixo fluxo com sobrecrescimento.",
         "Associação de hemangioma segmentar com alterações arteriais, de fossa posterior, cardíacas ou oculares.",
-        "Sobrecrecimento de membro com comunicações arteriovenosas de alto fluxo.",
+        "Sobrecrescimento de membro com comunicações arteriovenosas de alto fluxo.",
         "Gene relacionado a fenótipos de malformação capilar e arteriovenosa e a alguns casos de Parkes Weber."
       ],
       "answer": 4,
       "explanation": "RASA1. Gene relacionado a fenótipos de malformação capilar e arteriovenosa e a alguns casos de Parkes Weber.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Capillary Malformation-Arteriovenous Malformation Syndrome — Clinical Characteristics, tabela 2.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK52764/"
+      }
     },
     {
       "id": "nri:11F:r1",
@@ -1869,7 +2178,11 @@
       ],
       "answer": 0,
       "explanation": "PHACE. Associação de hemangioma segmentar com alterações arteriais, de fossa posterior, cardíacas ou oculares.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Garzon et al., PHACE Syndrome: Consensus-Derived Diagnosis and Care Recommendations, tabela II, critérios revisados.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6599593/"
+      }
     },
     {
       "id": "nri:11G:h1",
@@ -1884,7 +2197,11 @@
       ],
       "answer": 3,
       "explanation": "A. DSA negativa não exclui cavernomas, que são lesões de baixo fluxo, geralmente angiograficamente ocultas.\nB. Múltiplas lesões com hemossiderina e ausência de shunt não caracterizam MAVs piais de alto fluxo.\nC. A presença de DVA não é obrigatória; cavernomas familiares frequentemente ocorrem sem uma DVA associada.\nD. Cavernomas múltiplos, padrão típico em SWI e história familiar sugerem a forma familiar relacionada a KRIT1, CCM2 ou PDCD10.\nE. Cavernomas não são habitualmente tratados por embolização, pois não apresentam um shunt arterial tratável.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Familial Cerebral Cavernous Malformations — Diagnosis, Establishing the Diagnosis.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1293/"
+      }
     },
     {
       "id": "nri:11G:h2",
@@ -1899,7 +2216,11 @@
       ],
       "answer": 1,
       "explanation": "A. Ruptura de cavernoma não explica tipicamente o mecanismo de abscesso cerebral associado à HHT.\nB. MAVs pulmonares podem produzir shunt direita–esquerda, permitindo que êmbolos sépticos evitem a filtragem pulmonar e atinjam o cérebro.\nC. Oclusão da artéria oftálmica pode causar isquemia ocular, mas não é o mecanismo característico do abscesso na HHT.\nD. A HHT é uma doença de malformações vasculares, não uma vasculite de grandes vasos como Takayasu.\nE. Hiperperfusão após revascularização não explica essa associação.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Hereditary Hemorrhagic Telangiectasia — Clinical Characteristics, Pulmonary AVMs.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1351/"
+      }
     },
     {
       "id": "nri:11G:h3",
@@ -1914,7 +2235,11 @@
       ],
       "answer": 4,
       "explanation": "A. CADASIL decorre de NOTCH3; alopecia e espondilose precoce não são suas manifestações características.\nB. Fabry decorre de variantes em GLA e associa neuropatia dolorosa, manifestações renais e cardíacas.\nC. RVCL-S relaciona-se a TREX1 e destaca-se por retinopatia vascular e leucoencefalopatia, não pela tríade descrita.\nD. HHT por ENG ou outros genes da via BMP/TGF-β causa telangiectasias e malformações arteriovenosas, não o fenótipo típico de CARASIL.\nE. CARASIL clássico relaciona-se a variantes bialélicas em HTRA1 e pode manifestar alopecia precoce, espondilose e doença cerebral de pequenos vasos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, HTRA1 Disorder — Clinical Characteristics, classic CARASIL.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK32533/"
+      }
     },
     {
       "id": "nri:11G:h4",
@@ -1929,7 +2254,11 @@
       ],
       "answer": 0,
       "explanation": "A. Variantes em COL4A1/COL4A2 afetam componentes do colágeno tipo IV da membrana basal e podem provocar hemorragia cerebral precoce, porencefalia e alterações oculares.\nB. PHACE não é definida por porencefalia familiar autossômica dominante.\nC. Fabry é ligada ao X e causada por alterações em GLA; não exige variantes bialélicas.\nD. Cavernomas familiares podem produzir hemorragias, mas não explicam obrigatoriamente porencefalia congênita com o conjunto sistêmico descrito.\nE. CARASIL não é classicamente definido por hemorragia perinatal associada a catarata.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, COL4A1-Related Disorders — Clinical Characteristics, porencefalia e angiopatia de pequenos vasos.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK7046/"
+      }
     },
     {
       "id": "nri:11G:h5",
@@ -1944,7 +2273,11 @@
       ],
       "answer": 2,
       "explanation": "A. CADASIL pode produzir leucoencefalopatia, mas lesões pseudotumorais com realce, retinopatia vascular e comprometimento sistêmico favorecem RVCL-S.\nB. Cavernomas familiares não apresentam como fenótipo definidor retinopatia progressiva e nefropatia sistêmica.\nC. RVCL-S relacionada a variantes específicas em TREX1 pode causar microangiopatia retiniana, cerebral e sistêmica, com lesões encefálicas que simulam neoplasia ou inflamação.\nD. HHT caracteriza-se por telangiectasias e malformações arteriovenosas; leucoencefalopatia pseudotumoral com proteinúria não é seu fenótipo típico.\nE. Moyamoya primário apresenta estenose terminal carotídea e colaterais, não retinopatia sistêmica com lesões pseudotumorais como apresentação definidora.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Retinal Vasculopathy with Cerebral Leukoencephalopathy and Systemic Manifestations — Diagnosis, Suggestive Findings.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK546576/"
+      }
     },
     {
       "id": "nri:11G:d1",
@@ -1960,7 +2293,11 @@
       "answer": 2,
       "explanation": "Epistaxe, telangiectasias e MAVs viscerais integram critérios clínicos de HHT e orientam a caracterização cerebral.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "GeneReviews, Hereditary Hemorrhagic Telangiectasia — Diagnosis, critérios clínicos e diagnóstico molecular.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1351/"
+      }
     },
     {
       "id": "nri:11G:d2",
@@ -1975,7 +2312,11 @@
       ],
       "answer": 2,
       "explanation": "Cavernomas múltiplos. Podem indicar predisposição familiar, avaliados em conjunto com história e imagem.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Familial Cerebral Cavernous Malformations — Diagnosis, Establishing the Diagnosis.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1293/"
+      }
     },
     {
       "id": "nri:11G:d3",
@@ -1990,7 +2331,11 @@
       ],
       "answer": 1,
       "explanation": "Critérios de Curaçao. Integram epistaxe, telangiectasias, lesões viscerais e história familiar na HHT.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Hereditary Hemorrhagic Telangiectasia — Diagnosis, critérios clínicos e diagnóstico molecular.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1351/"
+      }
     },
     {
       "id": "nri:11G:d4",
@@ -2005,7 +2350,11 @@
       ],
       "answer": 4,
       "explanation": "ENG e ACVRL1. Genes frequentemente associados à telangiectasia hemorrágica hereditária.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Hereditary Hemorrhagic Telangiectasia — Diagnosis, critérios clínicos e diagnóstico molecular.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1351/"
+      }
     },
     {
       "id": "nri:11G:d5",
@@ -2020,7 +2369,11 @@
       ],
       "answer": 0,
       "explanation": "MAV pulmonar na HHT. Pode causar embolização paradoxal e abscesso cerebral.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Hereditary Hemorrhagic Telangiectasia — Clinical Characteristics, Pulmonary AVMs.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1351/"
+      }
     },
     {
       "id": "nri:11G:d6",
@@ -2035,7 +2388,11 @@
       ],
       "answer": 0,
       "explanation": "CADASIL. Arteriopatia de pequenos vasos ligada a NOTCH3.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, CADASIL — Diagnosis, Suggestive Findings e Establishing the Diagnosis.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1500/"
+      }
     },
     {
       "id": "nri:11G:r1",
@@ -2050,7 +2407,11 @@
       ],
       "answer": 2,
       "explanation": "KRIT1, CCM2 e PDCD10. Genes associados a formas familiares de cavernomas cerebrais.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Familial Cerebral Cavernous Malformations — Diagnosis, Establishing the Diagnosis.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1293/"
+      }
     },
     {
       "id": "nri:11H:h1",
@@ -2065,7 +2426,11 @@
       ],
       "answer": 2,
       "explanation": "A. O estágio III de Suzuki corresponde a uma rede colateral basal exuberante, não à ausência dessas colaterais.\nB. A displasia fibromuscular multifocal apresenta tipicamente o padrão em contas nos segmentos médios e distais das artérias cervicais, e não o conjunto descrito.\nC. Estenose supraclinoidea, ectasia da ACI petrosa, artérias intracranianas retilíneas e história familiar de doença aórtica favorecem vasculopatia relacionada a ACTA2.\nD. Estenoses arteriais não comprovam vasculite primária do SNC, particularmente diante de fenótipo vascular hereditário característico.\nE. RCVS caracteriza-se por vasoconstrições reversíveis, geralmente associadas a cefaleias em trovoada, não por esse fenótipo estrutural persistente.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.10, pp. 1086–1087, fig. 19.5, arteriopatia ACTA2.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11H:h2",
@@ -2080,7 +2445,11 @@
       ],
       "answer": 0,
       "explanation": "A. FAV carotidocavernosa direta espontânea, equimoses e história familiar de ruptura arterial são sugestivas de Ehlers-Danlos vascular por COL3A1. A fragilidade arterial aumenta o risco de complicações instrumentais.\nB. Marfan relaciona-se a FBN1 e doença aórtica, mas não apresenta essa associação clássica com FAV carotidocavernosa espontânea e fragilidade extrema da parede arterial.\nC. CADASIL é uma arteriopatia de pequenos vasos associada a NOTCH3, com lacunas e leucoencefalopatia.\nD. Loeys-Dietz pode causar aneurismas e dissecções, mas o fenótipo do enunciado favorece vEDS e exige investigação apropriada.\nE. A extensão da cateterização deve ser limitada à informação ou ao tratamento necessários, considerando os riscos de manipulação vascular.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, Vascular Ehlers-Danlos Syndrome — Clinical Characteristics e Management, Agents/Circumstances to Avoid.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1494/"
+      }
     },
     {
       "id": "nri:11H:h3",
@@ -2095,7 +2464,11 @@
       ],
       "answer": 4,
       "explanation": "A. Uma MAV pial clássica possui nidus; a comunicação direta artéria–veia descrita no enunciado caracteriza outra arquitetura.\nB. Cavernomas são lesões de baixo fluxo, geralmente ocultas na angiografia, não caracterizadas por enchimento venoso arterial precoce.\nC. Uma FAV dural localiza-se na dura-máter. A drenagem para uma veia cortical não determina, isoladamente, localização dural do shunt.\nD. Uma DVA drena parênquima cerebral normal e não é definida por uma comunicação arteriovenosa direta de alto fluxo.\nE. A comunicação direta entre artéria pial e veia, sem nidus, caracteriza FAV pial, uma lesão reconhecida na HHT.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "VASCERN, position statement on cerebral screening in HHT, seção Cerebral arteriovenous malformations, subtipo arteriovenous fistulae.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7322871/"
+      }
     },
     {
       "id": "nri:11H:h4",
@@ -2110,7 +2483,11 @@
       ],
       "answer": 1,
       "explanation": "A. As alterações nos polos temporais anteriores não tornam obrigatório o diagnóstico de CARASIL; o conjunto clínico é especialmente sugestivo de CADASIL.\nB. A combinação de lacunas, leucoencefalopatia temporal anterior, envolvimento de cápsulas externas e história familiar de transmissão vertical favorece CADASIL por NOTCH3.\nC. RVCL-S não é confirmada pela ausência de retinopatia ou lesões pseudotumorais; o fenótipo descrito é mais característico de CADASIL.\nD. DADA2 clássica relaciona-se a variantes bialélicas em ADA2 e pode cursar com manifestações inflamatórias sistêmicas.\nE. Aneurisma intracraniano não é requisito diagnóstico das arteriopatias hereditárias de pequenos vasos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews, CADASIL — Diagnosis, Suggestive Findings e Establishing the Diagnosis.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1500/"
+      }
     },
     {
       "id": "nri:11H:h5",
@@ -2125,7 +2502,11 @@
       ],
       "answer": 3,
       "explanation": "A. Em moyamoya avançada, a artéria meníngea média pode participar da perfusão cerebral por colaterais transdurais.\nB. A presença de colaterais não garante reserva hemodinâmica preservada.\nC. Ocluir a circulação transdural antes de compreender sua contribuição funcional pode precipitar isquemia cerebral.\nD. Deve-se mapear o suprimento arterial e preservar as colaterais funcionais que contribuem para a perfusão do parênquima.\nE. Stenting da ACI terminal não é etapa obrigatória nem tratamento rotineiro da doença de moyamoya.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.9, tabela 19.1, p. 1077, progressão angiográfica e colaterais externas.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11H:d1",
@@ -2141,7 +2522,11 @@
       "answer": 3,
       "explanation": "A reversão dos estreitamentos ao longo de semanas apoia RCVS no contexto clínico. Alterações persistentes exigem ampliar o diferencial.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Miller et al., Reversible Cerebral Vasoconstriction Syndrome, Part 1, tabela 2, critérios diagnósticos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7964694/"
+      }
     },
     {
       "id": "nri:11H:d2",
@@ -2156,7 +2541,11 @@
       ],
       "answer": 1,
       "explanation": "Colar de contas cervical sem placa. Padrão típico de displasia fibromuscular multifocal no contexto certo.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Gornik et al., First International Consensus on Fibromuscular Dysplasia, tabela suplementar 1 (diagnóstico, morfologia e imagem multiterritorial).",
+        "url": "https://cdn-links.lww.com/permalink/hjh/b/hjh_2019_01_11_persu_jh-d-18-00316_sdc2.pdf"
+      }
     },
     {
       "id": "nri:11H:d3",
@@ -2171,7 +2560,11 @@
       ],
       "answer": 0,
       "explanation": "Retificação dos vasos intracranianos. Pista para ACTA2 quando acompanhada de fenótipo arterial compatível.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., §19.10, pp. 1086–1087, fig. 19.5, arteriopatia ACTA2.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11H:d4",
@@ -2186,7 +2579,11 @@
       ],
       "answer": 1,
       "explanation": "Múltiplos cavernomas e história familiar. Sugere síndrome hereditária de malformação cavernosa.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "GeneReviews, Familial Cerebral Cavernous Malformations — Diagnosis, Establishing the Diagnosis.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1293/"
+      }
     },
     {
       "id": "nri:11H:d5",
@@ -2201,7 +2598,11 @@
       ],
       "answer": 0,
       "explanation": "Angiopatia leptomeníngea com atrofia cortical. Pode integrar o padrão de Sturge–Weber.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Sturge-Weber Syndrome, StatPearls, seções Pathophysiology e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/sites/books/NBK459163/"
+      }
     },
     {
       "id": "nri:11H:d6",
@@ -2216,7 +2617,11 @@
       ],
       "answer": 2,
       "explanation": "Espessamento de grandes ramos aórticos. Pode apoiar Takayasu em contexto clínico e inflamatório compatível.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis, Handbook of Cerebrovascular Disease and Neurointerventional Technique, 4ª ed., cap. 16, p. 934, Takayasu arteritis.",
+        "url": "https://doi.org/10.1007/978-3-031-45598-8"
+      }
     },
     {
       "id": "nri:11H:r1",
@@ -2231,7 +2636,11 @@
       ],
       "answer": 3,
       "explanation": "Estenose segmentar após cefaleia em trovoada. Favorece investigar RCVS e acompanhar reversibilidade.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Miller et al., Reversible Cerebral Vasoconstriction Syndrome, Part 1, tabela 2, critérios diagnósticos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7964694/"
+      }
     }
   ],
   "references": [

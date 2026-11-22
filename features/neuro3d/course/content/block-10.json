@@ -742,7 +742,7 @@
         },
         {
           "concept": "TM pediátrica",
-          "takeaway": "Seleção individualizada"
+          "takeaway": "Na oclusão de grande vaso sintomática, a AHA/ASA 2026 distingue crianças de 28 dias a menos de 6 anos (até 24 h, tecido recuperável e operador com experiência pediátrica, classe 2b) das de 6 anos ou mais (até 6 h ou entre 6 e 24 h com tecido recuperável, classe 2a)."
         },
         {
           "concept": "TIPS",
@@ -1057,7 +1057,10 @@
       ],
       "answer": 1,
       "explanation": "A. O tamanho do meningioma, isoladamente, não determina indicação obrigatória de embolização.\nB. A decisão considera benefício cirúrgico esperado, vascularização dural e segurança dos pedículos arteriais.\nC. Tumor blush intenso pode favorecer a consideração de embolização, não excluí-la.\nD. Ramos piais podem irrigar parênquima normal e não devem ser embolizados obrigatoriamente.\nE. A embolização é um procedimento adjuvante; não substitui o planejamento cirúrgico.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:h2",
@@ -1072,7 +1075,10 @@
       ],
       "answer": 2,
       "explanation": "A. Trombose basilar não é consequência obrigatória da embolização de ramos etmoidais.\nB. Ramos etmoidais originam-se habitualmente da artéria oftálmica e compartilham sua circulação proximal.\nC. A embolização não alvo pode comprometer a circulação retiniana, causando perda visual grave ou irreversível.\nD. Ramos da artéria oftálmica podem contribuir significativamente para a vascularização dural.\nE. Coils proximais não garantem devascularização completa e não tornam automaticamente segura essa anatomia.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, artéria oftálmica, blush coroideano e conexões orbitárias, PDF anexo, p. 48–51 e 142–145."
+      }
     },
     {
       "id": "nri:10A:h3",
@@ -1087,7 +1093,10 @@
       ],
       "answer": 3,
       "explanation": "A. O suprimento pial compartilhado não garante penetração seletiva das partículas no tumor.\nB. A avaliação de anastomoses durais continua necessária mesmo com suprimento pial.\nC. Embolizar artérias que também irrigam parênquima normal pode causar infarto cerebral.\nD. O suprimento pial compartilhado aumenta o risco de isquemia e pode limitar ou contraindicar a embolização daquele pedículo.\nE. Meningiomas podem apresentar suprimento pial, especialmente quando volumosos ou com determinadas relações anatômicas.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:h4",
@@ -1102,7 +1111,10 @@
       ],
       "answer": 0,
       "explanation": "A. A oclusão proximal por coils pode impedir acesso distal sem produzir devascularização intratumoral suficiente.\nB. Coils não alcançam necessariamente a microcirculação tumoral.\nC. Oclusão proximal não garante necrose completa, sobretudo em tumores com múltiplos pedículos.\nD. Coils podem ser empregados em determinados ramos meníngeos, conforme o objetivo terapêutico.\nE. Outros pedículos podem manter ou restabelecer o suprimento tumoral.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:h5",
@@ -1117,7 +1129,10 @@
       ],
       "answer": 4,
       "explanation": "A. Edema pós-embolização não comprova cura nem elimina a necessidade de cirurgia.\nB. A piora pode resultar de edema, necrose, hemorragia ou isquemia; não demonstra necessariamente trombose da ACM.\nC. Deterioração clínica não comprova embolização completa dos pedículos.\nD. Edema pode ser sintomático, agravar efeito de massa e modificar o planejamento terapêutico.\nE. Edema e necrose relacionados à embolização podem provocar deterioração neurológica e exigir reavaliação urgente.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:d1",
@@ -1133,7 +1148,10 @@
       "answer": 4,
       "explanation": "O benefício é dependente da possibilidade de tratar pedículos selecionados. Comunicação ocular e ramo pial em passagem podem tornar a intervenção desproporcional ao ganho, ainda que o tumor tenha blush intenso.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:d2",
@@ -1148,7 +1166,10 @@
       ],
       "answer": 0,
       "explanation": "Suprimento pial tumoral. Pode compartilhar território com parênquima e aumentar o risco de lesão não alvo.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:d3",
@@ -1163,7 +1184,10 @@
       ],
       "answer": 2,
       "explanation": "Blush tumoral. Realce angiográfico que auxilia a mapear vascularização e pedículos.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:d4",
@@ -1178,12 +1202,15 @@
       ],
       "answer": 1,
       "explanation": "Embolização pré-operatória. Pode reduzir vascularização em casos selecionados, em articulação com o plano cirúrgico.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:d5",
       "lesson": "10A",
-      "prompt": "No contexto de Meningiomas e embolização pré-operatória, qual alternativa descreve corretamente «Meningioma de base anterior»?",
+      "prompt": "Qual território arterial deve ser investigado especificamente em meningioma da base anterior junto à lâmina cribriforme?",
       "options": [
         "Pode vir da meníngea média ou de outros ramos da base, conforme a implantação.",
         "Deve ser reconhecido por sua relação com a irrigação facial.",
@@ -1193,7 +1220,10 @@
       ],
       "answer": 4,
       "explanation": "Meningioma de base anterior. Pode recrutar ramos oftálmicos e conexões orbitárias.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:d6",
@@ -1203,12 +1233,15 @@
         "Pode compartilhar território com parênquima e aumentar o risco de lesão não alvo.",
         "Realce angiográfico que auxilia a mapear vascularização e pedículos.",
         "Pode vir da meníngea média ou de outros ramos da base, conforme a implantação.",
-        "Deve ser reconhecido por sua relação com a irrigação facial.",
+        "Deve ser reconhecido por sua relação com a irrigação do nervo facial.",
         "Pode recrutar ramos oftálmicos e conexões orbitárias."
       ],
       "answer": 3,
-      "explanation": "Ramo petroso da meníngea média. Deve ser reconhecido por sua relação com a irrigação facial.",
-      "origin": "revisão"
+      "explanation": "Ramo petroso da meníngea média. Deve ser reconhecido por sua relação com a irrigação do nervo facial.",
+      "origin": "revisão",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, irrigação do nervo facial, PDF anexo, p. 154–159."
+      }
     },
     {
       "id": "nri:10A:r1",
@@ -1223,7 +1256,10 @@
       ],
       "answer": 2,
       "explanation": "Suprimento dural do meningioma. Pode vir da meníngea média ou de outros ramos da base, conforme a implantação.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10A:r2",
@@ -1238,7 +1274,10 @@
       ],
       "answer": 3,
       "explanation": "Suprimento pial tumoral. Pode compartilhar território com parênquima e aumentar o risco de lesão não alvo.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10B:h1",
@@ -1253,7 +1292,11 @@
       ],
       "answer": 1,
       "explanation": "A. A biópsia rotineira de uma massa altamente vascularizada, sugestiva de nasoangiofibroma juvenil (NAJ), pode provocar hemorragia importante.\nB. O diagnóstico costuma ser clínico-radiológico, e a biópsia é geralmente evitada quando a apresentação e os achados de imagem são típicos.\nC. A hipervascularização é uma característica clássica do NAJ, não um critério de exclusão.\nD. A extensão anatômica precisa ser caracterizada antes do planejamento terapêutico, inclusive para avaliar envolvimento intracraniano e suprimento vascular.\nE. O NAJ é uma neoplasia histologicamente benigna, localmente agressiva; metástases cervicais não são requisito diagnóstico.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "StatPearls. Nasopharyngeal Angiofibroma, History and Physical e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK545240/"
+      }
     },
     {
       "id": "nri:10B:h2",
@@ -1268,7 +1311,10 @@
       ],
       "answer": 3,
       "explanation": "A. A artéria calosomarginal é ramo da circulação cerebral anterior, não uma conexão habitual entre a maxilar e a ACI na região pterigopalatina.\nB. A artéria cerebelar superior geralmente nasce da basilar e não é ramo da artéria maxilar.\nC. A artéria recorrente de Heubner é perfurante do território cerebral anterior, não a principal nutridora nasal posterior.\nD. A artéria do canal pterigoideo, ou vidiana, pode participar de comunicações entre a circulação da carótida externa e segmentos da carótida interna.\nE. A artéria espinal anterior pertence à circulação medular e não representa a principal via arterial do forame esfenopalatino.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, conexões petrosas e vidianas, PDF anexo, p. 144–149."
+      }
     },
     {
       "id": "nri:10B:h3",
@@ -1283,7 +1329,11 @@
       ],
       "answer": 0,
       "explanation": "A. O sinal de Holman–Miller consiste no deslocamento anterior da parede posterior do seio maxilar, relacionado à expansão da fossa pterigopalatina.\nB. O sinal não comprova trombose do seio cavernoso.\nC. O achado é classicamente associado ao NAJ, não exclusivamente a meningioma da convexidade.\nD. O deslocamento ósseo não demonstra origem tumoral obrigatória na artéria oftálmica.\nE. O sinal não exclui extensão para a fossa infratemporal, que pode ocorrer em tumores mais extensos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "StatPearls. Nasopharyngeal Angiofibroma, History and Physical e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK545240/"
+      }
     },
     {
       "id": "nri:10B:h4",
@@ -1298,7 +1348,10 @@
       ],
       "answer": 2,
       "explanation": "A. A ausência de extravasamento no momento da angiografia não exclui sangramento arterial intermitente.\nB. A embolização indiscriminada de todos os ramos da carótida externa aumentaria o risco de isquemia não alvo.\nC. O sangramento pode ser intermitente, e o planejamento deve considerar a fonte provável, os territórios arteriais e as anastomoses perigosas.\nD. Uma angiografia sem extravasamento não comprova etiologia exclusivamente venosa.\nE. Comunicações com a circulação oftálmica precisam ser consideradas devido ao risco de perda visual.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Tips on Specific Diseases, embolização em epistaxe e tumores, PDF anexo, p. 446–450."
+      }
     },
     {
       "id": "nri:10B:h5",
@@ -1313,7 +1366,10 @@
       ],
       "answer": 4,
       "explanation": "A. Trombose isolada da cerebral anterior não é a hipótese vascular característica de epistaxe maciça tardia após cirurgia transesfenoidal.\nB. Aneurisma incidental da cerebelar superior não é a principal preocupação relacionada ao trajeto cirúrgico descrito.\nC. Oclusão crônica da meníngea média não é causa habitual de epistaxe volumosa.\nD. Estenose vertebral extracraniana não explica tipicamente esse padrão de sangramento.\nE. Deve-se investigar pseudoaneurisma ou outra lesão da carótida interna, especialmente em sua relação com o seio esfenoidal e a base do crânio.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.5, Embolization for Treatment of Acute Bleeding e sangramento de cabeça e pescoço, PDF anexo, p. 419–423 e 448–450."
+      }
     },
     {
       "id": "nri:10B:d1",
@@ -1329,7 +1385,10 @@
       "answer": 1,
       "explanation": "A fase ocular opacificada após injeção de ACE mostra uma rota potencial para embolização não alvo.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, artéria oftálmica, blush coroideano e conexões orbitárias, PDF anexo, p. 48–51 e 142–145."
+      }
     },
     {
       "id": "nri:10B:d2",
@@ -1344,7 +1403,10 @@
       ],
       "answer": 1,
       "explanation": "Esfenopalatina. Aferência frequente por via do sistema maxilar.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Tips on Specific Diseases, embolização em epistaxe e tumores, PDF anexo, p. 446–450."
+      }
     },
     {
       "id": "nri:10B:d3",
@@ -1359,7 +1421,10 @@
       ],
       "answer": 4,
       "explanation": "Extensão intracraniana ou contralateral. Pode acompanhar recrutamento de pedículos de múltiplos territórios.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Tips on Specific Diseases, embolização em epistaxe e tumores, PDF anexo, p. 446–450."
+      }
     },
     {
       "id": "nri:10B:d4",
@@ -1374,7 +1439,11 @@
       ],
       "answer": 3,
       "explanation": "Sinal de Holman–Miller. Deslocamento anterior da parede posterior do seio maxilar.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "StatPearls. Nasopharyngeal Angiofibroma, History and Physical e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK545240/"
+      }
     },
     {
       "id": "nri:10B:d5",
@@ -1389,7 +1458,10 @@
       ],
       "answer": 3,
       "explanation": "Artérias etmoidais na epistaxe. Pedículos de origem oftálmica com risco para circulação retiniana.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, artéria oftálmica, blush coroideano e conexões orbitárias, PDF anexo, p. 48–51 e 142–145."
+      }
     },
     {
       "id": "nri:10B:d6",
@@ -1404,7 +1476,10 @@
       ],
       "answer": 1,
       "explanation": "Via esfenopalatina–etmoidal. Comunicação possível entre territórios carotídeos externo e interno.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, artéria oftálmica, blush coroideano e conexões orbitárias, PDF anexo, p. 48–51 e 142–145."
+      }
     },
     {
       "id": "nri:10B:r1",
@@ -1419,7 +1494,11 @@
       ],
       "answer": 1,
       "explanation": "Nasoangiofibroma juvenil. Tumor hipervascular que tipicamente se manifesta em adolescente com epistaxe e obstrução nasal.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "StatPearls. Nasopharyngeal Angiofibroma, History and Physical e Evaluation.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK545240/"
+      }
     },
     {
       "id": "nri:10B:r2",
@@ -1434,7 +1513,10 @@
       ],
       "answer": 1,
       "explanation": "Esfenopalatina. Aferência frequente por via do sistema maxilar.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Tips on Specific Diseases, embolização em epistaxe e tumores, PDF anexo, p. 446–450."
+      }
     },
     {
       "id": "nri:10C:h1",
@@ -1449,7 +1531,11 @@
       ],
       "answer": 3,
       "explanation": "A. O paraganglioma vagal costuma deslocar ACI e ACE conjuntamente, podendo separar a ACI da veia jugular interna.\nB. O afastamento carotídeo não caracteriza exclusivamente aneurisma da ACI; a localização e o padrão de realce são importantes.\nC. O afastamento entre ACI e ACE é justamente um sinal clássico do paraganglioma do corpo carotídeo.\nD. O tumor do corpo carotídeo está centrado na bifurcação e pode separar ACI e ACE, produzindo o Lyre sign.\nE. O paraganglioma jugular origina-se na região do bulbo/forame jugular, não tipicamente na bifurcação carotídea.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:h2",
@@ -1464,7 +1550,11 @@
       ],
       "answer": 1,
       "explanation": "A. Shamblin não classifica secreção hormonal.\nB. A classificação descreve a relação do tumor do corpo carotídeo com os vasos e a dificuldade potencial da ressecção; o tipo III apresenta envolvimento importante.\nC. Intensidade do tumor blush não define metástase nem a classificação de Shamblin.\nD. A classificação não foi criada para diferenciar paragangliomas vagais e timpânicos.\nE. Shamblin não substitui a avaliação genética e não utiliza o número de tumores como critério.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:h3",
@@ -1479,7 +1569,10 @@
       ],
       "answer": 2,
       "explanation": "A. Os ramos neuromeníngeos pertencem ao território da faríngea ascendente, não se originam todos da oftálmica.\nB. A principal preocupação não é isquemia restrita à ACA; há risco para nervos cranianos e circulação intracraniana por anastomoses.\nC. Ramos jugulares e hipoglossos podem participar do suprimento dos nervos IX–XII, tornando possível neuropatia isquêmica após embolização.\nD. Trombose do seio sagital superior não é consequência obrigatória da embolização de um ramo faríngeo.\nE. O tronco neuromeníngeo não irriga exclusivamente tumor; pode suprir estruturas neurais normais.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, ramos da artéria faríngea ascendente e nervos cranianos baixos, PDF anexo, p. 148–151."
+      }
     },
     {
       "id": "nri:10C:h4",
@@ -1494,7 +1587,11 @@
       ],
       "answer": 4,
       "explanation": "A. O afastamento entre ACI e ACE favorece tumor do corpo carotídeo; o deslocamento conjunto é mais compatível com tumor vagal.\nB. Meningioma de convexidade é intracraniano e não apresenta habitualmente esse padrão cervical.\nC. Paraganglioma timpânico localiza-se no ouvido médio.\nD. Aneurisma da ACM não explica o deslocamento de estruturas no espaço carotídeo cervical.\nE. O paraganglioma vagal pode deslocar conjuntamente ACI e ACE e separar a ACI da jugular interna.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:h5",
@@ -1509,7 +1606,11 @@
       ],
       "answer": 0,
       "explanation": "A. Variantes patogênicas em SDHD associam-se a paragangliomas de cabeça e pescoço, frequentemente múltiplos, com efeito de origem parental na manifestação clínica.\nB. Variantes em SDHB estão associadas a maior preocupação com doença metastática, não à sua exclusão.\nC. Multifocalidade aumenta a suspeita de predisposição hereditária.\nD. O efeito de origem parental em SDHAF2 não impede a transmissão materna da variante; afeta predominantemente sua expressão clínica.\nE. Shamblin descreve envolvimento vascular e não substitui investigação genética.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "GeneReviews. Hereditary Paraganglioma-Pheochromocytoma Syndromes, Genetic Counseling e tabela 2.",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK1548/"
+      }
     },
     {
       "id": "nri:10C:c1",
@@ -1524,12 +1625,16 @@
       ],
       "answer": 1,
       "explanation": "O afastamento dos eixos carotídeos na bifurcação corresponde ao sinal da lira.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:d1",
       "lesson": "10C",
-      "prompt": "No contexto de Paragangliomas de cabeça e pescoço, qual alternativa descreve corretamente «Tumor do corpo carotídeo»?",
+      "prompt": "Qual padrão de deslocamento arterial sugere que um paraganglioma cervical se origina no corpo carotídeo?",
       "options": [
         "Combinação de focos de fluxo e sinal tumoral, característica em lesões suficientemente grandes.",
         "Pedículo frequente de paragangliomas, com vias potencialmente perigosas para nervos cranianos.",
@@ -1539,12 +1644,16 @@
       ],
       "answer": 3,
       "explanation": "Tumor do corpo carotídeo. Costuma afastar ACI e ACE na bifurcação, produzindo o sinal da lira.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:d2",
       "lesson": "10C",
-      "prompt": "No contexto de Paragangliomas de cabeça e pescoço, qual alternativa descreve corretamente «Paraganglioma vagal»?",
+      "prompt": "Qual padrão de deslocamento vascular favorece origem vagal de um paraganglioma cervical?",
       "options": [
         "Costuma afastar ACI e ACE na bifurcação, produzindo o sinal da lira.",
         "Pode deslocar as carótidas em bloco anteromedialmente e separar a jugular.",
@@ -1554,12 +1663,16 @@
       ],
       "answer": 1,
       "explanation": "Paraganglioma vagal. Pode deslocar as carótidas em bloco anteromedialmente e separar a jugular.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:d3",
       "lesson": "10C",
-      "prompt": "No contexto de Paragangliomas de cabeça e pescoço, qual alternativa descreve corretamente «Paraganglioma jugular»?",
+      "prompt": "Qual topografia identifica a origem de um paraganglioma jugular?",
       "options": [
         "Considera relação do tumor do corpo carotídeo com os vasos.",
         "Costuma afastar ACI e ACE na bifurcação, produzindo o sinal da lira.",
@@ -1569,7 +1682,11 @@
       ],
       "answer": 2,
       "explanation": "Paraganglioma jugular. Surge na região do bulbo jugular e pode comprometer forames da base.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:d4",
@@ -1584,7 +1701,11 @@
       ],
       "answer": 0,
       "explanation": "Sal e pimenta na RM. Combinação de focos de fluxo e sinal tumoral, característica em lesões suficientemente grandes.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:d5",
@@ -1599,7 +1720,11 @@
       ],
       "answer": 2,
       "explanation": "Classificação de Shamblin. Considera relação do tumor do corpo carotídeo com os vasos.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10C:d6",
@@ -1614,7 +1739,10 @@
       ],
       "answer": 2,
       "explanation": "Faríngea ascendente. Pedículo frequente de paragangliomas, com vias potencialmente perigosas para nervos cranianos.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, ramos da artéria faríngea ascendente e nervos cranianos baixos, PDF anexo, p. 148–151."
+      }
     },
     {
       "id": "nri:10C:r1",
@@ -1629,7 +1757,11 @@
       ],
       "answer": 0,
       "explanation": "Tumor do corpo carotídeo. Costuma afastar ACI e ACE na bifurcação, produzindo o sinal da lira.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Thelen e Bhatt. Multimodality imaging of paragangliomas of the head and neck, seções sobre tumores carotídeos, vagais e jugulares.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6399371/"
+      }
     },
     {
       "id": "nri:10D:h1",
@@ -1644,7 +1776,11 @@
       ],
       "answer": 3,
       "explanation": "A. A quimioterapia intra-arterial (QIA) administra medicamentos ao território ocular; não tem como mecanismo principal a oclusão permanente da artéria oftálmica.\nB. A preservação do globo ocular é secundária à sobrevida e ao controle oncológico.\nC. A QIA integra uma estratégia multimodal e não substitui todos os tratamentos em qualquer estágio.\nD. A QIA permite entrega regional de quimioterápicos, respeitando a prioridade de controle tumoral e preservação da vida.\nE. A QIA é utilizada principalmente em doença intraocular selecionada, não exclusivamente em doença metastática.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "NCI. Retinoblastoma Treatment (PDQ), Intra-Arterial Chemotherapy (Ophthalmic Artery Infusion of Chemotherapy).",
+        "url": "https://www.cancer.gov/types/retinoblastoma/hp/retinoblastoma-treatment-pdq"
+      }
     },
     {
       "id": "nri:10D:h2",
@@ -1659,7 +1795,11 @@
       ],
       "answer": 1,
       "explanation": "A. A artéria oftálmica origina-se habitualmente da ACI, não da ACE.\nB. Anastomoses meníngeo-orbitárias, incluindo conexões entre a meníngea média e ramos orbitários, podem contribuir para a perfusão ocular.\nC. A artéria central da retina é habitualmente ramo da oftálmica, não ramo terminal universal da meníngea média.\nD. A presença de colaterais não garante segurança de administração por qualquer ramo da ACE.\nE. O suprimento colateral pela ACE pode coexistir com perfusão ocular pela ACI.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Bertelli et al. AJNR, Alternative Routes, Strategies, and Follow-Up, resultados sobre vias direta e alternativa de quimioterapia ocular.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26915566/"
+      }
     },
     {
       "id": "nri:10D:h3",
@@ -1674,7 +1814,11 @@
       ],
       "answer": 4,
       "explanation": "A. Variantes germinativas em RB1 aumentam o risco de outras neoplasias ao longo da vida.\nB. Retinoblastoma bilateral é fortemente sugestivo de predisposição hereditária.\nC. Retinoblastoma trilateral não significa três tumores no mesmo olho.\nD. A predisposição hereditária pode associar-se a tumor neuroblástico intracraniano, especialmente pineal ou suprasselar.\nE. Existe risco aumentado de neoplasias adicionais, incluindo a associação denominada retinoblastoma trilateral.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "NCI. Retinoblastoma Treatment (PDQ), Genetic Counseling e Trilateral Retinoblastoma.",
+        "url": "https://www.cancer.gov/types/retinoblastoma/hp/retinoblastoma-treatment-pdq"
+      }
     },
     {
       "id": "nri:10D:h4",
@@ -1689,7 +1833,11 @@
       ],
       "answer": 2,
       "explanation": "A. A administração regional não garante controle de doença extraocular ou sistêmica.\nB. A extensão extraocular não aumenta obrigatoriamente a eficácia da QIA isolada.\nC. A doença extraocular exige avaliação oncológica abrangente, e QIA isolada não é tratamento definitivo adequado.\nD. A extensão extraocular torna a avaliação de disseminação ainda mais importante.\nE. A QIA não substitui automaticamente o tratamento sistêmico quando este é necessário.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "NCI. Retinoblastoma Treatment (PDQ), Treatment of Extraocular Retinoblastoma.",
+        "url": "https://www.cancer.gov/types/retinoblastoma/hp/retinoblastoma-treatment-pdq"
+      }
     },
     {
       "id": "nri:10D:h5",
@@ -1704,7 +1852,10 @@
       ],
       "answer": 0,
       "explanation": "A. Isquemia retiniana/coroideana e toxicidade ocular relacionada ao tratamento são causas possíveis de redução visual após QIA.\nB. Redução visual não demonstra obrigatoriamente trombose da ACM.\nC. A QIA envolve manipulação endovascular e pode apresentar complicações vasculares.\nD. Ausência de oclusão angiográfica não exclui toxicidade retiniana, coroideana ou de outras estruturas oculares.\nE. Progressão tumoral é uma hipótese possível, mas não a única explicação para perda visual.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 4.6, quimioterapia intra-arterial do retinoblastoma, PDF anexo, p. 251–253."
+      }
     },
     {
       "id": "nri:10D:d1",
@@ -1720,7 +1871,11 @@
       "answer": 3,
       "explanation": "A seleção topográfica da artéria deve ser associada ao território efetivamente perfundido, considerando variantes e anastomoses.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Bertelli et al. AJNR, Alternative Routes, Strategies, and Follow-Up, resultados sobre vias direta e alternativa de quimioterapia ocular.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26915566/"
+      }
     },
     {
       "id": "nri:10D:d2",
@@ -1735,22 +1890,30 @@
       ],
       "answer": 0,
       "explanation": "Melfalano. Fármaco frequentemente empregado em protocolos de quimioterapia oftálmica.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "NCI. Retinoblastoma Treatment (PDQ), Intra-Arterial Chemotherapy (Ophthalmic Artery Infusion of Chemotherapy).",
+        "url": "https://www.cancer.gov/types/retinoblastoma/hp/retinoblastoma-treatment-pdq"
+      }
     },
     {
       "id": "nri:10D:d3",
       "lesson": "10D",
       "prompt": "No contexto de Retinoblastoma e quimioterapia intra-arterial, qual alternativa descreve corretamente «Blush coroideano»?",
       "options": [
-        "Marcador angiográfico de distribuição intraocular.",
+        "Opacificação da coroide, usada como indício de perfusão ocular na injeção avaliada.",
         "Via de administração locorregional em pacientes selecionados.",
         "Implica atenção ao gene RB1, bilateralidade e risco de outras neoplasias.",
         "Variante que pode modificar a via de entrega ocular.",
         "Podem exigir modalidades complementares de tratamento oftalmológico."
       ],
       "answer": 0,
-      "explanation": "Blush coroideano. Marcador angiográfico de distribuição intraocular.",
-      "origin": "revisão"
+      "explanation": "O blush mostra enchimento coroideano. Isoladamente, não confirma distribuição homogênea do fármaco no tumor nem demonstra a perfusão da retina interna.",
+      "origin": "revisão",
+      "reference": {
+        "label": "Bertelli et al. AJNR, Alternative Routes, Strategies, and Follow-Up, resultados sobre vias direta e alternativa de quimioterapia ocular.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26915566/"
+      }
     },
     {
       "id": "nri:10D:d4",
@@ -1765,7 +1928,11 @@
       ],
       "answer": 4,
       "explanation": "Oftálmica de origem meníngea. Variante que pode modificar a via de entrega ocular.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Bertelli et al. AJNR, Alternative Routes, Strategies, and Follow-Up, resultados sobre vias direta e alternativa de quimioterapia ocular.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26915566/"
+      }
     },
     {
       "id": "nri:10D:d5",
@@ -1780,7 +1947,11 @@
       ],
       "answer": 4,
       "explanation": "Sementes vítreas. Podem exigir modalidades complementares de tratamento oftalmológico.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "NCI. Retinoblastoma Treatment (PDQ), Intravitreal Chemotherapy.",
+        "url": "https://www.cancer.gov/types/retinoblastoma/hp/retinoblastoma-treatment-pdq"
+      }
     },
     {
       "id": "nri:10D:d6",
@@ -1795,7 +1966,11 @@
       ],
       "answer": 1,
       "explanation": "Retinoblastoma hereditário. Implica atenção ao gene RB1, bilateralidade e risco de outras neoplasias.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "NCI. Retinoblastoma Treatment (PDQ), Genetic Counseling e Trilateral Retinoblastoma.",
+        "url": "https://www.cancer.gov/types/retinoblastoma/hp/retinoblastoma-treatment-pdq"
+      }
     },
     {
       "id": "nri:10D:r1",
@@ -1810,7 +1985,11 @@
       ],
       "answer": 4,
       "explanation": "Quimioterapia intra-arterial oftálmica. Via de administração locorregional em pacientes selecionados.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "NCI. Retinoblastoma Treatment (PDQ), Intra-Arterial Chemotherapy (Ophthalmic Artery Infusion of Chemotherapy).",
+        "url": "https://www.cancer.gov/types/retinoblastoma/hp/retinoblastoma-treatment-pdq"
+      }
     },
     {
       "id": "nri:10E:h1",
@@ -1825,7 +2004,10 @@
       ],
       "answer": 2,
       "explanation": "A. A embolização da AMM não evacua mecanicamente o conteúdo subdural. A remoção imediata da coleção depende de drenagem cirúrgica quando indicada.\nB. A AMM não participa diretamente da produção de líquor pelos plexos coroides.\nC. A embolização reduz o suprimento das membranas vascularizadas, especialmente da membrana externa, que participa da inflamação, exsudação e micro-hemorragias recorrentes.\nD. O procedimento não promove drenagem venosa da coleção pelos seios durais.\nE. Não é necessário identificar extravasamento arterial ativo; a técnica visa à vascularização patológica das membranas.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "LINNC Trials Book 2026, cap. 18, EMBOLISE, MAGIC-MT e STEM, pp. impressas 230, 233 e 236."
+      }
     },
     {
       "id": "nri:10E:h2",
@@ -1840,7 +2022,10 @@
       ],
       "answer": 0,
       "explanation": "A. Comunicações entre a AMM e a circulação oftálmica podem permitir embolização não alvo para vasos oculares, provocando isquemia retiniana e perda visual.\nB. A artéria de Adamkiewicz pertence à circulação medular, não à anastomose meníngeo-orbitária descrita.\nC. Uma conexão com a oftálmica não implica trombose obrigatória da basilar.\nD. A principal estrutura ameaçada nessa comunicação é a circulação ocular; não se restringe à ACA.\nE. O nervo hipoglosso é particularmente relevante para ramos do território neuromeníngeo da faríngea ascendente, não para essa conexão oftálmica.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, artéria oftálmica, blush coroideano e conexões orbitárias, PDF anexo, p. 48–51 e 142–145."
+      }
     },
     {
       "id": "nri:10E:h3",
@@ -1855,7 +2040,11 @@
       ],
       "answer": 3,
       "explanation": "A. A embolização da AMM não proporciona descompressão imediata e não deve substituir uma cirurgia urgente quando necessária.\nB. Deterioração neurológica progressiva e desvio importante da linha média exigem avaliação urgente, não observação passiva.\nC. Coils proximais não corrigem o efeito de massa e não resolvem a indicação neurocirúrgica.\nD. A prioridade é a avaliação neurocirúrgica urgente para descompressão, sem atrasá-la para realizar embolização.\nE. O desaparecimento do membrane blush não é pré-requisito para intervenção nem substitui a avaliação clínica.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "UpToDate. Subdural hematoma in adults: Management and prognosis; consenso de Copenhague, resultados sobre evacuação com efeito de massa (PMID 41981236).",
+        "url": "https://www.uptodate.com/contents/subdural-hematoma-in-adults-prognosis-and-management"
+      }
     },
     {
       "id": "nri:10E:h4",
@@ -1870,7 +2059,10 @@
       ],
       "answer": 4,
       "explanation": "A. Os ensaios utilizaram populações, estratégias concomitantes e desfechos primários diferentes.\nB. MAGIC-MT não atingiu significância estatística convencional no desfecho primário; STEM demonstrou benefício no seu desfecho composto.\nC. EMBOLISE avaliou embolização adjuvante à cirurgia e incluiu reoperação por recorrência/progressão no desfecho principal.\nD. STEM avaliou falha terapêutica clínica composta, não apenas redução angiográfica do blush.\nE. EMBOLISE e STEM apresentaram resultados favoráveis nos respectivos desfechos primários, enquanto MAGIC-MT não atingiu significância estatística no seu desfecho primário.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "LINNC Trials Book 2026, cap. 18, EMBOLISE, MAGIC-MT e STEM, pp. impressas 230, 233 e 236."
+      }
     },
     {
       "id": "nri:10E:h5",
@@ -1885,7 +2077,10 @@
       ],
       "answer": 1,
       "explanation": "A. A coleção não precisa desaparecer imediatamente após a embolização.\nB. O efeito da embolização sobre a vascularização das membranas pode favorecer resolução gradual do HSDc ao longo das semanas ou meses seguintes.\nC. Persistência do volume da coleção não demonstra trombose da artéria oftálmica.\nD. Redução do blush não equivale à evacuação do sangue subdural.\nE. Volume inalterado na imagem imediata não exclui a existência de membranas vascularizadas.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "LINNC Trials Book 2026, cap. 18, EMBOLISE, MAGIC-MT e STEM, pp. impressas 230, 233 e 236."
+      }
     },
     {
       "id": "nri:10E:d1",
@@ -1903,8 +2098,7 @@
       "origin": "revisão",
       "revision": 1,
       "reference": {
-        "label": "Davies et al. EMBOLISE. NEJM 2024.",
-        "url": "https://doi.org/10.1056/NEJMoa2313472"
+        "label": "LINNC Trials Book 2026, cap. 18, EMBOLISE, população, desfecho e resultados, p. impressa 230."
       }
     },
     {
@@ -1920,7 +2114,10 @@
       ],
       "answer": 4,
       "explanation": "Embolização da meníngea média. Estratégia adjuvante ou selecionada conforme quadro, evidência e plano cirúrgico.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "LINNC Trials Book 2026, cap. 18, EMBOLISE, MAGIC-MT e STEM, pp. impressas 230, 233 e 236."
+      }
     },
     {
       "id": "nri:10E:d3",
@@ -1935,7 +2132,11 @@
       ],
       "answer": 1,
       "explanation": "Efeito de massa com deterioração. Exige avaliação urgente para descompressão conforme o quadro clínico.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "UpToDate. Subdural hematoma in adults: Management and prognosis; consenso de Copenhague, resultados sobre evacuação com efeito de massa (PMID 41981236).",
+        "url": "https://www.uptodate.com/contents/subdural-hematoma-in-adults-prognosis-and-management"
+      }
     },
     {
       "id": "nri:10E:d4",
@@ -1950,7 +2151,10 @@
       ],
       "answer": 2,
       "explanation": "Conexão meningolacrimal. Via de risco para embolização orbitária não alvo.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, artéria oftálmica, blush coroideano e conexões orbitárias, PDF anexo, p. 48–51 e 142–145."
+      }
     },
     {
       "id": "nri:10E:d5",
@@ -1965,7 +2169,10 @@
       ],
       "answer": 1,
       "explanation": "Ramo petroso da meníngea média. Via de risco para o suprimento do nervo facial.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, irrigação do nervo facial, PDF anexo, p. 154–159."
+      }
     },
     {
       "id": "nri:10E:d6",
@@ -1980,7 +2187,10 @@
       ],
       "answer": 3,
       "explanation": "EMBOLISE. Investigou embolização adjuvante em pacientes com indicação de evacuação cirúrgica.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "LINNC Trials Book 2026, cap. 18, EMBOLISE, população, desfecho e resultados, p. impressa 230."
+      }
     },
     {
       "id": "nri:10E:r1",
@@ -1995,7 +2205,10 @@
       ],
       "answer": 1,
       "explanation": "Membrana externa do hematoma. Região vascularizada por ramos durais, alvo conceitual da embolização.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "LINNC Trials Book 2026, cap. 18, EMBOLISE, MAGIC-MT e STEM, pp. impressas 230, 233 e 236."
+      }
     },
     {
       "id": "nri:10F:h1",
@@ -2010,7 +2223,10 @@
       ],
       "answer": 3,
       "explanation": "A. Aterosclerose intracraniana não é a etiologia predominante de AVC em crianças dessa idade.\nB. Uma estenose focal pode representar arteriopatia, não necessariamente trombo passível de extração.\nC. A arteriopatia cerebral focal é uma causa reconhecida de AVC isquêmico infantil.\nD. A caracterização da arteriopatia é essencial antes de indicar manipulação endovascular, que pode agravar uma lesão arterial preexistente.\nE. Estenose arterial pode causar hipoperfusão ou tromboembolismo e não exclui AVC isquêmico.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 16.9, Pediatric Ischemic Stroke, PDF anexo, p. 968–974."
+      }
     },
     {
       "id": "nri:10F:h2",
@@ -2025,7 +2241,10 @@
       ],
       "answer": 0,
       "explanation": "A. Save ChildS é um estudo observacional multicêntrico que descreveu resultados de trombectomia em pacientes pediátricos selecionados.\nB. Não foi um ensaio randomizado que comprovou superioridade da trombectomia em todas as faixas etárias.\nC. O estudo não demonstrou contraindicação universal à trombectomia pediátrica.\nD. Não se restringiu à comparação de técnicas em recém-nascidos; avaliou resultados de tratamento endovascular.\nE. Não estabeleceu critérios universais de PedNIHSS ou janela terapêutica para todos os lactentes.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, § 4.7.5, evidência de suporte: Save ChildS retrospectivo e Save ChildS Pro prospectivo."
+      }
     },
     {
       "id": "nri:10F:h3",
@@ -2040,7 +2259,10 @@
       ],
       "answer": 2,
       "explanation": "A. Idade inferior a 18 anos não constitui contraindicação absoluta universal à trombectomia.\nB. Oclusão M1 e pequeno núcleo isquêmico são elementos favoráveis, mas a etiologia e os riscos continuam relevantes.\nC. Um adolescente com déficit incapacitante, oclusão proximal e imagem favorável pode ser candidato à trombectomia após avaliação individualizada em centro experiente.\nD. Aguardar obrigatoriamente 24 horas pode comprometer a possibilidade de reperfusão útil.\nE. mTICI é uma escala de reperfusão angiográfica, não um critério isolado de seleção antes do procedimento.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, diretriz de AVC isquêmico agudo, § 4.7.5, recomendações e justificativa para trombectomia pediátrica."
+      }
     },
     {
       "id": "nri:10F:h4",
@@ -2055,7 +2277,10 @@
       ],
       "answer": 4,
       "explanation": "A. Estreitamento após a passagem de dispositivo não comprova trombo residual nem justifica automaticamente novas passagens.\nB. Estreitamento vascular não demonstra reperfusão completa; é necessário avaliar o fluxo distal.\nC. Dissecção pode ocorrer em vasos pediátricos, especialmente após manipulação endovascular.\nD. O achado exige interpretação angiográfica cuidadosa e, quando apropriado, avaliação adicional.\nE. Vasoespasmo, dissecção e arteriopatia subjacente são diagnósticos diferenciais importantes.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 16.9, Pediatric Ischemic Stroke, PDF anexo, p. 968–974."
+      }
     },
     {
       "id": "nri:10F:h5",
@@ -2070,7 +2295,10 @@
       ],
       "answer": 1,
       "explanation": "A. A estenose terminal na doença moyamoya é uma arteriopatia progressiva, não necessariamente trombo embólico.\nB. A arteriopatia subjacente altera o risco e a viabilidade da trombectomia; é necessário distinguir estenose crônica de oclusão tromboembólica aguda.\nC. A circulação colateral pode compensar parcialmente o fluxo, mas não elimina o risco de isquemia.\nD. Trombectomia não é obrigatória para todas as estenoses terminais associadas a moyamoya.\nE. Vasos estreitados e colaterais frágeis podem aumentar os riscos da manipulação endovascular.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 16.9, Pediatric Ischemic Stroke, PDF anexo, p. 968–974."
+      }
     },
     {
       "id": "nri:10F:d1",
@@ -2086,12 +2314,15 @@
       "answer": 0,
       "explanation": "As recomendações pediátricas têm linhas distintas por idade e exigem seleção clínica e radiológica apropriada.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "AHA/ASA 2026, diretriz de AVC isquêmico agudo, § 4.7.5, recomendações e justificativa para trombectomia pediátrica."
+      }
     },
     {
       "id": "nri:10F:d2",
       "lesson": "10F",
-      "prompt": "No contexto de AVC e trombectomia pediátricos, qual alternativa descreve corretamente «Cardiopatia congênita»?",
+      "prompt": "Na investigação etiológica de AVC pediátrico, qual mecanismo relaciona certas cardiopatias congênitas ao infarto cerebral?",
       "options": [
         "Série retrospectiva sobre trombectomia pediátrica, com limites de seleção e causalidade.",
         "Contexto que pode aumentar risco embólico na infância.",
@@ -2101,7 +2332,10 @@
       ],
       "answer": 1,
       "explanation": "Cardiopatia congênita. Contexto que pode aumentar risco embólico na infância.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 16.9, Pediatric Ischemic Stroke, PDF anexo, p. 968–974."
+      }
     },
     {
       "id": "nri:10F:d3",
@@ -2116,7 +2350,10 @@
       ],
       "answer": 1,
       "explanation": "Calibre vascular pediátrico. Condiciona seleção de introdutores, guias e dispositivos.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, diretriz de AVC isquêmico agudo, § 4.7.5, recomendações e justificativa para trombectomia pediátrica."
+      }
     },
     {
       "id": "nri:10F:d4",
@@ -2131,7 +2368,10 @@
       ],
       "answer": 0,
       "explanation": "Save ChildS. Série retrospectiva sobre trombectomia pediátrica, com limites de seleção e causalidade.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, § 4.7.5, evidência de suporte: Save ChildS retrospectivo e Save ChildS Pro prospectivo."
+      }
     },
     {
       "id": "nri:10F:d5",
@@ -2146,7 +2386,10 @@
       ],
       "answer": 4,
       "explanation": "RM com difusão. Ajuda a confirmar isquemia em crianças quando disponível sem atraso inadequado.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 16.9, Pediatric Ischemic Stroke, PDF anexo, p. 968–974."
+      }
     },
     {
       "id": "nri:10F:d6",
@@ -2161,7 +2404,10 @@
       ],
       "answer": 3,
       "explanation": "Baixa certeza pediátrica. Motivo para avaliação individualizada e equipe experiente.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, diretriz de AVC isquêmico agudo, § 4.7.5, recomendações e justificativa para trombectomia pediátrica."
+      }
     },
     {
       "id": "nri:10F:r1",
@@ -2176,7 +2422,10 @@
       ],
       "answer": 2,
       "explanation": "Arteriopatia cerebral focal. Etiologia pediátrica relevante de estenose e AVC.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 16.9, Pediatric Ischemic Stroke, PDF anexo, p. 968–974."
+      }
     },
     {
       "id": "nri:10G:h1",
@@ -2191,7 +2440,10 @@
       ],
       "answer": 4,
       "explanation": "A. A presença anatômica da ACI contralateral não garante circulação colateral suficiente para tolerar o sacrifício carotídeo.\nB. A embolização por partículas da artéria maxilar não trata adequadamente um pseudoaneurisma da ACI cavernosa.\nC. Um BTO tolerado reduz a preocupação com insuficiência hemodinâmica, mas não elimina o risco de isquemia tardia ou eventos tromboembólicos.\nD. O mecanismo traumático não dispensa avaliação da circulação colateral antes de uma oclusão planejada.\nE. A avaliação colateral e da tolerância à oclusão é fundamental quando se considera o sacrifício arterial, reconhecendo as limitações do BTO.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Balloon Test Occlusion e suas limitações, PDF anexo, p. 230–235."
+      }
     },
     {
       "id": "nri:10G:h2",
@@ -2206,7 +2458,10 @@
       ],
       "answer": 1,
       "explanation": "A. Uma FAVD não precisa apresentar nidus parenquimatoso para causar hemorragia intracraniana.\nB. O refluxo venoso cortical pode provocar hipertensão venosa, ectasia e ruptura das veias de drenagem, resultando em hemorragia intraparenquimatosa.\nC. O refluxo venoso cortical é um marcador de comportamento agressivo e maior risco hemorrágico.\nD. Ectasia venosa não demonstra trombose obrigatória da artéria meníngea média.\nE. Redução parcial do fluxo não garante cura nem eliminação do risco de ressangramento.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.3, Dural Arteriovenous Fistulas, PDF anexo, p. 411–414."
+      }
     },
     {
       "id": "nri:10G:h3",
@@ -2221,7 +2476,10 @@
       ],
       "answer": 3,
       "explanation": "A. Continuar passagens diante de extravasamento pode agravar a hemorragia.\nB. Trombólise intra-arterial não é a resposta habitual a uma perfuração e pode aumentar o sangramento.\nC. Estabilidade hemodinâmica inicial não exclui hemorragia intracraniana grave.\nD. O extravasamento deve levantar suspeita de perfuração vascular, exigindo interrupção da manobra, controle hemorrágico e estabilização.\nE. Extravasamento para fora do lúmen arterial não representa reperfusão tecidual bem-sucedida.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Thrombolysis/Thrombectomy Complications: Management, PDF anexo, p. 508–510."
+      }
     },
     {
       "id": "nri:10G:h4",
@@ -2236,7 +2494,10 @@
       ],
       "answer": 0,
       "explanation": "A. Dispositivos reconstrutivos, especialmente stents intracranianos, frequentemente exigem terapia antiplaquetária, o que pode aumentar o risco e a complexidade do manejo hemorrágico.\nB. Stents podem sofrer trombose, especialmente quando há problemas de aposição ou tratamento antitrombótico inadequado.\nC. A reconstrução exige avaliação de ramos arteriais que podem ser cobertos ou comprometidos pelo dispositivo.\nD. O desvio de fluxo geralmente promove exclusão progressiva da lesão e não garante hemostasia imediata.\nE. A escolha entre reconstrução e sacrifício depende da anatomia, das colaterais, da lesão e do contexto clínico.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.5, Embolization for Treatment of Acute Bleeding e sangramento de cabeça e pescoço, PDF anexo, p. 419–423 e 448–450."
+      }
     },
     {
       "id": "nri:10G:h5",
@@ -2251,7 +2512,10 @@
       ],
       "answer": 2,
       "explanation": "A. O ramo faríngeo não apresenta uma via direta obrigatória para a ACA.\nB. O tronco neuromeníngeo pertence ao território da artéria faríngea ascendente e não nasce habitualmente da oftálmica.\nC. A embolização desse território pode comprometer nervos cranianos baixos e, por anastomoses perigosas, estruturas intracranianas.\nD. Trombose isolada do seio sagital superior não é consequência característica ou exclusiva da embolização neuromeníngea.\nE. Ramos neuromeníngeos podem nutrir nervos cranianos e outras estruturas normais, não apenas o tumor.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, ramos da artéria faríngea ascendente e nervos cranianos baixos, PDF anexo, p. 148–151."
+      }
     },
     {
       "id": "nri:10G:c1",
@@ -2266,7 +2530,10 @@
       ],
       "answer": 0,
       "explanation": "A associação entre trauma, lesão focal e sangramento tardio favorece pseudoaneurisma do ramo lesado.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.5, Embolization for Treatment of Acute Bleeding e sangramento de cabeça e pescoço, PDF anexo, p. 419–423 e 448–450."
+      }
     },
     {
       "id": "nri:10G:d1",
@@ -2281,7 +2548,10 @@
       ],
       "answer": 1,
       "explanation": "Pseudoaneurisma traumático. Pode surgir tardiamente após lesão arterial e causar hemorragia recorrente.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.5, Embolization for Treatment of Acute Bleeding e sangramento de cabeça e pescoço, PDF anexo, p. 419–423 e 448–450."
+      }
     },
     {
       "id": "nri:10G:d2",
@@ -2296,7 +2566,10 @@
       ],
       "answer": 1,
       "explanation": "Teste de oclusão por balão. Estima tolerância à oclusão de um vaso parental.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Balloon Test Occlusion e suas limitações, PDF anexo, p. 230–235."
+      }
     },
     {
       "id": "nri:10G:d3",
@@ -2311,7 +2584,10 @@
       ],
       "answer": 4,
       "explanation": "Falso negativo no teste de oclusão. Possível porque tolerância breve não elimina risco isquêmico tardio.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Balloon Test Occlusion e suas limitações, PDF anexo, p. 230–235."
+      }
     },
     {
       "id": "nri:10G:d4",
@@ -2326,7 +2602,10 @@
       ],
       "answer": 3,
       "explanation": "Sacrifício de vaso parental. Depende da reserva colateral, território e alternativas reconstrutivas.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Balloon Test Occlusion e suas limitações, PDF anexo, p. 230–235."
+      }
     },
     {
       "id": "nri:10G:d5",
@@ -2341,7 +2620,10 @@
       ],
       "answer": 0,
       "explanation": "Hemorragia tumoral. Exige localizar o pedículo fonte e distinguir território tumoral e suprimento funcional.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Tips on Specific Diseases, embolização em epistaxe e tumores, PDF anexo, p. 446–450."
+      }
     },
     {
       "id": "nri:10G:d6",
@@ -2356,7 +2638,10 @@
       ],
       "answer": 0,
       "explanation": "Embolização em epistaxe. Requer reconhecer conexões orbitárias e intracranianas antes de tratar.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Tips on Specific Diseases, embolização em epistaxe e tumores, PDF anexo, p. 446–450."
+      }
     },
     {
       "id": "nri:10G:r1",
@@ -2371,7 +2656,10 @@
       ],
       "answer": 3,
       "explanation": "Pseudoaneurisma traumático. Pode surgir tardiamente após lesão arterial e causar hemorragia recorrente.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.5, Embolization for Treatment of Acute Bleeding e sangramento de cabeça e pescoço, PDF anexo, p. 419–423 e 448–450."
+      }
     },
     {
       "id": "nri:10H:h1",
@@ -2386,7 +2674,10 @@
       ],
       "answer": 3,
       "explanation": "A. Embolizar todos os pedículos pode causar isquemia de tecido cerebral ou de nervos cranianos supridos por vasos compartilhados.\nB. Pedículos piais irrigam tecido cerebral e não são automaticamente mais seguros que pedículos durais.\nC. Suprimento vascular misto não contraindica absolutamente a embolização; podem existir pedículos durais tratáveis com segurança.\nD. A estratégia é selecionar os pedículos seguros e acessíveis, preservando ramos piais e neurais de risco.\nE. Oclusão proximal da ACI não é uma medida habitual de preparação para embolização de meningioma e pode provocar isquemia grave.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10H:h2",
@@ -2401,7 +2692,10 @@
       ],
       "answer": 0,
       "explanation": "A. Ramos jugulares e hipoglossos do tronco neuromeníngeo podem nutrir nervos cranianos baixos, com risco de neuropatia isquêmica após embolização.\nB. O tronco neuromeníngeo origina-se da artéria faríngea ascendente, não habitualmente da oftálmica.\nC. Não existe infarto obrigatório da ACA em razão dessa origem arterial.\nD. O risco não se restringe à artéria central da retina; neuropatias e isquemia intracraniana são preocupações relevantes.\nE. Os ramos neuromeníngeos irrigam estruturas normais, incluindo nervos cranianos, além de possíveis lesões tumorais.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, ramos da artéria faríngea ascendente e nervos cranianos baixos, PDF anexo, p. 148–151."
+      }
     },
     {
       "id": "nri:10H:h3",
@@ -2416,7 +2710,10 @@
       ],
       "answer": 2,
       "explanation": "A. A embolização reduz o suprimento das membranas do hematoma; não evacua imediatamente a coleção.\nB. O MAGIC-MT não demonstrou significância estatística convencional no desfecho primário.\nC. EMBOLISE e STEM demonstraram benefício nos respectivos desfechos primários, que diferem em definição e população estudada.\nD. A oclusão da artéria oftálmica é uma complicação grave, não um objetivo da embolização da AMM.\nE. A embolização pode atuar na neovascularização das membranas mesmo sem extravasamento angiográfico ativo.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "LINNC Trials Book 2026, cap. 18, EMBOLISE, MAGIC-MT e STEM, pp. impressas 230, 233 e 236."
+      }
     },
     {
       "id": "nri:10H:h4",
@@ -2431,7 +2728,10 @@
       ],
       "answer": 4,
       "explanation": "A. Estenose terminal em moyamoya decorre de arteriopatia crônica e não equivale necessariamente a trombo removível.\nB. Circulação colateral não elimina os riscos de perfuração, dissecção ou lesão isquêmica.\nC. Moyamoya é uma causa importante de isquemia cerebral, mesmo na presença de colaterais.\nD. A trombectomia não é obrigatória para toda estenose da ACI; sua indicação depende da identificação de uma oclusão aguda tratável e do contexto clínico.\nE. É fundamental diferenciar arteriopatia preexistente de tromboembolismo agudo antes de indicar uma intervenção mecânica.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 16.9, Pediatric Ischemic Stroke, PDF anexo, p. 968–974."
+      }
     },
     {
       "id": "nri:10H:h5",
@@ -2446,7 +2746,10 @@
       ],
       "answer": 1,
       "explanation": "A. Redução do fluxo não garante cura se persistir drenagem cortical arterializada.\nB. A persistência do refluxo venoso cortical mantém uma via patológica de hipertensão venosa e pode preservar o risco hemorrágico.\nC. Uma FAVD não necessita de nidus parenquimatoso para produzir hemorragia intracraniana.\nD. Ectasia venosa associada a drenagem cortical é um achado de comportamento agressivo, não um marcador de benignidade.\nE. Refluxo cortical residual não comprova trombose da AMM; indica persistência da drenagem arteriovenosa patológica.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.3, Dural Arteriovenous Fistulas, PDF anexo, p. 411–414."
+      }
     },
     {
       "id": "nri:10H:d1",
@@ -2462,22 +2765,28 @@
       "answer": 2,
       "explanation": "O objetivo de devascularizar o tumor deve ser ponderado com a irrigação funcional. A contribuição pial pode também suprir tecido cerebral normal.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     },
     {
       "id": "nri:10H:d2",
       "lesson": "10H",
-      "prompt": "No contexto de Casos de tumores, epistaxe e intervenções especiais, qual alternativa descreve corretamente «Artéria oftálmica recrutada no tumor»?",
+      "prompt": "Um meningioma recebe um pedículo da artéria oftálmica. Qual relação anatômica explica especificamente o risco de isquemia retiniana?",
       "options": [
         "Pode indicar pseudoaneurisma da maxilar interna ou outro ramo lesado.",
         "Torna mais complexa a análise da segurança de uma estratégia embólica.",
-        "Pode compartilhar o trajeto com a artéria central da retina.",
+        "A artéria central da retina costuma nascer da oftálmica, e o embolizante pode alcançar sua origem por refluxo ou comunicação arterial.",
         "Marcador angiográfico de redução de fluxo que deve ser interpretado com a segurança do território.",
         "Deve levantar hipótese de comprometimento da arcada facial."
       ],
       "answer": 2,
-      "explanation": "Artéria oftálmica recrutada no tumor. Pode compartilhar o trajeto com a artéria central da retina.",
-      "origin": "revisão"
+      "explanation": "A origem e o território da artéria central da retina devem ser definidos em relação ao pedículo tumoral. A continuidade arterial permite embolização ocular não alvo.",
+      "origin": "revisão",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, artéria oftálmica, blush coroideano e conexões orbitárias, PDF anexo, p. 48–51 e 142–145."
+      }
     },
     {
       "id": "nri:10H:d3",
@@ -2492,7 +2801,11 @@
       ],
       "answer": 2,
       "explanation": "Hematoma subdural com compressão aguda. Em geral demanda priorizar avaliação da necessidade de descompressão.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "UpToDate. Subdural hematoma in adults: Management and prognosis; consenso de Copenhague, resultados sobre evacuação com efeito de massa (PMID 41981236).",
+        "url": "https://www.uptodate.com/contents/subdural-hematoma-in-adults-prognosis-and-management"
+      }
     },
     {
       "id": "nri:10H:d4",
@@ -2507,7 +2820,10 @@
       ],
       "answer": 4,
       "explanation": "Hemorragia maciça tardia após trauma de face. Pode indicar pseudoaneurisma da maxilar interna ou outro ramo lesado.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.5, Embolization for Treatment of Acute Bleeding e sangramento de cabeça e pescoço, PDF anexo, p. 419–423 e 448–450."
+      }
     },
     {
       "id": "nri:10H:d5",
@@ -2517,12 +2833,15 @@
         "Marcador angiográfico de redução de fluxo que deve ser interpretado com a segurança do território.",
         "Torna mais complexa a análise da segurança de uma estratégia embólica.",
         "Pode indicar pseudoaneurisma da maxilar interna ou outro ramo lesado.",
-        "Deve levantar hipótese de comprometimento da arcada facial.",
+        "Deve levantar hipótese de comprometimento da arcada arterial do nervo facial.",
         "Pode compartilhar o trajeto com a artéria central da retina."
       ],
       "answer": 3,
-      "explanation": "Paresia facial após embolização. Deve levantar hipótese de comprometimento da arcada facial.",
-      "origin": "revisão"
+      "explanation": "Paresia facial após embolização. Deve levantar hipótese de comprometimento da arcada arterial do nervo facial.",
+      "origin": "revisão",
+      "reference": {
+        "label": "Krings et al. Neurovascular Anatomy in Interventional Neuroradiology, irrigação do nervo facial, PDF anexo, p. 154–159."
+      }
     },
     {
       "id": "nri:10H:d6",
@@ -2537,7 +2856,10 @@
       ],
       "answer": 4,
       "explanation": "Nasoangiofibroma com aferência de ACI. Torna mais complexa a análise da segurança de uma estratégia embólica.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., Tips on Specific Diseases, embolização em epistaxe e tumores, PDF anexo, p. 446–450."
+      }
     },
     {
       "id": "nri:10H:r1",
@@ -2552,7 +2874,10 @@
       ],
       "answer": 0,
       "explanation": "Perda do blush tumoral. Marcador angiográfico de redução de fluxo que deve ser interpretado com a segurança do território.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Harrigan e Deveikis. Handbook, 4ª ed., § 6.4, Tumor Embolization, estratégia e complicações, PDF anexo, p. 415–418."
+      }
     }
   ],
   "references": [

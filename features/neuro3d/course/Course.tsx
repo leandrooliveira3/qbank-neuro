@@ -10,6 +10,7 @@ import {
 } from './model';
 import './course.css';
 import { formatLesson } from './lessonLayout';
+import LessonFigures from './LessonFigures';
 
 const OriginalMaterial = lazy(() => import('./OriginalMaterial'));
 const originalSections = [
@@ -228,11 +229,12 @@ export default function Course() {
           <p>O bloco não carregou nesta sessão.</p>
           <button type="button" onClick={() => window.location.reload()}>Recarregar curso</button>
         </div>}
-        {data && mode === 'questoes' && <Quiz key={`${block.id}:${selected}`} questions={questions} attempts={course.attempts}
+        {data && mode === 'questoes' && <Quiz key={`${block.id}:${selected}`} questions={questions} blockId={block.id} attempts={course.attempts}
           onGrade={grade} blockWide={blockWide} onBlock={() => setParams(new URLSearchParams({ bloco: String(block.id), modulo: 'todos', estudo: 'questoes' }))} />}
         {lesson && mode === 'teoria' && <>
           <p className="nri-original-source"><Link to={`${courseLink(block.id, lesson.id, 'material')}&figuras=1`} onClick={follow}>Figuras e esquemas do material original</Link></p>
           <LessonArticle key={lesson.id} lesson={lesson} />
+          <LessonFigures key={`figures-${lesson.id}`} block={block.id} lesson={lesson.id} />
         </>}
         {lesson && mode === 'material' && <Suspense fallback={<p role="status">Abrindo material…</p>}>
           <OriginalMaterial key={`${lesson.id}:${params.get('figuras')}`} id={lesson.id} figures={params.get('figuras') === '1'} />
@@ -269,7 +271,9 @@ export default function Course() {
         <summary>Checkpoints e material complementar</summary>
         <ul>{originalSections.map(([id, title]) => <li key={id}>
           <Link to={`/tools/nri?material=${id}`} aria-current={supplemental?.[0] === id ? 'page' : undefined}>{title}</Link>
-        </li>)}</ul>
+        </li>)}
+          <li><a href={`${import.meta.env.BASE_URL}nri-material/flashcards-blocos-1-a-8.json`} download>Baixar 160 flashcards dos blocos 1–8</a></li>
+        </ul>
       </details>}
       <details className="nri-course-import">
         <summary><FileUp size={16} aria-hidden="true" /> Importar questões JSON</summary>
@@ -326,8 +330,9 @@ function LessonArticle({ lesson }: { lesson: Lesson }) {
   </article>;
 }
 
-function Quiz({ questions, attempts, onGrade, blockWide, onBlock }: {
+function Quiz({ questions, blockId, attempts, onGrade, blockWide, onBlock }: {
   questions: CourseQuestion[];
+  blockId: number;
   attempts: CourseState['attempts'];
   onGrade: (question: CourseQuestion, choice: number) => void;
   blockWide: boolean;
@@ -372,9 +377,12 @@ function Quiz({ questions, attempts, onGrade, blockWide, onBlock }: {
     {answer && <section className="nri-course-feedback" aria-live="polite">
       <strong>{answer.correct ? 'Resposta correta.' : 'Resposta incorreta.'} Gabarito {letter(question.answer)}.</strong>
       <p>{question.explanation}</p>
-      {question.reference?.url && <p><a href={question.reference.url} target="_blank" rel="noreferrer">
-        {question.reference.label}
-      </a></p>}
+      {question.reference && <p>{question.reference.url
+        ? <a href={question.reference.url} target="_blank" rel="noreferrer">{question.reference.label}</a>
+        : question.reference.label}</p>}
+      {!question.reference?.url && question.origin !== 'importada' && <p>
+        <Link to={courseLink(blockId, question.lesson, 'revisao')}>Consultar a revisão e as referências da aula {question.lesson}</Link>
+      </p>}
       <small>{question.origin === 'histórico' ? 'Questão autoral recuperada do curso' : question.origin === 'revisão' ? 'Questão autoral de revisão' : 'Questão importada'}</small>
     </section>}
     <div className="nri-course-quizbar">

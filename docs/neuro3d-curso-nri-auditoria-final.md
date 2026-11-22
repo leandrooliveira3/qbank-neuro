@@ -1,5 +1,13 @@
 # Curso NRI 2027 · auditoria curricular e visual
 
+## 22/11/2026 — Conferência das aulas, figuras e questões
+
+As 120 aulas foram percorridas em desktop e celular. A galeria das aulas abriu 629 imagens, incluindo 70 figuras vetoriais recuperadas dos PDFs. O leitor do material integral também indexa os esquemas da aula. A troca de aula foi corrigida para remover o texto anterior. O catálogo oferece o arquivo original de 160 flashcards dos blocos 1 a 8.
+
+A revisão dos 13 blocos recuperou 184 justificativas históricas afetadas pela extração de colunas e removeu 25 duplicações em alternativas da aula 13.6. Os revisores corrigiram a questão 8C:h1, o conteúdo pediátrico dos blocos 10 e 13 e a descrição do desfecho do EMBOLISE-2 na aula 12.11. A questão 8C:h1 recebeu nova versão de tentativa.
+
+Os 1.300 itens têm localizador no comentário. Os localizadores dos blocos 7 e 8 apontam, em parte, para a página da aula de origem. Nos blocos 9 a 13 também há capítulos, tabelas, diretrizes e ensaios vinculados aos itens. A conferência científica concentrou-se nas inconsistências identificadas. O TATAM, por exemplo, passou a ser descrito como ensaio em MAV cerebral, conforme a p. 218 do LINNC. O registro disponível cobre as figuras incorporadas nas exportações. Figuras que só existiam em links ou anexos ausentes dependem da fonte original.
+
 ## Blocos 1–6
 
 As trilhas anteriores registram 52 aulas e 600 questões. Os planos de revisão de cada aula de fechamento foram conferidos e reaproveitados na interface de revisão de cada bloco. A conferência em navegador usa as mesmas rotas do catálogo, os dois formatos de leitura e o banco de questões.

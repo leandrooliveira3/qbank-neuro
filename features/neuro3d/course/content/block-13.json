@@ -478,15 +478,15 @@
         },
         {
           "concept": "IVT pediátrica",
-          "takeaway": "28 dias–18 anos, até 4,5 h: 2b/C-LD"
+          "takeaway": "28 dias–18 anos, AVC isquêmico confirmado e déficit incapacitante até 4,5 h: considerar alteplase IV, 2b/C-LD; eficácia incerta"
         },
         {
           "concept": "EVT pediátrica ≥6 anos",
           "takeaway": "Até 6 h e 6–24 h selecionados: 2a/B-NR"
         },
         {
-          "concept": "EVT pediátrica &lt;6 anos",
-          "takeaway": "Até 24 h selecionados: 2b/B-NR"
+          "concept": "EVT pediátrica de 28 dias a menos de 6 anos",
+          "takeaway": "OGV sintomática até 24 h, tecido recuperável e operador com experiência pediátrica: 2b/B-NR"
         },
         {
           "concept": "Triagem de disfagia antes de alimentar",
@@ -541,7 +541,7 @@
           "takeaway": "Separe em sequência as recomendações pediátricas das medidas gerais de internação e indique em quais grupos a evidência é limitada."
         }
       ],
-      "theory": "## AVC pediátrico e cuidados hospitalares\n\nFonte principal: diretriz AHA/ASA 2026 anexada, seções 3.2, 4.6.1, 4.7.5, 5.1–5.7 e 6.1–6.5.\n\nAtualização essencial: identifiquei uma correção oficial publicada em agosto de 2026 que modifica recomendações de disfagia do PDF original de janeiro. Nesta aula, utilizarei a versão corrigida nas recomendações afetadas, indicando explicitamente as mudanças. ahajournals… +1\n\n## 1. AVC pediátrico: a principal novidade da diretriz\n\nPela primeira vez, a diretriz de manejo precoce do AVCi apresenta recomendações específicas para trombólise e trombectomia na população pediátrica.\n\nNão se deve simplesmente aplicar os critérios de DAWN, DEFUSE 3 ou da trombólise adulta às crianças. Existem diferenças importantes de etiologia, anatomia vascular, apresentação clínica e qualidade da evidência.\n\nEtiologias que devem ser lembradas\n\n| Etiologia | Particularidade |\n| --- | --- |\n| Arteriopatia cerebral focal | Importante causa de AVC arterial pediátrico, muitas vezes com estenose unilateral |\n| Dissecção arterial | Pode ocorrer após trauma cervical ou espontaneamente |\n| Moyamoya | Estenose progressiva da circulação anterior e colaterais características |\n| Cardiopatia congênita ou adquirida | Fonte cardioembólica |\n| Doença falciforme | Vasculopatia e risco elevado de eventos isquêmicos |\n| Vasculopatias inflamatórias e infecciosas | Arteriopatias associadas a doenças sistêmicas ou infecções |\n\nEssas etiologias são contexto clínico complementar; as classes de recomendação abaixo pertencem à AHA/ASA 2026.\n\nQuadro clínico\n\nCrianças podem apresentar hemiparesia, afasia, ataxia, alteração visual, rebaixamento do nível de consciência ou crise epiléptica inaugural.\n\nA presença de crise epiléptica não deve conduzir automaticamente ao diagnóstico de paralisia de Todd. O AVC arterial precisa permanecer no diagnóstico diferencial.\n\nA PedNIHSS pode contribuir para quantificar os déficits, mas as escalas pediátricas ainda não apresentam a mesma validação abrangente das escalas adultas.\n\n## 2. Neuroimagem pediátrica\n\n| Recomendação | CO R | LOE |\n| --- | --- | --- |\n| RM cerebral e angio-RM cervical/intracraniana emergenciais para identificar isquemia, OGV, hemorragia e imitadores | 2a | C-LD |\n| TC/angio-TC emergenciais quando RM/angio-RM não estão imediatamente disponíveis, por exemplo, em até 25 minutos | 2a | C-LD no PDF anexado |\n\nA neuroimagem não deve ser atrasada indevidamente apenas para evitar radiação. A escolha exige protocolos pediátricos adequados, considerando disponibilidade, necessidade de sedação e urgência da decisão.\n\nPonto de prova: a RM é particularmente útil para identificar isquemia precoce e diferenciais, mas uma criança não deve perder a oportunidade de reperfusão por aguardar uma RM indisponível.\n\nNota de auditoria: algumas reproduções eletrônicas da diretriz indicam LOE B-R para a alternativa TC/angio-TC, enquanto o PDF traduzido anexado indica C-LD. Mantive a classificação do documento solicitado e sinalizei a divergência para evitar memorização sem ressalva. eguideline.… +1\n\n## 3. Trombólise intravenosa pediátrica\n\nAlteplase IV pediátrica COR 2b · C-LD\n\nA alteplase pode ser considerada em pacientes com idade entre 28 dias e 18 anos, AVC isquêmico confirmado, déficit incapacitante e apresentação em até 4,5 horas do início dos sintomas.\n\nA segurança disponível é considerada aceitável, mas a eficácia permanece incerta.\n\nDe onde vem a evidência?\n\nO ensaio TIPS — Thrombolysis in Pediatric Stroke foi planejado para estudar alteplase em crianças com AVC arterial, mas enfrentou dificuldades de recrutamento e não forneceu evidência randomizada conclusiva de eficácia.\n\nRegistros e séries observacionais contribuíram para a avaliação da segurança.\n\nDiferença para adultos: a recomendação pediátrica é COR 2b/C-LD, enquanto a IVT em adultos elegíveis na janela convencional recebe COR 1/A.\n\nSeleção prática\n\nCritérios centrais da recomendação:\n\n- Idade entre 28 dias e 18 anos.\n\n- Déficit neurológico incapacitante.\n\n- Confirmação de AVC isquêmico arterial.\n\n- Janela até 4,5 horas.\n\n- Avaliação por equipe experiente, com ponderação dos riscos hemorrágicos.\n\nSituações que impedem extrapolação direta: AVC hemorrágico, ausência de confirmação diagnóstica, apresentação fora dos critérios temporais e condições clínicas que elevem significativamente o risco da terapia.\n\nA dose e o protocolo pediátrico devem seguir avaliação especializada; a recomendação não estabelece equivalência irrestrita entre qualquer esquema adulto e pediátrico.\n\nahajournals… +1\n\n## 4. Trombectomia pediátrica\n\nEsta é a parte de maior relevância para NRI.\n\n| População | Janela | Seleção | COR / LOE |\n| --- | --- | --- | --- |\n| ≥6 anos | Até 6 h | AVCi com OGV e sintomas neurológicos agudos | 2a / B- NR |\n| ≥6 anos | 6–24 h | OGV com tecido potencialmente recuperável | 2a / B- NR |\n| 28 dias a menos de 6 anos | Até 24 h | OGV, sintomas agudos e tecido recuperável; operador com experiência pediátrica | 2b / B- NR |\n\nA recomendação para crianças com seis anos ou mais se baseia principalmente em dados observacionais e registros, não em ensaios pediátricos randomizados de fase III.\n\nSave ChildS e Save ChildS Pro\n\nOs registros Save ChildS e Save ChildS Pro contribuíram para demonstrar a viabilidade técnica da trombectomia em crianças, com resultados clínicos considerados promissores.\n\nO Save ChildS Pro é especialmente importante por reunir dados prospectivos multicêntricos.\n\nLimitação: séries e registros não eliminam viés de seleção. Crianças encaminhadas para EVT podem ter características diferentes das não tratadas.\n\nParticularidades técnicas\n\nEm crianças, devem ser considerados:\n\n- Menor calibre arterial e limitações de acesso.\n\n- Possibilidade de arteriopatias não embólicas, incluindo dissecção e vasculopatias.\n\n- Maior sensibilidade à perda sanguínea.\n\n- Escolha cuidadosa de introdutores, cateteres e dispositivos.\n\n- Sedação/anestesia por equipe pediátrica experiente.\n\n- Potencial influência do crescimento vascular e dos mecanismos etiológicos na interpretação\n\n- angiográfica.\n\nPegadinha: EVT pediátrica em criança menor de seis anos não é COR 1/A. A recomendação é 2b/B- NR, mesmo quando há OGV e tecido recuperável. eguideline.… +1\n\n## 5. Unidade de AVC e cuidados organizados\n\nA diretriz recomenda atendimento em unidade de AVC organizada, com equipe interdisciplinar treinada, para pacientes de todas as idades.\n\nCOR 1 / LOE B-R.\n\nA importância da unidade não está apenas na monitorização, mas na implementação consistente de cuidados como rastreamento de disfagia, prevenção de TEV, suporte nutricional, mobilização apropriada, reabilitação e identificação precoce de deterioração.\n\nEssas medidas têm impacto funcional e prognóstico mesmo quando a reperfusão arterial já foi realizada. Guideline Cent…\n\n## 6. Disfagia — Recomendações oficiais corrigidas\n\nA disfagia pós-AVC aumenta o risco de aspiração, pneumonia, desnutrição e internação prolongada.\n\nRecomendações\n\n| Conduta | CO R | LOE |\n| --- | --- | --- |\n| Triagem de deglutição antes de iniciar líquidos ou alimentos por via oral | 1 | C- EO |\n| Triagem por fonoaudiólogo ou outro profissional treinado | 2a | C- LD |\n| Avaliação instrumental se falhou ou não consegue participar da triagem clínica | 2a | B- NR |\n| Protocolo de higiene oral para reduzir pneumonia | 2b | B- NR |\n| Estimulação elétrica faríngea em paciente não traqueostomizado com disfagia | 2b | B-R |\n| Estimulação elétrica faríngea em AVC grave, com traqueostomia, após desmame ventilatório, para facilitar prontidão para decanulação | 2a | B-R |\n\nA correção publicada em agosto de 2026\n\nO documento original apresentava estimulação elétrica faríngea (PES) de forma mais ampla, com COR 2a para pacientes com disfagia.\n\nA correção oficial estabeleceu que:\n\n- Sem traqueostomia: PES pode ser razoável para melhorar a função de deglutição, avaliada por\n\n- instrumentos e escalas — COR 2b/B-R.\n\n- Com traqueostomia e AVC grave, após desmame ventilatório: PES é razoável para facilitar a\n\n- prontidão para decanulação, avaliada por endoscopia — COR 2a/B-R.\n\nTambém foi explicitada a possibilidade de avaliação instrumental por FEES ou videofluoroscopia quando a triagem à beira do leito é inadequada.\n\nEssas são modificações documentadas na correção oficial de agosto de 2026; para prova, prevalecem sobre a redação anterior do arquivo anexado. ahajournal… +1\n\nSequência clínica da avaliação da deglutição\n\nAVC agudo — antes da alimentação oral\n\nTriagem de deglutição por profissional treinado\n\n- Triagem satisfatória\n\nFalha ou impossibilidade\n\n- Definir alimentação oral segura segundo avaliação clínica\n\nAvaliação fonoaudiológica e instrumental quando apropriada\n\nPegadinha: uma triagem negativa não é exame instrumental de deglutição. A pesquisa de aspiração silenciosa pode exigir FEES ou videofluoroscopia, especialmente quando persistem suspeitas clínicas.\n\n## 7. Nutrição enteral — FOOD Trials\n\n| Recomendação | COR / LOE |\n| --- | --- |\n| Iniciar nutrição enteral em até 7 dias quando necessária | 1 / B-R |\n| Triagem nutricional preferencialmente nas primeiras 48 horas | 1 / B- NR |\n\nPreferir sonda nasogástrica inicialmente, reservando gastrostomia para disfagia com expectativa de persistência por mais de 2–3 semanas\n\n2a / B- NR\n\nO que os estudos FOOD mostraram?\n\n| Estud o | Pergunta | Resultado essencial |\n| --- | --- | --- |\n| FOO D 1 | Suplementação nutricional oral adicional | Sem melhora dos resultados principais na população estudada |\n| FOO D 2 | Nutrição enteral precoce versus adiamento | Tendência favorável ao início precoce, sem demonstração inequívoca em todos os desfechos |\n| FOO D 3 | Gastrostomia precoce versus sonda nasogástrica | Não demonstrou vantagem da gastrostomia precoce; houve resultados desfavoráveis no grupo PEG |\n\nPegadinha: a presença de disfagia importante no primeiro dia não determina gastrostomia imediata. A previsão de recuperação da deglutição e a duração esperada da necessidade de suporte são fundamentais.\n\n## 8. Profilaxia de tromboembolismo venoso\n\nO paciente com AVC incapacitante e mobilidade reduzida apresenta risco de trombose venosa profunda e embolia pulmonar.\n\n| Estratégia | COR / LOE |\n| --- | --- |\n| Compressão pneumática intermitente (CPI) em pacientes imobilizados, sem contraindicação | 1 / B-R |\n| Heparina não fracionada ou HBPM em dose profilática, em pacientes selecionados | 2a / B-R |\n| Benefício de heparina profilática para aumentar sobrevida global | 2b / A, incerto |\n| Superioridade da HBPM sobre HNF na prevenção de TVP | 2b / B-R, incerta |\n| Meias elásticas de compressão graduada para pacientes imobilizados após AVC | COR 3 — dano / B-R |\n\nCLOTS 3\n\nDesenho: ensaio randomizado com 2.876 pacientes com AVC agudo e mobilidade reduzida.\n\nIntervenção: compressão pneumática intermitente associada aos cuidados habituais.\n\nControle: cuidados habituais sem compressão pneumática.\n\nPrimário: TVP proximal identificada por rastreamento ou TVP sintomática nos primeiros 30 dias.\n\nResultado: aproximadamente 8,5% versus 12,1%, favorecendo compressão pneumática intermitente.\n\nPegadinha: compressão pneumática não é equivalente a meias elásticas. As recomendações são opostas. Guideline Cent…\n\n## 9. Edema cerebral maligno\n\nO edema após grandes infartos hemisféricos e cerebelares pode causar deterioração neurológica por efeito de massa, herniação e hipertensão intracraniana.\n\nA monitorização intensiva é particularmente importante nos primeiros dias, com grande parte da deterioração ocorrendo nas primeiras 48 horas.\n\nRecomendações gerais\n\n| Recomendação | COR / LOE |\n| --- | --- |\n| Discussão precoce de prognóstico e preferências do paciente com familiares | 1 / C-EO |\n| Monitorização rigorosa em grandes infartos com risco de edema | 1 / C-EO |\n| Transferência precoce para centro com neurocirurgia e cuidados neurocríticos | 1 / C-LD |\n| Terapia osmótica como ponte para intervenção cirúrgica em deterioração por edema | 2a / C-LD |\n| Glibenclamida intravenosa para melhorar desfechos de grandes infartos na população estudada | 3 — sem benefício / B- R |\n| Hipotermia, barbitúricos ou corticosteroides para tratar o edema de grandes infartos | 3 — dano / C-LD |\n\nTerapia osmótica\n\nManitol e solução salina hipertônica podem reduzir temporariamente a pressão intracraniana, mas não devem atrasar a avaliação neurocirúrgica quando há indicação de descompressão.\n\nOs estudos não estabeleceram superioridade universal de manitol sobre solução hipertônica ou vice- versa.\n\nCHARM\n\nO CHARM investigou glibenclamida intravenosa em pacientes com grandes infartos hemisféricos e risco de edema.\n\nSeleção: grandes núcleos isquêmicos, incluindo ASPECTS 1–5 ou volume de infarto elevado em neuroimagem.\n\nComparação: glibenclamida IV versus placebo.\n\nPrimário: distribuição da mRS em 90 dias.\n\nResultado: sem melhora funcional significativa, com OR ajustada 1,17; IC95% 0,80–1,71.\n\nConclusão: não se recomenda glibenclamida IV para melhorar os desfechos funcionais nessa população.\n\n## 10. Hemicraniectomia descompressiva — DECIMAL, DESTINY e HAMLET\n\nEsses ensaios estabeleceram o benefício da descompressão precoce na síndrome de infarto maligno da artéria cerebral média.\n\nRecomendações AHA/ASA 2026\n\n| Situação | COR / LOE |\n| --- | --- |\n| Redução do nível de consciência atribuída ao edema como critério para considerar hemicraniectomia | 2a / B-NR |\n| Idade ≤60 anos, infarto unilateral de ACM e deterioração em até 48 h apesar do tratamento clínico | 1 / A |\n| Idade &gt;60 anos, mesma situação | 2b / B-R, para redução de mortalidade |\n| Edema maligno após trombólise IV, apesar do tratamento clínico | 2b / B-NR, considerar cirurgia até 48 h |\n\neguideline.gui…\n\nOs ensaios clássicos\n\n| Ensai o | População e desenho | Conclusão |\n| --- | --- | --- |\n| DECIM AL | Pacientes relativamente jovens com infarto maligno extenso de ACM; cirurgia precoce versus tratamento clínico | Redução importante da mortalidade |\n| DESTI NY I | Infarto maligno de ACM em pacientes jovens; descompressão precoce | Benefício de sobrevida |\n| HAML ET | Infarto maligno de ACM; cirurgia versus tratamento clínico, admitindo janela mais longa | Benefício mais evidente quando operado precocemente |\n| DESTI NY II | Pacientes acima de 60 anos | Redução de mortalidade, porém muitos sobreviventes com incapacidade importante |\n\nCritérios e limitações fundamentais\n\nOs estudos de pacientes jovens selecionaram grandes infartos de ACM com alto risco de edema, frequentemente associados a NIHSS elevado, lesões extensas e deterioração da consciência.\n\nA descompressão realizada em até 48 horas reúne a evidência mais robusta.\n\nNo DESTINY II, entre pacientes acima de 60 anos, houve redução de mortalidade, mas sem demonstração correspondente de independência funcional.\n\nPegadinha: para pacientes jovens, a recomendação é COR 1/A, buscando reduzir mortalidade e melhorar resultados funcionais. Para pacientes acima de 60 anos, é COR 2b/B-R, sobretudo pela redução de mortalidade.\n\nIsso não é uma restrição puramente cronológica; os objetivos do tratamento e a possibilidade de sobreviver com incapacidade importante precisam ser discutidos.\n\n## 11. Infarto cerebelar: DVE ou craniectomia suboccipital?\n\nEste tópico frequentemente diferencia candidatos que decoram diretrizes daqueles que compreendem neuroanatomia aplicada.\n\nCOMPLICAÇÕES DO INFARTO CEREBELAR EXTENSO\n\nEdema cerebelar\n\n- Compressão do IV ventrículo\n\nCompressão do tronco cerebral\n\n- Hidrocefalia obstrutiva\n\nDeterioração neurológica e risco de herniação\n\nRecomendações\n\n| Situação | Conduta | COR / LOE |\n| --- | --- | --- |\n| Infarto cerebelar com hidrocefalia obstrutiva | Ventriculostomia; avaliar necessidade de descompressão concomitante ou subsequente | 1 / C- LD |\n| Deterioração por compressão do tronco encefálico ou volume de infarto ≥35 mL | Craniectomia suboccipital com expansão dural | 1 / B- NR |\n\nA derivação liquórica isolada pode ser suficiente em algumas situações, mas é necessária atenção ao risco de herniação ascendente e ao efeito de massa persistente na fossa posterior.\n\nPegadinha: DVE trata a hidrocefalia; craniectomia suboccipital trata a compressão expansiva da fossa posterior. Uma intervenção não substitui universalmente a outra.\n\n## 12. Outras complicações hospitalares\n\n| Tema | Recomendação | COR / LOE |\n| --- | --- | --- |\n| Antibióticos profiláticos sem infecção estabelecida | Não melhoram desfecho funcional | 3 — sem benefício / A |\n| Cateter vesical de demora rotineiro | Evitar pelo risco de infecção | 3 — dano / C-LD |\n| Anticonvulsivantes profiláticos sem crises | Não recomendados | 3 — sem benefício / C-LD |\n| Reabilitação interdisciplinar apropriada durante a internação | Recomendada | 1 / A |\n| Mobilização intensiva muito precoce, nas primeiras 24 h | Pode ser prejudicial | 3 — dano / B-R |\n| ISRS para melhorar recuperação motora em pacientes não selecionados | Sem benefício | 3 — sem benefício / A |\n| Rastreamento estruturado de depressão pós-AVC | Recomendado | 1 / B-NR |\n\nEnsaios que explicam essas recomendações\n\nPASS, STROKE-INF e PRECIOUS: não demonstraram melhora funcional com uso rotineiro de antibióticos profiláticos após AVC.\n\nAVERT: demonstrou que mobilização muito precoce e em alta intensidade pode comprometer resultados funcionais.\n\nFOCUS, AFFINITY e EFFECTS: não demonstraram benefício funcional da fluoxetina como estratégia universal de recuperação pós-AVC.\n\nPegadinha: iniciar reabilitação apropriada não significa realizar mobilização de alta intensidade nas primeiras horas em todos os pacientes.\n\nGuideline Cent…\n\n## 13. O que mudou em relação a 2019?\n\n| Tema | Evolução na AHA/ASA 2026 |\n| --- | --- |\n| AVC pediátrico | Recomendações explícitas para IVT e EVT conforme idade, janela e evidência disponível |\n| Trombectomia pediátrica | Diferencia ≥6 anos de crianças menores de seis anos |\n| Disfagia | Incorpora avaliação da PES em contextos específicos, com redação posteriormente corrigida em agosto de 2026 |\n| Edema maligno | Mantém o papel decisivo da descompressão e incorpora evidência negativa do CHARM |\n| Infarto cerebelar | Especifica melhor os cenários de hidrocefalia, compressão do tronco e grande volume |\n\nCuidados hospitalares\n\nConsolida a prevenção de TEV, os cuidados nutricionais, a reabilitação e a prevenção de intervenções sem benefício\n\nA comparação destaca as principais mudanças e consolidações da ementa; nem todos os cuidados hospitalares são novidades absolutas em relação a 2019.\n\n## 14. Quadro de memorização obrigatória\n\n| Conceito | Número ou recomendação |\n| --- | --- |\n| IVT pediátrica | 28 dias–18 anos, até 4,5 h: 2b/C-LD |\n| EVT pediátrica ≥6 anos | Até 6 h e 6–24 h selecionados: 2a/B-NR |\n| EVT pediátrica &lt;6 anos | Até 24 h selecionados: 2b/B-NR |\n| Triagem de disfagia antes de alimentar | 1/C-EO |\n| PES, sem traqueostomia — versão corrigida | 2b/B-R |\n| PES, após desmame ventilatório, com traqueostomia | 2a/B-R |\n| Triagem nutricional | Preferencialmente até 48 h |\n| Dieta enteral, quando necessária | Iniciar em até 7 dias |\n| Gastrostomia | Considerar se disfagia persistente prevista por &gt;2–3 semanas |\n| Compressão pneumática intermitente | 1/B-R |\n| Meias de compressão graduada | 3 — dano/B-R |\n| Hemicraniectomia ≤60 anos, até 48 h | 1/A |\n| Hemicraniectomia &gt;60 anos | 2b/B-R |\n| DVE na hidrocefalia por infarto cerebelar | 1/C-LD |\n| Craniectomia cerebelar por compressão de tronco ou infarto ≥35 mL | 1/B-NR |\n| Glibenclamida IV no edema cerebral maligno | 3 — sem benefício/B-R |\n\nReferências da Aula 13.5\n\n- Prabhakaran S et al. AHA/ASA 2026 — Diretriz original.\n\n- AHA/ASA. Correção oficial de agosto de 2026.\n\n- Recomendações consolidadas, incluindo as alterações de disfagia.\n\n- Documento PDF de 2026 anexado ao projeto, especialmente páginas 26, 38, 60, 72–76 e 81–84.\n\n## Síntese de revisão\n\nNas recomendações pediátricas, discrimine suspeita clínica, exame inicial e elegibilidade para reperfusão por faixa etária. Cuidados hospitalares incluem avaliação de deglutição e manejo fisiológico.\n\n### Recuperação ativa\n\nSepare em sequência as recomendações pediátricas das medidas gerais de internação e indique em quais grupos a evidência é limitada.",
+      "theory": "## AVC pediátrico e cuidados hospitalares\n\nFonte principal: diretriz AHA/ASA 2026 anexada, seções 3.2, 4.6.1, 4.7.5, 5.1–5.7 e 6.1–6.5.\n\nAtualização essencial: identifiquei uma correção oficial publicada em agosto de 2026 que modifica recomendações de disfagia do PDF original de janeiro. Nesta aula, utilizarei a versão corrigida nas recomendações afetadas, indicando explicitamente as mudanças. ahajournals… +1\n\n## 1. AVC pediátrico: a principal novidade da diretriz\n\nPela primeira vez, a diretriz de manejo precoce do AVCi apresenta recomendações específicas para trombólise e trombectomia na população pediátrica.\n\nNão se deve simplesmente aplicar os critérios de DAWN, DEFUSE 3 ou da trombólise adulta às crianças. Existem diferenças importantes de etiologia, anatomia vascular, apresentação clínica e qualidade da evidência.\n\nEtiologias que devem ser lembradas\n\n| Etiologia | Particularidade |\n| --- | --- |\n| Arteriopatia cerebral focal | Importante causa de AVC arterial pediátrico, muitas vezes com estenose unilateral |\n| Dissecção arterial | Pode ocorrer após trauma cervical ou espontaneamente |\n| Moyamoya | Estenose progressiva da circulação anterior e colaterais características |\n| Cardiopatia congênita ou adquirida | Fonte cardioembólica |\n| Doença falciforme | Vasculopatia e risco elevado de eventos isquêmicos |\n| Vasculopatias inflamatórias e infecciosas | Arteriopatias associadas a doenças sistêmicas ou infecções |\n\nEssas etiologias são contexto clínico complementar; as classes de recomendação abaixo pertencem à AHA/ASA 2026.\n\nQuadro clínico\n\nCrianças podem apresentar hemiparesia, afasia, ataxia, alteração visual, rebaixamento do nível de consciência ou crise epiléptica inaugural.\n\nA presença de crise epiléptica não deve conduzir automaticamente ao diagnóstico de paralisia de Todd. O AVC arterial precisa permanecer no diagnóstico diferencial.\n\nA PedNIHSS pode contribuir para quantificar os déficits, mas as escalas pediátricas ainda não apresentam a mesma validação abrangente das escalas adultas.\n\n## 2. Neuroimagem pediátrica\n\n| Recomendação | CO R | LOE |\n| --- | --- | --- |\n| RM cerebral e angio-RM cervical/intracraniana emergenciais para identificar isquemia, OGV, hemorragia e imitadores | 2a | C-LD |\n| TC/angio-TC emergenciais quando RM/angio-RM não estão imediatamente disponíveis, por exemplo, em até 25 minutos | 2a | C-LD no PDF anexado |\n\nA neuroimagem não deve ser atrasada indevidamente apenas para evitar radiação. A escolha exige protocolos pediátricos adequados, considerando disponibilidade, necessidade de sedação e urgência da decisão.\n\nPonto de prova: a RM é particularmente útil para identificar isquemia precoce e diferenciais, mas uma criança não deve perder a oportunidade de reperfusão por aguardar uma RM indisponível.\n\nNota de auditoria: algumas reproduções eletrônicas da diretriz indicam LOE B-R para a alternativa TC/angio-TC, enquanto o PDF traduzido anexado indica C-LD. Mantive a classificação do documento solicitado e sinalizei a divergência para evitar memorização sem ressalva. eguideline.… +1\n\n## 3. Trombólise intravenosa pediátrica\n\nAlteplase IV pediátrica COR 2b · C-LD\n\nA alteplase pode ser considerada em pacientes com idade entre 28 dias e 18 anos, AVC isquêmico confirmado, déficit incapacitante e apresentação em até 4,5 horas do início dos sintomas.\n\nA segurança disponível é considerada aceitável, mas a eficácia permanece incerta.\n\nDe onde vem a evidência?\n\nO ensaio TIPS — Thrombolysis in Pediatric Stroke foi planejado para estudar alteplase em crianças com AVC arterial, mas enfrentou dificuldades de recrutamento e não forneceu evidência randomizada conclusiva de eficácia.\n\nRegistros e séries observacionais contribuíram para a avaliação da segurança.\n\nDiferença para adultos: a recomendação pediátrica é COR 2b/C-LD, enquanto a IVT em adultos elegíveis na janela convencional recebe COR 1/A.\n\nSeleção prática\n\nCritérios centrais da recomendação:\n\n- Idade entre 28 dias e 18 anos.\n\n- Déficit neurológico incapacitante.\n\n- Confirmação de AVC isquêmico arterial.\n\n- Janela até 4,5 horas.\n\n- Avaliação por equipe experiente, com ponderação dos riscos hemorrágicos.\n\nSituações que impedem extrapolação direta: AVC hemorrágico, ausência de confirmação diagnóstica, apresentação fora dos critérios temporais e condições clínicas que elevem significativamente o risco da terapia.\n\nA dose e o protocolo pediátrico devem seguir avaliação especializada; a recomendação não estabelece equivalência irrestrita entre qualquer esquema adulto e pediátrico.\n\nahajournals… +1\n\n## 4. Trombectomia pediátrica\n\nEsta é a parte de maior relevância para NRI.\n\n| População | Janela | Seleção | COR / LOE |\n| --- | --- | --- | --- |\n| ≥6 anos | Até 6 h | AVCi com OGV e sintomas neurológicos agudos | 2a / B- NR |\n| ≥6 anos | 6–24 h | OGV com tecido potencialmente recuperável | 2a / B- NR |\n| 28 dias a menos de 6 anos | Até 24 h | OGV, sintomas agudos e tecido recuperável; operador com experiência pediátrica | 2b / B- NR |\n\nA recomendação para crianças com seis anos ou mais se baseia principalmente em dados observacionais e registros, não em ensaios pediátricos randomizados de fase III.\n\nSave ChildS e Save ChildS Pro\n\nOs registros Save ChildS e Save ChildS Pro contribuíram para demonstrar a viabilidade técnica da trombectomia em crianças, com resultados clínicos considerados promissores.\n\nO Save ChildS Pro é especialmente importante por reunir dados prospectivos multicêntricos.\n\nLimitação: séries e registros não eliminam viés de seleção. Crianças encaminhadas para EVT podem ter características diferentes das não tratadas.\n\nParticularidades técnicas\n\nEm crianças, devem ser considerados:\n\n- Menor calibre arterial e limitações de acesso.\n\n- Possibilidade de arteriopatias não embólicas, incluindo dissecção e vasculopatias.\n\n- Maior sensibilidade à perda sanguínea.\n\n- Escolha cuidadosa de introdutores, cateteres e dispositivos.\n\n- Sedação/anestesia por equipe pediátrica experiente.\n\n- Potencial influência do crescimento vascular e dos mecanismos etiológicos na interpretação\n\n- angiográfica.\n\nPegadinha: EVT pediátrica em criança menor de seis anos não é COR 1/A. A recomendação é 2b/B- NR, mesmo quando há OGV e tecido recuperável. eguideline.… +1\n\n## 5. Unidade de AVC e cuidados organizados\n\nA diretriz recomenda atendimento em unidade de AVC organizada, com equipe interdisciplinar treinada, para pacientes de todas as idades.\n\nCOR 1 / LOE B-R.\n\nA importância da unidade não está apenas na monitorização, mas na implementação consistente de cuidados como rastreamento de disfagia, prevenção de TEV, suporte nutricional, mobilização apropriada, reabilitação e identificação precoce de deterioração.\n\nEssas medidas têm impacto funcional e prognóstico mesmo quando a reperfusão arterial já foi realizada. Guideline Cent…\n\n## 6. Disfagia — Recomendações oficiais corrigidas\n\nA disfagia pós-AVC aumenta o risco de aspiração, pneumonia, desnutrição e internação prolongada.\n\nRecomendações\n\n| Conduta | CO R | LOE |\n| --- | --- | --- |\n| Triagem de deglutição antes de iniciar líquidos ou alimentos por via oral | 1 | C- EO |\n| Triagem por fonoaudiólogo ou outro profissional treinado | 2a | C- LD |\n| Avaliação instrumental se falhou ou não consegue participar da triagem clínica | 2a | B- NR |\n| Protocolo de higiene oral para reduzir pneumonia | 2b | B- NR |\n| Estimulação elétrica faríngea em paciente não traqueostomizado com disfagia | 2b | B-R |\n| Estimulação elétrica faríngea em AVC grave, com traqueostomia, após desmame ventilatório, para facilitar prontidão para decanulação | 2a | B-R |\n\nA correção publicada em agosto de 2026\n\nO documento original apresentava estimulação elétrica faríngea (PES) de forma mais ampla, com COR 2a para pacientes com disfagia.\n\nA correção oficial estabeleceu que:\n\n- Sem traqueostomia: PES pode ser razoável para melhorar a função de deglutição, avaliada por\n\n- instrumentos e escalas — COR 2b/B-R.\n\n- Com traqueostomia e AVC grave, após desmame ventilatório: PES é razoável para facilitar a\n\n- prontidão para decanulação, avaliada por endoscopia — COR 2a/B-R.\n\nTambém foi explicitada a possibilidade de avaliação instrumental por FEES ou videofluoroscopia quando a triagem à beira do leito é inadequada.\n\nEssas são modificações documentadas na correção oficial de agosto de 2026; para prova, prevalecem sobre a redação anterior do arquivo anexado. ahajournal… +1\n\nSequência clínica da avaliação da deglutição\n\nAVC agudo — antes da alimentação oral\n\nTriagem de deglutição por profissional treinado\n\n- Triagem satisfatória\n\nFalha ou impossibilidade\n\n- Definir alimentação oral segura segundo avaliação clínica\n\nAvaliação fonoaudiológica e instrumental quando apropriada\n\nPegadinha: uma triagem negativa não é exame instrumental de deglutição. A pesquisa de aspiração silenciosa pode exigir FEES ou videofluoroscopia, especialmente quando persistem suspeitas clínicas.\n\n## 7. Nutrição enteral — FOOD Trials\n\n| Recomendação | COR / LOE |\n| --- | --- |\n| Iniciar nutrição enteral em até 7 dias quando necessária | 1 / B-R |\n| Triagem nutricional preferencialmente nas primeiras 48 horas | 1 / B- NR |\n\nPreferir sonda nasogástrica inicialmente, reservando gastrostomia para disfagia com expectativa de persistência por mais de 2–3 semanas\n\n2a / B- NR\n\nO que os estudos FOOD mostraram?\n\n| Estud o | Pergunta | Resultado essencial |\n| --- | --- | --- |\n| FOO D 1 | Suplementação nutricional oral adicional | Sem melhora dos resultados principais na população estudada |\n| FOO D 2 | Nutrição enteral precoce versus adiamento | Tendência favorável ao início precoce, sem demonstração inequívoca em todos os desfechos |\n| FOO D 3 | Gastrostomia precoce versus sonda nasogástrica | Não demonstrou vantagem da gastrostomia precoce; houve resultados desfavoráveis no grupo PEG |\n\nPegadinha: a presença de disfagia importante no primeiro dia não determina gastrostomia imediata. A previsão de recuperação da deglutição e a duração esperada da necessidade de suporte são fundamentais.\n\n## 8. Profilaxia de tromboembolismo venoso\n\nO paciente com AVC incapacitante e mobilidade reduzida apresenta risco de trombose venosa profunda e embolia pulmonar.\n\n| Estratégia | COR / LOE |\n| --- | --- |\n| Compressão pneumática intermitente (CPI) em pacientes imobilizados, sem contraindicação | 1 / B-R |\n| Heparina não fracionada ou HBPM em dose profilática, em pacientes selecionados | 2a / B-R |\n| Benefício de heparina profilática para aumentar sobrevida global | 2b / A, incerto |\n| Superioridade da HBPM sobre HNF na prevenção de TVP | 2b / B-R, incerta |\n| Meias elásticas de compressão graduada para pacientes imobilizados após AVC | COR 3 — dano / B-R |\n\nCLOTS 3\n\nDesenho: ensaio randomizado com 2.876 pacientes com AVC agudo e mobilidade reduzida.\n\nIntervenção: compressão pneumática intermitente associada aos cuidados habituais.\n\nControle: cuidados habituais sem compressão pneumática.\n\nPrimário: TVP proximal identificada por rastreamento ou TVP sintomática nos primeiros 30 dias.\n\nResultado: aproximadamente 8,5% versus 12,1%, favorecendo compressão pneumática intermitente.\n\nPegadinha: compressão pneumática não é equivalente a meias elásticas. As recomendações são opostas. Guideline Cent…\n\n## 9. Edema cerebral maligno\n\nO edema após grandes infartos hemisféricos e cerebelares pode causar deterioração neurológica por efeito de massa, herniação e hipertensão intracraniana.\n\nA monitorização intensiva é particularmente importante nos primeiros dias, com grande parte da deterioração ocorrendo nas primeiras 48 horas.\n\nRecomendações gerais\n\n| Recomendação | COR / LOE |\n| --- | --- |\n| Discussão precoce de prognóstico e preferências do paciente com familiares | 1 / C-EO |\n| Monitorização rigorosa em grandes infartos com risco de edema | 1 / C-EO |\n| Transferência precoce para centro com neurocirurgia e cuidados neurocríticos | 1 / C-LD |\n| Terapia osmótica como ponte para intervenção cirúrgica em deterioração por edema | 2a / C-LD |\n| Glibenclamida intravenosa para melhorar desfechos de grandes infartos na população estudada | 3 — sem benefício / B- R |\n| Hipotermia, barbitúricos ou corticosteroides para tratar o edema de grandes infartos | 3 — dano / C-LD |\n\nTerapia osmótica\n\nManitol e solução salina hipertônica podem reduzir temporariamente a pressão intracraniana, mas não devem atrasar a avaliação neurocirúrgica quando há indicação de descompressão.\n\nOs estudos não estabeleceram superioridade universal de manitol sobre solução hipertônica ou vice- versa.\n\nCHARM\n\nO CHARM investigou glibenclamida intravenosa em pacientes com grandes infartos hemisféricos e risco de edema.\n\nSeleção: grandes núcleos isquêmicos, incluindo ASPECTS 1–5 ou volume de infarto elevado em neuroimagem.\n\nComparação: glibenclamida IV versus placebo.\n\nPrimário: distribuição da mRS em 90 dias.\n\nResultado: sem melhora funcional significativa, com OR ajustada 1,17; IC95% 0,80–1,71.\n\nConclusão: não se recomenda glibenclamida IV para melhorar os desfechos funcionais nessa população.\n\n## 10. Hemicraniectomia descompressiva — DECIMAL, DESTINY e HAMLET\n\nEsses ensaios estabeleceram o benefício da descompressão precoce na síndrome de infarto maligno da artéria cerebral média.\n\nRecomendações AHA/ASA 2026\n\n| Situação | COR / LOE |\n| --- | --- |\n| Redução do nível de consciência atribuída ao edema como critério para considerar hemicraniectomia | 2a / B-NR |\n| Idade ≤60 anos, infarto unilateral de ACM e deterioração em até 48 h apesar do tratamento clínico | 1 / A |\n| Idade &gt;60 anos, mesma situação | 2b / B-R, para redução de mortalidade |\n| Edema maligno após trombólise IV, apesar do tratamento clínico | 2b / B-NR, considerar cirurgia até 48 h |\n\neguideline.gui…\n\nOs ensaios clássicos\n\n| Ensai o | População e desenho | Conclusão |\n| --- | --- | --- |\n| DECIM AL | Pacientes relativamente jovens com infarto maligno extenso de ACM; cirurgia precoce versus tratamento clínico | Redução importante da mortalidade |\n| DESTI NY I | Infarto maligno de ACM em pacientes jovens; descompressão precoce | Benefício de sobrevida |\n| HAML ET | Infarto maligno de ACM; cirurgia versus tratamento clínico, admitindo janela mais longa | Benefício mais evidente quando operado precocemente |\n| DESTI NY II | Pacientes acima de 60 anos | Redução de mortalidade, porém muitos sobreviventes com incapacidade importante |\n\nCritérios e limitações fundamentais\n\nOs estudos de pacientes jovens selecionaram grandes infartos de ACM com alto risco de edema, frequentemente associados a NIHSS elevado, lesões extensas e deterioração da consciência.\n\nA descompressão realizada em até 48 horas reúne a evidência mais robusta.\n\nNo DESTINY II, entre pacientes acima de 60 anos, houve redução de mortalidade, mas sem demonstração correspondente de independência funcional.\n\nPegadinha: para pacientes jovens, a recomendação é COR 1/A, buscando reduzir mortalidade e melhorar resultados funcionais. Para pacientes acima de 60 anos, é COR 2b/B-R, sobretudo pela redução de mortalidade.\n\nIsso não é uma restrição puramente cronológica; os objetivos do tratamento e a possibilidade de sobreviver com incapacidade importante precisam ser discutidos.\n\n## 11. Infarto cerebelar: DVE ou craniectomia suboccipital?\n\nEste tópico frequentemente diferencia candidatos que decoram diretrizes daqueles que compreendem neuroanatomia aplicada.\n\nCOMPLICAÇÕES DO INFARTO CEREBELAR EXTENSO\n\nEdema cerebelar\n\n- Compressão do IV ventrículo\n\nCompressão do tronco cerebral\n\n- Hidrocefalia obstrutiva\n\nDeterioração neurológica e risco de herniação\n\nRecomendações\n\n| Situação | Conduta | COR / LOE |\n| --- | --- | --- |\n| Infarto cerebelar com hidrocefalia obstrutiva | Ventriculostomia; avaliar necessidade de descompressão concomitante ou subsequente | 1 / C- LD |\n| Deterioração por compressão do tronco encefálico ou volume de infarto ≥35 mL | Craniectomia suboccipital com expansão dural | 1 / B- NR |\n\nA derivação liquórica isolada pode ser suficiente em algumas situações, mas é necessária atenção ao risco de herniação ascendente e ao efeito de massa persistente na fossa posterior.\n\nPegadinha: DVE trata a hidrocefalia; craniectomia suboccipital trata a compressão expansiva da fossa posterior. Uma intervenção não substitui universalmente a outra.\n\n## 12. Outras complicações hospitalares\n\n| Tema | Recomendação | COR / LOE |\n| --- | --- | --- |\n| Antibióticos profiláticos sem infecção estabelecida | Não melhoram desfecho funcional | 3 — sem benefício / A |\n| Cateter vesical de demora rotineiro | Evitar pelo risco de infecção | 3 — dano / C-LD |\n| Anticonvulsivantes profiláticos sem crises | Não recomendados | 3 — sem benefício / C-LD |\n| Reabilitação interdisciplinar apropriada durante a internação | Recomendada | 1 / A |\n| Mobilização intensiva muito precoce, nas primeiras 24 h | Pode ser prejudicial | 3 — dano / B-R |\n| ISRS para melhorar recuperação motora em pacientes não selecionados | Sem benefício | 3 — sem benefício / A |\n| Rastreamento estruturado de depressão pós-AVC | Recomendado | 1 / B-NR |\n\nEnsaios que explicam essas recomendações\n\nPASS, STROKE-INF e PRECIOUS: não demonstraram melhora funcional com uso rotineiro de antibióticos profiláticos após AVC.\n\nAVERT: demonstrou que mobilização muito precoce e em alta intensidade pode comprometer resultados funcionais.\n\nFOCUS, AFFINITY e EFFECTS: não demonstraram benefício funcional da fluoxetina como estratégia universal de recuperação pós-AVC.\n\nPegadinha: iniciar reabilitação apropriada não significa realizar mobilização de alta intensidade nas primeiras horas em todos os pacientes.\n\nGuideline Cent…\n\n## 13. O que mudou em relação a 2019?\n\n| Tema | Evolução na AHA/ASA 2026 |\n| --- | --- |\n| AVC pediátrico | Recomendações explícitas para IVT e EVT conforme idade, janela e evidência disponível |\n| Trombectomia pediátrica | Diferencia ≥6 anos de crianças menores de seis anos |\n| Disfagia | Incorpora avaliação da PES em contextos específicos, com redação posteriormente corrigida em agosto de 2026 |\n| Edema maligno | Mantém o papel decisivo da descompressão e incorpora evidência negativa do CHARM |\n| Infarto cerebelar | Especifica melhor os cenários de hidrocefalia, compressão do tronco e grande volume |\n\nCuidados hospitalares\n\nConsolida a prevenção de TEV, os cuidados nutricionais, a reabilitação e a prevenção de intervenções sem benefício\n\nA comparação destaca as principais mudanças e consolidações da ementa; nem todos os cuidados hospitalares são novidades absolutas em relação a 2019.\n\n## 14. Quadro de memorização obrigatória\n\n| Conceito | Número ou recomendação |\n| --- | --- |\n| IVT pediátrica | 28 dias–18 anos, AVC isquêmico confirmado e déficit incapacitante até 4,5 h: considerar alteplase IV, 2b/C-LD; eficácia incerta |\n| EVT pediátrica ≥6 anos | Até 6 h e 6–24 h selecionados: 2a/B-NR |\n| EVT pediátrica de 28 dias a menos de 6 anos | OGV sintomática até 24 h, tecido recuperável e operador com experiência pediátrica: 2b/B-NR |\n| Triagem de disfagia antes de alimentar | 1/C-EO |\n| PES, sem traqueostomia — versão corrigida | 2b/B-R |\n| PES, após desmame ventilatório, com traqueostomia | 2a/B-R |\n| Triagem nutricional | Preferencialmente até 48 h |\n| Dieta enteral, quando necessária | Iniciar em até 7 dias |\n| Gastrostomia | Considerar se disfagia persistente prevista por &gt;2–3 semanas |\n| Compressão pneumática intermitente | 1/B-R |\n| Meias de compressão graduada | 3 — dano/B-R |\n| Hemicraniectomia ≤60 anos, até 48 h | 1/A |\n| Hemicraniectomia &gt;60 anos | 2b/B-R |\n| DVE na hidrocefalia por infarto cerebelar | 1/C-LD |\n| Craniectomia cerebelar por compressão de tronco ou infarto ≥35 mL | 1/B-NR |\n| Glibenclamida IV no edema cerebral maligno | 3 — sem benefício/B-R |\n\nReferências da Aula 13.5\n\n- Prabhakaran S et al. AHA/ASA 2026 — Diretriz original.\n\n- AHA/ASA. Correção oficial de agosto de 2026.\n\n- Recomendações consolidadas, incluindo as alterações de disfagia.\n\n- Documento PDF de 2026 anexado ao projeto, especialmente páginas 26, 38, 60, 72–76 e 81–84.\n\n## Síntese de revisão\n\nNas recomendações pediátricas, discrimine suspeita clínica, exame inicial e elegibilidade para reperfusão por faixa etária. Cuidados hospitalares incluem avaliação de deglutição e manejo fisiológico.\n\n### Recuperação ativa\n\nSepare em sequência as recomendações pediátricas das medidas gerais de internação e indique em quais grupos a evidência é limitada.",
       "references": [
         {
           "label": "DOI 10.1161/STR.0000000000000530",
@@ -1088,7 +1088,11 @@
       ],
       "answer": 2,
       "explanation": "A. A diretriz não obriga transporte direto ao centro de EVT distante em todas as circunstâncias. A qualidade da rede local influencia o destino.\nB. Contornar o centro local pode atrasar a trombólise; benefício funcional universal não foi demonstrado.\nC. Em redes eficientes, com centro local preparado para IVT e transferência rápida, o desvio obrigatório para um centro distante não demonstrou benefício clínico. COR 3: sem benefício / LOE B-R, no cenário específico.\nD. Transferência inter-hospitalar não contraindica trombectomia; o importante é reduzir atrasos.\nE. O destino depende de avaliação clínica, geografia, tempos e capacidade hospitalar, não exclusivamente do NIHSS.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 2.4.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:h2",
@@ -1103,7 +1107,11 @@
       ],
       "answer": 0,
       "explanation": "A. Pré-notificação do hospital receptor (COR 1 / B-NR) e protocolos para reduzir o tempo door-in- door-out (COR 1 / B-NR) são recomendados.\nB. Escalas como RACE e LAMS estimam probabilidade de OGV; não substituem imagem vascular.\nC. Condicionamento isquêmico remoto pré-hospitalar não demonstrou benefício funcional e não recebe recomendação COR 1.\nD. Nitroglicerina transdérmica pré-hospitalar no AVC indiferenciado pode causar dano; COR 3: dano / LOE A.\nE. O último momento visto bem deve ser investigado já no atendimento pré-hospitalar, sem esperar a admissão.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 2.3–2.4.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:h3",
@@ -1118,7 +1126,11 @@
       ],
       "answer": 4,
       "explanation": "A. Perfusão não é obrigatória antes da IVT convencional na janela de 4,5 horas.\nB. Não é necessário demonstrar mismatch DWI–FLAIR quando o início é conhecido e o paciente satisfaz os critérios convencionais.\nC. Confirmar OGV não é requisito universal para iniciar IVT.\nD. Exames adicionais que não são necessários para a decisão não devem atrasar a reperfusão.\nE. Deve-se iniciar IVT rapidamente, evitando atrasos por angio-TC, angio-RM ou perfusão desnecessárias. COR 1 / LOE A.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 3.2, 4.6.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:h4",
@@ -1133,7 +1145,11 @@
       ],
       "answer": 1,
       "explanation": "A. Esperar obrigatoriamente a creatinina atrasa a identificação de OGV.\nB. Em suspeita de OGV, a imagem vascular emergencial com contraste não deve ser atrasada para aguardar creatinina. COR 1 / LOE B-NR.\nC. Ultrassonografia carotídea isolada não substitui a avaliação vascular intracraniana necessária à EVT.\nD. Não existe proibição universal de contraste nas primeiras 24 horas.\nE. Doença renal crônica, isoladamente, não exclui trombectomia.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 3.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:h5",
@@ -1148,7 +1164,11 @@
       ],
       "answer": 3,
       "explanation": "A. Repetir integralmente a neuroimagem não é obrigatório em todos os pacientes transferidos.\nB. DTAS não é estratégia obrigatória COR 1 para todos os centros.\nC. DTAS não dispensa a exclusão de hemorragia; a própria sala de angiografia pode dispor de TC de painel plano.\nD. DTAS sem repetir neuroimagem pode ser considerada em transferidos selecionados, desde que não haja mudança clínica ou atraso relevante. COR 2b / LOE B-NR.\nE. Gradiente transestenótico venoso não é critério de seleção para trombectomia arterial por OGV.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 3.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:d1",
@@ -1164,7 +1184,11 @@
       "answer": 3,
       "explanation": "A unidade móvel permite antecipar neuroimagem e avaliação especializada. O ganho depende do tratamento mais rápido e da integração à rede.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "AHA/ASA 2026, seção 2.5.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:d2",
@@ -1179,7 +1203,11 @@
       ],
       "answer": 0,
       "explanation": "Escala pré-hospitalar de OGV. Apoia triagem, com falsos positivos e negativos.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 2.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:d3",
@@ -1194,7 +1222,11 @@
       ],
       "answer": 0,
       "explanation": "Escolha do destino. Integra tempo de transporte, capacidade de trombólise local e eficiência das transferências.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 2.4.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:d4",
@@ -1209,7 +1241,11 @@
       ],
       "answer": 1,
       "explanation": "Imagem cerebral inicial. Deve excluir hemorragia e caracterizar alterações isquêmicas antes de decisões de reperfusão.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 3.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.1:d5",
@@ -1224,7 +1260,11 @@
       ],
       "answer": 0,
       "explanation": "Angio-TC na suspeita de OGV. Identifica rapidamente a anatomia da oclusão e apoia decisão endovascular.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 3.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:h1",
@@ -1239,7 +1279,11 @@
       ],
       "answer": 3,
       "explanation": "A. Tenecteplase 0,4 mg/kg não é recomendada. COR 3: sem benefício / LOE A. O NOR-TEST 2A identificou pior desempenho dessa dose.\nB. A dose padrão de alteplase na diretriz é 0,9 mg/kg, máximo 90 mg, e não 0,6 mg/kg.\nC. A tenecteplase 0,25 mg/kg pode ser administrada sem comprovação prévia de OGV quando o paciente é elegível para IVT.\nD. Tenecteplase 0,25 mg/kg, máximo 25 mg, em bolus único, ou alteplase 0,9 mg/kg, máximo 90 mg, com 10% em bolus e 90% em 60 minutos. COR 1 / LOE A.\nE. Não se deve atrasar IVT indicada para realizar perfusão desnecessária. COR 1 / LOE B-NR.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:h2",
@@ -1254,7 +1298,11 @@
       ],
       "answer": 4,
       "explanation": "A. NIHSS ≤5 não determina indicação automática de TNK. A relevância funcional do déficit é fundamental.\nB. A recomendação forte de IVT aplica-se ao déficit incapacitante em pacientes elegíveis, não a qualquer sintoma.\nC. TEMPO-2 não demonstrou superioridade funcional inequívoca da TNK no AVC menor com oclusão ou alteração perfusional.\nD. PRISMS não demonstrou superioridade funcional significativa da alteplase sobre AAS em AVC leve não incapacitante.\nE. Para déficit leve não incapacitante, IVT não é recomendada rotineiramente: COR 3: sem benefício / LOE B-R.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:h3",
@@ -1269,7 +1317,11 @@
       ],
       "answer": 2,
       "explanation": "A. Início desconhecido não é exclusão absoluta quando critérios apropriados de neuroimagem são preenchidos.\nB. WAKE-UP utilizou mismatch DWI–FLAIR, não exclusivamente mismatch perfusional entre Tmax e CBF.\nC. A seleção por DWI–FLAIR pode justificar IVT até 4,5 horas após reconhecimento dos sintomas, na população definida pela diretriz. COR 2a / LOE B-R.\nD. Não existe regra de nove horas contadas simplesmente da chegada ao hospital. O conceito de ponto médio do sono pertence à seleção por perfusão em outro cenário.\nE. A indicação de IVT por imagem não exige elegibilidade simultânea para EVT.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:h4",
@@ -1284,7 +1336,11 @@
       ],
       "answer": 0,
       "explanation": "A. Após DOAC nas últimas 48 horas, a segurança da IVT é incerta. Avaliar última dose, função renal, gravidade, testes específicos e disponibilidade de EVT.\nB. Apixabana é um anticoagulante oral direto, não antiagregante equivalente ao AAS.\nC. INR normal não exclui atividade anticoagulante clinicamente relevante da apixabana.\nD. A diretriz não recomenda trombólise automática após exposição recente a DOAC.\nE. DOAC recente não constitui, isoladamente, contraindicação à trombectomia mecânica.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:h5",
@@ -1299,7 +1355,11 @@
       ],
       "answer": 4,
       "explanation": "A. TNK 0,4 mg/kg não é a dose recomendada. COR 3: sem benefício / A.\nB. Disponibilidade de EVT não é motivo para omitir IVT indicada.\nC. Não se deve aguardar a resposta à alteplase antes de prosseguir com a trombectomia.\nD. TIMELESS não demonstrou benefício funcional universal da TNK tardia antes de EVT rápida.\nE. Administrar IVT indicada e prosseguir rapidamente com EVT, sem esperar resposta clínica. As duas recomendações são COR 1 / LOE A.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:d1",
@@ -1315,7 +1375,11 @@
       "answer": 4,
       "explanation": "O início desconhecido pode permitir seleção específica por imagem. A janela padrão para início conhecido não pode ser transposta automaticamente.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:d2",
@@ -1330,7 +1394,11 @@
       ],
       "answer": 1,
       "explanation": "Alteplase 0,9 mg/kg. Opção intravenosa na janela convencional, até 90 mg.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:d3",
@@ -1345,7 +1413,11 @@
       ],
       "answer": 0,
       "explanation": "Déficit menor não incapacitante. Categoria em que trombólise rotineira não demonstrou benefício sobre alternativas de tratamento.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:d4",
@@ -1360,7 +1432,11 @@
       ],
       "answer": 2,
       "explanation": "Déficit incapacitante. Impacto funcional que deve ser avaliado mesmo com NIHSS baixo.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.2:d5",
@@ -1375,7 +1451,11 @@
       ],
       "answer": 1,
       "explanation": "Seleção DWI–FLAIR. Pode apoiar trombólise em pacientes com início desconhecido que atendem aos critérios.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:h1",
@@ -1390,7 +1470,11 @@
       ],
       "answer": 1,
       "explanation": "A. ASPECTS 4 não contraindica EVT entre 6 e 24 horas nos pacientes que preenchem os critérios atuais.\nB. ACI/M1, idade inferior a 80 anos, NIHSS ≥6, mRS prévio 0–1, ASPECTS 3–5, janela 6–24 horas e ausência de efeito de massa significativo: COR 1 / LOE A.\nC. Não é necessário preencher simultaneamente os protocolos originais de DAWN e DEFUSE 3 para toda indicação de EVT tardia.\nD. A diretriz estabelece recomendação forte para pacientes selecionados com ASPECTS 3–5.\nE. Idade superior a 70 anos não é exclusão automática. O caso tem 76 anos, abaixo do limite de 80 anos da recomendação específica.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:h2",
@@ -1405,7 +1489,11 @@
       ],
       "answer": 3,
       "explanation": "A. Inverte os mecanismos de seleção. DAWN utilizou mismatch clínico–core; DEFUSE 3, mismatch perfusional.\nB. DAWN estudou a janela de 6–24 horas e DEFUSE 3, de 6–16 horas.\nC. DEFUSE 3 exigia core isquêmico inferior a 70 mL.\nD. DAWN usou mismatch clínico–core ajustado por idade e NIHSS. DEFUSE 3 exigia core <70 mL, razão de mismatch ≥1,8 e diferença absoluta ≥15 mL.\nE. Ambos investigaram oclusões proximais da circulação anterior, e não basilar.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:h3",
@@ -1420,7 +1508,11 @@
       ],
       "answer": 0,
       "explanation": "A. Oclusão basilar, NIHSS ≥10, PC-ASPECTS ≥6, mRS prévio 0–1 e até 24 horas: EVT recomendada, COR 1 / LOE A.\nB. A janela para EVT na basilar pode alcançar 24 horas em pacientes selecionados.\nC. A seleção utiliza critérios da circulação posterior, incluindo PC-ASPECTS.\nD. Os ensaios ATTENTION e BAOCHE forneceram evidência positiva posterior ao BASICS.\nE. O NIHSS mínimo da recomendação forte é 10, não 20.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:h4",
@@ -1435,7 +1527,11 @@
       ],
       "answer": 2,
       "explanation": "A. ESCAPE-MeVO e DISTAL não demonstraram benefício funcional da EVT rotineira.\nB. Oclusões M2 diferem em dominância, calibre, localização e território funcional.\nC. Para M2 não dominante/codominante e os demais vasos distais descritos, EVT com stent retriever não demonstrou benefício funcional: COR 3 — sem benefício / LOE A.\nD. Não existe recomendação universal COR 1/A para oclusões da artéria cerebral posterior.\nE. A caracterização da anatomia vascular é essencial para distinguir os subgrupos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.2, 4.7.4.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:h5",
@@ -1450,7 +1546,11 @@
       ],
       "answer": 4,
       "explanation": "A. Tirofiban IV de rotina antes da EVT não demonstrou benefício funcional: COR 3 — sem benefício /\nB. O benefício do cateter-guia com balão sobre os resultados funcionais é incerto: COR 2b / B-R.\nC. Anestesia geral e sedação procedural são opções aceitas: COR 1 / B-R.\nD. eTICI 2b/2c/3 representa a meta de reperfusão recomendada: COR 1 / A.\nE. Stent retriever, aspiração e técnicas combinadas são recomendados (COR 1 / A). Trombolítico intra-arterial após reperfusão ≥mTICI 2b pode ser razoável (COR 2b / B-R).",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.4.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:c1",
@@ -1465,7 +1565,11 @@
       ],
       "answer": 1,
       "explanation": "A AHA/ASA recomenda ambas as terapias aos elegíveis e preconiza evitar atrasos entre elas.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:d1",
@@ -1500,7 +1604,11 @@
       ],
       "answer": 4,
       "explanation": "ASPECTS 3–10 em até seis horas. Faixa contemplada pela recomendação principal para ACI/M1, atendidos os demais critérios.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:d3",
@@ -1515,7 +1623,11 @@
       ],
       "answer": 0,
       "explanation": "ASPECTS 6–10 entre seis e 24 horas. Faixa contemplada pela recomendação principal tardia para ACI/M1 e critérios clínicos.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:d4",
@@ -1530,7 +1642,11 @@
       ],
       "answer": 2,
       "explanation": "Oclusão basilar com NIHSS pelo menos 10. Critério de gravidade da recomendação principal combinada a pc-ASPECTS, tempo e mRS prévia.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.3:d5",
@@ -1545,7 +1661,11 @@
       ],
       "answer": 1,
       "explanation": "IVT e EVT concomitantes. Indica IVT imediata para elegíveis, sem aguardar resposta antes da EVT.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:h1",
@@ -1560,7 +1680,11 @@
       ],
       "answer": 3,
       "explanation": "A. Reduzir a PAS para menos de 140 mmHg após reperfusão bem-sucedida não previne obrigatoriamente transformação hemorrágica nem melhora o prognóstico.\nB. A redução intensiva não é uma estratégia recomendada rotineiramente, tampouco recebe COR 2a.\nC. Confunde as duas recomendações: após IVT, a redução intensiva é classificada como ausência de benefício; após EVT bem-sucedida, há evidência de dano.\nD. Após EVT com mTICI 2b–3 na circulação anterior, visar PAS inferior a 140 mmHg nas primeiras 72 horas é prejudicial: COR 3 — dano / LOE A.\nE. O ENCHANTED2/MT investigou PAS inferior a 120 mmHg e demonstrou resultados desfavoráveis; esse valor não é uma meta recomendada.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:h2",
@@ -1575,7 +1699,11 @@
       ],
       "answer": 1,
       "explanation": "A. PAS inferior a 140 mmHg não é meta obrigatória no pós-IVT.\nB. Manter PA abaixo de 180/105 mmHg durante pelo menos 24 horas após IVT: COR 1 / B-R. Redução intensiva para PAS inferior a 140 mmHg em AVC leve/moderado: COR 3 — sem benefício / B-R.\nC. PA de 220/120 mmHg corresponde a outro cenário de manejo, em pacientes sem reperfusão e sem indicação concomitante de redução.\nD. O braço pressórico do ENCHANTED não demonstrou melhora funcional com controle intensivo.\nE. Antes da IVT, exige-se PA inferior a 185/110 mmHg; depois, o limite passa a 180/105 mmHg.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:h3",
@@ -1590,7 +1718,11 @@
       ],
       "answer": 4,
       "explanation": "A. Heparinização terapêutica imediata não é o tratamento rotineiro do AVC menor não cardioembólico.\nB. Ticagrelor isolado não demonstrou superioridade universal sobre AAS; não recebe COR 1/A nesse contexto.\nC. Terapia antiplaquetária tripla aumenta o risco hemorrágico, sem benefício que justifique seu uso rotineiro.\nD. A trombólise não pode ser administrada retrospectivamente ou fora dos critérios de janela e elegibilidade.\nE. Em AVC menor não cardioembólico (NIHSS ≤3), sem IVT, dentro de 24 horas, recomenda-se AAS + clopidogrel por 21 dias, seguido de monoterapia: COR 1 / LOE A.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.8.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:h4",
@@ -1605,7 +1737,11 @@
       ],
       "answer": 0,
       "explanation": "A. Início precoce de anticoagulação oral em pacientes cuidadosamente selecionados com AVCi e FA é razoável: COR 2a / LOE A. ELAN, OPTIMAS e TIMING sustentam a segurança de estratégias precoces, sem provar superioridade universal.\nB. Heparinização plena imediata e indiscriminada não é recomendada: anticoagulação urgente para melhorar o resultado do AVC recebe COR 3 — sem benefício / A.\nC. ELAN diferenciou o momento de início conforme a extensão do infarto: até 48 horas para lesões menores/moderadas e dias 6–7 para grandes infartos no braço precoce.\nD. OPTIMAS demonstrou não inferioridade do início precoce de DOAC, não inferioridade clínica dos DOACs precoces.\nE. Não se recomenda associar rotineiramente AAS ao anticoagulante em toda FA sem indicação vascular concorrente.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.9.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:h5",
@@ -1620,7 +1756,11 @@
       ],
       "answer": 2,
       "explanation": "A. Piora neurológica súbita com suspeita de hemorragia exige investigação imediata; não se aguarda 24 horas mantendo a alteplase.\nB. AAS IV agravaria o risco hemorrágico e não constitui tratamento de reversão.\nC. Suspender alteplase, solicitar TC e avaliação laboratorial urgente, incluindo fibrinogênio, e instituir medidas hemostáticas conforme a Tabela 5 da AHA/ASA 2026, incluindo crioprecipitado para atingir fibrinogênio ≥150 mg/dL.\nD. Hemorragia após IVT pode ser sintomática e ameaçar a vida.\nE. Heparina não trata hemorragia pós-trombólise; hipotensão profunda comprometeria a perfusão cerebral.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.1. Tabela 5.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:d1",
@@ -1636,7 +1776,11 @@
       "answer": 1,
       "explanation": "Ensaios de redução intensiva após reperfusão bem-sucedida mostraram potencial de dano. Metas de outras fases não sustentam esse alvo.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:d2",
@@ -1651,7 +1795,11 @@
       ],
       "answer": 3,
       "explanation": "Pressão nas 24 horas pós-IVT. Em geral deve ser mantida abaixo de 180/105 mmHg.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:d3",
@@ -1666,7 +1814,11 @@
       ],
       "answer": 3,
       "explanation": "Alvo intensivo abaixo de 140 após EVT bem-sucedida. Prejudicial de rotina em OGV anterior sem outra indicação específica.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:d4",
@@ -1681,7 +1833,11 @@
       ],
       "answer": 4,
       "explanation": "Antiagregação após IVT. Em geral aguarda reavaliação e imagem de controle em 24 horas.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.1, 4.8.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.4:d5",
@@ -1696,7 +1852,11 @@
       ],
       "answer": 4,
       "explanation": "DAPT por 21 dias. Estratégia de curto prazo aplicável a determinados AVC menores não cardioembólicos ou AIT de alto risco.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.8.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:h1",
@@ -1711,7 +1871,11 @@
       ],
       "answer": 2,
       "explanation": "A. A idade inferior a 18 anos não contraindica automaticamente a EVT. A diretriz inclui recomendações pediátricas específicas.\nB. Os critérios volumétricos do DAWN foram desenvolvidos para adultos e não são exigência obrigatória para toda criança candidata a EVT.\nC. Em crianças com idade ≥6 anos, OGV, início entre 6 e 24 horas e tecido cerebral potencialmente recuperável, a EVT pode ser eficaz: COR 2a / LOE B-NR.\nD. Não existem grandes ensaios randomizados pediátricos equivalentes aos estudos fundamentais da trombectomia em adultos; a recomendação não é COR 1/A.\nE. Anticoagulação isolada não é a única estratégia possível; a seleção depende do mecanismo do AVC, da imagem e das indicações de reperfusão.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.5.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:h2",
@@ -1726,7 +1890,11 @@
       ],
       "answer": 4,
       "explanation": "A. A alteplase não recebe COR 1/A indiscriminadamente para crianças; a evidência de eficácia é limitada.\nB. Idade inferior a 18 anos não é contraindicação absoluta.\nC. O TIPS não foi um ensaio positivo de grande porte: dificuldades de recrutamento impediram demonstração randomizada conclusiva de eficácia.\nD. Tenecteplase 0,4 mg/kg não é a terapia pediátrica obrigatória nem uma dose recomendada universalmente.\nE. Em crianças de 28 dias a 18 anos com AVCi confirmado, déficit incapacitante e apresentação até 4,5 horas, alteplase pode ser considerada: COR 2b / LOE C-LD, com eficácia ainda incerta.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.6.1.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:h3",
@@ -1741,7 +1909,11 @@
       ],
       "answer": 1,
       "explanation": "A. PES não é obrigatória nem substitui triagem, avaliação clínica e investigação instrumental da deglutição quando indicadas.\nB. Em pacientes não traqueostomizados, PES pode ser razoável para melhorar a função de deglutição: COR 2b / B-R. Em AVC grave com traqueostomia, após desmame ventilatório, PES é razoável para facilitar prontidão para decanulação: COR 2a / B-R.\nC. A correção não retirou a PES da diretriz; restringiu a redação e modificou a força de uma recomendação.\nD. A necessidade de sonda nasogástrica não torna a PES obrigatória.\nE. FEES e videofluoroscopia são métodos apropriados de avaliação instrumental; não foram classificados como danosos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, correção de agosto, seção 5.2, recomendações de estimulação elétrica faríngea.",
+        "url": "https://doi.org/10.1161/STR.0000000000000530"
+      }
     },
     {
       "id": "nri:13.5:h4",
@@ -1756,7 +1928,11 @@
       ],
       "answer": 3,
       "explanation": "A. Não há garantia de independência funcional; a recomendação para maiores de 60 anos não é COR 1/A.\nB. DESTINY II demonstrou redução de mortalidade, embora muitos sobreviventes permanecessem com incapacidade importante.\nC. Corticosteroides não substituem descompressão e não são recomendados para tratar edema maligno de infarto cerebral.\nD. Em pacientes com mais de 60 anos, infarto maligno unilateral de ACM e deterioração por edema nas primeiras 48 horas, hemicraniectomia pode ser considerada para reduzir mortalidade: COR 2b / LOE B- R.\nE. A evidência mais robusta favorece a descompressão precoce, especialmente em até 48 horas, não a espera obrigatória de 14 dias.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 6.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:h5",
@@ -1771,7 +1947,11 @@
       ],
       "answer": 0,
       "explanation": "A. Compressão pneumática intermitente em pacientes imobilizados: COR 1 / B-R. Meias elásticas graduadas: COR 3 — dano / B-R. Quando necessária, nutrição enteral deve ser iniciada em até sete dias: COR 1 / B-R.\nB. Compressão pneumática e meias graduadas não têm a mesma recomendação; os resultados dos ensaios CLOTS diferem.\nC. Falha inicial na triagem de disfagia não implica gastrostomia no primeiro dia.\nD. Mobilização muito precoce de alta intensidade, nas primeiras 24 horas, pode ser prejudicial: COR 3 — dano / B-R.\nE. Antibióticos profiláticos sem infecção não melhoram os resultados funcionais: COR 3 — sem benefício / A.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 5.2–5.4.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:d1",
@@ -1787,7 +1967,11 @@
       "answer": 2,
       "explanation": "A AHA/ASA favorece RM/MRA prontamente acessível e prevê TC/angio-TC quando a primeira opção não está disponível em tempo útil.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "AHA/ASA 2026, seção 3.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:d2",
@@ -1802,7 +1986,11 @@
       ],
       "answer": 0,
       "explanation": "Seleção pediátrica para EVT. Integra idade, déficit, vaso-alvo, janela, imagem e equipe experiente.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 4.7.5.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:d3",
@@ -1817,7 +2005,11 @@
       ],
       "answer": 1,
       "explanation": "Triagem de disfagia. Recomendada antes de ingestão oral no AVC agudo.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 5.2.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:d4",
@@ -1832,7 +2024,11 @@
       ],
       "answer": 3,
       "explanation": "Edema maligno hemisférico. Pode demandar avaliação neurocirúrgica precoce para hemicraniectomia.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 6.3.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.5:d5",
@@ -1847,82 +2043,106 @@
       ],
       "answer": 4,
       "explanation": "Infarto cerebelar com compressão do tronco. Pode demandar descompressão suboccipital conforme deterioração e imagem.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2026, seção 6.4.",
+        "url": "https://doi.org/10.1161/STR.0000000000000513"
+      }
     },
     {
       "id": "nri:13.6:h1",
       "lesson": "13.6",
       "prompt": "O ISUIA relatou risco cumulativo de ruptura de 0% em cinco anos para aneurismas anteriores menores que 7 mm em pacientes sem HSA prévia. Qual interpretação é metodologicamente correta?",
       "options": [
-        "O estudo demonstrou ausência de risco biológico de ruptura para todas as lesões menores que 7 mm.) O estudo demonstrou ausência de risco biológico de ruptura para todas as lesões menores que 7 mm.",
-        "O resultado exclui qualquer indicação futura de tratamento de aneurismas pequenos.) O resultado exclui qualquer indicação futura de tratamento de aneurismas pequenos.",
-        "O ISUIA foi um ensaio randomizado que comparou embolização com observação.) O ISUIA foi um ensaio randomizado que comparou embolização com observação.",
-        "O risco observado foi baixo, mas viés de seleção e migração de pacientes para tratamento podem ter subestimado a história natural.) O risco observado foi baixo, mas viés de seleção e migração de pacientes para tratamento podem ter subestimado a história natural.",
-        "O risco de ruptura foi igual em todas as localizações, incluindo PCom e circulação posterior.) O risco de ruptura foi igual em todas as localizações, incluindo PCom e circulação posterior."
+        "O estudo demonstrou ausência de risco biológico de ruptura para todas as lesões menores que 7 mm.",
+        "O resultado exclui qualquer indicação futura de tratamento de aneurismas pequenos.",
+        "O ISUIA foi um ensaio randomizado que comparou embolização com observação.",
+        "O risco observado foi baixo, mas viés de seleção e migração de pacientes para tratamento podem ter subestimado a história natural.",
+        "O risco de ruptura foi igual em todas as localizações, incluindo PCom e circulação posterior."
       ],
       "answer": 3,
       "explanation": "A. Ausência de rupturas observadas em um subgrupo não comprova risco biológico nulo.\nB. Aneurismas pequenos podem apresentar fatores individuais de alto risco; o ISUIA não exclui toda possibilidade de tratamento preventivo.\nC. ISUIA foi um estudo observacional, não um ensaio randomizado de embolização versus observação.\nD. O risco observado foi baixo, mas a seleção preferencial de aneurismas de menor risco para acompanhamento e o crossover para tratamento poderiam reduzir artificialmente as taxas observadas.\nE. Localização modifica o risco. Aneurismas da origem da PCom e da circulação posterior apresentaram taxas superiores às de alguns aneurismas anteriores.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Hall et al., Stroke 2026, pp. 1821–1833, tabelas 1–3 e discussão das limitações das coortes.",
+        "url": "https://doi.org/10.1161/STROKEAHA.125.054863"
+      }
     },
     {
       "id": "nri:13.6:h2",
       "lesson": "13.6",
       "prompt": "Sobre UCAS Japan e SUAVe, qual afirmação está correta?",
       "options": [
-        "UCAS estudou apenas aneurismas inferiores a 5 mm, enquanto SUAVe incluiu todas as dimensões.) UCAS estudou apenas aneurismas inferiores a 5 mm, enquanto SUAVe incluiu todas as dimensões.",
-        "UCAS acompanhou 5.720 pacientes e observou risco médio de ruptura de 0,95% ao ano, com maior risco associado a ACom, PCom e daughter sac.) UCAS acompanhou 5.720 pacientes e observou risco médio de ruptura de 0,95% ao ano, com maior risco associado a ACom, PCom e daughter sac.",
-        "SUAVe demonstrou que multiplicidade e hipertensão eliminam o risco de ruptura.) SUAVe demonstrou que multiplicidade e hipertensão eliminam o risco de ruptura.",
-        "UCAS não registrou nenhuma ruptura em aneurismas de 3–4 mm.) UCAS não registrou nenhuma ruptura em aneurismas de 3–4 mm.",
-        "Ambos foram ensaios randomizados de tratamento preventivo com stent versus observação.) Ambos foram ensaios randomizados de tratamento preventivo com stent versus observação."
+        "UCAS estudou apenas aneurismas inferiores a 5 mm, enquanto SUAVe incluiu todas as dimensões.",
+        "UCAS acompanhou 5.720 pacientes e observou risco médio de ruptura de 0,95% ao ano, com maior risco associado a ACom, PCom e daughter sac.",
+        "SUAVe demonstrou que multiplicidade e hipertensão eliminam o risco de ruptura.",
+        "UCAS não registrou nenhuma ruptura em aneurismas de 3–4 mm.",
+        "Ambos foram ensaios randomizados de tratamento preventivo com stent versus observação."
       ],
       "answer": 1,
       "explanation": "A. Inverte as populações. SUAVe concentrou-se em aneurismas menores que 5 mm; UCAS incluiu aneurismas de diferentes tamanhos, a partir de 3 mm.\nB. UCAS Japan acompanhou 5.720 pacientes, com risco anual de ruptura de aproximadamente 0,95%, e identificou associação de risco com tamanho, ACom, origem da PCom e daughter sac.\nC. Hipertensão e multiplicidade foram associadas a maior, não menor, risco no SUAVe.\nD. UCAS registrou rupturas em aneurismas de 3–4 mm, embora com taxa inferior à de aneurismas maiores.\nE. Ambos foram estudos observacionais da história natural, sem randomização para stent versus observação.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "UCAS Japan, NEJM 2012, pp. 2474–2482, resultados por tamanho, localização e morfologia.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22738097/"
+      }
     },
     {
       "id": "nri:13.6:h3",
       "lesson": "13.6",
       "prompt": "Em relação ao SUAVe e aos fatores de risco de ruptura em aneurismas muito pequenos, qual alternativa é correta?",
       "options": [
-        "O SUAVe demonstrou maior risco associado à multiplicidade, hipertensão e diâmetro ≥4 mm, apesar de incluir aneurismas menores que 5 mm.) O SUAVe demonstrou maior risco associado à multiplicidade, hipertensão e diâmetro ≥4 mm, apesar de incluir aneurismas menores que 5 mm.",
-        "A população do SUAVe era composta exclusivamente por aneurismas maiores que 10 mm.) A população do SUAVe era composta exclusivamente por aneurismas maiores que 10 mm.",
-        "O estudo observou risco anual nulo em todos os aneurismas únicos.) O estudo observou risco anual nulo em todos os aneurismas únicos.",
-        "A taxa anual global de ruptura foi 33,4%, semelhante à de aneurismas gigantes no UCAS.) A taxa anual global de ruptura foi 33,4%, semelhante à de aneurismas gigantes no UCAS.",
-        "O SUAVe não realizou acompanhamento prospectivo e baseou-se exclusivamente em autópsias.) O SUAVe não realizou acompanhamento prospectivo e baseou-se exclusivamente em autópsias."
+        "O SUAVe demonstrou maior risco associado à multiplicidade, hipertensão e diâmetro ≥4 mm, apesar de incluir aneurismas menores que 5 mm.",
+        "A população do SUAVe era composta exclusivamente por aneurismas maiores que 10 mm.",
+        "O estudo observou risco anual nulo em todos os aneurismas únicos.",
+        "A taxa anual global de ruptura foi 33,4%, semelhante à de aneurismas gigantes no UCAS.",
+        "O SUAVe não realizou acompanhamento prospectivo e baseou-se exclusivamente em autópsias."
       ],
       "answer": 0,
       "explanation": "A. SUAVe associou ruptura a multiplicidade, hipertensão e tamanho ≥4 mm, mesmo incluindo apenas aneurismas menores que 5 mm.\nB. A população não era composta por aneurismas maiores que 10 mm.\nC. Aneurismas únicos também apresentaram rupturas; a taxa anual não foi zero.\nD. A taxa anual global foi aproximadamente 0,54%, não 33,4%. Esse último valor corresponde à taxa anual dos aneurismas ≥25 mm no UCAS.\nE. SUAVe foi uma coorte prospectiva multicêntrica, não um estudo baseado exclusivamente em autópsias.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Sonobe et al., SUAVe, Stroke 2010, pp. 1969–1977, resultados e fatores associados à ruptura.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20671254/"
+      }
     },
     {
       "id": "nri:13.6:h4",
       "lesson": "13.6",
       "prompt": "Qual comparação entre Juvela e Wermer está correta?",
       "options": [
-        "Ambos incluíram milhares de pacientes acompanhados por aproximadamente 30 anos.) Ambos incluíram milhares de pacientes acompanhados por aproximadamente 30 anos.",
-        "Wermer demonstrou risco cumulativo de 30,1% em 30 anos e forneceu a maior amostra da literatura.) Wermer demonstrou risco cumulativo de 30,1% em 30 anos e forneceu a maior amostra da literatura.",
-        "Juvela foi um ensaio randomizado que comprovou a superioridade da clipagem.) Juvela foi um ensaio randomizado que comprovou a superioridade da clipagem.",
-        "Juvela não apresentava pacientes com HSA prévia, eliminando viés populacional.) Juvela não apresentava pacientes com HSA prévia, eliminando viés populacional.",
-        "Juvela teve seguimento excepcionalmente prolongado e poucos tratamentos preventivos, mas quase todos os pacientes tinham HSA prévia; Wermer teve amostra pequena, curto seguimento e apenas uma ruptura.) Juvela teve seguimento excepcionalmente prolongado e poucos tratamentos preventivos, mas quase todos os pacientes tinham HSA prévia; Wermer teve amostra pequena, curto seguimento e apenas uma ruptura."
+        "Ambos incluíram milhares de pacientes acompanhados por aproximadamente 30 anos.",
+        "Wermer demonstrou risco cumulativo de 30,1% em 30 anos e forneceu a maior amostra da literatura.",
+        "Juvela foi um ensaio randomizado que comprovou a superioridade da clipagem.",
+        "Juvela não apresentava pacientes com HSA prévia, eliminando viés populacional.",
+        "Juvela teve seguimento excepcionalmente prolongado e poucos tratamentos preventivos, mas quase todos os pacientes tinham HSA prévia; Wermer teve amostra pequena, curto seguimento e apenas uma ruptura."
       ],
       "answer": 4,
       "explanation": "A. Nenhum dos dois incluiu milhares de pacientes. Wermer acompanhou 93 pacientes; Juvela, 142.\nB. O risco cumulativo de 30,1% em 30 anos pertence à coorte de Juvela, não Wermer.\nC. Juvela não foi ensaio randomizado e não comparou clipagem com observação.\nD. Cerca de 92% dos pacientes de Juvela tinham HSA prévia por outro aneurisma.\nE. Juvela teve acompanhamento excepcionalmente longo e mínimo tratamento preventivo, mas população selecionada; Wermer teve seguimento curto e apenas uma ruptura.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Hall et al., Stroke 2026, pp. 1821–1833, tabelas 1–3 e discussão das limitações das coortes.",
+        "url": "https://doi.org/10.1161/STROKEAHA.125.054863"
+      }
     },
     {
       "id": "nri:13.6:h5",
       "lesson": "13.6",
       "prompt": "Sobre Murayama e a revisão metodológica de Hall et al. 2026, qual interpretação é correta?",
       "options": [
-        "Murayama demonstrou risco de ruptura zero em aneurismas ≥5 mm.) Murayama demonstrou risco de ruptura zero em aneurismas ≥5 mm.",
-        "O título Prospective 10-Year Cohort Study significa dez anos de acompanhamento médio de cada paciente.) O título Prospective 10-Year Cohort Study significa dez anos de acompanhamento médio de cada paciente.",
-        "O estudo de Murayama encontrou aproximadamente 0,76% de ruptura anual; o termo dez anos refere-se ao recrutamento, e Hall adverte contra extrapolação de coortes curtas e vieses relacionados ao tratamento.) O estudo de Murayama encontrou aproximadamente 0,76% de ruptura anual; o termo dez anos refere-se ao recrutamento, e Hall adverte contra extrapolação de coortes curtas e vieses relacionados ao tratamento.",
-        "Hall demonstrou que variações internacionais de risco são explicadas exclusivamente por diferenças genéticas.) Hall demonstrou que variações internacionais de risco são explicadas exclusivamente por diferenças genéticas.",
-        "Hall concluiu que os sete estudos são homogêneos e dispensam avaliação de viés.) Hall concluiu que os sete estudos são homogêneos e dispensam avaliação de viés."
+        "Murayama demonstrou risco de ruptura zero em aneurismas ≥5 mm.",
+        "O título Prospective 10-Year Cohort Study significa dez anos de acompanhamento médio de cada paciente.",
+        "O estudo de Murayama encontrou aproximadamente 0,76% de ruptura anual; o termo dez anos refere-se ao recrutamento, e Hall adverte contra extrapolação de coortes curtas e vieses relacionados ao tratamento.",
+        "Hall demonstrou que variações internacionais de risco são explicadas exclusivamente por diferenças genéticas.",
+        "Hall concluiu que os sete estudos são homogêneos e dispensam avaliação de viés."
       ],
       "answer": 2,
       "explanation": "A. Murayama encontrou risco de ruptura não nulo, com associação positiva ao tamanho.\nB. O termo 10-year refere-se aos anos de recrutamento (2003–2012), não ao seguimento médio.\nC. Murayama encontrou taxa aproximada de 0,76% ao ano; Hall alerta para a seleção terapêutica, a curta duração de muitas coortes e os problemas de extrapolação para risco vitalício.\nD. Hall não atribuiu a variação geográfica exclusivamente a genética; os efeitos de tratamento, tabagismo, ambiente e metodologia não podem ser separados adequadamente.\nE. Os estudos apresentam heterogeneidade significativa e diferenças metodológicas relevantes.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Hall et al., Stroke 2026, pp. 1821–1833, tabelas 1–3 e discussão das limitações das coortes.",
+        "url": "https://doi.org/10.1161/STROKEAHA.125.054863"
+      }
     },
     {
       "id": "nri:13.6:d1",
@@ -1938,7 +2158,11 @@
       "answer": 3,
       "explanation": "As medidas têm denominadores e horizontes distintos. Censura, seleção e distribuição do risco afetam a comparação.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "Hall et al., Stroke 2026, pp. 1821–1833, tabelas 1–3 e discussão das limitações das coortes.",
+        "url": "https://doi.org/10.1161/STROKEAHA.125.054863"
+      }
     },
     {
       "id": "nri:13.6:d2",
@@ -1953,7 +2177,11 @@
       ],
       "answer": 4,
       "explanation": "UCAS Japan. Coorte japonesa que identificou relação com tamanho, sítio e saco filho.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "UCAS Japan, NEJM 2012, pp. 2474–2482, resultados por tamanho, localização e morfologia.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22738097/"
+      }
     },
     {
       "id": "nri:13.6:d3",
@@ -1968,7 +2196,11 @@
       ],
       "answer": 1,
       "explanation": "SUAVe. Estudou aneurismas pequenos e fatores de risco em uma coorte japonesa.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Sonobe et al., SUAVe, Stroke 2010, pp. 1969–1977, resultados e fatores associados à ruptura.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20671254/"
+      }
     },
     {
       "id": "nri:13.6:d4",
@@ -1983,7 +2215,11 @@
       ],
       "answer": 1,
       "explanation": "Crescimento aneurismático. Marcador de mudança de risco durante vigilância.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      }
     },
     {
       "id": "nri:13.6:d5",
@@ -1998,7 +2234,11 @@
       ],
       "answer": 1,
       "explanation": "Aneurisma cavernoso. Local usualmente extradural, com perfil de risco diferente para HSA.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ISUIA, Lancet 2003, pp. 103–110, história natural por tamanho e localização, incluindo carótida cavernosa.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12867109/"
+      }
     },
     {
       "id": "nri:13.7:h1",
@@ -2013,7 +2253,11 @@
       ],
       "answer": 1,
       "explanation": "A. Quatro pontos não contemplam simultaneamente hipertensão, localização ACom e tamanho de 8 mm.\nB. Hipertensão +1; ACom +4; tamanho 8 mm +3; demais fatores zero. PHASES 8 = risco estimado de 3,2% em cinco anos.\nC. Seis pontos subestimam a pontuação do caso.\nD. A idade de 64 anos acrescenta zero ponto; a pontuação total não é nove.\nE. Doze pontos exigiriam fatores adicionais que não estão presentes.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Greving et al., PHASES, Lancet Neurology 2014, pp. 59–66, modelo de predição de ruptura em cinco anos.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24290159/"
+      }
     },
     {
       "id": "nri:13.7:h2",
@@ -2028,7 +2272,11 @@
       ],
       "answer": 3,
       "explanation": "A. ELAPSS estima crescimento, não ruptura aneurismática.\nB. Forma irregular acrescenta quatro pontos ao ELAPSS.\nC. Ausência de HSA prévia acrescenta um ponto, não cinco.\nD. Ausência de HSA +1; ACM +3; idade 65 anos +1; população +0; tamanho 6 mm +10; irregularidade +4. Total: 19 pontos, faixa intermediária da classificação apresentada.\nE. ELAPSS não determina obrigatoriamente tratamento. Estima risco de crescimento em três e cinco anos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Validação externa do ELAPSS, tabela 1, pontuação por preditor e risco de crescimento.",
+        "url": "https://doi.org/10.5853/jos.2019.01277"
+      }
     },
     {
       "id": "nri:13.7:h3",
@@ -2043,7 +2291,11 @@
       ],
       "answer": 0,
       "explanation": "A. Tratamento 12 pontos versus observação 10 pontos resulta em diferença de apenas dois. Recomendação indefinida. UIATS é um consenso de decisão, não uma calculadora de ruptura.\nB. UIATS não obriga tratamento por flow diverter nem seleciona automaticamente o dispositivo.\nC. Doze pontos não significam 12% de risco anual de HSA.\nD. Os 230 eventos em seis coortes pertencem ao desenvolvimento do PHASES, não do UIATS.\nE. É necessária diferença de pelo menos três pontos para que uma das estratégias seja favorecida pelo instrumento.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Etminan et al., UIATS, figuras 2 e 3, aplicação do consenso e interpretação da diferença de pontos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4560059/"
+      }
     },
     {
       "id": "nri:13.7:h4",
@@ -2058,7 +2310,11 @@
       ],
       "answer": 4,
       "explanation": "A. Diferenças internacionais não podem ser atribuídas exclusivamente à genética. Há diferenças ambientais, clínicas e metodológicas.\nB. O PHASES não inclui tabagismo, história familiar nem crescimento documentado na pontuação original.\nC. A retirada de aneurismas considerados perigosos para tratamento pode modificar as taxas de ruptura observadas na população restante.\nD. — sua escolha. Hall et al. afirmam expressamente que a hipótese de risco constante ao longo do tempo não foi formalmente validada. Aproximadamente metade dos conjuntos de dados é compatível com risco constante, enquanto a outra metade sugere redução do risco ao longo do seguimento.\nE. Seleção terapêutica, crossover e diferenças populacionais prejudicam a estimativa do risco real. A associação observada entre proporção tratada e taxas de ruptura não comprova causalidade.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Hall et al., Stroke 2026, pp. 1821–1833, tabelas 1–3 e discussão das limitações das coortes.",
+        "url": "https://doi.org/10.1161/STROKEAHA.125.054863"
+      }
     },
     {
       "id": "nri:13.7:h5",
@@ -2073,7 +2329,11 @@
       ],
       "answer": 2,
       "explanation": "A. PHASES estima ruptura; ELAPSS estima crescimento. São desfechos diferentes.\nB. UIATS não foi validado como calculadora de probabilidade absoluta de ruptura.\nC. PHASES estima risco de ruptura, ELAPSS estima crescimento e UIATS estrutura o balanço entre tratar e observar. Nenhum substitui integralmente a avaliação individualizada.\nD. ELAPSS elevado não comprova que o aneurisma romperá. Crescimento e ruptura são eventos distintos.\nE. Calibração razoável não significa discriminação perfeita. A validação externa do ELAPSS encontrou discriminação moderada.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "UIATS, seções Methods e Discussion. Modelos prognósticos originais: PHASES (PMID 24290159) e ELAPSS (PMID 28363976).",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4560059/"
+      }
     },
     {
       "id": "nri:13.7:d1",
@@ -2089,7 +2349,11 @@
       "answer": 4,
       "explanation": "Os modelos têm desfechos distintos. Mudança de tamanho pode motivar reavaliação, mas a probabilidade de crescimento estimada pelo ELAPSS não é uma estimativa de ruptura.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "UIATS, seções Methods e Discussion. Modelos prognósticos originais: PHASES (PMID 24290159) e ELAPSS (PMID 28363976).",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4560059/"
+      }
     },
     {
       "id": "nri:13.7:d2",
@@ -2104,7 +2368,11 @@
       ],
       "answer": 4,
       "explanation": "ELAPSS. Modelo que estima risco de crescimento em intervalos de seguimento.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Validação externa do ELAPSS, tabela 1, pontuação por preditor e risco de crescimento.",
+        "url": "https://doi.org/10.5853/jos.2019.01277"
+      }
     },
     {
       "id": "nri:13.7:d3",
@@ -2119,7 +2387,11 @@
       ],
       "answer": 3,
       "explanation": "UIATS. Consenso estruturado para ponderar fatores favoráveis ao tratamento ou à observação.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Etminan et al., UIATS, figuras 2 e 3, aplicação do consenso e interpretação da diferença de pontos.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4560059/"
+      }
     },
     {
       "id": "nri:13.7:d4",
@@ -2134,7 +2406,11 @@
       ],
       "answer": 4,
       "explanation": "Corte de localização no PHASES. Diferencia sítios como ACI, ACM e circulação posterior ou comunicantes.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "Greving et al., PHASES, Lancet Neurology 2014, pp. 59–66, modelo de predição de ruptura em cinco anos.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24290159/"
+      }
     },
     {
       "id": "nri:13.7:d5",
@@ -2149,7 +2425,11 @@
       ],
       "answer": 1,
       "explanation": "Consenso versus modelo prognóstico. Diferem na finalidade e no significado numérico do resultado.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "UIATS, seções Methods e Discussion. Modelos prognósticos originais: PHASES (PMID 24290159) e ELAPSS (PMID 28363976).",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4560059/"
+      }
     },
     {
       "id": "nri:13.8:h1",
@@ -2164,7 +2444,11 @@
       ],
       "answer": 2,
       "explanation": "A. A ESO não determina flow diverter obrigatório para aneurismas de 6 mm.\nB. O diâmetro de 7 mm não é limiar absoluto para clipagem ou tratamento.\nC. A ESO recomenda monitorização radiológica quando o risco do tratamento é superior ao risco de ruptura em cinco anos, desde que um eventual tratamento futuro continue sendo uma opção. A frequência de seguimento deve ser individualizada.\nD. História familiar, tabagismo e morfologia são fatores relevantes na avaliação, mesmo quando ausentes de determinada escala prognóstica.\nE. Observação conservadora pode incluir vigilância por angio-RM ou angio-TC para detectar crescimento ou mudança morfológica.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      }
     },
     {
       "id": "nri:13.8:h2",
@@ -2179,7 +2463,11 @@
       ],
       "answer": 1,
       "explanation": "A. DSA invasiva trimestral não é requisito de vigilância de todos os aneurismas não tratados.\nB. Angio-TC ou angio-RM para detecção e seguimento: Classe I / LOE B. Primeiro exame em 6–12 meses, com controles anuais ou bienais posteriores: Classe IIb / LOE C.\nC. O acompanhamento por imagem é recomendado; não há contraindicação geral motivada pelo risco de ruptura induzida pelo exame.\nD. Não se recomenda aguardar dez anos para o primeiro controle, sobretudo diante de novos sintomas.\nE. O intervalo de 6–12 meses refere-se expressamente aos aneurismas não tratados, não apenas aos embolizados.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2015, seção Aneurysm Follow-Up (Patients Without Intervention), recomendações de vigilância.",
+        "url": "https://doi.org/10.1161/STR.0000000000000070"
+      }
     },
     {
       "id": "nri:13.8:h3",
@@ -2194,7 +2482,11 @@
       ],
       "answer": 3,
       "explanation": "A. Não existe recomendação para rastreamento universal por angio-TC ou angio-RM em toda a população.\nB. Doença renal policística autossômica dominante, particularmente associada à história familiar, é uma situação na qual o rastreamento deve ser considerado/oferecido conforme a diretriz.\nC. Cefaleia inespecífica de um familiar não é critério para rastreamento obrigatório de toda a família.\nD. Pessoas com dois ou mais familiares afetados por aneurisma intracraniano ou HSA aneurismática devem receber oferta de rastreamento por angio-TC ou angio-RM: Classe I / LOE B, conforme a AHA/ASA 2015.\nE. Tabagismo e hipertensão são fatores relevantes para aconselhamento e avaliação de risco.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2015, seção Screening, recomendações sobre rastreamento familiar.",
+        "url": "https://doi.org/10.1161/STR.0000000000000070"
+      }
     },
     {
       "id": "nri:13.8:h4",
@@ -2209,7 +2501,11 @@
       ],
       "answer": 0,
       "explanation": "A. A ESO não estabelece superioridade universal da clipagem ou do tratamento endovascular. Ensaios como CURES e STAT precisam ser interpretados dentro das respectivas populações, técnicas e desfechos.\nB. CURES não demonstrou superioridade funcional universal da clipagem. Falha terapêutica em um ano: 10,4% com clipagem versus 17,9% com coiling, p=0,40.\nC. STAT não demonstrou superioridade do coiling assistido por stent sobre coiling isolado: falha terapêutica 30,1% versus 27,3%, p=0,66.\nD. Flow diverter exige avaliação de antiagregação, risco de trombose, cobertura de ramos e perfurantes e eventual oclusão tardia.\nE. A ESO não determina flow diverter como primeira opção universal para todos os aneurismas posteriores.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      }
     },
     {
       "id": "nri:13.8:h5",
@@ -2224,7 +2520,11 @@
       ],
       "answer": 4,
       "explanation": "A. Crescimento documentado é marcador de instabilidade, mesmo abaixo de 7 mm.\nB. A taxa média do SUAVe refere-se a uma coorte específica de aneurismas menores que 5 mm; não pode ser aplicada automaticamente após crescimento.\nC. A ESO não proíbe o tratamento de aneurismas em crescimento sem HSA prévia.\nD. Crescimento não obriga DSA invasiva em todos os casos, nem exclui tratamento. A necessidade de angiografia depende da qualidade das imagens e do planejamento.\nE. Crescimento inequívoco e nova irregularidade favorecem reavaliar a indicação de tratamento, considerando anatomia, características do paciente e risco procedural.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      }
     },
     {
       "id": "nri:13.8:d1",
@@ -2240,67 +2540,91 @@
       "answer": 0,
       "explanation": "Crescimento altera a discussão de risco. A indicação continua dependente de anatomia, comorbidades, horizonte e decisão compartilhada.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      }
     },
     {
       "id": "nri:13.8:d2",
       "lesson": "13.8",
-      "prompt": "No contexto de Diretrizes e manejo do aneurisma não roto, qual alternativa descreve corretamente «Observação de aneurisma incidental»?",
+      "prompt": "Qual é o plano de seguimento para um aneurisma não roto que a equipe e o paciente decidiram observar?",
       "options": [
-        "Motiva nova discussão de risco com a equipe multidisciplinar.",
-        "Situação que exige analisar localização, sintomas, risco e alternativas.",
-        "Pode ser discutido em famílias com múltiplos parentes de primeiro grau afetados.",
+        "Realizar angiografia invasiva mensal por tempo indeterminado.",
+        "Encerrar vigilância após uma única medida estável quando o paciente permanece candidato a tratamento.",
+        "Indicar reparo se houver qualquer hipertensão, independentemente da anatomia.",
         "Inclui vigilância individualizada e controle de fatores modificáveis.",
-        "Integra manejo clínico de aneurismas não rotos."
+        "Prescrever estatina exclusivamente para prevenir a ruptura."
       ],
       "answer": 3,
       "explanation": "Observação de aneurisma incidental. Inclui vigilância individualizada e controle de fatores modificáveis.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      },
+      "revision": 2
     },
     {
       "id": "nri:13.8:d3",
       "lesson": "13.8",
-      "prompt": "No contexto de Diretrizes e manejo do aneurisma não roto, qual alternativa descreve corretamente «Controle de hipertensão e tabagismo»?",
+      "prompt": "Qual conduta em relação à hipertensão está de acordo com a diretriz ESO para pacientes com aneurisma intracraniano não roto?",
       "options": [
-        "Situação que exige analisar localização, sintomas, risco e alternativas.",
-        "Deve ser comparado ao risco imediato e à durabilidade do tratamento.",
-        "Inclui vigilância individualizada e controle de fatores modificáveis.",
-        "Integra manejo clínico de aneurismas não rotos.",
-        "Pode ser discutido em famílias com múltiplos parentes de primeiro grau afetados."
+        "Suspender tratamento anti-hipertensivo de rotina.",
+        "Tratar a hipertensão apenas depois do reparo preventivo.",
+        "Manter hipertensão permissiva crônica para prevenir ruptura.",
+        "Tratar a hipertensão como parte do manejo do aneurisma em observação.",
+        "Substituir controle pressórico por aspirina para prevenir crescimento."
       ],
       "answer": 3,
-      "explanation": "Controle de hipertensão e tabagismo. Integra manejo clínico de aneurismas não rotos.",
-      "origin": "revisão"
+      "explanation": "A hipertensão é um fator modificável associado ao risco de crescimento e ruptura. Seu controle integra o seguimento, junto com a avaliação por imagem e a cessação do tabagismo quando indicada.",
+      "origin": "revisão",
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      },
+      "revision": 2
     },
     {
       "id": "nri:13.8:d4",
       "lesson": "13.8",
-      "prompt": "No contexto de Diretrizes e manejo do aneurisma não roto, qual alternativa descreve corretamente «Crescimento no seguimento»?",
+      "prompt": "Como o crescimento aneurismático confirmado modifica uma decisão prévia de vigilância?",
       "options": [
-        "Deve ser comparado ao risco imediato e à durabilidade do tratamento.",
-        "Inclui vigilância individualizada e controle de fatores modificáveis.",
-        "Pode ser discutido em famílias com múltiplos parentes de primeiro grau afetados.",
-        "Situação que exige analisar localização, sintomas, risco e alternativas.",
+        "Impõe clipagem imediata em todos os casos.",
+        "Dispensa consideração do risco procedural.",
+        "Permite encerrar a vigilância por indicar estabilização.",
+        "Obriga a implantação de um diversor de fluxo independentemente do sítio.",
         "Motiva nova discussão de risco com a equipe multidisciplinar."
       ],
       "answer": 4,
       "explanation": "Crescimento no seguimento. Motiva nova discussão de risco com a equipe multidisciplinar.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      },
+      "revision": 2
     },
     {
       "id": "nri:13.8:d5",
       "lesson": "13.8",
-      "prompt": "No contexto de Diretrizes e manejo do aneurisma não roto, qual alternativa descreve corretamente «Aneurisma sintomático por efeito de massa»?",
+      "prompt": "Que decisão a ESO sugere discutir quando um aneurisma não roto causa déficit de nervo craniano por efeito de massa?",
       "options": [
-        "Integra manejo clínico de aneurismas não rotos.",
-        "Situação que exige analisar localização, sintomas, risco e alternativas.",
-        "Deve ser comparado ao risco imediato e à durabilidade do tratamento.",
-        "Motiva nova discussão de risco com a equipe multidisciplinar.",
-        "Pode ser discutido em famílias com múltiplos parentes de primeiro grau afetados."
+        "Encerrar o seguimento se o aneurisma medir menos de 7 mm.",
+        "Considerar reparo preventivo após avaliar a relação dos sintomas com o aneurisma, risco do procedimento e expectativa de vida.",
+        "Indicar stent para todo aneurisma sintomático.",
+        "Tratar apenas quando houver ruptura comprovada.",
+        "Escolher a técnica sem considerar a expectativa de vida ou o risco procedural."
       ],
       "answer": 1,
-      "explanation": "Aneurisma sintomático por efeito de massa. Situação que exige analisar localização, sintomas, risco e alternativas.",
-      "origin": "revisão"
+      "explanation": "O déficit atribuível à compressão pelo aneurisma muda o balanço em relação a um achado incidental assintomático. A decisão individual considera a chance de melhora, o risco da intervenção e a expectativa de vida.",
+      "origin": "revisão",
+      "reference": {
+        "label": "ESO 2022, tabela 6, recomendações e consenso sobre reparo preventivo, vigilância e fatores de risco.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9446328/"
+      },
+      "revision": 2
     },
     {
       "id": "nri:13.9:h1",
@@ -2315,7 +2639,11 @@
       ],
       "answer": 1,
       "explanation": "A. Foram avaliados 9.559 pacientes, mas somente 2.143 (22,4%) foram randomizados.\nB. O ISAT selecionou principalmente pacientes com aneurismas pequenos, da circulação anterior, bom grau clínico e possibilidade de tratamento pelas duas técnicas.\nC. O estudo foi multicêntrico, predominantemente europeu, não um ensaio norte-americano de centro único.\nD. Cerca de 88% dos pacientes eram WFNS I–II, e aproximadamente 90% tinham aneurismas menores que 10 mm.\nE. Comparou coiling com clipagem, não flow diverter com clipagem.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ISAT, Lancet 2002, pp. 1267–1274, métodos de seleção e randomização.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12414200/"
+      }
     },
     {
       "id": "nri:13.9:h2",
@@ -2330,7 +2658,11 @@
       ],
       "answer": 4,
       "explanation": "A. O desfecho primário era morte ou dependência funcional (mRS 3–6) em um ano, não oclusão angiográfica precoce.\nB. Inverte as taxas. A menor proporção de morte/dependência ocorreu com coiling.\nC. ISAT investigou aneurismas rotos, não aneurismas incidentais não rotos.\nD. Houve retratamentos após coiling, mais frequentes que após clipagem.\nE. Na análise ampliada de 2005, morte ou dependência foi 23,5% no coiling versus 30,9% na clipagem; análises posteriores encontraram maior necessidade de retratamento após coiling.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ISAT, Lancet 2005, pp. 809–817, resultados de morte ou dependência em um ano.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16139655/"
+      }
     },
     {
       "id": "nri:13.9:h3",
@@ -2345,7 +2677,11 @@
       ],
       "answer": 0,
       "explanation": "A. Aproximadamente 38% dos pacientes designados ao coiling passaram para clipagem, comparados com 1,9% no sentido oposto, na população tratada analisada.\nB. BRAT incluiu pacientes que se apresentaram com HSA espontânea; após investigação, nem todos tinham aneurisma sacular roto.\nC. O estudo não foi de aneurismas incidentais não rotos.\nD. A troca da modalidade inicialmente designada era permitida e foi frequente.\nE. Foram publicados resultados funcionais em um, três, seis e dez anos, em populações analíticas distintas.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "BRAT, J Neurosurg 2012, pp. 135–144, alocação, crossover e análise por intenção de tratar.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22054213/"
+      }
     },
     {
       "id": "nri:13.9:h4",
@@ -2360,7 +2696,11 @@
       ],
       "answer": 3,
       "explanation": "A. Inverte os resultados: oclusão completa foi 96% com clipagem versus 48% com coiling entre os pacientes com angiografia disponível.\nB. Não houve superioridade funcional significativa da clipagem em todos os subgrupos.\nC. Houve crossover e perdas de seguimento, limitações metodológicas reconhecidas.\nD. A diferença de mau resultado funcional em seis anos não foi significativa (35,2% versus 41,4%; p=0,24), enquanto a clipagem apresentou maior oclusão completa e menor retratamento.\nE. A ausência de ressangramentos registrados em determinado período não comprova risco futuro absolutamente nulo.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "BRAT, seguimento de seis anos, J Neurosurg 2015, pp. 609–617, resultados funcionais e angiográficos. ISAT: PMID 16139655.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26115467/"
+      }
     },
     {
       "id": "nri:13.9:h5",
@@ -2375,7 +2715,11 @@
       ],
       "answer": 2,
       "explanation": "A. ISAT não comprovou superioridade do coiling em todos os aneurismas gigantes ou complexos.\nB. Oclusão angiográfica completa não garante melhor mRS em cada paciente.\nC. ISAT demonstrou vantagem funcional inicial do coiling em pacientes selecionados; BRAT evidenciou problemas de crossover e diferenças de durabilidade, sem comprovar superioridade funcional universal de uma técnica.\nD. Localização, colo, ramos incorporados, hematoma associado e características do paciente influenciam a escolha da modalidade.\nE. Recanalização, retratamento, ressangramento e dependência funcional são desfechos diferentes e não intercambiáveis.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "BRAT, seguimento de seis anos, J Neurosurg 2015, pp. 609–617, resultados funcionais e angiográficos. ISAT: PMID 16139655.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26115467/"
+      }
     },
     {
       "id": "nri:13.9:c1",
@@ -2390,7 +2734,11 @@
       ],
       "answer": 4,
       "explanation": "A intenção de tratar conserva o grupo de alocação e testa a estratégia inicialmente designada.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "BRAT, J Neurosurg 2012, pp. 135–144, alocação, crossover e análise por intenção de tratar.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22054213/"
+      }
     },
     {
       "id": "nri:13.9:d1",
@@ -2405,7 +2753,11 @@
       ],
       "answer": 4,
       "explanation": "ISAT. Randomizou pacientes selecionados cuja anatomia permitia as duas modalidades de tratamento.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ISAT, Lancet 2002, pp. 1267–1274, métodos de seleção e randomização.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12414200/"
+      }
     },
     {
       "id": "nri:13.9:d2",
@@ -2420,7 +2772,11 @@
       ],
       "answer": 1,
       "explanation": "mRS 3–6 no ISAT. Medida de morte ou dependência no seguimento.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ISAT, Lancet 2005, pp. 809–817, resultados de morte ou dependência em um ano.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16139655/"
+      }
     },
     {
       "id": "nri:13.9:d3",
@@ -2435,7 +2791,11 @@
       ],
       "answer": 3,
       "explanation": "Crossover no BRAT. Foi assimétrico, mais frequente da estratégia endovascular para clipagem.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "BRAT, J Neurosurg 2012, pp. 135–144, alocação, crossover e análise por intenção de tratar.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22054213/"
+      }
     },
     {
       "id": "nri:13.9:d4",
@@ -2450,7 +2810,11 @@
       ],
       "answer": 1,
       "explanation": "Análise por intenção de tratar. Mantém a alocação original mesmo se a modalidade recebida mudar.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "BRAT, J Neurosurg 2012, pp. 135–144, alocação, crossover e análise por intenção de tratar.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22054213/"
+      }
     },
     {
       "id": "nri:13.10:h1",
@@ -2465,7 +2829,11 @@
       ],
       "answer": 2,
       "explanation": "A. A oclusão completa reduziu muito o risco, mas não o eliminou. O CARAT encontrou 1,1% de ressangramento nesse grupo.\nB. Os 17,6% correspondem ao risco global observado durante o acompanhamento, não à incidência anual.\nC. O risco de ressangramento aumentou progressivamente conforme a oclusão se tornava menos completa: 1,1%, 2,9%, 5,9% e 17,6%, respectivamente para 100%, 91–99%, 70–90% e menos de 70% de oclusão. Associação significativa, p <0,0001.\nD. CARAT foi uma coorte ambidirecional, não um ensaio randomizado. Comparou pacientes tratados por coiling e clipagem.\nE. A diferença bruta de ressangramento entre modalidades foi de 3,4% versus 1,3%, mas não permaneceu significativa após ajuste multivariado (p=0,83).",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "CARAT, Stroke 2008, pp. 120–125, resultados por grau de oclusão inicial.",
+        "url": "https://doi.org/10.1161/STROKEAHA.107.495747"
+      }
     },
     {
       "id": "nri:13.10:h2",
@@ -2480,7 +2848,11 @@
       ],
       "answer": 4,
       "explanation": "A. O ensaio planejava incluir 1.896 pacientes, mas randomizou somente 263. Não demonstrou superioridade definitiva da EVT.\nB. O desfecho primário foi morte ou dependência funcional (mRS >2) em um ano, não oclusão angiográfica em sete dias.\nC. Não houve diferença estatisticamente significativa no desfecho clínico primário (p=0,572), muito menos superioridade comprovada com p<0,001.\nD. A análise intermediária de 2019 não equivale à publicação final de 2025, que incluiu 263 pacientes randomizados.\nE. Desfecho primário: 30% na clipagem (40/133) versus 27% na EVT (35/130), p=0,572. Aneurisma residual em um ano: 8% versus 20%, respectivamente, favorecendo a clipagem no desfecho angiográfico (p=0,015).",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "ISAT-2, publicação final, seções Methods e Results, alocação e desfecho primário em um ano.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39823597/"
+      }
     },
     {
       "id": "nri:13.10:h3",
@@ -2495,7 +2867,11 @@
       ],
       "answer": 0,
       "explanation": "A. Raymond–Roy I = oclusão completa; II = colo residual; III = saco residual. Na classificação modificada, IIIb representa contraste ao longo da parede do aneurisma, externamente aos interstícios dos coils.\nB. Classe II não é ressangramento: é colo residual angiográfico.\nC. Classe IIIa corresponde a contraste nos interstícios dos coils, e não à ausência de enchimento.\nD. Raymond–Roy é uma classificação morfológica angiográfica; as porcentagens do CARAT constituem outra forma de descrever a extensão da oclusão.\nE. Aneurismas residuais podem apresentar recanalização, crescimento ou necessidade de retratamento. Não se pode presumir oclusão espontânea em todos.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "Mascitelli et al., J Neurointerv Surg 2015, pp. 496–502, classificação modificada de Raymond–Roy.",
+        "url": "https://jnis.bmj.com/content/7/7/496"
+      }
     },
     {
       "id": "nri:13.10:h4",
@@ -2510,7 +2886,11 @@
       ],
       "answer": 3,
       "explanation": "A. Flow diverter não é a primeira opção universal em HSA aneurismática. A ESO 2026 recomenda reservá-lo para situações de última linha.\nB. Implantes endoluminais permanentes exigem planejamento antitrombótico. Isso pode complicar DVE e outras intervenções na fase aguda.\nC. Flow diversion frequentemente proporciona oclusão progressiva, não imediata.\nD. Stent-assisted coiling e flow diversion podem ser considerados em aneurismas selecionados, quando as alternativas convencionais não são adequadas, ponderando antiagregação, complicações, durabilidade e possível oclusão tardia.\nE. Observar indefinidamente um aneurisma responsável por HSA não constitui estratégia aceitável quando há possibilidade de proteção segura.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2023, recomendações sobre tratamento cirúrgico e endovascular do aneurisma roto e prevenção de isquemia cerebral tardia.",
+        "url": "https://doi.org/10.1161/STR.0000000000000436"
+      }
     },
     {
       "id": "nri:13.10:h5",
@@ -2525,7 +2905,11 @@
       ],
       "answer": 0,
       "explanation": "A. Priorizar proteção precoce do aneurisma, preferencialmente em até 24 horas, administrar nimodipina enteral precocemente, manter euvolemia e investigar DCI. Hipervolemia profilática, estatinas e magnésio IV não são recomendados rotineiramente para melhorar o prognóstico da HSA.\nB. Vasoespasmo angiográfico e DCI são fenômenos relacionados, mas não equivalentes. A DCI também envolve disfunção microvascular e outros mecanismos.\nC. A antiga estratégia Triple-H profilática não é recomendada. Hipervolemia profilática pode causar complicações sistêmicas.\nD. Antifibrinolíticos podem reduzir ressangramento em alguns estudos, como o ULTRA, mas não demonstraram melhora funcional; a ESO 2026 recomenda contra seu uso rotineiro.\nE. Hidrocefalia aguda sintomática exige avaliação neurocrítica e neurocirúrgica imediata, sem aguardar a janela de vasoespasmo.",
-      "origin": "histórico"
+      "origin": "histórico",
+      "reference": {
+        "label": "AHA/ASA 2023, recomendações sobre tratamento cirúrgico e endovascular do aneurisma roto e prevenção de isquemia cerebral tardia.",
+        "url": "https://doi.org/10.1161/STR.0000000000000436"
+      }
     },
     {
       "id": "nri:13.10:d1",
@@ -2541,7 +2925,11 @@
       "answer": 2,
       "explanation": "CARAT é uma coorte de aneurismas rotos tratados. O grau de oclusão inicial se associou ao risco de ressangramento no seguimento.",
       "origin": "revisão",
-      "revision": 1
+      "revision": 1,
+      "reference": {
+        "label": "CARAT, Stroke 2008, pp. 120–125, resultados por grau de oclusão inicial.",
+        "url": "https://doi.org/10.1161/STROKEAHA.107.495747"
+      }
     },
     {
       "id": "nri:13.10:d2",
@@ -2556,7 +2944,11 @@
       ],
       "answer": 4,
       "explanation": "ISAT-2. Ensaio randomizado iniciado para avaliar tratamento de aneurismas rotos pouco representados no ISAT original.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "ISAT-2, publicação final, seções Methods e Results, alocação e desfecho primário em um ano.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39823597/"
+      }
     },
     {
       "id": "nri:13.10:d3",
@@ -2571,7 +2963,11 @@
       ],
       "answer": 0,
       "explanation": "Ressangramento após tratamento. Pode ocorrer mesmo quando a oclusão inicial aparenta ser completa.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "CARAT, Stroke 2008, pp. 120–125, resultados por grau de oclusão inicial.",
+        "url": "https://doi.org/10.1161/STROKEAHA.107.495747"
+      }
     },
     {
       "id": "nri:13.10:d4",
@@ -2586,7 +2982,11 @@
       ],
       "answer": 0,
       "explanation": "Hidrocefalia aguda sintomática na HSA. Pode exigir derivação liquórica urgente conforme avaliação.",
-      "origin": "revisão"
+      "origin": "revisão",
+      "reference": {
+        "label": "AHA/ASA 2023, seção 8.4, tratamento da hidrocefalia associada à HSA aneurismática.",
+        "url": "https://doi.org/10.1161/STR.0000000000000436"
+      }
     }
   ],
   "references": [

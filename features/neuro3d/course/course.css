@@ -204,3 +204,13 @@
   .nri-course-layout .nri-course-main { padding: .95rem; }
   .nri-course-scroll :is(td, th) { padding: .45rem .55rem; }
 }
+
+.nri-lesson-gallery { margin-block: 1.75rem; border-top: 1px solid var(--nri-line); padding-top: 1rem; }
+.nri-lesson-gallery > div { display: grid; gap: 1rem; }
+.nri-lesson-gallery figure { margin: 0; padding: .6rem; background: white; border: 1px solid var(--nri-line); border-radius: .85rem; }
+.nri-lesson-gallery img { display: block; width: auto; max-width: 100%; height: auto; margin: auto; }
+.nri-lesson-gallery figcaption { padding: .5rem .25rem 0; font-size: .875rem; color: var(--nri-muted); }
+.nri-course-modes { padding: .3rem; border-radius: .85rem; background: #edf2f4; gap: .3rem; }
+.nri-course .nri-course-modes a { flex: 1; border-color: transparent; background: transparent; }
+.nri-course .nri-course-modes a[aria-current="page"] { background: white; color: #065f46; box-shadow: 0 1px 4px #17352920; }
+.nri-course-text :is(h3,h4) { scroll-margin-top: 5rem; }

@@ -648,7 +648,7 @@
         "A origem da PCoA define a localização do anel dural distal."
       ],
       "answer": 3,
-      "explanation": "A. O processo clinoide Incorreta. A proximidade com a clinoide não define, isoladamente, o compartimento garante localização dural. Além disso, a distinção relevante nessa região é intradural versus extradural, não extracraniana simplesmente intracraniana versus extracraniana.\nB. Projeção medial Incorreta. A face medial é justamente a região onde pode existir o recesso conhecido exclui extensão como carotid cave. subaracnóidea\nC. Todo aneurisma Incorreta. A artéria oftálmica apresenta origem variável. Não é um marcador absoluto abaixo da origem do limite dural distal. oftálmica é cavernoso\nD. Avaliar anel dural Correta. O recesso dural-aracnoideo medial pode permitir que uma lesão situada abaixo distal e carotid cave do nível angiográfico aparente do anel apresente componente intradural.\nE. PCoA define o anel Incorreta. A PCoA marca o início de C7. O anel distal marca o início de C6. São dural distal referências anatômicas distintas.",
+      "explanation": "A. Incorreta. A proximidade com a clinoide não define, isoladamente, o compartimento dural. Além disso, a distinção relevante nessa região é intradural versus extradural, não simplesmente intracraniana versus extracraniana.\nB. Incorreta. A face medial é justamente a região onde pode existir o recesso conhecido como carotid cave.\nC. Incorreta. A artéria oftálmica apresenta origem variável. Não é um marcador absoluto do limite dural distal.\nD. Correta. O recesso dural-aracnoideo medial pode permitir que uma lesão situada abaixo do nível angiográfico aparente do anel apresente componente intradural.\nE. Incorreta. A PCoA marca o início de C7. O anel distal marca o início de C6. São referências anatômicas distintas.",
       "origin": "histórico",
       "reference": {
         "label": "Bouthillier et al. Segmentos da artéria carótida interna.",
@@ -661,13 +661,13 @@
       "prompt": "Uma angiografia demonstra que a artéria oftálmica nasce de posição mais proximal que a habitual, na região cavernosa. Qual interpretação é correta de acordo com Bouthillier?",
       "options": [
         "O segmento C6 deixa de existir porque a oftálmica não nasce dele.",
-        "Os limites entre C5 e C6 continuam definidos pelos anéis durais, independentemente da origem variável da oftálmica.",
+        "O anel dural distal continua marcando o limite entre C5 e C6, mesmo com origem cavernosa da oftálmica.",
         "O segmento C5 passa obrigatoriamente a ser considerado C7.",
         "A origem oftálmica determina sempre o limite entre C4 e C5.",
         "A variante implica persistência da artéria hipoglossal."
       ],
       "answer": 1,
-      "explanation": "A. C6 deixa de existir Incorreta. C6 é definido por limites anatômicos, não pela presença obrigatória da origem oftálmica dentro dele.\nB. Os anéis durais Correta. A classificação de Bouthillier não precisa ser renumerada quando a artéria continuam definindo C5 e C6 oftálmica tem origem anômala.\nC. C5 passa a ser C7 Incorreta. A variação de um ramo não altera a sequência dos sete segmentos.\nD. A oftálmica determina o Incorreta. Esse limite corresponde ao anel dural proximal. limite C4/C5\nE. Implica persistência da Incorreta. A hipoglossal persistente é uma anastomose carotidobasilar primitiva, hipoglossal sem relação necessária com a origem oftálmica cavernosa.",
+      "explanation": "A. Incorreta. C6 é definido por limites anatômicos, não pela presença obrigatória da origem oftálmica dentro dele.\nB. Correta. A classificação de Bouthillier não precisa ser renumerada quando a artéria oftálmica tem origem anômala.\nC. Incorreta. A variação de um ramo não altera a sequência dos sete segmentos.\nD. Incorreta. Esse limite corresponde ao anel dural proximal.\nE. Incorreta. A hipoglossal persistente é uma anastomose carotidobasilar primitiva, sem relação necessária com a origem oftálmica cavernosa.",
       "origin": "histórico",
       "reference": {
         "label": "Bouthillier et al. Segmentos da artéria carótida interna.",
@@ -686,7 +686,7 @@
         "Tronco radiculomedular cervical."
       ],
       "answer": 2,
-      "explanation": "A. Coroideia anterior Incorreta. Origina-se habitualmente de C7, com distribuição predominantemente profunda e coroidea.\nB. Oftálmica Incorreta. Origina-se habitualmente de C6, embora apresente variantes. Não corresponde ao tronco clássico que reúne os ramos descritos.\nC. Tronco Correta. O MHT origina classicamente a artéria hipofisária inferior, a dorsal meningohipofisário meníngea/clival e a artéria tentorial marginal.\nD. Comunicante Incorreta. É ramo de C7, relacionado à circulação posterior e às perfurantes diencefálicas. posterior\nE. Tronco Incorreta. Pertence ao suprimento medular cervical, não à angioarquitetura cavernosa da radiculomedular ACI. cervical",
+      "explanation": "A. Incorreta. Origina-se habitualmente de C7, com distribuição predominantemente profunda e coroidea.\nB. Incorreta. Origina-se habitualmente de C6, embora apresente variantes. Não corresponde ao tronco clássico que reúne os ramos descritos.\nC. Correta. O MHT origina classicamente a artéria hipofisária inferior, a dorsal meníngea/clival e a artéria tentorial marginal.\nD. Incorreta. É ramo de C7, relacionado à circulação posterior e às perfurantes diencefálicas.\nE. Incorreta. Pertence ao suprimento medular cervical, não à angioarquitetura cavernosa da ACI.",
       "origin": "histórico",
       "reference": {
         "label": "Bouthillier et al. Segmentos da artéria carótida interna.",
@@ -705,7 +705,7 @@
         "Trata-se provavelmente da coroideia anterior, originada no segmento C7, cuja oclusão pode comprometer estruturas capsulares e ópticas."
       ],
       "answer": 4,
-      "explanation": "A. Hipofisária superior, Incorreta. As hipofisárias superiores originam-se habitualmente de C6 e irrigam exclusiva de C4 principalmente a região suprasselar.\nB. Vidiana, principal vaso Incorreta. A vidiana participa de redes petropterigopalatinas; não é uma artéria capsular principal da cápsula interna.\nC. Caroticotimpânica de Incorreta. As caroticotimpânicas relacionam-se ao segmento petroso C2. C7\nD. Meníngea média da Incorreta. A origem habitual da meníngea média é a artéria maxilar interna, com ACI supraclinoidea variantes relacionadas ao sistema estapedial.\nE. Coroideia anterior de Correta. Origina-se habitualmente distalmente à PCoA e pode irrigar estruturas C7 capsulares, do trato óptico e da região geniculada lateral.",
+      "explanation": "A. Incorreta. As hipofisárias superiores originam-se habitualmente de C6 e irrigam principalmente a região suprasselar.\nB. Incorreta. A vidiana participa de redes petropterigopalatinas; não é uma artéria principal da cápsula interna.\nC. Incorreta. As caroticotimpânicas relacionam-se ao segmento petroso C2.\nD. Incorreta. A origem habitual da meníngea média é a artéria maxilar interna, com variantes relacionadas ao sistema estapedial.\nE. Correta. Origina-se habitualmente distalmente à PCoA e pode irrigar estruturas capsulares, do trato óptico e da região geniculada lateral.",
       "origin": "histórico",
       "reference": {
         "label": "Bouthillier et al. Segmentos da artéria carótida interna.",
@@ -724,7 +724,7 @@
         "C5 começa na origem da coroideia anterior e termina na ACA."
       ],
       "answer": 0,
-      "explanation": "A. C3 termina no ligamento Correta. É a sequência anatômica clássica de Bouthillier. petrolingual; C4 no anel proximal; C5 no anel distal\nB. C3 termina na oftálmica; C4 na Incorreta. Confunde marcos dos segmentos supraclinoideos com os PCoA; C5 na bifurcação segmentos da base do crânio.\nC. C3 atravessa livremente o forame Incorreta. A ACI passa sobre a região fibrocartilaginosa do forame lacerado e C4 é intradural lacerado; C4 é o segmento cavernoso, extradural em sua configuração habitual.\nD. C4 começa no anel distal e termina Incorreta. A sequência está invertida. C4 termina no anel proximal. no proximal\nE. C5 vai da coroideia anterior à ACA Incorreta. Isso corresponderia à região terminal supraclinoidea, não ao curto segmento clinoideo C5.",
+      "explanation": "A. Correta. Na classificação de Bouthillier, o segmento lácero termina no ligamento petrolingual, o cavernoso no anel dural proximal e o clinoideo no anel dural distal.\nB. Incorreta. Confunde marcos dos segmentos supraclinoideos com os segmentos da base do crânio.\nC. Incorreta. A ACI passa sobre a região fibrocartilaginosa do forame lacerado; C4 é o segmento cavernoso, extradural em sua configuração habitual.\nD. Incorreta. A sequência está invertida. C4 termina no anel proximal.\nE. Incorreta. Isso corresponderia à região terminal supraclinoidea, não ao curto segmento clinoideo C5.",
       "origin": "histórico",
       "reference": {
         "label": "Bouthillier et al. Segmentos da artéria carótida interna.",
@@ -858,7 +858,7 @@
         "O achado demonstra uma artéria hipoglossal primitiva persistente."
       ],
       "answer": 2,
-      "explanation": "A. A hipoplasia de A1 determina Incorreta. Um A1 hipoplásico pode conservar ramos perfurantes funcionais. O ausência das perfurantes pequeno calibre não comprova ausência de irrigação estriatal ou hipotalâmica. ipsilaterais\nB. A ACA esquerda passa a Incorreta. A comunicação responsável pela compensação clássica é a ACom, depender obrigatoriamente da que permite suprimento cruzado entre as ACA. A PCoA conecta os sistemas PCoA carotídeo e posterior.\nC. A ACI direita pode fornecer a Correta. A A1 dominante pode preencher ambos os segmentos A2 através da maior parte do fluxo às duas ACA ACom; as perfurantes proximais devem ser analisadas separadamente. distais\nD. A ACM direita assume Incorreta. Existem colaterais piais ACA–ACM, mas elas não substituem diretamente todo o território da obrigatoriamente o suprimento habitual pela ACom. ACA esquerda\nE. Demonstra hipoglossal Incorreta. A hipoglossal persistente é uma anastomose carotidobasilar persistente relacionada ao canal do hipoglosso, sem relação necessária com a hipoplasia de A1.",
+      "explanation": "A. Incorreta. Um A1 hipoplásico pode conservar ramos perfurantes funcionais. O pequeno calibre não comprova ausência de irrigação estriatal ou hipotalâmica.\nB. Incorreta. A comunicação responsável pela compensação clássica é a ACom, que permite suprimento cruzado entre as ACA. A PCoA conecta os sistemas carotídeo e posterior.\nC. Correta. A A1 dominante pode preencher ambos os segmentos A2 através da ACom; as perfurantes proximais devem ser analisadas separadamente.\nD. Incorreta. Existem colaterais piais ACA–ACM, mas elas não substituem obrigatoriamente o suprimento habitual pela ACom.\nE. Incorreta. A hipoglossal persistente é uma anastomose carotidobasilar relacionada ao canal do hipoglosso, sem relação necessária com a hipoplasia de A1.",
       "origin": "histórico",
       "reference": {
         "label": "Artéria cerebral anterior e variantes",
@@ -877,7 +877,7 @@
         "Artéria pericalosa posterior; pedúnculo cerebral."
       ],
       "answer": 1,
-      "explanation": "A. Calosomarginal; córtex Incorreta. A calosomarginal segue distalmente na região do sulco do cíngulo e paracentral exclusivamente fornece ramos corticais mediais. Não é o vaso recorrente que penetra na substância perfurada anterior.\nB. Heubner; caudado anterior, Correta. Origem próxima à ACom, retorno em direção a A1 e suprimento putâmen anterior e braço estriatocapsular são características clássicas da artéria recorrente de Heubner. anterior da cápsula interna\nC. Percheron; tálamos Incorreta. A artéria de Percheron é variante de perfurante de P1, relacionada à paramedianos circulação posterior.\nD. Coroideia posterior medial; Incorreta. Não corresponde à origem, trajetória ou distribuição. Além disso, a plexo temporal coroideia posteromedial está relacionada principalmente às estruturas coroideas do terceiro ventrículo e regiões adjacentes.\nE. Pericalosa posterior; Incorreta. Os ramos pericalosos pertencem ao sistema cortical medial, e o pedúnculo cerebral pedúnculo cerebral recebe irrigação de outros sistemas, principalmente da circulação posterior e coroidea anterior, conforme o território.",
+      "explanation": "A. Incorreta. A calosomarginal segue distalmente na região do sulco do cíngulo e fornece ramos corticais mediais. Não é o vaso recorrente que penetra na substância perfurada anterior.\nB. Correta. Origem próxima à ACom, retorno em direção a A1 e suprimento estriatocapsular são características clássicas da artéria recorrente de Heubner.\nC. Incorreta. A artéria de Percheron é variante de perfurante de P1, relacionada à circulação posterior.\nD. Incorreta. Não corresponde à origem, trajetória ou distribuição. Além disso, a coroideia posteromedial está relacionada principalmente às estruturas coroideas do terceiro ventrículo e regiões adjacentes.\nE. Incorreta. Os ramos pericalosos pertencem ao sistema cortical medial, e o pedúnculo cerebral recebe irrigação de outros sistemas, principalmente da circulação posterior e coroidea anterior, conforme o território.",
       "origin": "histórico",
       "reference": {
         "label": "Artéria cerebral anterior e variantes",
@@ -896,7 +896,7 @@
         "A preservação das pericalosas exclui qualquer possibilidade de déficit de memória."
       ],
       "answer": 3,
-      "explanation": "A. Terceira A2 comprova ACA ázigos Incorreta. Uma artéria mediana acessória constitui um terceiro eixo, enquanto a ACA ázigos verdadeira é um tronco distal ímpar.\nB. Perfurante pode ser sacrificada Incorreta. A preservação dos troncos corticais não garante a integridade se as A2 estiverem patentes da circulação subcalosa e das estruturas relacionadas à memória.\nC. Terceiro tronco é Incorreta. Uma ACM duplicada ou acessória apresenta outra origem, necessariamente ACM duplicada trajeto e território.\nD. Identificar ACA mediana Correta. Devem ser avaliados separadamente o território do terceiro tronco acessória e preservar perfurante e os ramos profundos relacionados à ACom. subcalosa\nE. Preservação das pericalosas Incorreta. Lesões de perfurantes subcalosas, septais ou relacionadas ao exclui déficit de memória fórnix podem produzir déficits amnésticos mesmo com pericalosas pérvias.",
+      "explanation": "A. Incorreta. Uma artéria mediana acessória constitui um terceiro eixo, enquanto a ACA ázigos verdadeira é um tronco distal ímpar.\nB. Incorreta. A preservação dos troncos corticais não garante a integridade da circulação subcalosa e das estruturas relacionadas à memória.\nC. Incorreta. Uma ACM duplicada ou acessória apresenta outra origem, trajeto e território.\nD. Correta. Devem ser avaliados separadamente o território do terceiro tronco e os ramos profundos relacionados à ACom.\nE. Incorreta. Lesões de perfurantes subcalosas, septais ou relacionadas ao fórnix podem produzir déficits amnésticos mesmo com pericalosas pérvias.",
       "origin": "histórico",
       "reference": {
         "label": "Artéria cerebral anterior e variantes",
@@ -915,7 +915,7 @@
         "A ázigos verdadeira possui tronco distal ímpar com distribuição bilateral; a bi-hemisférica apresenta dominância territorial de um lado; a acessória mediana acrescenta um terceiro tronco."
       ],
       "answer": 4,
-      "explanation": "A. São sinônimos angiográficos Incorreta. Correspondem a configurações diferentes do suprimento distal da ACA.\nB. ACA bi-hemisférica exige ausência da Incorreta. A ACom pode estar presente; a variante é definida ACom principalmente pela distribuição cortical bilateral assimétrica.\nC. ACA mediana acessória exige ausência Incorreta. Um terceiro tronco distal pode coexistir com A1 bilaterais das duas A1 normalmente formadas.\nD. Fusão curta seguida de separação é Incorreta. Lasjaunias diferencia a ACA ázigos verdadeira de troncos sempre ázigos verdadeira comuns curtos ou fusões parciais que posteriormente se separam.\nE. Ázigos ímpar; bi-hemisférica Correta. Resume as três configurações sem confundi-las. dominante; mediana acessória como terceiro tronco",
+      "explanation": "A. Incorreta. Correspondem a configurações diferentes do suprimento distal da ACA.\nB. Incorreta. A ACom pode estar presente; a variante é definida principalmente pela distribuição cortical bilateral assimétrica.\nC. Incorreta. Um terceiro tronco distal pode coexistir com A1 bilaterais normalmente formadas.\nD. Incorreta. Lasjaunias diferencia a ACA ázigos verdadeira de troncos comuns curtos ou fusões parciais que posteriormente se separam.\nE. Correta. A ACA ázigos tem um tronco A2 ímpar. Na configuração bi-hemisférica, uma das ACAs predomina no suprimento dos dois hemisférios. Uma artéria mediana acessória constitui um terceiro tronco.",
       "origin": "histórico",
       "reference": {
         "label": "Artéria cerebral anterior e variantes",
@@ -934,7 +934,7 @@
         "A preservação de M1 bilateral exclui a possibilidade de isquemia frontal medial."
       ],
       "answer": 0,
-      "explanation": "A. Uma oclusão de ACA ázigos ou tronco Correta. O suprimento de ambos os territórios mediais por um eixo distal dominante pode causar infarto comum ou dominante explica a paraparesia, abulia e alterações bilateral esfincterianas.\nB. Exige oclusão bilateral das coroideias Incorreta. O padrão descrito é cortical frontal medial e paracentral, anteriores não o território habitual das coroideias anteriores.\nC. Heubner é a principal irrigação bilateral Incorreta. Heubner é predominantemente estriatocapsular. O lóbulo do lóbulo paracentral paracentral recebe ramos corticais distais da ACA.\nD. Depende exclusivamente das SCA Incorreta. As artérias cerebelares superiores pertencem à circulação posterior e não irrigam habitualmente a face medial dos lobos frontais.\nE. M1 bilateral pérvia exclui isquemia Incorreta. A patência das ACM não exclui oclusão da ACA ou infarto frontal medial de seu território.",
+      "explanation": "A. Correta. O suprimento de ambos os territórios mediais por um eixo comum ou dominante explica a paraparesia, abulia e alterações esfincterianas.\nB. Incorreta. O padrão descrito é cortical frontal medial e paracentral, não o território habitual das coroideias anteriores.\nC. Incorreta. Heubner é predominantemente estriatocapsular. O lóbulo paracentral recebe ramos corticais distais da ACA.\nD. Incorreta. As artérias cerebelares superiores pertencem à circulação posterior e não irrigam habitualmente a face medial dos lobos frontais.\nE. Incorreta. A patência das ACM não exclui oclusão da ACA ou infarto de seu território.",
       "origin": "histórico",
       "reference": {
         "label": "Artéria cerebral anterior e variantes",
