@@ -1,3 +1,7 @@
+## 21/11/2026 — Material integral do Curso NRI
+
+Acervo de leitura integral com procedência por aula, renderização de páginas e imagens, texto selecionável e ajustes de formatação responsiva. O checkpoint é local. A revisão automática bloqueou a publicação de dois volumes derivados das exportações no GitHub. [Manual](../neuro3d-curso-nri.md).
+
 ## 21/11/2026 — Auditoria dos Blocos 2–6 do Curso NRI
 
 Registrados os Blocos 2–6, com decisões e fonte temática para cada questão, planos de revisão e correções de conteúdo e nomenclatura. [Cotejo](../neuro3d-curso-nri-blocos-2-6.md).
@@ -169,3 +173,7 @@ Base `3952cda`. Conteúdo HTML em 120 rotas, catálogo de 13 blocos, 43 esquemas
 ## 21/11/2026 — Curso independente e auditoria de conteúdo
 
 Base remota `9b66c6b`. Rota própria do curso, revisão nas 120 aulas, triagem das 1.300 questões, 39 casos reescritos e cinco comentários completados. Consulte [a matriz e seus limites](../neuro3d-curso-nri-auditoria.md). A validação científica dos demais gabaritos continua por lote.
+
+## 21/11/2026 — Revisão dos 13 blocos NRI
+
+Revisão de layout e formatação nos 13 blocos, incluindo reconstrução das tabelas de STEM e MEMBRANE. Sínteses e exercícios nas 68 aulas dos Blocos 7–13, 43 questões reformuladas e planos D0–D+30 nos 13 blocos. O material histórico dos 43 volumes permanece vinculado às aulas. [Matriz e limites](../neuro3d-curso-nri-auditoria-final.md).

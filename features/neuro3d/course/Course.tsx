@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { BookOpen, ClipboardList, FileUp, Search, Table2 } from 'lucide-react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { BookOpen, ClipboardList, FileText, FileUp, Search, Table2 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -9,6 +9,13 @@ import {
   loadCourse, maxImportBytes, mergeCourseImport, parseCourseImport, saveCourse, searchable, courseAttemptKey,
 } from './model';
 import './course.css';
+import { formatLesson } from './lessonLayout';
+
+const OriginalMaterial = lazy(() => import('./OriginalMaterial'));
+const originalSections = [
+  ['cp1', 'Checkpoint CP1'], ['cp2', 'Checkpoint CP2'], ['revisoes', 'Revisões cumulativas'],
+  ['provas', 'Provas e auditoria documental'], ['programa', 'Planejamento curricular'], ['complementar', 'Tópicos complementares'],
+] as const;
 
 const blocks: Block[] = manifest;
 const loaders = import.meta.glob<{ default: BlockContent }>('./content/block-*.json');
@@ -17,6 +24,7 @@ const curriculum = blocks.flatMap((block) => block.lessons.map((lesson) => ({ bl
 const lessonIds = new Set(curriculum.map(({ lesson }) => lesson.id));
 const modes = [
   { id: 'teoria', label: 'Aula', icon: BookOpen },
+  { id: 'material', label: 'Material integral', icon: FileText },
   { id: 'revisao', label: 'Revisão de prova', icon: Table2 },
   { id: 'questoes', label: 'Questões', icon: ClipboardList },
 ] as const;
@@ -33,6 +41,7 @@ function courseLink(block?: number, lesson?: string, mode?: Mode) {
 
 export default function Course() {
   const [params, setParams] = useSearchParams();
+  const supplemental = originalSections.find(([id]) => params.get('material') === id);
   const selected = params.get('modulo')?.toUpperCase();
   const entry = curriculum.find(({ lesson }) => lesson.id === selected);
   const mode = modes.find(({ id }) => id === params.get('estudo'))?.id ?? 'teoria';
@@ -156,7 +165,7 @@ export default function Course() {
       </ul>
     </nav>}
 
-    {!block && <>
+    {!block && !supplemental && <>
       <div className="nri-course-section-title">
         <h2 tabIndex={-1} ref={heading}>Blocos do curso</h2>
         <Link to={courseLink(blocks[0].id, blocks[0].lessons[0].id)} className="nri-course-primary" onClick={follow}>Começar pela aula 1A</Link>
@@ -170,6 +179,13 @@ export default function Course() {
       </div>
     </>}
 
+    {supplemental && <section className="nri-course-main nri-course-supplement">
+      <Link to={courseLink()} onClick={follow}>Todos os blocos</Link>
+      <h2>{supplemental[1]}</h2>
+      <Suspense fallback={<p role="status">Abrindo material…</p>}>
+        <OriginalMaterial key={supplemental[0]} id={supplemental[0]} />
+      </Suspense>
+    </section>}
     {block && <nav className="nri-course-path" aria-label="Navegação do curso">
       <Link to={courseLink()} onClick={follow}>Todos os blocos</Link>
     </nav>}
@@ -199,7 +215,7 @@ export default function Course() {
       </details>
       <div className="nri-course-main">
         <p className="nri-course-kicker">Bloco {block.id} · {block.title}</p>
-        <h2 ref={heading} tabIndex={-1}>{entry ? `${entry.lesson.id} · ${entry.lesson.title}` : 'Questões do bloco'}</h2>
+        <h2 className="nri-lesson-title" ref={heading} tabIndex={-1}>{entry ? `${entry.lesson.id} · ${entry.lesson.title}` : 'Questões do bloco'}</h2>
         {entry && <nav aria-label="Modo de estudo" className="nri-course-modes">
           {modes.map(({ id, label, icon: Icon }) => <Link key={id} to={courseLink(block.id, entry.lesson.id, id)}
             aria-current={mode === id ? 'page' : undefined} onClick={follow}>
@@ -214,14 +230,27 @@ export default function Course() {
         </div>}
         {data && mode === 'questoes' && <Quiz key={`${block.id}:${selected}`} questions={questions} attempts={course.attempts}
           onGrade={grade} blockWide={blockWide} onBlock={() => setParams(new URLSearchParams({ bloco: String(block.id), modulo: 'todos', estudo: 'questoes' }))} />}
-        {lesson && mode === 'teoria' && <LessonArticle key={lesson.id} lesson={lesson} />}
-        {lesson && mode === 'revisao' && <>
+        {lesson && mode === 'teoria' && <>
+          <p className="nri-original-source"><Link to={`${courseLink(block.id, lesson.id, 'material')}&figuras=1`} onClick={follow}>Figuras e esquemas do material original</Link></p>
+          <LessonArticle key={lesson.id} lesson={lesson} />
+        </>}
+        {lesson && mode === 'material' && <Suspense fallback={<p role="status">Abrindo material…</p>}>
+          <OriginalMaterial key={`${lesson.id}:${params.get('figuras')}`} id={lesson.id} figures={params.get('figuras') === '1'} />
+        </Suspense>}
+        {lesson && mode === 'revisao' && <section className="nri-course-review" aria-label="Revisão da aula">
           <h3>Conceitos-chave para a prova</h3>
-          <div className="nri-course-scroll"><table>
+          <div className="nri-course-scroll" tabIndex={0} role="region" aria-label="Conceitos e pontos de prova"><table>
             <thead><tr><th scope="col">Conceito</th><th scope="col">O que lembrar</th></tr></thead>
             <tbody>{lesson.points.map(({ concept, takeaway }) => <tr key={concept}><th scope="row">{concept}</th><td>{takeaway}</td></tr>)}</tbody>
           </table></div>
-        </>}
+          {data?.revisionPlan && <details className="nri-course-outline nri-block-revision">
+            <summary>Plano de revisão do bloco</summary>
+            <p>Conte a partir do dia da correção. Reagende para o dia seguinte os erros e os acertos por eliminação.</p>
+            <dl>{data.revisionPlan.map(({ day, task }) => <div key={day}>
+              <dt>{day}</dt><dd>{task}</dd>
+            </div>)}</dl>
+          </details>}
+        </section>}
         {lesson && data && mode !== 'questoes' && <details className="nri-course-references">
           <summary>Referências da aula</summary>
           <ul>{Array.from(new Map([...data.references, ...(lesson.references ?? [])].map((ref) => [ref.url ?? ref.label, ref])).values())
@@ -236,6 +265,12 @@ export default function Course() {
 
     <footer className="nri-course-tools">
       <Link to="/tools/neuro3d?tab=nri">Histórico da preparação</Link>
+      {!block && <details className="nri-course-references nri-course-extra">
+        <summary>Checkpoints e material complementar</summary>
+        <ul>{originalSections.map(([id, title]) => <li key={id}>
+          <Link to={`/tools/nri?material=${id}`} aria-current={supplemental?.[0] === id ? 'page' : undefined}>{title}</Link>
+        </li>)}</ul>
+      </details>}
       <details className="nri-course-import">
         <summary><FileUp size={16} aria-hidden="true" /> Importar questões JSON</summary>
         <p>As questões importadas ficam no navegador.</p>
@@ -256,9 +291,11 @@ export default function Course() {
 }
 
 function LessonArticle({ lesson }: { lesson: Lesson }) {
-  const lines = lesson.theory.split('\n');
-  if (lines[0].startsWith('## ') && searchable(lines[0].slice(3)).startsWith(searchable(lesson.title))) {
-    lines[0] = '';
+  const lines = formatLesson(lesson.theory);
+  const firstLine = lines.findIndex(line => line.trim());
+  if (lines[firstLine]?.startsWith('## ')) {
+    const normalizeTitle = (value: string) => searchable(value.replace(/^(?:aula\s+)?\w+(?:\.\d+)?\s*[·—:–-]\s*/i, '').replace(/[^\p{L}\p{N} ]/gu, ''));
+    if (normalizeTitle(lines[firstLine].slice(3)) === normalizeTitle(lesson.title)) lines[firstLine] = '';
   }
   const outline = lines.flatMap((line, index) =>
     line.startsWith('## ') ? [{ id: `nri-${lesson.id}-${index + 1}`, title: line.slice(3) }] : [],
@@ -276,7 +313,8 @@ function LessonArticle({ lesson }: { lesson: Lesson }) {
     </details>}
     <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
       h2: ({ node, ...props }) => <h3 {...props} tabIndex={-1} id={`nri-${lesson.id}-${node?.position?.start.line}`} />,
-      table: ({ node: _node, ...props }) => <div className="nri-course-scroll" tabIndex={0}><table {...props} /></div>,
+      h3: ({ node: _node, ...props }) => <h4 {...props} />,
+      table: ({ node: _node, ...props }) => <div className="nri-course-scroll" tabIndex={0} role="region" aria-label="Tabela da aula"><table {...props} /></div>,
       img: ({ src }) => {
         const figure = lesson.figures?.find(({ id }) => src === `/nri-esquemas/${id}`);
         return figure ? <span className="nri-course-figure" role="group" aria-label={figure.caption}>

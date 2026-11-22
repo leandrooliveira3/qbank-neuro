@@ -1,3 +1,11 @@
+## 21/11/2026 — Revisão curricular e visual dos 13 blocos NRI
+
+Auditoria curricular e visual dos 13 blocos registrada. A próxima frente de conteúdo é a validação científica por alternativa e o cotejo das figuras que não constam das exportações. [Registro](../neuro3d-curso-nri-auditoria-final.md).
+
+## 21/11/2026 — Material integral do Curso NRI
+
+A leitura integral está disponível para 120 aulas, com imagens incorporadas nas exportações e acesso aos checkpoints. Conteúdo fora das exportações depende dos arquivos originais. [Manual](../neuro3d-curso-nri.md).
+
 ## 21/11/2026 — Auditoria dos Blocos 2–6 do Curso NRI
 
 Blocos 1–6 com auditorias de conteúdo, revisão e banco registradas. Próxima frente curricular, Bloco 7. [Cotejo](../neuro3d-curso-nri-blocos-2-6.md).

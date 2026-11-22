@@ -29,7 +29,12 @@ export type CourseQuestion = {
   revision?: number;
   reference?: Reference;
 };
-export type BlockContent = { lessons: Lesson[]; questions: CourseQuestion[]; references: Reference[] };
+export type BlockContent = {
+  lessons: Lesson[];
+  questions: CourseQuestion[];
+  references: Reference[];
+  revisionPlan?: { day: string; task: string }[];
+};
 export type Attempt = { choice: number; correct: boolean };
 export type CourseState = { imported: CourseQuestion[]; attempts: Record<string, Attempt> };
 

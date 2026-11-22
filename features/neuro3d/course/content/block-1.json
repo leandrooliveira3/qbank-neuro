@@ -2495,5 +2495,31 @@
       "label": "Geibprasert et al. Dangerous Extracranial–Intracranial Anastomoses and Supply to the Cranial Nerves.",
       "url": "https://www.ajnr.org/content/30/8/1459"
     }
+  ],
+  "revisionPlan": [
+    {
+      "day": "D0",
+      "task": "Refaça o mapa ACE → forame/canal → vaso receptor → território. Corrija os itens de cada aula estudada. Explique a origem, a porta e o destino de cada via de risco."
+    },
+    {
+      "day": "D+1",
+      "task": "Sem consulta, recupere espinhoso/oval/redondo, canal óptico/fissura superior, vidiana e as divisões jugular e hipoglossal. Indique o nervo ou território ameaçado antes de rever as alternativas."
+    },
+    {
+      "day": "D+3",
+      "task": "Intercale 1A–1D. Compare meningo-orbitária, orbitonasal, petrosa, cavernosa e cervical alta. Justifique por que as vias anatomicamente vizinhas são inadequadas para o caso."
+    },
+    {
+      "day": "D+7",
+      "task": "Intercale 1D–1F e o erro histórico sobre Davidoff–Schechter. Use as páginas angiográficas das referências e responda origem, incidência, fase e território. Diferencie P1/P2, MHT, vertebral e AICA. Associe VII, IX–XI e XII aos pedículos corretos."
+    },
+    {
+      "day": "D+14",
+      "task": "Faça 12 questões sem consulta, duas por aula. Misture variantes, trajetos, nervos e decisões com base na DSA. Explique as alternativas que poderiam confundir. Reagende em um dia os erros e chutes."
+    },
+    {
+      "day": "D+30",
+      "task": "Refaça os três casos integrados e duas questões dos temas ainda instáveis. Reconstrua o mapa e explique o risco sem pistas de múltipla escolha."
+    }
   ]
 }

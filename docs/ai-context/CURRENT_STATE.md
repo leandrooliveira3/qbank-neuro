@@ -1,3 +1,11 @@
+## 21/11/2026 — Revisão curricular e visual dos 13 blocos NRI
+
+Os 13 blocos têm 120 aulas, leitura integral indexada, 13 planos D0–D+30 e 1.300 questões. O lote novo acrescentou síntese e recuperação ativa às 68 aulas dos Blocos 7–13, com 43 questões autorais revisadas e manutenção das tentativas por versão. A conferência visual cobriu desktop e Pixel 7. [Registro](../neuro3d-curso-nri-auditoria-final.md).
+
+## 21/11/2026 — Material integral do Curso NRI
+
+As 120 aulas têm uma aba de Material integral indexada pelas três exportações. A navegação de checkpoints e complementos está no catálogo. As tabelas e figuras de origem permanecem legíveis no leitor com zoom. [Manual](../neuro3d-curso-nri.md).
+
 ## 21/11/2026 — Auditoria dos Blocos 2–6 do Curso NRI
 
 Os Blocos 2–6 têm 46 aulas cotejadas com as exportações, 500 questões com registro por ID e cinco planos D0–D+30. Foram introduzidos 46 casos e revistas quatro questões para precisão anatômica ou classificatória. A conferência de imagens externas depende da disponibilidade no acervo. [Cotejo](../neuro3d-curso-nri-blocos-2-6.md).

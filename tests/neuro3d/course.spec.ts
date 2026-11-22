@@ -108,6 +108,8 @@ for (const block of manifest) {
       await page.goto(`${route}&modulo=${lesson.id}&estudo=revisao`);
       await expect.poll(() => course.getByRole('table').getByRole('row').count()).toBeGreaterThanOrEqual(8);
     }
+    await course.getByText('Plano de revisão do bloco', { exact: true }).click();
+    await expect(course.locator('.nri-block-revision dt')).toHaveText(['D0', 'D+1', 'D+3', 'D+7', 'D+14', 'D+30']);
     await page.goto(`${route}&modulo=todos&estudo=questoes`);
     await expect(course.getByRole('combobox', { name: 'Selecionar questão' }).locator('option')).toHaveCount(100);
   });
@@ -118,4 +120,46 @@ test('o Atlas mantém a preparação e o Curso NRI tem acesso independente', asy
   const nav = page.getByRole('navigation', { name: 'Seções do atlas' });
   await expect(nav.getByRole('button', { name: 'Preparação NRI 2027' })).toBeVisible();
   await expect(nav.getByRole('button', { name: 'Curso NRI 2027' })).toHaveCount(0);
+});
+
+test('recompõe as tabelas de STEM e MEMBRANE na aula 12.11', async ({ page }) => {
+  await page.goto('/#/tools/nri?bloco=12&modulo=12.11');
+  const article = page.getByRole('article', { name: 'Conteúdo da aula' });
+  await expect(article.getByRole('table').filter({ has: page.getByRole('columnheader', { name: 'STEM', exact: true }) }))
+    .toContainText('Espessura');
+  await expect(article.getByRole('table').filter({ has: page.getByRole('columnheader', { name: 'MEMBRANE', exact: true }) }))
+    .toContainText('≤3');
+  await expect(article.getByRole('columnheader', { name: 'Perfil de seleção' })).toBeVisible();
+  await expect(article.getByRole('heading', { name: /^7\. EMBOLISE-2/ })).toBeVisible();
+});
+
+test('abre o material integral, passa pelas figuras e mostra a origem da página', async ({ page }) => {
+  await page.goto('/#/tools/nri?bloco=1&modulo=1A');
+  await page.getByRole('link', { name: 'Figuras e esquemas do material original' }).click();
+  const reader = page.getByRole('region', { name: 'Material integral' });
+  await expect(reader.locator('canvas')).toBeVisible();
+  await expect(reader.getByRole('button', { name: /Figuras/ })).toHaveAttribute('aria-pressed', 'true');
+  await expect(reader.getByRole('button', { name: 'Leitura', exact: true })).toHaveCSS('background-color', 'rgb(255, 255, 255)');
+  const canvas = reader.locator('canvas');
+  const hasInk = await canvas.evaluate((node: HTMLCanvasElement) =>
+    node.getContext('2d')!.getImageData(0, 0, node.width, node.height).data.some((value, index) => index % 4 !== 3 && value < 150),
+  );
+  expect(hasInk).toBe(true);
+  await reader.getByRole('button', { name: 'Próxima figura' }).click();
+  await expect(reader.getByLabel('Figura', { exact: true })).toHaveValue('1');
+  await reader.getByRole('button', { name: 'Leitura', exact: true }).click();
+  await expect(reader.getByText('Texto selecionável da página')).toBeVisible();
+  await expect(reader.getByText(/página \d+ da exportação/)).toBeVisible();
+});
+
+test('abre o CP1 pelo catálogo e o complemento da 13.10 no leitor', async ({ page }) => {
+  await page.goto('/#/tools/nri');
+  await page.getByText('Checkpoints e material complementar', { exact: true }).click();
+  await page.getByRole('link', { name: 'Checkpoint CP1', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Checkpoint CP1', exact: true })).toBeVisible();
+  await expect(page.locator('.nri-original-sheet')).toBeVisible();
+  await page.goto('/#/tools/nri?bloco=13&modulo=13.10&estudo=material');
+  const reader = page.getByRole('region', { name: 'Material integral' });
+  await expect(reader.locator('canvas')).toBeVisible();
+  expect(await reader.getByLabel('Trecho', { exact: true }).locator('option').count()).toBeGreaterThan(1);
 });

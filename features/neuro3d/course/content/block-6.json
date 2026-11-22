@@ -2458,5 +2458,31 @@
     {
       "label": "Morris. Practical Neuroangiography, 3ª ed."
     }
+  ],
+  "revisionPlan": [
+    {
+      "day": "D0",
+      "task": "Corrija os itens do bloco e identifique, por aula, o mapa ou caso de recuperação ativa."
+    },
+    {
+      "day": "D+1",
+      "task": "Reconstrua Borden, Cognard e Barrow sem consultar as tabelas."
+    },
+    {
+      "day": "D+3",
+      "task": "Intercale um caso cavernoso e um de fossa anterior, com dois efluxos distintos."
+    },
+    {
+      "day": "D+7",
+      "task": "Reveja Lalwani e Spittau com origens e compartimentos fistulosos diferentes."
+    },
+    {
+      "day": "D+14",
+      "task": "Faça oito questões, uma por aula, e descreva a drenagem fisiológica em cada caso."
+    },
+    {
+      "day": "D+30",
+      "task": "Resolva novamente os casos de seio dominante, shunt tentorial e canal do hipoglosso."
+    }
   ]
 }

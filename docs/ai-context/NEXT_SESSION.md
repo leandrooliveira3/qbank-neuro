@@ -1,3 +1,11 @@
+## 21/11/2026 — Revisão curricular e visual dos 13 blocos NRI
+
+Continue da revisão dos 13 blocos. Preserve o material original, os 13 planos e os IDs das questões. Consulte a matriz para localizar as fontes de cada aula. A auditoria científica independente por alternativa e a recuperação das figuras ausentes nas exportações continuam abertas. [Registro](../neuro3d-curso-nri-auditoria-final.md).
+
+## 21/11/2026 — Material integral do Curso NRI
+
+A continuação curricular permanece no Bloco 7. Para conferir fidelidade documental, abra Material integral na aula e compare a página indicada com a exportação original. Use o manual do curso para atualizar o leitor. [Manual](../neuro3d-curso-nri.md).
+
 ## 21/11/2026 — Auditoria dos Blocos 2–6 do Curso NRI
 
 Continuação sugerida na Aula 7A, no Bloco 7. Use as exportações integrais e as referências para verificar cada aula, com atenção à malformação aneurismática da veia de Galeno, à sua distinção de ectasia da veia adulta e às transições de conteúdo entre blocos. [Cotejo](../neuro3d-curso-nri-blocos-2-6.md).
