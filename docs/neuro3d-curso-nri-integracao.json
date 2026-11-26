@@ -1,0 +1,1228 @@
+{
+  "scope": "Material didático das três exportações Estudos em NRI de 21/11/2026",
+  "sources": [
+    {
+      "id": "0",
+      "name": "ChatGPT_Estudo-em-NRI_20261121-1124.pdf",
+      "pages": 395,
+      "bytes": 3473514,
+      "sha256": "a524cb32c59d01088dad53e7b3c1587129fb550bca7214db3c0c0ef090c163f9"
+    },
+    {
+      "id": "1",
+      "name": "ChatGPT_Estudos-em-NRI-parte-1_20261121-1124.pdf",
+      "pages": 610,
+      "bytes": 13892551,
+      "sha256": "13eeddc0111376b00d9394201a944af0156e7bae49b28d7dfa7654aaded34298"
+    },
+    {
+      "id": "2",
+      "name": "ChatGPT_Estudos-em-NRI-parte-2_20261121-1125.pdf",
+      "pages": 998,
+      "bytes": 20103714,
+      "sha256": "076b3eebd9a08916af6bb51fbcbd0d386a6c248ee982c73c9c716947f62ffbf8"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "1A",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 5,
+      "integratedPassages": 61,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 6314,
+      "nativeCharactersAfter": 15822
+    },
+    {
+      "lesson": "1B",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 3,
+      "integratedPassages": 25,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 13386,
+      "nativeCharactersAfter": 17700
+    },
+    {
+      "lesson": "1C",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 11,
+      "integratedPassages": 23,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 11371,
+      "nativeCharactersAfter": 16671
+    },
+    {
+      "lesson": "1D",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 6,
+      "integratedPassages": 34,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 8113,
+      "nativeCharactersAfter": 13519
+    },
+    {
+      "lesson": "1E",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 5,
+      "integratedPassages": 28,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 6353,
+      "nativeCharactersAfter": 12168
+    },
+    {
+      "lesson": "1F",
+      "sourceSections": 2,
+      "sourcePages": 12,
+      "figures": 7,
+      "integratedPassages": 63,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 8496,
+      "nativeCharactersAfter": 16574
+    },
+    {
+      "lesson": "2A",
+      "sourceSections": 3,
+      "sourcePages": 14,
+      "figures": 4,
+      "integratedPassages": 51,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 4969,
+      "nativeCharactersAfter": 15342
+    },
+    {
+      "lesson": "2B",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 7,
+      "integratedPassages": 42,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 10266,
+      "nativeCharactersAfter": 21464
+    },
+    {
+      "lesson": "2C",
+      "sourceSections": 2,
+      "sourcePages": 18,
+      "figures": 6,
+      "integratedPassages": 36,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 17822,
+      "nativeCharactersAfter": 27049
+    },
+    {
+      "lesson": "2D",
+      "sourceSections": 2,
+      "sourcePages": 13,
+      "figures": 5,
+      "integratedPassages": 27,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 14211,
+      "nativeCharactersAfter": 16476
+    },
+    {
+      "lesson": "2E",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 7,
+      "integratedPassages": 29,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 14906,
+      "nativeCharactersAfter": 25349
+    },
+    {
+      "lesson": "2F",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 2,
+      "integratedPassages": 30,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 16502,
+      "nativeCharactersAfter": 23813
+    },
+    {
+      "lesson": "2G",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 3,
+      "integratedPassages": 29,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 18214,
+      "nativeCharactersAfter": 26531
+    },
+    {
+      "lesson": "2H",
+      "sourceSections": 2,
+      "sourcePages": 19,
+      "figures": 6,
+      "integratedPassages": 43,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 18163,
+      "nativeCharactersAfter": 28547
+    },
+    {
+      "lesson": "2I",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 4,
+      "integratedPassages": 26,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 18254,
+      "nativeCharactersAfter": 27346
+    },
+    {
+      "lesson": "2J",
+      "sourceSections": 2,
+      "sourcePages": 23,
+      "figures": 6,
+      "integratedPassages": 27,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 26019,
+      "nativeCharactersAfter": 32402
+    },
+    {
+      "lesson": "2K",
+      "sourceSections": 3,
+      "sourcePages": 23,
+      "figures": 5,
+      "integratedPassages": 25,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 23473,
+      "nativeCharactersAfter": 32380
+    },
+    {
+      "lesson": "2L",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 4,
+      "integratedPassages": 23,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 13977,
+      "nativeCharactersAfter": 25193
+    },
+    {
+      "lesson": "2M",
+      "sourceSections": 2,
+      "sourcePages": 21,
+      "figures": 8,
+      "integratedPassages": 76,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 11849,
+      "nativeCharactersAfter": 25999
+    },
+    {
+      "lesson": "3A",
+      "sourceSections": 2,
+      "sourcePages": 18,
+      "figures": 6,
+      "integratedPassages": 26,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 14884,
+      "nativeCharactersAfter": 25870
+    },
+    {
+      "lesson": "3B",
+      "sourceSections": 2,
+      "sourcePages": 20,
+      "figures": 8,
+      "integratedPassages": 23,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 16732,
+      "nativeCharactersAfter": 30170
+    },
+    {
+      "lesson": "3C",
+      "sourceSections": 2,
+      "sourcePages": 19,
+      "figures": 8,
+      "integratedPassages": 13,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 16819,
+      "nativeCharactersAfter": 24957
+    },
+    {
+      "lesson": "3D",
+      "sourceSections": 2,
+      "sourcePages": 18,
+      "figures": 8,
+      "integratedPassages": 17,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 12637,
+      "nativeCharactersAfter": 20436
+    },
+    {
+      "lesson": "3E",
+      "sourceSections": 2,
+      "sourcePages": 13,
+      "figures": 6,
+      "integratedPassages": 17,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 8019,
+      "nativeCharactersAfter": 15960
+    },
+    {
+      "lesson": "3F",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 9,
+      "integratedPassages": 15,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 12161,
+      "nativeCharactersAfter": 18772
+    },
+    {
+      "lesson": "3G",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 6,
+      "integratedPassages": 16,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 10106,
+      "nativeCharactersAfter": 18027
+    },
+    {
+      "lesson": "3H",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 6,
+      "integratedPassages": 16,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 9581,
+      "nativeCharactersAfter": 17838
+    },
+    {
+      "lesson": "3I",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 7,
+      "integratedPassages": 22,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 10408,
+      "nativeCharactersAfter": 18222
+    },
+    {
+      "lesson": "3J",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 8,
+      "integratedPassages": 21,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 13221,
+      "nativeCharactersAfter": 21305
+    },
+    {
+      "lesson": "4A",
+      "sourceSections": 2,
+      "sourcePages": 18,
+      "figures": 9,
+      "integratedPassages": 21,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 12192,
+      "nativeCharactersAfter": 21477
+    },
+    {
+      "lesson": "4B",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 6,
+      "integratedPassages": 19,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 9473,
+      "nativeCharactersAfter": 18244
+    },
+    {
+      "lesson": "4C",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 8,
+      "integratedPassages": 20,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 12104,
+      "nativeCharactersAfter": 20878
+    },
+    {
+      "lesson": "4D",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 5,
+      "integratedPassages": 20,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 12761,
+      "nativeCharactersAfter": 22633
+    },
+    {
+      "lesson": "4E",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 5,
+      "integratedPassages": 18,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 10497,
+      "nativeCharactersAfter": 19186
+    },
+    {
+      "lesson": "4F",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 3,
+      "integratedPassages": 18,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 9890,
+      "nativeCharactersAfter": 18663
+    },
+    {
+      "lesson": "4G",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 4,
+      "integratedPassages": 26,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 11593,
+      "nativeCharactersAfter": 21000
+    },
+    {
+      "lesson": "4H",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 2,
+      "integratedPassages": 53,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 13364,
+      "nativeCharactersAfter": 18363
+    },
+    {
+      "lesson": "5A",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 1,
+      "integratedPassages": 30,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 4255,
+      "nativeCharactersAfter": 13472
+    },
+    {
+      "lesson": "5B",
+      "sourceSections": 2,
+      "sourcePages": 9,
+      "figures": 1,
+      "integratedPassages": 21,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 4764,
+      "nativeCharactersAfter": 13477
+    },
+    {
+      "lesson": "5C",
+      "sourceSections": 2,
+      "sourcePages": 10,
+      "figures": 1,
+      "integratedPassages": 20,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 5505,
+      "nativeCharactersAfter": 10575
+    },
+    {
+      "lesson": "5D",
+      "sourceSections": 2,
+      "sourcePages": 10,
+      "figures": 1,
+      "integratedPassages": 21,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 5709,
+      "nativeCharactersAfter": 12794
+    },
+    {
+      "lesson": "5E",
+      "sourceSections": 2,
+      "sourcePages": 10,
+      "figures": 1,
+      "integratedPassages": 24,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 6855,
+      "nativeCharactersAfter": 14973
+    },
+    {
+      "lesson": "5F",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 5,
+      "integratedPassages": 15,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 7253,
+      "nativeCharactersAfter": 15114
+    },
+    {
+      "lesson": "5G",
+      "sourceSections": 2,
+      "sourcePages": 12,
+      "figures": 5,
+      "integratedPassages": 35,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 8642,
+      "nativeCharactersAfter": 17551
+    },
+    {
+      "lesson": "6A",
+      "sourceSections": 2,
+      "sourcePages": 9,
+      "figures": 1,
+      "integratedPassages": 23,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 6277,
+      "nativeCharactersAfter": 12025
+    },
+    {
+      "lesson": "6B",
+      "sourceSections": 2,
+      "sourcePages": 10,
+      "figures": 5,
+      "integratedPassages": 19,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 7602,
+      "nativeCharactersAfter": 15825
+    },
+    {
+      "lesson": "6C",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 6,
+      "integratedPassages": 15,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 7602,
+      "nativeCharactersAfter": 15173
+    },
+    {
+      "lesson": "6D",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 1,
+      "integratedPassages": 16,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 8467,
+      "nativeCharactersAfter": 16466
+    },
+    {
+      "lesson": "6E",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 6,
+      "integratedPassages": 24,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 8053,
+      "nativeCharactersAfter": 17363
+    },
+    {
+      "lesson": "6F",
+      "sourceSections": 2,
+      "sourcePages": 12,
+      "figures": 2,
+      "integratedPassages": 20,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 7710,
+      "nativeCharactersAfter": 16497
+    },
+    {
+      "lesson": "6G",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 2,
+      "integratedPassages": 14,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 7596,
+      "nativeCharactersAfter": 14694
+    },
+    {
+      "lesson": "6H",
+      "sourceSections": 2,
+      "sourcePages": 13,
+      "figures": 1,
+      "integratedPassages": 29,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 9234,
+      "nativeCharactersAfter": 19083
+    },
+    {
+      "lesson": "7A",
+      "sourceSections": 2,
+      "sourcePages": 12,
+      "figures": 2,
+      "integratedPassages": 18,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 7318,
+      "nativeCharactersAfter": 15476
+    },
+    {
+      "lesson": "7B",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 2,
+      "integratedPassages": 17,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 9310,
+      "nativeCharactersAfter": 17465
+    },
+    {
+      "lesson": "7C",
+      "sourceSections": 3,
+      "sourcePages": 19,
+      "figures": 6,
+      "integratedPassages": 32,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 10022,
+      "nativeCharactersAfter": 22577
+    },
+    {
+      "lesson": "7D",
+      "sourceSections": 2,
+      "sourcePages": 24,
+      "figures": 6,
+      "integratedPassages": 117,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 13432,
+      "nativeCharactersAfter": 36930
+    },
+    {
+      "lesson": "7E",
+      "sourceSections": 3,
+      "sourcePages": 22,
+      "figures": 1,
+      "integratedPassages": 14,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 23375,
+      "nativeCharactersAfter": 29361
+    },
+    {
+      "lesson": "7F",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 1,
+      "integratedPassages": 25,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 15939,
+      "nativeCharactersAfter": 24831
+    },
+    {
+      "lesson": "7G",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 8,
+      "integratedPassages": 21,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 12516,
+      "nativeCharactersAfter": 21303
+    },
+    {
+      "lesson": "7H",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 6,
+      "integratedPassages": 28,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 12225,
+      "nativeCharactersAfter": 22345
+    },
+    {
+      "lesson": "7I",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 3,
+      "integratedPassages": 20,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 12494,
+      "nativeCharactersAfter": 21516
+    },
+    {
+      "lesson": "7J",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 9,
+      "integratedPassages": 45,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 9105,
+      "nativeCharactersAfter": 15051
+    },
+    {
+      "lesson": "8A",
+      "sourceSections": 2,
+      "sourcePages": 12,
+      "figures": 7,
+      "integratedPassages": 21,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 7708,
+      "nativeCharactersAfter": 18303
+    },
+    {
+      "lesson": "8B",
+      "sourceSections": 2,
+      "sourcePages": 12,
+      "figures": 10,
+      "integratedPassages": 20,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 6379,
+      "nativeCharactersAfter": 15664
+    },
+    {
+      "lesson": "8C",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 1,
+      "integratedPassages": 19,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 7182,
+      "nativeCharactersAfter": 15710
+    },
+    {
+      "lesson": "8D",
+      "sourceSections": 2,
+      "sourcePages": 11,
+      "figures": 2,
+      "integratedPassages": 12,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 8365,
+      "nativeCharactersAfter": 15755
+    },
+    {
+      "lesson": "8E",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 9,
+      "integratedPassages": 14,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 9604,
+      "nativeCharactersAfter": 18514
+    },
+    {
+      "lesson": "8F",
+      "sourceSections": 2,
+      "sourcePages": 12,
+      "figures": 11,
+      "integratedPassages": 13,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 8758,
+      "nativeCharactersAfter": 17365
+    },
+    {
+      "lesson": "8G",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 7,
+      "integratedPassages": 13,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 12417,
+      "nativeCharactersAfter": 21273
+    },
+    {
+      "lesson": "8H",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 3,
+      "integratedPassages": 13,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 11828,
+      "nativeCharactersAfter": 19052
+    },
+    {
+      "lesson": "8I",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 6,
+      "integratedPassages": 13,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 11855,
+      "nativeCharactersAfter": 19918
+    },
+    {
+      "lesson": "8J",
+      "sourceSections": 2,
+      "sourcePages": 21,
+      "figures": 11,
+      "integratedPassages": 21,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 10814,
+      "nativeCharactersAfter": 20755
+    },
+    {
+      "lesson": "9A",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 8,
+      "integratedPassages": 12,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 8767,
+      "nativeCharactersAfter": 16708
+    },
+    {
+      "lesson": "9B",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 6,
+      "integratedPassages": 12,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 10399,
+      "nativeCharactersAfter": 17932
+    },
+    {
+      "lesson": "9C",
+      "sourceSections": 3,
+      "sourcePages": 18,
+      "figures": 2,
+      "integratedPassages": 22,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 12537,
+      "nativeCharactersAfter": 21773
+    },
+    {
+      "lesson": "9D",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 11,
+      "integratedPassages": 13,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 10821,
+      "nativeCharactersAfter": 17571
+    },
+    {
+      "lesson": "9E",
+      "sourceSections": 2,
+      "sourcePages": 19,
+      "figures": 9,
+      "integratedPassages": 13,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 15213,
+      "nativeCharactersAfter": 22123
+    },
+    {
+      "lesson": "9F",
+      "sourceSections": 3,
+      "sourcePages": 18,
+      "figures": 5,
+      "integratedPassages": 43,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 13612,
+      "nativeCharactersAfter": 21549
+    },
+    {
+      "lesson": "9G",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 11,
+      "integratedPassages": 13,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 13451,
+      "nativeCharactersAfter": 19990
+    },
+    {
+      "lesson": "9H",
+      "sourceSections": 2,
+      "sourcePages": 19,
+      "figures": 11,
+      "integratedPassages": 18,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 13612,
+      "nativeCharactersAfter": 20675
+    },
+    {
+      "lesson": "9I",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 12,
+      "integratedPassages": 22,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 14847,
+      "nativeCharactersAfter": 21922
+    },
+    {
+      "lesson": "9J",
+      "sourceSections": 2,
+      "sourcePages": 20,
+      "figures": 5,
+      "integratedPassages": 21,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 16250,
+      "nativeCharactersAfter": 25188
+    },
+    {
+      "lesson": "10A",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 7,
+      "integratedPassages": 18,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 10784,
+      "nativeCharactersAfter": 17512
+    },
+    {
+      "lesson": "10B",
+      "sourceSections": 2,
+      "sourcePages": 20,
+      "figures": 10,
+      "integratedPassages": 19,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 14485,
+      "nativeCharactersAfter": 21698
+    },
+    {
+      "lesson": "10C",
+      "sourceSections": 2,
+      "sourcePages": 18,
+      "figures": 10,
+      "integratedPassages": 18,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 13257,
+      "nativeCharactersAfter": 20600
+    },
+    {
+      "lesson": "10D",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 8,
+      "integratedPassages": 19,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 12383,
+      "nativeCharactersAfter": 20340
+    },
+    {
+      "lesson": "10E",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 11,
+      "integratedPassages": 19,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 13750,
+      "nativeCharactersAfter": 22268
+    },
+    {
+      "lesson": "10F",
+      "sourceSections": 2,
+      "sourcePages": 18,
+      "figures": 6,
+      "integratedPassages": 21,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 15053,
+      "nativeCharactersAfter": 22672
+    },
+    {
+      "lesson": "10G",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 7,
+      "integratedPassages": 19,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 13063,
+      "nativeCharactersAfter": 20456
+    },
+    {
+      "lesson": "10H",
+      "sourceSections": 2,
+      "sourcePages": 20,
+      "figures": 10,
+      "integratedPassages": 26,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 11678,
+      "nativeCharactersAfter": 21738
+    },
+    {
+      "lesson": "11A",
+      "sourceSections": 2,
+      "sourcePages": 13,
+      "figures": 10,
+      "integratedPassages": 17,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 10071,
+      "nativeCharactersAfter": 18738
+    },
+    {
+      "lesson": "11B",
+      "sourceSections": 2,
+      "sourcePages": 18,
+      "figures": 11,
+      "integratedPassages": 23,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 14886,
+      "nativeCharactersAfter": 23475
+    },
+    {
+      "lesson": "11C",
+      "sourceSections": 2,
+      "sourcePages": 15,
+      "figures": 9,
+      "integratedPassages": 19,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 14000,
+      "nativeCharactersAfter": 22739
+    },
+    {
+      "lesson": "11D",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 10,
+      "integratedPassages": 19,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 12465,
+      "nativeCharactersAfter": 20756
+    },
+    {
+      "lesson": "11E",
+      "sourceSections": 3,
+      "sourcePages": 19,
+      "figures": 16,
+      "integratedPassages": 31,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 14640,
+      "nativeCharactersAfter": 25476
+    },
+    {
+      "lesson": "11F",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 15,
+      "integratedPassages": 19,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 12582,
+      "nativeCharactersAfter": 21211
+    },
+    {
+      "lesson": "11G",
+      "sourceSections": 4,
+      "sourcePages": 25,
+      "figures": 9,
+      "integratedPassages": 39,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 18604,
+      "nativeCharactersAfter": 31770
+    },
+    {
+      "lesson": "11H",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 13,
+      "integratedPassages": 31,
+      "reviewIntervals": 5,
+      "nativeCharactersBefore": 13030,
+      "nativeCharactersAfter": 16812
+    },
+    {
+      "lesson": "12.1",
+      "sourceSections": 4,
+      "sourcePages": 39,
+      "figures": 1,
+      "integratedPassages": 120,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 27886,
+      "nativeCharactersAfter": 48650
+    },
+    {
+      "lesson": "12.2",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 0,
+      "integratedPassages": 21,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 15593,
+      "nativeCharactersAfter": 22933
+    },
+    {
+      "lesson": "12.3",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 3,
+      "integratedPassages": 19,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 14856,
+      "nativeCharactersAfter": 23305
+    },
+    {
+      "lesson": "12.4",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 3,
+      "integratedPassages": 20,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 13554,
+      "nativeCharactersAfter": 21929
+    },
+    {
+      "lesson": "12.5",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 3,
+      "integratedPassages": 18,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 16719,
+      "nativeCharactersAfter": 24813
+    },
+    {
+      "lesson": "12.6",
+      "sourceSections": 2,
+      "sourcePages": 14,
+      "figures": 0,
+      "integratedPassages": 13,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 11821,
+      "nativeCharactersAfter": 18760
+    },
+    {
+      "lesson": "12.7",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 0,
+      "integratedPassages": 13,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 17513,
+      "nativeCharactersAfter": 24417
+    },
+    {
+      "lesson": "12.8",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 5,
+      "integratedPassages": 13,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 16660,
+      "nativeCharactersAfter": 22876
+    },
+    {
+      "lesson": "12.9",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 3,
+      "integratedPassages": 14,
+      "reviewIntervals": 0,
+      "nativeCharactersBefore": 16681,
+      "nativeCharactersAfter": 24217
+    },
+    {
+      "lesson": "12.10",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 0,
+      "integratedPassages": 13,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 18476,
+      "nativeCharactersAfter": 25240
+    },
+    {
+      "lesson": "12.11",
+      "sourceSections": 4,
+      "sourcePages": 20,
+      "figures": 4,
+      "integratedPassages": 41,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 18008,
+      "nativeCharactersAfter": 26462
+    },
+    {
+      "lesson": "12.12",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 1,
+      "integratedPassages": 21,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 17862,
+      "nativeCharactersAfter": 25684
+    },
+    {
+      "lesson": "13.1",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 2,
+      "integratedPassages": 13,
+      "reviewIntervals": 3,
+      "nativeCharactersBefore": 16812,
+      "nativeCharactersAfter": 23766
+    },
+    {
+      "lesson": "13.2",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 1,
+      "integratedPassages": 11,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 18919,
+      "nativeCharactersAfter": 26463
+    },
+    {
+      "lesson": "13.3",
+      "sourceSections": 2,
+      "sourcePages": 19,
+      "figures": 3,
+      "integratedPassages": 10,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 21453,
+      "nativeCharactersAfter": 26681
+    },
+    {
+      "lesson": "13.4",
+      "sourceSections": 2,
+      "sourcePages": 16,
+      "figures": 0,
+      "integratedPassages": 12,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 17816,
+      "nativeCharactersAfter": 25672
+    },
+    {
+      "lesson": "13.5",
+      "sourceSections": 2,
+      "sourcePages": 19,
+      "figures": 3,
+      "integratedPassages": 11,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 20334,
+      "nativeCharactersAfter": 27386
+    },
+    {
+      "lesson": "13.6",
+      "sourceSections": 2,
+      "sourcePages": 19,
+      "figures": 1,
+      "integratedPassages": 19,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 17011,
+      "nativeCharactersAfter": 25323
+    },
+    {
+      "lesson": "13.7",
+      "sourceSections": 2,
+      "sourcePages": 18,
+      "figures": 1,
+      "integratedPassages": 19,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 15537,
+      "nativeCharactersAfter": 23467
+    },
+    {
+      "lesson": "13.8",
+      "sourceSections": 2,
+      "sourcePages": 19,
+      "figures": 3,
+      "integratedPassages": 14,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 19507,
+      "nativeCharactersAfter": 28310
+    },
+    {
+      "lesson": "13.9",
+      "sourceSections": 2,
+      "sourcePages": 17,
+      "figures": 0,
+      "integratedPassages": 13,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 18728,
+      "nativeCharactersAfter": 26543
+    },
+    {
+      "lesson": "13.10",
+      "sourceSections": 3,
+      "sourcePages": 32,
+      "figures": 0,
+      "integratedPassages": 38,
+      "reviewIntervals": 4,
+      "nativeCharactersBefore": 35526,
+      "nativeCharactersAfter": 42154
+    }
+  ]
+}

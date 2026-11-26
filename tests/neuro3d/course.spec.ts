@@ -133,33 +133,35 @@ test('recompõe as tabelas de STEM e MEMBRANE na aula 12.11', async ({ page }) =
   await expect(article.getByRole('heading', { name: /^7\. EMBOLISE-2/ })).toBeVisible();
 });
 
-test('abre o material integral, passa pelas figuras e mostra a origem da página', async ({ page }) => {
+test('exibe as figuras entre parágrafos e mantém os comentários práticos na aula', async ({ page }) => {
   await page.goto('/#/tools/nri?bloco=1&modulo=1A');
-  await page.getByRole('link', { name: 'Figuras e esquemas do material original' }).click();
-  const reader = page.getByRole('region', { name: 'Material integral' });
-  await expect(reader.locator('canvas')).toBeVisible();
-  await expect(reader.getByRole('button', { name: /Figuras/ })).toHaveAttribute('aria-pressed', 'true');
-  await expect(reader.getByRole('button', { name: 'Leitura', exact: true })).toHaveCSS('background-color', 'rgb(255, 255, 255)');
-  const canvas = reader.locator('canvas');
-  const hasInk = await canvas.evaluate((node: HTMLCanvasElement) =>
-    node.getContext('2d')!.getImageData(0, 0, node.width, node.height).data.some((value, index) => index % 4 !== 3 && value < 150),
-  );
-  expect(hasInk).toBe(true);
-  await reader.getByRole('button', { name: 'Próxima figura' }).click();
-  await expect(reader.getByLabel('Figura', { exact: true })).toHaveValue('1');
-  await reader.getByRole('button', { name: 'Leitura', exact: true }).click();
-  await expect(reader.getByText('Texto selecionável da página')).toBeVisible();
-  await expect(reader.getByText(/página \d+ da exportação/)).toBeVisible();
+  const article = page.getByRole('article', { name: 'Conteúdo da aula' });
+  const figure = article.getByRole('figure').first();
+  await figure.scrollIntoViewIfNeeded();
+  await expect(figure).toBeVisible();
+  expect(await figure.evaluate(el => {
+    const paragraph = el.closest('p');
+    return !!paragraph?.previousElementSibling && !!paragraph?.nextElementSibling;
+  })).toBe(true);
+  expect(await figure.locator('img').evaluate(async (img: HTMLImageElement) => {
+    await img.decode();
+    return img.naturalWidth;
+  })).toBeGreaterThan(0);
+  await expect(page.getByRole('link', { name: 'Material integral', exact: true })).toHaveCount(0);
+  await expect(article.getByRole('heading', { name: 'Aplicações comentadas', exact: true })).toBeVisible();
+  await expect(article).toContainText('identificação de um ramo meníngeo');
 });
 
-test('abre o CP1 pelo catálogo e o complemento da 13.10 no leitor', async ({ page }) => {
+test('abre o CP1 como texto e redireciona o acesso antigo à aula completa', async ({ page }) => {
   await page.goto('/#/tools/nri');
   await page.getByText('Checkpoints e material complementar', { exact: true }).click();
   await page.getByRole('link', { name: 'Checkpoint CP1', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Checkpoint CP1', exact: true })).toBeVisible();
-  await expect(page.locator('.nri-original-sheet')).toBeVisible();
+  await expect(page.getByRole('article', { name: 'Conteúdo da aula' })).toBeVisible();
+  await expect(page.locator('canvas')).toHaveCount(0);
   await page.goto('/#/tools/nri?bloco=13&modulo=13.10&estudo=material');
-  const reader = page.getByRole('region', { name: 'Material integral' });
-  await expect(reader.locator('canvas')).toBeVisible();
-  expect(await reader.getByLabel('Trecho', { exact: true }).locator('option').count()).toBeGreaterThan(1);
+  await expect(page).not.toHaveURL(/estudo=material/);
+  const article = page.getByRole('article', { name: 'Conteúdo da aula' });
+  await expect(article).toContainText('ESO');
+  await expect(page.locator('canvas')).toHaveCount(0);
 });

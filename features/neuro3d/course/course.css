@@ -172,45 +172,27 @@
 .nri-course-extra { margin: .7rem 0; }
 .nri-course-extra li + li { margin-top: .3rem; }
 .nri-course-supplement h2 { margin: .8rem 0 1rem; }
-.nri-original-toolbar, .nri-original-navigation {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: .5rem;
-  margin-bottom: .75rem;
-}
-.n3 .nri-course .nri-original-toolbar button[aria-pressed="true"] {
-  background: var(--nri-soft);
-  color: var(--nri-accent);
-  border-color: #8bc8ac;
-  font-weight: 720;
-}
-.nri-original-select { display: flex; align-items: center; gap: .6rem; min-width: 0; font-size: .9rem; }
-.nri-original-select select { min-width: 0; }
-.nri-original > .nri-original-select { margin-bottom: .75rem; }
-.nri-original-source { margin: .25rem 0 .6rem; color: var(--nri-muted); font-size: .85rem; }
-.nri-original-sheet { overflow: auto; border: 1px solid var(--nri-line); border-radius: .65rem; background: #fff; }
-.nri-original-sheet canvas { display: block; width: 100%; max-width: 760px; height: auto; margin-inline: auto; }
-.nri-original-sheet.is-expanded canvas { min-width: 720px; max-width: none; }
-.nri-original-transcription { margin-top: .8rem; }
-.nri-original-transcription summary { cursor: pointer; color: var(--nri-accent); }
-.nri-original-transcription p { white-space: pre-wrap; overflow-wrap: anywhere; }
 @media (max-width: 480px) {
   .nri-course-intro { gap: .7rem; margin-bottom: 1rem; }
   .nri-course-search { width: 100%; }
-  .nri-course-modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nri-course-modes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .nri-course-modes a { padding-inline: .4rem; }
   .nri-course-modes svg { flex-shrink: 0; }
   .nri-course-layout .nri-course-main { padding: .95rem; }
   .nri-course-scroll :is(td, th) { padding: .45rem .55rem; }
 }
 
-.nri-lesson-gallery { margin-block: 1.75rem; border-top: 1px solid var(--nri-line); padding-top: 1rem; }
-.nri-lesson-gallery > div { display: grid; gap: 1rem; }
-.nri-lesson-gallery figure { margin: 0; padding: .6rem; background: white; border: 1px solid var(--nri-line); border-radius: .85rem; }
-.nri-lesson-gallery img { display: block; width: auto; max-width: 100%; height: auto; margin: auto; }
-.nri-lesson-gallery figcaption { padding: .5rem .25rem 0; font-size: .875rem; color: var(--nri-muted); }
 .nri-course-modes { padding: .3rem; border-radius: .85rem; background: #edf2f4; gap: .3rem; }
 .nri-course .nri-course-modes a { flex: 1; border-color: transparent; background: transparent; }
 .nri-course .nri-course-modes a[aria-current="page"] { background: white; color: #065f46; box-shadow: 0 1px 4px #17352920; }
 .nri-course-text :is(h3,h4) { scroll-margin-top: 5rem; }
+
+.nri-course-text strong { font-weight: 750; color: #153d31; }
+.nri-course-figure { background: #fff; }
+.nri-course-figure img { width: auto; max-width: 100%; }
+.nri-inline-image-status { display: block; padding: 1rem; color: var(--nri-muted); background: var(--nri-soft); }
+.nri-lesson-revision { margin-block: 1.5rem; }
+.nri-lesson-revision dl { display: grid; gap: .5rem; }
+.nri-lesson-revision dl > div { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: .7rem; padding: .65rem .8rem; border: 1px solid var(--nri-line); border-radius: .5rem; }
+.nri-lesson-revision dt { font-weight: 750; color: var(--nri-accent); }
+.nri-lesson-revision dd { margin: 0; }

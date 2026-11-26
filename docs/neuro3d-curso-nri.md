@@ -1,5 +1,10 @@
 # Curso NRI 2027 no QBank-Neuro 3D
 
+A leitura atual integra o material das aulas, as aplicações comentadas e as figuras em posição. A aba Material integral foi retirada e os complementos passaram a texto nativo. Consulte o [cotejo de integração](neuro3d-curso-nri-integracao.md).
+
+## Registro anterior de implementação
+
+
 A aba **Curso NRI 2027** abre em `/#/tools/nri`. O catálogo apresenta os 13 blocos. Cada bloco lista suas aulas e dá acesso às suas 100 questões. A busca aceita tema, título e código. As páginas de aula têm leitura, sumário, revisão de prova e questões. Anterior e Próxima percorrem também as transições entre blocos.
 
 ## Conteúdo

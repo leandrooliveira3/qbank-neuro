@@ -2,10 +2,12 @@ import { describe, expect, it } from 'vitest';
 import manifest from './content/index.json';
 import promptIndex from './content/prompts.json';
 import provenance from './content/originals.json';
+import type { InlineFigure } from './LessonFigures';
 import { MENU_ITEMS } from '../../../constants';
 import { BlockContent, courseAttemptKey, mergeCourseImport, parseCourseImport, searchable } from './model';
 
 const data = import.meta.glob<{ default: BlockContent }>('./content/block-*.json', { eager: true });
+const imageData = import.meta.glob<{ default: Record<string, InlineFigure[]> }>('./content/figures/block-*.json', { eager: true });
 const lessons = new Set(manifest.flatMap((block) => block.lessons.map((lesson) => lesson.id)));
 const sample = {
   id: 'teste-1',
@@ -90,12 +92,17 @@ it('vincula os 120 módulos às conversas e valida imagens e fontes na página',
     }
   }
   let figures = 0;
-  for (const { default: content } of Object.values(data)) {
+  for (const [path, { default: content }] of Object.entries(data)) {
+    const imagePath = path.replace('/content/', '/content/figures/');
+    const byLesson = imageData[imagePath].default;
     for (const module of content.lessons) {
       expect(module.references?.every(({ url }) => url?.startsWith('https://')) ?? true).toBe(true);
-      const anchors = [...module.theory.matchAll(/\]\(\/nri-esquemas\/([^)]+)\)/g)].map(([, id]) => id);
-      expect(anchors).toEqual(module.figures?.map(({ id }) => id) ?? []);
-      for (const figure of module.figures ?? []) {
+      const anchors = [...module.theory.matchAll(/\]\(\/nri-figures\/([^)]+)\)/g)].map(([, id]) => id);
+      expect(anchors.sort()).toEqual(byLesson[module.id].map(({ id }) => id).sort());
+      expect(new Set(anchors).size).toBe(anchors.length);
+      for (const figure of byLesson[module.id]) {
+        expect(figure.page).toBeGreaterThan(0);
+        expect(figure.page).toBeLessThanOrEqual(sources[figure.source].pages);
         expect(figure.image).toMatch(/^data:image\/webp;base64,/);
         expect(figure.alt).toBeTruthy();
         figures++;
