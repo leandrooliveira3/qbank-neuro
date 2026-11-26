@@ -8,7 +8,8 @@ import {
 } from './model';
 import './course.css';
 import LessonArticle from './LessonArticle';
-import ReviewTable, { reviewPriorities } from './ReviewTable';
+import ReviewTable from './ReviewTable';
+import FinalReview from './FinalReview';
 
 const SupplementalLesson = lazy(() => import('./SupplementalLesson'));
 const originalSections = [
@@ -53,7 +54,7 @@ export default function Course() {
   const mode = modes.find(({ id }) => id === params.get('estudo'))?.id ?? 'teoria';
   const block = showingFinalReviews ? undefined : entry?.block ?? blocks.find(({ id }) => String(id) === params.get('bloco'));
   const blockWide = selected === 'TODOS' && mode === 'questoes' && !!block;
-  const activeBlockId = blockWide || entry ? block?.id : undefined;
+  const activeBlockId = finalBlock?.id ?? (blockWide || entry ? block?.id : undefined);
   const [filter, setFilter] = useState('');
   const [course, setCourse] = useState(() => loadCourse(lessonIds));
   const courseRef = useRef(course);
@@ -99,11 +100,11 @@ export default function Course() {
   const next = position >= 0 ? curriculum[position + 1] : undefined;
 
   useEffect(() => {
-    if (focusTarget === `${location.pathname}${location.search}` && heading.current && (!activeBlockId || ready)) {
+    if (focusTarget === `${location.pathname}${location.search}` && heading.current && (showingFinalReviews || !activeBlockId || ready)) {
       heading.current.focus();
       setFocusTarget(undefined);
     }
-  }, [focusTarget, location.pathname, location.search, activeBlockId, ready]);
+  }, [focusTarget, location.pathname, location.search, activeBlockId, ready, showingFinalReviews]);
 
   function follow(event: MouseEvent<HTMLAnchorElement>) {
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
@@ -200,21 +201,9 @@ export default function Course() {
         {finalBlock && <Link to={finalReviewLink()} onClick={follow}>Revisões finais</Link>}
       </nav>
       <h2 tabIndex={-1} ref={heading}>{finalBlock ? `Bloco ${finalBlock.id} · ${finalBlock.title}` : 'Revisões finais'}</h2>
-      {finalBlock ? <div className="nri-course-scroll nri-final-review" tabIndex={0} role="region"
-        aria-label={`Revisão final do bloco ${finalBlock.id}`}>
-        <table>
-          <thead><tr><th scope="col">Aula e tema</th><th scope="col">Pontos centrais e decorebas</th><th scope="col">Pegadinha</th></tr></thead>
-          <tbody>{finalBlock.lessons.map((item) => {
-            const priority = reviewPriorities[item.id];
-            return <tr key={item.id}>
-              <th scope="row"><Link to={courseLink(finalBlock.id, item.id, 'revisao')} onClick={follow}>
-                {item.id} · {item.title}
-              </Link></th>
-              <td>{priority?.recall}</td><td>{priority?.trap}</td>
-            </tr>;
-          })}</tbody>
-        </table>
-      </div> : <ol className="nri-lesson-list">
+      {finalBlock ? <FinalReview key={finalBlock.id} block={finalBlock} questions={data?.questions}
+        failed={ready?.error} lessonLink={(id) => courseLink(finalBlock.id, id, 'revisao')}
+        quizLink={courseLink(finalBlock.id, 'todos', 'questoes')} onFollow={follow} /> : <ol className="nri-lesson-list">
         {blocks.map((item) => <li key={item.id}>
           <Link to={finalReviewLink(item.id)} onClick={follow}><b>Bloco {item.id}</b><span>{item.title}</span></Link>
         </li>)}

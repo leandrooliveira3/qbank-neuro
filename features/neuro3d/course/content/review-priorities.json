@@ -1,6 +1,6 @@
 {
   "1A": {
-    "recall": "Espinhoso → meníngea média; oval → meníngea acessória; redondo → artéria homônima; pterigoideo → vidiana. Na maxilar, a porção mandibular inclui meníngeas média e acessória; a pterigopalatina inclui esfenopalatina, infraorbital e vidiana.",
+    "recall": "Espinhoso → meníngea média; oval → meníngea acessória; redondo → artéria homônima; pterigoideo → vidiana. Na maxilar, a porção mandibular inclui meníngeas média e acessória; a pterigopalatina inclui esfenopalatina, infraorbital e vidiana. A artéria do forame redondo acompanha V2, liga-se ao tronco inferolateral e oferece uma via da maxilar para a ACI cavernosa.",
     "trap": "Enchimento lacrimal isolado não comprova suprimento retiniano."
   },
   "1B": {
@@ -52,8 +52,8 @@
     "trap": "Uma conexão coroideia periventricular não corresponde à artéria de Percheron."
   },
   "2H": {
-    "recall": "Trigeminal → basilar; hipoglossal → canal do XII; proatlantal → forame magno. Proatlantal I costuma nascer na ACI; a II, na ACE. Trigeminal típica parte da ACI cavernosa.",
-    "trap": "Dependência hemodinâmica do vaso persistente define risco, além do seu nome."
+    "recall": "Trigeminal → basilar; hipoglossal → canal do XII; proatlantal → forame magno. Proatlantal I costuma nascer na ACI; a II, na ACE. Trigeminal típica parte da ACI cavernosa. No Saltzman I clássico, a trigeminal sustenta a circulação distal à anastomose. Procure hipoplasia da basilar proximal e avalie as comunicantes posteriores.",
+    "trap": "Dependência hemodinâmica do vaso persistente define risco, além do seu nome. A persistência ótica independente é controversa."
   },
   "2I": {
     "recall": "Fenestração tem divisão e reunião do vaso; cada canal pode dar ramos.",
@@ -76,8 +76,8 @@
     "trap": "Reconhecer a variante não encerra a análise de dependência funcional."
   },
   "3A": {
-    "recall": "Bouthillier: C1 cervical, C2 petroso, C3 lacerum, C4 cavernoso, C5 clinoide, C6 oftálmico, C7 comunicante. C4 dá os troncos meningo-hipofisário e inferolateral; C5 fica entre os anéis durais; C7 começa na origem da PCoA.",
-    "trap": "O anel dural distal e a relação subaracnóidea importam mais que a projeção do aneurisma."
+    "recall": "Bouthillier: C1 cervical, C2 petroso, C3 lacerum, C4 cavernoso, C5 clinoide, C6 oftálmico, C7 comunicante. C4 dá os troncos meningo-hipofisário e inferolateral; C5 fica entre os anéis durais; C7 começa na origem da PCoA. C3 termina no ligamento petrolingual. C4 vai dali até o anel dural proximal. C5 termina no anel distal.",
+    "trap": "O anel dural distal e a relação subaracnóidea importam mais que a projeção do aneurisma. A carotid cave é um recesso medial e pode dar componente intradural a um aneurisma aparentemente abaixo do anel distal."
   },
   "3B": {
     "recall": "Heubner → cabeça do caudado e braço anterior da cápsula interna; A2 ázigos → tronco único bilateral.",
@@ -124,7 +124,7 @@
     "trap": "Não presuma que a veia silviana sempre continua num seio esfenoparietal."
   },
   "4C": {
-    "recall": "Hipoplasia costuma acompanhar assimetria do sulco ósseo e do bulbo jugular; TOF é sensível a fluxo lento.",
+    "recall": "Hipoplasia costuma acompanhar assimetria do sulco ósseo e do bulbo jugular; TOF é sensível a fluxo lento. Seio falcino persistente é uma conexão venosa embrionária. Na oclusão de um segmento sinusal, mapeie drenagem cortical e cerebelar normal.",
     "trap": "Falha de sinal no TOF isolado não comprova trombose. Granulação aracnoidea focal também pode simular defeito de enchimento."
   },
   "4D": {
@@ -168,8 +168,8 @@
     "trap": "Pedículos contíguos podem compartilhar anastomoses e irrigação medular."
   },
   "5F": {
-    "recall": "Na FAV dural, shunt na manga radicular com refluxo perimedular e congestão medular.",
-    "trap": "Edema no cone não localiza necessariamente o ponto fistuloso."
+    "recall": "Na FAV dural, shunt na manga radicular com refluxo perimedular e congestão medular. A hipertensão venosa intramedular reduz o gradiente de perfusão. O edema pode estender-se longitudinalmente, longe do shunt.",
+    "trap": "Edema no cone não localiza necessariamente o ponto fistuloso. A interrupção arterial proximal que deixa a saída venosa patológica pode permitir recrutamento e recorrência."
   },
   "5G": {
     "recall": "Dural → manga e veia proximal; epidural → bolsa; perimedular → shunt pial; MAV → nidus.",
@@ -200,8 +200,8 @@
     "trap": "Ocluir o seio sem mapear drenagem normal pode causar congestão ou infarto venoso."
   },
   "6G": {
-    "recall": "Canal do hipoglosso → região condilar anterior e risco do XII; seio marginal → entorno do forame magno. FAV da junção craniocervical com drenagem perimedular pode apresentar mielopatia.",
-    "trap": "Sintoma ocular pode decorrer de drenagem retrógrada distante do ponto do shunt."
+    "recall": "Canal do hipoglosso → região condilar anterior e risco do XII; seio marginal → entorno do forame magno. FAV da junção craniocervical com drenagem perimedular pode apresentar mielopatia. Spittau no canal do hipoglosso: tipo 1, drenagem anterógrada, frequentemente com zumbido; tipo 2, retrógrada cavernosa/orbitária; tipo 3, drenagem dominante ou exclusiva para veias piais cerebelares ou perimedulares.",
+    "trap": "Sintoma ocular pode decorrer de drenagem retrógrada distante do ponto do shunt. A drenagem perimedular pode definir Cognard V, uma classificação distinta da de Spittau."
   },
   "6H": {
     "recall": "Integrar local, shunt, saída anormal e drenagem normal. Refluxo cortical determina alto risco.",
@@ -220,7 +220,7 @@
     "trap": "Ectasia da Galeno madura por MAV adjacente é outra entidade."
   },
   "7D": {
-    "recall": "Bicêtre integra função multissistêmica neonatal; tratamento pode ser estagiado para reduzir o shunt. Bicêtre reúne cinco componentes: cardíaco, cerebral, respiratório, hepático e renal. Faixas históricas de Bicêtre: 0–7, prognóstico desfavorável; 8–12, considerar tratamento urgente; 13–21, possível estabilização e tratamento diferido.",
+    "recall": "Bicêtre integra função multissistêmica neonatal; tratamento pode ser estagiado para reduzir o shunt. Bicêtre reúne cinco componentes: cardíaco, cerebral, respiratório, hepático e renal. Faixas históricas de Bicêtre: 0–7, prognóstico desfavorável; 8–12, considerar tratamento urgente; 13–21, possível estabilização e tratamento diferido. Hipertensão venosa dificulta reabsorção do líquor. Avalie o shunt e as vias de drenagem profunda antes de definir estratégia para a hidrocefalia.",
     "trap": "Resultado imediato precisa considerar adaptação hemodinâmica e perfusão venosa cerebral."
   },
   "7E": {
@@ -260,8 +260,8 @@
     "trap": "Se elegível para ambas, IVT sem atrasar EVT e sem aguardar resposta."
   },
   "8D": {
-    "recall": "eTICI quantifica reperfusão no território; registre passagens e embolização em novo território. eTICI 2b50: 50–66%; 2b67: 67–89%; 2c: 90–99%; 3: 100%.",
-    "trap": "Reabrir a artéria parental não assegura reperfusão distal."
+    "recall": "eTICI quantifica reperfusão no território; registre passagens e embolização em novo território. eTICI 2b50: 50–66%; 2b67: 67–89%; 2c: 90–99%; 3: 100%. ADAPT aspira na face do trombo. Stent retriever é temporário e captura o trombo. Balão-guia pode produzir parada de fluxo proximal. First-pass effect é reperfusão completa na primeira passagem na definição clássica. Versões modificadas usam limiares diferentes.",
+    "trap": "Reabrir a artéria parental não assegura reperfusão distal. Reperfusão quase completa não obriga nova passagem: pese território residual e risco da manobra."
   },
   "8E": {
     "recall": "ATTENTION até 12 h e BAOCHE de 6–24 h estudaram basilar; SELECT2 e ANGEL-ASPECT estudaram núcleo anterior extenso.",
@@ -288,8 +288,8 @@
     "trap": "Deterioração após EVT inclui hemorragia, reoclusão, embolização, edema e fatores sistêmicos."
   },
   "9A": {
-    "recall": "Fluoroscopia orienta movimento; DSA acompanha enchimento por fase; rotacional 3D esclarece geometria.",
-    "trap": "Zoom digital não recupera resolução espacial ausente."
+    "recall": "Fluoroscopia orienta movimento; DSA acompanha enchimento por fase; rotacional 3D esclarece geometria. Desalinhamento da máscara causa contornos duplicados. Remasking troca a máscara; pixel shift corrige parte do deslocamento. Roadmap sobrepõe mapa vascular à fluoroscopia.",
+    "trap": "Zoom digital não recupera resolução espacial ausente. Ausência de ramo na reconstrução 3D pode refletir o limiar de segmentação. Confirme nas imagens originais."
   },
   "9B": {
     "recall": "Ka,r estima exposição no ponto de referência; PKA integra kerma × área; tempo de fluoro sozinho é incompleto. PKA em Gy·cm² e Ka,r em Gy distinguem as grandezas.",
@@ -344,7 +344,7 @@
     "trap": "Perfusão por variante de origem oftálmica pode exigir via alternativa."
   },
   "10E": {
-    "recall": "EMBOLISE: reoperação em 90 dias; STEM: composto em 180 dias; MAGIC-MT: primário neutro.",
+    "recall": "EMBOLISE: reoperação em 90 dias; STEM: composto em 180 dias; MAGIC-MT: primário neutro. O alvo são as membranas vascularizadas associadas à persistência e recorrência. A redução do hematoma é gradual. Via meníngea–oftálmica ameaça a retina; ramo petroso, o VII.",
     "trap": "Embolização da meníngea média não descomprime efeito de massa imediatamente."
   },
   "10F": {
@@ -384,8 +384,8 @@
     "trap": "Parkes Weber tem shunts de alto fluxo; Klippel–Trénaunay tem malformações de baixo fluxo."
   },
   "11G": {
-    "recall": "CCM múltiplos familiares; HHT por critérios de Curaçao/genética; CADASIL → NOTCH3. Curaçao: epistaxe recorrente, telangiectasias, lesões viscerais e familiar de primeiro grau afetado.",
-    "trap": "Vários cavernomas em torno de uma DVA podem representar doença esporádica."
+    "recall": "CCM múltiplos familiares; HHT por critérios de Curaçao/genética; CADASIL → NOTCH3. Curaçao: epistaxe recorrente, telangiectasias, lesões viscerais e familiar de primeiro grau afetado. CCM familiar: KRIT1, CCM2 e PDCD10. CARASIL clássico: HTRA1 bialélico. COL4A1/COL4A2: membrana basal vascular. RVCL-S: TREX1, com envolvimento retiniano, cerebral e sistêmico.",
+    "trap": "Vários cavernomas em torno de uma DVA podem representar doença esporádica. Na HHT, MAV pulmonar permite embolização paradoxal e pode causar abscesso cerebral."
   },
   "11H": {
     "recall": "Cruze idade, manifestações sistêmicas, parede, distribuição e evolução.",
@@ -408,8 +408,8 @@
     "trap": "PLATO é observacional em ACP, distinto dos ensaios randomizados em basilar."
   },
   "12.5": {
-    "recall": "ASTER: aspiração inicial versus retriever; ASTER2: combinação versus retriever; CHOICE: alteplase IA pós-reperfusão. DIRECT-MT atingiu sua margem de não inferioridade; SWIFT DIRECT não atingiu a margem testada.",
-    "trap": "Não inferioridade da EVT direta depende da margem e da população do ensaio."
+    "recall": "ASTER: aspiração inicial versus retriever; ASTER2: combinação versus retriever; CHOICE: alteplase IA pós-reperfusão. DIRECT-MT atingiu sua margem de não inferioridade; SWIFT DIRECT não atingiu a margem testada. CHOICE usou mRS 0–1 como desfecho primário e foi interrompido precocemente. EXTEND-IA TNK avaliou reperfusão antes da EVT; 0,40 mg/kg não acrescentou vantagem frente a 0,25 mg/kg no estudo de dose.",
+    "trap": "Não inferioridade da EVT direta depende da margem e da população do ensaio. Em não inferioridade, verifique o limite pertinente do IC contra a margem pré-especificada."
   },
   "12.6": {
     "recall": "Separe ensaios de anestesia protocolizada dos de alvo pressórico após EVT; ENCHANTED2/MT e OPTIMAL-BP desfavoreceram metas intensivas. ENCHANTED2/MT testou PAS <120 mmHg; OPTIMAL-BP testou <140 mmHg após reperfusão.",
@@ -456,8 +456,8 @@
     "trap": "DOAC precoce em selecionados não equivale à anticoagulação urgente para todo AVC."
   },
   "13.5": {
-    "recall": "Triagem de disfagia antes de via oral; compressão pneumática intermitente na população indicada; edema com deterioração exige avaliar resgate. Separe DVE para hidrocefalia obstrutiva de descompressão por compressão de tronco ou infarto cerebelar ≥35 mL, conforme critérios da diretriz.",
-    "trap": "Meia elástica não equivale à compressão pneumática intermitente."
+    "recall": "Triagem de disfagia antes de via oral; compressão pneumática intermitente na população indicada; edema com deterioração exige avaliar resgate. Separe DVE para hidrocefalia obstrutiva de descompressão por compressão de tronco ou infarto cerebelar ≥35 mL, conforme critérios da diretriz. Na população estudada, compressão pneumática intermitente é COR 1/B-R e meias elásticas graduadas são COR 3 — dano/B-R. Nutrição enteral, quando necessária, deve começar em até sete dias.",
+    "trap": "Meia elástica não equivale à compressão pneumática intermitente. A estimulação elétrica faríngea tem recomendações distintas em pacientes sem traqueostomia e após desmame ventilatório em traqueostomizados."
   },
   "13.6": {
     "recall": "ISUIA, UCAS e SUAVe diferem em tamanho, localização e seleção; UCAS destaca ACom/PCoA e saco filho. UCAS: 0,95% ao ano na coorte. Saco filho acrescentou informação ao tamanho e à localização.",

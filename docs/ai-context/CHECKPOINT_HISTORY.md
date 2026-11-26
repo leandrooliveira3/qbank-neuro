@@ -185,3 +185,7 @@ Revisão de layout e formatação nos 13 blocos, incluindo reconstrução das ta
 ## 26/11/2026 — Revisões finais do Curso NRI
 
 Adicionadas as prioridades de prova por aula, a tabela compartilhada entre modos e o índice de 13 revisões finais. O escopo foi o material do curso publicado em `1dfd3d3`.
+
+## 26/11/2026 — Revisões finais cruzadas com o banco NRI
+
+Adicionado o cotejo das tabelas finais com o banco integral, a expansão por aula, a identificação das questões e testes de cobertura para os 13 blocos. A verificação editorial usa os gabaritos e justificativas existentes.

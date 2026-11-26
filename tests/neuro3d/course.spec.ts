@@ -102,6 +102,18 @@ test('navega pelas 13 revisões finais e encontra a mesma pegadinha na aula', as
     await index.getByRole('link', { name: `Bloco ${block.id} ${block.title}` }).click();
     const table = index.getByRole('table');
     await expect(table.getByRole('row')).toHaveCount(block.lessons.length + 1);
+    await expect(index.getByText('100 questões do bloco mapeadas por aula')).toBeVisible();
+    const buttons = table.getByRole('button', { name: /Ver conceitos de/ });
+    await expect(buttons).toHaveCount(block.lessons.length);
+    const counts = await buttons.allTextContents();
+    expect(counts.reduce((total, label) => total + Number(label.match(/\d+/)?.[0]), 0)).toBe(100);
+    const first = buttons.first();
+    await first.click();
+    const expanded = table.getByRole('button', { name: /Recolher conceitos/ });
+    await expect(expanded).toHaveAttribute('aria-expanded', 'true');
+    await expect(table.locator('.nri-final-bank-notes li').first()).toContainText(/Quest(?:ão|ões) .* do bloco/);
+    await expanded.click();
+    await expect(table.locator('.nri-final-bank-notes')).toHaveCount(0);
     for (const lesson of block.lessons) {
       const link = page.getByRole('link', { name: `${lesson.id} · ${lesson.title}` });
       const row = table.getByRole('row').filter({ has: link });

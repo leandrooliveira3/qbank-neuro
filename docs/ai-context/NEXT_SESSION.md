@@ -1,3 +1,7 @@
+## 26/11/2026 — Revisões finais cruzadas com o banco NRI
+
+No Curso NRI, abra Revisões finais e use Ver conceitos de cada aula para conferir o conteúdo cobrado. A numeração segue o simulador do bloco inteiro. Alterações futuras no banco nativo propagam-se automaticamente a partir da mesma fonte. Preserve IDs e versões do gabarito.
+
 ## 26/11/2026 — Revisões finais do Curso NRI
 
 Use a revisão final em `/#/tools/nri?revisoes=finais`. Ao corrigir uma aula, atualize também a decoreba e a pegadinha em `features/neuro3d/course/content/review-priorities.json`. Esse dado alimenta três posições na interface. Preserve os 13 blocos curriculares, 120 aulas e 1.300 questões.

@@ -201,3 +201,25 @@
 .nri-final-review th:first-child { width: 23%; }
 .nri-final-review td:nth-child(2) { width: 45%; }
 .nri-block-index > a + a { margin-inline-start: 1rem; }
+
+.nri-final-bank-toggle {
+  display: block;
+  margin-block-start: .65rem;
+  color: var(--nri-accent);
+  text-align: start;
+  text-decoration: underline;
+  font-weight: 650;
+}
+
+.nri-final-bank-notes {
+  position: sticky;
+  left: .75rem;
+  max-width: min(67ch, calc(100vw - 4rem));
+  list-style: none;
+  padding: 0;
+}
+
+.nri-final-bank-notes li + li { margin-block-start: .8rem; }
+.nri-final-bank-notes :is(small, strong) { display: block; }
+.nri-final-bank-notes small { color: var(--nri-muted); }
+.nri-final-bank-notes p { margin: .2rem 0 0; white-space: pre-line; }
