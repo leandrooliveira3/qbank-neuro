@@ -33,10 +33,6 @@
           "takeaway": "Exame de seleção em cenários específicos, sem atrasar a IVT convencional elegível."
         },
         {
-          "concept": "Afirmação",
-          "takeaway": "Julgamento"
-        },
-        {
           "concept": "RACE elevada confirma OGV",
           "takeaway": "Falso — é ferramenta de triagem"
         },
@@ -152,10 +148,6 @@
           "takeaway": "Contraindicação à trombólise."
         },
         {
-          "concept": "Pergunta de prova",
-          "takeaway": "Resposta para memorizar"
-        },
-        {
           "concept": "Alteplase: dose?",
           "takeaway": "0,9 mg/kg; máximo 90 mg; 10% em bolus, restante em 60 min"
         },
@@ -181,11 +173,11 @@
         },
         {
           "concept": "PA antes da IVT?",
-          "takeaway": "&lt;185/110 mmHg"
+          "takeaway": "<185/110 mmHg"
         },
         {
           "concept": "PA após IVT?",
-          "takeaway": "&lt;180/105 mmHg por pelo menos 24 h"
+          "takeaway": "<180/105 mmHg por pelo menos 24 h"
         },
         {
           "concept": "IVT em candidato a EVT?",
@@ -578,14 +570,14 @@
         },
         {
           "concept": "Gastrostomia",
-          "takeaway": "Considerar se disfagia persistente prevista por &gt;2–3 semanas"
+          "takeaway": "Considerar se disfagia persistente prevista por >2–3 semanas"
         },
         {
           "concept": "Meias de compressão graduada",
           "takeaway": "3 — dano/B-R"
         },
         {
-          "concept": "Hemicraniectomia &gt;60 anos",
+          "concept": "Hemicraniectomia >60 anos",
           "takeaway": "2b/B-R"
         },
         {

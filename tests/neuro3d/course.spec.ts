@@ -10,7 +10,7 @@ test('navega entre teoria, revisão e questões de todos os módulos e registra 
   await page.goto('/#/tools/nri');
   const course = page.getByRole('region', { name: 'Curso NRI 2027' });
   await expect(course.getByRole('heading', { name: 'Blocos do curso' })).toBeVisible();
-  await expect(course.locator('.nri-course-catalog a')).toHaveCount(13);
+  await expect(course.locator('.nri-course-catalog a')).toHaveCount(14);
   await course.getByRole('link', { name: 'Começar pela aula 1A' }).click();
   await expect(course.getByRole('heading', { name: /1A · Carótida externa/ })).toBeVisible();
   await expect(course.locator('article')).toBeVisible();
@@ -89,6 +89,38 @@ test('abre a aula pela URL antiga e segue entre blocos sem escolher arquivos', a
   await course.getByRole('link', { name: 'Próxima aula · 2A' }).click();
   await expect(course.getByRole('heading', { name: /^2A ·/ })).toBeVisible();
   await expect(course.getByRole('article', { name: 'Conteúdo da aula' })).toBeVisible();
+});
+
+test('navega pelas 13 revisões finais e encontra a mesma pegadinha na aula', async ({ page }) => {
+  await page.goto('/#/tools/nri');
+  const course = page.getByRole('region', { name: 'Curso NRI 2027' });
+  await course.getByRole('link', { name: /Revisões finais/ }).click();
+  await expect(course.getByRole('heading', { name: 'Revisões finais' })).toBeFocused();
+  const index = course.getByRole('region', { name: 'Revisões finais', exact: true });
+  await expect(index.getByRole('listitem')).toHaveCount(13);
+  for (const block of manifest) {
+    await index.getByRole('link', { name: `Bloco ${block.id} ${block.title}` }).click();
+    const table = index.getByRole('table');
+    await expect(table.getByRole('row')).toHaveCount(block.lessons.length + 1);
+    for (const lesson of block.lessons) {
+      const link = page.getByRole('link', { name: `${lesson.id} · ${lesson.title}` });
+      const row = table.getByRole('row').filter({ has: link });
+      await expect(row.getByRole('cell')).toHaveCount(2);
+      await expect(row.getByRole('cell').nth(0)).not.toBeEmpty();
+      await expect(row.getByRole('cell').nth(1)).not.toBeEmpty();
+    }
+    expect(await course.evaluate(node => node.scrollWidth)).toBeLessThanOrEqual(
+      await course.evaluate(node => node.clientWidth + 1),
+    );
+    await index.getByRole('link', { name: 'Revisões finais', exact: true }).click();
+  }
+  await index.getByRole('link', { name: /^Bloco 2 / }).click();
+  const link = index.getByRole('link', { name: /^2E ·/ });
+  const trap = await index.getByRole('row').filter({ has: page.getByRole('link', { name: /^2E ·/ }) }).getByRole('cell').nth(1).innerText();
+  await link.click();
+  await expect(course.getByRole('row').filter({ hasText: 'Pegadinha de prova' })).toContainText(trap);
+  await course.getByRole('link', { name: 'Aula', exact: true }).click();
+  await expect(course.getByRole('region', { name: 'Revisão ao final da aula' })).toContainText(trap);
 });
 
 for (const block of manifest) {

@@ -1,3 +1,7 @@
+## 26/11/2026 — Revisões finais do Curso NRI
+
+As 120 aulas do Curso NRI têm uma decoreba e uma pegadinha editorial em destaque na tabela de revisão. O catálogo abre Revisões finais com 13 tabelas alimentadas pelos mesmos dados e links para a revisão da aula. O conteúdo foi cotejado com o material publicado e as prioridades devem continuar a ser conferidas ao revisar as aulas.
+
 ## 22/11/2026 — Curso NRI 2027
 
 A revisão local dos 13 blocos corrigiu figuras, navegação e justificativas. O catálogo apresenta 629 imagens recuperadas e localizadores nas 1.300 questões. A auditoria registra o alcance dos localizadores e da conferência clínica. [Resultados da auditoria](../neuro3d-curso-nri-auditoria-final.md).

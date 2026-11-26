@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import ReviewTable from './ReviewTable';
 import { formatLesson } from './lessonLayout';
 import { useLessonFigures } from './LessonFigures';
 import { searchable, type Lesson } from './model';
@@ -45,14 +46,7 @@ export default function LessonArticle({ lesson, block }: { lesson: Lesson; block
     }}>{lines.join('\n')}</ReactMarkdown>
     {lesson.points.length > 0 && <section className="nri-lesson-takeaways" aria-label="Revisão ao final da aula">
       <h3>Pontos importantes</h3>
-      <div className="nri-course-scroll" tabIndex={0} role="region" aria-label="Síntese da aula">
-        <table>
-          <thead><tr><th scope="col">Conceito</th><th scope="col">O que lembrar</th></tr></thead>
-          <tbody>{lesson.points.map(({ concept, takeaway }) => <tr key={concept}>
-            <th scope="row">{concept}</th><td>{takeaway}</td>
-          </tr>)}</tbody>
-        </table>
-      </div>
+      <ReviewTable lesson={lesson} />
     </section>}
   </article>;
 }

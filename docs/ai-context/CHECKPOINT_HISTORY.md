@@ -181,3 +181,7 @@ Base remota `9b66c6b`. Rota própria do curso, revisão nas 120 aulas, triagem d
 ## 21/11/2026 — Revisão dos 13 blocos NRI
 
 Revisão de layout e formatação nos 13 blocos, incluindo reconstrução das tabelas de STEM e MEMBRANE. Sínteses e exercícios nas 68 aulas dos Blocos 7–13, 43 questões reformuladas e planos D0–D+30 nos 13 blocos. O material histórico dos 43 volumes permanece vinculado às aulas. [Matriz e limites](../neuro3d-curso-nri-auditoria-final.md).
+
+## 26/11/2026 — Revisões finais do Curso NRI
+
+Adicionadas as prioridades de prova por aula, a tabela compartilhada entre modos e o índice de 13 revisões finais. O escopo foi o material do curso publicado em `1dfd3d3`.

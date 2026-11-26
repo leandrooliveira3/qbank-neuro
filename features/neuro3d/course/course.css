@@ -196,3 +196,8 @@
 .nri-lesson-revision dl > div { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: .7rem; padding: .65rem .8rem; border: 1px solid var(--nri-line); border-radius: .5rem; }
 .nri-lesson-revision dt { font-weight: 750; color: var(--nri-accent); }
 .nri-lesson-revision dd { margin: 0; }
+
+.nri-final-review table { min-width: 42rem; }
+.nri-final-review th:first-child { width: 23%; }
+.nri-final-review td:nth-child(2) { width: 45%; }
+.nri-block-index > a + a { margin-inline-start: 1rem; }

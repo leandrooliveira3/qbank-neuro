@@ -1,0 +1,482 @@
+{
+  "1A": {
+    "recall": "Espinhoso → meníngea média; oval → meníngea acessória; redondo → artéria homônima; pterigoideo → vidiana. Na maxilar, a porção mandibular inclui meníngeas média e acessória; a pterigopalatina inclui esfenopalatina, infraorbital e vidiana.",
+    "trap": "Enchimento lacrimal isolado não comprova suprimento retiniano."
+  },
+  "1B": {
+    "recall": "Retina interna → central da retina; coroide → ciliares posteriores.",
+    "trap": "Blush coroideano ausente em uma injeção não exclui anastomose orbitária perigosa."
+  },
+  "1C": {
+    "recall": "Vidiana → ACI petrosa; redondo e meníngea acessória → conexões cavernosas com o tronco inferolateral.",
+    "trap": "Canal pterigoideo e forame redondo identificam vias diferentes."
+  },
+  "1D": {
+    "recall": "Jugular → IX–XI; hipoglosso → XII; petroso e estilomastoideo → arcada do VII.",
+    "trap": "A faríngea ascendente também oferece conexões com ACI e vertebral."
+  },
+  "1E": {
+    "recall": "Davidoff–Schechter → dura a partir da ACP; procure ramos neurais, piais e meníngeos na fossa posterior. Bernasconi–Cassinari → ramo tentorial do tronco meningo-hipofisário; subarcuata e labiríntica têm territórios distintos.",
+    "trap": "A origem numa artéria pial, isoladamente, não define a localização do shunt."
+  },
+  "1F": {
+    "recall": "Na DSA: origem → passagem óssea → território → ponto de shunt → drenagem.",
+    "trap": "Reavaliar após mudança de fluxo, pois colaterais antes invisíveis podem aparecer."
+  },
+  "2A": {
+    "recall": "3º arco → carótida comum e ACI proximal; 4º esquerdo → parte do arco; 6º esquerdo → ducto; 7ª intersegmentar esquerda → subclávia esquerda.",
+    "trap": "A vertebral resulta de conexões longitudinais cervicais, distintas dos arcos aórticos."
+  },
+  "2B": {
+    "recall": "Reconheça arco tipo III pelos óstios mais baixos em relação à convexidade.",
+    "trap": "Tronco comum braquiocefálico–carótida esquerda e origem desta no braquiocefálico são variantes distintas."
+  },
+  "2C": {
+    "recall": "2º arco → eixo hioestapedial; territórios maxilomeníngeos são transferidos para a ACE.",
+    "trap": "Forame espinhoso ausente sugere rota meníngea alternativa e exige rastreamento."
+  },
+  "2D": {
+    "recall": "PCoA segue para P1; coroidea anterior segue para a fissura coroidea.",
+    "trap": "Coroidea hiperplásica pode parecer ACP: use trajeto e território."
+  },
+  "2E": {
+    "recall": "Rastreie entrada pelo canal óptico ou fissura orbital superior e identifique central da retina e ciliares. Em Lasjaunias, a via dorsal cavernosa relaciona-se à fissura orbital superior e a ventral ao canal óptico.",
+    "trap": "O termo dorsal tem sentidos diferentes nos modelos de Padget e Lasjaunias. Na DSA adulta, confirme a passagem óssea e a origem dos ramos oculares."
+  },
+  "2F": {
+    "recall": "Arco límbico verdadeiro: ACA ↔ coroidea anterior; transferência de território embrionário da coroidea para a ACP.",
+    "trap": "Origem pela ACA indica ACM acessória; duplicada nasce da ACI."
+  },
+  "2G": {
+    "recall": "ACP fetal: predomínio do aporte carotídeo via PCoA; examine o calibre de P1. ACP fetal completa: P1 ausente; parcial: P1 hipoplásico.",
+    "trap": "Uma conexão coroideia periventricular não corresponde à artéria de Percheron."
+  },
+  "2H": {
+    "recall": "Trigeminal → basilar; hipoglossal → canal do XII; proatlantal → forame magno. Proatlantal I costuma nascer na ACI; a II, na ACE. Trigeminal típica parte da ACI cavernosa.",
+    "trap": "Dependência hemodinâmica do vaso persistente define risco, além do seu nome."
+  },
+  "2I": {
+    "recall": "Fenestração tem divisão e reunião do vaso; cada canal pode dar ramos.",
+    "trap": "Canal fino não está necessariamente livre de perfurantes."
+  },
+  "2J": {
+    "recall": "Domínio recíproco PICA–AICA muda a distribuição; confirme origem extradural e trajeto da PICA quando variante.",
+    "trap": "O nome da cerebelar, sozinho, não delimita seu território real."
+  },
+  "2K": {
+    "recall": "Lazorthes → reforço cervical; Adamkiewicz → ASA toracolombar; cesta do cone → conexão ventral e posterolateral.",
+    "trap": "Grampo vascular exige confirmação da fase e da continuidade axial."
+  },
+  "2L": {
+    "recall": "Separe persistência, regressão, captura territorial e fusão incompleta.",
+    "trap": "A hipótese embriológica só ganha sustentação angiográfica após rastrear trajeto e território."
+  },
+  "2M": {
+    "recall": "Quatro eixos de leitura: origem, trajeto, território e drenagem.",
+    "trap": "Reconhecer a variante não encerra a análise de dependência funcional."
+  },
+  "3A": {
+    "recall": "Bouthillier: C1 cervical, C2 petroso, C3 lacerum, C4 cavernoso, C5 clinoide, C6 oftálmico, C7 comunicante. C4 dá os troncos meningo-hipofisário e inferolateral; C5 fica entre os anéis durais; C7 começa na origem da PCoA.",
+    "trap": "O anel dural distal e a relação subaracnóidea importam mais que a projeção do aneurisma."
+  },
+  "3B": {
+    "recall": "Heubner → cabeça do caudado e braço anterior da cápsula interna; A2 ázigos → tronco único bilateral.",
+    "trap": "A2 bi-hemisférica tem dois A2 com predomínio de um."
+  },
+  "3C": {
+    "recall": "M1 dá lenticuloestriadas; ACM acessória nasce da ACA e duplicada da ACI.",
+    "trap": "Bifurcação visível não informa, sozinha, de qual ramo saem todas as perfurantes."
+  },
+  "3D": {
+    "recall": "P1: paramedianas; P2: talamogeniculadas e coroideas posteriores; P3/P4: território distal.",
+    "trap": "Tálamo paramediano bilateral também exige avaliar topo da basilar, mesencéfalo e demais territórios."
+  },
+  "3E": {
+    "recall": "Coroidea anterior → braço posterior da cápsula interna, trato óptico e plexo coroide; ponto plexal marca a entrada na fissura.",
+    "trap": "Ponto plexal não torna embolização distal isenta de risco."
+  },
+  "3F": {
+    "recall": "PICA → bulbo lateral; AICA → ponte lateral inferior/labiríntica; SCA → cerebelo superior.",
+    "trap": "Dominância recíproca muda o território e limita a localização por um único sinal."
+  },
+  "3G": {
+    "recall": "Déficit cruzado: nervo craniano ipsilateral com disfunção de via longa contralateral.",
+    "trap": "Encarceramento pontino pode preservar consciência e olhar vertical."
+  },
+  "3H": {
+    "recall": "Déficit motor puro, sensitivo puro e ataxia–hemiparesia orientam topografia lacunar.",
+    "trap": "Lesão pontina até a superfície ventral sugere doença de ramo na basilar."
+  },
+  "3I": {
+    "recall": "Polígono = colateral primária; leptomeníngeas = redistribuição distal; ACE–oftálmica = via extracraniana.",
+    "trap": "Patência anatômica não garante fluxo suficiente."
+  },
+  "3J": {
+    "recall": "Use projeções ortogonais e de trabalho para ver colo, ramos, perfurantes e colaterais.",
+    "trap": "Uma projeção isolada pode sobrepor ramo incorporado ao colo."
+  },
+  "4A": {
+    "recall": "Superficiais → seios; profundas → veias cerebrais internas/basais e Galeno → reto.",
+    "trap": "Uma fase tardia incompleta pode ocultar a drenagem normal."
+  },
+  "4B": {
+    "recall": "Trolard → sagital superior; Labbé → transverso; veia silviana superficial tem saídas variáveis.",
+    "trap": "Não presuma que a veia silviana sempre continua num seio esfenoparietal."
+  },
+  "4C": {
+    "recall": "Hipoplasia costuma acompanhar assimetria do sulco ósseo e do bulbo jugular; TOF é sensível a fluxo lento.",
+    "trap": "Falha de sinal no TOF isolado não comprova trombose. Granulação aracnoidea focal também pode simular defeito de enchimento."
+  },
+  "4D": {
+    "recall": "Septal anterior e talamoestriada orientam a origem da cerebral interna na região de Monro. A veia basal de Rosenthal pode variar sua saída e conectar-se à veia mesencefálica lateral.",
+    "trap": "Edema talâmico bilateral exige considerar trombose venosa profunda além de Percheron."
+  },
+  "4E": {
+    "recall": "Fossa posterior: sistema galênico superior, petroso anterior e tentorial/torcular posterior.",
+    "trap": "Uma veia petrosa pode drenar tecido normal além de um shunt."
+  },
+  "4F": {
+    "recall": "DVA = caput medusae com coletor venoso funcional; cavernoma associado pode aparecer em SWI.",
+    "trap": "Hemorragia na região da DVA não implica que a DVA sangrou."
+  },
+  "4G": {
+    "recall": "Veia precoce sugere shunt; veias tardias alternativas podem refletir congestão.",
+    "trap": "Refluxo e dependência de drenagem normal orientam risco além do aspecto do seio."
+  },
+  "4H": {
+    "recall": "TVC aguda: anticoagulação quando indicada; TO-ACT não demonstrou ganho no desfecho primário.",
+    "trap": "Hemorragia de origem venosa não exclui automaticamente anticoagulação."
+  },
+  "5A": {
+    "recall": "ASA se forma pela fusão dos eixos longitudinais ventrais; reforços segmentares sofrem regressão seletiva.",
+    "trap": "A persistência da irrigação da raiz não pressupõe contribuição à ASA."
+  },
+  "5B": {
+    "recall": "Radicular → raiz; radiculopial → rede pial; radiculomedular → eixo medular longitudinal.",
+    "trap": "O grampo isolado não diferencia artéria de veia."
+  },
+  "5C": {
+    "recall": "Sulcais da ASA irrigam setores centrais; vasocorona e eixos posterolaterais suprem a periferia.",
+    "trap": "Síndrome anterior incompleta é compatível com variações e sobreposição territorial."
+  },
+  "5D": {
+    "recall": "Adamkiewicz: fase arterial, grampo e continuidade com ASA; localização toracolombar frequentemente à esquerda. Origem clássica para prova: T8–L1, mais frequente à esquerda.",
+    "trap": "Faixa de origem é uma frequência, não um limite para encerrar a pesquisa."
+  },
+  "5E": {
+    "recall": "Procure aportes cervicais profundos/ascendentes, intercostais, lombares, iliolombares e sacrais laterais conforme topografia.",
+    "trap": "Pedículos contíguos podem compartilhar anastomoses e irrigação medular."
+  },
+  "5F": {
+    "recall": "Na FAV dural, shunt na manga radicular com refluxo perimedular e congestão medular.",
+    "trap": "Edema no cone não localiza necessariamente o ponto fistuloso."
+  },
+  "5G": {
+    "recall": "Dural → manga e veia proximal; epidural → bolsa; perimedular → shunt pial; MAV → nidus.",
+    "trap": "FAV epidural com refluxo intradural pode simular FAV dural na RM."
+  },
+  "6A": {
+    "recall": "Borden II: seio com refluxo cortical; III: drenagem cortical direta. Cognard III sem ectasia; IV com ectasia; V perimedular. Cognard I: seio com fluxo anterógrado; IIa: refluxo sinusal sem refluxo cortical.",
+    "trap": "Cognard IIb tem refluxo cortical; IIa+b agrega refluxo sinusal retrógrado."
+  },
+  "6B": {
+    "recall": "Mapeie ponto fistuloso, bolsa mural e saída venosa na fase precoce.",
+    "trap": "Oclusão proximal de nutridor não é cura quando o shunt persiste."
+  },
+  "6C": {
+    "recall": "Barrow A direta ACI–seio cavernoso; B dural ACI; C dural ACE; D dural ACI+ACE.",
+    "trap": "Urgência depende de visão e drenagem cortical, além do tipo."
+  },
+  "6D": {
+    "recall": "Petroso inferior é via transvenosa habitual; oftálmica superior e outras rotas dependem da anatomia.",
+    "trap": "Sacrifício da ACI exige análise própria de tolerância e colaterais."
+  },
+  "6E": {
+    "recall": "Etmoidal → oftálmica e drenagem cortical frontal; tentorial → possíveis MHT e aporte pial.",
+    "trap": "A via arterial que chega à fístula pode também irrigar retina ou parênquima."
+  },
+  "6F": {
+    "recall": "No transverso–sigmoide, diferencie seio funcional, bolsa isolada e veia de Labbé.",
+    "trap": "Ocluir o seio sem mapear drenagem normal pode causar congestão ou infarto venoso."
+  },
+  "6G": {
+    "recall": "Canal do hipoglosso → região condilar anterior e risco do XII; seio marginal → entorno do forame magno. FAV da junção craniocervical com drenagem perimedular pode apresentar mielopatia.",
+    "trap": "Sintoma ocular pode decorrer de drenagem retrógrada distante do ponto do shunt."
+  },
+  "6H": {
+    "recall": "Integrar local, shunt, saída anormal e drenagem normal. Refluxo cortical determina alto risco.",
+    "trap": "Quantidade de aferentes e intensidade do sopro não classificam risco hemorrágico."
+  },
+  "7A": {
+    "recall": "Spetzler–Martin: tamanho, eloquência e drenagem profunda; suplementar: idade, apresentação hemorrágica e difusão do nidus. Spetzler–Martin: tamanho <3/3–6/>6 cm vale 1/2/3 pontos; eloquência e drenagem profunda valem 1 ponto cada.",
+    "trap": "Escala de risco cirúrgico difere de estimativa de história natural."
+  },
+  "7B": {
+    "recall": "Escolha modalidade conforme angioarquitetura e objetivo; em MAV, o alvo curativo é o nidus.",
+    "trap": "Oclusão venosa prematura com fluxo arterial residual é perigosa."
+  },
+  "7C": {
+    "recall": "MAVG verdadeira: persistência da veia prosencefálica mediana de Markowski; tipos coroideano e mural. Coroideano: múltiplos aferentes; mural: shunt na parede do coletor.",
+    "trap": "Ectasia da Galeno madura por MAV adjacente é outra entidade."
+  },
+  "7D": {
+    "recall": "Bicêtre integra função multissistêmica neonatal; tratamento pode ser estagiado para reduzir o shunt. Bicêtre reúne cinco componentes: cardíaco, cerebral, respiratório, hepático e renal. Faixas históricas de Bicêtre: 0–7, prognóstico desfavorável; 8–12, considerar tratamento urgente; 13–21, possível estabilização e tratamento diferido.",
+    "trap": "Resultado imediato precisa considerar adaptação hemodinâmica e perfusão venosa cerebral."
+  },
+  "7E": {
+    "recall": "Tamanho, localização, crescimento, morfologia e perfil do paciente influenciam ruptura e decisão.",
+    "trap": "PHASES não inclui crescimento ou toda a complexidade morfológica."
+  },
+  "7F": {
+    "recall": "ISAT selecionou aneurismas adequados aos dois métodos; BRAT teve crossover expressivo.",
+    "trap": "Resultado funcional precoce e durabilidade da oclusão são desfechos diferentes."
+  },
+  "7G": {
+    "recall": "Balão apoia temporariamente; stent sustenta coils e permanece; intrasacular atua no colo pelo saco.",
+    "trap": "Necessidade de antiagregação muda com o implante e com sua protrusão."
+  },
+  "7H": {
+    "recall": "Flow diverter reconstrói o vaso e promove trombose progressiva do aneurisma.",
+    "trap": "A exclusão do saco não costuma ser imediata, aspecto decisivo após ruptura."
+  },
+  "7I": {
+    "recall": "Nimodipina tem benefício funcional; DCI requer avaliar outras causas da deterioração.",
+    "trap": "Vasoespasmo angiográfico e DCI não são equivalentes."
+  },
+  "7J": {
+    "recall": "MAV: nidus; MAVG: coletor embrionário; HSA: fonte de ressangramento, hidrocefalia e DCI.",
+    "trap": "Sucesso angiográfico e benefício funcional devem ser avaliados separadamente."
+  },
+  "8A": {
+    "recall": "NIHSS = déficit; mRS = incapacidade; eTICI = reperfusão. Colaterais modulam crescimento do core.",
+    "trap": "NIHSS baixo pode subestimar AVC posterior ou déficit incapacitante."
+  },
+  "8B": {
+    "recall": "TC para hemorragia/ASPECTS; angio-TC para oclusão; perfusão e RM para seleção quando indicada. Na perfusão de seleção clássica: rCBF <30% estima core; Tmax >6 s delimita hipoperfusão. ASPECTS é ordinal.",
+    "trap": "Core automatizado não é sinônimo de infarto definitivo."
+  },
+  "8C": {
+    "recall": "Alteplase 0,9 mg/kg até 90 mg; tenecteplase 0,25 mg/kg até 25 mg na janela convencional elegível da AHA/ASA 2026. Alteplase: 10% em bolus e restante em 60 min; tenecteplase: bolus único.",
+    "trap": "Se elegível para ambas, IVT sem atrasar EVT e sem aguardar resposta."
+  },
+  "8D": {
+    "recall": "eTICI quantifica reperfusão no território; registre passagens e embolização em novo território. eTICI 2b50: 50–66%; 2b67: 67–89%; 2c: 90–99%; 3: 100%.",
+    "trap": "Reabrir a artéria parental não assegura reperfusão distal."
+  },
+  "8E": {
+    "recall": "ATTENTION até 12 h e BAOCHE de 6–24 h estudaram basilar; SELECT2 e ANGEL-ASPECT estudaram núcleo anterior extenso.",
+    "trap": "Janela, seleção por imagem e desfecho de um ensaio não migram automaticamente ao outro."
+  },
+  "8F": {
+    "recall": "M2 proximal dominante, MeVO distal e tandem têm perguntas diferentes.",
+    "trap": "Pseudo-oclusão cervical por estase pode parecer lesão cervical verdadeira na angio-TC."
+  },
+  "8G": {
+    "recall": "NASCET usa ACI distal normal como denominador; avalie colapso distal em quase oclusão. NASCET = 100 × (1 − diâmetro residual/diâmetro distal normal). Na estenose sintomática, diferencie 50–69% de 70–99% e considere o tempo desde o sintoma, o risco operatório e a anatomia.",
+    "trap": "Quase oclusão não deve ser classificada apenas por porcentagem convencional."
+  },
+  "8H": {
+    "recall": "ICAD é sugerida por estenose fixa e reoclusão; compare vasoespasmo e dissecção.",
+    "trap": "SAMMPRIS e CASSISS não foram ensaios de stent de resgate na fase aguda."
+  },
+  "8I": {
+    "recall": "Hiperdensidade após EVT pode ser sangue, iodo ou ambos; dupla energia ajuda na distinção.",
+    "trap": "Meta intensiva de PAS <140 após reperfusão bem-sucedida pode causar dano no cenário da diretriz."
+  },
+  "8J": {
+    "recall": "Integre último momento bem, incapacidade, vaso, imagem e reperfusão final.",
+    "trap": "Deterioração após EVT inclui hemorragia, reoclusão, embolização, edema e fatores sistêmicos."
+  },
+  "9A": {
+    "recall": "Fluoroscopia orienta movimento; DSA acompanha enchimento por fase; rotacional 3D esclarece geometria.",
+    "trap": "Zoom digital não recupera resolução espacial ausente."
+  },
+  "9B": {
+    "recall": "Ka,r estima exposição no ponto de referência; PKA integra kerma × área; tempo de fluoro sozinho é incompleto. PKA em Gy·cm² e Ka,r em Gy distinguem as grandezas.",
+    "trap": "Ka,r não mede diretamente o pico da dose de pele."
+  },
+  "9C": {
+    "recall": "Separe reação fisiológica, reação alérgica-like, lesão renal associada e encefalopatia por contraste. Anafilaxia: adrenalina é primeira linha. Pré-medicação não elimina reações.",
+    "trap": "Iso-osmolaridade não implica menor viscosidade ou ausência de reações."
+  },
+  "9D": {
+    "recall": "Femoral comum: acima da bifurcação, abaixo do ligamento inguinal, sobre cabeça femoral; radial: hemostasia patente. Acesso radial e femoral têm complicações diferentes; avalie arco e trajeto antes de escolher.",
+    "trap": "Punção alta pode causar sangramento retroperitoneal; punção baixa muda o perfil de complicações."
+  },
+  "9E": {
+    "recall": "Compare diâmetro externo do componente interno, diâmetro interno do externo e comprimentos úteis.",
+    "trap": "Mesmo rótulo em French não garante lúmens nem compatibilidade iguais."
+  },
+  "9F": {
+    "recall": "Confirme transição de perfil, suporte, compatibilidade e posição da ponta.",
+    "trap": "Resistência inesperada exige reavaliar antes de avançar."
+  },
+  "9G": {
+    "recall": "NBCA polimeriza e adere; EVOH precipita; coil oclui mecanicamente; partículas seguem fluxo e calibre.",
+    "trap": "EVOH não adesivo ainda pode aprisionar o microcateter."
+  },
+  "9H": {
+    "recall": "Balão de remodelamento sustenta coils; angioplastia altera o lúmen; teste de oclusão avalia tolerância. Balão complacente se adapta ao lúmen; a pressão e o diâmetro efetivo também dependem do modelo e do vaso.",
+    "trap": "Angioplastia pode comprometer perfurantes por efeito snowplow."
+  },
+  "9I": {
+    "recall": "Stent de colo sustenta; flow diverter remodela; retriever captura; aspiração remove trombo por sucção.",
+    "trap": "Resultado, perfil de entrega e exigência antitrombótica dependem do dispositivo e da indicação."
+  },
+  "9J": {
+    "recall": "Cheque acesso, suporte, comprimentos, diâmetros e irrigação antes de navegar.",
+    "trap": "Forçar resistência ou retirar dispositivo aprisionado sem elucidar mecanismo pode agravar a complicação."
+  },
+  "10A": {
+    "recall": "Meningioma: mapear suprimento dural, pial, órbita e nervos antes de embolizar.",
+    "trap": "Blush tumoral intenso não comprova que o pedículo pode ser sacrificado."
+  },
+  "10B": {
+    "recall": "Nasoangiofibroma: avaliar extensão, ACE contralateral e ACI; epistaxe: localizar fontes maxilares e etmoidais.",
+    "trap": "Aferência etmoidal remete à circulação oftálmica e ao risco ocular."
+  },
+  "10C": {
+    "recall": "Corpo carotídeo separa ACI/ACE; jugular envolve o forame jugular; Shamblin estima relação com os vasos. Sinal da lira é a separação entre ACI e ACE pelo tumor de corpo carotídeo.",
+    "trap": "Shamblin se aplica ao paraganglioma do corpo carotídeo."
+  },
+  "10D": {
+    "recall": "Blush coroideano ajuda a confirmar entrega oftálmica; RB1 germinativo muda seguimento.",
+    "trap": "Perfusão por variante de origem oftálmica pode exigir via alternativa."
+  },
+  "10E": {
+    "recall": "EMBOLISE: reoperação em 90 dias; STEM: composto em 180 dias; MAGIC-MT: primário neutro.",
+    "trap": "Embolização da meníngea média não descomprime efeito de massa imediatamente."
+  },
+  "10F": {
+    "recall": "Etiologia pediátrica inclui arteriopatia focal e cardiopatia; Save ChildS é observacional.",
+    "trap": "Critérios e resultados adultos não são automaticamente validados em crianças."
+  },
+  "10G": {
+    "recall": "Pseudoaneurisma hemorrágico: hemostasia, reconstrução versus sacrifício, colaterais e antiagregação.",
+    "trap": "Teste de oclusão favorável não elimina isquemia tardia."
+  },
+  "10H": {
+    "recall": "Visual → órbita; paresia facial → petroso/estilomastoideo; AVC → rotas piais ou ACE–ACI.",
+    "trap": "Complicação deve ser explicada pelo trajeto do agente, além da posição da ponta."
+  },
+  "11A": {
+    "recall": "DFM multifocal → colar de contas médio-distal; dissecção → hematoma mural ou afilamento em chama.",
+    "trap": "CADISS e TREAT-CAD usaram desenhos diferentes; ausência de diferença não prova equivalência."
+  },
+  "11B": {
+    "recall": "Moyamoya → esteno-oclusão terminal e colaterais basais; ACTA2 → retificação arterial e ausência do padrão basal típico.",
+    "trap": "Suzuki descreve fase angiográfica, e não reserva hemodinâmica."
+  },
+  "11C": {
+    "recall": "RCVS: trovoadas recorrentes e reversibilidade; PACNS: LCR frequentemente inflamatório e lesões multifocais.",
+    "trap": "Aspecto em contas ou realce mural concêntrico isolado não define vasculite."
+  },
+  "11D": {
+    "recall": "Marfan → FBN1; vEDS → COL3A1; Loeys–Dietz → genes da via TGF-β.",
+    "trap": "Tortuosidade difusa e fragilidade arterial exigem diferencial sindrômico."
+  },
+  "11E": {
+    "recall": "NF1 → padrão moyamoya; Sturge–Weber → alteração leptomeníngea e drenagem venosa; TSC1/TSC2 → mTOR.",
+    "trap": "A lesão leptomeníngea de Sturge–Weber não é uma MAV de alto fluxo."
+  },
+  "11F": {
+    "recall": "PHACE → hemangioma segmentar e anomalias arteriais; Wyburn–Mason → retina e encéfalo; Cobb → metâmero espinal.",
+    "trap": "Parkes Weber tem shunts de alto fluxo; Klippel–Trénaunay tem malformações de baixo fluxo."
+  },
+  "11G": {
+    "recall": "CCM múltiplos familiares; HHT por critérios de Curaçao/genética; CADASIL → NOTCH3. Curaçao: epistaxe recorrente, telangiectasias, lesões viscerais e familiar de primeiro grau afetado.",
+    "trap": "Vários cavernomas em torno de uma DVA podem representar doença esporádica."
+  },
+  "11H": {
+    "recall": "Cruze idade, manifestações sistêmicas, parede, distribuição e evolução.",
+    "trap": "Busque mimetizadores antes de atribuir toda estenose multifocal a vasculite."
+  },
+  "12.1": {
+    "recall": "MR CLEAN ≤6 h; ESCAPE ≤12 h com boas colaterais; EXTEND-IA por perfusão; SWIFT PRIME ≤6 h; REVASCAT ≤8 h. IMS III, MR RESCUE e SYNTHESIS Expansion foram neutros; HERMES reuniu dados individuais dos cinco ensaios positivos clássicos.",
+    "trap": "PROACT II foi trombólise intra-arterial farmacológica, não trombectomia moderna."
+  },
+  "12.2": {
+    "recall": "DAWN 6–24 h: mismatch clínico–core; DEFUSE 3 6–16 h: mismatch perfusão–core. DEFUSE 3: core <70 mL, razão ≥1,8 e diferença ≥15 mL. DAWN estratifica déficit, idade e volume. DAWN mRS 0–2: 49% vs. 13%; DEFUSE 3: 45% vs. 17%. RESCUE-Japan LIMIT usou mRS 0–3. TESLA não atingiu seu primário.",
+    "trap": "Rótulo large core não torna iguais os limiares de ASPECTS, volume e janela dos ensaios."
+  },
+  "12.3": {
+    "recall": "DISTAL e ESCAPE-MeVO compararam EVT com tratamento clínico em seleções próprias de MeVO. DISCOUNT: diferencie apresentação preliminar dos resultados publicados e use o denominador/desfecho do artigo.",
+    "trap": "Não extrapole automaticamente para M2 proximal dominante."
+  },
+  "12.4": {
+    "recall": "ATTENTION ≤12 h; BAOCHE 6–24 h; ambos usaram mRS 0–3 em 90 dias. BEST e BASICS foram neutros no primário; compare limitações de recrutamento, crossover e seleção. BAOCHE incluiu NIHSS ≥6 após emenda, com pc-ASPECTS ≥6 e índice ponte–mesencéfalo ≤2.",
+    "trap": "PLATO é observacional em ACP, distinto dos ensaios randomizados em basilar."
+  },
+  "12.5": {
+    "recall": "ASTER: aspiração inicial versus retriever; ASTER2: combinação versus retriever; CHOICE: alteplase IA pós-reperfusão. DIRECT-MT atingiu sua margem de não inferioridade; SWIFT DIRECT não atingiu a margem testada.",
+    "trap": "Não inferioridade da EVT direta depende da margem e da população do ensaio."
+  },
+  "12.6": {
+    "recall": "Separe ensaios de anestesia protocolizada dos de alvo pressórico após EVT; ENCHANTED2/MT e OPTIMAL-BP desfavoreceram metas intensivas. ENCHANTED2/MT testou PAS <120 mmHg; OPTIMAL-BP testou <140 mmHg após reperfusão.",
+    "trap": "Uma meta pós-reperfusão não deve ser confundida com estratégia intraprocedimento."
+  },
+  "12.7": {
+    "recall": "RACECAT: destino no pré-hospitalar; ANGIOCAT: fluxo direto para sala; SAMMPRIS/CASSISS: prevenção na ICAD.",
+    "trap": "Maior taxa de EVT ou menor tempo intermediário não garante melhor mRS populacional."
+  },
+  "12.8": {
+    "recall": "CREST-2: dois ensaios paralelos de intervenção versus tratamento clínico intensivo.",
+    "trap": "CREST-2 não randomizou CEA diretamente contra stent."
+  },
+  "12.9": {
+    "recall": "Compare WEB, stents e flow diverters pela população, definição de oclusão e seguimento.",
+    "trap": "Oclusão adequada pode incluir remanescente de colo; braço único não prova superioridade."
+  },
+  "12.10": {
+    "recall": "ARUBA: estratégia para MAV não rota; FAV: cura angiográfica do shunt; vasoespasmo: discriminar calibre de DCI.",
+    "trap": "Redução de vasoespasmo angiográfico não assegura ganho funcional."
+  },
+  "12.11": {
+    "recall": "EMBOLISE: reoperação em 90 dias; MAGIC-MT: primário neutro em 90 dias; STEM: composto em 180 dias. STEM: falha composta em 180 dias, 16% vs. 36%. EMBOLISE e MAGIC-MT usaram desfechos distintos aos 90 dias.",
+    "trap": "MEMBRANE e EMPROTECT têm protocolos e desfechos próprios, não intercambiáveis."
+  },
+  "12.12": {
+    "recall": "TO-ACT: TVC grave, sem ganho no primário; RIVER: stent venoso para HII com comparação histórica.",
+    "trap": "Queda de gradiente e recanalização não equivalem ao ganho funcional."
+  },
+  "13.1": {
+    "recall": "Rede regional, escala validada, pré-notificação, TC inicial e angio-TC quando suspeita de OGV.",
+    "trap": "Rota de transporte e fluxo direto à sala dependem da rede e dos critérios da diretriz."
+  },
+  "13.2": {
+    "recall": "Até 4,5 h na população elegível: TNK 0,25 mg/kg (máx. 25 mg) ou alteplase 0,9 mg/kg (máx. 90 mg). DWI–FLAIR e mismatch de perfusão usam critérios diferentes; janela 4,5–9 h por perfusão é COR 2a nos elegíveis. Em déficit menor não incapacitante, a trombólise rotineira não é recomendada. Dose de TNK 0,4 mg/kg não recomendada.",
+    "trap": "NIHSS baixo não exclui IVT se déficit incapacitante; extensão de janela depende de seleção."
+  },
+  "13.3": {
+    "recall": "Basilar ≤24 h, mRS prévia 0–1, NIHSS ≥10 e pc-ASPECTS ≥6: classe 1 na população definida. ACI/M1 até 6 h, NIHSS ≥6, mRS prévia 0–1 e ASPECTS 3–10: COR 1. ASPECTS 0–2 até 6 h: COR 2a em selecionados. ASPECTS 3–5 de 6–24 h: COR 1 em selecionados. No pc-ASPECTS, ponte e mesencéfalo perdem 2 pontos cada; tálamos, cerebelo e occipitais perdem 1 por lado.",
+    "trap": "Para NIHSS 6–9, o benefício permanece incerto na recomendação correspondente."
+  },
+  "13.4": {
+    "recall": "PA <185/110 pré-IVT e <180/105 pós-IVT em 24 h; HI é petequial e PH é hematoma. AHA/ASA 2026 classifica como dano a meta intensiva de PAS <140 mmHg após EVT bem-sucedida na população definida.",
+    "trap": "DOAC precoce em selecionados não equivale à anticoagulação urgente para todo AVC."
+  },
+  "13.5": {
+    "recall": "Triagem de disfagia antes de via oral; compressão pneumática intermitente na população indicada; edema com deterioração exige avaliar resgate. Separe DVE para hidrocefalia obstrutiva de descompressão por compressão de tronco ou infarto cerebelar ≥35 mL, conforme critérios da diretriz.",
+    "trap": "Meia elástica não equivale à compressão pneumática intermitente."
+  },
+  "13.6": {
+    "recall": "ISUIA, UCAS e SUAVe diferem em tamanho, localização e seleção; UCAS destaca ACom/PCoA e saco filho. UCAS: 0,95% ao ano na coorte. Saco filho acrescentou informação ao tamanho e à localização.",
+    "trap": "SUAVe não demonstrou risco zero abaixo de 5 mm."
+  },
+  "13.7": {
+    "recall": "PHASES: ruptura em 5 anos; ELAPSS: crescimento em 3 e 5 anos; UIATS: consenso decisório. PHASES: população, hipertensão, idade, tamanho, HSA prévia e sede. ELAPSS: HSA prévia, localização, idade, população, tamanho e forma. UIATS: diferença ≤2 pontos é inconclusiva.",
+    "trap": "PHASES e ELAPSS não prescrevem tratamento; UIATS não estima porcentagem de ruptura."
+  },
+  "13.8": {
+    "recall": "Controle de PA e tabagismo, rastreio familiar selecionado, imagem seriada e reavaliação por crescimento.",
+    "trap": "Aneurisma de mesmo tamanho pode ter risco e manejo diferentes conforme localização e contexto."
+  },
+  "13.9": {
+    "recall": "ISAT: vantagem funcional inicial do coiling em população adequada às duas modalidades; BRAT: crossover relevante.",
+    "trap": "Análise por tratamento realizado é vulnerável à seleção induzida pelo crossover."
+  },
+  "13.10": {
+    "recall": "CARAT: oclusão incompleta associa-se a ressangramento; ULTRA: sem ganho funcional primário; nimodipina enteral e vigilância de DCI. ULTRA avaliou ácido tranexâmico ultra-precoce. Adequação da oclusão, ressangramento e capacidade funcional são desfechos distintos.",
+    "trap": "A taxa de ressangramento com oclusão <70% no CARAT não é risco anual."
+  }
+}

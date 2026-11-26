@@ -1,6 +1,6 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { BookOpen, ClipboardList, FileUp, Search, Table2 } from 'lucide-react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import manifest from './content/index.json';
 import {
   Block, BlockContent, CourseQuestion, CourseState, downloadCourseImportTemplate,
@@ -8,6 +8,7 @@ import {
 } from './model';
 import './course.css';
 import LessonArticle from './LessonArticle';
+import ReviewTable, { reviewPriorities } from './ReviewTable';
 
 const SupplementalLesson = lazy(() => import('./SupplementalLesson'));
 const originalSections = [
@@ -36,13 +37,21 @@ function courseLink(block?: number, lesson?: string, mode?: Mode) {
   return query ? `/tools/nri?${query}` : '/tools/nri';
 }
 
+function finalReviewLink(block?: number) {
+  return `/tools/nri?revisoes=${block ?? 'finais'}`;
+}
+
 export default function Course() {
   const [params, setParams] = useSearchParams();
+  const location = useLocation();
+  const finalReview = params.get('revisoes');
+  const finalBlock = blocks.find(({ id }) => String(id) === finalReview);
+  const showingFinalReviews = finalReview === 'finais' || !!finalBlock;
   const supplemental = originalSections.find(([id]) => params.get('material') === id);
   const selected = params.get('modulo')?.toUpperCase();
   const entry = curriculum.find(({ lesson }) => lesson.id === selected);
   const mode = modes.find(({ id }) => id === params.get('estudo'))?.id ?? 'teoria';
-  const block = entry?.block ?? blocks.find(({ id }) => String(id) === params.get('bloco'));
+  const block = showingFinalReviews ? undefined : entry?.block ?? blocks.find(({ id }) => String(id) === params.get('bloco'));
   const blockWide = selected === 'TODOS' && mode === 'questoes' && !!block;
   const activeBlockId = blockWide || entry ? block?.id : undefined;
   const [filter, setFilter] = useState('');
@@ -53,7 +62,7 @@ export default function Course() {
   const [importing, setImporting] = useState(false);
   const importInput = useRef<HTMLInputElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
-  const [focusContent, setFocusContent] = useState(false);
+  const [focusTarget, setFocusTarget] = useState<string>();
 
   useEffect(() => {
     if (!params.has('leitura') && params.get('estudo') !== 'material') return;
@@ -90,15 +99,17 @@ export default function Course() {
   const next = position >= 0 ? curriculum[position + 1] : undefined;
 
   useEffect(() => {
-    if (focusContent && heading.current && (!activeBlockId || ready)) {
+    if (focusTarget === `${location.pathname}${location.search}` && heading.current && (!activeBlockId || ready)) {
       heading.current.focus();
-      setFocusContent(false);
+      setFocusTarget(undefined);
     }
-  }, [focusContent, activeBlockId, ready, selected, mode]);
+  }, [focusTarget, location.pathname, location.search, activeBlockId, ready]);
 
-  function follow() {
+  function follow(event: MouseEvent<HTMLAnchorElement>) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+    const url = new URL(event.currentTarget.href);
     setFilter('');
-    setFocusContent(true);
+    setFocusTarget(url.hash.slice(1) || `${url.pathname}${url.search}`);
   }
 
   function persist(nextCourse: CourseState) {
@@ -164,7 +175,7 @@ export default function Course() {
       </ul>
     </nav>}
 
-    {!block && !supplemental && <>
+    {!block && !supplemental && !showingFinalReviews && <>
       <div className="nri-course-section-title">
         <h2 tabIndex={-1} ref={heading}>Blocos do curso</h2>
         <Link to={courseLink(blocks[0].id, blocks[0].lessons[0].id)} className="nri-course-primary" onClick={follow}>Começar pela aula 1A</Link>
@@ -175,10 +186,42 @@ export default function Course() {
           <strong>{item.title}</strong>
           <small>{item.lessons.length} aulas · 100 questões</small>
         </Link>)}
+        <Link to={finalReviewLink()} onClick={follow}>
+          <span><Table2 size={17} aria-hidden="true" /></span>
+          <strong>Revisões finais</strong>
+          <small>{blocks.length} tabelas de revisão</small>
+        </Link>
       </div>
     </>}
 
-    {supplemental && <section className="nri-course-main nri-course-supplement">
+    {showingFinalReviews && <section className="nri-course-main" aria-label="Revisões finais">
+      <nav className="nri-course-path" aria-label="Navegação das revisões finais">
+        <Link to={courseLink()} onClick={follow}>Todos os blocos</Link>
+        {finalBlock && <Link to={finalReviewLink()} onClick={follow}>Revisões finais</Link>}
+      </nav>
+      <h2 tabIndex={-1} ref={heading}>{finalBlock ? `Bloco ${finalBlock.id} · ${finalBlock.title}` : 'Revisões finais'}</h2>
+      {finalBlock ? <div className="nri-course-scroll nri-final-review" tabIndex={0} role="region"
+        aria-label={`Revisão final do bloco ${finalBlock.id}`}>
+        <table>
+          <thead><tr><th scope="col">Aula e tema</th><th scope="col">Pontos centrais e decorebas</th><th scope="col">Pegadinha</th></tr></thead>
+          <tbody>{finalBlock.lessons.map((item) => {
+            const priority = reviewPriorities[item.id];
+            return <tr key={item.id}>
+              <th scope="row"><Link to={courseLink(finalBlock.id, item.id, 'revisao')} onClick={follow}>
+                {item.id} · {item.title}
+              </Link></th>
+              <td>{priority?.recall}</td><td>{priority?.trap}</td>
+            </tr>;
+          })}</tbody>
+        </table>
+      </div> : <ol className="nri-lesson-list">
+        {blocks.map((item) => <li key={item.id}>
+          <Link to={finalReviewLink(item.id)} onClick={follow}><b>Bloco {item.id}</b><span>{item.title}</span></Link>
+        </li>)}
+      </ol>}
+    </section>}
+
+    {supplemental && !showingFinalReviews && <section className="nri-course-main nri-course-supplement">
       <Link to={courseLink()} onClick={follow}>Todos os blocos</Link>
       <h2>{supplemental[1]}</h2>
       <Suspense fallback={<p role="status">Abrindo material…</p>}>
@@ -198,6 +241,7 @@ export default function Course() {
         </li>)}
       </ol>
       <Link to={courseLink(block.id, 'todos', 'questoes')} className="nri-course-primary" onClick={follow}>Questões do bloco</Link>
+      <Link to={finalReviewLink(block.id)} onClick={follow}>Revisão final do bloco {block.id}</Link>
     </section>}
 
     {activeBlockId && block && <div className="nri-course-layout">
@@ -232,10 +276,8 @@ export default function Course() {
         {lesson && mode === 'teoria' && <LessonArticle key={lesson.id} lesson={lesson} block={block.id} />}
         {lesson && mode === 'revisao' && <section className="nri-course-review" aria-label="Revisão da aula">
           <h3>Conceitos-chave para a prova</h3>
-          <div className="nri-course-scroll" tabIndex={0} role="region" aria-label="Conceitos e pontos de prova"><table>
-            <thead><tr><th scope="col">Conceito</th><th scope="col">O que lembrar</th></tr></thead>
-            <tbody>{lesson.points.map(({ concept, takeaway }) => <tr key={concept}><th scope="row">{concept}</th><td>{takeaway}</td></tr>)}</tbody>
-          </table></div>
+          <ReviewTable lesson={lesson} />
+          <Link to={finalReviewLink(block.id)} onClick={follow}>Revisão final do bloco {block.id}</Link>
           {lesson.revisionPlan?.length && <section className="nri-lesson-revision" aria-label="Plano de revisão da aula">
             <h3>Plano de revisão da aula</h3>
             <dl>{lesson.revisionPlan.map(({ day, task }) => <div key={day}><dt>{day}</dt><dd>{task}</dd></div>)}</dl>
