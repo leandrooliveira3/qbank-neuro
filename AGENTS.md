@@ -33,6 +33,6 @@ Executar os testes apropriados; registrar entregas, pendências e ponto exato de
 
 Aplicar também quando o usuário pedir salvar contexto, criar checkpoint, preparar novo chat, continuar em outra conversa ou encerrar sessão. Havendo indicação de limite de contexto, priorizar os documentos. Não prometer detecção exata do limite nem ações após o encerramento.
 
-Fluxo atual: branch `feature/neuro3d-atlas`, PR rascunho nº 2. Sem merge em main, force push, reset destrutivo ou sobrescrita de trabalho alheio. Se remoto indisponível, salvar localmente e declarar persistência remota pendente.
+Fluxo de publicação: entregar sempre na branch `main`. Branches de trabalho e PRs podem ser usados para implementar e validar, com integração à `main` ao concluir. Confirme o commit remoto e, para alterações no site, o deploy de produção. Preserve alterações de terceiros e evite force push e reset destrutivo. Se houver um bloqueio remoto, salve localmente e identifique a etapa pendente.
 
 No relatório final informar persistência, repositório/branch/hash confirmado, arquivos alterados, última etapa, pendências, próxima tarefa, validações e prompt. Memória conversacional não substitui estes arquivos versionados.
