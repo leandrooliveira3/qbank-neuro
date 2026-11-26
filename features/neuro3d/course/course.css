@@ -158,9 +158,13 @@
 .n3 .nri-course-text h4 { margin-top: 1.25rem; color: var(--nri-text); font-size: 1.05rem; font-weight: 730; line-height: 1.35; }
 .nri-course-text li + li { margin-top: .3rem; }
 .nri-course-text blockquote { border-inline-start: 3px solid #88bfa8; padding-inline: 1rem; background: #f5faf7; }
-.nri-course-scroll table { min-width: 100%; }
+.nri-course-scroll table {
+  min-width: 100%;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
 .nri-course-scroll tbody tr:nth-child(even) { background: #f8fbf9; }
-.nri-course-scroll :is(th, td) { overflow-wrap: anywhere; }
 .nri-course-text .nri-course-scroll :is(th, td) { min-width: 10ch; }
 .nri-course-scroll:focus-visible { outline: 2px solid var(--nri-accent); outline-offset: 3px; }
 .nri-course-review h3 { font-weight: 730; }

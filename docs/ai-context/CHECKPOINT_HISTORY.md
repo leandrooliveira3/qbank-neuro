@@ -189,3 +189,7 @@ Adicionadas as prioridades de prova por aula, a tabela compartilhada entre modos
 ## 26/11/2026 — Revisões finais cruzadas com o banco NRI
 
 Adicionado o cotejo das tabelas finais com o banco integral, a expansão por aula, a identificação das questões e testes de cobertura para os 13 blocos. A verificação editorial usa os gabaritos e justificativas existentes.
+
+## 26/11/2026 — Quebra de linha nas tabelas do Curso NRI
+
+Corrigida a quebra de palavras nas tabelas do Curso NRI com a regra compartilhada em `course.css`. Acrescentada verificação de rolagem contida e de palavras inteiras em quatro larguras de tela.

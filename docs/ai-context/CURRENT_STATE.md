@@ -1,3 +1,7 @@
+## 26/11/2026 — Quebra de linha nas tabelas do Curso NRI
+
+As tabelas de teoria, revisão de aula, revisão final e materiais complementares compartilham a quebra normal entre palavras. O contêiner da tabela oferece rolagem horizontal quando as colunas ultrapassam a área disponível.
+
 ## 26/11/2026 — Revisões finais cruzadas com o banco NRI
 
 Cada tabela final do Curso NRI mantém a síntese e permite expandir o conteúdo cobrado por aula. Os 1.300 itens nativos (100 por bloco) são vinculados por posição no banco integral do bloco, com o conceito associado ao gabarito e o comentário correspondente. A comparação textual é conservadora e mantém paráfrases no complemento. Treze sínteses incorporam lacunas identificadas no cotejo editorial.
