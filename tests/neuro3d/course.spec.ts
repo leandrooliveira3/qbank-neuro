@@ -135,6 +135,49 @@ test('navega pelas 13 revisões finais e encontra a mesma pegadinha na aula', as
   await expect(course.getByRole('region', { name: 'Revisão ao final da aula' })).toContainText(trap);
 });
 
+test('mantém palavras inteiras e limita a rolagem horizontal às tabelas do curso', async ({ page }) => {
+  const routes = [
+    { path: 'bloco=13&modulo=13.7', table: 'Tabela da aula' },
+    { path: 'bloco=13&modulo=13.7', table: 'Conceitos, decorebas e pegadinhas' },
+    { path: 'bloco=13&modulo=13.7&estudo=revisao', table: 'Conceitos, decorebas e pegadinhas' },
+    { path: 'revisoes=13', table: 'Revisão final do bloco 13' },
+    { path: 'material=cp1', table: 'Tabela da aula' },
+  ];
+  for (const { path, table } of routes) {
+    await page.goto(`/#/tools/nri?${path}`);
+    const region = page.getByRole('region', { name: table, exact: true }).first();
+    const cell = region.locator('thead th').first();
+    await expect(cell).toBeVisible();
+    await expect(cell).toHaveCSS('overflow-wrap', 'normal');
+    await expect(cell).toHaveCSS('word-break', 'normal');
+    await expect(cell).toHaveCSS('hyphens', 'none');
+    await cell.evaluate(element => {
+      const word = document.createElement('strong');
+      word.dataset.testWord = '';
+      word.textContent = 'neurorradiologiaintervencionista'.repeat(3);
+      element.replaceChildren(word);
+    });
+    for (const width of [320, 430, 768, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      const dimensions = await region.evaluate(element => {
+        const word = element.querySelector('[data-test-word]')!;
+        const range = document.createRange();
+        range.selectNodeContents(word);
+        return {
+          lines: range.getClientRects().length,
+          tableWidth: element.scrollWidth,
+          regionWidth: element.clientWidth,
+          pageWidth: document.documentElement.scrollWidth,
+          viewportWidth: document.documentElement.clientWidth,
+        };
+      });
+      expect(dimensions.lines).toBe(1);
+      expect(dimensions.pageWidth).toBeLessThanOrEqual(dimensions.viewportWidth + 1);
+      if (width === 320) expect(dimensions.tableWidth).toBeGreaterThan(dimensions.regionWidth);
+    }
+  }
+});
+
 for (const block of manifest) {
   test(`bloco ${block.id}: cada aula tem leitura nativa e o bloco oferece 100 questões`, async ({ page }) => {
     const route = `/#/tools/nri?bloco=${block.id}`;
