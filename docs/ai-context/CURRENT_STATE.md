@@ -1,3 +1,7 @@
+## 27/11/2026 — Agendamento e criação contínua de flashcards
+
+Os perfis de revisão afetam também a primeira avaliação. Errei agenda nova tentativa em 10 minutos. O limite diário é compartilhado entre decks e se baseia em cartões distintos avaliados no dia, com reapresentação dos erros já contabilizados quando vencidos. Abrir uma sessão não desloca datas. O estudo livre não agenda cartões. Criação manual e geração por IA permanecem abertas após salvar.
+
 ## 26/11/2026 — Auditoria do módulo de flashcards
 
 Auditoria da criação, edição, importação, biblioteca de temas e revisão de flashcards. O backup JSON preserva mídias e oclusões, e o importador aceita mídia Anki em manifesto legado ou moderno. O banco de temas carrega os 160 cartões existentes do Curso NRI, Blocos 1–8, com deduplicação por tema e frente. A prévia não registra nota. Uma sessão já carregada mantém a sequência mesmo quando a sincronização termina.

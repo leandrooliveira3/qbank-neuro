@@ -1,3 +1,7 @@
+## 27/11/2026 — Agendamento e criação contínua de flashcards
+
+Use `services/flashcardReview.ts` para a seleção da fila e o cálculo dos intervalos. Preserve a ordem relativa por vencimento e ID e o agendamento dos cartões já existentes. Após criar ou gerar, o botão Ver Flashcards retorna à lista do deck.
+
 ## 26/11/2026 — Auditoria do módulo de flashcards
 
 Preserve a ordenação e a sequência da sessão de revisão. Os testes específicos estão em `services/flashcardSync.test.ts` e `services/flashcardFormats.test.ts`. A importação JSON cria registros novos com o banco, a categoria e a ativação escolhidos no formulário.

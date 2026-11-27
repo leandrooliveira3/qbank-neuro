@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import DOMPurify from 'dompurify';
 import { flashcardImages, replaceFlashcardBackImage } from '../services/flashcardMedia';
+import { scheduleFlashcard, reviewQueue, retryDelayMinutes, type FlashcardRating } from '../services/flashcardReview';
 import { useAuthStore } from '../store/useAuthStore';
 import { localDB } from '../services/localDB';
 import { syncEngine } from '../services/syncEngine';
@@ -19,7 +20,6 @@ import { useNavigate, useLocation } from 'react-router';
 import { explainFlashcardContext, generateQuestionFromFlashcard } from '../services/ai';
 import { CloudImagePicker } from '../components/CloudImagePicker';
 
-// ... neuroSM18 function (unchanged) ...
 const safeCardHtml = (html: string) => DOMPurify.sanitize(html, {
     ALLOWED_TAGS: ['p', 'br', 'div', 'span', 'strong', 'b', 'em', 'i', 'u', 's', 'ul', 'ol', 'li', 'sub', 'sup', 'code', 'pre', 'blockquote', 'h1', 'h2', 'h3', 'h4', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
     ALLOWED_ATTR: [],
@@ -27,78 +27,13 @@ const safeCardHtml = (html: string) => DOMPurify.sanitize(html, {
     ALLOW_ARIA_ATTR: false,
 });
 
-const neuroSM18 = (card: Flashcard, rating: 'again' | 'hard' | 'good' | 'easy', modifier: number = 1.0) => {
-    let interval = card.interval ?? 0;
-    let ease_factor = card.ease_factor ?? 2.5;
-    let repetitions = card.repetitions ?? 0;
-    let status = card.status || 'new';
-    let nextReview = new Date();
-    const MIN_EASE = 1.3;
-    const MAX_EASE = 3.5;
-
-    const currentInterval = interval;
-    let appliedModifier = isNaN(modifier) ? 1.0 : modifier;
-
-    switch (rating) {
-        case 'again':
-            interval = 0; 
-            ease_factor = Math.max(MIN_EASE, ease_factor - 0.2);
-            repetitions = 0;
-            status = 'learning';
-            break;
-        case 'hard':
-            if (repetitions === 0) interval = 1;
-            else {
-                interval = Math.max(1, Math.ceil(currentInterval * 1.2 * appliedModifier));
-            }
-            ease_factor = Math.max(MIN_EASE, ease_factor - 0.15);
-            repetitions += 1;
-            status = 'review';
-            break;
-        case 'good':
-            if (repetitions === 0) interval = 3;
-            else {
-                const hardInterval = Math.max(1, Math.ceil(currentInterval * 1.2 * appliedModifier));
-                interval = Math.max(hardInterval + 1, Math.ceil(currentInterval * ease_factor * appliedModifier));
-            }
-            repetitions += 1;
-            status = 'review';
-            break;
-        case 'easy':
-            if (repetitions === 0) interval = 5;
-            else {
-                const hardInterval = Math.max(1, Math.ceil(currentInterval * 1.2 * appliedModifier));
-                const goodInterval = Math.max(hardInterval + 1, Math.ceil(currentInterval * ease_factor * appliedModifier));
-                interval = Math.max(goodInterval + 1, Math.ceil(currentInterval * ease_factor * 1.3 * appliedModifier));
-            }
-            ease_factor = Math.min(MAX_EASE, ease_factor + 0.15);
-            repetitions += 1;
-            status = 'mastered';
-            break;
-    }
-
-    if (rating === 'again') {
-        nextReview = new Date(Date.now() + 10 * 60 * 1000);
-    } else {
-        nextReview.setDate(nextReview.getDate() + interval);
-    }
-
-    return {
-        ...card,
-        interval,
-        ease_factor: parseFloat(ease_factor.toFixed(2)),
-        repetitions,
-        status,
-        next_review: nextReview.toISOString(),
-        last_review: new Date().toISOString()
-    };
-};
-
 export const StudyFlashcards: React.FC = () => {
   const { user } = useAuthStore();
   const navigate = useNavigate();
   const { state, key: routeKey } = useLocation();
   const studyMode = state?.studyMode || 'due';
+  const freeStudy = studyMode === 'free' || (studyMode === 'config' && state?.reviewConfig?.type === 'free');
+  const profile = user?.srs_profile || localStorage.getItem('neuro_srs_profile') || 'standard';
 
   const [cards, setCards] = useState<Flashcard[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -108,7 +43,6 @@ export const StudyFlashcards: React.FC = () => {
   const [sessionStats, setSessionStats] = useState({ reviewed: 0, learned: 0, mastered: 0 });
   const [currentImageUrl, setCurrentImageUrl] = useState<string>('');
   const [currentBackImageUrl, setCurrentBackImageUrl] = useState<string>('');
-  const [srsModifier, setSrsModifier] = useState(1.0);
   
   // Accumulate XP locally
   const [accumulatedXP, setAccumulatedXP] = useState(0);
@@ -150,11 +84,6 @@ export const StudyFlashcards: React.FC = () => {
     setGeneratedQuestionSuccess(null);
   }, [cards[currentIndex]?.id]);
   
-  useEffect(() => {
-      const profile = user?.srs_profile || localStorage.getItem('neuro_srs_profile') || 'standard';
-      setSrsModifier(profile === 'cramming' ? 0.5 : profile === 'deep' ? 1.5 : 1);
-  }, [user?.srs_profile]);
-
   useEffect(() => {
       if (!user?.id) return;
       const controller = new AbortController();
@@ -200,109 +129,20 @@ export const StudyFlashcards: React.FC = () => {
         sessionCards = target ? [target] : [];
       } else if (studyMode === 'free') {
         sessionCards = [...userCards].sort(() => Math.random() - 0.5);
-      } else if (studyMode === 'config') {
-        const { type, limit, category, bank } = state?.reviewConfig || {};
-        let filtered = [...userCards];
-        
-        if (bank && bank !== 'Todos') filtered = filtered.filter(c => (c.bank_name || 'Principal') === bank);
-        if (category && category !== 'Todas') filtered = filtered.filter(c => (c.category || 'Sem Categoria') === category);
-        
-        const now = new Date();
-        if (type === 'new') {
-            filtered = filtered.filter(c => c.status === 'new');
-            filtered = filtered.sort((a,b) => (new Date(a.created_at).getTime() - new Date(b.created_at).getTime()) || a.id.localeCompare(b.id));
-        } else if (type === 'learning') {
-            filtered = filtered.filter(c => c.status === 'learning');
-            filtered = filtered.sort((a,b) => (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id));
-        } else if (type === 'due') {
-            filtered = filtered.filter(c => c.status !== 'inactive' && new Date(c.next_review) <= now);
-            filtered = filtered.sort((a,b) => (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id));
-        } else if (type === 'free') {
-            // For determinism across devices under free configuration, sort alphabetically or by id instead of random, or seed by ID
-            filtered = filtered.sort((a, b) => a.id.localeCompare(b.id));
-        }
-        
-        sessionCards = filtered.slice(0, limit || 20);
       } else if (studyMode === 'intensive') {
         sessionCards = [...userCards].sort((a, b) => (a.interval || 0) - (b.interval || 0));
       } else {
-        // ── Due mode: apply daily limit ──
-        const now = new Date();
-
-        // Normal due cards: only due, oldest first with deterministic tie breaker
-        const normalDue = userCards
-            .filter(c => c.status !== 'inactive' && new Date(c.next_review) <= now)
-            .sort((a, b) => (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id));
-
-        // ── Obter Priority Config para priorizar e antecipar cards de Bancos/Temas marcados ──
-        const priorityConfig = user?.priority_config || (() => {
-            try {
-                const raw = localStorage.getItem('neuro_priority_config');
-                return raw ? JSON.parse(raw) : null;
-            } catch { return null; }
+        const config = studyMode === 'config' ? state?.reviewConfig : undefined;
+        const priority = user.priority_config ?? (() => {
+            try { return JSON.parse(localStorage.getItem('neuro_priority_config') || 'null'); }
+            catch { return null; }
         })();
-
-        let priorityCards: Flashcard[] = [];
-        let hasActivePriority = false;
-
-        if (priorityConfig && priorityConfig.activatedAt) {
-            const daysLeft = 7 - Math.floor((Date.now() - new Date(priorityConfig.activatedAt).getTime()) / (1000 * 60 * 60 * 24));
-            if (daysLeft > 0) {
-                const priorityTopics = priorityConfig.topics || [];
-                const priorityBanks = priorityConfig.banks || [];
-
-                if (priorityTopics.length > 0 || priorityBanks.length > 0) {
-                    hasActivePriority = true;
-                    // Filtra todos os cards válidos do usuário que pertençam aos temas ou bancos prioritários
-                    priorityCards = userCards.filter(c => {
-                        if (c.status === 'inactive') return false;
-                        const isPriority = priorityBanks.includes(c.bank_name || 'Principal') || priorityTopics.includes(c.category || 'Sem Categoria');
-                        if (!isPriority) return false;
-                        
-                        const isDue = new Date(c.next_review) <= now;
-                        if (isDue) return true;
-                        
-                        // Para antecipar cards prioritários que não estão vencidos,
-                        // garantir que eles não foram revisados hoje, evitando loops infinitos de duplicidade.
-                        const reviewedToday = c.last_review && new Date(c.last_review).toDateString() === now.toDateString();
-                        return !reviewedToday;
-                    });
-                }
-            }
-        }
-
-        if (hasActivePriority && priorityCards.length > 0) {
-            // Ordenar prioritários: Vencidos primeiro, depois o restante de forma determinística
-            const sortedPriority = [...priorityCards].sort((a, b) => {
-                const aDue = new Date(a.next_review) <= now;
-                const bDue = new Date(b.next_review) <= now;
-                if (aDue && !bDue) return -1;
-                if (!aDue && bDue) return 1;
-                return (new Date(a.next_review).getTime() - new Date(b.next_review).getTime()) || a.id.localeCompare(b.id);
-            });
-
-            // Os outros cards que NÃO são prioritários ou não casam entram em seguida
-            const otherDue = normalDue.filter(c => !sortedPriority.some(p => p.id === c.id));
-
-            sessionCards = [...sortedPriority, ...otherDue];
-        } else {
-            sessionCards = [...normalDue];
-        }
-
-        // ── Apply daily limit ──
-        const dailyLimit = user?.daily_limit ?? parseInt(localStorage.getItem('neuro_daily_limit') || '0');
-        if (dailyLimit > 0 && sessionCards.length > dailyLimit) {
-          const overflow = sessionCards.slice(dailyLimit);
-          // Redistribute overflow across next 1-3 days so they don't pile up
-          const updates = overflow.map((card, i) => {
-            const daysAhead = 1 + (i % 3);
-            const newDate = new Date();
-            newDate.setDate(newDate.getDate() + daysAhead);
-            return { ...card, next_review: newDate.toISOString() };
-          });
-          await syncEngine.bulkEnqueue('flashcards', updates);
-          sessionCards = sessionCards.slice(0, dailyLimit);
-        }
+        sessionCards = reviewQueue(ownedCards, {
+            type: config?.type ?? 'due', bank: config?.bank, category: config?.category,
+            limit: studyMode === 'config' ? config?.limit ?? 20 : undefined,
+            dailyLimit: user.daily_limit ?? Number(localStorage.getItem('neuro_daily_limit') || '0'),
+            priority,
+        });
       }
 
       if (!signal.aborted) setCards(sessionCards);
@@ -366,9 +206,9 @@ export const StudyFlashcards: React.FC = () => {
       setIsTransitioning(false);
   };
 
-  const handleRate = async (rating: 'again' | 'hard' | 'good' | 'easy') => {
-      if (studyMode === 'preview' || !currentCard || !user || isTransitioning) return;
-      const reviewed = neuroSM18(currentCard, rating, srsModifier);
+  const handleRate = async (rating: FlashcardRating) => {
+      if (studyMode === 'preview' || freeStudy || !currentCard || !user || isTransitioning) return;
+      const reviewed = scheduleFlashcard(currentCard, rating, profile);
       if (!await commitStudyAction(reviewed)) return;
       const earned = XP_VALUES.FLASHCARD_REVIEW;
       setAccumulatedXP(prev => prev + earned);
@@ -687,7 +527,7 @@ export const StudyFlashcards: React.FC = () => {
                         >
                             <Edit2 className="h-3 w-3" /> Editar
                         </button>
-                        {studyMode !== 'preview' && <>
+                        {studyMode !== 'preview' && !freeStudy && <>
                         <button 
                             onClick={() => { setShowMenu(false); handleBury(); }} 
                             className="w-full text-left px-4 py-2 text-[10px] font-bold text-blue-500 flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-black transition-colors"
@@ -967,14 +807,14 @@ export const StudyFlashcards: React.FC = () => {
                              >
                                 <Undo2 className="h-3 w-3" /> Desvirar Card
                              </button>
-                             <span className="text-[8px] font-black uppercase text-slate-300 tracking-widest">{studyMode !== 'preview' && 'Qual foi sua dificuldade?'}</span>
+                             <span className="text-[8px] font-black uppercase text-slate-300 tracking-widest">{studyMode !== 'preview' && !freeStudy && 'Qual foi sua dificuldade?'}</span>
                         </div>
                         {studyMode === 'preview' ? (
                             <button className="w-full h-12 font-black text-xs" onClick={handleExit}>Voltar aos flashcards</button>
-                        ) : (studyMode === 'free' || (studyMode === 'config' && state?.reviewConfig?.type === 'free')) && currentCard?.status !== 'new' && currentCard?.status !== 'inactive' ? (
+                        ) : freeStudy ? (
                         <div className="flex justify-center">
                             <button 
-                                onClick={() => handleRate('good')}
+                                onClick={() => advance()}
                                 disabled={isTransitioning}
                                 className="w-full bg-primary text-white h-12 rounded-xl font-black text-[10px] uppercase tracking-widest shadow-xl active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                             >
@@ -989,20 +829,12 @@ export const StudyFlashcards: React.FC = () => {
                                 { id: 'good', label: 'Bom', bg: 'bg-blue-600' },
                                 { id: 'easy', label: 'Fácil', bg: 'bg-emerald-600' }
                             ].map((btn) => {
-                                const sim = neuroSM18(currentCard, btn.id as any, srsModifier);
-                                let timeStr = '';
-                                if (btn.id === 'again') timeStr = '< 10m';
-                                else {
-                                    if (sim.interval >= 30) {
-                                        timeStr = `${Math.floor(sim.interval / 30)}mo`;
-                                    } else {
-                                        timeStr = `${sim.interval}d`;
-                                    }
-                                }
+                                const sim = scheduleFlashcard(currentCard, btn.id as FlashcardRating, profile);
+                                const timeStr = btn.id === 'again' ? `${retryDelayMinutes} min` : `${sim.interval} d`;
                                 return (
                                 <button 
                                     key={btn.id}
-                                    onClick={() => handleRate(btn.id as any)}
+                                    onClick={() => handleRate(btn.id as FlashcardRating)}
                                     disabled={isTransitioning}
                                     className={`flex flex-col items-center justify-center ${btn.bg} text-white h-12 rounded-xl transition-all active:scale-95 shadow-sm disabled:opacity-50 disabled:active:scale-100`}
                                 >

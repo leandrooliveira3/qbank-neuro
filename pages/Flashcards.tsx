@@ -73,6 +73,7 @@ export const Flashcards: React.FC = () => {
   const [genCategory, setGenCategory] = useState('');
   const [genBankName, setGenBankName] = useState('Principal');
   const [generating, setGenerating] = useState(false);
+  const [creationNotice, setCreationNotice] = useState('');
   
   // Organization State
   const [searchTerm, setSearchTerm] = useState('');
@@ -267,6 +268,7 @@ export const Flashcards: React.FC = () => {
     }
 
     setSavingCard(true);
+    setCreationNotice('');
     try {
       let frontImageUrl = '';
       
@@ -315,24 +317,18 @@ export const Flashcards: React.FC = () => {
           setMode('list');
           resetForm();
       } else {
-          // Creating a new card
-          const currentBank = formData.bank_name;
-          const currentCategory = formData.category;
-          if (keepImageAfterSave && frontImageUrl) {
-              setEditingCard(null);
-              setFormData({ front: '', back: '', bank_name: currentBank, category: currentCategory });
-              setFrontPreview(frontImageUrl);
-              setFrontImage(null);
-              setOcclusions([]);
-              alert("Card salvo! A imagem foi mantida para criar outro.");
-          } else {
-              resetForm();
-              setFormData({ front: '', back: '', bank_name: currentBank, category: currentCategory });
-              setSearchTerm('');
-              setFilterBank(cardData.bank_name || 'Principal');
-              setOpenThemes(prev => new Set(prev).add(cardData.category || 'Geral'));
-              setMode('list');
-          }
+          const keepImage = keepImageAfterSave && !!frontImageUrl;
+          setFormData({ front: '', back: '', bank_name: cardData.bank_name, category: cardData.category });
+          setFrontPreview(keepImage ? frontImageUrl : '');
+          setFrontImage(null);
+          setOcclusions([]);
+          setSelectedOcclusionId(null);
+          setZoomLevel(1);
+          if (!keepImage) setImagePosition('front');
+          setSearchTerm('');
+          setFilterBank(cardData.bank_name);
+          setOpenThemes(prev => new Set(prev).add(cardData.category));
+          setCreationNotice(keepImage ? 'Card salvo. A imagem foi mantida para o próximo.' : 'Card salvo. Você já pode criar outro.');
       }
     } catch (e: any) {
       alert("Erro ao salvar card: " + e.message);
@@ -354,8 +350,9 @@ export const Flashcards: React.FC = () => {
   };
 
   const handleGenerateFlashcards = async () => {
-      if (!user || !genText.trim()) return;
+      if (!user || generating || !genText.trim()) return;
       setGenerating(true);
+      setCreationNotice('');
       try {
           const result = await generateFlashcardsFromPrompt(genText, genCount);
           const generatedCards = Array.isArray(result) ? result.filter(card =>
@@ -370,7 +367,7 @@ export const Flashcards: React.FC = () => {
                   back: c.back,
                   category: genCategory || 'Sem Categoria',
                   bank_name: genBankName || 'Principal',
-                  status: 'learning',
+                  status: 'new',
                   interval: 0,
                   ease_factor: 2.5,
                   repetitions: 0,
@@ -381,9 +378,10 @@ export const Flashcards: React.FC = () => {
               await syncEngine.bulkEnqueue('flashcards', newCards);
               await loadCards();
               
-              alert(`${newCards.length} flashcards gerados com sucesso!`);
-              setMode('list');
-              setGenText('');
+              setSearchTerm('');
+              setFilterBank(newCards[0].bank_name || 'Principal');
+              setOpenThemes(prev => new Set(prev).add(newCards[0].category || 'Sem Categoria'));
+              setCreationNotice(`${newCards.length} ${newCards.length === 1 ? 'flashcard salvo' : 'flashcards salvos'}. Você pode gerar outro lote nesta tela.`);
           } else {
               alert('A geração não retornou cartões válidos. Tente novamente.');
           }
@@ -662,8 +660,8 @@ export const Flashcards: React.FC = () => {
               <div className="flex gap-2 w-full md:w-auto flex-wrap">
                 <button onClick={() => setMode('review-config')} className="flex-1 md:flex-none bg-primary text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Play className="h-4 w-4" /> REVISAR</button>
                 <button onClick={() => navigate('/flashcards/study', { state: { studyMode: 'config', reviewConfig: { type: 'free', limit: 9999 } } })} className="flex-1 md:flex-none bg-white dark:bg-zinc-800 text-slate-700 dark:text-white border-2 border-slate-200 dark:border-zinc-700 px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2"><Shuffle className="h-4 w-4 text-emerald-500" /> ESTUDO LIVRE</button>
-                <button onClick={() => { resetForm(); setMode('form'); }} className="flex-1 md:flex-none bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg flex items-center justify-center gap-2"><Plus className="h-4 w-4" /> NOVO</button>
-                <button onClick={() => setMode('generator')} className="flex-1 md:flex-none bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Sparkles className="h-4 w-4" /> GERAR</button>
+                <button onClick={() => { resetForm(); setCreationNotice(''); setMode('form'); }} className="flex-1 md:flex-none bg-slate-900 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg flex items-center justify-center gap-2"><Plus className="h-4 w-4" /> NOVO</button>
+                <button onClick={() => { setCreationNotice(''); setMode('generator'); }} className="flex-1 md:flex-none bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Sparkles className="h-4 w-4" /> GERAR</button>
                 <button onClick={() => navigate('/flashcards/import')} className="flex-1 md:flex-none bg-indigo-600 text-white px-5 py-2.5 rounded-xl font-black text-[9px] uppercase shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2"><Download className="h-4 w-4" /> IMPORTAR</button>
                 <button onClick={() => setMode('settings')} className="bg-slate-50 dark:bg-zinc-900 text-slate-400 p-2.5 rounded-xl border border-slate-200 dark:border-zinc-800"><Settings className="h-5 w-5" /></button>
               </div>
@@ -823,8 +821,9 @@ export const Flashcards: React.FC = () => {
                   </div>
               </div>
 
+              {creationNotice && <p role="status" className="text-sm font-semibold text-emerald-600">{creationNotice}</p>}
               <div className="pt-6 border-t border-slate-100 dark:border-zinc-900 flex justify-end gap-3">
-                  <button onClick={() => setMode('list')} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">Cancelar</button>
+                  <button onClick={() => setMode('list')} disabled={generating} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">Ver Flashcards</button>
                   <button 
                       onClick={handleGenerateFlashcards} 
                       disabled={generating || !genText.trim()} 
@@ -985,7 +984,8 @@ export const Flashcards: React.FC = () => {
                 )}
               </div>
             </div>
-            <div className="mt-8 pt-6 border-t border-slate-100 dark:border-zinc-900 flex justify-end gap-3"><button onClick={() => setMode('list')} disabled={savingCard} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">Cancelar</button><button onClick={handleSave} disabled={savingCard} className="bg-primary text-white px-10 py-3 rounded-xl font-black text-[10px] uppercase shadow-lg flex items-center gap-2">{savingCard ? <Loader2 className="animate-spin h-4 w-4" /> : <Save className="h-4 w-4" />} SALVAR CARD</button></div>
+            {creationNotice && !editingCard && <p role="status" className="mt-4 text-sm font-semibold text-emerald-600">{creationNotice}</p>}
+            <div className="mt-8 pt-6 border-t border-slate-100 dark:border-zinc-900 flex flex-wrap justify-end gap-3"><button onClick={() => setMode('list')} disabled={savingCard} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">{editingCard ? 'Cancelar' : 'Ver Flashcards'}</button><button onClick={handleSave} disabled={savingCard} className="bg-primary text-white px-10 py-3 rounded-xl font-black text-[10px] uppercase shadow-lg flex items-center gap-2">{savingCard ? <Loader2 className="animate-spin h-4 w-4" /> : <Save className="h-4 w-4" />} SALVAR CARD</button></div>
           </div>
         ) : mode === 'settings' ? (
           <div className="flex-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2.5rem] p-6 md:p-10 shadow-xl overflow-y-auto custom-scrollbar min-h-0">
@@ -1007,7 +1007,7 @@ export const Flashcards: React.FC = () => {
               {/* ─── Limite Diário ─── */}
               <div className="border-t border-slate-100 dark:border-zinc-900 pt-8 mb-10">
                   <h2 className="text-xl font-black text-slate-950 dark:text-white tracking-tighter mb-1">Limite Diário de Revisões</h2>
-                  <p className="text-[10px] text-slate-400 mb-6">Cards que excederem o limite serão redistribuídos nos próximos dias sem desviar do algoritmo.</p>
+                  <p className="text-[10px] text-slate-400 mb-6">O limite conta cartões distintos avaliados no dia. Os demais preservam sua data de revisão.</p>
                   <div className="flex items-center gap-4">
                       <input
                           type="range"
@@ -1022,7 +1022,7 @@ export const Flashcards: React.FC = () => {
                           {dailyLimit === 0 ? <Infinity className="h-5 w-5" /> : dailyLimit}
                       </div>
                   </div>
-                  <p className="text-[9px] text-slate-400 mt-2">{dailyLimit === 0 ? 'Sem limite — todos os cards vencidos serão apresentados.' : `Máximo de ${dailyLimit} cards por sessão diária.`}</p>
+                  <p className="text-[9px] text-slate-400 mt-2">{dailyLimit === 0 ? 'Sem limite — todos os cards vencidos serão apresentados.' : `Máximo de ${dailyLimit} cartões distintos por dia.`}</p>
               </div>
 
               {/* ─── Gerenciamento de Dados ─── */}
@@ -1176,7 +1176,7 @@ export const Flashcards: React.FC = () => {
                       <label className="text-[10px] text-slate-500 uppercase font-black block mb-2">Tema / Categoria</label>
                       <select value={reviewConfigCategory} onChange={e => setReviewConfigCategory(e.target.value)} className="w-full bg-slate-50 dark:bg-zinc-900 border-2 border-slate-100 dark:border-zinc-800 p-4 rounded-2xl text-xs font-black appearance-none focus:border-primary transition-colors">
                           <option value="Todas">Todas as Categorias</option>
-                          {Array.from(new Set(cards.filter(c => reviewConfigBank === 'Todos' || c.bank_name === reviewConfigBank).map(c => c.category || 'Sem Categoria'))).sort().map(c => <option key={c} value={c}>{c}</option>)}
+                          {Array.from(new Set(cards.filter(c => reviewConfigBank === 'Todos' || (c.bank_name || 'Principal') === reviewConfigBank).map(c => c.category || 'Sem Categoria'))).sort().map(c => <option key={c} value={c}>{c}</option>)}
                       </select>
                   </div>
               </div>
@@ -1202,7 +1202,7 @@ export const Flashcards: React.FC = () => {
                      <button onClick={() => setReviewConfigType('free')} className={`p-4 rounded-2xl border-2 text-left transition-all ${reviewConfigType === 'free' ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20' : 'border-slate-100 dark:border-zinc-800 bg-white dark:bg-zinc-950'}`}>
                          <Shuffle className={`h-5 w-5 mb-2 ${reviewConfigType === 'free' ? 'text-emerald-500' : 'text-slate-400'}`} />
                          <p className="font-black text-xs text-slate-900 dark:text-white">Estudo Livre</p>
-                         <p className="text-[9px] text-slate-500 mt-1">Ordem aleatória geral</p>
+                         <p className="text-[9px] text-slate-500 mt-1">Prática sem alterar o agendamento</p>
                      </button>
                  </div>
               </div>
