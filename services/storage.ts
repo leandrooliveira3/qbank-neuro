@@ -121,35 +121,22 @@ export const storageService = {
    * Lista imagens salvas em uma determinada pasta do bucket 'imagens'.
    * Retorna uma lista de URLs públicas.
    */
-  async listImages(folder: StorageFolder): Promise<string[]> {
-    try {
-      const { data, error } = await supabase.storage
-        .from('imagens')
-        .list(folder, { limit: 100, sortBy: { column: 'created_at', order: 'desc' } });
-      
-      if (error) {
-        console.error('Error listing images:', error);
-        return [];
+  async listImages(folder: StorageFolder, signal?: AbortSignal): Promise<string[]> {
+    const bucket = supabase.storage.from('imagens');
+    const extensions = /\.(?:jpe?g|png|webp|gif|svg|avif|bmp)$/i;
+    const urls = new Set<string>();
+    const pageSize = 100;
+    for (let offset = 0; !signal?.aborted; offset += pageSize) {
+      const { data, error } = await bucket.list(folder, {
+        limit: pageSize, offset, sortBy: { column: 'created_at', order: 'desc' },
+      });
+      if (error) throw error;
+      for (const image of data ?? []) {
+        if (extensions.test(image.name)) urls.add(bucket.getPublicUrl(`${folder}/${image.name}`).data.publicUrl);
       }
-      
-      if (!data) return [];
-      
-      const imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'svg'];
-      return data
-        .filter(f => {
-          const ext = f.name.split('.').pop()?.toLowerCase();
-          return ext && imageExtensions.includes(ext);
-        })
-        .map(f => {
-          const { data: { publicUrl } } = supabase.storage
-            .from('imagens')
-            .getPublicUrl(`${folder}/${f.name}`);
-          return publicUrl;
-        });
-    } catch (e) {
-      console.error('catch error in listImages:', e);
-      return [];
+      if (!data || data.length < pageSize) break;
     }
+    return [...urls];
   },
 
   /**

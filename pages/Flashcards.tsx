@@ -84,6 +84,9 @@ export const Flashcards: React.FC = () => {
   const [formData, setFormData] = useState({ front: '', back: '', category: '', bank_name: 'Principal' });
   const [frontImage, setFrontImage] = useState<File | null>(null);
   const [frontPreview, setFrontPreview] = useState<string>('');
+  useEffect(() => {
+      if (frontImage && frontPreview.startsWith('blob:')) return () => URL.revokeObjectURL(frontPreview);
+  }, [frontImage, frontPreview]);
   const frontImageRef = useRef<HTMLInputElement>(null);
   const [occlusions, setOcclusions] = useState<Occlusion[]>([]);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -114,8 +117,10 @@ export const Flashcards: React.FC = () => {
       const savedLimit = user?.daily_limit ?? parseInt(localStorage.getItem('neuro_daily_limit') || '0');
       setDailyLimit(savedLimit);
       const priorityConfig = user?.priority_config || (() => {
-          const raw = localStorage.getItem('neuro_priority_config');
-          return raw ? JSON.parse(raw) : null;
+          try {
+              const raw = localStorage.getItem('neuro_priority_config');
+              return raw ? JSON.parse(raw) : null;
+          } catch { return null; }
       })();
       if (priorityConfig) {
           setPriorityTopics(priorityConfig.topics || []);
@@ -213,7 +218,7 @@ export const Flashcards: React.FC = () => {
   };
 
   const allCategoriesWithCounts = useMemo(() => {
-      const counts: Record<string, number> = {};
+      const counts: Record<string, number> = Object.create(null);
       for (const c of cards) {
           const cat = c.category || 'Sem Categoria';
           counts[cat] = (counts[cat] || 0) + 1;
@@ -222,7 +227,7 @@ export const Flashcards: React.FC = () => {
   }, [cards]);
 
   const allBanksWithCounts = useMemo(() => {
-      const counts: Record<string, number> = {};
+      const counts: Record<string, number> = Object.create(null);
       for (const c of cards) {
           const bank = c.bank_name || 'Principal';
           counts[bank] = (counts[bank] || 0) + 1;
@@ -238,7 +243,7 @@ export const Flashcards: React.FC = () => {
   const handleSave = async () => {
     if (!user || savingCard) return;
 
-    const isImageCard = !!frontPreview;
+    const isImageCard = !!frontPreview || (!!editingCard?.back_image_url && !editingCard.front_image_url);
     
     if (isImageCard) {
       if (!formData.category.trim()) {
@@ -271,15 +276,17 @@ export const Flashcards: React.FC = () => {
           frontImageUrl = await storageService.uploadImage(frontImage, 'flashcards', customName);
           setFrontPreview(frontImageUrl);
           setFrontImage(null);
-      } else if (frontPreview && frontPreview.startsWith('http')) {
+      } else if (frontPreview && !frontPreview.startsWith('blob:')) {
           frontImageUrl = frontPreview; // Reusing existing URL from DB
       }
 
+      const independentBackImage = editingCard?.back_image_url && editingCard.back_image_url !== editingCard.front_image_url
+        ? editingCard.back_image_url : '';
       const cardData: Flashcard = editingCard ? { 
         ...editingCard, 
         ...formData, 
         front_image_url: frontImageUrl,
-        back_image_url: (imagePosition === 'back' || imagePosition === 'both') ? frontImageUrl : '',
+        back_image_url: independentBackImage || (imagePosition !== 'front' ? frontImageUrl : ''),
         image_side: imagePosition,
         occlusions,
         status: isActiveForReview ? (editingCard.status === 'inactive' ? 'new' : editingCard.status) : 'inactive'
@@ -350,7 +357,11 @@ export const Flashcards: React.FC = () => {
       if (!user || !genText.trim()) return;
       setGenerating(true);
       try {
-          const generatedCards = await generateFlashcardsFromPrompt(genText, genCount);
+          const result = await generateFlashcardsFromPrompt(genText, genCount);
+          const generatedCards = Array.isArray(result) ? result.filter(card =>
+              typeof card?.front === 'string' && card.front.trim() &&
+              typeof card.back === 'string' && card.back.trim(),
+          ) : [];
           if (generatedCards && generatedCards.length > 0) {
               const newCards: Flashcard[] = generatedCards.map(c => ({
                   id: crypto.randomUUID(),
@@ -373,6 +384,8 @@ export const Flashcards: React.FC = () => {
               alert(`${newCards.length} flashcards gerados com sucesso!`);
               setMode('list');
               setGenText('');
+          } else {
+              alert('A geração não retornou cartões válidos. Tente novamente.');
           }
       } catch (e: any) {
           alert("Erro ao gerar flashcards: " + e.message);
@@ -505,7 +518,7 @@ export const Flashcards: React.FC = () => {
   }, [cards, searchTerm, filterBank, sortBy]);
 
   const groupedCards = useMemo(() => {
-      const groups: Record<string, Flashcard[]> = {};
+      const groups: Record<string, Flashcard[]> = Object.create(null);
       filteredCards.forEach(c => {
           const cat = c.category || 'Sem Categoria';
           if (!groups[cat]) groups[cat] = [];

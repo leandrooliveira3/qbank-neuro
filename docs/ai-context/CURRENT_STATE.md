@@ -1,3 +1,7 @@
+## 26/11/2026 — Auditoria do módulo de flashcards
+
+Auditoria da criação, edição, importação, biblioteca de temas e revisão de flashcards. O backup JSON preserva mídias e oclusões, e o importador aceita mídia Anki em manifesto legado ou moderno. O banco de temas carrega os 160 cartões existentes do Curso NRI, Blocos 1–8, com deduplicação por tema e frente. A prévia não registra nota. Uma sessão já carregada mantém a sequência mesmo quando a sincronização termina.
+
 ## 26/11/2026 — Sincronização dos flashcards manuais
 
 O salvamento manual usa `image_side`, coluna confirmada no Supabase. O cartão e sua operação de sincronização são gravados juntos no IndexedDB. A fila mantém operações rejeitadas para nova tentativa. A regra de ordenação da revisão e os campos de agendamento foram preservados.

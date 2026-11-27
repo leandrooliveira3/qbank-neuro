@@ -27,46 +27,36 @@ export const CloudImagePicker: React.FC<CloudImagePickerProps> = ({
     { id: 'library', label: 'Documentos' },
   ];
 
-  const fetchImages = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const urls = await storageService.listImages(activeFolder);
-      setImages(urls);
-    } catch (err: any) {
-      console.error(err);
-      setError("Não foi possível carregar as imagens do banco de dados.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
-    if (isOpen) {
-      fetchImages();
-    }
-  }, [isOpen, activeFolder]);
+    if (!isOpen) return;
+    const controller = new AbortController();
+    setLoading(true);
+    setError(null);
+    setImages([]);
+    void storageService.listImages(activeFolder, controller.signal)
+      .then(urls => {
+        if (!controller.signal.aborted) setImages(urls);
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setError('Não foi possível carregar as imagens do banco de dados.');
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setLoading(false);
+      });
+    return () => controller.abort();
+  }, [isOpen, activeFolder, refresh]);
 
-  // Extract a readable filename from the Supabase public URL
   const getDisplayFilename = (url: string) => {
-    try {
-      const decoded = decodeURIComponent(url);
-      const parts = decoded.split('/');
-      const last = parts[parts.length - 1];
-      // If it looks like a UUID or random hash, make it shorter/prettier or just show a cropped format
-      if (last.length > 25) {
-        return last.substring(0, 15) + '...' + last.substring(last.length - 8);
-      }
-      return last;
-    } catch {
-      return 'Imagem';
-    }
+    const filename = url.split('/').pop() || 'Imagem';
+    try { return decodeURIComponent(filename); }
+    catch { return filename; }
   };
 
-  const filteredImages = images.filter(url => {
-    const filename = getDisplayFilename(url).toLowerCase();
-    return filename.includes(searchQuery.toLowerCase());
-  });
+  const filteredImages = images.filter(url =>
+    getDisplayFilename(url).toLowerCase().includes(searchQuery.trim().toLowerCase()),
+  );
 
   if (!isOpen) return null;
 
@@ -144,7 +134,7 @@ export const CloudImagePicker: React.FC<CloudImagePickerProps> = ({
 
             {/* Refresh Button */}
             <button
-              onClick={fetchImages}
+              onClick={() => setRefresh(value => value + 1)}
               disabled={loading}
               className="px-4 py-2 bg-slate-50 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-850 rounded-xl flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider hover:bg-slate-100 dark:hover:bg-zinc-800 disabled:opacity-50 transition-all whitespace-nowrap"
             >
@@ -182,9 +172,10 @@ export const CloudImagePicker: React.FC<CloudImagePickerProps> = ({
             </div>
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-              {filteredImages.map((url, idx) => (
-                <div
-                  key={idx}
+              {filteredImages.map(url => (
+                <button
+                  type="button"
+                  key={url}
                   onClick={() => onSelect(url)}
                   className="bg-white dark:bg-zinc-900 border border-slate-205 dark:border-zinc-800 rounded-xl overflow-hidden hover:border-primary hover:shadow-md cursor-pointer transition-all group flex flex-col"
                 >
@@ -208,7 +199,7 @@ export const CloudImagePicker: React.FC<CloudImagePickerProps> = ({
                       {getDisplayFilename(url)}
                     </p>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           )}

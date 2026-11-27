@@ -1,3 +1,7 @@
+## 26/11/2026 — Auditoria do módulo de flashcards
+
+Preserve a ordenação e a sequência da sessão de revisão. Os testes específicos estão em `services/flashcardSync.test.ts` e `services/flashcardFormats.test.ts`. A importação JSON cria registros novos com o banco, a categoria e a ativação escolhidos no formulário.
+
 ## 26/11/2026 — Sincronização dos flashcards manuais
 
 Durante a sincronização autenticada, cartões manuais legados ainda presentes no navegador e ausentes no servidor são enfileirados novamente. Quando restou apenas o arquivo no Storage, o cartão pode ser recriado com Escolher na nuvem. Os testes de sincronização estão em `services/flashcardSync.test.ts`.

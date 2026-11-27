@@ -2,31 +2,21 @@ import React, { useState, useRef } from 'react';
 import { Layout } from '../components/Layout';
 import { useNavigate } from 'react-router';
 import { useAuthStore } from '../store/useAuthStore';
+import { localDB } from '../services/localDB';
 import { syncEngine } from '../services/syncEngine';
 import { storageService } from '../services/storage';
 import { Flashcard } from '../types';
+import { parseFlashcardCsv, parseFlashcardJson, type ParsedFlashcard as ParsedCard } from '../services/flashcardImport';
 import { 
     Upload, FileText, ArrowLeft, Loader2, CheckCircle2, 
     AlertCircle, Layers, FileJson, Table, FileCode, Download,
     Info, X, Image as ImageIcon
 } from 'lucide-react';
-import { decompress } from 'fzstd';
+import { ankiImageBlob, decodeAnkiBytes, expandAnkiCloze, readAnkiMediaMap } from '../services/ankiFlashcards';
 import JSZip from 'jszip';
 import initSqlJs from 'sql.js';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-
-interface ParsedCard {
-    front: string;
-    back: string;
-    tags?: string[];
-    frontImageBlob?: Blob;
-    frontImageExt?: string;
-    frontImageUrl?: string;
-    backImageBlob?: Blob;
-    backImageExt?: string;
-    backImageUrl?: string;
-}
 
 // ─── Supported formats ────────────────────────────────────────────────────────
 
@@ -84,14 +74,11 @@ export const ImportFlashcards: React.FC = () => {
     const [selectedThemes, setSelectedThemes] = useState<string[]>([]);
     const [autoAddToRevision, setAutoAddToRevision] = useState(false);
     
-    const SPECIALTIES = [
-        "Neurologia", "Clínica Médica", "Cardiologia", "Neurocirurgia", 
-        "Pediatria", "Ginecologia e Obstetrícia", "Cirurgia Geral", 
-        "Ortopedia e Traumatologia", "Psiquiatria", "Endocrinologia e Metabologia"
-    ];
+    const themes = Array.from({ length: 8 }, (_, index) => `NRI · Bloco ${index + 1}`);
 
     const [importedCount, setImportedCount] = useState(0);
     const [mediaCount, setMediaCount] = useState(0);
+    const uploadedImages = useRef(new WeakMap<Blob, string>());
     const [pastedJsonText, setPastedJsonText] = useState('');
 
     const handleRawTextImport = () => {
@@ -106,7 +93,7 @@ export const ImportFlashcards: React.FC = () => {
             let text = pastedJsonText.trim();
             
             if (text.startsWith('[') || text.startsWith('{')) {
-                cards = parseJson(text);
+                cards = parseFlashcardJson(text);
             } else if (text.includes('Q:') || text.includes('Pergunta:') || text.includes('Frente:')) {
                 cards = parseMarkdown(text);
             } else {
@@ -130,7 +117,12 @@ export const ImportFlashcards: React.FC = () => {
     // ── File selection ──────────────────────────────────────────────────────
     const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = e.target.files?.[0];
-        if (!selectedFile) return;
+        e.target.value = '';
+        if (selectedFile) await selectFile(selectedFile);
+    };
+
+    const selectFile = async (selectedFile: File) => {
+        if (loading) return;
 
         setFile(selectedFile);
         setError(null);
@@ -140,6 +132,7 @@ export const ImportFlashcards: React.FC = () => {
 
         try {
             const cards = await parseFile(selectedFile);
+            if (!cards.length) throw new Error('Nenhum flashcard válido encontrado no arquivo.');
             setParsedCards(cards);
             setMediaCount(cards.filter(c => c.frontImageBlob).length);
             const fileName = selectedFile.name.replace(/\.[^/.]+$/, '');
@@ -158,8 +151,8 @@ export const ImportFlashcards: React.FC = () => {
         const text = await f.text();
         switch (ext) {
             case 'txt':  return parseTxt(text);
-            case 'csv':  return parseCsv(text);
-            case 'json': return parseJson(text);
+            case 'csv':  return parseFlashcardCsv(text);
+            case 'json': return parseFlashcardJson(text);
             case 'md':   return parseMarkdown(text);
             default:     throw new Error(`Formato não suportado: .${ext}`);
         }
@@ -180,24 +173,15 @@ export const ImportFlashcards: React.FC = () => {
             throw new Error(`Arquivo Anki inválido: banco de dados não encontrado. Arquivos: ${files.join(', ')}`);
         }
 
-        let dbBuf: ArrayBuffer | null = null;
-        let db: any = null;
+        let modern = false;
+        let db: InstanceType<typeof SQL.Database> | null = null;
 
         setLoadingMsg('Lendo banco de dados SQLite...');
         for (const name of candidateNames) {
             const entry = zip.file(name);
             if (!entry) continue;
             try {
-                let buf = await entry.async('uint8array');
-                
-                const isSqlite = buf.length > 16 && String.fromCharCode(...buf.subarray(0, 15)) === "SQLite format 3";
-                if (!isSqlite) {
-                    try {
-                        buf = decompress(buf);
-                    } catch (err) {
-                        console.warn(`Failed to decompress ${name}:`, err);
-                    }
-                }
+                const buf = decodeAnkiBytes(await entry.async('uint8array'));
 
                 const tempDb = new SQL.Database(buf);
                 
@@ -215,19 +199,12 @@ export const ImportFlashcards: React.FC = () => {
                     }
                     
                     if (!isDummy) {
-                        console.log(`[Anki] Loaded db from ${name}, count=${count}, isSqlite=${isSqlite}`);
-                        dbBuf = buf;
+                        db?.close();
+                        modern = name.endsWith('.anki21b');
                         db = tempDb;
-                        break; // Encontrado o DB válido
-                    } else {
-                        // Mantém como fallback se for o único, mas continua procurando
-                        if (!db) {
-                            dbBuf = buf;
-                            db = tempDb;
-                        } else {
-                            tempDb.close();
-                        }
+                        break;
                     }
+                    tempDb.close();
                 } catch(e) {
                     tempDb.close(); // Ignora databases inválidos
                 }
@@ -240,24 +217,30 @@ export const ImportFlashcards: React.FC = () => {
             throw new Error('Falha ao abrir banco de dados SQLite do Anki.');
         }
 
-        const result = db.exec('SELECT flds, tags FROM notes');
-        db.close();
-
-        setLoadingMsg('Lendo arquivos de mídia...');
-        const mediaMap: Record<string, string> = {};
-        const mediaEntry = zip.file('media');
-        if (mediaEntry) {
-            try {
-                const raw = await mediaEntry.async('string');
-                const parsed = JSON.parse(raw);
-                for (const [numId, filename] of Object.entries(parsed as Record<string, string>)) {
-                    mediaMap[filename] = numId;
-                }
-            } catch {}
+        let rows: (string | number | Uint8Array | null)[][];
+        try {
+            rows = db.exec('SELECT flds, tags FROM notes')[0]?.values ?? [];
+        } finally {
+            db.close();
         }
 
+        setLoadingMsg('Lendo arquivos de mídia...');
+        const mediaEntry = zip.file('media');
+        const mediaMap = mediaEntry ? readAnkiMediaMap(await mediaEntry.async('uint8array'), modern) : new Map<string, string>();
+        const images = new Map<string, Blob>();
+        const loadImage = async (filename: string | undefined) => {
+            if (!filename) return undefined;
+            const existing = images.get(filename);
+            if (existing) return existing;
+            const key = mediaMap.get(filename);
+            const entry = key === undefined ? undefined : zip.file(key);
+            if (!entry) return undefined;
+            const blob = ankiImageBlob(await entry.async('uint8array'), getExt(filename));
+            images.set(filename, blob);
+            return blob;
+        };
+
         const cards: ParsedCard[] = [];
-        const rows = result?.[0]?.values ?? [];
         for (const row of rows) {
             const flds = String(row[0] ?? '');
             const tagStr = String(row[1] ?? '');
@@ -265,60 +248,25 @@ export const ImportFlashcards: React.FC = () => {
             const frontRaw = fields[0] ?? '';
             const backRaw  = fields.slice(1).join('\n') ?? '';
             
-            let frontText = '';
-            let backText = '';
-
-            const clozeRegex = /\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs;
-            if (frontRaw.includes('{{c')) {
-                let fText = frontRaw.replace(/\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs, (...args) => {
-                    return `[${args[2] || '...'}]`;
+            const cloze = expandAnkiCloze(frontRaw);
+            const pairs = cloze.length
+                ? cloze.map(pair => ({ front: pair.front, back: [pair.back, backRaw].filter(Boolean).join('\n\n') }))
+                : [{ front: frontRaw, back: backRaw }];
+            for (const pair of pairs) {
+                const frontImg = extractImgSrc(pair.front);
+                const backImg = extractImgSrc(pair.back);
+                const frontImageBlob = await loadImage(frontImg);
+                const sameImage = frontImageBlob && frontImg === backImg;
+                const backImageBlob = sameImage ? undefined : await loadImage(backImg);
+                const front = stripHtml(pair.front) || (frontImageBlob ? '(imagem)' : '');
+                const back = stripHtml(pair.back) || (backImageBlob || sameImage ? '(imagem)' : '');
+                if (!front && !back) continue;
+                cards.push({
+                    front, back, tags: tagStr.split(' ').filter(Boolean),
+                    frontImageBlob, backImageBlob, imageSide: sameImage ? 'both' : undefined,
+                    frontImageExt: frontImg && getExt(frontImg), backImageExt: backImg && getExt(backImg),
                 });
-                // Para o verso do flashcard, revela a oclusão (grupo $1 - o texto oculto)
-                let bText = frontRaw.replace(/\{\{c\d+::(.*?)(?:::(.*?))?\}\}/gs, '$1');
-                
-                frontText = stripHtml(fText);
-                backText = stripHtml(bText);
-                if (backRaw.trim()) {
-                    backText += '\n\n' + stripHtml(backRaw);
-                }
-            } else {
-                frontText = stripHtml(frontRaw);
-                backText  = stripHtml(backRaw);
             }
-
-            const frontImgSrc = extractImgSrc(frontRaw);
-            const backImgSrc  = extractImgSrc(backRaw);
-
-            if (!frontText && !frontImgSrc && !backText && !backImgSrc) continue;
-
-            const card: ParsedCard = {
-                front: frontText || (frontImgSrc ? '(imagem)' : ''),
-                back:  backText  || (backImgSrc ? '(imagem)' : ''),
-                tags:  tagStr.split(' ').filter(Boolean),
-            };
-
-            if (frontImgSrc) {
-                const zipId = mediaMap[frontImgSrc];
-                if (zipId) {
-                    const imgEntry = zip.file(zipId);
-                    if (imgEntry) {
-                        card.frontImageBlob = await imgEntry.async('blob');
-                        card.frontImageExt  = getExt(frontImgSrc);
-                    }
-                }
-            }
-            
-            if (backImgSrc && backImgSrc !== frontImgSrc) {
-                const zipId = mediaMap[backImgSrc];
-                if (zipId) {
-                    const imgEntry = zip.file(zipId);
-                    if (imgEntry) {
-                        card.backImageBlob = await imgEntry.async('blob');
-                        card.backImageExt  = getExt(backImgSrc);
-                    }
-                }
-            }
-            cards.push(card);
         }
         if (cards.length === 0) throw new Error('Nenhuma nota encontrada.');
         return cards;
@@ -338,32 +286,6 @@ export const ImportFlashcards: React.FC = () => {
             }
         }
         return cards;
-    };
-
-    const parseCsv = (text: string): ParsedCard[] => {
-        const lines = text.split('\n').filter(l => l.trim());
-        const cards: ParsedCard[] = [];
-        let start = 0;
-        if (lines[0]?.toLowerCase().includes('front')) start = 1;
-        for (let i = start; i < lines.length; i++) {
-            const parts = lines[i].split(',');
-            if (parts.length >= 2) {
-                const front = parts[0].replace(/^"|"$/g, '').trim();
-                const back  = parts.slice(1).join(',').replace(/^"|"$/g, '').trim();
-                if (front && back) cards.push({ front, back });
-            }
-        }
-        return cards;
-    };
-
-    const parseJson = (text: string): ParsedCard[] => {
-        const data = JSON.parse(text);
-        const items = Array.isArray(data) ? data : (data.cards || data.notes || []);
-        return items.map((item: any) => ({
-            front: item.front || item.question || '',
-            back:  item.back  || item.answer   || '',
-            tags:  item.tags  || [],
-        })).filter((c: ParsedCard) => c.front && c.back);
     };
 
     const parseMarkdown = (text: string): ParsedCard[] => {
@@ -391,22 +313,21 @@ export const ImportFlashcards: React.FC = () => {
             const withUrls: ParsedCard[] = [];
             let uploaded = 0;
             const total = parsedCards.filter(c => c.frontImageBlob).length + parsedCards.filter(c => c.backImageBlob).length;
+            const upload = async (blob: Blob, extension: string | undefined, label: string) => {
+                setLoadingMsg(`Enviando mídia ${++uploaded}/${total}...`);
+                const saved = uploadedImages.current.get(blob);
+                if (saved) return saved;
+                const file = new File([blob], `anki_${crypto.randomUUID()}.${extension || 'jpg'}`, { type: blob.type });
+                const url = await storageService.uploadImage(file, 'flashcards', [category, bankName, label].filter(Boolean).join('_'));
+                uploadedImages.current.set(blob, url);
+                return url;
+            };
 
             for (const card of parsedCards) {
-                let fUrl = undefined;
-                let bUrl = undefined;
-                if (card.frontImageBlob) {
-                    setLoadingMsg(`Enviando mídia ${++uploaded}/${total}...`);
-                    const f = new File([card.frontImageBlob], `anki_${crypto.randomUUID()}.${card.frontImageExt || 'jpg'}`, { type: card.frontImageBlob.type });
-                    const customName = [category, bankName, card.front].filter(Boolean).join('_');
-                    fUrl = await storageService.uploadImage(f, 'flashcards', customName);
-                }
-                if (card.backImageBlob) {
-                    setLoadingMsg(`Enviando mídia ${++uploaded}/${total}...`);
-                    const f = new File([card.backImageBlob], `anki_${crypto.randomUUID()}.${card.backImageExt || 'jpg'}`, { type: card.backImageBlob.type });
-                    const customName = [category, bankName, card.back].filter(Boolean).join('_');
-                    bUrl = await storageService.uploadImage(f, 'flashcards', customName);
-                }
+                let fUrl = card.frontImageUrl;
+                let bUrl = card.backImageUrl;
+                if (card.frontImageBlob) fUrl = await upload(card.frontImageBlob, card.frontImageExt, card.front);
+                if (card.backImageBlob) bUrl = await upload(card.backImageBlob, card.backImageExt, card.back);
                 withUrls.push({ ...card, frontImageUrl: fUrl, backImageUrl: bUrl });
             }
 
@@ -420,20 +341,57 @@ export const ImportFlashcards: React.FC = () => {
                 category: category,
                 front_image_url: card.frontImageUrl || '',
                 back_image_url: card.backImageUrl || '',
-                occlusions: [],
+                image_side: card.imageSide ?? (card.frontImageUrl ? 'front' : 'back'),
+                occlusions: card.occlusions ?? [],
                 status: autoAddToRevision ? 'new' : 'inactive',
                 interval: 0,
                 ease_factor: 2.5,
                 repetitions: 0,
                 next_review: new Date().toISOString(),
                 created_at: new Date().toISOString(),
-                last_review: new Date().toISOString(),
             }));
             await syncEngine.bulkEnqueue('flashcards', flashcards);
             setImportedCount(flashcards.length);
             setImportSuccess(true);
         } catch (err: any) {
             setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const restoreThemes = async () => {
+        if (!user || loading || !selectedThemes.length) return;
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch(`${import.meta.env.BASE_URL}nri-material/flashcards-blocos-1-a-8.json`);
+            if (!response.ok) throw new Error('O catálogo de flashcards NRI está indisponível.');
+            const catalog = parseFlashcardJson(await response.text());
+            const bank = 'Curso NRI · Revisão';
+            const existing = await localDB.getAll('flashcards');
+            const key = (category: string, front: string) => JSON.stringify([category, front]);
+            const seen = new Set(existing.filter(card => card.user_id === user.id && card.bank_name === bank)
+                .map(card => key(card.category, card.front)));
+            const now = new Date().toISOString();
+            const cards: Flashcard[] = [];
+            for (const item of catalog) {
+                const match = item.tags?.join(' ').match(/\bNRI-Bloco-0([1-8])\b/);
+                const category = match ? themes[Number(match[1]) - 1] : '';
+                if (!selectedThemes.includes(category) || seen.has(key(category, item.front))) continue;
+                seen.add(key(category, item.front));
+                cards.push({
+                    id: crypto.randomUUID(), user_id: user.id, bank_name: bank, category,
+                    front: item.front, back: item.back, status: 'new', interval: 0,
+                    ease_factor: 2.5, repetitions: 0, next_review: now, created_at: now,
+                });
+            }
+            if (!cards.length) throw new Error('Os cartões dos blocos escolhidos já estão no seu deck.');
+            await syncEngine.bulkEnqueue('flashcards', cards);
+            setImportedCount(cards.length);
+            setImportSuccess(true);
+        } catch (error) {
+            setError((error as Error).message);
         } finally {
             setLoading(false);
         }
@@ -492,13 +450,13 @@ export const ImportFlashcards: React.FC = () => {
 
                 <div className="flex bg-slate-100 dark:bg-zinc-950 p-1 rounded-xl border border-slate-200 dark:border-zinc-900 w-fit shrink-0 mx-2 lg:mx-0">
                     <button 
-                        onClick={() => setMode('file')}
+                        onClick={() => { setError(null); setMode('file'); }}
                         className={`px-6 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${mode === 'file' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}
                     >
                         Arquivos (Anki/CSV)
                     </button>
                     <button 
-                        onClick={() => setMode('themes')}
+                        onClick={() => { setError(null); setMode('themes'); }}
                         className={`px-6 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest transition-all ${mode === 'themes' ? 'bg-white dark:bg-zinc-800 text-primary shadow-sm' : 'text-slate-500'}`}
                     >
                         Banco de Temas
@@ -555,6 +513,12 @@ export const ImportFlashcards: React.FC = () => {
                                     </div>
 
                                     <div className="bg-white dark:bg-zinc-950 border-2 border-dashed border-slate-200 dark:border-zinc-800 rounded-[2rem] p-10 text-center hover:border-primary transition-colors cursor-pointer" 
+                                         onDragOver={event => event.preventDefault()}
+                                         onDrop={event => {
+                                             event.preventDefault();
+                                             const dropped = event.dataTransfer.files[0];
+                                             if (dropped) void selectFile(dropped);
+                                         }}
                                          onClick={() => fileInputRef.current?.click()}>
                                         <input ref={fileInputRef} type="file" accept=".apkg,.colpkg,.txt,.csv,.json,.md" onChange={handleFileSelect} className="hidden" />
                                         <div className="flex flex-col items-center">
@@ -660,11 +624,11 @@ export const ImportFlashcards: React.FC = () => {
                         <div className="space-y-6 animate-in fade-in">
                             <div className="bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2rem] p-8 shadow-sm">
                                 <h3 className="text-[11px] font-black uppercase text-slate-400 tracking-widest mb-6 flex items-center gap-2">
-                                    <Layers className="h-4 w-4 text-primary" /> Temas Disponíveis no Banco de Dados
+                                    <Layers className="h-4 w-4 text-primary" /> Blocos do Curso NRI
                                 </h3>
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
-                                    {SPECIALTIES.map(theme => (
+                                    {themes.map(theme => (
                                         <button 
                                             key={theme}
                                             onClick={() => setSelectedThemes(prev => prev.includes(theme) ? prev.filter(t => t !== theme) : [...prev, theme])}
@@ -679,45 +643,14 @@ export const ImportFlashcards: React.FC = () => {
                                 </div>
 
                                 <div className="p-6 bg-slate-50 dark:bg-zinc-900/50 rounded-2xl border-2 border-dashed border-slate-200 dark:border-zinc-800 text-center">
-                                    <p className="text-xs text-slate-500 font-bold mb-4">Escolha os temas e restaure os cards oficiais.</p>
+                                    {error && <p role="alert" className="text-sm text-red-600 mb-3">{error}</p>}
+                                    <p className="text-xs text-slate-500 font-bold mb-4">Escolha os blocos para adicionar os flashcards do Curso NRI ao seu deck.</p>
                                     <button 
                                         disabled={selectedThemes.length === 0 || loading}
-                                        onClick={async () => {
-                                            setLoading(true);
-                                            setLoadingMsg("Sincronizando temas...");
-                                            try {
-                                                const newCards: Flashcard[] = [];
-                                                for (const theme of selectedThemes) {
-                                                    for (let i = 1; i <= 10; i++) {
-                                                        newCards.push({
-                                                            id: crypto.randomUUID(),
-                                                            user_id: user?.id || '',
-                                                            bank_name: `Banco Oficial: ${theme}`,
-                                                            front: `Pergunta de Revisão: ${theme} #${i}`,
-                                                            back: `Esta é uma resposta padrão para o card de revisão do tema ${theme}.`,
-                                                            category: theme,
-                                                            status: 'new',
-                                                            interval: 0,
-                                                            ease_factor: 2.5,
-                                                            repetitions: 0,
-                                                            next_review: new Date().toISOString(),
-                                                            created_at: new Date().toISOString(),
-                                                        });
-                                                    }
-                                                }
-                                                await syncEngine.bulkEnqueue('flashcards', newCards);
-                                                setImportedCount(newCards.length);
-                                                setBankName("Banco Oficial");
-                                                setImportSuccess(true);
-                                            } catch (err: any) {
-                                                setError(err.message);
-                                            } finally {
-                                                setLoading(false);
-                                            }
-                                        }}
+                                        onClick={restoreThemes}
                                         className="bg-indigo-600 text-white px-10 py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-xl disabled:opacity-50"
                                     >
-                                        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : `Restaurar ${selectedThemes.length} Temas`}
+                                        {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : `Adicionar ${selectedThemes.length} ${selectedThemes.length === 1 ? 'bloco' : 'blocos'}`}
                                     </button>
                                 </div>
                             </div>

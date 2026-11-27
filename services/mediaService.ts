@@ -92,6 +92,10 @@ class MediaService {
     }
   }
 
+  releaseImageUrl(url: string) {
+    if (this.objectUrls.delete(url)) URL.revokeObjectURL(url);
+  }
+
   clearMemory() {
     this.objectUrls.forEach(url => URL.revokeObjectURL(url));
     this.objectUrls.clear();

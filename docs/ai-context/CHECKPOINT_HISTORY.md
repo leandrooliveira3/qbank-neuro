@@ -197,3 +197,7 @@ Corrigida a quebra de palavras nas tabelas do Curso NRI com a regra compartilhad
 ## 26/11/2026 — Sincronização dos flashcards manuais
 
 Corrigido o campo de imagem dos flashcards manuais, o descarte de falhas da fila e a recuperação dos registros legados locais. O deck e o tema do novo cartão são abertos após o salvamento. As regras de seleção e ordenação da revisão foram preservadas.
+
+## 26/11/2026 — Auditoria do módulo de flashcards
+
+Foram corrigidos a perda de mídias na importação e edição, o tratamento de CSV e Anki, a reordenação da sessão aberta após sincronização e a gravação de nota em prévia. O catálogo de temas agora usa o material NRI existente. O texto rico do cartão é filtrado no momento da exibição.
