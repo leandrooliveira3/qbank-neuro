@@ -96,7 +96,8 @@ export interface Flashcard {
   back: string;
   front_image_url?: string;
   back_image_url?: string;
-  image_position?: 'front' | 'back' | 'both';
+  image_side?: 'front' | 'back' | 'both';
+  image_position?: 'front' | 'back' | 'both'; // Legado de cartões locais e importados.
   occlusions?: Occlusion[];
   category?: string;
   status: 'new' | 'learning' | 'review' | 'mastered' | 'inactive';

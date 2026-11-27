@@ -557,6 +557,7 @@ export const StudyFlashcards: React.FC = () => {
   };
 
   const currentCard = cards[currentIndex];
+  const imageSide = currentCard?.image_side || currentCard?.image_position;
   const hasOcclusions = currentCard?.occlusions && currentCard.occlusions.length > 0;
   
   const backText = currentCard?.back || '';
@@ -731,7 +732,7 @@ export const StudyFlashcards: React.FC = () => {
                         className="absolute inset-0 backface-hidden bg-white dark:bg-zinc-900 rounded-[2rem] border border-slate-200 dark:border-zinc-800 shadow-xl flex flex-col overflow-hidden cursor-pointer"
                         onClick={() => setIsFlipped(true)}
                     >
-                        {currentCard.front_image_url && (!currentCard.image_position || currentCard.image_position === 'front' || currentCard.image_position === 'both') ? (
+                        {currentCard.front_image_url && imageSide !== 'back' ? (
                             <div className="flex-[1.5] min-h-0 bg-slate-50 dark:bg-black/40 border-b border-slate-100 dark:border-zinc-800 relative select-none">
                                 {isFrontVertical && (
                                     <div className="absolute top-2 left-2 right-2 bg-amber-500/95 dark:bg-amber-600/95 text-white py-1.5 px-3 rounded-lg text-[9px] font-black uppercase tracking-wider shadow-lg flex items-center justify-between z-30 animate-bounce pointer-events-none">
@@ -810,7 +811,7 @@ export const StudyFlashcards: React.FC = () => {
                         className="absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-zinc-900 rounded-[2rem] border-2 border-emerald-500 shadow-xl flex flex-col overflow-hidden cursor-pointer"
                         onClick={() => setIsFlipped(false)}
                     >
-                        {(currentCard.back_image_url || (currentCard.front_image_url && (!currentCard.image_position || currentCard.image_position === 'back' || currentCard.image_position === 'both'))) ? (
+                        {(currentCard.back_image_url || (currentCard.front_image_url && (!imageSide || imageSide === 'back' || imageSide === 'both'))) ? (
                             <div className="flex-[1.5] min-h-0 bg-emerald-500/5 dark:bg-emerald-500/10 border-b border-emerald-100 dark:border-emerald-900/40 relative select-none">
                                 {isBackVertical && (
                                     <div className="absolute top-2 left-2 right-2 bg-amber-500/95 dark:bg-amber-600/95 text-white py-1.5 px-3 rounded-lg text-[9px] font-black uppercase tracking-wider shadow-lg flex items-center justify-between z-30 animate-bounce pointer-events-none">

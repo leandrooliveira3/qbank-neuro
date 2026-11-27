@@ -182,7 +182,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     } catch (e) {
       console.warn("Logout suave:", e);
     } finally {
-      const storesToClear = ['profiles', 'sync_queue', 'active_practice_sessions'];
+      const storesToClear = ['profiles', 'active_practice_sessions'];
+      await localDB.clearNonFlashcardSyncQueue();
       for (const store of storesToClear) await localDB.clear(store);
       
       set({ user: null, loading: false, initialized: true });

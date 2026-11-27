@@ -1,3 +1,7 @@
+## 26/11/2026 — Sincronização dos flashcards manuais
+
+O salvamento manual usa `image_side`, coluna confirmada no Supabase. O cartão e sua operação de sincronização são gravados juntos no IndexedDB. A fila mantém operações rejeitadas para nova tentativa. A regra de ordenação da revisão e os campos de agendamento foram preservados.
+
 ## 26/11/2026 — Quebra de linha nas tabelas do Curso NRI
 
 As tabelas de teoria, revisão de aula, revisão final e materiais complementares compartilham a quebra normal entre palavras. O contêiner da tabela oferece rolagem horizontal quando as colunas ultrapassam a área disponível.

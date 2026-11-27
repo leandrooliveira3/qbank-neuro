@@ -1,5 +1,6 @@
 import { supabase } from './supabase';
 import { localDB } from './localDB';
+import { flashcardMutation, flashcardPayload, newestFlashcardMutations, type FlashcardMutation } from './flashcardSync';
 
 export type SyncStatus = 'offline' | 'syncing' | 'synced' | 'error';
 
@@ -29,6 +30,7 @@ const generateId = () => crypto.randomUUID();
 
 class SyncEngine {
   private isSyncing = false;
+  private flashcardPush: Promise<boolean> = Promise.resolve(false);
   private onStatusChange: (status: SyncStatus) => void = () => {};
   private syncInterval: number | null = null;
   private tableBlacklist = new Set<string>();
@@ -106,59 +108,57 @@ class SyncEngine {
       return;
     }
 
-    if (this.isUserInActiveActivity() && !force) {
-      // Allow pushing changes to the server, but suspend pulling to prevent UI freezing
-      pull = false;
-      const queueLength = await this.getQueueLength();
-      if (queueLength === 0) return;
-    }
-    
-    const queueLength = await this.getQueueLength();
-    if (queueLength === 0 && !force && !pull) return; 
-
     this.isSyncing = true;
-    this.onStatusChange('syncing');
-
+    let hadError = false;
     try {
+      if (this.isUserInActiveActivity() && !force) pull = false;
+      const queueLength = await this.getQueueLength();
+      if (queueLength === 0 && !force && !pull) return;
+
+      this.onStatusChange('syncing');
       let userId: string | undefined;
       try {
         const { data: { session } } = await supabase.auth.getSession();
         userId = session?.user?.id;
       } catch (err) {}
 
+      const hasSession = Boolean(userId);
       if (!userId) {
         userId = localStorage.getItem('neuro_last_user_id') || undefined;
       }
 
+      let flashcardsSynced = true;
       if (userId) {
-        await this.pushLocalChanges(userId);
+        flashcardsSynced = await this.pushLocalChanges(userId, hasSession);
         if (pull) {
-            await this.pullUserData(userId, force);
+            await this.pullUserData(userId, hasSession);
             if (typeof window !== 'undefined') window.dispatchEvent(new Event('neuro_sync_completed'));
         }
       }
-      this.onStatusChange(navigator.onLine ? 'synced' : 'offline');
+      hadError = !flashcardsSynced;
+      this.onStatusChange(!navigator.onLine ? 'offline' : flashcardsSynced ? 'synced' : 'error');
     } catch (error) {
+      hadError = true;
       this.onStatusChange(navigator.onLine ? 'error' : 'offline');
     } finally {
       this.isSyncing = false;
       
       // Check if more items were added to the queue while we were syncing
-      const remaining = await this.getQueueLength();
-      if (remaining > 0 && navigator.onLine) {
-          setTimeout(() => this.startSync(false, pull), 2000);
+      if (navigator.onLine && await this.hasRetryableChanges().catch(() => false)) {
+        setTimeout(() => this.startSync(false, pull), hadError ? 30_000 : 2_000);
       }
     }
   }
 
-  private async pullUserData(userId: string, force = false) {
+  private async pullUserData(userId: string, hasSession: boolean) {
     const tables = Object.keys(USER_COLUMN_MAP);
     for (const table of tables) {
-      if (this.tableBlacklist.has(table)) continue;
+      if (this.tableBlacklist.has(table) || (table === 'flashcards' && !hasSession)) continue;
       try {
         const userCol = USER_COLUMN_MAP[table] || 'user_id';
         
         // Use offset pagination to avoid dropping items
+        const snapshotStartedAt = Date.now();
         const allData: any[] = [];
         const PAGE_SIZE = 1000;
         let page = 0;
@@ -171,6 +171,7 @@ class SyncEngine {
           const { data, error } = await query;
           
           if (error) {
+            if (table === 'flashcards') throw error;
             // Se a tabela retornar 404 ou Relation Not Found, entra na blacklist desta sessão
             const status = (error as any).status;
             if (status === 404 || error.code === '42P01' || error.code === 'PGRST116') {
@@ -190,6 +191,11 @@ class SyncEngine {
           }
         }
         
+        if (table === 'flashcards') {
+          await localDB.reconcileFlashcards(userId, allData, snapshotStartedAt);
+          continue;
+        }
+
         if (allData.length > 0 || page > 0) {
            const localItems = await localDB.getAll(table);
            const serverIds = new Set(allData.map(d => d.id));
@@ -218,12 +224,118 @@ class SyncEngine {
            
            if (safeToPut.length > 0) await localDB.bulkPut(table, safeToPut);
         }
-      } catch (e) {}
+      } catch (error) {
+        if (table === 'flashcards') throw error;
+      }
     }
   }
 
-  async pushLocalChanges(userId: string) {
+  private async hasRetryableChanges() {
     const queue = await localDB.getAll('sync_queue');
+    if (queue.some(item => item.table !== 'flashcards')) return true;
+    if (!queue.length) return false;
+    const { data } = await supabase.auth.getSession();
+    return queue.some(item => item.data?.user_id === data.session?.user?.id);
+  }
+
+  private async pushFlashcardChanges(userId: string) {
+    const pending = newestFlashcardMutations(await localDB.getAll('sync_queue'), userId);
+    let changed = false;
+    let failed = false;
+    for (let index = 0; index < pending.length; index += 200) {
+      const chunk = pending.slice(index, index + 200);
+      const { data, error } = await supabase.from('flashcards')
+        .select('id, updated_at, last_review, created_at')
+        .eq('user_id', userId).in('id', chunk.map(({ latest }) => latest.data.id));
+      if (error) {
+        console.error('[Sync] Falha ao consultar flashcards:', error);
+        failed = true;
+        continue;
+      }
+
+      const server = new Map(data.map(card => [card.id, card]));
+      const acknowledged: string[] = [];
+      const upserts: typeof chunk = [];
+      const deletes: typeof chunk = [];
+      for (const entry of chunk) {
+        const { latest } = entry;
+        const remote = server.get(latest.data.id);
+        if (latest.action === 'delete') deletes.push(entry);
+        else if (remote && Date.parse(remote.updated_at || remote.last_review || remote.created_at) >
+          Date.parse(latest.timestamp)) acknowledged.push(...entry.queueIds);
+        else upserts.push(entry);
+      }
+
+      if (deletes.length) {
+        const { error: deleteError } = await supabase.from('flashcards').delete().eq('user_id', userId)
+          .in('id', deletes.map(({ latest }) => latest.data.id));
+        if (deleteError) {
+          console.error('[Sync] Falha ao excluir flashcards:', deleteError);
+          failed = true;
+        } else {
+          acknowledged.push(...deletes.flatMap(entry => entry.queueIds));
+          changed = true;
+        }
+      }
+
+      const payloads = upserts.map(({ latest }) => ({
+        ...flashcardPayload(latest.data),
+        updated_at: latest.timestamp,
+      }));
+      // Group identical column sets so missing optional values keep their database defaults.
+      const byColumns = new Map<string, number[]>();
+      payloads.forEach((payload, index) => {
+        const columns = Object.keys(payload).filter(key => payload[key] !== undefined).sort().join(',');
+        const group = byColumns.get(columns) ?? [];
+        group.push(index);
+        byColumns.set(columns, group);
+      });
+
+      for (const group of byColumns.values()) {
+        const { error: batchError } = await supabase.from('flashcards').upsert(group.map(index => payloads[index]));
+        if (!batchError) {
+          acknowledged.push(...group.flatMap(index => upserts[index].queueIds));
+          changed = true;
+          continue;
+        }
+        // Isolate a rejected card so it cannot block the rest of the deck.
+        for (const index of group) {
+          const { error: cardError } = group.length === 1 ? { error: batchError }
+            : await supabase.from('flashcards').upsert(payloads[index]);
+          if (cardError) {
+            console.error('[Sync] Falha ao enviar flashcard:', cardError);
+            failed = true;
+          } else {
+            acknowledged.push(...upserts[index].queueIds);
+            changed = true;
+          }
+        }
+      }
+      await localDB.bulkDelete('sync_queue', acknowledged);
+    }
+    if (changed) this.broadcastChanges();
+    return !failed;
+  }
+
+  private broadcastChanges() {
+    this.channel?.send({
+      type: 'broadcast', event: 'sync_now', payload: { device: this.getDeviceId() },
+    });
+  }
+
+  async pushLocalChanges(userId: string, hasSession?: boolean) {
+    if (hasSession === undefined) {
+      const { data } = await supabase.auth.getSession();
+      hasSession = data.session?.user?.id === userId;
+    }
+    const push = hasSession ? this.flashcardPush.catch(() => false).then(() => this.pushFlashcardChanges(userId)) : Promise.resolve(false);
+    if (hasSession) this.flashcardPush = push;
+    await this.pushOtherChanges(userId);
+    return push;
+  }
+
+  private async pushOtherChanges(userId: string) {
+    const queue = (await localDB.getAll('sync_queue')).filter(item => item.table !== 'flashcards');
     if (queue.length === 0) return;
 
     let hasMadeChanges = false;
@@ -341,16 +453,16 @@ class SyncEngine {
       }
     }
 
-    if (hasMadeChanges && this.channel) {
-        this.channel.send({
-            type: 'broadcast',
-            event: 'sync_now',
-            payload: { device: this.getDeviceId() }
-        });
-    }
+    if (hasMadeChanges) this.broadcastChanges();
+  }
+
+  private async enqueueFlashcards(items: FlashcardMutation[]) {
+    await localDB.saveFlashcardMutations(items);
+    if (navigator.onLine) setTimeout(() => this.startSync(false, true), 1000);
   }
 
   async enqueue(table: string, data: any, action: 'upsert' | 'delete' = 'upsert') {
+    if (table === 'flashcards') return this.enqueueFlashcards([flashcardMutation(data, action)]);
     if (action === 'delete') await localDB.delete(table, data.id);
     else await localDB.put(table, data);
     await localDB.put('sync_queue', { id: generateId(), table, data, action, timestamp: new Date().toISOString() });
@@ -358,6 +470,7 @@ class SyncEngine {
   }
 
   async bulkEnqueue(table: string, items: any[]) {
+    if (table === 'flashcards') return this.enqueueFlashcards(items.map(card => flashcardMutation(card, 'upsert')));
     await localDB.bulkPut(table, items);
     const syncItems = items.map(d => ({ id: generateId(), table, data: d, action: 'upsert', timestamp: new Date().toISOString() }));
     await localDB.bulkPut('sync_queue', syncItems);
@@ -365,6 +478,7 @@ class SyncEngine {
   }
 
   async bulkDelete(table: string, items: any[]) {
+    if (table === 'flashcards') return this.enqueueFlashcards(items.map(card => flashcardMutation(card, 'delete')));
     await localDB.bulkDelete(table, items.map(i => i.id));
     const syncItems = items.map(d => ({ id: generateId(), table, data: d, action: 'delete', timestamp: new Date().toISOString() }));
     await localDB.bulkPut('sync_queue', syncItems);

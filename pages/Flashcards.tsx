@@ -99,6 +99,7 @@ export const Flashcards: React.FC = () => {
   const [imagePosition, setImagePosition] = useState<'front' | 'back' | 'both'>('front');
   const [isCloudPickerOpen, setIsCloudPickerOpen] = useState(false);
   const [isActiveForReview, setIsActiveForReview] = useState(true);
+  const [savingCard, setSavingCard] = useState(false);
 
   useEffect(() => {
       if (occlusions.length > 0) {
@@ -235,7 +236,7 @@ export const Flashcards: React.FC = () => {
   }, [cards]);
 
   const handleSave = async () => {
-    if (!user) return;
+    if (!user || savingCard) return;
 
     const isImageCard = !!frontPreview;
     
@@ -260,7 +261,7 @@ export const Flashcards: React.FC = () => {
       }
     }
 
-    setLoading(true);
+    setSavingCard(true);
     try {
       let frontImageUrl = '';
       
@@ -268,6 +269,8 @@ export const Flashcards: React.FC = () => {
       if (frontImage) {
           const customName = [formData.category, formData.bank_name, formData.front].filter(Boolean).join('_');
           frontImageUrl = await storageService.uploadImage(frontImage, 'flashcards', customName);
+          setFrontPreview(frontImageUrl);
+          setFrontImage(null);
       } else if (frontPreview && frontPreview.startsWith('http')) {
           frontImageUrl = frontPreview; // Reusing existing URL from DB
       }
@@ -277,7 +280,7 @@ export const Flashcards: React.FC = () => {
         ...formData, 
         front_image_url: frontImageUrl,
         back_image_url: (imagePosition === 'back' || imagePosition === 'both') ? frontImageUrl : '',
-        image_position: imagePosition,
+        image_side: imagePosition,
         occlusions,
         status: isActiveForReview ? (editingCard.status === 'inactive' ? 'new' : editingCard.status) : 'inactive'
       } : {
@@ -286,7 +289,7 @@ export const Flashcards: React.FC = () => {
         ...formData,
         front_image_url: frontImageUrl,
         back_image_url: (imagePosition === 'back' || imagePosition === 'both') ? frontImageUrl : '',
-        image_position: imagePosition,
+        image_side: imagePosition,
         occlusions,
         bank_name: formData.bank_name || 'Principal',
         category: formData.category || 'Geral',
@@ -299,8 +302,8 @@ export const Flashcards: React.FC = () => {
       };
 
       await syncEngine.enqueue('flashcards', cardData);
-      loadCards();
-      
+      await loadCards();
+
       if (editingCard) {
           setMode('list');
           resetForm();
@@ -318,12 +321,15 @@ export const Flashcards: React.FC = () => {
           } else {
               resetForm();
               setFormData({ front: '', back: '', bank_name: currentBank, category: currentCategory });
-              alert("Card criado com sucesso!");
+              setSearchTerm('');
+              setFilterBank(cardData.bank_name || 'Principal');
+              setOpenThemes(prev => new Set(prev).add(cardData.category || 'Geral'));
+              setMode('list');
           }
       }
     } catch (e: any) {
       alert("Erro ao salvar card: " + e.message);
-    } finally { setLoading(false); }
+    } finally { setSavingCard(false); }
   };
 
   const resetForm = () => {
@@ -714,7 +720,7 @@ export const Flashcards: React.FC = () => {
                           {openThemes.has(category) && (
                               <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-slate-50 dark:bg-black/20">
                                   {items.map(card => (
-                                      <div key={card.id} onClick={() => { setEditingCard(card); setFormData({front:card.front, back:card.back, category:card.category || '', bank_name: card.bank_name || 'Principal'}); setFrontPreview(card.front_image_url || ''); setOcclusions(card.occlusions || []); setImagePosition(card.image_position || 'front'); setIsActiveForReview(card.status !== 'inactive'); setMode('form'); }} className={`bg-white dark:bg-zinc-900 border ${card.status === 'inactive' ? 'border-dashed border-slate-300 dark:border-zinc-700 opacity-75' : 'border-slate-200 dark:border-zinc-800'} rounded-xl p-4 shadow-sm hover:border-primary transition-all cursor-pointer group flex flex-col h-full`}>
+                                      <div key={card.id} onClick={() => { setEditingCard(card); setFormData({front:card.front, back:card.back, category:card.category || '', bank_name: card.bank_name || 'Principal'}); setFrontPreview(card.front_image_url || ''); setOcclusions(card.occlusions || []); setImagePosition(card.image_side || card.image_position || 'front'); setIsActiveForReview(card.status !== 'inactive'); setMode('form'); }} className={`bg-white dark:bg-zinc-900 border ${card.status === 'inactive' ? 'border-dashed border-slate-300 dark:border-zinc-700 opacity-75' : 'border-slate-200 dark:border-zinc-800'} rounded-xl p-4 shadow-sm hover:border-primary transition-all cursor-pointer group flex flex-col h-full`}>
                                           {card.front_image_url && (
                                               <div className="mb-3 h-24 bg-slate-100 dark:bg-black rounded-lg flex items-center justify-center overflow-hidden relative">
                                                   <SmartImage url={card.front_image_url} alt="F" className="h-full object-contain" />
@@ -966,7 +972,7 @@ export const Flashcards: React.FC = () => {
                 )}
               </div>
             </div>
-            <div className="mt-8 pt-6 border-t border-slate-100 dark:border-zinc-900 flex justify-end gap-3"><button onClick={() => setMode('list')} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">Cancelar</button><button onClick={handleSave} disabled={loading} className="bg-primary text-white px-10 py-3 rounded-xl font-black text-[10px] uppercase shadow-lg flex items-center gap-2">{loading ? <Loader2 className="animate-spin h-4 w-4" /> : <Save className="h-4 w-4" />} SALVAR CARD</button></div>
+            <div className="mt-8 pt-6 border-t border-slate-100 dark:border-zinc-900 flex justify-end gap-3"><button onClick={() => setMode('list')} disabled={savingCard} className="px-6 py-2 text-[10px] font-black text-slate-400 uppercase">Cancelar</button><button onClick={handleSave} disabled={savingCard} className="bg-primary text-white px-10 py-3 rounded-xl font-black text-[10px] uppercase shadow-lg flex items-center gap-2">{savingCard ? <Loader2 className="animate-spin h-4 w-4" /> : <Save className="h-4 w-4" />} SALVAR CARD</button></div>
           </div>
         ) : mode === 'settings' ? (
           <div className="flex-1 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-900 rounded-[2.5rem] p-6 md:p-10 shadow-xl overflow-y-auto custom-scrollbar min-h-0">

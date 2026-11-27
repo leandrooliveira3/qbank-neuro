@@ -1,3 +1,7 @@
+## 26/11/2026 — Sincronização dos flashcards manuais
+
+Durante a sincronização autenticada, cartões manuais legados ainda presentes no navegador e ausentes no servidor são enfileirados novamente. Quando restou apenas o arquivo no Storage, o cartão pode ser recriado com Escolher na nuvem. Os testes de sincronização estão em `services/flashcardSync.test.ts`.
+
 ## 26/11/2026 — Quebra de linha nas tabelas do Curso NRI
 
 Preserve `overflow-wrap: normal`, `word-break: normal` e `hyphens: none` nas tabelas do Curso NRI. O teste em `tests/neuro3d/course.spec.ts` verifica que uma palavra longa continua inteira e que a rolagem fica restrita à tabela.

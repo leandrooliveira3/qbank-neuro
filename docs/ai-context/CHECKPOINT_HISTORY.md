@@ -193,3 +193,7 @@ Adicionado o cotejo das tabelas finais com o banco integral, a expansão por aul
 ## 26/11/2026 — Quebra de linha nas tabelas do Curso NRI
 
 Corrigida a quebra de palavras nas tabelas do Curso NRI com a regra compartilhada em `course.css`. Acrescentada verificação de rolagem contida e de palavras inteiras em quatro larguras de tela.
+
+## 26/11/2026 — Sincronização dos flashcards manuais
+
+Corrigido o campo de imagem dos flashcards manuais, o descarte de falhas da fila e a recuperação dos registros legados locais. O deck e o tema do novo cartão são abertos após o salvamento. As regras de seleção e ordenação da revisão foram preservadas.
